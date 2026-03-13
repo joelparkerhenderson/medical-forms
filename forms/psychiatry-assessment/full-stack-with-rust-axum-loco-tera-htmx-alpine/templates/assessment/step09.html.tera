@@ -1,0 +1,80 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Treatment - Psychiatry Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Treatment</h2>
+    <p class="hint">Assess the patient's current medication and therapy engagement.</p>
+
+    <div class="form-group">
+      <label for="current_medications">Current Medications</label>
+      <textarea id="current_medications" name="current_treatment.current_medications"
+                rows="3" placeholder="List current psychiatric medications and doses">{{ current_treatment.currentMedications }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Medication Adherence (1 = Fully adherent, 5 = Non-adherent)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="current_treatment.medication_adherence" value="{{ i }}"
+                 {% if current_treatment.medicationAdherence == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Side Effects Severity (1 = None, 5 = Severe/intolerable)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="current_treatment.side_effects_severity" value="{{ i }}"
+                 {% if current_treatment.sideEffectsSeverity == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Therapy Engagement (1 = Not engaged, 5 = Fully engaged)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="current_treatment.therapy_engagement" value="{{ i }}"
+                 {% if current_treatment.therapyEngagement == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Treatment Satisfaction (1 = Very dissatisfied, 5 = Very satisfied)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="current_treatment.treatment_satisfaction" value="{{ i }}"
+                 {% if current_treatment.treatmentSatisfaction == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="barriers_to_treatment">Barriers to Treatment</label>
+      <textarea id="barriers_to_treatment" name="current_treatment.barriers_to_treatment"
+                rows="2" placeholder="e.g. transportation, cost, stigma, lack of insight">{{ current_treatment.barriersToTreatment }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

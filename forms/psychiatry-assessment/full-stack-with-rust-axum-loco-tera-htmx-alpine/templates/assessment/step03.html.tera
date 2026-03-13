@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Psychiatric History - Psychiatry Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Psychiatric History</h2>
+    <p class="hint">Document the patient's prior psychiatric diagnoses and treatment history.</p>
+
+    <div class="form-group">
+      <label for="previous_diagnoses">Previous Diagnoses</label>
+      <textarea id="previous_diagnoses" name="psychiatric_history.previous_diagnoses"
+                rows="2" placeholder="e.g. Major Depressive Disorder, Generalised Anxiety Disorder">{{ psychiatric_history.previousDiagnoses }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="previous_hospitalizations">Previous Psychiatric Hospitalizations</label>
+        <select id="previous_hospitalizations" name="psychiatric_history.previous_hospitalizations">
+          <option value="">-- Select --</option>
+          <option value="none" {% if psychiatric_history.previousHospitalizations == "none" %}selected{% endif %}>None</option>
+          <option value="voluntary" {% if psychiatric_history.previousHospitalizations == "voluntary" %}selected{% endif %}>Voluntary</option>
+          <option value="involuntary" {% if psychiatric_history.previousHospitalizations == "involuntary" %}selected{% endif %}>Involuntary (Sectioned)</option>
+          <option value="both" {% if psychiatric_history.previousHospitalizations == "both" %}selected{% endif %}>Both</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="hospitalization_count">Number of Hospitalizations</label>
+        <select id="hospitalization_count" name="psychiatric_history.hospitalization_count">
+          <option value="">-- Select --</option>
+          <option value="0" {% if psychiatric_history.hospitalizationCount == "0" %}selected{% endif %}>0</option>
+          <option value="1" {% if psychiatric_history.hospitalizationCount == "1" %}selected{% endif %}>1</option>
+          <option value="2to5" {% if psychiatric_history.hospitalizationCount == "2to5" %}selected{% endif %}>2 - 5</option>
+          <option value="moreThan5" {% if psychiatric_history.hospitalizationCount == "moreThan5" %}selected{% endif %}>More than 5</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="previous_treatments">Previous Treatments</label>
+      <textarea id="previous_treatments" name="psychiatric_history.previous_treatments"
+                rows="2" placeholder="e.g. SSRIs, CBT, ECT">{{ psychiatric_history.previousTreatments }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Treatment Response (1 = Excellent response, 5 = No response / treatment resistant)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="psychiatric_history.treatment_response" value="{{ i }}"
+                 {% if psychiatric_history.treatmentResponse == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="therapy_history">Therapy History</label>
+      <select id="therapy_history" name="psychiatric_history.therapy_history">
+        <option value="">-- Select --</option>
+        <option value="none" {% if psychiatric_history.therapyHistory == "none" %}selected{% endif %}>No prior therapy</option>
+        <option value="cbt" {% if psychiatric_history.therapyHistory == "cbt" %}selected{% endif %}>CBT</option>
+        <option value="dbt" {% if psychiatric_history.therapyHistory == "dbt" %}selected{% endif %}>DBT</option>
+        <option value="psychodynamic" {% if psychiatric_history.therapyHistory == "psychodynamic" %}selected{% endif %}>Psychodynamic</option>
+        <option value="emdr" {% if psychiatric_history.therapyHistory == "emdr" %}selected{% endif %}>EMDR</option>
+        <option value="multiple" {% if psychiatric_history.therapyHistory == "multiple" %}selected{% endif %}>Multiple modalities</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

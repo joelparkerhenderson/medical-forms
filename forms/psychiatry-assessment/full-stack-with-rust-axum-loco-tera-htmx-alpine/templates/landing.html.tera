@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Psychiatry Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Psychiatry Assessment</h1>
+  <p>
+    This assessment tool supports structured psychiatric evaluation covering
+    patient history, mental state examination, risk assessment, substance use,
+    social functioning, and treatment planning. It provides systematic clinical
+    grading to support informed decision-making.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive psychiatric evaluation across all clinical domains</p>
+    </div>
+    <div class="feature-card">
+      <h3>Severity Grading</h3>
+      <p>Evidence-based scoring with rule-driven clinical alerts</p>
+    </div>
+    <div class="feature-card">
+      <h3>Risk Identification</h3>
+      <p>Flagged issues for immediate clinical attention</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

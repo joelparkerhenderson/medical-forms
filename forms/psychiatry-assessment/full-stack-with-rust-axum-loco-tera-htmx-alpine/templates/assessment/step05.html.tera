@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Risk Assessment - Psychiatry Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Risk Assessment</h2>
+    <p class="hint">Assess the patient's current risk factors (1 = No risk, 5 = Imminent/severe risk).</p>
+
+    <div class="form-group">
+      <label>Suicidal Ideation (1 = None, 5 = Active with plan and intent)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="risk_assessment.suicidal_ideation" value="{{ i }}"
+                 {% if risk_assessment.suicidalIdeation == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Self-Harm Risk (1 = None, 5 = Active/severe)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="risk_assessment.self_harm_risk" value="{{ i }}"
+                 {% if risk_assessment.selfHarmRisk == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Risk of Harm to Others (1 = None, 5 = Imminent threat)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="risk_assessment.harm_to_others" value="{{ i }}"
+                 {% if risk_assessment.harmToOthers == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Safeguarding Concerns (1 = None, 5 = Immediate concern)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="risk_assessment.safeguarding_concerns" value="{{ i }}"
+                 {% if risk_assessment.safeguardingConcerns == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Plan Specificity (1 = No plan, 5 = Detailed specific plan)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="risk_assessment.risk_plan_specificity" value="{{ i }}"
+                 {% if risk_assessment.riskPlanSpecificity == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Protective Factors (1 = Strong, 5 = None/absent)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="risk_assessment.protective_factors" value="{{ i }}"
+                 {% if risk_assessment.protectiveFactors == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

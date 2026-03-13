@@ -1,0 +1,133 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Mental State Examination - Psychiatry Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Mental State Examination</h2>
+    <p class="hint">Rate each domain of the mental state examination (1 = Normal, 5 = Severely abnormal).</p>
+
+    <div class="form-group">
+      <label>Appearance &amp; Behaviour (1 = Appropriate, 5 = Severely disturbed)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="mental_state_examination.appearance_behaviour" value="{{ i }}"
+                 {% if mental_state_examination.appearanceBehaviour == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Speech (1 = Normal, 5 = Severely disordered)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="mental_state_examination.speech_assessment" value="{{ i }}"
+                 {% if mental_state_examination.speechAssessment == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Mood (1 = Euthymic, 5 = Severely disturbed)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="mental_state_examination.mood_rating" value="{{ i }}"
+                 {% if mental_state_examination.moodRating == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Affect Congruence (1 = Congruent, 5 = Grossly incongruent)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="mental_state_examination.affect_congruence" value="{{ i }}"
+                 {% if mental_state_examination.affectCongruence == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Thought Form (1 = Logical/coherent, 5 = Severely disorganised)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="mental_state_examination.thought_form" value="{{ i }}"
+                 {% if mental_state_examination.thoughtForm == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Thought Content (1 = Normal, 5 = Delusions/obsessions present)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="mental_state_examination.thought_content" value="{{ i }}"
+                 {% if mental_state_examination.thoughtContent == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Perception (1 = Normal, 5 = Hallucinations present)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="mental_state_examination.perception" value="{{ i }}"
+                 {% if mental_state_examination.perception == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Cognition (1 = Intact, 5 = Severely impaired)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="mental_state_examination.cognition" value="{{ i }}"
+                 {% if mental_state_examination.cognition == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Insight &amp; Judgement (1 = Good insight, 5 = No insight)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="mental_state_examination.insight_judgement" value="{{ i }}"
+                 {% if mental_state_examination.insightJudgement == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Family History - Psychiatry Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Family History</h2>
+    <p class="hint">Document relevant family psychiatric and social history.</p>
+
+    <div class="form-group">
+      <label for="family_psychiatric_history">Family Psychiatric History</label>
+      <select id="family_psychiatric_history" name="family_history.family_psychiatric_history">
+        <option value="">-- Select --</option>
+        <option value="none" {% if family_history.familyPsychiatricHistory == "none" %}selected{% endif %}>None known</option>
+        <option value="depression" {% if family_history.familyPsychiatricHistory == "depression" %}selected{% endif %}>Depression</option>
+        <option value="anxiety" {% if family_history.familyPsychiatricHistory == "anxiety" %}selected{% endif %}>Anxiety disorders</option>
+        <option value="bipolar" {% if family_history.familyPsychiatricHistory == "bipolar" %}selected{% endif %}>Bipolar disorder</option>
+        <option value="psychosis" {% if family_history.familyPsychiatricHistory == "psychosis" %}selected{% endif %}>Psychotic disorders</option>
+        <option value="multiple" {% if family_history.familyPsychiatricHistory == "multiple" %}selected{% endif %}>Multiple conditions</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Family History of Suicide</label>
+        <div class="radio-group">
+          <label><input type="radio" name="family_history.family_suicide_history" value="yes" {% if family_history.familySuicideHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="family_history.family_suicide_history" value="no" {% if family_history.familySuicideHistory == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="family_history.family_suicide_history" value="unknown" {% if family_history.familySuicideHistory == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Family Substance Use Issues</label>
+        <div class="radio-group">
+          <label><input type="radio" name="family_history.family_substance_use" value="yes" {% if family_history.familySubstanceUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="family_history.family_substance_use" value="no" {% if family_history.familySubstanceUse == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="family_history.family_substance_use" value="unknown" {% if family_history.familySubstanceUse == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Adverse Childhood Experiences (ACE) (1 = None, 5 = Multiple/severe)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="family_history.adverse_childhood_experiences" value="{{ i }}"
+                 {% if family_history.adverseChildhoodExperiences == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Family Support Level (1 = Very supportive, 5 = No support/conflict)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="family_history.family_support_level" value="{{ i }}"
+                 {% if family_history.familySupportLevel == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="genetic_risk_factors">Known Genetic Risk Factors</label>
+      <textarea id="genetic_risk_factors" name="family_history.genetic_risk_factors"
+                rows="2" placeholder="e.g. family history of early-onset dementia, Huntington's">{{ family_history.geneticRiskFactors }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

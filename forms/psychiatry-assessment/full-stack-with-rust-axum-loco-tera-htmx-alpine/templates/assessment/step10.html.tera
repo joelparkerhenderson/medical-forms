@@ -1,0 +1,73 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Psychiatry Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Provide your overall clinical assessment and treatment recommendations.</p>
+
+    <div class="form-group">
+      <label>Overall Severity (1 = Stable/remission, 5 = Crisis)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="clinical_review.overall_severity" value="{{ i }}"
+                 {% if clinical_review.overallSeverity == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Treatment Urgency (1 = Routine, 5 = Emergency)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="clinical_review.treatment_urgency" value="{{ i }}"
+                 {% if clinical_review.treatmentUrgency == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Prognosis Outlook (1 = Good, 5 = Poor)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="clinical_review.prognosis_outlook" value="{{ i }}"
+                 {% if clinical_review.prognosisOutlook == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_notes">Clinical Notes</label>
+      <textarea id="clinical_notes" name="clinical_review.clinical_notes"
+                rows="4" placeholder="Summary of clinical findings, formulation, and differential diagnosis">{{ clinical_review.clinicalNotes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="follow_up_plan">Follow-Up Plan</label>
+      <textarea id="follow_up_plan" name="clinical_review.follow_up_plan"
+                rows="3" placeholder="e.g. Review in 2 weeks, start SSRI, refer to psychology">{{ clinical_review.followUpPlan }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_referrals">Additional Referrals</label>
+      <textarea id="additional_referrals" name="clinical_review.additional_referrals"
+                rows="2" placeholder="e.g. Neuropsychology, social services, substance misuse team">{{ clinical_review.additionalReferrals }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

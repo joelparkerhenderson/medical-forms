@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Presenting Complaint - Psychiatry Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Presenting Complaint</h2>
+    <p class="hint">Describe the patient's current symptoms and concerns.</p>
+
+    <div class="form-group">
+      <label for="chief_complaint">Chief Complaint</label>
+      <textarea id="chief_complaint" name="presenting_complaint.chief_complaint"
+                rows="3" placeholder="Describe the primary reason for referral/presentation">{{ presenting_complaint.chiefComplaint }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="onset_duration">Onset / Duration</label>
+        <select id="onset_duration" name="presenting_complaint.onset_duration">
+          <option value="">-- Select --</option>
+          <option value="acute" {% if presenting_complaint.onsetDuration == "acute" %}selected{% endif %}>Acute (days)</option>
+          <option value="subacute" {% if presenting_complaint.onsetDuration == "subacute" %}selected{% endif %}>Subacute (weeks)</option>
+          <option value="chronic" {% if presenting_complaint.onsetDuration == "chronic" %}selected{% endif %}>Chronic (months-years)</option>
+          <option value="recurrent" {% if presenting_complaint.onsetDuration == "recurrent" %}selected{% endif %}>Recurrent episodes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="symptom_progression">Symptom Progression</label>
+        <select id="symptom_progression" name="presenting_complaint.symptom_progression">
+          <option value="">-- Select --</option>
+          <option value="improving" {% if presenting_complaint.symptomProgression == "improving" %}selected{% endif %}>Improving</option>
+          <option value="stable" {% if presenting_complaint.symptomProgression == "stable" %}selected{% endif %}>Stable</option>
+          <option value="worsening" {% if presenting_complaint.symptomProgression == "worsening" %}selected{% endif %}>Worsening</option>
+          <option value="fluctuating" {% if presenting_complaint.symptomProgression == "fluctuating" %}selected{% endif %}>Fluctuating</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Symptom Severity (1 = Minimal, 5 = Extreme)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="presenting_complaint.symptom_severity" value="{{ i }}"
+                 {% if presenting_complaint.symptomSeverity == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Functional Impact (1 = Minimal, 5 = Unable to function)</label>
+      <div class="likert-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="presenting_complaint.functional_impact" value="{{ i }}"
+                 {% if presenting_complaint.functionalImpact == i %}checked{% endif %}>
+          {{ i }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="precipitating_factors">Precipitating Factors</label>
+      <textarea id="precipitating_factors" name="presenting_complaint.precipitating_factors"
+                rows="2" placeholder="Any triggering events or stressors">{{ presenting_complaint.precipitatingFactors }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
