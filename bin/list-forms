@@ -1,0 +1,4 @@
+#!/bin/sh
+set -euf
+top="$(git rev-parse --show-toplevel)"
+find "$top/forms" -type d -depth 1 -not -path '*/.*' -exec basename {} \; | sort

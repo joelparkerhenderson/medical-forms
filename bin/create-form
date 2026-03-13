@@ -1,0 +1,25 @@
+#!/bin/sh
+set -euf
+top="$(git rev-parse --show-toplevel)"
+
+mkdir_with_ai() (
+  # dir="$1"
+  mkdir -p "$1"
+  cd "$1"
+  touch index.md
+  ln -sfn index.md README.md
+  touch AGENTS.md
+  test -f CLAUDE.md || echo "@AGENTS.md" > CLAUDE.md
+  touch plan.md
+  touch tasks.md
+)
+
+dir="$top/forms/$1"
+mkdir_with_ai "$dir"
+mkdir -p "$dir/doc"
+mkdir -p "$dir/sql-migrations"
+mkdir_with_ai "$dir/front-end-patient-form-with-html"
+mkdir_with_ai "$dir/front-end-patient-form-with-svelte"
+mkdir_with_ai "$dir/front-end-clinician-dashboard-with-html"
+mkdir_with_ai "$dir/front-end-clinician-dashboard-with-svelte"
+mkdir_with_ai "$dir/full-stack-with-rust-axum-loco-tera-htmx-alpine"

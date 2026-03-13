@@ -1,0 +1,45 @@
+#!/bin/sh
+set -euf
+
+## https://github.com/sixarm/unix-shell-script-kit
+
+err() { >&2 printf %s\\n "Error: ${*}"; }
+
+directory_exists_or_err() { test -d "$1" || err "Directory should exist: $1"; }
+file_exists_or_err() { test -f "$1" || err "File should exist: $1"; }
+file_not_empty_or_err() { file_exists_or_err "$1" && test -f "$1" || err "File should be not empty: $1"; }
+symlink_exists_or_err() { test -h "$1" || err "Symlink should exist: $1"; }
+
+## Utilities
+
+repo_setup_exists_or_err() (
+    # dir="$1"
+    file_not_empty_or_err "$1/CITATION.cff"
+    file_not_empty_or_err "$1/CODE_OF_CONDUCT.md"
+    file_not_empty_or_err "$1/LICENSE.md"
+    
+)
+
+ai_exists_or_err() (
+    # dir="$1"
+    directory_exists_or_err "$1"
+    file_not_empty_or_err "$1/index.md"
+    symlink_exists_or_err "$1/README.md"
+    file_not_empty_or_err "$1/AGENTS.md"
+    file_not_empty_or_err "$1/CLAUDE.md"
+    file_not_empty_or_err "$1/plan.md"
+    file_not_empty_or_err "$1/tasks.md"
+)
+
+## Main
+
+top="$(git rev-parse --show-toplevel)"
+
+repo_setup_exists_or_err "$top"
+ai_exists_or_err "$top"
+file_exists_or_err "$top/AGENTS/front-end-with-sveltekit-tailwind-svar.md"
+file_exists_or_err "$top/AGENTS/full-stack-with-rust-axum-loco-htmx-alpine.md"  
+file_exists_or_err "$top/AGENTS/sql-migrations.md"  
+for x in $("$top/bin/list-forms"); do
+    "$top/bin/test-form" "$x"
+done
