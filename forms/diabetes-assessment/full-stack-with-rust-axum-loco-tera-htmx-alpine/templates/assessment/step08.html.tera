@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Psychological Wellbeing - Diabetes Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Psychological Wellbeing</h2>
+    <p class="hint">Assess psychological impact of diabetes and support needs.</p>
+
+    <div class="likert-group">
+      <label>Diabetes Distress (how bothered are you by managing diabetes?)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="psychological_wellbeing.diabetes_distress" value="{{ i }}"
+                 {% if psychological_wellbeing.diabetesDistress == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not at all{% elif i == 2 %}A little{% elif i == 3 %}Moderate{% elif i == 4 %}Quite a bit{% else %}Very much{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="depression_screening">Depression Screening (PHQ-2 score, 0-6)</label>
+        <input type="number" id="depression_screening" name="psychological_wellbeing.depression_screening"
+               value="{{ psychological_wellbeing.depressionScreening }}"
+               min="0" max="10" placeholder="e.g. 2">
+      </div>
+      <div class="form-group">
+        <label for="anxiety_screening">Anxiety Screening (GAD-2 score, 0-6)</label>
+        <input type="number" id="anxiety_screening" name="psychological_wellbeing.anxiety_screening"
+               value="{{ psychological_wellbeing.anxietyScreening }}"
+               min="0" max="10" placeholder="e.g. 1">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Eating Disorder Concerns</label>
+      <div class="radio-group">
+        <label><input type="radio" name="psychological_wellbeing.eating_disorder" value="yes" {% if psychological_wellbeing.eatingDisorder == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="psychological_wellbeing.eating_disorder" value="no" {% if psychological_wellbeing.eatingDisorder == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Fear of Hypoglycaemia</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="psychological_wellbeing.fear_of_hypoglycaemia" value="{{ i }}"
+                 {% if psychological_wellbeing.fearOfHypoglycaemia == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Coping Ability (how well are you managing living with diabetes?)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="psychological_wellbeing.coping_ability" value="{{ i }}"
+                 {% if psychological_wellbeing.copingAbility == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Very Good{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Needs Psychological Support</label>
+      <div class="radio-group">
+        <label><input type="radio" name="psychological_wellbeing.needs_support" value="yes" {% if psychological_wellbeing.needsSupport == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="psychological_wellbeing.needs_support" value="no" {% if psychological_wellbeing.needsSupport == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

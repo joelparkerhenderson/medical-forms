@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Diabetes Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Diabetes Assessment</h1>
+  <p>
+    Comprehensive diabetes management assessment evaluating glycaemic control,
+    complications screening, medication management, and self-care behaviours
+    for type 1 and type 2 diabetes. This assessment supports structured annual
+    reviews and care planning in line with NICE guidelines.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive evaluation from glycaemic control to care planning</p>
+    </div>
+    <div class="feature-card">
+      <h3>Control Level Scoring</h3>
+      <p>HbA1c-based grading with complication and self-care modifiers</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>14 actionable alerts for urgent and routine follow-up</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

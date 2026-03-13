@@ -1,0 +1,91 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Foot Assessment - Diabetes Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Foot Assessment</h2>
+    <p class="hint">Comprehensive diabetic foot examination findings.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="foot_pulses">Foot Pulses</label>
+        <select id="foot_pulses" name="foot_assessment.foot_pulses">
+          <option value="">-- Select --</option>
+          <option value="present" {% if foot_assessment.footPulses == "present" %}selected{% endif %}>Present</option>
+          <option value="reduced" {% if foot_assessment.footPulses == "reduced" %}selected{% endif %}>Reduced</option>
+          <option value="absent" {% if foot_assessment.footPulses == "absent" %}selected{% endif %}>Absent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="monofilament_test">10g Monofilament Test</label>
+        <select id="monofilament_test" name="foot_assessment.monofilament_test">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if foot_assessment.monofilamentTest == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if foot_assessment.monofilamentTest == "abnormal" %}selected{% endif %}>Abnormal</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="vibration_sense">Vibration Sense (128Hz tuning fork)</label>
+        <select id="vibration_sense" name="foot_assessment.vibration_sense">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if foot_assessment.vibrationSense == "normal" %}selected{% endif %}>Normal</option>
+          <option value="reduced" {% if foot_assessment.vibrationSense == "reduced" %}selected{% endif %}>Reduced</option>
+          <option value="absent" {% if foot_assessment.vibrationSense == "absent" %}selected{% endif %}>Absent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Foot Deformity</label>
+        <div class="radio-group">
+          <label><input type="radio" name="foot_assessment.foot_deformity" value="yes" {% if foot_assessment.footDeformity == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="foot_assessment.foot_deformity" value="no" {% if foot_assessment.footDeformity == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Callus Present</label>
+        <div class="radio-group">
+          <label><input type="radio" name="foot_assessment.callus_present" value="yes" {% if foot_assessment.callusPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="foot_assessment.callus_present" value="no" {% if foot_assessment.callusPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Ulcer Present</label>
+        <div class="radio-group">
+          <label><input type="radio" name="foot_assessment.ulcer_present" value="yes" {% if foot_assessment.ulcerPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="foot_assessment.ulcer_present" value="no" {% if foot_assessment.ulcerPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Previous Amputation</label>
+        <div class="radio-group">
+          <label><input type="radio" name="foot_assessment.previous_amputation" value="yes" {% if foot_assessment.previousAmputation == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="foot_assessment.previous_amputation" value="no" {% if foot_assessment.previousAmputation == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="foot_risk_category">Foot Risk Category</label>
+        <select id="foot_risk_category" name="foot_assessment.foot_risk_category">
+          <option value="">-- Select --</option>
+          <option value="low" {% if foot_assessment.footRiskCategory == "low" %}selected{% endif %}>Low Risk</option>
+          <option value="moderate" {% if foot_assessment.footRiskCategory == "moderate" %}selected{% endif %}>Moderate Risk</option>
+          <option value="high" {% if foot_assessment.footRiskCategory == "high" %}selected{% endif %}>High Risk</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

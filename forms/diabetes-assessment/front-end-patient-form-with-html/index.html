@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetes Assessment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Diabetes Assessment</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- ─── Landing ────────────────────────────────────── -->
+    <div id="landing" class="hero">
+      <h1>Diabetes Assessment</h1>
+      <p>Comprehensive diabetes management assessment evaluating glycaemic control, complications screening, medication management, and self-care behaviours for type 1 and type 2 diabetes.</p>
+      <div class="feature-grid">
+        <div class="feature-card"><h3>10 Steps</h3><p>Structured clinical diabetes review</p></div>
+        <div class="feature-card"><h3>Control Scoring</h3><p>Composite score with control level grading</p></div>
+        <div class="feature-card"><h3>Clinical Flags</h3><p>14 actionable safety alerts for clinicians</p></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Assessment</button>
+    </div>
+
+    <!-- ─── Form ───────────────────────────────────────── -->
+    <div id="form-container" style="display:none;">
+      <div class="progress-container">
+        <div class="progress-header">
+          <span id="step-label">Step 1 of 10: Patient Information</span>
+          <span id="step-percent">10%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
+      </div>
+
+      <!-- Step 1: Patient Information -->
+      <section id="step-1" class="step-section active">
+        <div class="card">
+          <h2>Patient Information</h2>
+          <p style="color:var(--muted);margin-bottom:1rem;font-size:.9rem;">Please provide the patient's demographic and contact details.</p>
+          <div class="form-row">
+            <div class="form-group"><label>Full Name</label><input type="text" data-field="patientInformation.fullName" placeholder="e.g. John Smith"></div>
+            <div class="form-group"><label>Date of Birth</label><input type="date" data-field="patientInformation.dateOfBirth"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>NHS Number</label><input type="text" data-field="patientInformation.nhsNumber" placeholder="e.g. 123 456 7890"></div>
+            <div class="form-group"><label>Telephone</label><input type="tel" data-field="patientInformation.telephone" placeholder="e.g. 07700 900000"></div>
+          </div>
+          <div class="form-group"><label>Address</label><textarea rows="2" data-field="patientInformation.address" placeholder="Full postal address"></textarea></div>
+          <div class="form-group"><label>Email</label><input type="email" data-field="patientInformation.email" placeholder="e.g. patient@example.com"></div>
+          <div class="form-row">
+            <div class="form-group"><label>GP Name</label><input type="text" data-field="patientInformation.gpName" placeholder="e.g. Dr Jones"></div>
+            <div class="form-group"><label>GP Practice</label><input type="text" data-field="patientInformation.gpPractice" placeholder="e.g. Riverside Surgery"></div>
+          </div>
+        </div>
+        <div class="step-nav"><span></span><button class="btn btn-primary" onclick="goToStep(2)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 2: Diabetes History -->
+      <section id="step-2" class="step-section">
+        <div class="card">
+          <h2>Diabetes History</h2>
+          <p style="color:var(--muted);margin-bottom:1rem;font-size:.9rem;">Record the patient's diabetes diagnosis and history.</p>
+          <div class="form-row">
+            <div class="form-group"><label>Diabetes Type</label>
+              <select data-field="diabetesHistory.diabetesType">
+                <option value="">-- Select --</option>
+                <option value="type1">Type 1</option>
+                <option value="type2">Type 2</option>
+                <option value="gestational">Gestational</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Age at Diagnosis</label><input type="number" min="0" max="120" data-field="diabetesHistory.ageAtDiagnosis" data-type="number" placeholder="e.g. 45"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Years Since Diagnosis</label><input type="number" min="0" max="100" data-field="diabetesHistory.yearsDuration" data-type="number" placeholder="e.g. 10"></div>
+            <div class="form-group"><label>Diagnosis Method</label>
+              <select data-field="diabetesHistory.diagnosisMethod">
+                <option value="">-- Select --</option>
+                <option value="hba1c">HbA1c</option>
+                <option value="fastingGlucose">Fasting Glucose</option>
+                <option value="ogtt">OGTT</option>
+                <option value="randomGlucose">Random Glucose</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Family History of Diabetes</label>
+              <div class="radio-group">
+                <label><input type="radio" name="familyHistory" value="yes" data-field="diabetesHistory.familyHistory"> Yes</label>
+                <label><input type="radio" name="familyHistory" value="no" data-field="diabetesHistory.familyHistory"> No</label>
+              </div>
+            </div>
+            <div class="form-group"><label>Autoantibodies Tested</label>
+              <select data-field="diabetesHistory.autoantibodiesTested">
+                <option value="">-- Select --</option>
+                <option value="yes">Yes - Positive</option>
+                <option value="negative">Yes - Negative</option>
+                <option value="notTested">Not Tested</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(1)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(3)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 3: Glycaemic Control -->
+      <section id="step-3" class="step-section">
+        <div class="card">
+          <h2>Glycaemic Control</h2>
+          <p style="color:var(--muted);margin-bottom:1rem;font-size:.9rem;">Record current glycaemic markers and monitoring approach.</p>
+          <div class="form-row">
+            <div class="form-group"><label>HbA1c Value</label><input type="number" step="0.1" min="0" data-field="glycaemicControl.hba1cValue" data-type="number" placeholder="e.g. 53 or 7.0"></div>
+            <div class="form-group"><label>HbA1c Unit</label>
+              <select data-field="glycaemicControl.hba1cUnit">
+                <option value="">-- Select --</option>
+                <option value="mmolMol">mmol/mol</option>
+                <option value="percent">% (DCCT)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Agreed HbA1c Target</label><input type="number" step="0.1" min="0" data-field="glycaemicControl.hba1cTarget" data-type="number" placeholder="e.g. 48 or 6.5"></div>
+            <div class="form-group"><label>Time in Range (%)</label><input type="number" min="0" max="100" data-field="glycaemicControl.timeInRange" data-type="number" placeholder="e.g. 70"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Fasting Glucose (mmol/L)</label><input type="number" step="0.1" min="0" data-field="glycaemicControl.fastingGlucose" data-type="number" placeholder="e.g. 5.5"></div>
+            <div class="form-group"><label>Postprandial Glucose (mmol/L)</label><input type="number" step="0.1" min="0" data-field="glycaemicControl.postprandialGlucose" data-type="number" placeholder="e.g. 7.8"></div>
+          </div>
+          <div class="form-group"><label>Glucose Monitoring Method</label>
+            <select data-field="glycaemicControl.glucoseMonitoringType">
+              <option value="">-- Select --</option>
+              <option value="smbg">Self-Monitoring Blood Glucose (SMBG)</option>
+              <option value="cgm">Continuous Glucose Monitor (CGM)</option>
+              <option value="flash">Flash Glucose Monitor</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Hypoglycaemia Frequency</label>
+              <select data-field="glycaemicControl.hypoglycaemiaFrequency">
+                <option value="">-- Select --</option>
+                <option value="never">Never</option>
+                <option value="rarely">Rarely (less than monthly)</option>
+                <option value="monthly">Monthly</option>
+                <option value="weekly">Weekly</option>
+                <option value="daily">Daily</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Severe Hypoglycaemia (requiring assistance)</label>
+              <div class="radio-group">
+                <label><input type="radio" name="severeHypoglycaemia" value="yes" data-field="glycaemicControl.severeHypoglycaemia"> Yes</label>
+                <label><input type="radio" name="severeHypoglycaemia" value="no" data-field="glycaemicControl.severeHypoglycaemia"> No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(2)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(4)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 4: Medications -->
+      <section id="step-4" class="step-section">
+        <div class="card">
+          <h2>Medications</h2>
+          <p style="color:var(--muted);margin-bottom:1rem;font-size:.9rem;">Record current diabetes medications and adherence.</p>
+          <div class="form-row">
+            <div class="form-group"><label>Metformin</label>
+              <div class="radio-group">
+                <label><input type="radio" name="metformin" value="yes" data-field="medications.metformin"> Yes</label>
+                <label><input type="radio" name="metformin" value="no" data-field="medications.metformin"> No</label>
+              </div>
+            </div>
+            <div class="form-group"><label>Sulfonylurea</label>
+              <select data-field="medications.sulfonylurea">
+                <option value="">-- Select --</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="previouslyUsed">Previously Used</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>SGLT2 Inhibitor</label>
+              <select data-field="medications.sglt2Inhibitor">
+                <option value="">-- Select --</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="contraindicated">Contraindicated</option>
+              </select>
+            </div>
+            <div class="form-group"><label>GLP-1 Receptor Agonist</label>
+              <select data-field="medications.glp1Agonist">
+                <option value="">-- Select --</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="previouslyUsed">Previously Used</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>DPP-4 Inhibitor</label>
+              <select data-field="medications.dpp4Inhibitor">
+                <option value="">-- Select --</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Insulin</label>
+              <div class="radio-group">
+                <label><input type="radio" name="insulin" value="yes" data-field="medications.insulin"> Yes</label>
+                <label><input type="radio" name="insulin" value="no" data-field="medications.insulin"> No</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Insulin Regimen</label>
+              <select data-field="medications.insulinRegimen">
+                <option value="">-- Select --</option>
+                <option value="basalOnly">Basal Only</option>
+                <option value="basalBolus">Basal-Bolus</option>
+                <option value="mixedInsulin">Mixed Insulin</option>
+                <option value="pump">Insulin Pump</option>
+                <option value="notApplicable">Not Applicable</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Insulin Total Daily Dose (units)</label><input type="number" step="0.5" min="0" data-field="medications.insulinDailyDose" data-type="number" placeholder="e.g. 42"></div>
+          </div>
+          <div class="likert-group">
+            <label>Medication Adherence (self-reported)</label>
+            <div class="likert-options">
+              <label><input type="radio" name="medicationAdherence" value="1" data-field="medications.medicationAdherence" data-type="number"><span>Very Poor</span></label>
+              <label><input type="radio" name="medicationAdherence" value="2" data-field="medications.medicationAdherence" data-type="number"><span>Poor</span></label>
+              <label><input type="radio" name="medicationAdherence" value="3" data-field="medications.medicationAdherence" data-type="number"><span>Fair</span></label>
+              <label><input type="radio" name="medicationAdherence" value="4" data-field="medications.medicationAdherence" data-type="number"><span>Good</span></label>
+              <label><input type="radio" name="medicationAdherence" value="5" data-field="medications.medicationAdherence" data-type="number"><span>Excellent</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Other Medications</label><textarea rows="3" data-field="medications.otherMedications" placeholder="List any other medications (non-diabetes)"></textarea></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(3)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(5)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 5: Complications Screening -->
+      <section id="step-5" class="step-section">
+        <div class="card">
+          <h2>Complications Screening</h2>
+          <p style="color:var(--muted);margin-bottom:1rem;font-size:.9rem;">Record diabetes-related complications and screening results.</p>
+          <div class="form-row">
+            <div class="form-group"><label>Retinopathy Status</label>
+              <select data-field="complicationsScreening.retinopathyStatus">
+                <option value="">-- Select --</option>
+                <option value="none">None</option>
+                <option value="background">Background</option>
+                <option value="preProliferative">Pre-Proliferative</option>
+                <option value="proliferative">Proliferative</option>
+                <option value="maculopathy">Maculopathy</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Last Eye Screening Date</label><input type="date" data-field="complicationsScreening.lastEyeScreening"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Nephropathy Status</label>
+              <select data-field="complicationsScreening.nephropathyStatus">
+                <option value="">-- Select --</option>
+                <option value="normal">Normal</option>
+                <option value="microalbuminuria">Microalbuminuria</option>
+                <option value="macroalbuminuria">Macroalbuminuria</option>
+                <option value="ckd">Chronic Kidney Disease</option>
+              </select>
+            </div>
+            <div class="form-group"><label>eGFR (mL/min/1.73m2)</label><input type="number" step="0.1" min="0" data-field="complicationsScreening.egfr" data-type="number" placeholder="e.g. 90"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Urine ACR (mg/mmol)</label><input type="number" step="0.1" min="0" data-field="complicationsScreening.urineAcr" data-type="number" placeholder="e.g. 2.5"></div>
+            <div class="form-group"><label>Neuropathy Symptoms</label>
+              <div class="radio-group">
+                <label><input type="radio" name="neuropathySymptoms" value="yes" data-field="complicationsScreening.neuropathySymptoms"> Yes</label>
+                <label><input type="radio" name="neuropathySymptoms" value="no" data-field="complicationsScreening.neuropathySymptoms"> No</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Autonomic Neuropathy</label>
+              <select data-field="complicationsScreening.autonomicNeuropathy">
+                <option value="">-- Select --</option>
+                <option value="none">None</option>
+                <option value="suspected">Suspected</option>
+                <option value="confirmed">Confirmed</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Erectile Dysfunction</label>
+              <select data-field="complicationsScreening.erectileDysfunction">
+                <option value="">-- Select --</option>
+                <option value="notApplicable">Not Applicable</option>
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(4)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(6)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 6: Cardiovascular Risk -->
+      <section id="step-6" class="step-section">
+        <div class="card">
+          <h2>Cardiovascular Risk</h2>
+          <p style="color:var(--muted);margin-bottom:1rem;font-size:.9rem;">Assess cardiovascular risk factors and current management.</p>
+          <div class="form-row">
+            <div class="form-group"><label>Systolic BP (mmHg)</label><input type="number" min="60" max="300" data-field="cardiovascularRisk.systolicBp" data-type="number" placeholder="e.g. 130"></div>
+            <div class="form-group"><label>Diastolic BP (mmHg)</label><input type="number" min="30" max="200" data-field="cardiovascularRisk.diastolicBp" data-type="number" placeholder="e.g. 80"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>On Antihypertensive</label>
+              <select data-field="cardiovascularRisk.onAntihypertensive">
+                <option value="">-- Select --</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="form-group"><label>On Statin</label>
+              <select data-field="cardiovascularRisk.onStatin">
+                <option value="">-- Select --</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+                <option value="intolerant">Statin Intolerant</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Total Cholesterol (mmol/L)</label><input type="number" step="0.1" min="0" data-field="cardiovascularRisk.totalCholesterol" data-type="number" placeholder="e.g. 4.5"></div>
+            <div class="form-group"><label>LDL Cholesterol (mmol/L)</label><input type="number" step="0.1" min="0" data-field="cardiovascularRisk.ldlCholesterol" data-type="number" placeholder="e.g. 2.0"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Smoking Status</label>
+              <select data-field="cardiovascularRisk.smokingStatus">
+                <option value="">-- Select --</option>
+                <option value="never">Never Smoked</option>
+                <option value="exSmoker">Ex-Smoker</option>
+                <option value="currentSmoker">Current Smoker</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Previous CVD Event</label>
+              <div class="radio-group">
+                <label><input type="radio" name="previousCvdEvent" value="yes" data-field="cardiovascularRisk.previousCvdEvent"> Yes</label>
+                <label><input type="radio" name="previousCvdEvent" value="no" data-field="cardiovascularRisk.previousCvdEvent"> No</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group"><label>QRISK Score (%)</label><input type="number" step="0.1" min="0" max="100" data-field="cardiovascularRisk.qriskScore" data-type="number" placeholder="e.g. 15.2"></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(5)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(7)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 7: Self-Care & Lifestyle -->
+      <section id="step-7" class="step-section">
+        <div class="card">
+          <h2>Self-Care &amp; Lifestyle</h2>
+          <p style="color:var(--muted);margin-bottom:1rem;font-size:.9rem;">Assess diet, exercise, and self-management behaviours.</p>
+          <div class="likert-group">
+            <label>Diet Adherence (following recommended dietary plan)</label>
+            <div class="likert-options">
+              <label><input type="radio" name="dietAdherence" value="1" data-field="selfCareLifestyle.dietAdherence" data-type="number"><span>Very Poor</span></label>
+              <label><input type="radio" name="dietAdherence" value="2" data-field="selfCareLifestyle.dietAdherence" data-type="number"><span>Poor</span></label>
+              <label><input type="radio" name="dietAdherence" value="3" data-field="selfCareLifestyle.dietAdherence" data-type="number"><span>Fair</span></label>
+              <label><input type="radio" name="dietAdherence" value="4" data-field="selfCareLifestyle.dietAdherence" data-type="number"><span>Good</span></label>
+              <label><input type="radio" name="dietAdherence" value="5" data-field="selfCareLifestyle.dietAdherence" data-type="number"><span>Excellent</span></label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Carbohydrate Counting</label>
+              <div class="radio-group">
+                <label><input type="radio" name="carbCounting" value="yes" data-field="selfCareLifestyle.carbCounting"> Yes</label>
+                <label><input type="radio" name="carbCounting" value="no" data-field="selfCareLifestyle.carbCounting"> No</label>
+              </div>
+            </div>
+            <div class="form-group"><label>Physical Activity Level</label>
+              <select data-field="selfCareLifestyle.physicalActivity">
+                <option value="">-- Select --</option>
+                <option value="sedentary">Sedentary</option>
+                <option value="minimal">Minimal (light activity)</option>
+                <option value="moderate">Moderate (some regular exercise)</option>
+                <option value="regular">Regular (150+ min/week)</option>
+                <option value="veryActive">Very Active</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>BMI (kg/m2)</label><input type="number" step="0.1" min="10" max="80" data-field="selfCareLifestyle.bmi" data-type="number" placeholder="e.g. 28.5"></div>
+            <div class="form-group"><label>Recent Weight Change</label>
+              <select data-field="selfCareLifestyle.weightChange">
+                <option value="">-- Select --</option>
+                <option value="stable">Stable</option>
+                <option value="gained">Weight Gain</option>
+                <option value="lost">Weight Loss</option>
+                <option value="significantGain">Significant Gain (&gt;5kg)</option>
+                <option value="significantLoss">Significant Loss (&gt;5kg)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Alcohol Consumption</label>
+              <select data-field="selfCareLifestyle.alcoholConsumption">
+                <option value="">-- Select --</option>
+                <option value="none">None</option>
+                <option value="withinLimits">Within Recommended Limits</option>
+                <option value="aboveLimits">Above Recommended Limits</option>
+                <option value="excessive">Excessive</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Smoking Cessation Support</label>
+              <select data-field="selfCareLifestyle.smokingCessation">
+                <option value="">-- Select --</option>
+                <option value="notApplicable">Not Applicable (non-smoker)</option>
+                <option value="offered">Offered</option>
+                <option value="declined">Declined</option>
+                <option value="ongoing">Ongoing Programme</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(6)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(8)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 8: Psychological Wellbeing -->
+      <section id="step-8" class="step-section">
+        <div class="card">
+          <h2>Psychological Wellbeing</h2>
+          <p style="color:var(--muted);margin-bottom:1rem;font-size:.9rem;">Assess psychological impact of diabetes and support needs.</p>
+          <div class="likert-group">
+            <label>Diabetes Distress (how bothered are you by managing diabetes?)</label>
+            <div class="likert-options">
+              <label><input type="radio" name="diabetesDistress" value="1" data-field="psychologicalWellbeing.diabetesDistress" data-type="number"><span>Not at all</span></label>
+              <label><input type="radio" name="diabetesDistress" value="2" data-field="psychologicalWellbeing.diabetesDistress" data-type="number"><span>A little</span></label>
+              <label><input type="radio" name="diabetesDistress" value="3" data-field="psychologicalWellbeing.diabetesDistress" data-type="number"><span>Moderate</span></label>
+              <label><input type="radio" name="diabetesDistress" value="4" data-field="psychologicalWellbeing.diabetesDistress" data-type="number"><span>Quite a bit</span></label>
+              <label><input type="radio" name="diabetesDistress" value="5" data-field="psychologicalWellbeing.diabetesDistress" data-type="number"><span>Very much</span></label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Depression Screening (PHQ-2 score, 0-6)</label><input type="number" min="0" max="10" data-field="psychologicalWellbeing.depressionScreening" data-type="number" placeholder="e.g. 2"></div>
+            <div class="form-group"><label>Anxiety Screening (GAD-2 score, 0-6)</label><input type="number" min="0" max="10" data-field="psychologicalWellbeing.anxietyScreening" data-type="number" placeholder="e.g. 1"></div>
+          </div>
+          <div class="form-group"><label>Eating Disorder Concerns</label>
+            <div class="radio-group">
+              <label><input type="radio" name="eatingDisorder" value="yes" data-field="psychologicalWellbeing.eatingDisorder"> Yes</label>
+              <label><input type="radio" name="eatingDisorder" value="no" data-field="psychologicalWellbeing.eatingDisorder"> No</label>
+            </div>
+          </div>
+          <div class="likert-group">
+            <label>Fear of Hypoglycaemia</label>
+            <div class="likert-options">
+              <label><input type="radio" name="fearOfHypoglycaemia" value="1" data-field="psychologicalWellbeing.fearOfHypoglycaemia" data-type="number"><span>None</span></label>
+              <label><input type="radio" name="fearOfHypoglycaemia" value="2" data-field="psychologicalWellbeing.fearOfHypoglycaemia" data-type="number"><span>Mild</span></label>
+              <label><input type="radio" name="fearOfHypoglycaemia" value="3" data-field="psychologicalWellbeing.fearOfHypoglycaemia" data-type="number"><span>Moderate</span></label>
+              <label><input type="radio" name="fearOfHypoglycaemia" value="4" data-field="psychologicalWellbeing.fearOfHypoglycaemia" data-type="number"><span>Significant</span></label>
+              <label><input type="radio" name="fearOfHypoglycaemia" value="5" data-field="psychologicalWellbeing.fearOfHypoglycaemia" data-type="number"><span>Severe</span></label>
+            </div>
+          </div>
+          <div class="likert-group">
+            <label>Coping Ability (how well are you managing living with diabetes?)</label>
+            <div class="likert-options">
+              <label><input type="radio" name="copingAbility" value="1" data-field="psychologicalWellbeing.copingAbility" data-type="number"><span>Very Poor</span></label>
+              <label><input type="radio" name="copingAbility" value="2" data-field="psychologicalWellbeing.copingAbility" data-type="number"><span>Poor</span></label>
+              <label><input type="radio" name="copingAbility" value="3" data-field="psychologicalWellbeing.copingAbility" data-type="number"><span>Fair</span></label>
+              <label><input type="radio" name="copingAbility" value="4" data-field="psychologicalWellbeing.copingAbility" data-type="number"><span>Good</span></label>
+              <label><input type="radio" name="copingAbility" value="5" data-field="psychologicalWellbeing.copingAbility" data-type="number"><span>Very Good</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Needs Psychological Support</label>
+            <div class="radio-group">
+              <label><input type="radio" name="needsSupport" value="yes" data-field="psychologicalWellbeing.needsSupport"> Yes</label>
+              <label><input type="radio" name="needsSupport" value="no" data-field="psychologicalWellbeing.needsSupport"> No</label>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(7)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(9)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 9: Foot Assessment -->
+      <section id="step-9" class="step-section">
+        <div class="card">
+          <h2>Foot Assessment</h2>
+          <p style="color:var(--muted);margin-bottom:1rem;font-size:.9rem;">Comprehensive diabetic foot examination findings.</p>
+          <div class="form-row">
+            <div class="form-group"><label>Foot Pulses</label>
+              <select data-field="footAssessment.footPulses">
+                <option value="">-- Select --</option>
+                <option value="present">Present</option>
+                <option value="reduced">Reduced</option>
+                <option value="absent">Absent</option>
+              </select>
+            </div>
+            <div class="form-group"><label>10g Monofilament Test</label>
+              <select data-field="footAssessment.monofilamentTest">
+                <option value="">-- Select --</option>
+                <option value="normal">Normal</option>
+                <option value="abnormal">Abnormal</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Vibration Sense (128Hz tuning fork)</label>
+              <select data-field="footAssessment.vibrationSense">
+                <option value="">-- Select --</option>
+                <option value="normal">Normal</option>
+                <option value="reduced">Reduced</option>
+                <option value="absent">Absent</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Foot Deformity</label>
+              <div class="radio-group">
+                <label><input type="radio" name="footDeformity" value="yes" data-field="footAssessment.footDeformity"> Yes</label>
+                <label><input type="radio" name="footDeformity" value="no" data-field="footAssessment.footDeformity"> No</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Callus Present</label>
+              <div class="radio-group">
+                <label><input type="radio" name="callusPresent" value="yes" data-field="footAssessment.callusPresent"> Yes</label>
+                <label><input type="radio" name="callusPresent" value="no" data-field="footAssessment.callusPresent"> No</label>
+              </div>
+            </div>
+            <div class="form-group"><label>Ulcer Present</label>
+              <div class="radio-group">
+                <label><input type="radio" name="ulcerPresent" value="yes" data-field="footAssessment.ulcerPresent"> Yes</label>
+                <label><input type="radio" name="ulcerPresent" value="no" data-field="footAssessment.ulcerPresent"> No</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Previous Amputation</label>
+              <div class="radio-group">
+                <label><input type="radio" name="previousAmputation" value="yes" data-field="footAssessment.previousAmputation"> Yes</label>
+                <label><input type="radio" name="previousAmputation" value="no" data-field="footAssessment.previousAmputation"> No</label>
+              </div>
+            </div>
+            <div class="form-group"><label>Foot Risk Category</label>
+              <select data-field="footAssessment.footRiskCategory">
+                <option value="">-- Select --</option>
+                <option value="low">Low Risk</option>
+                <option value="moderate">Moderate Risk</option>
+                <option value="high">High Risk</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(8)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(10)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 10: Review & Care Plan -->
+      <section id="step-10" class="step-section">
+        <div class="card">
+          <h2>Review &amp; Care Plan</h2>
+          <p style="color:var(--muted);margin-bottom:1rem;font-size:.9rem;">Complete the review with care plan details and follow-up arrangements.</p>
+          <div class="form-row">
+            <div class="form-group"><label>Clinician Name</label><input type="text" data-field="reviewCarePlan.clinicianName" placeholder="e.g. Dr Johnson"></div>
+            <div class="form-group"><label>Review Date</label><input type="date" data-field="reviewCarePlan.reviewDate"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Agreed HbA1c Target</label><input type="number" step="0.1" min="0" data-field="reviewCarePlan.hba1cTargetAgreed" data-type="number" placeholder="e.g. 53 mmol/mol or 7.0%"></div>
+            <div class="form-group"><label>Care Plan Updated</label>
+              <div class="radio-group">
+                <label><input type="radio" name="carePlanUpdated" value="yes" data-field="reviewCarePlan.carePlanUpdated"> Yes</label>
+                <label><input type="radio" name="carePlanUpdated" value="no" data-field="reviewCarePlan.carePlanUpdated"> No</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group"><label>Clinical Notes</label><textarea rows="4" data-field="reviewCarePlan.clinicalNotes" placeholder="Summary of clinical findings and discussion"></textarea></div>
+          <div class="form-group"><label>Referrals Made</label><textarea rows="3" data-field="reviewCarePlan.referrals" placeholder="e.g. Ophthalmology, Podiatry, Dietetics, Psychology"></textarea></div>
+          <div class="form-group"><label>Next Review Date</label><input type="date" data-field="reviewCarePlan.nextReviewDate"></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(9)">&larr; Previous</button><button class="btn btn-primary" onclick="submitForm()">Submit Assessment</button></div>
+      </section>
+    </div>
+  </main>
+
+  <footer style="text-align:center;padding:1.5rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--gray-200);">
+    <p>Diabetes Assessment &copy; 2026. For clinical use only.</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

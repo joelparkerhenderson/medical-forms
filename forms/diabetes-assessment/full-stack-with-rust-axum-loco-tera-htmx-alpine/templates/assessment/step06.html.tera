@@ -1,0 +1,92 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cardiovascular Risk - Diabetes Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cardiovascular Risk</h2>
+    <p class="hint">Assess cardiovascular risk factors and current management.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="systolic_bp">Systolic BP (mmHg)</label>
+        <input type="number" id="systolic_bp" name="cardiovascular_risk.systolic_bp"
+               value="{{ cardiovascular_risk.systolicBp }}"
+               min="60" max="300" placeholder="e.g. 130">
+      </div>
+      <div class="form-group">
+        <label for="diastolic_bp">Diastolic BP (mmHg)</label>
+        <input type="number" id="diastolic_bp" name="cardiovascular_risk.diastolic_bp"
+               value="{{ cardiovascular_risk.diastolicBp }}"
+               min="30" max="200" placeholder="e.g. 80">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="on_antihypertensive">On Antihypertensive</label>
+        <select id="on_antihypertensive" name="cardiovascular_risk.on_antihypertensive">
+          <option value="">-- Select --</option>
+          <option value="yes" {% if cardiovascular_risk.onAntihypertensive == "yes" %}selected{% endif %}>Yes</option>
+          <option value="no" {% if cardiovascular_risk.onAntihypertensive == "no" %}selected{% endif %}>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="on_statin">On Statin</label>
+        <select id="on_statin" name="cardiovascular_risk.on_statin">
+          <option value="">-- Select --</option>
+          <option value="yes" {% if cardiovascular_risk.onStatin == "yes" %}selected{% endif %}>Yes</option>
+          <option value="no" {% if cardiovascular_risk.onStatin == "no" %}selected{% endif %}>No</option>
+          <option value="intolerant" {% if cardiovascular_risk.onStatin == "intolerant" %}selected{% endif %}>Statin Intolerant</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="total_cholesterol">Total Cholesterol (mmol/L)</label>
+        <input type="number" id="total_cholesterol" name="cardiovascular_risk.total_cholesterol"
+               value="{{ cardiovascular_risk.totalCholesterol }}"
+               step="0.1" min="0" placeholder="e.g. 4.5">
+      </div>
+      <div class="form-group">
+        <label for="ldl_cholesterol">LDL Cholesterol (mmol/L)</label>
+        <input type="number" id="ldl_cholesterol" name="cardiovascular_risk.ldl_cholesterol"
+               value="{{ cardiovascular_risk.ldlCholesterol }}"
+               step="0.1" min="0" placeholder="e.g. 2.0">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="smoking_status">Smoking Status</label>
+        <select id="smoking_status" name="cardiovascular_risk.smoking_status">
+          <option value="">-- Select --</option>
+          <option value="never" {% if cardiovascular_risk.smokingStatus == "never" %}selected{% endif %}>Never Smoked</option>
+          <option value="exSmoker" {% if cardiovascular_risk.smokingStatus == "exSmoker" %}selected{% endif %}>Ex-Smoker</option>
+          <option value="currentSmoker" {% if cardiovascular_risk.smokingStatus == "currentSmoker" %}selected{% endif %}>Current Smoker</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Previous CVD Event</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cardiovascular_risk.previous_cvd_event" value="yes" {% if cardiovascular_risk.previousCvdEvent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cardiovascular_risk.previous_cvd_event" value="no" {% if cardiovascular_risk.previousCvdEvent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="qrisk_score">QRISK Score (%)</label>
+      <input type="number" id="qrisk_score" name="cardiovascular_risk.qrisk_score"
+             value="{{ cardiovascular_risk.qriskScore }}"
+             step="0.1" min="0" max="100" placeholder="e.g. 15.2">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

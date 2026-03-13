@@ -1,0 +1,74 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Diabetes History - Diabetes Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Diabetes History</h2>
+    <p class="hint">Record the patient's diabetes diagnosis and history.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="diabetes_type">Diabetes Type</label>
+        <select id="diabetes_type" name="diabetes_history.diabetes_type">
+          <option value="">-- Select --</option>
+          <option value="type1" {% if diabetes_history.diabetesType == "type1" %}selected{% endif %}>Type 1</option>
+          <option value="type2" {% if diabetes_history.diabetesType == "type2" %}selected{% endif %}>Type 2</option>
+          <option value="gestational" {% if diabetes_history.diabetesType == "gestational" %}selected{% endif %}>Gestational</option>
+          <option value="other" {% if diabetes_history.diabetesType == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="age_at_diagnosis">Age at Diagnosis</label>
+        <input type="number" id="age_at_diagnosis" name="diabetes_history.age_at_diagnosis"
+               value="{{ diabetes_history.ageAtDiagnosis }}"
+               min="0" max="120" placeholder="e.g. 45">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="years_duration">Years Since Diagnosis</label>
+        <input type="number" id="years_duration" name="diabetes_history.years_duration"
+               value="{{ diabetes_history.yearsDuration }}"
+               min="0" max="100" placeholder="e.g. 10">
+      </div>
+      <div class="form-group">
+        <label for="diagnosis_method">Diagnosis Method</label>
+        <select id="diagnosis_method" name="diabetes_history.diagnosis_method">
+          <option value="">-- Select --</option>
+          <option value="hba1c" {% if diabetes_history.diagnosisMethod == "hba1c" %}selected{% endif %}>HbA1c</option>
+          <option value="fastingGlucose" {% if diabetes_history.diagnosisMethod == "fastingGlucose" %}selected{% endif %}>Fasting Glucose</option>
+          <option value="ogtt" {% if diabetes_history.diagnosisMethod == "ogtt" %}selected{% endif %}>OGTT</option>
+          <option value="randomGlucose" {% if diabetes_history.diagnosisMethod == "randomGlucose" %}selected{% endif %}>Random Glucose</option>
+          <option value="other" {% if diabetes_history.diagnosisMethod == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Family History of Diabetes</label>
+        <div class="radio-group">
+          <label><input type="radio" name="diabetes_history.family_history" value="yes" {% if diabetes_history.familyHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="diabetes_history.family_history" value="no" {% if diabetes_history.familyHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="autoantibodies_tested">Autoantibodies Tested</label>
+        <select id="autoantibodies_tested" name="diabetes_history.autoantibodies_tested">
+          <option value="">-- Select --</option>
+          <option value="yes" {% if diabetes_history.autoantibodiesTested == "yes" %}selected{% endif %}>Yes - Positive</option>
+          <option value="negative" {% if diabetes_history.autoantibodiesTested == "negative" %}selected{% endif %}>Yes - Negative</option>
+          <option value="notTested" {% if diabetes_history.autoantibodiesTested == "notTested" %}selected{% endif %}>Not Tested</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,148 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Assessment Report - Diabetes Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Diabetes Assessment Report</h1>
+    <span class="control-badge control-{{ control_level }}">{{ control_label }}</span>
+  </div>
+
+  <div class="score-display">{{ control_score }}%</div>
+  <div class="score-label">Composite Control Score</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient:</strong> {{ data.patientInformation.fullName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Date of Birth:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Diabetes Type:</strong> {{ data.diabetesHistory.diabetesType | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Duration:</strong> {{ data.diabetesHistory.yearsDuration | default(value="N/A") }} years
+    </div>
+  </div>
+</div>
+
+<!-- Glycaemic Control Summary -->
+<div class="card">
+  <h2>Glycaemic Control</h2>
+  <div class="form-row">
+    <div>
+      <strong>HbA1c:</strong>
+      {% if data.glycaemicControl.hba1cValue %}
+        {{ data.glycaemicControl.hba1cValue }}
+        {% if data.glycaemicControl.hba1cUnit == "mmolMol" %}mmol/mol{% elif data.glycaemicControl.hba1cUnit == "percent" %}%{% endif %}
+      {% else %}
+        Not recorded
+      {% endif %}
+    </div>
+    <div>
+      <strong>Target:</strong>
+      {% if data.glycaemicControl.hba1cTarget %}
+        {{ data.glycaemicControl.hba1cTarget }}
+      {% else %}
+        Not set
+      {% endif %}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Time in Range:</strong> {{ data.glycaemicControl.timeInRange | default(value="N/A") }}%
+    </div>
+    <div>
+      <strong>Monitoring:</strong> {{ data.glycaemicControl.glucoseMonitoringType | default(value="Not specified") }}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Clinical Flags</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Fired Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Control Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinical Notes -->
+{% if data.reviewCarePlan.clinicalNotes or data.reviewCarePlan.referrals %}
+<div class="card">
+  <h2>Care Plan</h2>
+  {% if data.reviewCarePlan.clinicalNotes %}
+    <div class="form-group">
+      <strong>Clinical Notes:</strong>
+      <p>{{ data.reviewCarePlan.clinicalNotes }}</p>
+    </div>
+  {% endif %}
+  {% if data.reviewCarePlan.referrals %}
+    <div class="form-group">
+      <strong>Referrals:</strong>
+      <p>{{ data.reviewCarePlan.referrals }}</p>
+    </div>
+  {% endif %}
+  {% if data.reviewCarePlan.nextReviewDate %}
+    <div class="form-group">
+      <strong>Next Review:</strong> {{ data.reviewCarePlan.nextReviewDate }}
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Glycaemic Control - Diabetes Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Glycaemic Control</h2>
+    <p class="hint">Record current glycaemic markers and monitoring approach.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hba1c_value">HbA1c Value</label>
+        <input type="number" id="hba1c_value" name="glycaemic_control.hba1c_value"
+               value="{{ glycaemic_control.hba1cValue }}"
+               step="0.1" min="0" placeholder="e.g. 53 or 7.0">
+      </div>
+      <div class="form-group">
+        <label for="hba1c_unit">HbA1c Unit</label>
+        <select id="hba1c_unit" name="glycaemic_control.hba1c_unit">
+          <option value="">-- Select --</option>
+          <option value="mmolMol" {% if glycaemic_control.hba1cUnit == "mmolMol" %}selected{% endif %}>mmol/mol</option>
+          <option value="percent" {% if glycaemic_control.hba1cUnit == "percent" %}selected{% endif %}>% (DCCT)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hba1c_target">Agreed HbA1c Target</label>
+        <input type="number" id="hba1c_target" name="glycaemic_control.hba1c_target"
+               value="{{ glycaemic_control.hba1cTarget }}"
+               step="0.1" min="0" placeholder="e.g. 48 or 6.5">
+      </div>
+      <div class="form-group">
+        <label for="time_in_range">Time in Range (%)</label>
+        <input type="number" id="time_in_range" name="glycaemic_control.time_in_range"
+               value="{{ glycaemic_control.timeInRange }}"
+               min="0" max="100" placeholder="e.g. 70">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fasting_glucose">Fasting Glucose (mmol/L)</label>
+        <input type="number" id="fasting_glucose" name="glycaemic_control.fasting_glucose"
+               value="{{ glycaemic_control.fastingGlucose }}"
+               step="0.1" min="0" placeholder="e.g. 5.5">
+      </div>
+      <div class="form-group">
+        <label for="postprandial_glucose">Postprandial Glucose (mmol/L)</label>
+        <input type="number" id="postprandial_glucose" name="glycaemic_control.postprandial_glucose"
+               value="{{ glycaemic_control.postprandialGlucose }}"
+               step="0.1" min="0" placeholder="e.g. 7.8">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="glucose_monitoring_type">Glucose Monitoring Method</label>
+      <select id="glucose_monitoring_type" name="glycaemic_control.glucose_monitoring_type">
+        <option value="">-- Select --</option>
+        <option value="smbg" {% if glycaemic_control.glucoseMonitoringType == "smbg" %}selected{% endif %}>Self-Monitoring Blood Glucose (SMBG)</option>
+        <option value="cgm" {% if glycaemic_control.glucoseMonitoringType == "cgm" %}selected{% endif %}>Continuous Glucose Monitor (CGM)</option>
+        <option value="flash" {% if glycaemic_control.glucoseMonitoringType == "flash" %}selected{% endif %}>Flash Glucose Monitor</option>
+        <option value="none" {% if glycaemic_control.glucoseMonitoringType == "none" %}selected{% endif %}>None</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hypoglycaemia_frequency">Hypoglycaemia Frequency</label>
+        <select id="hypoglycaemia_frequency" name="glycaemic_control.hypoglycaemia_frequency">
+          <option value="">-- Select --</option>
+          <option value="never" {% if glycaemic_control.hypoglycaemiaFrequency == "never" %}selected{% endif %}>Never</option>
+          <option value="rarely" {% if glycaemic_control.hypoglycaemiaFrequency == "rarely" %}selected{% endif %}>Rarely (less than monthly)</option>
+          <option value="monthly" {% if glycaemic_control.hypoglycaemiaFrequency == "monthly" %}selected{% endif %}>Monthly</option>
+          <option value="weekly" {% if glycaemic_control.hypoglycaemiaFrequency == "weekly" %}selected{% endif %}>Weekly</option>
+          <option value="daily" {% if glycaemic_control.hypoglycaemiaFrequency == "daily" %}selected{% endif %}>Daily</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Severe Hypoglycaemia (requiring assistance)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="glycaemic_control.severe_hypoglycaemia" value="yes" {% if glycaemic_control.severeHypoglycaemia == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="glycaemic_control.severe_hypoglycaemia" value="no" {% if glycaemic_control.severeHypoglycaemia == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

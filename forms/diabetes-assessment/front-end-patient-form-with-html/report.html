@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Report - Diabetes Assessment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Diabetes Assessment</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content" id="report-content">
+    <p style="text-align:center;color:#6b7280;">Loading report...</p>
+  </main>
+
+  <footer style="text-align:center;padding:1.5rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--gray-200);">
+    <p>Diabetes Assessment &copy; 2026. For clinical use only.</p>
+  </footer>
+
+  <script type="module">
+    import { controlLevelLabel } from './js/utils.js';
+
+    const dataStr = sessionStorage.getItem('diabetesData');
+    const resultStr = sessionStorage.getItem('diabetesResult');
+    const container = document.getElementById('report-content');
+
+    if (!dataStr || !resultStr) {
+      container.innerHTML = '<div class="card" style="text-align:center"><h2>No Assessment Data</h2><p>Please complete the diabetes assessment first.</p><a href="index.html" class="btn btn-primary">Go to Assessment</a></div>';
+    } else {
+      const data = JSON.parse(dataStr);
+      const result = JSON.parse(resultStr);
+      renderReport(data, result);
+    }
+
+    function renderReport(data, result) {
+      let html = '';
+
+      // Score Banner
+      html += '<div class="card">';
+      html += '<div class="report-header"><h1>Diabetes Assessment Report</h1>';
+      html += '<span class="control-badge control-' + result.controlLevel + '">' + controlLevelLabel(result.controlLevel) + '</span>';
+      html += '</div>';
+      html += '<div class="score-display">' + result.controlScore + '%</div>';
+      html += '<div class="score-label">Composite Control Score</div>';
+      html += '<p style="text-align:center;margin-top:.5rem;color:var(--muted);font-size:.875rem;">Generated: ' + esc(result.timestamp) + '</p>';
+      html += '</div>';
+
+      // Patient Summary
+      html += '<div class="card"><h2>Patient Summary</h2>';
+      html += '<div class="form-row"><div><strong>Patient:</strong> ' + esc(data.patientInformation.fullName || 'Not provided') + '</div>';
+      html += '<div><strong>Date of Birth:</strong> ' + esc(data.patientInformation.dateOfBirth || 'Not provided') + '</div></div>';
+      html += '<div class="form-row" style="margin-top:.5rem"><div><strong>Diabetes Type:</strong> ' + capitalize(data.diabetesHistory.diabetesType || 'Not provided') + '</div>';
+      html += '<div><strong>Duration:</strong> ' + (data.diabetesHistory.yearsDuration !== null ? data.diabetesHistory.yearsDuration + ' years' : 'N/A') + '</div></div>';
+      html += '</div>';
+
+      // Glycaemic Control Summary
+      html += '<div class="card"><h2>Glycaemic Control</h2>';
+      html += '<div class="form-row"><div><strong>HbA1c:</strong> ';
+      if (data.glycaemicControl.hba1cValue !== null) {
+        html += data.glycaemicControl.hba1cValue;
+        if (data.glycaemicControl.hba1cUnit === 'mmolMol') html += ' mmol/mol';
+        else if (data.glycaemicControl.hba1cUnit === 'percent') html += '%';
+      } else {
+        html += 'Not recorded';
+      }
+      html += '</div><div><strong>Target:</strong> ' + (data.glycaemicControl.hba1cTarget !== null ? data.glycaemicControl.hba1cTarget : 'Not set') + '</div></div>';
+      html += '<div class="form-row" style="margin-top:.5rem"><div><strong>Time in Range:</strong> ' + (data.glycaemicControl.timeInRange !== null ? data.glycaemicControl.timeInRange + '%' : 'N/A') + '</div>';
+      html += '<div><strong>Monitoring:</strong> ' + capitalize(data.glycaemicControl.glucoseMonitoringType || 'Not specified') + '</div></div>';
+      html += '</div>';
+
+      // Additional Flags
+      if (result.additionalFlags && result.additionalFlags.length > 0) {
+        html += '<div class="card"><h2>Clinical Flags</h2>';
+        for (const flag of result.additionalFlags) {
+          const flagClass = 'flag-' + flag.priority;
+          html += '<div class="flag-item ' + flagClass + '">';
+          html += '<div class="flag-meta"><span class="concern-badge concern-' + flag.priority + '">' + flag.priority.toUpperCase() + '</span> ' + esc(flag.category) + '</div>';
+          html += '<div>' + esc(flag.message) + '</div>';
+          html += '</div>';
+        }
+        html += '</div>';
+      }
+
+      // Fired Rules
+      if (result.firedRules && result.firedRules.length > 0) {
+        html += '<div class="card"><h2>Control Analysis</h2>';
+        html += '<table class="rules-table"><thead><tr><th>Rule</th><th>Category</th><th>Description</th><th>Concern</th></tr></thead><tbody>';
+        for (const rule of result.firedRules) {
+          html += '<tr><td>' + esc(rule.id) + '</td><td>' + esc(rule.category) + '</td>';
+          html += '<td>' + esc(rule.description) + '</td>';
+          html += '<td><span class="concern-badge concern-' + rule.concernLevel + '">' + rule.concernLevel.toUpperCase() + '</span></td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      // Care Plan
+      if (data.reviewCarePlan.clinicalNotes || data.reviewCarePlan.referrals) {
+        html += '<div class="card"><h2>Care Plan</h2>';
+        if (data.reviewCarePlan.clinicalNotes) {
+          html += '<div class="form-group"><strong>Clinical Notes:</strong><p>' + esc(data.reviewCarePlan.clinicalNotes) + '</p></div>';
+        }
+        if (data.reviewCarePlan.referrals) {
+          html += '<div class="form-group"><strong>Referrals:</strong><p>' + esc(data.reviewCarePlan.referrals) + '</p></div>';
+        }
+        if (data.reviewCarePlan.nextReviewDate) {
+          html += '<div class="form-group"><strong>Next Review:</strong> ' + esc(data.reviewCarePlan.nextReviewDate) + '</div>';
+        }
+        html += '</div>';
+      }
+
+      // Action Buttons
+      html += '<div class="card" style="text-align:center">';
+      html += '<a href="index.html" class="btn btn-primary">New Assessment</a>';
+      html += '<button class="btn btn-secondary" style="margin-left:.5rem" onclick="window.print()">Print Report</button>';
+      html += '</div>';
+
+      container.innerHTML = html;
+    }
+
+    function esc(str) {
+      const div = document.createElement('div');
+      div.textContent = str || '';
+      return div.innerHTML;
+    }
+
+    function capitalize(s) {
+      return s ? s.charAt(0).toUpperCase() + s.slice(1) : 'N/A';
+    }
+  </script>
+</body>
+</html>

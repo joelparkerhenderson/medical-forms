@@ -1,0 +1,91 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Complications Screening - Diabetes Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Complications Screening</h2>
+    <p class="hint">Record diabetes-related complications and screening results.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="retinopathy_status">Retinopathy Status</label>
+        <select id="retinopathy_status" name="complications_screening.retinopathy_status">
+          <option value="">-- Select --</option>
+          <option value="none" {% if complications_screening.retinopathyStatus == "none" %}selected{% endif %}>None</option>
+          <option value="background" {% if complications_screening.retinopathyStatus == "background" %}selected{% endif %}>Background</option>
+          <option value="preProliferative" {% if complications_screening.retinopathyStatus == "preProliferative" %}selected{% endif %}>Pre-Proliferative</option>
+          <option value="proliferative" {% if complications_screening.retinopathyStatus == "proliferative" %}selected{% endif %}>Proliferative</option>
+          <option value="maculopathy" {% if complications_screening.retinopathyStatus == "maculopathy" %}selected{% endif %}>Maculopathy</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="last_eye_screening">Last Eye Screening Date</label>
+        <input type="date" id="last_eye_screening" name="complications_screening.last_eye_screening"
+               value="{{ complications_screening.lastEyeScreening }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nephropathy_status">Nephropathy Status</label>
+        <select id="nephropathy_status" name="complications_screening.nephropathy_status">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if complications_screening.nephropathyStatus == "normal" %}selected{% endif %}>Normal</option>
+          <option value="microalbuminuria" {% if complications_screening.nephropathyStatus == "microalbuminuria" %}selected{% endif %}>Microalbuminuria</option>
+          <option value="macroalbuminuria" {% if complications_screening.nephropathyStatus == "macroalbuminuria" %}selected{% endif %}>Macroalbuminuria</option>
+          <option value="ckd" {% if complications_screening.nephropathyStatus == "ckd" %}selected{% endif %}>Chronic Kidney Disease</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="egfr">eGFR (mL/min/1.73m2)</label>
+        <input type="number" id="egfr" name="complications_screening.egfr"
+               value="{{ complications_screening.egfr }}"
+               step="0.1" min="0" placeholder="e.g. 90">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="urine_acr">Urine ACR (mg/mmol)</label>
+        <input type="number" id="urine_acr" name="complications_screening.urine_acr"
+               value="{{ complications_screening.urineAcr }}"
+               step="0.1" min="0" placeholder="e.g. 2.5">
+      </div>
+      <div class="form-group">
+        <label>Neuropathy Symptoms</label>
+        <div class="radio-group">
+          <label><input type="radio" name="complications_screening.neuropathy_symptoms" value="yes" {% if complications_screening.neuropathySymptoms == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="complications_screening.neuropathy_symptoms" value="no" {% if complications_screening.neuropathySymptoms == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="autonomic_neuropathy">Autonomic Neuropathy</label>
+        <select id="autonomic_neuropathy" name="complications_screening.autonomic_neuropathy">
+          <option value="">-- Select --</option>
+          <option value="none" {% if complications_screening.autonomicNeuropathy == "none" %}selected{% endif %}>None</option>
+          <option value="suspected" {% if complications_screening.autonomicNeuropathy == "suspected" %}selected{% endif %}>Suspected</option>
+          <option value="confirmed" {% if complications_screening.autonomicNeuropathy == "confirmed" %}selected{% endif %}>Confirmed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="erectile_dysfunction">Erectile Dysfunction</label>
+        <select id="erectile_dysfunction" name="complications_screening.erectile_dysfunction">
+          <option value="">-- Select --</option>
+          <option value="notApplicable" {% if complications_screening.erectileDysfunction == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+          <option value="no" {% if complications_screening.erectileDysfunction == "no" %}selected{% endif %}>No</option>
+          <option value="yes" {% if complications_screening.erectileDysfunction == "yes" %}selected{% endif %}>Yes</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

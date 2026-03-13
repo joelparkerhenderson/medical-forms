@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Diabetes Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Diabetes Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, type, date...">
+    </div>
+    <div class="form-group">
+      <label for="control_level">Control Level</label>
+      <select id="control_level" name="control_level">
+        <option value="">All Levels</option>
+        <option value="wellControlled" {% if control_level == "wellControlled" %}selected{% endif %}>Well Controlled</option>
+        <option value="suboptimal" {% if control_level == "suboptimal" %}selected{% endif %}>Suboptimal</option>
+        <option value="poor" {% if control_level == "poor" %}selected{% endif %}>Poor</option>
+        <option value="veryPoor" {% if control_level == "veryPoor" %}selected{% endif %}>Very Poor</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="diabetes_type">Diabetes Type</label>
+      <select id="diabetes_type" name="diabetes_type">
+        <option value="">All Types</option>
+        <option value="Type 1" {% if diabetes_type == "Type 1" %}selected{% endif %}>Type 1</option>
+        <option value="Type 2" {% if diabetes_type == "Type 2" %}selected{% endif %}>Type 2</option>
+        <option value="Gestational" {% if diabetes_type == "Gestational" %}selected{% endif %}>Gestational</option>
+        <option value="Other" {% if diabetes_type == "Other" %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Diabetes Type</th>
+      <th>HbA1c</th>
+      <th>Control Level</th>
+      <th>Complications</th>
+      <th>Last Review</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.diabetesType }}</td>
+      <td>{{ patient.hba1c }}</td>
+      <td><span class="control-badge control-{{ patient.controlLevel }}">{{ patient.controlLevel }}</span></td>
+      <td>{{ patient.complications }}</td>
+      <td>{{ patient.lastReview }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

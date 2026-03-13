@@ -1,0 +1,93 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Self-Care & Lifestyle - Diabetes Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Self-Care & Lifestyle</h2>
+    <p class="hint">Assess diet, exercise, and self-management behaviours.</p>
+
+    <div class="likert-group">
+      <label>Diet Adherence (following recommended dietary plan)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="self_care_lifestyle.diet_adherence" value="{{ i }}"
+                 {% if self_care_lifestyle.dietAdherence == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Carbohydrate Counting</label>
+        <div class="radio-group">
+          <label><input type="radio" name="self_care_lifestyle.carb_counting" value="yes" {% if self_care_lifestyle.carbCounting == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="self_care_lifestyle.carb_counting" value="no" {% if self_care_lifestyle.carbCounting == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="physical_activity">Physical Activity Level</label>
+        <select id="physical_activity" name="self_care_lifestyle.physical_activity">
+          <option value="">-- Select --</option>
+          <option value="sedentary" {% if self_care_lifestyle.physicalActivity == "sedentary" %}selected{% endif %}>Sedentary</option>
+          <option value="minimal" {% if self_care_lifestyle.physicalActivity == "minimal" %}selected{% endif %}>Minimal (light activity)</option>
+          <option value="moderate" {% if self_care_lifestyle.physicalActivity == "moderate" %}selected{% endif %}>Moderate (some regular exercise)</option>
+          <option value="regular" {% if self_care_lifestyle.physicalActivity == "regular" %}selected{% endif %}>Regular (150+ min/week)</option>
+          <option value="veryActive" {% if self_care_lifestyle.physicalActivity == "veryActive" %}selected{% endif %}>Very Active</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bmi">BMI (kg/m2)</label>
+        <input type="number" id="bmi" name="self_care_lifestyle.bmi"
+               value="{{ self_care_lifestyle.bmi }}"
+               step="0.1" min="10" max="80" placeholder="e.g. 28.5">
+      </div>
+      <div class="form-group">
+        <label for="weight_change">Recent Weight Change</label>
+        <select id="weight_change" name="self_care_lifestyle.weight_change">
+          <option value="">-- Select --</option>
+          <option value="stable" {% if self_care_lifestyle.weightChange == "stable" %}selected{% endif %}>Stable</option>
+          <option value="gained" {% if self_care_lifestyle.weightChange == "gained" %}selected{% endif %}>Weight Gain</option>
+          <option value="lost" {% if self_care_lifestyle.weightChange == "lost" %}selected{% endif %}>Weight Loss</option>
+          <option value="significantGain" {% if self_care_lifestyle.weightChange == "significantGain" %}selected{% endif %}>Significant Gain (>5kg)</option>
+          <option value="significantLoss" {% if self_care_lifestyle.weightChange == "significantLoss" %}selected{% endif %}>Significant Loss (>5kg)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="alcohol_consumption">Alcohol Consumption</label>
+        <select id="alcohol_consumption" name="self_care_lifestyle.alcohol_consumption">
+          <option value="">-- Select --</option>
+          <option value="none" {% if self_care_lifestyle.alcoholConsumption == "none" %}selected{% endif %}>None</option>
+          <option value="withinLimits" {% if self_care_lifestyle.alcoholConsumption == "withinLimits" %}selected{% endif %}>Within Recommended Limits</option>
+          <option value="aboveLimits" {% if self_care_lifestyle.alcoholConsumption == "aboveLimits" %}selected{% endif %}>Above Recommended Limits</option>
+          <option value="excessive" {% if self_care_lifestyle.alcoholConsumption == "excessive" %}selected{% endif %}>Excessive</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="smoking_cessation">Smoking Cessation Support</label>
+        <select id="smoking_cessation" name="self_care_lifestyle.smoking_cessation">
+          <option value="">-- Select --</option>
+          <option value="notApplicable" {% if self_care_lifestyle.smokingCessation == "notApplicable" %}selected{% endif %}>Not Applicable (non-smoker)</option>
+          <option value="offered" {% if self_care_lifestyle.smokingCessation == "offered" %}selected{% endif %}>Offered</option>
+          <option value="declined" {% if self_care_lifestyle.smokingCessation == "declined" %}selected{% endif %}>Declined</option>
+          <option value="ongoing" {% if self_care_lifestyle.smokingCessation == "ongoing" %}selected{% endif %}>Ongoing Programme</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

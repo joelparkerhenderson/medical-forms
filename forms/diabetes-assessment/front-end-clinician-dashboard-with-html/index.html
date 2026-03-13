@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinician Dashboard - Diabetes Assessment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <span class="header-title">Diabetes Assessment — Clinician Dashboard</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="filter-bar">
+      <input type="text" id="search-input" placeholder="Search by name or NHS number...">
+      <select id="control-filter">
+        <option value="">All Control Levels</option>
+        <option value="wellControlled">Well Controlled</option>
+        <option value="suboptimal">Suboptimal</option>
+        <option value="poor">Poor</option>
+        <option value="veryPoor">Very Poor</option>
+      </select>
+      <select id="type-filter">
+        <option value="">All Diabetes Types</option>
+        <option value="type1">Type 1</option>
+        <option value="type2">Type 2</option>
+        <option value="gestational">Gestational</option>
+        <option value="other">Other</option>
+      </select>
+      <button id="clear-filters">Clear Filters</button>
+    </div>
+
+    <table class="patient-table">
+      <thead>
+        <tr>
+          <th data-sort="patientName">Patient Name</th>
+          <th data-sort="diabetesType">Diabetes Type</th>
+          <th data-sort="hba1c">HbA1c (mmol/mol)</th>
+          <th data-sort="controlLevel">Control Level</th>
+          <th data-sort="complications">Complications</th>
+          <th data-sort="lastReview">Last Review</th>
+        </tr>
+      </thead>
+      <tbody id="patients-tbody">
+        <tr><td colspan="6" style="text-align:center;color:#6b7280;padding:2rem;">Loading...</td></tr>
+      </tbody>
+    </table>
+
+    <div class="patient-count" id="patient-count"></div>
+  </main>
+
+  <footer class="footer"><p>Diabetes Assessment &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
