@@ -1,0 +1,42 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cognitive & Perceptual - Occupational Therapy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cognitive & Perceptual Function</h2>
+    <p class="hint">Rate the patient's cognitive and perceptual abilities.
+      1 = Severely Impaired, 2 = Moderately Impaired, 3 = Mildly Impaired, 4 = Functional, 5 = Intact</p>
+
+    {% set cog_items = [
+      ["orientation", "Orientation (person, place, time, situation)"],
+      ["attention", "Attention / Concentration"],
+      ["memory", "Memory (short-term and long-term)"],
+      ["problem_solving", "Problem Solving / Reasoning"],
+      ["safety_awareness", "Safety Awareness / Judgement"],
+      ["visual_perception", "Visual Perception"],
+      ["sequencing", "Sequencing / Task Planning"]
+    ] %}
+
+    {% for item in cog_items %}
+    <div class="form-group">
+      <label>{{ item.1 }}</label>
+      <div class="radio-group">
+        {% for val in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="cognitive_perceptual.{{ item.0 }}" value="{{ val }}"
+                 {% if cognitive_perceptual[item.0] == val %}checked{% endif %}>
+          {{ val }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

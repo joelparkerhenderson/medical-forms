@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Occupational Therapy Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Occupational Therapy Assessment</h1>
+  <p>
+    This assessment tool captures a comprehensive occupational therapy evaluation
+    covering activities of daily living, instrumental activities, cognitive and
+    perceptual function, motor and sensory abilities, home environment safety,
+    work and leisure participation, patient goals, and clinical review.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive evaluation across all functional domains</p>
+    </div>
+    <div class="feature-card">
+      <h3>Function Level Grading</h3>
+      <p>Composite score with dimension-level analysis</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated alerts for safety and intervention priorities</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

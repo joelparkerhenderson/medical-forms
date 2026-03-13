@@ -1,0 +1,65 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Occupational Profile - Occupational Therapy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Occupational Profile</h2>
+    <p class="hint">Describe the patient's roles, routines, and current functional concerns.</p>
+
+    <div class="form-group">
+      <label for="living_situation">Living Situation</label>
+      <select id="living_situation" name="occupational_profile.living_situation">
+        <option value="">-- Select --</option>
+        <option value="alone" {% if occupational_profile.livingSituation == "alone" %}selected{% endif %}>Lives Alone</option>
+        <option value="withSpouse" {% if occupational_profile.livingSituation == "withSpouse" %}selected{% endif %}>Lives with Spouse/Partner</option>
+        <option value="withFamily" {% if occupational_profile.livingSituation == "withFamily" %}selected{% endif %}>Lives with Family</option>
+        <option value="assistedLiving" {% if occupational_profile.livingSituation == "assistedLiving" %}selected{% endif %}>Assisted Living</option>
+        <option value="skilledNursing" {% if occupational_profile.livingSituation == "skilledNursing" %}selected{% endif %}>Skilled Nursing Facility</option>
+        <option value="other" {% if occupational_profile.livingSituation == "other" %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="primary_roles">Primary Roles</label>
+      <textarea id="primary_roles" name="occupational_profile.primary_roles"
+                rows="3" placeholder="e.g. Homemaker, grandparent, volunteer">{{ occupational_profile.primaryRoles }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="prior_functional_level">Prior Functional Level</label>
+      <select id="prior_functional_level" name="occupational_profile.prior_functional_level">
+        <option value="">-- Select --</option>
+        <option value="independent" {% if occupational_profile.priorFunctionalLevel == "independent" %}selected{% endif %}>Fully Independent</option>
+        <option value="modifiedIndependent" {% if occupational_profile.priorFunctionalLevel == "modifiedIndependent" %}selected{% endif %}>Modified Independent</option>
+        <option value="minimalAssist" {% if occupational_profile.priorFunctionalLevel == "minimalAssist" %}selected{% endif %}>Minimal Assistance</option>
+        <option value="moderateAssist" {% if occupational_profile.priorFunctionalLevel == "moderateAssist" %}selected{% endif %}>Moderate Assistance</option>
+        <option value="maximalAssist" {% if occupational_profile.priorFunctionalLevel == "maximalAssist" %}selected{% endif %}>Maximal Assistance</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="current_concerns">Current Concerns</label>
+      <textarea id="current_concerns" name="occupational_profile.current_concerns"
+                rows="3" placeholder="Describe the patient's primary concerns...">{{ occupational_profile.currentConcerns }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="patient_goals">Patient Goals</label>
+      <textarea id="patient_goals" name="occupational_profile.patient_goals"
+                rows="3" placeholder="What does the patient hope to achieve?">{{ occupational_profile.patientGoals }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="support_system">Support System</label>
+      <textarea id="support_system" name="occupational_profile.support_system"
+                rows="2" placeholder="e.g. Spouse, adult children, home health aide">{{ occupational_profile.supportSystem }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

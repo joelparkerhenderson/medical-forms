@@ -1,0 +1,60 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Goals & Priorities - Occupational Therapy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Goals & Priorities</h2>
+    <p class="hint">Document the patient's treatment goals, priorities, and potential barriers.</p>
+
+    <div class="form-group">
+      <label for="short_term_goals">Short-Term Goals (2-4 weeks)</label>
+      <textarea id="short_term_goals" name="goals_priorities.short_term_goals"
+                rows="3" placeholder="e.g. Independent with upper body dressing within 2 weeks">{{ goals_priorities.shortTermGoals }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="long_term_goals">Long-Term Goals (4-12 weeks)</label>
+      <textarea id="long_term_goals" name="goals_priorities.long_term_goals"
+                rows="3" placeholder="e.g. Return to independent meal preparation within 8 weeks">{{ goals_priorities.longTermGoals }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="patient_priorities">Patient Priorities</label>
+      <textarea id="patient_priorities" name="goals_priorities.patient_priorities"
+                rows="3" placeholder="What matters most to the patient?">{{ goals_priorities.patientPriorities }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="caregiver_concerns">Caregiver Concerns</label>
+      <textarea id="caregiver_concerns" name="goals_priorities.caregiver_concerns"
+                rows="3" placeholder="Any concerns from family or caregivers?">{{ goals_priorities.caregiverConcerns }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="barriers_to_participation">Barriers to Participation</label>
+      <textarea id="barriers_to_participation" name="goals_priorities.barriers_to_participation"
+                rows="3" placeholder="e.g. Transportation, financial, cognitive, motivation">{{ goals_priorities.barriersToParticipation }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Motivation Level</label>
+      <p class="hint">1 = Very Low, 2 = Low, 3 = Moderate, 4 = High, 5 = Very High</p>
+      <div class="radio-group">
+        {% for val in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="goals_priorities.motivation_level" value="{{ val }}"
+                 {% if goals_priorities.motivationLevel == val %}checked{% endif %}>
+          {{ val }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

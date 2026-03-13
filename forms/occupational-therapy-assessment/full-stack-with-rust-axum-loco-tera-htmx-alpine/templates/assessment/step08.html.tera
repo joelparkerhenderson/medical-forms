@@ -1,0 +1,58 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Work & Leisure - Occupational Therapy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Work & Leisure</h2>
+    <p class="hint">Assess the patient's work capacity and leisure/social participation.
+      For rated items: 1 = Very Poor, 2 = Poor, 3 = Fair, 4 = Good, 5 = Excellent</p>
+
+    <div class="form-group">
+      <label for="employment_status">Employment Status</label>
+      <select id="employment_status" name="work_leisure.employment_status">
+        <option value="">-- Select --</option>
+        <option value="employed" {% if work_leisure.employmentStatus == "employed" %}selected{% endif %}>Employed</option>
+        <option value="unemployed" {% if work_leisure.employmentStatus == "unemployed" %}selected{% endif %}>Unemployed</option>
+        <option value="retired" {% if work_leisure.employmentStatus == "retired" %}selected{% endif %}>Retired</option>
+        <option value="disabled" {% if work_leisure.employmentStatus == "disabled" %}selected{% endif %}>On Disability</option>
+        <option value="student" {% if work_leisure.employmentStatus == "student" %}selected{% endif %}>Student</option>
+        <option value="homemaker" {% if work_leisure.employmentStatus == "homemaker" %}selected{% endif %}>Homemaker</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="work_demands">Work Demands (if applicable)</label>
+      <textarea id="work_demands" name="work_leisure.work_demands"
+                rows="2" placeholder="e.g. Desk work, heavy lifting, standing for long periods">{{ work_leisure.workDemands }}</textarea>
+    </div>
+
+    {% set work_items = [
+      ["return_to_work_potential", "Return to Work Potential"],
+      ["leisure_participation", "Leisure Activity Participation"],
+      ["social_participation", "Social Participation"],
+      ["community_integration", "Community Integration"]
+    ] %}
+
+    {% for item in work_items %}
+    <div class="form-group">
+      <label>{{ item.1 }}</label>
+      <div class="radio-group">
+        {% for val in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="work_leisure.{{ item.0 }}" value="{{ val }}"
+                 {% if work_leisure[item.0] == val %}checked{% endif %}>
+          {{ val }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Instrumental Activities - Occupational Therapy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Instrumental Activities of Daily Living (IADL)</h2>
+    <p class="hint">Rate the patient's current level of independence for each IADL.
+      1 = Dependent, 2 = Maximal Assist, 3 = Moderate Assist, 4 = Minimal Assist, 5 = Independent</p>
+
+    {% set iadl_items = [
+      ["meal_preparation", "Meal Preparation"],
+      ["household_management", "Household Management"],
+      ["medication_management", "Medication Management"],
+      ["financial_management", "Financial Management"],
+      ["community_mobility", "Community Mobility"],
+      ["shopping", "Shopping"],
+      ["telephone_use", "Telephone / Communication Device Use"]
+    ] %}
+
+    {% for item in iadl_items %}
+    <div class="form-group">
+      <label>{{ item.1 }}</label>
+      <div class="radio-group">
+        {% for val in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="instrumental_activities.{{ item.0 }}" value="{{ val }}"
+                 {% if instrumental_activities[item.0] == val %}checked{% endif %}>
+          {{ val }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

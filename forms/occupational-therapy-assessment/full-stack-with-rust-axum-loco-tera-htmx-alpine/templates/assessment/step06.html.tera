@@ -1,0 +1,43 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Motor & Sensory - Occupational Therapy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Motor & Sensory Function</h2>
+    <p class="hint">Rate the patient's motor and sensory abilities.
+      1 = Severely Impaired, 2 = Moderately Impaired, 3 = Mildly Impaired, 4 = Functional, 5 = Intact</p>
+
+    {% set motor_items = [
+      ["upper_extremity_strength", "Upper Extremity Strength"],
+      ["lower_extremity_strength", "Lower Extremity Strength"],
+      ["range_of_motion", "Range of Motion"],
+      ["fine_motor_coordination", "Fine Motor Coordination"],
+      ["gross_motor_coordination", "Gross Motor Coordination"],
+      ["balance", "Balance (sitting and standing)"],
+      ["sensation", "Sensation (light touch, proprioception)"],
+      ["endurance", "Endurance / Activity Tolerance"]
+    ] %}
+
+    {% for item in motor_items %}
+    <div class="form-group">
+      <label>{{ item.1 }}</label>
+      <div class="radio-group">
+        {% for val in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="motor_sensory.{{ item.0 }}" value="{{ val }}"
+                 {% if motor_sensory[item.0] == val %}checked{% endif %}>
+          {{ val }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

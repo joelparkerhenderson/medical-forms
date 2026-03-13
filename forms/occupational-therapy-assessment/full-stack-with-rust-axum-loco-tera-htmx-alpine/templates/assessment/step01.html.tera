@@ -1,0 +1,81 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Occupational Therapy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide the patient's demographic and referral details.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. Jane Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select id="gender" name="patient_information.gender">
+          <option value="">-- Select --</option>
+          <option value="male" {% if patient_information.gender == "male" %}selected{% endif %}>Male</option>
+          <option value="female" {% if patient_information.gender == "female" %}selected{% endif %}>Female</option>
+          <option value="other" {% if patient_information.gender == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="referral_source">Referral Source</label>
+        <select id="referral_source" name="patient_information.referral_source">
+          <option value="">-- Select --</option>
+          <option value="physician" {% if patient_information.referralSource == "physician" %}selected{% endif %}>Physician</option>
+          <option value="selfReferral" {% if patient_information.referralSource == "selfReferral" %}selected{% endif %}>Self-Referral</option>
+          <option value="hospital" {% if patient_information.referralSource == "hospital" %}selected{% endif %}>Hospital</option>
+          <option value="insurance" {% if patient_information.referralSource == "insurance" %}selected{% endif %}>Insurance</option>
+          <option value="other" {% if patient_information.referralSource == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="referral_date">Referral Date</label>
+        <input type="date" id="referral_date" name="patient_information.referral_date"
+               value="{{ patient_information.referralDate }}">
+      </div>
+      <div class="form-group">
+        <label for="assessment_date">Assessment Date</label>
+        <input type="date" id="assessment_date" name="patient_information.assessment_date"
+               value="{{ patient_information.assessmentDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="diagnosis">Primary Diagnosis</label>
+        <input type="text" id="diagnosis" name="patient_information.diagnosis"
+               value="{{ patient_information.diagnosis }}"
+               placeholder="e.g. CVA, TBI, Hip Fracture">
+      </div>
+      <div class="form-group">
+        <label for="therapist_name">Therapist Name</label>
+        <input type="text" id="therapist_name" name="patient_information.therapist_name"
+               value="{{ patient_information.therapistName }}"
+               placeholder="e.g. Sarah Johnson, OTR/L">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

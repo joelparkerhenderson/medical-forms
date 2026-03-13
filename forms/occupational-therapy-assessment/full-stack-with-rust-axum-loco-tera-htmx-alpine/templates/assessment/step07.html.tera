@@ -1,0 +1,51 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Home Environment - Occupational Therapy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Home Environment</h2>
+    <p class="hint">Assess the patient's home environment for safety and accessibility.
+      1 = Very Poor, 2 = Poor, 3 = Fair, 4 = Good, 5 = Excellent</p>
+
+    {% set home_items = [
+      ["home_accessibility", "Home Accessibility (entrances, hallways, stairs)"],
+      ["bathroom_safety", "Bathroom Safety (grab bars, non-slip surfaces)"],
+      ["kitchen_safety", "Kitchen Safety (reachability, appliance access)"],
+      ["fall_risk_factors", "Fall Risk Factors (rugs, clutter, lighting)"]
+    ] %}
+
+    {% for item in home_items %}
+    <div class="form-group">
+      <label>{{ item.1 }}</label>
+      <div class="radio-group">
+        {% for val in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="home_environment.{{ item.0 }}" value="{{ val }}"
+                 {% if home_environment[item.0] == val %}checked{% endif %}>
+          {{ val }}
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    <div class="form-group">
+      <label for="adaptive_equipment_needs">Adaptive Equipment Needs</label>
+      <textarea id="adaptive_equipment_needs" name="home_environment.adaptive_equipment_needs"
+                rows="3" placeholder="e.g. Grab bars, raised toilet seat, shower chair, reacher">{{ home_environment.adaptiveEquipmentNeeds }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="home_modification_needs">Home Modification Recommendations</label>
+      <textarea id="home_modification_needs" name="home_environment.home_modification_needs"
+                rows="3" placeholder="e.g. Ramp installation, bathroom renovation, stair rail">{{ home_environment.homeModificationNeeds }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

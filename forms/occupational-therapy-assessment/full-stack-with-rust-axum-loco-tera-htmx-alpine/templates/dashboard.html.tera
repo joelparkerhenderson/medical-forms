@@ -1,0 +1,67 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Occupational Therapy Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>OT Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by date, diagnosis, therapist, patient...">
+    </div>
+    <div class="form-group">
+      <label for="function_level">Function Level</label>
+      <select id="function_level" name="function_level">
+        <option value="">All Levels</option>
+        <option value="independent" {% if function_level == "independent" %}selected{% endif %}>Independent</option>
+        <option value="modified" {% if function_level == "modified" %}selected{% endif %}>Modified Independent</option>
+        <option value="supervisory" {% if function_level == "supervisory" %}selected{% endif %}>Supervisory</option>
+        <option value="dependent" {% if function_level == "dependent" %}selected{% endif %}>Dependent</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Patient</th>
+      <th>Diagnosis</th>
+      <th>Therapist</th>
+      <th>Function Level</th>
+      <th>Score</th>
+      <th>ADL Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.assessmentDate }}</a></td>
+      <td>{{ patient.patientName }}</td>
+      <td>{{ patient.diagnosis }}</td>
+      <td>{{ patient.therapistName }}</td>
+      <td><span class="function-badge function-{{ patient.functionLevel }}">{{ patient.functionLevel }}</span></td>
+      <td>{{ patient.functionScore }}%</td>
+      <td>{{ patient.adlStatus }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}
