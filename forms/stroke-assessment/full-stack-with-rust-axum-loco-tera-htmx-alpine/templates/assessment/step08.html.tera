@@ -1,0 +1,107 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Functional Assessment - Stroke Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Functional Assessment</h2>
+    <p class="hint">Assess the patient's functional status and rehabilitation needs.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="modified_rankin_score">Modified Rankin Score (mRS) (0-6)</label>
+        <select id="modified_rankin_score" name="functional_assessment.modified_rankin_score">
+          <option value="">-- Select --</option>
+          <option value="0" {% if functional_assessment.modifiedRankinScore == 0 %}selected{% endif %}>0 - No symptoms</option>
+          <option value="1" {% if functional_assessment.modifiedRankinScore == 1 %}selected{% endif %}>1 - No significant disability</option>
+          <option value="2" {% if functional_assessment.modifiedRankinScore == 2 %}selected{% endif %}>2 - Slight disability</option>
+          <option value="3" {% if functional_assessment.modifiedRankinScore == 3 %}selected{% endif %}>3 - Moderate disability</option>
+          <option value="4" {% if functional_assessment.modifiedRankinScore == 4 %}selected{% endif %}>4 - Moderately severe disability</option>
+          <option value="5" {% if functional_assessment.modifiedRankinScore == 5 %}selected{% endif %}>5 - Severe disability</option>
+          <option value="6" {% if functional_assessment.modifiedRankinScore == 6 %}selected{% endif %}>6 - Dead</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="barthel_index">Barthel Index (0-100)</label>
+        <input type="number" id="barthel_index" name="functional_assessment.barthel_index"
+               value="{% if functional_assessment.barthelIndex %}{{ functional_assessment.barthelIndex }}{% endif %}"
+               min="0" max="100" placeholder="e.g. 65">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mobility_status">Mobility Status</label>
+        <select id="mobility_status" name="functional_assessment.mobility_status">
+          <option value="">-- Select --</option>
+          <option value="independent" {% if functional_assessment.mobilityStatus == "independent" %}selected{% endif %}>Independent</option>
+          <option value="aidRequired" {% if functional_assessment.mobilityStatus == "aidRequired" %}selected{% endif %}>Aid Required</option>
+          <option value="assistanceRequired" {% if functional_assessment.mobilityStatus == "assistanceRequired" %}selected{% endif %}>Assistance Required</option>
+          <option value="nonAmbulant" {% if functional_assessment.mobilityStatus == "nonAmbulant" %}selected{% endif %}>Non-Ambulant</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="speech_assessment">Speech Assessment</label>
+        <select id="speech_assessment" name="functional_assessment.speech_assessment">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if functional_assessment.speechAssessment == "normal" %}selected{% endif %}>Normal</option>
+          <option value="mildImpairment" {% if functional_assessment.speechAssessment == "mildImpairment" %}selected{% endif %}>Mild Impairment</option>
+          <option value="moderateImpairment" {% if functional_assessment.speechAssessment == "moderateImpairment" %}selected{% endif %}>Moderate Impairment</option>
+          <option value="severeImpairment" {% if functional_assessment.speechAssessment == "severeImpairment" %}selected{% endif %}>Severe Impairment</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="swallowing_status">Swallowing Status</label>
+        <select id="swallowing_status" name="functional_assessment.swallowing_status">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if functional_assessment.swallowingStatus == "normal" %}selected{% endif %}>Normal</option>
+          <option value="modifiedDiet" {% if functional_assessment.swallowingStatus == "modifiedDiet" %}selected{% endif %}>Modified Diet</option>
+          <option value="nilByMouth" {% if functional_assessment.swallowingStatus == "nilByMouth" %}selected{% endif %}>Nil By Mouth</option>
+          <option value="ngTube" {% if functional_assessment.swallowingStatus == "ngTube" %}selected{% endif %}>NG Tube</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cognition">Cognition</label>
+        <select id="cognition" name="functional_assessment.cognition">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if functional_assessment.cognition == "normal" %}selected{% endif %}>Normal</option>
+          <option value="mildImpairment" {% if functional_assessment.cognition == "mildImpairment" %}selected{% endif %}>Mild Impairment</option>
+          <option value="moderateImpairment" {% if functional_assessment.cognition == "moderateImpairment" %}selected{% endif %}>Moderate Impairment</option>
+          <option value="severeImpairment" {% if functional_assessment.cognition == "severeImpairment" %}selected{% endif %}>Severe Impairment</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mood_screening">Mood Screening</label>
+        <select id="mood_screening" name="functional_assessment.mood_screening">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if functional_assessment.moodScreening == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if functional_assessment.moodScreening == "abnormal" %}selected{% endif %}>Abnormal</option>
+          <option value="depressed" {% if functional_assessment.moodScreening == "depressed" %}selected{% endif %}>Depressed</option>
+          <option value="anxious" {% if functional_assessment.moodScreening == "anxious" %}selected{% endif %}>Anxious</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="continence">Continence</label>
+        <select id="continence" name="functional_assessment.continence">
+          <option value="">-- Select --</option>
+          <option value="continent" {% if functional_assessment.continence == "continent" %}selected{% endif %}>Continent</option>
+          <option value="occasional" {% if functional_assessment.continence == "occasional" %}selected{% endif %}>Occasional Incontinence</option>
+          <option value="incontinent" {% if functional_assessment.continence == "incontinent" %}selected{% endif %}>Incontinent</option>
+          <option value="catheterised" {% if functional_assessment.continence == "catheterised" %}selected{% endif %}>Catheterised</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

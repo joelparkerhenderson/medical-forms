@@ -1,0 +1,89 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Acute Treatment - Stroke Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Acute Treatment</h2>
+    <p class="hint">Document acute interventions and treatment decisions.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Thrombolysis Administered</label>
+        <div class="radio-group">
+          <label><input type="radio" name="acute_treatment.thrombolysis" value="yes" {% if acute_treatment.thrombolysis == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="acute_treatment.thrombolysis" value="no" {% if acute_treatment.thrombolysis == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="thrombolysis_time">Thrombolysis Time (if given)</label>
+        <input type="text" id="thrombolysis_time" name="acute_treatment.thrombolysis_time"
+               value="{{ acute_treatment.thrombolysisTime }}"
+               placeholder="e.g. 15:30">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Thrombectomy Performed</label>
+      <div class="radio-group">
+        <label><input type="radio" name="acute_treatment.thrombectomy" value="yes" {% if acute_treatment.thrombectomy == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="acute_treatment.thrombectomy" value="no" {% if acute_treatment.thrombectomy == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="antiplatelet">Antiplatelet Therapy</label>
+        <select id="antiplatelet" name="acute_treatment.antiplatelet">
+          <option value="">-- Select --</option>
+          <option value="aspirin" {% if acute_treatment.antiplatelet == "aspirin" %}selected{% endif %}>Aspirin</option>
+          <option value="clopidogrel" {% if acute_treatment.antiplatelet == "clopidogrel" %}selected{% endif %}>Clopidogrel</option>
+          <option value="dualAntiplatelet" {% if acute_treatment.antiplatelet == "dualAntiplatelet" %}selected{% endif %}>Dual Antiplatelet</option>
+          <option value="none" {% if acute_treatment.antiplatelet == "none" %}selected{% endif %}>None</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="anticoagulant">Anticoagulant</label>
+        <select id="anticoagulant" name="acute_treatment.anticoagulant">
+          <option value="">-- Select --</option>
+          <option value="heparin" {% if acute_treatment.anticoagulant == "heparin" %}selected{% endif %}>Heparin</option>
+          <option value="warfarin" {% if acute_treatment.anticoagulant == "warfarin" %}selected{% endif %}>Warfarin</option>
+          <option value="doac" {% if acute_treatment.anticoagulant == "doac" %}selected{% endif %}>DOAC</option>
+          <option value="none" {% if acute_treatment.anticoagulant == "none" %}selected{% endif %}>None</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="bp_management">Blood Pressure Management</label>
+      <input type="text" id="bp_management" name="acute_treatment.bp_management"
+             value="{{ acute_treatment.bpManagement }}"
+             placeholder="e.g. Labetalol infusion, target <185/110">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Nil By Mouth</label>
+        <div class="radio-group">
+          <label><input type="radio" name="acute_treatment.nil_by_mouth" value="yes" {% if acute_treatment.nilByMouth == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="acute_treatment.nil_by_mouth" value="no" {% if acute_treatment.nilByMouth == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="swallow_assessment">Swallow Assessment</label>
+        <select id="swallow_assessment" name="acute_treatment.swallow_assessment">
+          <option value="">-- Select --</option>
+          <option value="pass" {% if acute_treatment.swallowAssessment == "pass" %}selected{% endif %}>Pass</option>
+          <option value="fail" {% if acute_treatment.swallowAssessment == "fail" %}selected{% endif %}>Fail</option>
+          <option value="pending" {% if acute_treatment.swallowAssessment == "pending" %}selected{% endif %}>Pending</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

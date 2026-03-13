@@ -1,0 +1,211 @@
+{% extends "base.html.tera" %}
+
+{% block title %}NIHSS Assessment - Stroke Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>NIHSS Assessment</h2>
+    <p class="hint">Score each item of the National Institutes of Health Stroke Scale. Higher scores indicate greater severity.</p>
+
+    <div class="nihss-item">
+      <label>1a. Level of Consciousness</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="nihss_assessment.consciousness" value="{{ i }}"
+                 {% if nihss_assessment.consciousness == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Alert{% elif i == 1 %}Not alert, arousable{% elif i == 2 %}Not alert, obtunded{% else %}Unresponsive{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>1b. Orientation Questions (month, age)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2] %}
+        <label>
+          <input type="radio" name="nihss_assessment.orientation_questions" value="{{ i }}"
+                 {% if nihss_assessment.orientationQuestions == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Both correct{% elif i == 1 %}One correct{% else %}Neither correct{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>1c. Response to Commands (open/close eyes, grip/release)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2] %}
+        <label>
+          <input type="radio" name="nihss_assessment.response_to_commands" value="{{ i }}"
+                 {% if nihss_assessment.responseToCommands == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Both correct{% elif i == 1 %}One correct{% else %}Neither correct{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>2. Best Gaze</label>
+      <div class="likert-options">
+        {% for i in [0,1,2] %}
+        <label>
+          <input type="radio" name="nihss_assessment.best_gaze" value="{{ i }}"
+                 {% if nihss_assessment.bestGaze == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Normal{% elif i == 1 %}Partial gaze palsy{% else %}Forced deviation{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>3. Visual Fields</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="nihss_assessment.visual_fields" value="{{ i }}"
+                 {% if nihss_assessment.visualFields == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No loss{% elif i == 1 %}Partial hemianopia{% elif i == 2 %}Complete hemianopia{% else %}Bilateral blindness{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>4. Facial Palsy</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="nihss_assessment.facial_palsy" value="{{ i }}"
+                 {% if nihss_assessment.facialPalsy == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Normal{% elif i == 1 %}Minor paralysis{% elif i == 2 %}Partial paralysis{% else %}Complete paralysis{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>5a. Motor - Left Arm</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="nihss_assessment.motor_left_arm" value="{{ i }}"
+                 {% if nihss_assessment.motorLeftArm == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No drift{% elif i == 1 %}Drift{% elif i == 2 %}Some effort{% elif i == 3 %}No effort{% else %}No movement{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>5b. Motor - Right Arm</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="nihss_assessment.motor_right_arm" value="{{ i }}"
+                 {% if nihss_assessment.motorRightArm == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No drift{% elif i == 1 %}Drift{% elif i == 2 %}Some effort{% elif i == 3 %}No effort{% else %}No movement{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>6a. Motor - Left Leg</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="nihss_assessment.motor_left_leg" value="{{ i }}"
+                 {% if nihss_assessment.motorLeftLeg == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No drift{% elif i == 1 %}Drift{% elif i == 2 %}Some effort{% elif i == 3 %}No effort{% else %}No movement{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>6b. Motor - Right Leg</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="nihss_assessment.motor_right_leg" value="{{ i }}"
+                 {% if nihss_assessment.motorRightLeg == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No drift{% elif i == 1 %}Drift{% elif i == 2 %}Some effort{% elif i == 3 %}No effort{% else %}No movement{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>7. Limb Ataxia</label>
+      <div class="likert-options">
+        {% for i in [0,1,2] %}
+        <label>
+          <input type="radio" name="nihss_assessment.limb_ataxia" value="{{ i }}"
+                 {% if nihss_assessment.limbAtaxia == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Absent{% elif i == 1 %}Present in one limb{% else %}Present in two limbs{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>8. Sensory</label>
+      <div class="likert-options">
+        {% for i in [0,1,2] %}
+        <label>
+          <input type="radio" name="nihss_assessment.sensory" value="{{ i }}"
+                 {% if nihss_assessment.sensory == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Normal{% elif i == 1 %}Mild-moderate loss{% else %}Severe/total loss{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>9. Best Language</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="nihss_assessment.language" value="{{ i }}"
+                 {% if nihss_assessment.language == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No aphasia{% elif i == 1 %}Mild-moderate{% elif i == 2 %}Severe aphasia{% else %}Mute/global{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>10. Dysarthria</label>
+      <div class="likert-options">
+        {% for i in [0,1,2] %}
+        <label>
+          <input type="radio" name="nihss_assessment.dysarthria" value="{{ i }}"
+                 {% if nihss_assessment.dysarthria == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Normal{% elif i == 1 %}Mild-moderate{% else %}Severe/mute{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nihss-item">
+      <label>11. Extinction and Inattention (Neglect)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2] %}
+        <label>
+          <input type="radio" name="nihss_assessment.neglect" value="{{ i }}"
+                 {% if nihss_assessment.neglect == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No abnormality{% elif i == 1 %}One modality{% else %}Profound (two modalities){% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

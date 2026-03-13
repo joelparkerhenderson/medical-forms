@@ -1,0 +1,107 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Risk Factors - Stroke Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Risk Factors</h2>
+    <p class="hint">Document known stroke risk factors and comorbidities.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Hypertension</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.hypertension" value="yes" {% if risk_factors.hypertension == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.hypertension" value="no" {% if risk_factors.hypertension == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Atrial Fibrillation</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.atrial_fibrillation" value="yes" {% if risk_factors.atrialFibrillation == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.atrial_fibrillation" value="no" {% if risk_factors.atrialFibrillation == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Diabetes</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.diabetes" value="yes" {% if risk_factors.diabetes == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.diabetes" value="no" {% if risk_factors.diabetes == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Dyslipidaemia</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.dyslipidaemia" value="yes" {% if risk_factors.dyslipidaemia == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.dyslipidaemia" value="no" {% if risk_factors.dyslipidaemia == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Previous Stroke</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.previous_stroke" value="yes" {% if risk_factors.previousStroke == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.previous_stroke" value="no" {% if risk_factors.previousStroke == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Previous TIA</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.previous_tia" value="yes" {% if risk_factors.previousTia == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.previous_tia" value="no" {% if risk_factors.previousTia == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="smoking_status">Smoking Status</label>
+        <select id="smoking_status" name="risk_factors.smoking_status">
+          <option value="">-- Select --</option>
+          <option value="never" {% if risk_factors.smokingStatus == "never" %}selected{% endif %}>Never Smoked</option>
+          <option value="current" {% if risk_factors.smokingStatus == "current" %}selected{% endif %}>Current Smoker</option>
+          <option value="exSmoker" {% if risk_factors.smokingStatus == "exSmoker" %}selected{% endif %}>Ex-Smoker</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Alcohol Excess</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.alcohol_excess" value="yes" {% if risk_factors.alcoholExcess == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.alcohol_excess" value="no" {% if risk_factors.alcoholExcess == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="carotid_stenosis">Carotid Stenosis</label>
+        <select id="carotid_stenosis" name="risk_factors.carotid_stenosis">
+          <option value="">-- Select --</option>
+          <option value="none" {% if risk_factors.carotidStenosis == "none" %}selected{% endif %}>None</option>
+          <option value="mild" {% if risk_factors.carotidStenosis == "mild" %}selected{% endif %}>Mild (&lt;50%)</option>
+          <option value="moderate" {% if risk_factors.carotidStenosis == "moderate" %}selected{% endif %}>Moderate (50-69%)</option>
+          <option value="severe" {% if risk_factors.carotidStenosis == "severe" %}selected{% endif %}>Severe (70-99%)</option>
+          <option value="occluded" {% if risk_factors.carotidStenosis == "occluded" %}selected{% endif %}>Occluded</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Patent Foramen Ovale (PFO)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.pfo" value="yes" {% if risk_factors.pfo == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.pfo" value="no" {% if risk_factors.pfo == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

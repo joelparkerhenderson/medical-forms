@@ -1,0 +1,102 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Event Details - Stroke Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Event Details</h2>
+    <p class="hint">Record the timeline and presenting features of the stroke event.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="symptom_onset_date">Symptom Onset Date</label>
+        <input type="date" id="symptom_onset_date" name="event_details.symptom_onset_date"
+               value="{{ event_details.symptomOnsetDate }}">
+      </div>
+      <div class="form-group">
+        <label for="symptom_onset_time">Symptom Onset Time</label>
+        <input type="text" id="symptom_onset_time" name="event_details.symptom_onset_time"
+               value="{{ event_details.symptomOnsetTime }}"
+               placeholder="e.g. 14:30">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="last_known_well">Last Known Well</label>
+        <input type="text" id="last_known_well" name="event_details.last_known_well"
+               value="{{ event_details.lastKnownWell }}"
+               placeholder="e.g. 2026-03-09 08:00">
+      </div>
+      <div class="form-group">
+        <label for="arrival_time">Hospital Arrival Time</label>
+        <input type="text" id="arrival_time" name="event_details.arrival_time"
+               value="{{ event_details.arrivalTime }}"
+               placeholder="e.g. 15:00">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Stroke Code Activated?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="event_details.stroke_code" value="yes" {% if event_details.strokeCode == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="event_details.stroke_code" value="no" {% if event_details.strokeCode == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <h3>FAST Assessment</h3>
+
+    <div class="form-row-3">
+      <div class="form-group">
+        <label>Facial Droop</label>
+        <div class="radio-group">
+          <label><input type="radio" name="event_details.facial_droop" value="yes" {% if event_details.facialDroop == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="event_details.facial_droop" value="no" {% if event_details.facialDroop == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Arm Weakness</label>
+        <div class="radio-group">
+          <label><input type="radio" name="event_details.arm_weakness" value="yes" {% if event_details.armWeakness == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="event_details.arm_weakness" value="no" {% if event_details.armWeakness == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Speech Difficulty</label>
+        <div class="radio-group">
+          <label><input type="radio" name="event_details.speech_difficulty" value="yes" {% if event_details.speechDifficulty == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="event_details.speech_difficulty" value="no" {% if event_details.speechDifficulty == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="symptom_duration">Symptom Duration</label>
+        <select id="symptom_duration" name="event_details.symptom_duration">
+          <option value="">-- Select --</option>
+          <option value="lessThan1hr" {% if event_details.symptomDuration == "lessThan1hr" %}selected{% endif %}>Less than 1 hour</option>
+          <option value="1to4hrs" {% if event_details.symptomDuration == "1to4hrs" %}selected{% endif %}>1 - 4 hours</option>
+          <option value="4to24hrs" {% if event_details.symptomDuration == "4to24hrs" %}selected{% endif %}>4 - 24 hours</option>
+          <option value="moreThan24hrs" {% if event_details.symptomDuration == "moreThan24hrs" %}selected{% endif %}>More than 24 hours</option>
+          <option value="ongoing" {% if event_details.symptomDuration == "ongoing" %}selected{% endif %}>Ongoing</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tia_or_stroke">TIA or Stroke?</label>
+        <select id="tia_or_stroke" name="event_details.tia_or_stroke">
+          <option value="">-- Select --</option>
+          <option value="tia" {% if event_details.tiaOrStroke == "tia" %}selected{% endif %}>TIA</option>
+          <option value="stroke" {% if event_details.tiaOrStroke == "stroke" %}selected{% endif %}>Stroke</option>
+          <option value="uncertain" {% if event_details.tiaOrStroke == "uncertain" %}selected{% endif %}>Uncertain</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

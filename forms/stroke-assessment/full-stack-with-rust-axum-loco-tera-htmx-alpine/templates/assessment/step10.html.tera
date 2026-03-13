@@ -1,0 +1,81 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Stroke Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Final clinical review, discharge planning, and follow-up arrangements.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_name">Clinician Name</label>
+        <input type="text" id="clinician_name" name="clinical_review.clinician_name"
+               value="{{ clinical_review.clinicianName }}"
+               placeholder="e.g. Dr A. Williams">
+      </div>
+      <div class="form-group">
+        <label for="review_date">Review Date</label>
+        <input type="date" id="review_date" name="clinical_review.review_date"
+               value="{{ clinical_review.reviewDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nihss_total">NIHSS Total Score (calculated)</label>
+        <input type="number" id="nihss_total" name="clinical_review.nihss_total"
+               value="{% if clinical_review.nihssTotal %}{{ clinical_review.nihssTotal }}{% endif %}"
+               min="0" max="42" placeholder="0-42">
+      </div>
+      <div class="form-group">
+        <label for="severity_level">Severity Level</label>
+        <select id="severity_level" name="clinical_review.severity_level">
+          <option value="">-- Select --</option>
+          <option value="minor" {% if clinical_review.severityLevel == "minor" %}selected{% endif %}>Minor (NIHSS 0-4)</option>
+          <option value="moderate" {% if clinical_review.severityLevel == "moderate" %}selected{% endif %}>Moderate (NIHSS 5-15)</option>
+          <option value="moderateSevere" {% if clinical_review.severityLevel == "moderateSevere" %}selected{% endif %}>Moderate-Severe (NIHSS 16-20)</option>
+          <option value="severe" {% if clinical_review.severityLevel == "severe" %}selected{% endif %}>Severe (NIHSS 21-42)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_notes">Clinical Notes</label>
+      <textarea id="clinical_notes" name="clinical_review.clinical_notes"
+                rows="4" placeholder="Summary of clinical findings and management plan">{{ clinical_review.clinicalNotes }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="discharge_destination">Discharge Destination</label>
+        <select id="discharge_destination" name="clinical_review.discharge_destination">
+          <option value="">-- Select --</option>
+          <option value="home" {% if clinical_review.dischargeDestination == "home" %}selected{% endif %}>Home</option>
+          <option value="rehabilitation" {% if clinical_review.dischargeDestination == "rehabilitation" %}selected{% endif %}>Rehabilitation Unit</option>
+          <option value="nursingHome" {% if clinical_review.dischargeDestination == "nursingHome" %}selected{% endif %}>Nursing Home</option>
+          <option value="transfer" {% if clinical_review.dischargeDestination == "transfer" %}selected{% endif %}>Transfer to Another Hospital</option>
+          <option value="inpatient" {% if clinical_review.dischargeDestination == "inpatient" %}selected{% endif %}>Continued Inpatient</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="follow_up_plan">Follow-up Plan</label>
+        <input type="text" id="follow_up_plan" name="clinical_review.follow_up_plan"
+               value="{{ clinical_review.followUpPlan }}"
+               placeholder="e.g. Stroke clinic 6 weeks">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="referrals">Referrals</label>
+      <textarea id="referrals" name="clinical_review.referrals"
+                rows="3" placeholder="e.g. Physiotherapy, Speech therapy, OT, Dietetics">{{ clinical_review.referrals }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

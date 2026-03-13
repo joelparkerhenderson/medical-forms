@@ -1,0 +1,78 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Investigations - Stroke Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Investigations</h2>
+    <p class="hint">Document imaging and laboratory investigation results.</p>
+
+    <div class="form-group">
+      <label for="ct_brain">CT Brain Result</label>
+      <textarea id="ct_brain" name="investigations.ct_brain"
+                rows="2" placeholder="e.g. Acute ischaemic changes in left MCA territory">{{ investigations.ctBrain }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="ct_angiography">CT Angiography Result</label>
+      <textarea id="ct_angiography" name="investigations.ct_angiography"
+                rows="2" placeholder="e.g. Left MCA M1 occlusion">{{ investigations.ctAngiography }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="mri">MRI Result</label>
+      <textarea id="mri" name="investigations.mri"
+                rows="2" placeholder="e.g. DWI-positive acute infarct">{{ investigations.mri }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="carotid_doppler">Carotid Doppler</label>
+        <input type="text" id="carotid_doppler" name="investigations.carotid_doppler"
+               value="{{ investigations.carotidDoppler }}"
+               placeholder="e.g. 70% left ICA stenosis">
+      </div>
+      <div class="form-group">
+        <label for="echocardiogram">Echocardiogram</label>
+        <input type="text" id="echocardiogram" name="investigations.echocardiogram"
+               value="{{ investigations.echocardiogram }}"
+               placeholder="e.g. Normal LV function, no thrombus">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="holter_monitor">Holter Monitor</label>
+      <input type="text" id="holter_monitor" name="investigations.holter_monitor"
+             value="{{ investigations.holterMonitor }}"
+             placeholder="e.g. Paroxysmal AF detected">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="blood_glucose">Blood Glucose (mmol/L)</label>
+        <input type="number" step="0.1" id="blood_glucose" name="investigations.blood_glucose"
+               value="{% if investigations.bloodGlucose %}{{ investigations.bloodGlucose }}{% endif %}"
+               placeholder="e.g. 6.5">
+      </div>
+      <div class="form-group">
+        <label for="inr">INR</label>
+        <input type="number" step="0.1" id="inr" name="investigations.inr"
+               value="{% if investigations.inr %}{{ investigations.inr }}{% endif %}"
+               placeholder="e.g. 1.0">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lipid_profile">Lipid Profile</label>
+      <input type="text" id="lipid_profile" name="investigations.lipid_profile"
+             value="{{ investigations.lipidProfile }}"
+             placeholder="e.g. Total cholesterol 5.2, LDL 3.1">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

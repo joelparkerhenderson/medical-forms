@@ -1,0 +1,33 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Stroke Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Stroke Assessment Form</h1>
+  <p>
+    This stroke assessment form is based on the NIHSS (National Institutes of Health Stroke Scale),
+    evaluating stroke type, severity, risk factors, functional status, and secondary prevention
+    for acute stroke, TIA, and post-stroke follow-up.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive evaluation from patient information through clinical review</p>
+    </div>
+    <div class="feature-card">
+      <h3>NIHSS Scoring</h3>
+      <p>Standardised stroke severity assessment with 15 examination items</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated alerts for urgent interventions and follow-up actions</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Stroke Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Stroke Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient name, type...">
+    </div>
+    <div class="form-group">
+      <label for="severity_level">Severity Level</label>
+      <select id="severity_level" name="severity_level">
+        <option value="">All Levels</option>
+        <option value="minor" {% if severity_level == "minor" %}selected{% endif %}>Minor</option>
+        <option value="moderate" {% if severity_level == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="moderateSevere" {% if severity_level == "moderateSevere" %}selected{% endif %}>Moderate-Severe</option>
+        <option value="severe" {% if severity_level == "severe" %}selected{% endif %}>Severe</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="stroke_type">Stroke Type</label>
+      <select id="stroke_type" name="stroke_type">
+        <option value="">All Types</option>
+        <option value="ischaemic" {% if stroke_type == "ischaemic" %}selected{% endif %}>Ischaemic</option>
+        <option value="haemorrhagic" {% if stroke_type == "haemorrhagic" %}selected{% endif %}>Haemorrhagic</option>
+        <option value="unknown" {% if stroke_type == "unknown" %}selected{% endif %}>Unknown</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Stroke Type</th>
+      <th>NIHSS Score</th>
+      <th>Severity</th>
+      <th>mRS</th>
+      <th>AF</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.strokeType }}</td>
+      <td>{{ patient.nihssScore }}</td>
+      <td><span class="severity-badge severity-{{ patient.severityLevel }}">{{ patient.severityLevel }}</span></td>
+      <td>{{ patient.mrsScore }}</td>
+      <td>{{ patient.afStatus }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

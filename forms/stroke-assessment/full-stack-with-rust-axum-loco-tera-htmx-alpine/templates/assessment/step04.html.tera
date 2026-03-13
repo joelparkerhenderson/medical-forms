@@ -1,0 +1,68 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Stroke Type & Classification - Stroke Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Stroke Type & Classification</h2>
+    <p class="hint">Classify the stroke type using clinical and imaging findings.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="stroke_type">Stroke Type</label>
+        <select id="stroke_type" name="stroke_classification.stroke_type">
+          <option value="">-- Select --</option>
+          <option value="ischaemic" {% if stroke_classification.strokeType == "ischaemic" %}selected{% endif %}>Ischaemic</option>
+          <option value="haemorrhagic" {% if stroke_classification.strokeType == "haemorrhagic" %}selected{% endif %}>Haemorrhagic</option>
+          <option value="unknown" {% if stroke_classification.strokeType == "unknown" %}selected{% endif %}>Unknown</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="side_affected">Side Affected</label>
+        <select id="side_affected" name="stroke_classification.side_affected">
+          <option value="">-- Select --</option>
+          <option value="left" {% if stroke_classification.sideAffected == "left" %}selected{% endif %}>Left</option>
+          <option value="right" {% if stroke_classification.sideAffected == "right" %}selected{% endif %}>Right</option>
+          <option value="bilateral" {% if stroke_classification.sideAffected == "bilateral" %}selected{% endif %}>Bilateral</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bamford_classification">Bamford (Oxford) Classification</label>
+        <select id="bamford_classification" name="stroke_classification.bamford_classification">
+          <option value="">-- Select --</option>
+          <option value="taci" {% if stroke_classification.bamfordClassification == "taci" %}selected{% endif %}>TACI (Total Anterior Circulation Infarct)</option>
+          <option value="paci" {% if stroke_classification.bamfordClassification == "paci" %}selected{% endif %}>PACI (Partial Anterior Circulation Infarct)</option>
+          <option value="laci" {% if stroke_classification.bamfordClassification == "laci" %}selected{% endif %}>LACI (Lacunar Infarct)</option>
+          <option value="poci" {% if stroke_classification.bamfordClassification == "poci" %}selected{% endif %}>POCI (Posterior Circulation Infarct)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="toast_classification">TOAST Classification</label>
+        <select id="toast_classification" name="stroke_classification.toast_classification">
+          <option value="">-- Select --</option>
+          <option value="largeArtery" {% if stroke_classification.toastClassification == "largeArtery" %}selected{% endif %}>Large Artery Atherosclerosis</option>
+          <option value="cardioembolic" {% if stroke_classification.toastClassification == "cardioembolic" %}selected{% endif %}>Cardioembolic</option>
+          <option value="smallVessel" {% if stroke_classification.toastClassification == "smallVessel" %}selected{% endif %}>Small Vessel Occlusion</option>
+          <option value="otherDetermined" {% if stroke_classification.toastClassification == "otherDetermined" %}selected{% endif %}>Other Determined Aetiology</option>
+          <option value="undetermined" {% if stroke_classification.toastClassification == "undetermined" %}selected{% endif %}>Undetermined</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="territory">Vascular Territory</label>
+      <input type="text" id="territory" name="stroke_classification.territory"
+             value="{{ stroke_classification.territory }}"
+             placeholder="e.g. MCA, ACA, PCA, basilar">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

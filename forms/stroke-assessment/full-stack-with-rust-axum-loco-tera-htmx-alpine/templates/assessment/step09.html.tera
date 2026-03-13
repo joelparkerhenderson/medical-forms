@@ -1,0 +1,88 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Secondary Prevention - Stroke Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Secondary Prevention</h2>
+    <p class="hint">Document secondary prevention strategies to reduce recurrence risk.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="antiplatelet_therapy">Antiplatelet Therapy</label>
+        <select id="antiplatelet_therapy" name="secondary_prevention.antiplatelet_therapy">
+          <option value="">-- Select --</option>
+          <option value="aspirin" {% if secondary_prevention.antiplateletTherapy == "aspirin" %}selected{% endif %}>Aspirin</option>
+          <option value="clopidogrel" {% if secondary_prevention.antiplateletTherapy == "clopidogrel" %}selected{% endif %}>Clopidogrel</option>
+          <option value="dualAntiplatelet" {% if secondary_prevention.antiplateletTherapy == "dualAntiplatelet" %}selected{% endif %}>Dual Antiplatelet</option>
+          <option value="none" {% if secondary_prevention.antiplateletTherapy == "none" %}selected{% endif %}>None</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Anticoagulation Indicated</label>
+        <div class="radio-group">
+          <label><input type="radio" name="secondary_prevention.anticoagulation_indicated" value="yes" {% if secondary_prevention.anticoagulationIndicated == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="secondary_prevention.anticoagulation_indicated" value="no" {% if secondary_prevention.anticoagulationIndicated == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Statin Therapy</label>
+        <div class="radio-group">
+          <label><input type="radio" name="secondary_prevention.statin_therapy" value="yes" {% if secondary_prevention.statinTherapy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="secondary_prevention.statin_therapy" value="no" {% if secondary_prevention.statinTherapy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Antihypertensive</label>
+        <div class="radio-group">
+          <label><input type="radio" name="secondary_prevention.antihypertensive" value="yes" {% if secondary_prevention.antihypertensive == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="secondary_prevention.antihypertensive" value="no" {% if secondary_prevention.antihypertensive == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="target_bp">Target Blood Pressure</label>
+      <input type="text" id="target_bp" name="secondary_prevention.target_bp"
+             value="{{ secondary_prevention.targetBp }}"
+             placeholder="e.g. <130/80 mmHg">
+    </div>
+
+    <div class="form-group">
+      <label for="carotid_endarterectomy">Carotid Endarterectomy / Stenting</label>
+      <select id="carotid_endarterectomy" name="secondary_prevention.carotid_endarterectomy">
+        <option value="">-- Select --</option>
+        <option value="indicated" {% if secondary_prevention.carotidEndarterectomy == "indicated" %}selected{% endif %}>Indicated</option>
+        <option value="performed" {% if secondary_prevention.carotidEndarterectomy == "performed" %}selected{% endif %}>Performed</option>
+        <option value="notIndicated" {% if secondary_prevention.carotidEndarterectomy == "notIndicated" %}selected{% endif %}>Not Indicated</option>
+        <option value="declined" {% if secondary_prevention.carotidEndarterectomy == "declined" %}selected{% endif %}>Patient Declined</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Lifestyle Advice Given</label>
+        <div class="radio-group">
+          <label><input type="radio" name="secondary_prevention.lifestyle_advice" value="yes" {% if secondary_prevention.lifestyleAdvice == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="secondary_prevention.lifestyle_advice" value="no" {% if secondary_prevention.lifestyleAdvice == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Driving Advice Given</label>
+        <div class="radio-group">
+          <label><input type="radio" name="secondary_prevention.driving_advice" value="yes" {% if secondary_prevention.drivingAdvice == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="secondary_prevention.driving_advice" value="no" {% if secondary_prevention.drivingAdvice == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
