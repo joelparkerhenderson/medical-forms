@@ -1,0 +1,119 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Communication Impact - Audiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Communication Impact</h2>
+    <p class="hint">Assess the impact of hearing difficulties on communication and daily life.</p>
+
+    <div class="likert-group">
+      <label>Difficulty understanding speech</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication_impact.difficulty_understanding_speech" value="{{ i }}"
+                 {% if communication_impact.difficultyUnderstandingSpeech == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Slight{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Extreme{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Social withdrawal due to hearing difficulty</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication_impact.social_withdrawal" value="{{ i }}"
+                 {% if communication_impact.socialWithdrawal == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Never{% elif i == 2 %}Rarely{% elif i == 3 %}Sometimes{% elif i == 4 %}Often{% else %}Always{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Frustration level related to hearing</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication_impact.frustration_level" value="{{ i }}"
+                 {% if communication_impact.frustrationLevel == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}High{% else %}Extreme{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>How often do you ask people to repeat themselves?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication_impact.asking_to_repeat" value="{{ i }}"
+                 {% if communication_impact.askingToRepeat == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Never{% elif i == 2 %}Rarely{% elif i == 3 %}Sometimes{% elif i == 4 %}Often{% else %}Always{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Avoiding social situations due to hearing</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication_impact.avoiding_situations" value="{{ i }}"
+                 {% if communication_impact.avoidingSituations == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Never{% elif i == 2 %}Rarely{% elif i == 3 %}Sometimes{% elif i == 4 %}Often{% else %}Always{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Impact on work or employment</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication_impact.impact_on_work" value="{{ i }}"
+                 {% if communication_impact.impactOnWork == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Slight{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Impact on personal relationships</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication_impact.impact_on_relationships" value="{{ i }}"
+                 {% if communication_impact.impactOnRelationships == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Slight{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="communication_strategies_used">Communication Strategies Used</label>
+      <textarea id="communication_strategies_used" name="communication_impact.communication_strategies_used"
+                rows="3" placeholder="e.g. Lip reading, asking to face me, written notes">{{ communication_impact.communicationStrategiesUsed }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_concerns">Additional Concerns</label>
+      <textarea id="additional_concerns" name="communication_impact.additional_concerns"
+                rows="3" placeholder="Any other concerns about hearing and communication?">{{ communication_impact.additionalConcerns }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

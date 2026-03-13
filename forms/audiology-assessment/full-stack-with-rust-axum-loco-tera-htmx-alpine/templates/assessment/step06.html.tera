@@ -1,0 +1,131 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Tinnitus - Audiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Tinnitus Assessment</h2>
+    <p class="hint">Evaluate the presence, characteristics, and impact of tinnitus.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Tinnitus Present</label>
+        <div class="radio-group">
+          <label><input type="radio" name="tinnitus.tinnitus_present" value="yes" {% if tinnitus.tinnitusPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="tinnitus.tinnitus_present" value="no" {% if tinnitus.tinnitusPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="tinnitus_ear">Tinnitus Ear</label>
+        <select id="tinnitus_ear" name="tinnitus.tinnitus_ear">
+          <option value="">-- Select --</option>
+          <option value="right" {% if tinnitus.tinnitusEar == "right" %}selected{% endif %}>Right</option>
+          <option value="left" {% if tinnitus.tinnitusEar == "left" %}selected{% endif %}>Left</option>
+          <option value="both" {% if tinnitus.tinnitusEar == "both" %}selected{% endif %}>Both</option>
+          <option value="head" {% if tinnitus.tinnitusEar == "head" %}selected{% endif %}>In Head</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tinnitus_type">Tinnitus Type</label>
+        <select id="tinnitus_type" name="tinnitus.tinnitus_type">
+          <option value="">-- Select --</option>
+          <option value="ringing" {% if tinnitus.tinnitusType == "ringing" %}selected{% endif %}>Ringing</option>
+          <option value="buzzing" {% if tinnitus.tinnitusType == "buzzing" %}selected{% endif %}>Buzzing</option>
+          <option value="hissing" {% if tinnitus.tinnitusType == "hissing" %}selected{% endif %}>Hissing</option>
+          <option value="pulsatile" {% if tinnitus.tinnitusType == "pulsatile" %}selected{% endif %}>Pulsatile</option>
+          <option value="clicking" {% if tinnitus.tinnitusType == "clicking" %}selected{% endif %}>Clicking</option>
+          <option value="other" {% if tinnitus.tinnitusType == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tinnitus_onset">Tinnitus Onset</label>
+        <select id="tinnitus_onset" name="tinnitus.tinnitus_onset">
+          <option value="">-- Select --</option>
+          <option value="lessThan1Month" {% if tinnitus.tinnitusOnset == "lessThan1Month" %}selected{% endif %}>Less than 1 month</option>
+          <option value="1to6Months" {% if tinnitus.tinnitusOnset == "1to6Months" %}selected{% endif %}>1 - 6 months</option>
+          <option value="6to12Months" {% if tinnitus.tinnitusOnset == "6to12Months" %}selected{% endif %}>6 - 12 months</option>
+          <option value="moreThan1Year" {% if tinnitus.tinnitusOnset == "moreThan1Year" %}selected{% endif %}>More than 1 year</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="nps-group">
+      <label>Tinnitus Severity (1 = minimal, 10 = unbearable)</label>
+      <div class="nps-options">
+        {% for i in [1,2,3,4,5,6,7,8,9,10] %}
+        <label>
+          <input type="radio" name="tinnitus.tinnitus_severity" value="{{ i }}"
+                 {% if tinnitus.tinnitusSeverity == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="nps-labels"><span>Minimal</span><span>Unbearable</span></div>
+    </div>
+
+    <div class="nps-group">
+      <label>Impact on Sleep (1 = no impact, 10 = severe impact)</label>
+      <div class="nps-options">
+        {% for i in [1,2,3,4,5,6,7,8,9,10] %}
+        <label>
+          <input type="radio" name="tinnitus.tinnitus_sleep_impact" value="{{ i }}"
+                 {% if tinnitus.tinnitusSleepImpact == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="nps-labels"><span>No Impact</span><span>Severe</span></div>
+    </div>
+
+    <div class="nps-group">
+      <label>Impact on Concentration (1 = no impact, 10 = severe impact)</label>
+      <div class="nps-options">
+        {% for i in [1,2,3,4,5,6,7,8,9,10] %}
+        <label>
+          <input type="radio" name="tinnitus.tinnitus_concentration_impact" value="{{ i }}"
+                 {% if tinnitus.tinnitusConcentrationImpact == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="nps-labels"><span>No Impact</span><span>Severe</span></div>
+    </div>
+
+    <div class="nps-group">
+      <label>Emotional Impact (1 = no impact, 10 = severe impact)</label>
+      <div class="nps-options">
+        {% for i in [1,2,3,4,5,6,7,8,9,10] %}
+        <label>
+          <input type="radio" name="tinnitus.tinnitus_emotional_impact" value="{{ i }}"
+                 {% if tinnitus.tinnitusEmotionalImpact == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="nps-labels"><span>No Impact</span><span>Severe</span></div>
+    </div>
+
+    <div class="nps-group">
+      <label>Impact on Daily Activities (1 = no impact, 10 = severe impact)</label>
+      <div class="nps-options">
+        {% for i in [1,2,3,4,5,6,7,8,9,10] %}
+        <label>
+          <input type="radio" name="tinnitus.tinnitus_daily_activity_impact" value="{{ i }}"
+                 {% if tinnitus.tinnitusDailyActivityImpact == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="nps-labels"><span>No Impact</span><span>Severe</span></div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

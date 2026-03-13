@@ -1,0 +1,82 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Audiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide patient demographic and referral details.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. Jane Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_sex">Sex</label>
+        <select id="patient_sex" name="patient_information.patient_sex">
+          <option value="">-- Select --</option>
+          <option value="male" {% if patient_information.patientSex == "male" %}selected{% endif %}>Male</option>
+          <option value="female" {% if patient_information.patientSex == "female" %}selected{% endif %}>Female</option>
+          <option value="other" {% if patient_information.patientSex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="assessment_date">Assessment Date</label>
+        <input type="date" id="assessment_date" name="patient_information.assessment_date"
+               value="{{ patient_information.assessmentDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="referral_source">Referral Source</label>
+        <select id="referral_source" name="patient_information.referral_source">
+          <option value="">-- Select --</option>
+          <option value="gp" {% if patient_information.referralSource == "gp" %}selected{% endif %}>GP</option>
+          <option value="ent" {% if patient_information.referralSource == "ent" %}selected{% endif %}>ENT Specialist</option>
+          <option value="selfReferral" {% if patient_information.referralSource == "selfReferral" %}selected{% endif %}>Self-Referral</option>
+          <option value="occupationalHealth" {% if patient_information.referralSource == "occupationalHealth" %}selected{% endif %}>Occupational Health</option>
+          <option value="other" {% if patient_information.referralSource == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="referral_reason">Reason for Referral</label>
+        <input type="text" id="referral_reason" name="patient_information.referral_reason"
+               value="{{ patient_information.referralReason }}"
+               placeholder="e.g. Hearing difficulty, tinnitus">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="audiologist_name">Audiologist Name</label>
+        <input type="text" id="audiologist_name" name="patient_information.audiologist_name"
+               value="{{ patient_information.audiologistName }}"
+               placeholder="e.g. Dr Jones">
+      </div>
+      <div class="form-group">
+        <label for="clinic_location">Clinic Location</label>
+        <input type="text" id="clinic_location" name="patient_information.clinic_location"
+               value="{{ patient_information.clinicLocation }}"
+               placeholder="e.g. Main Audiology Clinic">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

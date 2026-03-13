@@ -1,0 +1,115 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Symptoms Assessment - Audiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Symptoms Assessment</h2>
+    <p class="hint">Rate the patient's hearing difficulty in various situations and report ear symptoms.</p>
+
+    <div class="likert-group">
+      <label>Hearing difficulty in quiet environments</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptoms_assessment.hearing_difficulty_quiet" value="{{ i }}"
+                 {% if symptoms_assessment.hearingDifficultyQuiet == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Slight{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Profound{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Hearing difficulty in noisy environments</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptoms_assessment.hearing_difficulty_noise" value="{{ i }}"
+                 {% if symptoms_assessment.hearingDifficultyNoise == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Slight{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Profound{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Hearing difficulty on the telephone</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptoms_assessment.hearing_difficulty_phone" value="{{ i }}"
+                 {% if symptoms_assessment.hearingDifficultyPhone == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Slight{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Profound{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Hearing difficulty in group conversations</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptoms_assessment.hearing_difficulty_group" value="{{ i }}"
+                 {% if symptoms_assessment.hearingDifficultyGroup == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Slight{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Profound{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Hearing difficulty watching television</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptoms_assessment.hearing_difficulty_tv" value="{{ i }}"
+                 {% if symptoms_assessment.hearingDifficultyTv == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Slight{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Profound{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Ear Pain</label>
+        <div class="radio-group">
+          <label><input type="radio" name="symptoms_assessment.ear_pain" value="yes" {% if symptoms_assessment.earPain == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="symptoms_assessment.ear_pain" value="no" {% if symptoms_assessment.earPain == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Ear Discharge</label>
+        <div class="radio-group">
+          <label><input type="radio" name="symptoms_assessment.ear_discharge" value="yes" {% if symptoms_assessment.earDischarge == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="symptoms_assessment.ear_discharge" value="no" {% if symptoms_assessment.earDischarge == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Ear Fullness / Pressure</label>
+        <div class="radio-group">
+          <label><input type="radio" name="symptoms_assessment.ear_fullness" value="yes" {% if symptoms_assessment.earFullness == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="symptoms_assessment.ear_fullness" value="no" {% if symptoms_assessment.earFullness == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Autophony (hearing own voice loudly)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="symptoms_assessment.autophony" value="yes" {% if symptoms_assessment.autophony == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="symptoms_assessment.autophony" value="no" {% if symptoms_assessment.autophony == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

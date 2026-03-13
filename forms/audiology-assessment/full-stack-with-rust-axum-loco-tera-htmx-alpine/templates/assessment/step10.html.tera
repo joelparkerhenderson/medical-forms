@@ -1,0 +1,97 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Audiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Clinician summary, diagnosis, and management plan.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="loss_type_right">Hearing Loss Type - Right Ear</label>
+        <select id="loss_type_right" name="clinical_review.loss_type_right">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if clinical_review.lossTypeRight == "normal" %}selected{% endif %}>Normal</option>
+          <option value="sensorineural" {% if clinical_review.lossTypeRight == "sensorineural" %}selected{% endif %}>Sensorineural</option>
+          <option value="conductive" {% if clinical_review.lossTypeRight == "conductive" %}selected{% endif %}>Conductive</option>
+          <option value="mixed" {% if clinical_review.lossTypeRight == "mixed" %}selected{% endif %}>Mixed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="loss_type_left">Hearing Loss Type - Left Ear</label>
+        <select id="loss_type_left" name="clinical_review.loss_type_left">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if clinical_review.lossTypeLeft == "normal" %}selected{% endif %}>Normal</option>
+          <option value="sensorineural" {% if clinical_review.lossTypeLeft == "sensorineural" %}selected{% endif %}>Sensorineural</option>
+          <option value="conductive" {% if clinical_review.lossTypeLeft == "conductive" %}selected{% endif %}>Conductive</option>
+          <option value="mixed" {% if clinical_review.lossTypeLeft == "mixed" %}selected{% endif %}>Mixed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="recommended_action">Recommended Action</label>
+      <select id="recommended_action" name="clinical_review.recommended_action">
+        <option value="">-- Select --</option>
+        <option value="hearingAidFitting" {% if clinical_review.recommendedAction == "hearingAidFitting" %}selected{% endif %}>Hearing Aid Fitting</option>
+        <option value="hearingAidAdjustment" {% if clinical_review.recommendedAction == "hearingAidAdjustment" %}selected{% endif %}>Hearing Aid Adjustment</option>
+        <option value="entReferral" {% if clinical_review.recommendedAction == "entReferral" %}selected{% endif %}>ENT Referral</option>
+        <option value="tinnitusManagement" {% if clinical_review.recommendedAction == "tinnitusManagement" %}selected{% endif %}>Tinnitus Management</option>
+        <option value="vestibularRehab" {% if clinical_review.recommendedAction == "vestibularRehab" %}selected{% endif %}>Vestibular Rehabilitation</option>
+        <option value="auralRehab" {% if clinical_review.recommendedAction == "auralRehab" %}selected{% endif %}>Aural Rehabilitation</option>
+        <option value="monitoring" {% if clinical_review.recommendedAction == "monitoring" %}selected{% endif %}>Monitoring Only</option>
+        <option value="noActionNeeded" {% if clinical_review.recommendedAction == "noActionNeeded" %}selected{% endif %}>No Action Needed</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>ENT Referral Needed</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.ent_referral_needed" value="yes" {% if clinical_review.entReferralNeeded == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.ent_referral_needed" value="no" {% if clinical_review.entReferralNeeded == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="clinical_review.ent_referral_needed" value="urgent" {% if clinical_review.entReferralNeeded == "urgent" %}checked{% endif %}> Urgent</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="follow_up_interval">Follow-up Interval</label>
+        <select id="follow_up_interval" name="clinical_review.follow_up_interval">
+          <option value="">-- Select --</option>
+          <option value="1month" {% if clinical_review.followUpInterval == "1month" %}selected{% endif %}>1 Month</option>
+          <option value="3months" {% if clinical_review.followUpInterval == "3months" %}selected{% endif %}>3 Months</option>
+          <option value="6months" {% if clinical_review.followUpInterval == "6months" %}selected{% endif %}>6 Months</option>
+          <option value="12months" {% if clinical_review.followUpInterval == "12months" %}selected{% endif %}>12 Months</option>
+          <option value="asNeeded" {% if clinical_review.followUpInterval == "asNeeded" %}selected{% endif %}>As Needed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinician_notes">Clinician Notes</label>
+      <textarea id="clinician_notes" name="clinical_review.clinician_notes"
+                rows="4" placeholder="Clinical observations and recommendations">{{ clinical_review.clinicianNotes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="patient_goals">Patient Goals</label>
+      <textarea id="patient_goals" name="clinical_review.patient_goals"
+                rows="3" placeholder="e.g. Hear better in group conversations, reduce tinnitus impact">{{ clinical_review.patientGoals }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Consent for Treatment</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clinical_review.consent_for_treatment" value="yes" {% if clinical_review.consentForTreatment == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="clinical_review.consent_for_treatment" value="no" {% if clinical_review.consentForTreatment == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="clinical_review.consent_for_treatment" value="deferred" {% if clinical_review.consentForTreatment == "deferred" %}checked{% endif %}> Deferred</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

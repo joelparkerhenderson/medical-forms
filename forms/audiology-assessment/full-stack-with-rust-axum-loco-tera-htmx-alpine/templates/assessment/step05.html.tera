@@ -1,0 +1,209 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Audiometric Results - Audiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Audiometric Results</h2>
+    <p class="hint">Enter pure-tone audiometry thresholds (dB HL), speech audiometry, and tympanometry results.</p>
+
+    <h3>Air Conduction - Right Ear (dB HL)</h3>
+    <div class="form-row-3">
+      <div class="form-group">
+        <label for="right_ac_250">250 Hz</label>
+        <input type="number" id="right_ac_250" name="audiometric_results.right_ac_250"
+               value="{{ audiometric_results.rightAc250 }}" min="0" max="120" step="5">
+      </div>
+      <div class="form-group">
+        <label for="right_ac_500">500 Hz</label>
+        <input type="number" id="right_ac_500" name="audiometric_results.right_ac_500"
+               value="{{ audiometric_results.rightAc500 }}" min="0" max="120" step="5">
+      </div>
+      <div class="form-group">
+        <label for="right_ac_1000">1000 Hz</label>
+        <input type="number" id="right_ac_1000" name="audiometric_results.right_ac_1000"
+               value="{{ audiometric_results.rightAc1000 }}" min="0" max="120" step="5">
+      </div>
+    </div>
+    <div class="form-row-3">
+      <div class="form-group">
+        <label for="right_ac_2000">2000 Hz</label>
+        <input type="number" id="right_ac_2000" name="audiometric_results.right_ac_2000"
+               value="{{ audiometric_results.rightAc2000 }}" min="0" max="120" step="5">
+      </div>
+      <div class="form-group">
+        <label for="right_ac_4000">4000 Hz</label>
+        <input type="number" id="right_ac_4000" name="audiometric_results.right_ac_4000"
+               value="{{ audiometric_results.rightAc4000 }}" min="0" max="120" step="5">
+      </div>
+      <div class="form-group">
+        <label for="right_ac_8000">8000 Hz</label>
+        <input type="number" id="right_ac_8000" name="audiometric_results.right_ac_8000"
+               value="{{ audiometric_results.rightAc8000 }}" min="0" max="120" step="5">
+      </div>
+    </div>
+
+    <h3>Air Conduction - Left Ear (dB HL)</h3>
+    <div class="form-row-3">
+      <div class="form-group">
+        <label for="left_ac_250">250 Hz</label>
+        <input type="number" id="left_ac_250" name="audiometric_results.left_ac_250"
+               value="{{ audiometric_results.leftAc250 }}" min="0" max="120" step="5">
+      </div>
+      <div class="form-group">
+        <label for="left_ac_500">500 Hz</label>
+        <input type="number" id="left_ac_500" name="audiometric_results.left_ac_500"
+               value="{{ audiometric_results.leftAc500 }}" min="0" max="120" step="5">
+      </div>
+      <div class="form-group">
+        <label for="left_ac_1000">1000 Hz</label>
+        <input type="number" id="left_ac_1000" name="audiometric_results.left_ac_1000"
+               value="{{ audiometric_results.leftAc1000 }}" min="0" max="120" step="5">
+      </div>
+    </div>
+    <div class="form-row-3">
+      <div class="form-group">
+        <label for="left_ac_2000">2000 Hz</label>
+        <input type="number" id="left_ac_2000" name="audiometric_results.left_ac_2000"
+               value="{{ audiometric_results.leftAc2000 }}" min="0" max="120" step="5">
+      </div>
+      <div class="form-group">
+        <label for="left_ac_4000">4000 Hz</label>
+        <input type="number" id="left_ac_4000" name="audiometric_results.left_ac_4000"
+               value="{{ audiometric_results.leftAc4000 }}" min="0" max="120" step="5">
+      </div>
+      <div class="form-group">
+        <label for="left_ac_8000">8000 Hz</label>
+        <input type="number" id="left_ac_8000" name="audiometric_results.left_ac_8000"
+               value="{{ audiometric_results.leftAc8000 }}" min="0" max="120" step="5">
+      </div>
+    </div>
+
+    <h3>Bone Conduction - Right Ear (dB HL)</h3>
+    <div class="form-row-4">
+      <div class="form-group">
+        <label for="right_bc_500">500 Hz</label>
+        <input type="number" id="right_bc_500" name="audiometric_results.right_bc_500"
+               value="{{ audiometric_results.rightBc500 }}" min="0" max="80" step="5">
+      </div>
+      <div class="form-group">
+        <label for="right_bc_1000">1000 Hz</label>
+        <input type="number" id="right_bc_1000" name="audiometric_results.right_bc_1000"
+               value="{{ audiometric_results.rightBc1000 }}" min="0" max="80" step="5">
+      </div>
+      <div class="form-group">
+        <label for="right_bc_2000">2000 Hz</label>
+        <input type="number" id="right_bc_2000" name="audiometric_results.right_bc_2000"
+               value="{{ audiometric_results.rightBc2000 }}" min="0" max="80" step="5">
+      </div>
+      <div class="form-group">
+        <label for="right_bc_4000">4000 Hz</label>
+        <input type="number" id="right_bc_4000" name="audiometric_results.right_bc_4000"
+               value="{{ audiometric_results.rightBc4000 }}" min="0" max="80" step="5">
+      </div>
+    </div>
+
+    <h3>Bone Conduction - Left Ear (dB HL)</h3>
+    <div class="form-row-4">
+      <div class="form-group">
+        <label for="left_bc_500">500 Hz</label>
+        <input type="number" id="left_bc_500" name="audiometric_results.left_bc_500"
+               value="{{ audiometric_results.leftBc500 }}" min="0" max="80" step="5">
+      </div>
+      <div class="form-group">
+        <label for="left_bc_1000">1000 Hz</label>
+        <input type="number" id="left_bc_1000" name="audiometric_results.left_bc_1000"
+               value="{{ audiometric_results.leftBc1000 }}" min="0" max="80" step="5">
+      </div>
+      <div class="form-group">
+        <label for="left_bc_2000">2000 Hz</label>
+        <input type="number" id="left_bc_2000" name="audiometric_results.left_bc_2000"
+               value="{{ audiometric_results.leftBc2000 }}" min="0" max="80" step="5">
+      </div>
+      <div class="form-group">
+        <label for="left_bc_4000">4000 Hz</label>
+        <input type="number" id="left_bc_4000" name="audiometric_results.left_bc_4000"
+               value="{{ audiometric_results.leftBc4000 }}" min="0" max="80" step="5">
+      </div>
+    </div>
+
+    <h3>Speech Audiometry</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_srt">Right SRT (dB HL)</label>
+        <input type="number" id="right_srt" name="audiometric_results.right_srt"
+               value="{{ audiometric_results.rightSrt }}" min="0" max="120" step="5">
+      </div>
+      <div class="form-group">
+        <label for="right_wrs">Right WRS (%)</label>
+        <input type="number" id="right_wrs" name="audiometric_results.right_wrs"
+               value="{{ audiometric_results.rightWrs }}" min="0" max="100" step="4">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="left_srt">Left SRT (dB HL)</label>
+        <input type="number" id="left_srt" name="audiometric_results.left_srt"
+               value="{{ audiometric_results.leftSrt }}" min="0" max="120" step="5">
+      </div>
+      <div class="form-group">
+        <label for="left_wrs">Left WRS (%)</label>
+        <input type="number" id="left_wrs" name="audiometric_results.left_wrs"
+               value="{{ audiometric_results.leftWrs }}" min="0" max="100" step="4">
+      </div>
+    </div>
+
+    <h3>Tympanometry</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_tympanogram_type">Right Tympanogram Type</label>
+        <select id="right_tympanogram_type" name="audiometric_results.right_tympanogram_type">
+          <option value="">-- Select --</option>
+          <option value="A" {% if audiometric_results.rightTympanogramType == "A" %}selected{% endif %}>Type A (Normal)</option>
+          <option value="As" {% if audiometric_results.rightTympanogramType == "As" %}selected{% endif %}>Type As (Shallow)</option>
+          <option value="Ad" {% if audiometric_results.rightTympanogramType == "Ad" %}selected{% endif %}>Type Ad (Deep)</option>
+          <option value="B" {% if audiometric_results.rightTympanogramType == "B" %}selected{% endif %}>Type B (Flat)</option>
+          <option value="C" {% if audiometric_results.rightTympanogramType == "C" %}selected{% endif %}>Type C (Negative)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_tympanogram_type">Left Tympanogram Type</label>
+        <select id="left_tympanogram_type" name="audiometric_results.left_tympanogram_type">
+          <option value="">-- Select --</option>
+          <option value="A" {% if audiometric_results.leftTympanogramType == "A" %}selected{% endif %}>Type A (Normal)</option>
+          <option value="As" {% if audiometric_results.leftTympanogramType == "As" %}selected{% endif %}>Type As (Shallow)</option>
+          <option value="Ad" {% if audiometric_results.leftTympanogramType == "Ad" %}selected{% endif %}>Type Ad (Deep)</option>
+          <option value="B" {% if audiometric_results.leftTympanogramType == "B" %}selected{% endif %}>Type B (Flat)</option>
+          <option value="C" {% if audiometric_results.leftTympanogramType == "C" %}selected{% endif %}>Type C (Negative)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_compliance">Right Compliance</label>
+        <select id="right_compliance" name="audiometric_results.right_compliance">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if audiometric_results.rightCompliance == "normal" %}selected{% endif %}>Normal</option>
+          <option value="reduced" {% if audiometric_results.rightCompliance == "reduced" %}selected{% endif %}>Reduced</option>
+          <option value="increased" {% if audiometric_results.rightCompliance == "increased" %}selected{% endif %}>Increased</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_compliance">Left Compliance</label>
+        <select id="left_compliance" name="audiometric_results.left_compliance">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if audiometric_results.leftCompliance == "normal" %}selected{% endif %}>Normal</option>
+          <option value="reduced" {% if audiometric_results.leftCompliance == "reduced" %}selected{% endif %}>Reduced</option>
+          <option value="increased" {% if audiometric_results.leftCompliance == "increased" %}selected{% endif %}>Increased</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

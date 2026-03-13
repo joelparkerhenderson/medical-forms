@@ -1,0 +1,110 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Otoscopic Examination - Audiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Otoscopic Examination</h2>
+    <p class="hint">Record findings from the otoscopic examination of both ears.</p>
+
+    <h3>Right Ear</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_canal">External Canal</label>
+        <select id="right_canal" name="otoscopic_examination.right_canal">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if otoscopic_examination.rightCanal == "normal" %}selected{% endif %}>Normal</option>
+          <option value="narrow" {% if otoscopic_examination.rightCanal == "narrow" %}selected{% endif %}>Narrow</option>
+          <option value="inflamed" {% if otoscopic_examination.rightCanal == "inflamed" %}selected{% endif %}>Inflamed</option>
+          <option value="exostosis" {% if otoscopic_examination.rightCanal == "exostosis" %}selected{% endif %}>Exostosis</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="right_tympanic_membrane">Tympanic Membrane</label>
+        <select id="right_tympanic_membrane" name="otoscopic_examination.right_tympanic_membrane">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if otoscopic_examination.rightTympanicMembrane == "normal" %}selected{% endif %}>Normal / Intact</option>
+          <option value="abnormal" {% if otoscopic_examination.rightTympanicMembrane == "abnormal" %}selected{% endif %}>Abnormal</option>
+          <option value="perforation" {% if otoscopic_examination.rightTympanicMembrane == "perforation" %}selected{% endif %}>Perforation</option>
+          <option value="retracted" {% if otoscopic_examination.rightTympanicMembrane == "retracted" %}selected{% endif %}>Retracted</option>
+          <option value="notVisible" {% if otoscopic_examination.rightTympanicMembrane == "notVisible" %}selected{% endif %}>Not Visible</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_cerumen">Cerumen</label>
+        <select id="right_cerumen" name="otoscopic_examination.right_cerumen">
+          <option value="">-- Select --</option>
+          <option value="none" {% if otoscopic_examination.rightCerumen == "none" %}selected{% endif %}>None / Minimal</option>
+          <option value="partial" {% if otoscopic_examination.rightCerumen == "partial" %}selected{% endif %}>Partial Occlusion</option>
+          <option value="impacted" {% if otoscopic_examination.rightCerumen == "impacted" %}selected{% endif %}>Impacted</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="right_abnormalities">Other Abnormalities</label>
+        <input type="text" id="right_abnormalities" name="otoscopic_examination.right_abnormalities"
+               value="{{ otoscopic_examination.rightAbnormalities }}"
+               placeholder="e.g. Foreign body, discharge">
+      </div>
+    </div>
+
+    <h3>Left Ear</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="left_canal">External Canal</label>
+        <select id="left_canal" name="otoscopic_examination.left_canal">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if otoscopic_examination.leftCanal == "normal" %}selected{% endif %}>Normal</option>
+          <option value="narrow" {% if otoscopic_examination.leftCanal == "narrow" %}selected{% endif %}>Narrow</option>
+          <option value="inflamed" {% if otoscopic_examination.leftCanal == "inflamed" %}selected{% endif %}>Inflamed</option>
+          <option value="exostosis" {% if otoscopic_examination.leftCanal == "exostosis" %}selected{% endif %}>Exostosis</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_tympanic_membrane">Tympanic Membrane</label>
+        <select id="left_tympanic_membrane" name="otoscopic_examination.left_tympanic_membrane">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if otoscopic_examination.leftTympanicMembrane == "normal" %}selected{% endif %}>Normal / Intact</option>
+          <option value="abnormal" {% if otoscopic_examination.leftTympanicMembrane == "abnormal" %}selected{% endif %}>Abnormal</option>
+          <option value="perforation" {% if otoscopic_examination.leftTympanicMembrane == "perforation" %}selected{% endif %}>Perforation</option>
+          <option value="retracted" {% if otoscopic_examination.leftTympanicMembrane == "retracted" %}selected{% endif %}>Retracted</option>
+          <option value="notVisible" {% if otoscopic_examination.leftTympanicMembrane == "notVisible" %}selected{% endif %}>Not Visible</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="left_cerumen">Cerumen</label>
+        <select id="left_cerumen" name="otoscopic_examination.left_cerumen">
+          <option value="">-- Select --</option>
+          <option value="none" {% if otoscopic_examination.leftCerumen == "none" %}selected{% endif %}>None / Minimal</option>
+          <option value="partial" {% if otoscopic_examination.leftCerumen == "partial" %}selected{% endif %}>Partial Occlusion</option>
+          <option value="impacted" {% if otoscopic_examination.leftCerumen == "impacted" %}selected{% endif %}>Impacted</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_abnormalities">Other Abnormalities</label>
+        <input type="text" id="left_abnormalities" name="otoscopic_examination.left_abnormalities"
+               value="{{ otoscopic_examination.leftAbnormalities }}"
+               placeholder="e.g. Foreign body, discharge">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Active Ear Infection</label>
+      <div class="radio-group">
+        <label><input type="radio" name="otoscopic_examination.active_infection" value="yes" {% if otoscopic_examination.activeInfection == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="otoscopic_examination.active_infection" value="no" {% if otoscopic_examination.activeInfection == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

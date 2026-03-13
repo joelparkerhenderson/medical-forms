@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Audiology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Audiology Assessment</h1>
+  <p>
+    This comprehensive audiology assessment evaluates hearing loss type and severity,
+    tinnitus, balance disorders, audiometric results, and hearing aid candidacy.
+    Results are graded using pure-tone average hearing thresholds following
+    WHO classification standards.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Complete audiological evaluation from history to clinical review</p>
+    </div>
+    <div class="feature-card">
+      <h3>Hearing Level Grading</h3>
+      <p>WHO-standard classification from normal to profound</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated detection of urgent findings requiring referral</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

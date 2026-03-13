@@ -1,0 +1,123 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Balance Assessment - Audiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Balance Assessment</h2>
+    <p class="hint">Evaluate dizziness, vertigo, and balance-related symptoms.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Dizziness Present</label>
+        <div class="radio-group">
+          <label><input type="radio" name="balance_assessment.dizziness_present" value="yes" {% if balance_assessment.dizzinessPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="balance_assessment.dizziness_present" value="no" {% if balance_assessment.dizzinessPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dizziness_type">Type of Dizziness</label>
+        <select id="dizziness_type" name="balance_assessment.dizziness_type">
+          <option value="">-- Select --</option>
+          <option value="vertigo" {% if balance_assessment.dizzinessType == "vertigo" %}selected{% endif %}>Vertigo (spinning)</option>
+          <option value="lightheadedness" {% if balance_assessment.dizzinessType == "lightheadedness" %}selected{% endif %}>Lightheadedness</option>
+          <option value="imbalance" {% if balance_assessment.dizzinessType == "imbalance" %}selected{% endif %}>Imbalance / Unsteadiness</option>
+          <option value="presyncope" {% if balance_assessment.dizzinessType == "presyncope" %}selected{% endif %}>Pre-syncope</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="dizziness_frequency">Frequency</label>
+        <select id="dizziness_frequency" name="balance_assessment.dizziness_frequency">
+          <option value="">-- Select --</option>
+          <option value="daily" {% if balance_assessment.dizzinessFrequency == "daily" %}selected{% endif %}>Daily</option>
+          <option value="weekly" {% if balance_assessment.dizzinessFrequency == "weekly" %}selected{% endif %}>Weekly</option>
+          <option value="monthly" {% if balance_assessment.dizzinessFrequency == "monthly" %}selected{% endif %}>Monthly</option>
+          <option value="occasional" {% if balance_assessment.dizzinessFrequency == "occasional" %}selected{% endif %}>Occasional</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dizziness_duration">Duration of Episodes</label>
+        <select id="dizziness_duration" name="balance_assessment.dizziness_duration">
+          <option value="">-- Select --</option>
+          <option value="seconds" {% if balance_assessment.dizzinessDuration == "seconds" %}selected{% endif %}>Seconds</option>
+          <option value="minutes" {% if balance_assessment.dizzinessDuration == "minutes" %}selected{% endif %}>Minutes</option>
+          <option value="hours" {% if balance_assessment.dizzinessDuration == "hours" %}selected{% endif %}>Hours</option>
+          <option value="days" {% if balance_assessment.dizzinessDuration == "days" %}selected{% endif %}>Days</option>
+          <option value="constant" {% if balance_assessment.dizzinessDuration == "constant" %}selected{% endif %}>Constant</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dizziness_triggers">Common Triggers</label>
+      <input type="text" id="dizziness_triggers" name="balance_assessment.dizziness_triggers"
+             value="{{ balance_assessment.dizzinessTriggers }}"
+             placeholder="e.g. Head movement, standing up, looking up">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>History of Falls</label>
+        <div class="radio-group">
+          <label><input type="radio" name="balance_assessment.falls_history" value="yes" {% if balance_assessment.fallsHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="balance_assessment.falls_history" value="no" {% if balance_assessment.fallsHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="falls_frequency">Falls Frequency (past 12 months)</label>
+        <select id="falls_frequency" name="balance_assessment.falls_frequency">
+          <option value="">-- Select --</option>
+          <option value="none" {% if balance_assessment.fallsFrequency == "none" %}selected{% endif %}>None</option>
+          <option value="1to2" {% if balance_assessment.fallsFrequency == "1to2" %}selected{% endif %}>1 - 2</option>
+          <option value="3to5" {% if balance_assessment.fallsFrequency == "3to5" %}selected{% endif %}>3 - 5</option>
+          <option value="moreThan5" {% if balance_assessment.fallsFrequency == "moreThan5" %}selected{% endif %}>More than 5</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Nausea with Dizziness</label>
+      <div class="radio-group">
+        <label><input type="radio" name="balance_assessment.nausea_with_dizziness" value="yes" {% if balance_assessment.nauseaWithDizziness == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="balance_assessment.nausea_with_dizziness" value="no" {% if balance_assessment.nauseaWithDizziness == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="nps-group">
+      <label>Dizziness Severity (1 = minimal, 10 = severe)</label>
+      <div class="nps-options">
+        {% for i in [1,2,3,4,5,6,7,8,9,10] %}
+        <label>
+          <input type="radio" name="balance_assessment.dizziness_severity" value="{{ i }}"
+                 {% if balance_assessment.dizzinessSeverity == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="nps-labels"><span>Minimal</span><span>Severe</span></div>
+    </div>
+
+    <div class="nps-group">
+      <label>Impact on Daily Activities (1 = no impact, 10 = severe impact)</label>
+      <div class="nps-options">
+        {% for i in [1,2,3,4,5,6,7,8,9,10] %}
+        <label>
+          <input type="radio" name="balance_assessment.dizziness_daily_impact" value="{{ i }}"
+                 {% if balance_assessment.dizzinessDailyImpact == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="nps-labels"><span>No Impact</span><span>Severe</span></div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

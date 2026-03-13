@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Audiology Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Audiology Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient name, loss type...">
+    </div>
+    <div class="form-group">
+      <label for="hearing_level">Hearing Level</label>
+      <select id="hearing_level" name="hearing_level">
+        <option value="">All Levels</option>
+        <option value="normal" {% if hearing_level == "normal" %}selected{% endif %}>Normal</option>
+        <option value="mild" {% if hearing_level == "mild" %}selected{% endif %}>Mild</option>
+        <option value="moderate" {% if hearing_level == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="moderatelySevere" {% if hearing_level == "moderatelySevere" %}selected{% endif %}>Moderately Severe</option>
+        <option value="severe" {% if hearing_level == "severe" %}selected{% endif %}>Severe</option>
+        <option value="profound" {% if hearing_level == "profound" %}selected{% endif %}>Profound</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="tinnitus">Tinnitus</label>
+      <select id="tinnitus" name="tinnitus">
+        <option value="">All</option>
+        <option value="Yes" {% if tinnitus == "Yes" %}selected{% endif %}>Yes</option>
+        <option value="No" {% if tinnitus == "No" %}selected{% endif %}>No</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Hearing Level</th>
+      <th>PTA (dB)</th>
+      <th>Loss Type</th>
+      <th>Tinnitus</th>
+      <th>Hearing Aid</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td><span class="hearing-badge hearing-{{ patient.hearingLevel }}">{{ patient.hearingLevel }}</span></td>
+      <td>{{ patient.pureToneAverage }}</td>
+      <td>{{ patient.lossType }}</td>
+      <td>{{ patient.tinnitusPresent }}</td>
+      <td>{{ patient.hearingAidStatus }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

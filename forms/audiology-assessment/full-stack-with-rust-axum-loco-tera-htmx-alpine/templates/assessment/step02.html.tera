@@ -1,0 +1,125 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Hearing History - Audiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Hearing History</h2>
+    <p class="hint">Provide details about the patient's hearing history and risk factors.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="onset_type">Onset of Hearing Difficulty</label>
+        <select id="onset_type" name="hearing_history.onset_type">
+          <option value="">-- Select --</option>
+          <option value="gradual" {% if hearing_history.onsetType == "gradual" %}selected{% endif %}>Gradual</option>
+          <option value="sudden" {% if hearing_history.onsetType == "sudden" %}selected{% endif %}>Sudden</option>
+          <option value="fluctuating" {% if hearing_history.onsetType == "fluctuating" %}selected{% endif %}>Fluctuating</option>
+          <option value="congenital" {% if hearing_history.onsetType == "congenital" %}selected{% endif %}>Congenital</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="onset_duration">Duration of Hearing Difficulty</label>
+        <select id="onset_duration" name="hearing_history.onset_duration">
+          <option value="">-- Select --</option>
+          <option value="lessThan1Month" {% if hearing_history.onsetDuration == "lessThan1Month" %}selected{% endif %}>Less than 1 month</option>
+          <option value="1to6Months" {% if hearing_history.onsetDuration == "1to6Months" %}selected{% endif %}>1 - 6 months</option>
+          <option value="6to12Months" {% if hearing_history.onsetDuration == "6to12Months" %}selected{% endif %}>6 - 12 months</option>
+          <option value="1to5Years" {% if hearing_history.onsetDuration == "1to5Years" %}selected{% endif %}>1 - 5 years</option>
+          <option value="moreThan5Years" {% if hearing_history.onsetDuration == "moreThan5Years" %}selected{% endif %}>More than 5 years</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="affected_ear">Affected Ear</label>
+        <select id="affected_ear" name="hearing_history.affected_ear">
+          <option value="">-- Select --</option>
+          <option value="right" {% if hearing_history.affectedEar == "right" %}selected{% endif %}>Right</option>
+          <option value="left" {% if hearing_history.affectedEar == "left" %}selected{% endif %}>Left</option>
+          <option value="both" {% if hearing_history.affectedEar == "both" %}selected{% endif %}>Both</option>
+          <option value="unknown" {% if hearing_history.affectedEar == "unknown" %}selected{% endif %}>Unknown</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Family History of Hearing Loss</label>
+        <div class="radio-group">
+          <label><input type="radio" name="hearing_history.family_history" value="yes" {% if hearing_history.familyHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="hearing_history.family_history" value="no" {% if hearing_history.familyHistory == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="hearing_history.family_history" value="unknown" {% if hearing_history.familyHistory == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Noise Exposure History</label>
+        <div class="radio-group">
+          <label><input type="radio" name="hearing_history.noise_exposure_history" value="yes" {% if hearing_history.noiseExposureHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="hearing_history.noise_exposure_history" value="no" {% if hearing_history.noiseExposureHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="noise_exposure_type">Type of Noise Exposure</label>
+        <select id="noise_exposure_type" name="hearing_history.noise_exposure_type">
+          <option value="">-- Select --</option>
+          <option value="occupational" {% if hearing_history.noiseExposureType == "occupational" %}selected{% endif %}>Occupational</option>
+          <option value="recreational" {% if hearing_history.noiseExposureType == "recreational" %}selected{% endif %}>Recreational</option>
+          <option value="military" {% if hearing_history.noiseExposureType == "military" %}selected{% endif %}>Military</option>
+          <option value="both" {% if hearing_history.noiseExposureType == "both" %}selected{% endif %}>Both Occupational & Recreational</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hearing_protection_use">Hearing Protection Use</label>
+        <select id="hearing_protection_use" name="hearing_history.hearing_protection_use">
+          <option value="">-- Select --</option>
+          <option value="always" {% if hearing_history.hearingProtectionUse == "always" %}selected{% endif %}>Always</option>
+          <option value="sometimes" {% if hearing_history.hearingProtectionUse == "sometimes" %}selected{% endif %}>Sometimes</option>
+          <option value="rarely" {% if hearing_history.hearingProtectionUse == "rarely" %}selected{% endif %}>Rarely</option>
+          <option value="never" {% if hearing_history.hearingProtectionUse == "never" %}selected{% endif %}>Never</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Previous Hearing Test</label>
+        <div class="radio-group">
+          <label><input type="radio" name="hearing_history.previous_hearing_test" value="yes" {% if hearing_history.previousHearingTest == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="hearing_history.previous_hearing_test" value="no" {% if hearing_history.previousHearingTest == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Previous Hearing Aid Use</label>
+        <div class="radio-group">
+          <label><input type="radio" name="hearing_history.previous_hearing_aid" value="yes" {% if hearing_history.previousHearingAid == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="hearing_history.previous_hearing_aid" value="no" {% if hearing_history.previousHearingAid == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Ototoxic Medication Use</label>
+        <div class="radio-group">
+          <label><input type="radio" name="hearing_history.ototoxic_medication" value="yes" {% if hearing_history.ototoxicMedication == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="hearing_history.ototoxic_medication" value="no" {% if hearing_history.ototoxicMedication == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ototoxic_medication_name">Ototoxic Medication Name (if applicable)</label>
+      <input type="text" id="ototoxic_medication_name" name="hearing_history.ototoxic_medication_name"
+             value="{{ hearing_history.ototoxicMedicationName }}"
+             placeholder="e.g. Gentamicin, Cisplatin">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
