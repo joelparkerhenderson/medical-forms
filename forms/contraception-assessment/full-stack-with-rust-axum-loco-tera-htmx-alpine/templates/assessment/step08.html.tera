@@ -1,0 +1,114 @@
+{% extends "base.html.tera" %}
+
+{% block title %}UKMEC Eligibility - Contraception Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>UKMEC Eligibility</h2>
+    <p class="hint">Assign UKMEC categories (1-4) for each contraceptive method based on the patient's medical profile. 1 = No restriction, 2 = Advantages &gt; risks, 3 = Risks &gt; advantages, 4 = Unacceptable risk.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="coc_category">COC (Combined Oral Contraceptive)</label>
+        <select id="coc_category" name="ukmec_eligibility.coc_category">
+          <option value="">-- Select --</option>
+          <option value="1" {% if ukmec_eligibility.cocCategory == 1 %}selected{% endif %}>UKMEC 1 - No restriction</option>
+          <option value="2" {% if ukmec_eligibility.cocCategory == 2 %}selected{% endif %}>UKMEC 2 - Advantages &gt; risks</option>
+          <option value="3" {% if ukmec_eligibility.cocCategory == 3 %}selected{% endif %}>UKMEC 3 - Risks &gt; advantages</option>
+          <option value="4" {% if ukmec_eligibility.cocCategory == 4 %}selected{% endif %}>UKMEC 4 - Unacceptable risk</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pop_category">POP (Progestogen-Only Pill)</label>
+        <select id="pop_category" name="ukmec_eligibility.pop_category">
+          <option value="">-- Select --</option>
+          <option value="1" {% if ukmec_eligibility.popCategory == 1 %}selected{% endif %}>UKMEC 1 - No restriction</option>
+          <option value="2" {% if ukmec_eligibility.popCategory == 2 %}selected{% endif %}>UKMEC 2 - Advantages &gt; risks</option>
+          <option value="3" {% if ukmec_eligibility.popCategory == 3 %}selected{% endif %}>UKMEC 3 - Risks &gt; advantages</option>
+          <option value="4" {% if ukmec_eligibility.popCategory == 4 %}selected{% endif %}>UKMEC 4 - Unacceptable risk</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patch_ring_category">Patch / Vaginal Ring</label>
+        <select id="patch_ring_category" name="ukmec_eligibility.patch_ring_category">
+          <option value="">-- Select --</option>
+          <option value="1" {% if ukmec_eligibility.patchRingCategory == 1 %}selected{% endif %}>UKMEC 1 - No restriction</option>
+          <option value="2" {% if ukmec_eligibility.patchRingCategory == 2 %}selected{% endif %}>UKMEC 2 - Advantages &gt; risks</option>
+          <option value="3" {% if ukmec_eligibility.patchRingCategory == 3 %}selected{% endif %}>UKMEC 3 - Risks &gt; advantages</option>
+          <option value="4" {% if ukmec_eligibility.patchRingCategory == 4 %}selected{% endif %}>UKMEC 4 - Unacceptable risk</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dmpa_injectable_category">DMPA Injectable</label>
+        <select id="dmpa_injectable_category" name="ukmec_eligibility.dmpa_injectable_category">
+          <option value="">-- Select --</option>
+          <option value="1" {% if ukmec_eligibility.dmpaInjectableCategory == 1 %}selected{% endif %}>UKMEC 1 - No restriction</option>
+          <option value="2" {% if ukmec_eligibility.dmpaInjectableCategory == 2 %}selected{% endif %}>UKMEC 2 - Advantages &gt; risks</option>
+          <option value="3" {% if ukmec_eligibility.dmpaInjectableCategory == 3 %}selected{% endif %}>UKMEC 3 - Risks &gt; advantages</option>
+          <option value="4" {% if ukmec_eligibility.dmpaInjectableCategory == 4 %}selected{% endif %}>UKMEC 4 - Unacceptable risk</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="implant_category">Implant</label>
+        <select id="implant_category" name="ukmec_eligibility.implant_category">
+          <option value="">-- Select --</option>
+          <option value="1" {% if ukmec_eligibility.implantCategory == 1 %}selected{% endif %}>UKMEC 1 - No restriction</option>
+          <option value="2" {% if ukmec_eligibility.implantCategory == 2 %}selected{% endif %}>UKMEC 2 - Advantages &gt; risks</option>
+          <option value="3" {% if ukmec_eligibility.implantCategory == 3 %}selected{% endif %}>UKMEC 3 - Risks &gt; advantages</option>
+          <option value="4" {% if ukmec_eligibility.implantCategory == 4 %}selected{% endif %}>UKMEC 4 - Unacceptable risk</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="lng_ius_category">LNG-IUS (Hormonal Coil)</label>
+        <select id="lng_ius_category" name="ukmec_eligibility.lng_ius_category">
+          <option value="">-- Select --</option>
+          <option value="1" {% if ukmec_eligibility.lngIusCategory == 1 %}selected{% endif %}>UKMEC 1 - No restriction</option>
+          <option value="2" {% if ukmec_eligibility.lngIusCategory == 2 %}selected{% endif %}>UKMEC 2 - Advantages &gt; risks</option>
+          <option value="3" {% if ukmec_eligibility.lngIusCategory == 3 %}selected{% endif %}>UKMEC 3 - Risks &gt; advantages</option>
+          <option value="4" {% if ukmec_eligibility.lngIusCategory == 4 %}selected{% endif %}>UKMEC 4 - Unacceptable risk</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cu_iud_category">Cu-IUD (Copper Coil)</label>
+        <select id="cu_iud_category" name="ukmec_eligibility.cu_iud_category">
+          <option value="">-- Select --</option>
+          <option value="1" {% if ukmec_eligibility.cuIudCategory == 1 %}selected{% endif %}>UKMEC 1 - No restriction</option>
+          <option value="2" {% if ukmec_eligibility.cuIudCategory == 2 %}selected{% endif %}>UKMEC 2 - Advantages &gt; risks</option>
+          <option value="3" {% if ukmec_eligibility.cuIudCategory == 3 %}selected{% endif %}>UKMEC 3 - Risks &gt; advantages</option>
+          <option value="4" {% if ukmec_eligibility.cuIudCategory == 4 %}selected{% endif %}>UKMEC 4 - Unacceptable risk</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="barrier_category">Barrier Methods</label>
+        <select id="barrier_category" name="ukmec_eligibility.barrier_category">
+          <option value="">-- Select --</option>
+          <option value="1" {% if ukmec_eligibility.barrierCategory == 1 %}selected{% endif %}>UKMEC 1 - No restriction</option>
+          <option value="2" {% if ukmec_eligibility.barrierCategory == 2 %}selected{% endif %}>UKMEC 2 - Advantages &gt; risks</option>
+          <option value="3" {% if ukmec_eligibility.barrierCategory == 3 %}selected{% endif %}>UKMEC 3 - Risks &gt; advantages</option>
+          <option value="4" {% if ukmec_eligibility.barrierCategory == 4 %}selected{% endif %}>UKMEC 4 - Unacceptable risk</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinician_override_notes">Clinician override notes</label>
+      <textarea id="clinician_override_notes" name="ukmec_eligibility.clinician_override_notes"
+                rows="3" placeholder="Justification for any category overrides or special considerations">{{ ukmec_eligibility.clinicianOverrideNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

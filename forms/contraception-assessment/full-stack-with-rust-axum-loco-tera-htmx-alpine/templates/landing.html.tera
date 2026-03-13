@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Contraception Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Contraception Assessment</h1>
+  <p>
+    This assessment uses the UK Medical Eligibility Criteria (UKMEC) framework to evaluate
+    patient suitability for different contraceptive methods. It considers medical
+    contraindications, cardiovascular risk factors, current medications, and patient
+    preferences to determine the safest and most appropriate contraceptive options.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Steps</h3>
+      <p>Comprehensive evaluation covering medical history, risk factors, and preferences</p>
+    </div>
+    <div class="feature-card">
+      <h3>UKMEC Categories</h3>
+      <p>Evidence-based eligibility classification (1-4) for each method</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated identification of contraindications and safety concerns</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

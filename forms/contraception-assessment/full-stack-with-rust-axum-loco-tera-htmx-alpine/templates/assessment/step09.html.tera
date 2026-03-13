@@ -1,0 +1,92 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Counselling - Contraception Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Counselling</h2>
+    <p class="hint">Document the counselling provided to the patient.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Method of action and use explained?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="counselling.method_explained" value="yes" {% if counselling.methodExplained == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="counselling.method_explained" value="no" {% if counselling.methodExplained == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Risks and benefits discussed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="counselling.risks_benefits_discussed" value="yes" {% if counselling.risksBenefitsDiscussed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="counselling.risks_benefits_discussed" value="no" {% if counselling.risksBenefitsDiscussed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Potential side effects discussed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="counselling.side_effects_discussed" value="yes" {% if counselling.sideEffectsDiscussed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="counselling.side_effects_discussed" value="no" {% if counselling.sideEffectsDiscussed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Alternative methods discussed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="counselling.alternative_methods_discussed" value="yes" {% if counselling.alternativeMethodsDiscussed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="counselling.alternative_methods_discussed" value="no" {% if counselling.alternativeMethodsDiscussed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>STI prevention discussed? (condom use)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="counselling.sti_prevention_discussed" value="yes" {% if counselling.stiPreventionDiscussed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="counselling.sti_prevention_discussed" value="no" {% if counselling.stiPreventionDiscussed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Emergency contraception discussed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="counselling.emergency_contraception_discussed" value="yes" {% if counselling.emergencyContraceptionDiscussed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="counselling.emergency_contraception_discussed" value="no" {% if counselling.emergencyContraceptionDiscussed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Written information provided?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="counselling.written_information_provided" value="yes" {% if counselling.writtenInformationProvided == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="counselling.written_information_provided" value="no" {% if counselling.writtenInformationProvided == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Patient questions answered?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="counselling.patient_questions_answered" value="yes" {% if counselling.patientQuestionsAnswered == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="counselling.patient_questions_answered" value="no" {% if counselling.patientQuestionsAnswered == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Informed consent obtained?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="counselling.consent_obtained" value="yes" {% if counselling.consentObtained == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="counselling.consent_obtained" value="no" {% if counselling.consentObtained == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

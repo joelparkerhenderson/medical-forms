@@ -1,0 +1,161 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Medical History - Contraception Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Medical History</h2>
+    <p class="hint">Record relevant medical conditions that may affect contraceptive eligibility.</p>
+
+    <h3>Thromboembolism</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Personal history of VTE (DVT/PE)?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.vte_history" value="yes" {% if medical_history.vteHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.vte_history" value="no" {% if medical_history.vteHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Family history of VTE (first-degree relative)?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.vte_family_history" value="yes" {% if medical_history.vteFamilyHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.vte_family_history" value="no" {% if medical_history.vteFamilyHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <h3>Cardiovascular</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>History of stroke?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.stroke_history" value="yes" {% if medical_history.strokeHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.stroke_history" value="no" {% if medical_history.strokeHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Ischaemic heart disease?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.ischaemic_heart_disease" value="yes" {% if medical_history.ischaemicHeartDisease == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.ischaemic_heart_disease" value="no" {% if medical_history.ischaemicHeartDisease == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Valvular heart disease?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_history.valvular_heart_disease" value="yes" {% if medical_history.valvularHeartDisease == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_history.valvular_heart_disease" value="no" {% if medical_history.valvularHeartDisease == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <h3>Metabolic</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="diabetes_type">Diabetes</label>
+        <select id="diabetes_type" name="medical_history.diabetes_type">
+          <option value="">-- Select --</option>
+          <option value="none" {% if medical_history.diabetesType == "none" %}selected{% endif %}>No diabetes</option>
+          <option value="type1" {% if medical_history.diabetesType == "type1" %}selected{% endif %}>Type 1</option>
+          <option value="type2" {% if medical_history.diabetesType == "type2" %}selected{% endif %}>Type 2</option>
+          <option value="gestational" {% if medical_history.diabetesType == "gestational" %}selected{% endif %}>Gestational (history)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Diabetes with vascular complications?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.diabetes_complications" value="yes" {% if medical_history.diabetesComplications == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.diabetes_complications" value="no" {% if medical_history.diabetesComplications == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <h3>Hepatic & GI</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="liver_disease">Liver disease</label>
+        <select id="liver_disease" name="medical_history.liver_disease">
+          <option value="">-- Select --</option>
+          <option value="none" {% if medical_history.liverDisease == "none" %}selected{% endif %}>None</option>
+          <option value="mild" {% if medical_history.liverDisease == "mild" %}selected{% endif %}>Mild/compensated</option>
+          <option value="active" {% if medical_history.liverDisease == "active" %}selected{% endif %}>Active/decompensated</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Gallbladder disease?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.gallbladder_disease" value="yes" {% if medical_history.gallbladderDisease == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.gallbladder_disease" value="no" {% if medical_history.gallbladderDisease == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Inflammatory bowel disease?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_history.inflammatory_bowel_disease" value="yes" {% if medical_history.inflammatoryBowelDisease == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_history.inflammatory_bowel_disease" value="no" {% if medical_history.inflammatoryBowelDisease == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <h3>Autoimmune</h3>
+    <div class="form-group">
+      <label>SLE with antiphospholipid antibodies?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_history.sle_with_antiphospholipid" value="yes" {% if medical_history.sleWithAntiphospholipid == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_history.sle_with_antiphospholipid" value="no" {% if medical_history.sleWithAntiphospholipid == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <h3>Oncology</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Current breast cancer?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.breast_cancer_current" value="yes" {% if medical_history.breastCancerCurrent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.breast_cancer_current" value="no" {% if medical_history.breastCancerCurrent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>History of breast cancer (past)?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.breast_cancer_history" value="yes" {% if medical_history.breastCancerHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.breast_cancer_history" value="no" {% if medical_history.breastCancerHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Cervical cancer?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.cervical_cancer" value="yes" {% if medical_history.cervicalCancer == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.cervical_cancer" value="no" {% if medical_history.cervicalCancer == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Endometrial cancer?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.endometrial_cancer" value="yes" {% if medical_history.endometrialCancer == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.endometrial_cancer" value="no" {% if medical_history.endometrialCancer == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Epilepsy?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_history.epilepsy" value="yes" {% if medical_history.epilepsy == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_history.epilepsy" value="no" {% if medical_history.epilepsy == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

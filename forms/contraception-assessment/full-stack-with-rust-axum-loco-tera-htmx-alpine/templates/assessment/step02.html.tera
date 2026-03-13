@@ -1,0 +1,81 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Reproductive History - Contraception Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Reproductive History</h2>
+    <p class="hint">Record the patient's reproductive and obstetric history.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="parity">Parity (number of pregnancies carried to viability)</label>
+        <input type="number" id="parity" name="reproductive_history.parity"
+               value="{{ reproductive_history.parity | default(value='') }}"
+               min="0" max="20" placeholder="e.g. 2">
+      </div>
+      <div class="form-group">
+        <label for="last_delivery_date">Date of Last Delivery</label>
+        <input type="date" id="last_delivery_date" name="reproductive_history.last_delivery_date"
+               value="{{ reproductive_history.lastDeliveryDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Could the patient be pregnant?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="reproductive_history.pregnancy_possible" value="yes" {% if reproductive_history.pregnancyPossible == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="reproductive_history.pregnancy_possible" value="no" {% if reproductive_history.pregnancyPossible == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="reproductive_history.pregnancy_possible" value="unsure" {% if reproductive_history.pregnancyPossible == "unsure" %}checked{% endif %}> Unsure</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Currently breastfeeding?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="reproductive_history.breastfeeding" value="yes" {% if reproductive_history.breastfeeding == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="reproductive_history.breastfeeding" value="no" {% if reproductive_history.breastfeeding == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="breastfeeding_duration">If breastfeeding, how long postpartum?</label>
+      <select id="breastfeeding_duration" name="reproductive_history.breastfeeding_duration">
+        <option value="">-- Select --</option>
+        <option value="lessThan6Weeks" {% if reproductive_history.breastfeedingDuration == "lessThan6Weeks" %}selected{% endif %}>Less than 6 weeks</option>
+        <option value="6WeeksTo6Months" {% if reproductive_history.breastfeedingDuration == "6WeeksTo6Months" %}selected{% endif %}>6 weeks to 6 months</option>
+        <option value="moreThan6Months" {% if reproductive_history.breastfeedingDuration == "moreThan6Months" %}selected{% endif %}>More than 6 months</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>History of ectopic pregnancy?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="reproductive_history.ectopic_history" value="yes" {% if reproductive_history.ectopicHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="reproductive_history.ectopic_history" value="no" {% if reproductive_history.ectopicHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Current STI risk factors?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="reproductive_history.current_sti_risk" value="yes" {% if reproductive_history.currentStiRisk == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="reproductive_history.current_sti_risk" value="no" {% if reproductive_history.currentStiRisk == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="last_sti_screen_date">Date of Last STI Screen</label>
+      <input type="date" id="last_sti_screen_date" name="reproductive_history.last_sti_screen_date"
+             value="{{ reproductive_history.lastStiScreenDate }}">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

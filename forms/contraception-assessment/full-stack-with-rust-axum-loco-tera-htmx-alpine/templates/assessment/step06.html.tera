@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Smoking & BMI - Contraception Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Smoking & BMI</h2>
+    <p class="hint">Assess lifestyle factors that influence contraceptive eligibility.</p>
+
+    <h3>Smoking Status</h3>
+    <div class="form-group">
+      <label for="smoking_status">Smoking status</label>
+      <select id="smoking_status" name="smoking_bmi.smoking_status">
+        <option value="">-- Select --</option>
+        <option value="never" {% if smoking_bmi.smokingStatus == "never" %}selected{% endif %}>Never smoked</option>
+        <option value="exSmoker" {% if smoking_bmi.smokingStatus == "exSmoker" %}selected{% endif %}>Ex-smoker</option>
+        <option value="lightSmoker" {% if smoking_bmi.smokingStatus == "lightSmoker" %}selected{% endif %}>Light smoker (&lt;15/day)</option>
+        <option value="heavySmoker" {% if smoking_bmi.smokingStatus == "heavySmoker" %}selected{% endif %}>Heavy smoker (&ge;15/day)</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cigarettes_per_day">Cigarettes per day (if smoker)</label>
+        <input type="number" id="cigarettes_per_day" name="smoking_bmi.cigarettes_per_day"
+               value="{{ smoking_bmi.cigarettesPerDay | default(value='') }}"
+               min="0" max="100" placeholder="e.g. 10">
+      </div>
+      <div class="form-group">
+        <label>Smoker aged over 35?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="smoking_bmi.age_over_35_smoking" value="yes" {% if smoking_bmi.ageOver35Smoking == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="smoking_bmi.age_over_35_smoking" value="no" {% if smoking_bmi.ageOver35Smoking == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="smoking_bmi.age_over_35_smoking" value="notApplicable" {% if smoking_bmi.ageOver35Smoking == "notApplicable" %}checked{% endif %}> N/A</label>
+        </div>
+      </div>
+    </div>
+
+    <h3>Body Mass Index</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="height_cm">Height (cm)</label>
+        <input type="number" id="height_cm" name="smoking_bmi.height_cm"
+               value="{{ smoking_bmi.heightCm | default(value='') }}"
+               min="100" max="250" step="0.1" placeholder="e.g. 165">
+      </div>
+      <div class="form-group">
+        <label for="weight_kg">Weight (kg)</label>
+        <input type="number" id="weight_kg" name="smoking_bmi.weight_kg"
+               value="{{ smoking_bmi.weightKg | default(value='') }}"
+               min="30" max="300" step="0.1" placeholder="e.g. 70">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bmi">BMI (calculated or known)</label>
+        <input type="number" id="bmi" name="smoking_bmi.bmi"
+               value="{{ smoking_bmi.bmi | default(value='') }}"
+               min="10" max="70" step="0.1" placeholder="e.g. 25.7">
+      </div>
+      <div class="form-group">
+        <label>BMI over 35?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="smoking_bmi.bmi_over_35" value="yes" {% if smoking_bmi.bmiOver35 == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="smoking_bmi.bmi_over_35" value="no" {% if smoking_bmi.bmiOver35 == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

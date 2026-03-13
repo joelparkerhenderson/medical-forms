@@ -1,0 +1,179 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Eligibility Report - Contraception Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Contraception Assessment Report</h1>
+    <span class="eligibility-badge eligibility-{{ eligibility_level }}">{{ eligibility_label }}</span>
+  </div>
+
+  <div class="score-display">UKMEC {{ ukmec_category }}</div>
+  <div class="score-label">Worst-Case UKMEC Category</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient Name:</strong> {{ data.patientInformation.patientName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Date of Birth:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Consultation Date:</strong> {{ data.patientInformation.consultationDate | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Clinician:</strong> {{ data.patientInformation.clinicianName | default(value="Not provided") }}
+    </div>
+  </div>
+</div>
+
+<!-- Method Chosen -->
+<div class="card">
+  <h2>Method Chosen</h2>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <div style="font-size: 1.25rem; font-weight: 700;">
+      {% if data.clinicalReview.methodChosen == "coc" %}COC (Combined Pill)
+      {% elif data.clinicalReview.methodChosen == "pop" %}POP (Progestogen-only Pill)
+      {% elif data.clinicalReview.methodChosen == "patchRing" %}Patch/Ring
+      {% elif data.clinicalReview.methodChosen == "dmpaInjectable" %}DMPA Injectable
+      {% elif data.clinicalReview.methodChosen == "implant" %}Implant
+      {% elif data.clinicalReview.methodChosen == "lngIus" %}LNG-IUS (Hormonal Coil)
+      {% elif data.clinicalReview.methodChosen == "cuIud" %}Cu-IUD (Copper Coil)
+      {% elif data.clinicalReview.methodChosen == "barrier" %}Barrier Methods
+      {% elif data.clinicalReview.methodChosen == "deferred" %}Decision Deferred
+      {% else %}Not specified
+      {% endif %}
+    </div>
+    <span class="concern-badge concern-{{ risk_level }}">{{ risk_level | upper }} RISK</span>
+  </div>
+</div>
+
+<!-- UKMEC Method Categories -->
+<div class="card">
+  <h2>UKMEC Method Eligibility</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>UKMEC Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>COC (Combined Pill)</td>
+        <td>{% if data.ukmecEligibility.cocCategory %}<span class="ukmec-cat ukmec-{{ data.ukmecEligibility.cocCategory }}">{{ data.ukmecEligibility.cocCategory }}</span>{% else %}Not assessed{% endif %}</td>
+      </tr>
+      <tr>
+        <td>POP (Progestogen-only Pill)</td>
+        <td>{% if data.ukmecEligibility.popCategory %}<span class="ukmec-cat ukmec-{{ data.ukmecEligibility.popCategory }}">{{ data.ukmecEligibility.popCategory }}</span>{% else %}Not assessed{% endif %}</td>
+      </tr>
+      <tr>
+        <td>Patch / Ring</td>
+        <td>{% if data.ukmecEligibility.patchRingCategory %}<span class="ukmec-cat ukmec-{{ data.ukmecEligibility.patchRingCategory }}">{{ data.ukmecEligibility.patchRingCategory }}</span>{% else %}Not assessed{% endif %}</td>
+      </tr>
+      <tr>
+        <td>DMPA Injectable</td>
+        <td>{% if data.ukmecEligibility.dmpaInjectableCategory %}<span class="ukmec-cat ukmec-{{ data.ukmecEligibility.dmpaInjectableCategory }}">{{ data.ukmecEligibility.dmpaInjectableCategory }}</span>{% else %}Not assessed{% endif %}</td>
+      </tr>
+      <tr>
+        <td>Implant</td>
+        <td>{% if data.ukmecEligibility.implantCategory %}<span class="ukmec-cat ukmec-{{ data.ukmecEligibility.implantCategory }}">{{ data.ukmecEligibility.implantCategory }}</span>{% else %}Not assessed{% endif %}</td>
+      </tr>
+      <tr>
+        <td>LNG-IUS (Hormonal Coil)</td>
+        <td>{% if data.ukmecEligibility.lngIusCategory %}<span class="ukmec-cat ukmec-{{ data.ukmecEligibility.lngIusCategory }}">{{ data.ukmecEligibility.lngIusCategory }}</span>{% else %}Not assessed{% endif %}</td>
+      </tr>
+      <tr>
+        <td>Cu-IUD (Copper Coil)</td>
+        <td>{% if data.ukmecEligibility.cuIudCategory %}<span class="ukmec-cat ukmec-{{ data.ukmecEligibility.cuIudCategory }}">{{ data.ukmecEligibility.cuIudCategory }}</span>{% else %}Not assessed{% endif %}</td>
+      </tr>
+      <tr>
+        <td>Barrier Methods</td>
+        <td>{% if data.ukmecEligibility.barrierCategory %}<span class="ukmec-cat ukmec-{{ data.ukmecEligibility.barrierCategory }}">{{ data.ukmecEligibility.barrierCategory }}</span>{% else %}Not assessed{% endif %}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Eligibility Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Eligibility Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinician Notes -->
+{% if data.clinicalReview.clinicianNotes or data.ukmecEligibility.clinicianOverrideNotes %}
+<div class="card">
+  <h2>Clinical Notes</h2>
+  {% if data.ukmecEligibility.clinicianOverrideNotes %}
+    <div class="form-group">
+      <strong>UKMEC Override Notes:</strong>
+      <p>{{ data.ukmecEligibility.clinicianOverrideNotes }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.clinicianNotes %}
+    <div class="form-group">
+      <strong>Clinician Notes:</strong>
+      <p>{{ data.clinicalReview.clinicianNotes }}</p>
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

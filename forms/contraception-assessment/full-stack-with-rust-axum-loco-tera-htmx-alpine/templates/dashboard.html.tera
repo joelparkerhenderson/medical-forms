@@ -1,0 +1,73 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Contraception Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Contraception Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, method, date...">
+    </div>
+    <div class="form-group">
+      <label for="eligibility_level">Eligibility</label>
+      <select id="eligibility_level" name="eligibility_level">
+        <option value="">All Levels</option>
+        <option value="noContraindication" {% if eligibility_level == "noContraindication" %}selected{% endif %}>No Contraindication</option>
+        <option value="relativeContraindication" {% if eligibility_level == "relativeContraindication" %}selected{% endif %}>Relative Contraindication</option>
+        <option value="absoluteContraindication" {% if eligibility_level == "absoluteContraindication" %}selected{% endif %}>Absolute Contraindication</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="risk_level">Risk Level</label>
+      <select id="risk_level" name="risk_level">
+        <option value="">All</option>
+        <option value="low" {% if risk_level == "low" %}selected{% endif %}>Low</option>
+        <option value="medium" {% if risk_level == "medium" %}selected{% endif %}>Medium</option>
+        <option value="high" {% if risk_level == "high" %}selected{% endif %}>High</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Method Chosen</th>
+      <th>UKMEC Category</th>
+      <th>Eligibility</th>
+      <th>Risk Level</th>
+      <th>Last Review</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.methodChosen }}</td>
+      <td><span class="ukmec-cat ukmec-{{ patient.ukmecCategory }}">{{ patient.ukmecCategory }}</span></td>
+      <td><span class="eligibility-badge eligibility-{{ patient.eligibilityLevel }}">{{ patient.eligibilityLevel }}</span></td>
+      <td><span class="concern-badge concern-{{ patient.riskLevel }}">{{ patient.riskLevel | upper }}</span></td>
+      <td>{{ patient.lastReview }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

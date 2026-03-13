@@ -1,0 +1,72 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Medications - Contraception Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Medications</h2>
+    <p class="hint">Record medications that may interact with contraceptive methods.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Enzyme-inducing anticonvulsants? (e.g. carbamazepine, phenytoin, phenobarbital)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.anticonvulsants" value="yes" {% if current_medications.anticonvulsants == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.anticonvulsants" value="no" {% if current_medications.anticonvulsants == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="anticonvulsant_names">If yes, specify which</label>
+        <input type="text" id="anticonvulsant_names" name="current_medications.anticonvulsant_names"
+               value="{{ current_medications.anticonvulsantNames }}"
+               placeholder="e.g. Carbamazepine 200mg bd">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Rifampicin or Rifabutin?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.rifampicin_rifabutin" value="yes" {% if current_medications.rifampicinRifabutin == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.rifampicin_rifabutin" value="no" {% if current_medications.rifampicinRifabutin == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Antiretroviral therapy?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.antiretrovirals" value="yes" {% if current_medications.antiretrovirals == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.antiretrovirals" value="no" {% if current_medications.antiretrovirals == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>SSRI antidepressants?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.ssri_antidepressants" value="yes" {% if current_medications.ssriAntidepressants == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.ssri_antidepressants" value="no" {% if current_medications.ssriAntidepressants == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Anticoagulant therapy?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.anticoagulants" value="yes" {% if current_medications.anticoagulants == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.anticoagulants" value="no" {% if current_medications.anticoagulants == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="other_medications">Other relevant medications</label>
+      <textarea id="other_medications" name="current_medications.other_medications"
+                rows="3" placeholder="List any other medications the patient is currently taking">{{ current_medications.otherMedications }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

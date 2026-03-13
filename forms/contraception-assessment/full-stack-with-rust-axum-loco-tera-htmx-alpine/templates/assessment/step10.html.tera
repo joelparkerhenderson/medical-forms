@@ -1,0 +1,89 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Contraception Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Record the clinical decision and follow-up plan.</p>
+
+    <div class="form-group">
+      <label for="method_chosen">Method chosen</label>
+      <select id="method_chosen" name="clinical_review.method_chosen">
+        <option value="">-- Select --</option>
+        <option value="coc" {% if clinical_review.methodChosen == "coc" %}selected{% endif %}>Combined oral contraceptive (COC)</option>
+        <option value="pop" {% if clinical_review.methodChosen == "pop" %}selected{% endif %}>Progestogen-only pill (POP)</option>
+        <option value="patchRing" {% if clinical_review.methodChosen == "patchRing" %}selected{% endif %}>Patch or vaginal ring</option>
+        <option value="dmpaInjectable" {% if clinical_review.methodChosen == "dmpaInjectable" %}selected{% endif %}>DMPA injectable</option>
+        <option value="implant" {% if clinical_review.methodChosen == "implant" %}selected{% endif %}>Implant</option>
+        <option value="lngIus" {% if clinical_review.methodChosen == "lngIus" %}selected{% endif %}>LNG-IUS (hormonal coil)</option>
+        <option value="cuIud" {% if clinical_review.methodChosen == "cuIud" %}selected{% endif %}>Cu-IUD (copper coil)</option>
+        <option value="barrier" {% if clinical_review.methodChosen == "barrier" %}selected{% endif %}>Barrier methods</option>
+        <option value="deferred" {% if clinical_review.methodChosen == "deferred" %}selected{% endif %}>Decision deferred</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Prescription issued?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.prescription_issued" value="yes" {% if clinical_review.prescriptionIssued == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.prescription_issued" value="no" {% if clinical_review.prescriptionIssued == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="follow_up_date">Follow-up date</label>
+        <input type="date" id="follow_up_date" name="clinical_review.follow_up_date"
+               value="{{ clinical_review.followUpDate }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="follow_up_interval">Follow-up interval</label>
+      <select id="follow_up_interval" name="clinical_review.follow_up_interval">
+        <option value="">-- Select --</option>
+        <option value="3months" {% if clinical_review.followUpInterval == "3months" %}selected{% endif %}>3 months</option>
+        <option value="6months" {% if clinical_review.followUpInterval == "6months" %}selected{% endif %}>6 months</option>
+        <option value="12months" {% if clinical_review.followUpInterval == "12months" %}selected{% endif %}>12 months</option>
+        <option value="asNeeded" {% if clinical_review.followUpInterval == "asNeeded" %}selected{% endif %}>As needed</option>
+      </select>
+    </div>
+
+    <h3>Cervical Screening</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cervical_screening_status">Cervical screening status</label>
+        <select id="cervical_screening_status" name="clinical_review.cervical_screening_status">
+          <option value="">-- Select --</option>
+          <option value="upToDate" {% if clinical_review.cervicalScreeningStatus == "upToDate" %}selected{% endif %}>Up to date</option>
+          <option value="overdue" {% if clinical_review.cervicalScreeningStatus == "overdue" %}selected{% endif %}>Overdue</option>
+          <option value="notYetDue" {% if clinical_review.cervicalScreeningStatus == "notYetDue" %}selected{% endif %}>Not yet due</option>
+          <option value="notApplicable" {% if clinical_review.cervicalScreeningStatus == "notApplicable" %}selected{% endif %}>Not applicable</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="last_cervical_screen_date">Date of last cervical screen</label>
+        <input type="date" id="last_cervical_screen_date" name="clinical_review.last_cervical_screen_date"
+               value="{{ clinical_review.lastCervicalScreenDate }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_investigations">Additional investigations required</label>
+      <textarea id="additional_investigations" name="clinical_review.additional_investigations"
+                rows="3" placeholder="e.g. Pregnancy test, STI screen, blood tests">{{ clinical_review.additionalInvestigations }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="clinician_notes">Clinician notes</label>
+      <textarea id="clinician_notes" name="clinical_review.clinician_notes"
+                rows="4" placeholder="Clinical notes, rationale for method choice, safety considerations">{{ clinical_review.clinicianNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

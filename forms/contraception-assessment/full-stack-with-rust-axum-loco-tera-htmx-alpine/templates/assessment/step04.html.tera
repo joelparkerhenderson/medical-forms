@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cardiovascular Risk - Contraception Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cardiovascular Risk</h2>
+    <p class="hint">Assess cardiovascular risk factors relevant to hormonal contraception.</p>
+
+    <h3>Blood Pressure</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="systolic_bp">Systolic BP (mmHg)</label>
+        <input type="number" id="systolic_bp" name="cardiovascular_risk.systolic_bp"
+               value="{{ cardiovascular_risk.systolicBp | default(value='') }}"
+               min="60" max="250" placeholder="e.g. 120">
+      </div>
+      <div class="form-group">
+        <label for="diastolic_bp">Diastolic BP (mmHg)</label>
+        <input type="number" id="diastolic_bp" name="cardiovascular_risk.diastolic_bp"
+               value="{{ cardiovascular_risk.diastolicBp | default(value='') }}"
+               min="40" max="150" placeholder="e.g. 80">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Is hypertension adequately controlled?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="cardiovascular_risk.hypertension_controlled" value="yes" {% if cardiovascular_risk.hypertensionControlled == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="cardiovascular_risk.hypertension_controlled" value="no" {% if cardiovascular_risk.hypertensionControlled == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="cardiovascular_risk.hypertension_controlled" value="notApplicable" {% if cardiovascular_risk.hypertensionControlled == "notApplicable" %}checked{% endif %}> N/A</label>
+      </div>
+    </div>
+
+    <h3>Migraine</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Migraine with aura?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cardiovascular_risk.migraine_with_aura" value="yes" {% if cardiovascular_risk.migraineWithAura == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cardiovascular_risk.migraine_with_aura" value="no" {% if cardiovascular_risk.migraineWithAura == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Migraine without aura?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cardiovascular_risk.migraine_without_aura" value="yes" {% if cardiovascular_risk.migraineWithoutAura == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cardiovascular_risk.migraine_without_aura" value="no" {% if cardiovascular_risk.migraineWithoutAura == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>If migraine, is patient aged over 35?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="cardiovascular_risk.migraine_age_over_35" value="yes" {% if cardiovascular_risk.migraineAgeOver35 == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="cardiovascular_risk.migraine_age_over_35" value="no" {% if cardiovascular_risk.migraineAgeOver35 == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="cardiovascular_risk.migraine_age_over_35" value="notApplicable" {% if cardiovascular_risk.migraineAgeOver35 == "notApplicable" %}checked{% endif %}> N/A</label>
+      </div>
+    </div>
+
+    <h3>Combined Risk</h3>
+    <div class="form-group">
+      <label>Multiple cardiovascular risk factors? (e.g. smoking + age >35 + hypertension)</label>
+      <div class="radio-group">
+        <label><input type="radio" name="cardiovascular_risk.multiple_cv_risk_factors" value="yes" {% if cardiovascular_risk.multipleCvRiskFactors == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="cardiovascular_risk.multiple_cv_risk_factors" value="no" {% if cardiovascular_risk.multipleCvRiskFactors == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Contraceptive Preferences - Contraception Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Contraceptive Preferences</h2>
+    <p class="hint">Explore the patient's preferences and priorities for contraception.</p>
+
+    <div class="form-group">
+      <label for="current_method">Current contraceptive method</label>
+      <select id="current_method" name="contraceptive_preferences.current_method">
+        <option value="">-- Select --</option>
+        <option value="none" {% if contraceptive_preferences.currentMethod == "none" %}selected{% endif %}>None</option>
+        <option value="coc" {% if contraceptive_preferences.currentMethod == "coc" %}selected{% endif %}>Combined oral contraceptive (COC)</option>
+        <option value="pop" {% if contraceptive_preferences.currentMethod == "pop" %}selected{% endif %}>Progestogen-only pill (POP)</option>
+        <option value="patchRing" {% if contraceptive_preferences.currentMethod == "patchRing" %}selected{% endif %}>Patch or vaginal ring</option>
+        <option value="dmpaInjectable" {% if contraceptive_preferences.currentMethod == "dmpaInjectable" %}selected{% endif %}>DMPA injectable</option>
+        <option value="implant" {% if contraceptive_preferences.currentMethod == "implant" %}selected{% endif %}>Implant</option>
+        <option value="lngIus" {% if contraceptive_preferences.currentMethod == "lngIus" %}selected{% endif %}>LNG-IUS (hormonal coil)</option>
+        <option value="cuIud" {% if contraceptive_preferences.currentMethod == "cuIud" %}selected{% endif %}>Cu-IUD (copper coil)</option>
+        <option value="barrier" {% if contraceptive_preferences.currentMethod == "barrier" %}selected{% endif %}>Barrier methods (condoms/diaphragm)</option>
+        <option value="withdrawal" {% if contraceptive_preferences.currentMethod == "withdrawal" %}selected{% endif %}>Withdrawal</option>
+        <option value="naturalFamily" {% if contraceptive_preferences.currentMethod == "naturalFamily" %}selected{% endif %}>Natural family planning</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="reason_for_change">Reason for seeking contraception change</label>
+      <textarea id="reason_for_change" name="contraceptive_preferences.reason_for_change"
+                rows="3" placeholder="e.g. Side effects, desire for longer-acting method, planning pregnancy">{{ contraceptive_preferences.reasonForChange }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="preferred_method">Preferred method (if any)</label>
+      <select id="preferred_method" name="contraceptive_preferences.preferred_method">
+        <option value="">-- No preference --</option>
+        <option value="coc" {% if contraceptive_preferences.preferredMethod == "coc" %}selected{% endif %}>Combined oral contraceptive (COC)</option>
+        <option value="pop" {% if contraceptive_preferences.preferredMethod == "pop" %}selected{% endif %}>Progestogen-only pill (POP)</option>
+        <option value="patchRing" {% if contraceptive_preferences.preferredMethod == "patchRing" %}selected{% endif %}>Patch or vaginal ring</option>
+        <option value="dmpaInjectable" {% if contraceptive_preferences.preferredMethod == "dmpaInjectable" %}selected{% endif %}>DMPA injectable</option>
+        <option value="implant" {% if contraceptive_preferences.preferredMethod == "implant" %}selected{% endif %}>Implant</option>
+        <option value="lngIus" {% if contraceptive_preferences.preferredMethod == "lngIus" %}selected{% endif %}>LNG-IUS (hormonal coil)</option>
+        <option value="cuIud" {% if contraceptive_preferences.preferredMethod == "cuIud" %}selected{% endif %}>Cu-IUD (copper coil)</option>
+        <option value="barrier" {% if contraceptive_preferences.preferredMethod == "barrier" %}selected{% endif %}>Barrier methods</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Interest in long-acting reversible contraception (LARC)?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraceptive_preferences.long_acting_interest" value="yes" {% if contraceptive_preferences.longActingInterest == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraceptive_preferences.long_acting_interest" value="no" {% if contraceptive_preferences.longActingInterest == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="contraceptive_preferences.long_acting_interest" value="unsure" {% if contraceptive_preferences.longActingInterest == "unsure" %}checked{% endif %}> Unsure</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Concerns about hormonal methods?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraceptive_preferences.hormonal_concerns" value="yes" {% if contraceptive_preferences.hormonalConcerns == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraceptive_preferences.hormonal_concerns" value="no" {% if contraceptive_preferences.hormonalConcerns == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fertility_plans">Future fertility plans</label>
+        <select id="fertility_plans" name="contraceptive_preferences.fertility_plans">
+          <option value="">-- Select --</option>
+          <option value="within1Year" {% if contraceptive_preferences.fertilityPlans == "within1Year" %}selected{% endif %}>Planning pregnancy within 1 year</option>
+          <option value="1to3Years" {% if contraceptive_preferences.fertilityPlans == "1to3Years" %}selected{% endif %}>Planning pregnancy in 1-3 years</option>
+          <option value="moreThan3Years" {% if contraceptive_preferences.fertilityPlans == "moreThan3Years" %}selected{% endif %}>Not for 3+ years</option>
+          <option value="completed" {% if contraceptive_preferences.fertilityPlans == "completed" %}selected{% endif %}>Family complete</option>
+          <option value="unsure" {% if contraceptive_preferences.fertilityPlans == "unsure" %}selected{% endif %}>Unsure</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Partner involved in contraceptive decision?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraceptive_preferences.partner_involvement" value="yes" {% if contraceptive_preferences.partnerInvolvement == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraceptive_preferences.partner_involvement" value="no" {% if contraceptive_preferences.partnerInvolvement == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
