@@ -1,0 +1,80 @@
+{% extends "base.html.tera" %}
+
+{% block title %}HRT Options & Counselling - HRT Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>HRT Options &amp; Counselling</h2>
+    <p class="hint">Document counselling provided and patient preferences.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="preferred_hrt_route">Preferred HRT Route</label>
+        <select id="preferred_hrt_route" name="hrt_options_counselling.preferred_hrt_route">
+          <option value="">-- Select --</option>
+          <option value="oral" {% if hrt_options_counselling.preferredHrtRoute == "oral" %}selected{% endif %}>Oral (tablet)</option>
+          <option value="transdermal" {% if hrt_options_counselling.preferredHrtRoute == "transdermal" %}selected{% endif %}>Transdermal (patch/gel)</option>
+          <option value="vaginal" {% if hrt_options_counselling.preferredHrtRoute == "vaginal" %}selected{% endif %}>Vaginal (local)</option>
+          <option value="undecided" {% if hrt_options_counselling.preferredHrtRoute == "undecided" %}selected{% endif %}>Undecided</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="combined_vs_estrogen_only">HRT Type</label>
+        <select id="combined_vs_estrogen_only" name="hrt_options_counselling.combined_vs_estrogen_only">
+          <option value="">-- Select --</option>
+          <option value="estrogenOnly" {% if hrt_options_counselling.combinedVsEstrogenOnly == "estrogenOnly" %}selected{% endif %}>Oestrogen only</option>
+          <option value="combined" {% if hrt_options_counselling.combinedVsEstrogenOnly == "combined" %}selected{% endif %}>Combined (oestrogen + progestogen)</option>
+          <option value="tobeDetermined" {% if hrt_options_counselling.combinedVsEstrogenOnly == "tobeDetermined" %}selected{% endif %}>To be determined</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Risks Discussed</label>
+        <div class="radio-group">
+          <label><input type="radio" name="hrt_options_counselling.risks_discussed" value="yes" {% if hrt_options_counselling.risksDiscussed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="hrt_options_counselling.risks_discussed" value="no" {% if hrt_options_counselling.risksDiscussed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Benefits Discussed</label>
+        <div class="radio-group">
+          <label><input type="radio" name="hrt_options_counselling.benefits_discussed" value="yes" {% if hrt_options_counselling.benefitsDiscussed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="hrt_options_counselling.benefits_discussed" value="no" {% if hrt_options_counselling.benefitsDiscussed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Alternatives Discussed</label>
+        <div class="radio-group">
+          <label><input type="radio" name="hrt_options_counselling.alternatives_discussed" value="yes" {% if hrt_options_counselling.alternativesDiscussed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="hrt_options_counselling.alternatives_discussed" value="no" {% if hrt_options_counselling.alternativesDiscussed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Informed Consent Obtained</label>
+        <div class="radio-group">
+          <label><input type="radio" name="hrt_options_counselling.informed_consent_obtained" value="yes" {% if hrt_options_counselling.informedConsentObtained == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="hrt_options_counselling.informed_consent_obtained" value="no" {% if hrt_options_counselling.informedConsentObtained == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Patient Preference Noted</label>
+      <div class="radio-group">
+        <label><input type="radio" name="hrt_options_counselling.patient_preference_noted" value="yes" {% if hrt_options_counselling.patientPreferenceNoted == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="hrt_options_counselling.patient_preference_noted" value="no" {% if hrt_options_counselling.patientPreferenceNoted == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - HRT Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>HRT Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, age, date...">
+    </div>
+    <div class="form-group">
+      <label for="risk_level">Risk Level</label>
+      <select id="risk_level" name="risk_level">
+        <option value="">All Levels</option>
+        <option value="lowRisk" {% if risk_level == "lowRisk" %}selected{% endif %}>Low Risk</option>
+        <option value="moderateRisk" {% if risk_level == "moderateRisk" %}selected{% endif %}>Moderate Risk</option>
+        <option value="highRisk" {% if risk_level == "highRisk" %}selected{% endif %}>High Risk</option>
+        <option value="contraindicated" {% if risk_level == "contraindicated" %}selected{% endif %}>Contraindicated</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="menopausal_status">Menopausal Status</label>
+      <select id="menopausal_status" name="menopausal_status">
+        <option value="">All</option>
+        <option value="perimenopausal" {% if menopausal_status == "perimenopausal" %}selected{% endif %}>Perimenopausal</option>
+        <option value="postmenopausal" {% if menopausal_status == "postmenopausal" %}selected{% endif %}>Postmenopausal</option>
+        <option value="premature" {% if menopausal_status == "premature" %}selected{% endif %}>Premature</option>
+        <option value="surgical" {% if menopausal_status == "surgical" %}selected{% endif %}>Surgical</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Age</th>
+      <th>Menopausal Status</th>
+      <th>Risk Level</th>
+      <th>Score</th>
+      <th>Recommendation</th>
+      <th>Review Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.patientAge }}</td>
+      <td>{{ patient.menopausalStatus }}</td>
+      <td><span class="risk-badge risk-{{ patient.riskLevel }}">{{ patient.riskLevel }}</span></td>
+      <td>{{ patient.riskScore }}%</td>
+      <td>{{ patient.recommendation }}</td>
+      <td>{{ patient.reviewDate }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

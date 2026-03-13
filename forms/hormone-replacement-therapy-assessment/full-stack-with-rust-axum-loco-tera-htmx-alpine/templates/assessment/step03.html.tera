@@ -1,0 +1,91 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Menstrual History - HRT Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Menstrual History</h2>
+    <p class="hint">Please provide details about menstrual and menopausal history.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="menopausal_status">Menopausal Status</label>
+        <select id="menopausal_status" name="menstrual_history.menopausal_status">
+          <option value="">-- Select --</option>
+          <option value="perimenopausal" {% if menstrual_history.menopausalStatus == "perimenopausal" %}selected{% endif %}>Perimenopausal</option>
+          <option value="postmenopausal" {% if menstrual_history.menopausalStatus == "postmenopausal" %}selected{% endif %}>Postmenopausal</option>
+          <option value="premature" {% if menstrual_history.menopausalStatus == "premature" %}selected{% endif %}>Premature Menopause</option>
+          <option value="surgical" {% if menstrual_history.menopausalStatus == "surgical" %}selected{% endif %}>Surgical Menopause</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="last_menstrual_period">Last Menstrual Period</label>
+        <input type="date" id="last_menstrual_period" name="menstrual_history.last_menstrual_period"
+               value="{{ menstrual_history.lastMenstrualPeriod }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="age_at_menopause">Age at Menopause</label>
+        <select id="age_at_menopause" name="menstrual_history.age_at_menopause">
+          <option value="">-- Select --</option>
+          <option value="under40" {% if menstrual_history.ageAtMenopause == "under40" %}selected{% endif %}>Under 40 (Premature)</option>
+          <option value="40to44" {% if menstrual_history.ageAtMenopause == "40to44" %}selected{% endif %}>40 - 44 (Early)</option>
+          <option value="45to55" {% if menstrual_history.ageAtMenopause == "45to55" %}selected{% endif %}>45 - 55 (Average)</option>
+          <option value="over55" {% if menstrual_history.ageAtMenopause == "over55" %}selected{% endif %}>Over 55 (Late)</option>
+          <option value="notYet" {% if menstrual_history.ageAtMenopause == "notYet" %}selected{% endif %}>Not yet reached</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="menopause_type">Type of Menopause</label>
+        <select id="menopause_type" name="menstrual_history.menopause_type">
+          <option value="">-- Select --</option>
+          <option value="natural" {% if menstrual_history.menopauseType == "natural" %}selected{% endif %}>Natural</option>
+          <option value="surgical" {% if menstrual_history.menopauseType == "surgical" %}selected{% endif %}>Surgical (Oophorectomy)</option>
+          <option value="chemotherapy" {% if menstrual_history.menopauseType == "chemotherapy" %}selected{% endif %}>Chemotherapy-induced</option>
+          <option value="radiation" {% if menstrual_history.menopauseType == "radiation" %}selected{% endif %}>Radiation-induced</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="surgical_menopause_reason">If Surgical, Reason for Surgery</label>
+      <input type="text" id="surgical_menopause_reason" name="menstrual_history.surgical_menopause_reason"
+             value="{{ menstrual_history.surgicalMenopauseReason }}"
+             placeholder="e.g. Endometriosis, Cancer prophylaxis">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Previous HRT Use</label>
+        <div class="radio-group">
+          <label><input type="radio" name="menstrual_history.previous_hrt_use" value="yes" {% if menstrual_history.previousHrtUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="menstrual_history.previous_hrt_use" value="no" {% if menstrual_history.previousHrtUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="contraception_status">Contraception Status</label>
+        <select id="contraception_status" name="menstrual_history.contraception_status">
+          <option value="">-- Select --</option>
+          <option value="none" {% if menstrual_history.contraceptionStatus == "none" %}selected{% endif %}>None</option>
+          <option value="hormonal" {% if menstrual_history.contraceptionStatus == "hormonal" %}selected{% endif %}>Hormonal</option>
+          <option value="nonHormonal" {% if menstrual_history.contraceptionStatus == "nonHormonal" %}selected{% endif %}>Non-hormonal</option>
+          <option value="notRequired" {% if menstrual_history.contraceptionStatus == "notRequired" %}selected{% endif %}>Not required</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="previous_hrt_details">Previous HRT Details (if applicable)</label>
+      <textarea id="previous_hrt_details" name="menstrual_history.previous_hrt_details"
+                rows="3" placeholder="Type, duration, reason for discontinuation...">{{ menstrual_history.previousHrtDetails }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

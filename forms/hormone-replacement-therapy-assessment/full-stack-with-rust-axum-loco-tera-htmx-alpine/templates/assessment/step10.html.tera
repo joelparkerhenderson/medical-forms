@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - HRT Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Clinician summary and recommended actions.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_name">Clinician Name</label>
+        <input type="text" id="clinician_name" name="clinical_review.clinician_name"
+               value="{{ clinical_review.clinicianName }}"
+               placeholder="e.g. Dr Jones">
+      </div>
+      <div class="form-group">
+        <label for="review_date">Review Date</label>
+        <input type="date" id="review_date" name="clinical_review.review_date"
+               value="{{ clinical_review.reviewDate }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Overall Risk Assessment (1=Low Risk, 5=Very High Risk)</label>
+      <div class="radio-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label><input type="radio" name="clinical_review.overall_risk_assessment" value="{{ i }}" {% if clinical_review.overallRiskAssessment == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="recommended_action">Recommended Action</label>
+        <select id="recommended_action" name="clinical_review.recommended_action">
+          <option value="">-- Select --</option>
+          <option value="initiateHrt" {% if clinical_review.recommendedAction == "initiateHrt" %}selected{% endif %}>Initiate HRT</option>
+          <option value="referSpecialist" {% if clinical_review.recommendedAction == "referSpecialist" %}selected{% endif %}>Refer to Specialist</option>
+          <option value="furtherInvestigations" {% if clinical_review.recommendedAction == "furtherInvestigations" %}selected{% endif %}>Further Investigations</option>
+          <option value="alternativeTherapy" {% if clinical_review.recommendedAction == "alternativeTherapy" %}selected{% endif %}>Alternative Therapy</option>
+          <option value="contraindicated" {% if clinical_review.recommendedAction == "contraindicated" %}selected{% endif %}>HRT Contraindicated</option>
+          <option value="reviewInMonths" {% if clinical_review.recommendedAction == "reviewInMonths" %}selected{% endif %}>Review in 3-6 Months</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="follow_up_interval">Follow-up Interval</label>
+        <select id="follow_up_interval" name="clinical_review.follow_up_interval">
+          <option value="">-- Select --</option>
+          <option value="3months" {% if clinical_review.followUpInterval == "3months" %}selected{% endif %}>3 months</option>
+          <option value="6months" {% if clinical_review.followUpInterval == "6months" %}selected{% endif %}>6 months</option>
+          <option value="12months" {% if clinical_review.followUpInterval == "12months" %}selected{% endif %}>12 months</option>
+          <option value="asNeeded" {% if clinical_review.followUpInterval == "asNeeded" %}selected{% endif %}>As needed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_investigations">Additional Investigations Required</label>
+      <textarea id="additional_investigations" name="clinical_review.additional_investigations"
+                rows="3" placeholder="e.g. Blood tests, DEXA scan, mammogram...">{{ clinical_review.additionalInvestigations }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_notes">Clinical Notes</label>
+      <textarea id="clinical_notes" name="clinical_review.clinical_notes"
+                rows="5" placeholder="Additional clinical observations and notes...">{{ clinical_review.clinicalNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

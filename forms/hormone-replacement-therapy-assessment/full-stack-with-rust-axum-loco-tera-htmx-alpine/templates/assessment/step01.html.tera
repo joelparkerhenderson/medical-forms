@@ -1,0 +1,93 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - HRT Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide the patient's demographic and referral details.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. Jane Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_age">Age Range</label>
+        <select id="patient_age" name="patient_information.patient_age">
+          <option value="">-- Select --</option>
+          <option value="under40" {% if patient_information.patientAge == "under40" %}selected{% endif %}>Under 40</option>
+          <option value="40to44" {% if patient_information.patientAge == "40to44" %}selected{% endif %}>40 - 44</option>
+          <option value="45to49" {% if patient_information.patientAge == "45to49" %}selected{% endif %}>45 - 49</option>
+          <option value="50to54" {% if patient_information.patientAge == "50to54" %}selected{% endif %}>50 - 54</option>
+          <option value="55to59" {% if patient_information.patientAge == "55to59" %}selected{% endif %}>55 - 59</option>
+          <option value="60plus" {% if patient_information.patientAge == "60plus" %}selected{% endif %}>60+</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="patient_sex">Sex</label>
+        <select id="patient_sex" name="patient_information.patient_sex">
+          <option value="">-- Select --</option>
+          <option value="female" {% if patient_information.patientSex == "female" %}selected{% endif %}>Female</option>
+          <option value="male" {% if patient_information.patientSex == "male" %}selected{% endif %}>Male</option>
+          <option value="other" {% if patient_information.patientSex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ethnicity">Ethnicity</label>
+        <select id="ethnicity" name="patient_information.ethnicity">
+          <option value="">-- Select --</option>
+          <option value="white" {% if patient_information.ethnicity == "white" %}selected{% endif %}>White</option>
+          <option value="asian" {% if patient_information.ethnicity == "asian" %}selected{% endif %}>Asian</option>
+          <option value="black" {% if patient_information.ethnicity == "black" %}selected{% endif %}>Black</option>
+          <option value="mixed" {% if patient_information.ethnicity == "mixed" %}selected{% endif %}>Mixed</option>
+          <option value="other" {% if patient_information.ethnicity == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="referral_date">Referral Date</label>
+        <input type="date" id="referral_date" name="patient_information.referral_date"
+               value="{{ patient_information.referralDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="referring_clinician">Referring Clinician</label>
+        <input type="text" id="referring_clinician" name="patient_information.referring_clinician"
+               value="{{ patient_information.referringClinician }}"
+               placeholder="e.g. Dr Brown, GP">
+      </div>
+      <div class="form-group">
+        <label for="reason_for_referral">Reason for Referral</label>
+        <select id="reason_for_referral" name="patient_information.reason_for_referral">
+          <option value="">-- Select --</option>
+          <option value="menopausalSymptoms" {% if patient_information.reasonForReferral == "menopausalSymptoms" %}selected{% endif %}>Menopausal Symptoms</option>
+          <option value="hrtReview" {% if patient_information.reasonForReferral == "hrtReview" %}selected{% endif %}>HRT Review</option>
+          <option value="prematureMenopause" {% if patient_information.reasonForReferral == "prematureMenopause" %}selected{% endif %}>Premature Menopause</option>
+          <option value="surgicalMenopause" {% if patient_information.reasonForReferral == "surgicalMenopause" %}selected{% endif %}>Surgical Menopause</option>
+          <option value="other" {% if patient_information.reasonForReferral == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

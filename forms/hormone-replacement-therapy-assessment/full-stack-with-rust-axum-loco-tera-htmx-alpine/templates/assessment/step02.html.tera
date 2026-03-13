@@ -1,0 +1,111 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Menopausal Symptoms - HRT Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Menopausal Symptoms</h2>
+    <p class="hint">Rate symptom severity: 1 = None/Minimal, 2 = Mild, 3 = Moderate, 4 = Severe, 5 = Very Severe</p>
+
+    <div class="form-group">
+      <label>Hot Flushes Severity</label>
+      <div class="radio-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label><input type="radio" name="menopausal_symptoms.hot_flushes_severity" value="{{ i }}" {% if menopausal_symptoms.hotFlushesSeverity == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Night Sweats Severity</label>
+      <div class="radio-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label><input type="radio" name="menopausal_symptoms.night_sweats_severity" value="{{ i }}" {% if menopausal_symptoms.nightSweatsSeverity == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Sleep Disturbance Severity</label>
+      <div class="radio-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label><input type="radio" name="menopausal_symptoms.sleep_disturbance_severity" value="{{ i }}" {% if menopausal_symptoms.sleepDisturbanceSeverity == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Mood Changes Severity</label>
+      <div class="radio-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label><input type="radio" name="menopausal_symptoms.mood_changes_severity" value="{{ i }}" {% if menopausal_symptoms.moodChangesSeverity == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Vaginal Dryness Severity</label>
+      <div class="radio-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label><input type="radio" name="menopausal_symptoms.vaginal_dryness_severity" value="{{ i }}" {% if menopausal_symptoms.vaginalDrynessSeverity == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Urinary Symptoms Severity</label>
+      <div class="radio-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label><input type="radio" name="menopausal_symptoms.urinary_symptoms_severity" value="{{ i }}" {% if menopausal_symptoms.urinarySymptomsSeverity == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Joint Pain Severity</label>
+      <div class="radio-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label><input type="radio" name="menopausal_symptoms.joint_pain_severity" value="{{ i }}" {% if menopausal_symptoms.jointPainSeverity == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Cognitive Difficulty Severity</label>
+      <div class="radio-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label><input type="radio" name="menopausal_symptoms.cognitive_difficulty_severity" value="{{ i }}" {% if menopausal_symptoms.cognitiveDifficultySeverity == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="symptom_duration_months">Symptom Duration</label>
+        <select id="symptom_duration_months" name="menopausal_symptoms.symptom_duration_months">
+          <option value="">-- Select --</option>
+          <option value="lessThan3" {% if menopausal_symptoms.symptomDurationMonths == "lessThan3" %}selected{% endif %}>Less than 3 months</option>
+          <option value="3to6" {% if menopausal_symptoms.symptomDurationMonths == "3to6" %}selected{% endif %}>3 - 6 months</option>
+          <option value="6to12" {% if menopausal_symptoms.symptomDurationMonths == "6to12" %}selected{% endif %}>6 - 12 months</option>
+          <option value="1to2years" {% if menopausal_symptoms.symptomDurationMonths == "1to2years" %}selected{% endif %}>1 - 2 years</option>
+          <option value="moreThan2years" {% if menopausal_symptoms.symptomDurationMonths == "moreThan2years" %}selected{% endif %}>More than 2 years</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Overall Impact on Daily Life</label>
+      <div class="radio-group">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label><input type="radio" name="menopausal_symptoms.symptom_impact_on_daily_life" value="{{ i }}" {% if menopausal_symptoms.symptomImpactOnDailyLife == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

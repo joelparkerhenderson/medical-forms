@@ -1,0 +1,90 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Breast Health - HRT Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Breast Health</h2>
+    <p class="hint">Breast cancer risk assessment is essential before initiating HRT.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Personal History of Breast Cancer</label>
+        <div class="radio-group">
+          <label><input type="radio" name="breast_health.personal_breast_cancer_history" value="yes" {% if breast_health.personalBreastCancerHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="breast_health.personal_breast_cancer_history" value="no" {% if breast_health.personalBreastCancerHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="family_breast_cancer_history">Family History of Breast Cancer</label>
+        <select id="family_breast_cancer_history" name="breast_health.family_breast_cancer_history">
+          <option value="">-- Select --</option>
+          <option value="none" {% if breast_health.familyBreastCancerHistory == "none" %}selected{% endif %}>None</option>
+          <option value="firstDegree" {% if breast_health.familyBreastCancerHistory == "firstDegree" %}selected{% endif %}>First-degree relative</option>
+          <option value="secondDegree" {% if breast_health.familyBreastCancerHistory == "secondDegree" %}selected{% endif %}>Second-degree relative</option>
+          <option value="multiple" {% if breast_health.familyBreastCancerHistory == "multiple" %}selected{% endif %}>Multiple relatives</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="brca_gene_status">BRCA Gene Status</label>
+        <select id="brca_gene_status" name="breast_health.brca_gene_status">
+          <option value="">-- Select --</option>
+          <option value="notTested" {% if breast_health.brcaGeneStatus == "notTested" %}selected{% endif %}>Not tested</option>
+          <option value="negative" {% if breast_health.brcaGeneStatus == "negative" %}selected{% endif %}>Negative</option>
+          <option value="positive" {% if breast_health.brcaGeneStatus == "positive" %}selected{% endif %}>Positive (BRCA1/2)</option>
+          <option value="vus" {% if breast_health.brcaGeneStatus == "vus" %}selected{% endif %}>Variant of uncertain significance</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="last_mammogram_date">Last Mammogram</label>
+        <select id="last_mammogram_date" name="breast_health.last_mammogram_date">
+          <option value="">-- Select --</option>
+          <option value="within1Year" {% if breast_health.lastMammogramDate == "within1Year" %}selected{% endif %}>Within 1 year</option>
+          <option value="1to2Years" {% if breast_health.lastMammogramDate == "1to2Years" %}selected{% endif %}>1 - 2 years ago</option>
+          <option value="moreThan2Years" {% if breast_health.lastMammogramDate == "moreThan2Years" %}selected{% endif %}>More than 2 years ago</option>
+          <option value="never" {% if breast_health.lastMammogramDate == "never" %}selected{% endif %}>Never</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mammogram_result">Mammogram Result</label>
+        <select id="mammogram_result" name="breast_health.mammogram_result">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if breast_health.mammogramResult == "normal" %}selected{% endif %}>Normal</option>
+          <option value="benign" {% if breast_health.mammogramResult == "benign" %}selected{% endif %}>Benign findings</option>
+          <option value="needsFollowUp" {% if breast_health.mammogramResult == "needsFollowUp" %}selected{% endif %}>Needs follow-up</option>
+          <option value="suspicious" {% if breast_health.mammogramResult == "suspicious" %}selected{% endif %}>Suspicious</option>
+          <option value="na" {% if breast_health.mammogramResult == "na" %}selected{% endif %}>N/A</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="breast_density">Breast Density</label>
+        <select id="breast_density" name="breast_health.breast_density">
+          <option value="">-- Select --</option>
+          <option value="fatty" {% if breast_health.breastDensity == "fatty" %}selected{% endif %}>Fatty</option>
+          <option value="scattered" {% if breast_health.breastDensity == "scattered" %}selected{% endif %}>Scattered density</option>
+          <option value="heterogeneouslyDense" {% if breast_health.breastDensity == "heterogeneouslyDense" %}selected{% endif %}>Heterogeneously dense</option>
+          <option value="extremelyDense" {% if breast_health.breastDensity == "extremelyDense" %}selected{% endif %}>Extremely dense</option>
+          <option value="unknown" {% if breast_health.breastDensity == "unknown" %}selected{% endif %}>Unknown</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="current_breast_symptoms">Current Breast Symptoms</label>
+      <textarea id="current_breast_symptoms" name="breast_health.current_breast_symptoms"
+                rows="3" placeholder="e.g. Lumps, nipple discharge, pain, or None">{{ breast_health.currentBreastSymptoms }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

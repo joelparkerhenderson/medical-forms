@@ -1,0 +1,90 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cardiovascular Risk - HRT Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cardiovascular Risk</h2>
+    <p class="hint">Assess cardiovascular risk factors relevant to HRT prescribing.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="smoking_status">Smoking Status</label>
+        <select id="smoking_status" name="cardiovascular_risk.smoking_status">
+          <option value="">-- Select --</option>
+          <option value="never" {% if cardiovascular_risk.smokingStatus == "never" %}selected{% endif %}>Never smoker</option>
+          <option value="former" {% if cardiovascular_risk.smokingStatus == "former" %}selected{% endif %}>Former smoker</option>
+          <option value="current" {% if cardiovascular_risk.smokingStatus == "current" %}selected{% endif %}>Current smoker</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="bmi_category">BMI Category</label>
+        <select id="bmi_category" name="cardiovascular_risk.bmi_category">
+          <option value="">-- Select --</option>
+          <option value="underweight" {% if cardiovascular_risk.bmiCategory == "underweight" %}selected{% endif %}>Underweight (&lt;18.5)</option>
+          <option value="normal" {% if cardiovascular_risk.bmiCategory == "normal" %}selected{% endif %}>Normal (18.5-24.9)</option>
+          <option value="overweight" {% if cardiovascular_risk.bmiCategory == "overweight" %}selected{% endif %}>Overweight (25-29.9)</option>
+          <option value="obese" {% if cardiovascular_risk.bmiCategory == "obese" %}selected{% endif %}>Obese (30+)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="blood_pressure_status">Blood Pressure Status</label>
+        <select id="blood_pressure_status" name="cardiovascular_risk.blood_pressure_status">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if cardiovascular_risk.bloodPressureStatus == "normal" %}selected{% endif %}>Normal</option>
+          <option value="controlledHigh" {% if cardiovascular_risk.bloodPressureStatus == "controlledHigh" %}selected{% endif %}>Controlled Hypertension</option>
+          <option value="uncontrolledHigh" {% if cardiovascular_risk.bloodPressureStatus == "uncontrolledHigh" %}selected{% endif %}>Uncontrolled Hypertension</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cholesterol_status">Cholesterol Status</label>
+        <select id="cholesterol_status" name="cardiovascular_risk.cholesterol_status">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if cardiovascular_risk.cholesterolStatus == "normal" %}selected{% endif %}>Normal</option>
+          <option value="borderline" {% if cardiovascular_risk.cholesterolStatus == "borderline" %}selected{% endif %}>Borderline High</option>
+          <option value="high" {% if cardiovascular_risk.cholesterolStatus == "high" %}selected{% endif %}>High</option>
+          <option value="onStatins" {% if cardiovascular_risk.cholesterolStatus == "onStatins" %}selected{% endif %}>On Statins</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Family History of Cardiovascular Disease</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cardiovascular_risk.family_history_cvd" value="yes" {% if cardiovascular_risk.familyHistoryCvd == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cardiovascular_risk.family_history_cvd" value="no" {% if cardiovascular_risk.familyHistoryCvd == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="physical_activity_level">Physical Activity Level</label>
+        <select id="physical_activity_level" name="cardiovascular_risk.physical_activity_level">
+          <option value="">-- Select --</option>
+          <option value="sedentary" {% if cardiovascular_risk.physicalActivityLevel == "sedentary" %}selected{% endif %}>Sedentary</option>
+          <option value="lightlyActive" {% if cardiovascular_risk.physicalActivityLevel == "lightlyActive" %}selected{% endif %}>Lightly Active</option>
+          <option value="moderatelyActive" {% if cardiovascular_risk.physicalActivityLevel == "moderatelyActive" %}selected{% endif %}>Moderately Active</option>
+          <option value="veryActive" {% if cardiovascular_risk.physicalActivityLevel == "veryActive" %}selected{% endif %}>Very Active</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="alcohol_consumption">Alcohol Consumption</label>
+      <select id="alcohol_consumption" name="cardiovascular_risk.alcohol_consumption">
+        <option value="">-- Select --</option>
+        <option value="none" {% if cardiovascular_risk.alcoholConsumption == "none" %}selected{% endif %}>None</option>
+        <option value="withinLimits" {% if cardiovascular_risk.alcoholConsumption == "withinLimits" %}selected{% endif %}>Within recommended limits</option>
+        <option value="aboveLimits" {% if cardiovascular_risk.alcoholConsumption == "aboveLimits" %}selected{% endif %}>Above recommended limits</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

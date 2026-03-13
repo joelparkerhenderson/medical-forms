@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Bone Health - HRT Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Bone Health</h2>
+    <p class="hint">HRT provides bone protection - assess current bone health status.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="dexa_scan_result">DEXA Scan Result</label>
+        <select id="dexa_scan_result" name="bone_health.dexa_scan_result">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if bone_health.dexaScanResult == "normal" %}selected{% endif %}>Normal</option>
+          <option value="osteopenia" {% if bone_health.dexaScanResult == "osteopenia" %}selected{% endif %}>Osteopenia</option>
+          <option value="osteoporosis" {% if bone_health.dexaScanResult == "osteoporosis" %}selected{% endif %}>Osteoporosis</option>
+          <option value="notPerformed" {% if bone_health.dexaScanResult == "notPerformed" %}selected{% endif %}>Not performed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Previous Fragility Fractures</label>
+        <div class="radio-group">
+          <label><input type="radio" name="bone_health.previous_fractures" value="yes" {% if bone_health.previousFractures == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="bone_health.previous_fractures" value="no" {% if bone_health.previousFractures == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Family History of Osteoporosis</label>
+        <div class="radio-group">
+          <label><input type="radio" name="bone_health.family_history_osteoporosis" value="yes" {% if bone_health.familyHistoryOsteoporosis == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="bone_health.family_history_osteoporosis" value="no" {% if bone_health.familyHistoryOsteoporosis == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="calcium_intake">Calcium Intake</label>
+        <select id="calcium_intake" name="bone_health.calcium_intake">
+          <option value="">-- Select --</option>
+          <option value="adequate" {% if bone_health.calciumIntake == "adequate" %}selected{% endif %}>Adequate</option>
+          <option value="low" {% if bone_health.calciumIntake == "low" %}selected{% endif %}>Low</option>
+          <option value="supplemented" {% if bone_health.calciumIntake == "supplemented" %}selected{% endif %}>Supplemented</option>
+          <option value="unknown" {% if bone_health.calciumIntake == "unknown" %}selected{% endif %}>Unknown</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="vitamin_d_status">Vitamin D Status</label>
+        <select id="vitamin_d_status" name="bone_health.vitamin_d_status">
+          <option value="">-- Select --</option>
+          <option value="sufficient" {% if bone_health.vitaminDStatus == "sufficient" %}selected{% endif %}>Sufficient</option>
+          <option value="insufficient" {% if bone_health.vitaminDStatus == "insufficient" %}selected{% endif %}>Insufficient</option>
+          <option value="deficient" {% if bone_health.vitaminDStatus == "deficient" %}selected{% endif %}>Deficient</option>
+          <option value="notTested" {% if bone_health.vitaminDStatus == "notTested" %}selected{% endif %}>Not tested</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Fall Risk Assessment (1=Low, 4=High)</label>
+        <div class="radio-group">
+          {% for i in [1, 2, 3, 4] %}
+          <label><input type="radio" name="bone_health.fall_risk_assessment" value="{{ i }}" {% if bone_health.fallRiskAssessment == i %}checked{% endif %}> {{ i }}</label>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

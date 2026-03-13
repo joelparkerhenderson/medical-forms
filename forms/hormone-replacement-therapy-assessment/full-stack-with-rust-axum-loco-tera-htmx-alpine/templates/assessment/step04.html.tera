@@ -1,0 +1,114 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Medical History - HRT Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Medical History</h2>
+    <p class="hint">Please indicate any relevant medical conditions.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>History of Venous Thromboembolism (VTE)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.history_of_vte" value="yes" {% if medical_history.historyOfVte == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.history_of_vte" value="no" {% if medical_history.historyOfVte == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>History of Stroke / TIA</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.history_of_stroke" value="yes" {% if medical_history.historyOfStroke == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.history_of_stroke" value="no" {% if medical_history.historyOfStroke == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>History of Myocardial Infarction (MI)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.history_of_mi" value="yes" {% if medical_history.historyOfMi == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.history_of_mi" value="no" {% if medical_history.historyOfMi == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Active Liver Disease</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.liver_disease" value="yes" {% if medical_history.liverDisease == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.liver_disease" value="no" {% if medical_history.liverDisease == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Undiagnosed Vaginal Bleeding</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.undiagnosed_vaginal_bleeding" value="yes" {% if medical_history.undiagnosedVaginalBleeding == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.undiagnosed_vaginal_bleeding" value="no" {% if medical_history.undiagnosedVaginalBleeding == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Endometriosis</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.endometriosis" value="yes" {% if medical_history.endometriosis == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.endometriosis" value="no" {% if medical_history.endometriosis == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Fibroids</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.fibroids" value="yes" {% if medical_history.fibroids == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.fibroids" value="no" {% if medical_history.fibroids == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Migraine with Aura</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.migraine_with_aura" value="yes" {% if medical_history.migraineWithAura == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.migraine_with_aura" value="no" {% if medical_history.migraineWithAura == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Diabetes</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.diabetes" value="yes" {% if medical_history.diabetes == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.diabetes" value="no" {% if medical_history.diabetes == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Hypertension</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.hypertension" value="yes" {% if medical_history.hypertension == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.hypertension" value="no" {% if medical_history.hypertension == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="autoimmune_conditions">Autoimmune Conditions</label>
+      <input type="text" id="autoimmune_conditions" name="medical_history.autoimmune_conditions"
+             value="{{ medical_history.autoimmuneConditions }}"
+             placeholder="e.g. SLE, Rheumatoid arthritis, or None">
+    </div>
+
+    <div class="form-group">
+      <label for="other_conditions">Other Relevant Conditions</label>
+      <textarea id="other_conditions" name="medical_history.other_conditions"
+                rows="3" placeholder="Any other relevant medical history...">{{ medical_history.otherConditions }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

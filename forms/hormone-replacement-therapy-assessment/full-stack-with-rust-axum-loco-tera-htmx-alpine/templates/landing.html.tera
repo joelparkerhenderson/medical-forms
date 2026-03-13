@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}HRT Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Hormone Replacement Therapy Assessment</h1>
+  <p>
+    This clinical assessment tool evaluates patient suitability for hormone
+    replacement therapy (HRT). It covers menopausal symptoms, medical history,
+    cardiovascular risk, breast health, bone health, and counselling to produce
+    a comprehensive risk assessment and treatment recommendation.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive clinical evaluation across all relevant domains</p>
+    </div>
+    <div class="feature-card">
+      <h3>Risk Stratification</h3>
+      <p>Evidence-based risk scoring with contraindication detection</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Actionable alerts for clinician review and specialist referral</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}
