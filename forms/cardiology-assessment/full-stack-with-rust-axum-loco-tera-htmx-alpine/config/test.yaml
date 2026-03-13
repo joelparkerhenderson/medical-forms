@@ -1,0 +1,23 @@
+logger:
+  enable: true
+  level: warn
+  format: compact
+
+server:
+  port: 5290
+  host: http://localhost
+  middlewares:
+    cors:
+      enable: true
+      allow_origins:
+        - http://localhost:5290
+
+database:
+  uri: postgres://localhost:5432/cardiology_assessment_tera_test
+  enable_logging: false
+  connect_timeout: 500
+  idle_timeout: 500
+  min_connections: 1
+  max_connections: 1
+  auto_migrate: true
+  dangerously_truncate: true

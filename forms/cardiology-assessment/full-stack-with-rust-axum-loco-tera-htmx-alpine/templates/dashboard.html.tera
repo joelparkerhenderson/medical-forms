@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Cardiology Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Cardiology Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, diagnosis, NYHA...">
+    </div>
+    <div class="form-group">
+      <label for="severity_level">Severity Level</label>
+      <select id="severity_level" name="severity_level">
+        <option value="">All Levels</option>
+        <option value="low" {% if severity_level == "low" %}selected{% endif %}>Low</option>
+        <option value="moderate" {% if severity_level == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="high" {% if severity_level == "high" %}selected{% endif %}>High</option>
+        <option value="critical" {% if severity_level == "critical" %}selected{% endif %}>Critical</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="primary_diagnosis">Diagnosis</label>
+      <select id="primary_diagnosis" name="primary_diagnosis">
+        <option value="">All</option>
+        <option value="heartFailure" {% if primary_diagnosis == "heartFailure" %}selected{% endif %}>Heart Failure</option>
+        <option value="coronaryArteryDisease" {% if primary_diagnosis == "coronaryArteryDisease" %}selected{% endif %}>CAD</option>
+        <option value="atrialFibrillation" {% if primary_diagnosis == "atrialFibrillation" %}selected{% endif %}>AF</option>
+        <option value="valvularHeartDisease" {% if primary_diagnosis == "valvularHeartDisease" %}selected{% endif %}>Valvular</option>
+        <option value="cardiomyopathy" {% if primary_diagnosis == "cardiomyopathy" %}selected{% endif %}>Cardiomyopathy</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Primary Diagnosis</th>
+      <th>Severity</th>
+      <th>NYHA Class</th>
+      <th>LVEF</th>
+      <th>Heart Rhythm</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.primaryDiagnosis }}</td>
+      <td><span class="severity-badge severity-{{ patient.severityLevel }}">{{ patient.severityLevel }}</span></td>
+      <td>{{ patient.nyhaClass }}</td>
+      <td>{{ patient.lvef }}</td>
+      <td>{{ patient.heartRhythm }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Treatment - Cardiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Treatment</h2>
+    <p class="hint">Document the patient's current cardiac medications and therapies.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Beta-Blocker</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.beta_blocker" value="yes" {% if current_treatment.betaBlocker == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.beta_blocker" value="no" {% if current_treatment.betaBlocker == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>ACE Inhibitor</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.ace_inhibitor" value="yes" {% if current_treatment.aceInhibitor == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.ace_inhibitor" value="no" {% if current_treatment.aceInhibitor == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="arb">ARB (Angiotensin Receptor Blocker)</label>
+        <select id="arb" name="current_treatment.arb">
+          <option value="">-- Select --</option>
+          <option value="none" {% if current_treatment.arb == "none" %}selected{% endif %}>None</option>
+          <option value="losartan" {% if current_treatment.arb == "losartan" %}selected{% endif %}>Losartan</option>
+          <option value="candesartan" {% if current_treatment.arb == "candesartan" %}selected{% endif %}>Candesartan</option>
+          <option value="valsartan" {% if current_treatment.arb == "valsartan" %}selected{% endif %}>Valsartan</option>
+          <option value="irbesartan" {% if current_treatment.arb == "irbesartan" %}selected{% endif %}>Irbesartan</option>
+          <option value="other" {% if current_treatment.arb == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Diuretic</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.diuretic" value="yes" {% if current_treatment.diuretic == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.diuretic" value="no" {% if current_treatment.diuretic == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="anticoagulant">Anticoagulant</label>
+        <select id="anticoagulant" name="current_treatment.anticoagulant">
+          <option value="">-- Select --</option>
+          <option value="none" {% if current_treatment.anticoagulant == "none" %}selected{% endif %}>None</option>
+          <option value="warfarin" {% if current_treatment.anticoagulant == "warfarin" %}selected{% endif %}>Warfarin</option>
+          <option value="apixaban" {% if current_treatment.anticoagulant == "apixaban" %}selected{% endif %}>Apixaban</option>
+          <option value="rivaroxaban" {% if current_treatment.anticoagulant == "rivaroxaban" %}selected{% endif %}>Rivaroxaban</option>
+          <option value="edoxaban" {% if current_treatment.anticoagulant == "edoxaban" %}selected{% endif %}>Edoxaban</option>
+          <option value="dabigatran" {% if current_treatment.anticoagulant == "dabigatran" %}selected{% endif %}>Dabigatran</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="antiplatelet">Antiplatelet</label>
+        <select id="antiplatelet" name="current_treatment.antiplatelet">
+          <option value="">-- Select --</option>
+          <option value="none" {% if current_treatment.antiplatelet == "none" %}selected{% endif %}>None</option>
+          <option value="aspirin" {% if current_treatment.antiplatelet == "aspirin" %}selected{% endif %}>Aspirin</option>
+          <option value="clopidogrel" {% if current_treatment.antiplatelet == "clopidogrel" %}selected{% endif %}>Clopidogrel</option>
+          <option value="ticagrelor" {% if current_treatment.antiplatelet == "ticagrelor" %}selected{% endif %}>Ticagrelor</option>
+          <option value="dual" {% if current_treatment.antiplatelet == "dual" %}selected{% endif %}>Dual Antiplatelet (DAPT)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Statin</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.statin" value="yes" {% if current_treatment.statin == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.statin" value="no" {% if current_treatment.statin == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="calcium_channel_blocker">Calcium Channel Blocker</label>
+        <select id="calcium_channel_blocker" name="current_treatment.calcium_channel_blocker">
+          <option value="">-- Select --</option>
+          <option value="none" {% if current_treatment.calciumChannelBlocker == "none" %}selected{% endif %}>None</option>
+          <option value="amlodipine" {% if current_treatment.calciumChannelBlocker == "amlodipine" %}selected{% endif %}>Amlodipine</option>
+          <option value="diltiazem" {% if current_treatment.calciumChannelBlocker == "diltiazem" %}selected{% endif %}>Diltiazem</option>
+          <option value="verapamil" {% if current_treatment.calciumChannelBlocker == "verapamil" %}selected{% endif %}>Verapamil</option>
+          <option value="other" {% if current_treatment.calciumChannelBlocker == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nitrate">Nitrate</label>
+        <select id="nitrate" name="current_treatment.nitrate">
+          <option value="">-- Select --</option>
+          <option value="none" {% if current_treatment.nitrate == "none" %}selected{% endif %}>None</option>
+          <option value="gtnSpray" {% if current_treatment.nitrate == "gtnSpray" %}selected{% endif %}>GTN Spray (PRN)</option>
+          <option value="isosorbideMononitrate" {% if current_treatment.nitrate == "isosorbideMononitrate" %}selected{% endif %}>Isosorbide Mononitrate</option>
+          <option value="other" {% if current_treatment.nitrate == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="device_therapy">Device Therapy</label>
+        <select id="device_therapy" name="current_treatment.device_therapy">
+          <option value="">-- Select --</option>
+          <option value="none" {% if current_treatment.deviceTherapy == "none" %}selected{% endif %}>None</option>
+          <option value="pacemaker" {% if current_treatment.deviceTherapy == "pacemaker" %}selected{% endif %}>Pacemaker</option>
+          <option value="icd" {% if current_treatment.deviceTherapy == "icd" %}selected{% endif %}>ICD</option>
+          <option value="crt" {% if current_treatment.deviceTherapy == "crt" %}selected{% endif %}>CRT</option>
+          <option value="crtd" {% if current_treatment.deviceTherapy == "crtd" %}selected{% endif %}>CRT-D</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

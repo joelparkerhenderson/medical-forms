@@ -1,0 +1,113 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Echocardiography - Cardiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Echocardiography</h2>
+    <p class="hint">Record echocardiogram findings and measurements.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="lvef">Left Ventricular Ejection Fraction (%)</label>
+        <input type="number" id="lvef" name="echocardiography.lvef"
+               value="{{ echocardiography.lvef | default(value='') }}"
+               min="5" max="85"
+               placeholder="e.g. 55">
+      </div>
+      <div class="form-group">
+        <label for="lvef_category">LVEF Category</label>
+        <select id="lvef_category" name="echocardiography.lvef_category">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if echocardiography.lvefCategory == "normal" %}selected{% endif %}>Normal (>=50%)</option>
+          <option value="mildlyReduced" {% if echocardiography.lvefCategory == "mildlyReduced" %}selected{% endif %}>Mildly Reduced (40-49%)</option>
+          <option value="moderatelyReduced" {% if echocardiography.lvefCategory == "moderatelyReduced" %}selected{% endif %}>Moderately Reduced (30-39%)</option>
+          <option value="severelyReduced" {% if echocardiography.lvefCategory == "severelyReduced" %}selected{% endif %}>Severely Reduced (&lt;30%)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="lv_diastolic_function">LV Diastolic Function</label>
+        <select id="lv_diastolic_function" name="echocardiography.lv_diastolic_function">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if echocardiography.lvDiastolicFunction == "normal" %}selected{% endif %}>Normal</option>
+          <option value="grade1" {% if echocardiography.lvDiastolicFunction == "grade1" %}selected{% endif %}>Grade I (Impaired Relaxation)</option>
+          <option value="grade2" {% if echocardiography.lvDiastolicFunction == "grade2" %}selected{% endif %}>Grade II (Pseudonormal)</option>
+          <option value="grade3" {% if echocardiography.lvDiastolicFunction == "grade3" %}selected{% endif %}>Grade III (Restrictive)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Regional Wall Motion Abnormality (RWMA)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="echocardiography.rwma" value="yes" {% if echocardiography.rwma == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="echocardiography.rwma" value="no" {% if echocardiography.rwma == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Valvular Abnormality</label>
+      <div class="radio-group">
+        <label><input type="radio" name="echocardiography.valvular_abnormality" value="yes" {% if echocardiography.valvularAbnormality == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="echocardiography.valvular_abnormality" value="no" {% if echocardiography.valvularAbnormality == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="aortic_valve">Aortic Valve</label>
+        <select id="aortic_valve" name="echocardiography.aortic_valve">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if echocardiography.aorticValve == "normal" %}selected{% endif %}>Normal</option>
+          <option value="mildStenosis" {% if echocardiography.aorticValve == "mildStenosis" %}selected{% endif %}>Mild Stenosis</option>
+          <option value="moderateStenosis" {% if echocardiography.aorticValve == "moderateStenosis" %}selected{% endif %}>Moderate Stenosis</option>
+          <option value="severeStenosis" {% if echocardiography.aorticValve == "severeStenosis" %}selected{% endif %}>Severe Stenosis</option>
+          <option value="mildRegurgitation" {% if echocardiography.aorticValve == "mildRegurgitation" %}selected{% endif %}>Mild Regurgitation</option>
+          <option value="moderateRegurgitation" {% if echocardiography.aorticValve == "moderateRegurgitation" %}selected{% endif %}>Moderate Regurgitation</option>
+          <option value="severeRegurgitation" {% if echocardiography.aorticValve == "severeRegurgitation" %}selected{% endif %}>Severe Regurgitation</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="mitral_valve">Mitral Valve</label>
+        <select id="mitral_valve" name="echocardiography.mitral_valve">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if echocardiography.mitralValve == "normal" %}selected{% endif %}>Normal</option>
+          <option value="mildStenosis" {% if echocardiography.mitralValve == "mildStenosis" %}selected{% endif %}>Mild Stenosis</option>
+          <option value="moderateStenosis" {% if echocardiography.mitralValve == "moderateStenosis" %}selected{% endif %}>Moderate Stenosis</option>
+          <option value="severeStenosis" {% if echocardiography.mitralValve == "severeStenosis" %}selected{% endif %}>Severe Stenosis</option>
+          <option value="mildRegurgitation" {% if echocardiography.mitralValve == "mildRegurgitation" %}selected{% endif %}>Mild Regurgitation</option>
+          <option value="moderateRegurgitation" {% if echocardiography.mitralValve == "moderateRegurgitation" %}selected{% endif %}>Moderate Regurgitation</option>
+          <option value="severeRegurgitation" {% if echocardiography.mitralValve == "severeRegurgitation" %}selected{% endif %}>Severe Regurgitation</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_heart_function">Right Heart Function</label>
+        <select id="right_heart_function" name="echocardiography.right_heart_function">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if echocardiography.rightHeartFunction == "normal" %}selected{% endif %}>Normal</option>
+          <option value="mildlyImpaired" {% if echocardiography.rightHeartFunction == "mildlyImpaired" %}selected{% endif %}>Mildly Impaired</option>
+          <option value="moderatelyImpaired" {% if echocardiography.rightHeartFunction == "moderatelyImpaired" %}selected{% endif %}>Moderately Impaired</option>
+          <option value="severelyImpaired" {% if echocardiography.rightHeartFunction == "severelyImpaired" %}selected{% endif %}>Severely Impaired</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Pericardial Effusion</label>
+        <div class="radio-group">
+          <label><input type="radio" name="echocardiography.pericardial_effusion" value="yes" {% if echocardiography.pericardialEffusion == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="echocardiography.pericardial_effusion" value="no" {% if echocardiography.pericardialEffusion == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

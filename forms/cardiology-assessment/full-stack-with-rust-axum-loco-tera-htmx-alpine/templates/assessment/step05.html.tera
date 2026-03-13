@@ -1,0 +1,111 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Physical Examination - Cardiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Physical Examination</h2>
+    <p class="hint">Record cardiovascular examination findings.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="heart_rate">Heart Rate (bpm)</label>
+        <input type="number" id="heart_rate" name="physical_examination.heart_rate"
+               value="{{ physical_examination.heartRate | default(value='') }}"
+               min="20" max="250"
+               placeholder="e.g. 72">
+      </div>
+      <div class="form-group">
+        <label for="heart_rhythm">Heart Rhythm</label>
+        <select id="heart_rhythm" name="physical_examination.heart_rhythm">
+          <option value="">-- Select --</option>
+          <option value="regular" {% if physical_examination.heartRhythm == "regular" %}selected{% endif %}>Regular</option>
+          <option value="irregular" {% if physical_examination.heartRhythm == "irregular" %}selected{% endif %}>Irregular</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="blood_pressure_systolic">Blood Pressure Systolic (mmHg)</label>
+        <input type="number" id="blood_pressure_systolic" name="physical_examination.blood_pressure_systolic"
+               value="{{ physical_examination.bloodPressureSystolic | default(value='') }}"
+               min="50" max="300"
+               placeholder="e.g. 130">
+      </div>
+      <div class="form-group">
+        <label for="blood_pressure_diastolic">Blood Pressure Diastolic (mmHg)</label>
+        <input type="number" id="blood_pressure_diastolic" name="physical_examination.blood_pressure_diastolic"
+               value="{{ physical_examination.bloodPressureDiastolic | default(value='') }}"
+               min="20" max="200"
+               placeholder="e.g. 80">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="heart_sounds">Heart Sounds</label>
+        <select id="heart_sounds" name="physical_examination.heart_sounds">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if physical_examination.heartSounds == "normal" %}selected{% endif %}>Normal (S1 S2)</option>
+          <option value="abnormal" {% if physical_examination.heartSounds == "abnormal" %}selected{% endif %}>Abnormal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Murmur</label>
+        <div class="radio-group">
+          <label><input type="radio" name="physical_examination.murmur" value="yes" {% if physical_examination.murmur == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="physical_examination.murmur" value="no" {% if physical_examination.murmur == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="murmur_grade">Murmur Grade (if applicable)</label>
+        <select id="murmur_grade" name="physical_examination.murmur_grade">
+          <option value="">-- Select --</option>
+          <option value="1/6" {% if physical_examination.murmurGrade == "1/6" %}selected{% endif %}>Grade 1/6</option>
+          <option value="2/6" {% if physical_examination.murmurGrade == "2/6" %}selected{% endif %}>Grade 2/6</option>
+          <option value="3/6" {% if physical_examination.murmurGrade == "3/6" %}selected{% endif %}>Grade 3/6</option>
+          <option value="4/6" {% if physical_examination.murmurGrade == "4/6" %}selected{% endif %}>Grade 4/6</option>
+          <option value="5/6" {% if physical_examination.murmurGrade == "5/6" %}selected{% endif %}>Grade 5/6</option>
+          <option value="6/6" {% if physical_examination.murmurGrade == "6/6" %}selected{% endif %}>Grade 6/6</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>JVP Elevated</label>
+        <div class="radio-group">
+          <label><input type="radio" name="physical_examination.jvp_elevated" value="yes" {% if physical_examination.jvpElevated == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="physical_examination.jvp_elevated" value="no" {% if physical_examination.jvpElevated == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="peripheral_oedema_exam">Peripheral Oedema (Exam)</label>
+        <select id="peripheral_oedema_exam" name="physical_examination.peripheral_oedema_exam">
+          <option value="">-- Select --</option>
+          <option value="none" {% if physical_examination.peripheralOedemaExam == "none" %}selected{% endif %}>None</option>
+          <option value="mild" {% if physical_examination.peripheralOedemaExam == "mild" %}selected{% endif %}>Mild (ankles)</option>
+          <option value="moderate" {% if physical_examination.peripheralOedemaExam == "moderate" %}selected{% endif %}>Moderate (mid-shin)</option>
+          <option value="severe" {% if physical_examination.peripheralOedemaExam == "severe" %}selected{% endif %}>Severe (thigh/sacral)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Lung Crepitations</label>
+        <div class="radio-group">
+          <label><input type="radio" name="physical_examination.lung_creps" value="yes" {% if physical_examination.lungCreps == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="physical_examination.lung_creps" value="no" {% if physical_examination.lungCreps == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

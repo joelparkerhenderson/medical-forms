@@ -1,0 +1,92 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Risk Factors - Cardiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Risk Factors</h2>
+    <p class="hint">Document cardiovascular risk factors present in this patient.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Hypertension</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.hypertension" value="yes" {% if risk_factors.hypertension == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.hypertension" value="no" {% if risk_factors.hypertension == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Diabetes</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.diabetes" value="yes" {% if risk_factors.diabetes == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.diabetes" value="no" {% if risk_factors.diabetes == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Dyslipidaemia</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.dyslipidaemia" value="yes" {% if risk_factors.dyslipidaemia == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.dyslipidaemia" value="no" {% if risk_factors.dyslipidaemia == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="smoking_status">Smoking Status</label>
+        <select id="smoking_status" name="risk_factors.smoking_status">
+          <option value="">-- Select --</option>
+          <option value="never" {% if risk_factors.smokingStatus == "never" %}selected{% endif %}>Never Smoker</option>
+          <option value="former" {% if risk_factors.smokingStatus == "former" %}selected{% endif %}>Former Smoker</option>
+          <option value="current" {% if risk_factors.smokingStatus == "current" %}selected{% endif %}>Current Smoker</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bmi">BMI (kg/m&sup2;)</label>
+        <input type="number" id="bmi" name="risk_factors.bmi"
+               value="{{ risk_factors.bmi | default(value='') }}"
+               step="0.1" min="10" max="80"
+               placeholder="e.g. 28.5">
+      </div>
+      <div class="form-group">
+        <label>Family History of CAD</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.family_cad_history" value="yes" {% if risk_factors.familyCadHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.family_cad_history" value="no" {% if risk_factors.familyCadHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="chronic_kidney_disease">Chronic Kidney Disease</label>
+        <select id="chronic_kidney_disease" name="risk_factors.chronic_kidney_disease">
+          <option value="">-- Select --</option>
+          <option value="none" {% if risk_factors.chronicKidneyDisease == "none" %}selected{% endif %}>None</option>
+          <option value="stage1" {% if risk_factors.chronicKidneyDisease == "stage1" %}selected{% endif %}>Stage 1</option>
+          <option value="stage2" {% if risk_factors.chronicKidneyDisease == "stage2" %}selected{% endif %}>Stage 2</option>
+          <option value="stage3a" {% if risk_factors.chronicKidneyDisease == "stage3a" %}selected{% endif %}>Stage 3a</option>
+          <option value="stage3b" {% if risk_factors.chronicKidneyDisease == "stage3b" %}selected{% endif %}>Stage 3b</option>
+          <option value="stage4" {% if risk_factors.chronicKidneyDisease == "stage4" %}selected{% endif %}>Stage 4</option>
+          <option value="stage5" {% if risk_factors.chronicKidneyDisease == "stage5" %}selected{% endif %}>Stage 5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Obstructive Sleep Apnoea</label>
+        <div class="radio-group">
+          <label><input type="radio" name="risk_factors.obstructive_sleep_apnoea" value="yes" {% if risk_factors.obstructiveSleepApnoea == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="risk_factors.obstructive_sleep_apnoea" value="no" {% if risk_factors.obstructiveSleepApnoea == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

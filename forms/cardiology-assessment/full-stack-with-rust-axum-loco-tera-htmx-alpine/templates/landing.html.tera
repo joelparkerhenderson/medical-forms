@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cardiology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Cardiology Assessment</h1>
+  <p>
+    Comprehensive cardiology assessment evaluating cardiac symptoms, risk factors,
+    ECG findings, echocardiography results, functional status (NYHA class), and
+    management plan for conditions including heart failure, arrhythmia, valvular
+    disease, and coronary artery disease.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Steps</h3>
+      <p>Complete clinical evaluation across all cardiac domains</p>
+    </div>
+    <div class="feature-card">
+      <h3>Severity Scoring</h3>
+      <p>Based on NYHA class, LVEF, symptom burden, and risk factors</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>14 actionable flags for urgent conditions and guideline adherence</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

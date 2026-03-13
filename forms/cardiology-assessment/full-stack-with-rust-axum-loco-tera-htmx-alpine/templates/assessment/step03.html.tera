@@ -1,0 +1,108 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Symptoms Assessment - Cardiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Symptoms Assessment</h2>
+    <p class="hint">Evaluate the patient's current cardiac symptoms and functional status.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Chest Pain</label>
+        <div class="radio-group">
+          <label><input type="radio" name="symptoms_assessment.chest_pain" value="yes" {% if symptoms_assessment.chestPain == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="symptoms_assessment.chest_pain" value="no" {% if symptoms_assessment.chestPain == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="chest_pain_type">Chest Pain Type</label>
+        <select id="chest_pain_type" name="symptoms_assessment.chest_pain_type">
+          <option value="">-- Select --</option>
+          <option value="typical" {% if symptoms_assessment.chestPainType == "typical" %}selected{% endif %}>Typical Angina</option>
+          <option value="atypical" {% if symptoms_assessment.chestPainType == "atypical" %}selected{% endif %}>Atypical Angina</option>
+          <option value="nonCardiac" {% if symptoms_assessment.chestPainType == "nonCardiac" %}selected{% endif %}>Non-Cardiac</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Dyspnoea Severity (1 = minimal, 5 = severe at rest)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptoms_assessment.dyspnoea" value="{{ i }}"
+                 {% if symptoms_assessment.dyspnoea == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Orthopnoea</label>
+        <div class="radio-group">
+          <label><input type="radio" name="symptoms_assessment.orthopnoea" value="yes" {% if symptoms_assessment.orthopnoea == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="symptoms_assessment.orthopnoea" value="no" {% if symptoms_assessment.orthopnoea == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Paroxysmal Nocturnal Dyspnoea (PND)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="symptoms_assessment.pnd" value="yes" {% if symptoms_assessment.pnd == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="symptoms_assessment.pnd" value="no" {% if symptoms_assessment.pnd == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Palpitations</label>
+        <div class="radio-group">
+          <label><input type="radio" name="symptoms_assessment.palpitations" value="yes" {% if symptoms_assessment.palpitations == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="symptoms_assessment.palpitations" value="no" {% if symptoms_assessment.palpitations == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Syncope</label>
+        <div class="radio-group">
+          <label><input type="radio" name="symptoms_assessment.syncope" value="yes" {% if symptoms_assessment.syncope == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="symptoms_assessment.syncope" value="no" {% if symptoms_assessment.syncope == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Peripheral Oedema</label>
+        <div class="radio-group">
+          <label><input type="radio" name="symptoms_assessment.peripheral_oedema" value="yes" {% if symptoms_assessment.peripheralOedema == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="symptoms_assessment.peripheral_oedema" value="no" {% if symptoms_assessment.peripheralOedema == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nyha_class">NYHA Functional Class</label>
+        <select id="nyha_class" name="symptoms_assessment.nyha_class">
+          <option value="">-- Select --</option>
+          <option value="I" {% if symptoms_assessment.nyhaClass == "I" %}selected{% endif %}>Class I - No limitation</option>
+          <option value="II" {% if symptoms_assessment.nyhaClass == "II" %}selected{% endif %}>Class II - Slight limitation</option>
+          <option value="III" {% if symptoms_assessment.nyhaClass == "III" %}selected{% endif %}>Class III - Marked limitation</option>
+          <option value="IV" {% if symptoms_assessment.nyhaClass == "IV" %}selected{% endif %}>Class IV - Symptoms at rest</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exercise_tolerance">Exercise Tolerance (Details)</label>
+      <textarea id="exercise_tolerance" name="symptoms_assessment.exercise_tolerance"
+                rows="2" placeholder="e.g. Can walk 100m on flat before becoming breathless">{{ symptoms_assessment.exerciseTolerance }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

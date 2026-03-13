@@ -1,0 +1,116 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Investigations - Cardiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Investigations</h2>
+    <p class="hint">Record blood test results and cardiac investigations.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="troponin">Troponin (ng/L)</label>
+        <input type="number" id="troponin" name="investigations.troponin"
+               value="{{ investigations.troponin | default(value='') }}"
+               step="0.1" min="0"
+               placeholder="e.g. 5.2">
+      </div>
+      <div class="form-group">
+        <label for="bnp">BNP / NT-proBNP (pg/mL)</label>
+        <input type="number" id="bnp" name="investigations.bnp"
+               value="{{ investigations.bnp | default(value='') }}"
+               step="0.1" min="0"
+               placeholder="e.g. 150">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="creatinine">Creatinine (umol/L)</label>
+        <input type="number" id="creatinine" name="investigations.creatinine"
+               value="{{ investigations.creatinine | default(value='') }}"
+               step="1" min="0"
+               placeholder="e.g. 85">
+      </div>
+      <div class="form-group">
+        <label for="egfr">eGFR (mL/min/1.73m&sup2;)</label>
+        <input type="number" id="egfr" name="investigations.egfr"
+               value="{{ investigations.egfr | default(value='') }}"
+               step="1" min="0"
+               placeholder="e.g. 75">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="lipid_profile">Lipid Profile</label>
+        <select id="lipid_profile" name="investigations.lipid_profile">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if investigations.lipidProfile == "normal" %}selected{% endif %}>Normal</option>
+          <option value="borderline" {% if investigations.lipidProfile == "borderline" %}selected{% endif %}>Borderline</option>
+          <option value="elevated" {% if investigations.lipidProfile == "elevated" %}selected{% endif %}>Elevated</option>
+          <option value="notDone" {% if investigations.lipidProfile == "notDone" %}selected{% endif %}>Not Done</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="thyroid_function">Thyroid Function</label>
+        <select id="thyroid_function" name="investigations.thyroid_function">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if investigations.thyroidFunction == "normal" %}selected{% endif %}>Normal</option>
+          <option value="hypothyroid" {% if investigations.thyroidFunction == "hypothyroid" %}selected{% endif %}>Hypothyroid</option>
+          <option value="hyperthyroid" {% if investigations.thyroidFunction == "hyperthyroid" %}selected{% endif %}>Hyperthyroid</option>
+          <option value="notDone" {% if investigations.thyroidFunction == "notDone" %}selected{% endif %}>Not Done</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Coronary Angiogram Done</label>
+        <div class="radio-group">
+          <label><input type="radio" name="investigations.coronary_angiogram_done" value="yes" {% if investigations.coronaryAngiogramDone == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="investigations.coronary_angiogram_done" value="no" {% if investigations.coronaryAngiogramDone == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="coronary_angiogram_result">Coronary Angiogram Result</label>
+        <select id="coronary_angiogram_result" name="investigations.coronary_angiogram_result">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if investigations.coronaryAngiogramResult == "normal" %}selected{% endif %}>Normal Coronaries</option>
+          <option value="minorDisease" {% if investigations.coronaryAngiogramResult == "minorDisease" %}selected{% endif %}>Minor Disease</option>
+          <option value="singleVessel" {% if investigations.coronaryAngiogramResult == "singleVessel" %}selected{% endif %}>Single Vessel Disease</option>
+          <option value="doubleVessel" {% if investigations.coronaryAngiogramResult == "doubleVessel" %}selected{% endif %}>Double Vessel Disease</option>
+          <option value="tripleVessel" {% if investigations.coronaryAngiogramResult == "tripleVessel" %}selected{% endif %}>Triple Vessel Disease</option>
+          <option value="leftMainStem" {% if investigations.coronaryAngiogramResult == "leftMainStem" %}selected{% endif %}>Left Main Stem Disease</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="stress_test_done">Stress Test</label>
+        <select id="stress_test_done" name="investigations.stress_test_done">
+          <option value="">-- Select --</option>
+          <option value="yes" {% if investigations.stressTestDone == "yes" %}selected{% endif %}>Done</option>
+          <option value="no" {% if investigations.stressTestDone == "no" %}selected{% endif %}>Not Done</option>
+          <option value="planned" {% if investigations.stressTestDone == "planned" %}selected{% endif %}>Planned</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="stress_test_result">Stress Test Result</label>
+        <select id="stress_test_result" name="investigations.stress_test_result">
+          <option value="">-- Select --</option>
+          <option value="negative" {% if investigations.stressTestResult == "negative" %}selected{% endif %}>Negative</option>
+          <option value="positive" {% if investigations.stressTestResult == "positive" %}selected{% endif %}>Positive</option>
+          <option value="inconclusive" {% if investigations.stressTestResult == "inconclusive" %}selected{% endif %}>Inconclusive</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

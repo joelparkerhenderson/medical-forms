@@ -1,0 +1,96 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cardiac History - Cardiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cardiac History</h2>
+    <p class="hint">Document the patient's previous cardiac conditions and procedures.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Previous Myocardial Infarction (MI)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cardiac_history.previous_mi" value="yes" {% if cardiac_history.previousMi == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cardiac_history.previous_mi" value="no" {% if cardiac_history.previousMi == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Previous CABG</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cardiac_history.previous_cabg" value="yes" {% if cardiac_history.previousCabg == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cardiac_history.previous_cabg" value="no" {% if cardiac_history.previousCabg == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Previous PCI (Stent/Angioplasty)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cardiac_history.previous_pci" value="yes" {% if cardiac_history.previousPci == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cardiac_history.previous_pci" value="no" {% if cardiac_history.previousPci == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Heart Failure</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cardiac_history.heart_failure" value="yes" {% if cardiac_history.heartFailure == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cardiac_history.heart_failure" value="no" {% if cardiac_history.heartFailure == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Atrial Fibrillation</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cardiac_history.atrial_fibrillation" value="yes" {% if cardiac_history.atrialFibrillation == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cardiac_history.atrial_fibrillation" value="no" {% if cardiac_history.atrialFibrillation == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="valvular_disease">Valvular Disease</label>
+        <select id="valvular_disease" name="cardiac_history.valvular_disease">
+          <option value="">-- Select --</option>
+          <option value="none" {% if cardiac_history.valvularDisease == "none" %}selected{% endif %}>None</option>
+          <option value="aorticStenosis" {% if cardiac_history.valvularDisease == "aorticStenosis" %}selected{% endif %}>Aortic Stenosis</option>
+          <option value="aorticRegurgitation" {% if cardiac_history.valvularDisease == "aorticRegurgitation" %}selected{% endif %}>Aortic Regurgitation</option>
+          <option value="mitralStenosis" {% if cardiac_history.valvularDisease == "mitralStenosis" %}selected{% endif %}>Mitral Stenosis</option>
+          <option value="mitralRegurgitation" {% if cardiac_history.valvularDisease == "mitralRegurgitation" %}selected{% endif %}>Mitral Regurgitation</option>
+          <option value="multiple" {% if cardiac_history.valvularDisease == "multiple" %}selected{% endif %}>Multiple</option>
+          <option value="other" {% if cardiac_history.valvularDisease == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Pacemaker/ICD</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cardiac_history.pacemaker" value="yes" {% if cardiac_history.pacemaker == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cardiac_history.pacemaker" value="no" {% if cardiac_history.pacemaker == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Sudden Cardiac Death in Family</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cardiac_history.sudden_cardiac_death" value="yes" {% if cardiac_history.suddenCardiacDeath == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cardiac_history.sudden_cardiac_death" value="no" {% if cardiac_history.suddenCardiacDeath == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="family_cardiac_history">Family Cardiac History (Details)</label>
+      <textarea id="family_cardiac_history" name="cardiac_history.family_cardiac_history"
+                rows="3" placeholder="Describe any relevant family cardiac history">{{ cardiac_history.familyCardiacHistory }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

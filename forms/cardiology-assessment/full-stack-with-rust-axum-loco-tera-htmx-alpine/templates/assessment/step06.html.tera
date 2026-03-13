@@ -1,0 +1,111 @@
+{% extends "base.html.tera" %}
+
+{% block title %}ECG Findings - Cardiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>ECG Findings</h2>
+    <p class="hint">Record the 12-lead ECG interpretation.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ecg_rhythm">ECG Rhythm</label>
+        <select id="ecg_rhythm" name="ecg_findings.ecg_rhythm">
+          <option value="">-- Select --</option>
+          <option value="sinusRhythm" {% if ecg_findings.ecgRhythm == "sinusRhythm" %}selected{% endif %}>Sinus Rhythm</option>
+          <option value="sinusBradycardia" {% if ecg_findings.ecgRhythm == "sinusBradycardia" %}selected{% endif %}>Sinus Bradycardia</option>
+          <option value="sinusTachycardia" {% if ecg_findings.ecgRhythm == "sinusTachycardia" %}selected{% endif %}>Sinus Tachycardia</option>
+          <option value="atrialFibrillation" {% if ecg_findings.ecgRhythm == "atrialFibrillation" %}selected{% endif %}>Atrial Fibrillation</option>
+          <option value="atrialFlutter" {% if ecg_findings.ecgRhythm == "atrialFlutter" %}selected{% endif %}>Atrial Flutter</option>
+          <option value="svt" {% if ecg_findings.ecgRhythm == "svt" %}selected{% endif %}>SVT</option>
+          <option value="ventricularTachycardia" {% if ecg_findings.ecgRhythm == "ventricularTachycardia" %}selected{% endif %}>Ventricular Tachycardia</option>
+          <option value="paced" {% if ecg_findings.ecgRhythm == "paced" %}selected{% endif %}>Paced Rhythm</option>
+          <option value="other" {% if ecg_findings.ecgRhythm == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="heart_rate_ecg">Heart Rate on ECG (bpm)</label>
+        <input type="number" id="heart_rate_ecg" name="ecg_findings.heart_rate_ecg"
+               value="{{ ecg_findings.heartRateEcg | default(value='') }}"
+               min="20" max="300"
+               placeholder="e.g. 75">
+      </div>
+    </div>
+
+    <div class="form-row-3">
+      <div class="form-group">
+        <label for="pr_interval">PR Interval (ms)</label>
+        <input type="number" id="pr_interval" name="ecg_findings.pr_interval"
+               value="{{ ecg_findings.prInterval | default(value='') }}"
+               min="50" max="500"
+               placeholder="e.g. 160">
+      </div>
+      <div class="form-group">
+        <label for="qrs_duration">QRS Duration (ms)</label>
+        <input type="number" id="qrs_duration" name="ecg_findings.qrs_duration"
+               value="{{ ecg_findings.qrsDuration | default(value='') }}"
+               min="50" max="300"
+               placeholder="e.g. 90">
+      </div>
+      <div class="form-group">
+        <label for="qtc_interval">QTc Interval (ms)</label>
+        <input type="number" id="qtc_interval" name="ecg_findings.qtc_interval"
+               value="{{ ecg_findings.qtcInterval | default(value='') }}"
+               min="200" max="700"
+               placeholder="e.g. 420">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>ST Changes</label>
+        <div class="radio-group">
+          <label><input type="radio" name="ecg_findings.st_changes" value="yes" {% if ecg_findings.stChanges == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="ecg_findings.st_changes" value="no" {% if ecg_findings.stChanges == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="t_wave_changes">T-Wave Changes</label>
+        <select id="t_wave_changes" name="ecg_findings.t_wave_changes">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if ecg_findings.tWaveChanges == "normal" %}selected{% endif %}>Normal</option>
+          <option value="inversion" {% if ecg_findings.tWaveChanges == "inversion" %}selected{% endif %}>T-Wave Inversion</option>
+          <option value="flattening" {% if ecg_findings.tWaveChanges == "flattening" %}selected{% endif %}>T-Wave Flattening</option>
+          <option value="peaked" {% if ecg_findings.tWaveChanges == "peaked" %}selected{% endif %}>Peaked T-Waves</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bundle_branch_block">Bundle Branch Block</label>
+        <select id="bundle_branch_block" name="ecg_findings.bundle_branch_block">
+          <option value="">-- Select --</option>
+          <option value="none" {% if ecg_findings.bundleBranchBlock == "none" %}selected{% endif %}>None</option>
+          <option value="lbbb" {% if ecg_findings.bundleBranchBlock == "lbbb" %}selected{% endif %}>LBBB</option>
+          <option value="rbbb" {% if ecg_findings.bundleBranchBlock == "rbbb" %}selected{% endif %}>RBBB</option>
+          <option value="bifascicular" {% if ecg_findings.bundleBranchBlock == "bifascicular" %}selected{% endif %}>Bifascicular</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>LVH</label>
+        <div class="radio-group">
+          <label><input type="radio" name="ecg_findings.lvh" value="yes" {% if ecg_findings.lvh == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="ecg_findings.lvh" value="no" {% if ecg_findings.lvh == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ecg_interpretation">ECG Interpretation Summary</label>
+      <textarea id="ecg_interpretation" name="ecg_findings.ecg_interpretation"
+                rows="3" placeholder="e.g. Normal sinus rhythm, no acute ischaemic changes">{{ ecg_findings.ecgInterpretation }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Cardiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Complete the clinical review with diagnosis, management plan, and referral information.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_name">Clinician Name</label>
+        <input type="text" id="clinician_name" name="clinical_review.clinician_name"
+               value="{{ clinical_review.clinicianName }}"
+               placeholder="e.g. Dr A. Patel">
+      </div>
+      <div class="form-group">
+        <label for="review_date">Review Date</label>
+        <input type="date" id="review_date" name="clinical_review.review_date"
+               value="{{ clinical_review.reviewDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="primary_diagnosis">Primary Diagnosis</label>
+        <select id="primary_diagnosis" name="clinical_review.primary_diagnosis">
+          <option value="">-- Select --</option>
+          <option value="heartFailure" {% if clinical_review.primaryDiagnosis == "heartFailure" %}selected{% endif %}>Heart Failure</option>
+          <option value="coronaryArteryDisease" {% if clinical_review.primaryDiagnosis == "coronaryArteryDisease" %}selected{% endif %}>Coronary Artery Disease</option>
+          <option value="atrialFibrillation" {% if clinical_review.primaryDiagnosis == "atrialFibrillation" %}selected{% endif %}>Atrial Fibrillation</option>
+          <option value="valvularHeartDisease" {% if clinical_review.primaryDiagnosis == "valvularHeartDisease" %}selected{% endif %}>Valvular Heart Disease</option>
+          <option value="hypertensiveHeartDisease" {% if clinical_review.primaryDiagnosis == "hypertensiveHeartDisease" %}selected{% endif %}>Hypertensive Heart Disease</option>
+          <option value="cardiomyopathy" {% if clinical_review.primaryDiagnosis == "cardiomyopathy" %}selected{% endif %}>Cardiomyopathy</option>
+          <option value="arrhythmia" {% if clinical_review.primaryDiagnosis == "arrhythmia" %}selected{% endif %}>Arrhythmia (Other)</option>
+          <option value="chestPainUnderInvestigation" {% if clinical_review.primaryDiagnosis == "chestPainUnderInvestigation" %}selected{% endif %}>Chest Pain Under Investigation</option>
+          <option value="other" {% if clinical_review.primaryDiagnosis == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="severity_level">Severity Level</label>
+        <select id="severity_level" name="clinical_review.severity_level">
+          <option value="">-- Select --</option>
+          <option value="low" {% if clinical_review.severityLevel == "low" %}selected{% endif %}>Low</option>
+          <option value="moderate" {% if clinical_review.severityLevel == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="high" {% if clinical_review.severityLevel == "high" %}selected{% endif %}>High</option>
+          <option value="critical" {% if clinical_review.severityLevel == "critical" %}selected{% endif %}>Critical</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nyha_classification">NYHA Classification (Clinician)</label>
+        <select id="nyha_classification" name="clinical_review.nyha_classification">
+          <option value="">-- Select --</option>
+          <option value="I" {% if clinical_review.nyhaClassification == "I" %}selected{% endif %}>Class I</option>
+          <option value="II" {% if clinical_review.nyhaClassification == "II" %}selected{% endif %}>Class II</option>
+          <option value="III" {% if clinical_review.nyhaClassification == "III" %}selected{% endif %}>Class III</option>
+          <option value="IV" {% if clinical_review.nyhaClassification == "IV" %}selected{% endif %}>Class IV</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="urgency">Urgency</label>
+        <select id="urgency" name="clinical_review.urgency">
+          <option value="">-- Select --</option>
+          <option value="routine" {% if clinical_review.urgency == "routine" %}selected{% endif %}>Routine</option>
+          <option value="urgent" {% if clinical_review.urgency == "urgent" %}selected{% endif %}>Urgent</option>
+          <option value="emergency" {% if clinical_review.urgency == "emergency" %}selected{% endif %}>Emergency</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_notes">Clinical Notes</label>
+      <textarea id="clinical_notes" name="clinical_review.clinical_notes"
+                rows="4" placeholder="Detailed clinical findings and observations">{{ clinical_review.clinicalNotes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="management_plan">Management Plan</label>
+      <textarea id="management_plan" name="clinical_review.management_plan"
+                rows="4" placeholder="Planned investigations, treatments, and follow-up">{{ clinical_review.managementPlan }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Referral Needed</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clinical_review.referral_needed" value="yes" {% if clinical_review.referralNeeded == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="clinical_review.referral_needed" value="no" {% if clinical_review.referralNeeded == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
