@@ -1,0 +1,66 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Genetic Testing Status - Genetic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Genetic Testing Status</h2>
+    <p class="hint">Previous genetic tests, results, and known familial variants.</p>
+
+    <div class="form-group">
+      <label>Previous genetic tests performed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="genetic_testing_status.previous_genetic_tests" value="yes" {% if genetic_testing_status.previousGeneticTests == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="genetic_testing_status.previous_genetic_tests" value="no" {% if genetic_testing_status.previousGeneticTests == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="previous_genetic_tests_details">Test Details</label>
+      <textarea id="previous_genetic_tests_details" name="genetic_testing_status.previous_genetic_tests_details" rows="3"
+                placeholder="e.g. BRCA panel 2024, chromosomal microarray 2023">{{ genetic_testing_status.previousGeneticTestsDetails }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="test_results">Test Results Summary</label>
+      <textarea id="test_results" name="genetic_testing_status.test_results" rows="3"
+                placeholder="e.g. BRCA1 c.68_69delAG pathogenic variant detected">{{ genetic_testing_status.testResults }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Variant of uncertain significance (VUS) identified?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="genetic_testing_status.variants_of_uncertain_significance" value="yes" {% if genetic_testing_status.variantsOfUncertainSignificance == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="genetic_testing_status.variants_of_uncertain_significance" value="no" {% if genetic_testing_status.variantsOfUncertainSignificance == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vus_details">VUS Details</label>
+      <input type="text" id="vus_details" name="genetic_testing_status.vus_details"
+             value="{{ genetic_testing_status.vusDetails }}"
+             placeholder="e.g. BRCA2 c.1234A>G p.Asn412Asp">
+    </div>
+
+    <div class="form-group">
+      <label>Known familial variant (identified in another family member)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="genetic_testing_status.known_familial_variant" value="yes" {% if genetic_testing_status.knownFamilialVariant == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="genetic_testing_status.known_familial_variant" value="no" {% if genetic_testing_status.knownFamilialVariant == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="familial_variant_details">Familial Variant Details</label>
+      <input type="text" id="familial_variant_details" name="genetic_testing_status.familial_variant_details"
+             value="{{ genetic_testing_status.familialVariantDetails }}"
+             placeholder="e.g. Mother carries BRCA1 c.5266dupC">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

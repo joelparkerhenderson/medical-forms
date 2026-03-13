@@ -1,0 +1,71 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Reproductive Genetics - Genetic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Reproductive Genetics</h2>
+    <p class="hint">Consanguinity, carrier status, reproductive history, and prenatal testing.</p>
+
+    <div class="form-group">
+      <label>Consanguinity (related parents)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="reproductive_genetics.consanguinity" value="yes" {% if reproductive_genetics.consanguinity == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="reproductive_genetics.consanguinity" value="no" {% if reproductive_genetics.consanguinity == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Known carrier status?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="reproductive_genetics.carrier_status" value="yes" {% if reproductive_genetics.carrierStatus == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="reproductive_genetics.carrier_status" value="no" {% if reproductive_genetics.carrierStatus == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="carrier_status_details">Carrier Status Details</label>
+      <input type="text" id="carrier_status_details" name="reproductive_genetics.carrier_status_details"
+             value="{{ reproductive_genetics.carrierStatusDetails }}"
+             placeholder="e.g. CF carrier, sickle cell trait">
+    </div>
+
+    <div class="form-group">
+      <label>Recurrent miscarriages (3 or more)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="reproductive_genetics.recurrent_miscarriages" value="yes" {% if reproductive_genetics.recurrentMiscarriages == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="reproductive_genetics.recurrent_miscarriages" value="no" {% if reproductive_genetics.recurrentMiscarriages == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Previously affected child?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="reproductive_genetics.previous_affected_child" value="yes" {% if reproductive_genetics.previousAffectedChild == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="reproductive_genetics.previous_affected_child" value="no" {% if reproductive_genetics.previousAffectedChild == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="previous_affected_child_details">Affected Child Details</label>
+      <input type="text" id="previous_affected_child_details" name="reproductive_genetics.previous_affected_child_details"
+             value="{{ reproductive_genetics.previousAffectedChildDetails }}"
+             placeholder="e.g. Tay-Sachs disease, age 2">
+    </div>
+
+    <div class="form-group">
+      <label>Wishes for prenatal/preimplantation testing?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="reproductive_genetics.prenatal_testing_wishes" value="yes" {% if reproductive_genetics.prenatalTestingWishes == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="reproductive_genetics.prenatal_testing_wishes" value="no" {% if reproductive_genetics.prenatalTestingWishes == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="reproductive_genetics.prenatal_testing_wishes" value="undecided" {% if reproductive_genetics.prenatalTestingWishes == "undecided" %}checked{% endif %}> Undecided</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Personal Medical History - Genetic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Personal Medical History</h2>
+    <p class="hint">Record the patient's personal cancer and medical history.</p>
+
+    <div class="form-group">
+      <label>Personal history of cancer?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="personal_medical_history.personal_cancer_history" value="yes" {% if personal_medical_history.personalCancerHistory == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="personal_medical_history.personal_cancer_history" value="no" {% if personal_medical_history.personalCancerHistory == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cancer_type">Cancer Type</label>
+        <input type="text" id="cancer_type" name="personal_medical_history.cancer_type"
+               value="{{ personal_medical_history.cancerType }}"
+               placeholder="e.g. breast, ovarian, colorectal">
+      </div>
+      <div class="form-group">
+        <label for="age_at_diagnosis">Age at Diagnosis</label>
+        <input type="number" id="age_at_diagnosis" name="personal_medical_history.age_at_diagnosis"
+               value="{% if personal_medical_history.ageAtDiagnosis %}{{ personal_medical_history.ageAtDiagnosis }}{% endif %}"
+               placeholder="e.g. 45" min="0" max="120">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Bilateral cancer?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="personal_medical_history.bilateral_cancer" value="yes" {% if personal_medical_history.bilateralCancer == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="personal_medical_history.bilateral_cancer" value="no" {% if personal_medical_history.bilateralCancer == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Multiple primary cancers?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="personal_medical_history.multiple_primary_cancers" value="yes" {% if personal_medical_history.multiplePrimaryCancers == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="personal_medical_history.multiple_primary_cancers" value="no" {% if personal_medical_history.multiplePrimaryCancers == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

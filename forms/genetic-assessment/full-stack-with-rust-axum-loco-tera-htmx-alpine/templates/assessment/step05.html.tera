@@ -1,0 +1,66 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cancer Risk Assessment - Genetic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cancer Risk Assessment</h2>
+    <p class="hint">Cancer gene panel results, BRCA1/2, Lynch syndrome, and Manchester scoring.</p>
+
+    <div class="form-group">
+      <label for="cancer_gene_panel">Cancer Gene Panel Tested</label>
+      <select id="cancer_gene_panel" name="cancer_risk_assessment.cancer_gene_panel">
+        <option value="">-- Select --</option>
+        <option value="notTested" {% if cancer_risk_assessment.cancerGenePanel == "notTested" %}selected{% endif %}>Not Tested</option>
+        <option value="brca" {% if cancer_risk_assessment.cancerGenePanel == "brca" %}selected{% endif %}>BRCA1/2 Only</option>
+        <option value="lynch" {% if cancer_risk_assessment.cancerGenePanel == "lynch" %}selected{% endif %}>Lynch Panel (MLH1/MSH2/MSH6/PMS2)</option>
+        <option value="multiGene" {% if cancer_risk_assessment.cancerGenePanel == "multiGene" %}selected{% endif %}>Multi-gene Cancer Panel</option>
+        <option value="wholeExome" {% if cancer_risk_assessment.cancerGenePanel == "wholeExome" %}selected{% endif %}>Whole Exome/Genome</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="brca_result">BRCA1/2 Result</label>
+        <select id="brca_result" name="cancer_risk_assessment.brca_result">
+          <option value="">-- Select --</option>
+          <option value="notTested" {% if cancer_risk_assessment.brcaResult == "notTested" %}selected{% endif %}>Not Tested</option>
+          <option value="negative" {% if cancer_risk_assessment.brcaResult == "negative" %}selected{% endif %}>Negative</option>
+          <option value="positive" {% if cancer_risk_assessment.brcaResult == "positive" %}selected{% endif %}>Pathogenic Variant Found</option>
+          <option value="vus" {% if cancer_risk_assessment.brcaResult == "vus" %}selected{% endif %}>VUS</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="lynch_result">Lynch Syndrome Result</label>
+        <select id="lynch_result" name="cancer_risk_assessment.lynch_result">
+          <option value="">-- Select --</option>
+          <option value="notTested" {% if cancer_risk_assessment.lynchResult == "notTested" %}selected{% endif %}>Not Tested</option>
+          <option value="negative" {% if cancer_risk_assessment.lynchResult == "negative" %}selected{% endif %}>Negative</option>
+          <option value="positive" {% if cancer_risk_assessment.lynchResult == "positive" %}selected{% endif %}>Pathogenic Variant Found</option>
+          <option value="vus" {% if cancer_risk_assessment.lynchResult == "vus" %}selected{% endif %}>VUS</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="manchester_score">Manchester Score (BRCA)</label>
+        <input type="number" id="manchester_score" name="cancer_risk_assessment.manchester_score"
+               value="{% if cancer_risk_assessment.manchesterScore %}{{ cancer_risk_assessment.manchesterScore }}{% endif %}"
+               placeholder="e.g. 15" min="0" max="99">
+      </div>
+      <div class="form-group">
+        <label for="affected_relatives_under50">Affected Relatives Under 50</label>
+        <input type="number" id="affected_relatives_under50" name="cancer_risk_assessment.affected_relatives_under50"
+               value="{% if cancer_risk_assessment.affectedRelativesUnder50 %}{{ cancer_risk_assessment.affectedRelativesUnder50 }}{% endif %}"
+               placeholder="e.g. 2" min="0" max="20">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

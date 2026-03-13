@@ -1,0 +1,74 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Genetic Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Genetic Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, referral reason...">
+    </div>
+    <div class="form-group">
+      <label for="risk_level">Risk Level</label>
+      <select id="risk_level" name="risk_level">
+        <option value="">All Levels</option>
+        <option value="confirmed" {% if risk_level == "confirmed" %}selected{% endif %}>Confirmed</option>
+        <option value="highRisk" {% if risk_level == "highRisk" %}selected{% endif %}>High Risk</option>
+        <option value="moderateRisk" {% if risk_level == "moderateRisk" %}selected{% endif %}>Moderate Risk</option>
+        <option value="lowRisk" {% if risk_level == "lowRisk" %}selected{% endif %}>Low Risk</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="testing_status">Testing Status</label>
+      <select id="testing_status" name="testing_status">
+        <option value="">All</option>
+        <option value="Positive" {% if testing_status == "Positive" %}selected{% endif %}>Positive</option>
+        <option value="VUS" {% if testing_status == "VUS" %}selected{% endif %}>VUS</option>
+        <option value="Tested" {% if testing_status == "Tested" %}selected{% endif %}>Tested</option>
+        <option value="Untested" {% if testing_status == "Untested" %}selected{% endif %}>Untested</option>
+        <option value="Pending" {% if testing_status == "Pending" %}selected{% endif %}>Pending</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Referral Reason</th>
+      <th>Risk Level</th>
+      <th>Testing Status</th>
+      <th>Family Pattern</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.referralReason }}</td>
+      <td><span class="risk-badge risk-{{ patient.riskLevel }}">{{ patient.riskLevel }}</span></td>
+      <td>{{ patient.testingStatus }}</td>
+      <td>{{ patient.familyPattern }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="5" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

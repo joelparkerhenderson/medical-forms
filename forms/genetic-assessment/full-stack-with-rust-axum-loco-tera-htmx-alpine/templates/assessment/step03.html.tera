@@ -1,0 +1,196 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Family Pedigree - Genetic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Family Pedigree</h2>
+    <p class="hint">Three-generation family history. Record conditions, cancers, ages at diagnosis, and vital status.</p>
+
+    <h3>Maternal Grandmother</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mgm_conditions">Conditions</label>
+        <input type="text" id="mgm_conditions" name="family_pedigree.maternal_grandmother_conditions"
+               value="{{ family_pedigree.maternalGrandmotherConditions }}" placeholder="e.g. diabetes, hypertension">
+      </div>
+      <div class="form-group">
+        <label for="mgm_cancers">Cancers</label>
+        <input type="text" id="mgm_cancers" name="family_pedigree.maternal_grandmother_cancers"
+               value="{{ family_pedigree.maternalGrandmotherCancers }}" placeholder="e.g. breast cancer">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mgm_age">Age at Diagnosis</label>
+        <input type="text" id="mgm_age" name="family_pedigree.maternal_grandmother_age_at_diagnosis"
+               value="{{ family_pedigree.maternalGrandmotherAgeAtDiagnosis }}" placeholder="e.g. 55">
+      </div>
+      <div class="form-group">
+        <label>Deceased?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="family_pedigree.maternal_grandmother_deceased" value="yes" {% if family_pedigree.maternalGrandmotherDeceased == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="family_pedigree.maternal_grandmother_deceased" value="no" {% if family_pedigree.maternalGrandmotherDeceased == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <h3>Maternal Grandfather</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mgf_conditions">Conditions</label>
+        <input type="text" id="mgf_conditions" name="family_pedigree.maternal_grandfather_conditions"
+               value="{{ family_pedigree.maternalGrandfatherConditions }}" placeholder="e.g. heart disease">
+      </div>
+      <div class="form-group">
+        <label for="mgf_cancers">Cancers</label>
+        <input type="text" id="mgf_cancers" name="family_pedigree.maternal_grandfather_cancers"
+               value="{{ family_pedigree.maternalGrandfatherCancers }}" placeholder="e.g. colon cancer">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mgf_age">Age at Diagnosis</label>
+        <input type="text" id="mgf_age" name="family_pedigree.maternal_grandfather_age_at_diagnosis"
+               value="{{ family_pedigree.maternalGrandfatherAgeAtDiagnosis }}" placeholder="e.g. 62">
+      </div>
+      <div class="form-group">
+        <label>Deceased?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="family_pedigree.maternal_grandfather_deceased" value="yes" {% if family_pedigree.maternalGrandfatherDeceased == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="family_pedigree.maternal_grandfather_deceased" value="no" {% if family_pedigree.maternalGrandfatherDeceased == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <h3>Paternal Grandmother</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pgm_conditions">Conditions</label>
+        <input type="text" id="pgm_conditions" name="family_pedigree.paternal_grandmother_conditions"
+               value="{{ family_pedigree.paternalGrandmotherConditions }}" placeholder="e.g. osteoporosis">
+      </div>
+      <div class="form-group">
+        <label for="pgm_cancers">Cancers</label>
+        <input type="text" id="pgm_cancers" name="family_pedigree.paternal_grandmother_cancers"
+               value="{{ family_pedigree.paternalGrandmotherCancers }}" placeholder="e.g. ovarian cancer">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pgm_age">Age at Diagnosis</label>
+        <input type="text" id="pgm_age" name="family_pedigree.paternal_grandmother_age_at_diagnosis"
+               value="{{ family_pedigree.paternalGrandmotherAgeAtDiagnosis }}" placeholder="e.g. 48">
+      </div>
+      <div class="form-group">
+        <label>Deceased?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="family_pedigree.paternal_grandmother_deceased" value="yes" {% if family_pedigree.paternalGrandmotherDeceased == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="family_pedigree.paternal_grandmother_deceased" value="no" {% if family_pedigree.paternalGrandmotherDeceased == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <h3>Paternal Grandfather</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pgf_conditions">Conditions</label>
+        <input type="text" id="pgf_conditions" name="family_pedigree.paternal_grandfather_conditions"
+               value="{{ family_pedigree.paternalGrandfatherConditions }}" placeholder="e.g. Parkinson disease">
+      </div>
+      <div class="form-group">
+        <label for="pgf_cancers">Cancers</label>
+        <input type="text" id="pgf_cancers" name="family_pedigree.paternal_grandfather_cancers"
+               value="{{ family_pedigree.paternalGrandfatherCancers }}" placeholder="e.g. prostate cancer">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pgf_age">Age at Diagnosis</label>
+        <input type="text" id="pgf_age" name="family_pedigree.paternal_grandfather_age_at_diagnosis"
+               value="{{ family_pedigree.paternalGrandfatherAgeAtDiagnosis }}" placeholder="e.g. 70">
+      </div>
+      <div class="form-group">
+        <label>Deceased?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="family_pedigree.paternal_grandfather_deceased" value="yes" {% if family_pedigree.paternalGrandfatherDeceased == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="family_pedigree.paternal_grandfather_deceased" value="no" {% if family_pedigree.paternalGrandfatherDeceased == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <h3>Mother</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mother_conditions">Conditions</label>
+        <input type="text" id="mother_conditions" name="family_pedigree.mother_conditions"
+               value="{{ family_pedigree.motherConditions }}" placeholder="e.g. BRCA1 carrier">
+      </div>
+      <div class="form-group">
+        <label for="mother_cancers">Cancers</label>
+        <input type="text" id="mother_cancers" name="family_pedigree.mother_cancers"
+               value="{{ family_pedigree.motherCancers }}" placeholder="e.g. breast cancer bilateral">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mother_age">Age at Diagnosis</label>
+        <input type="text" id="mother_age" name="family_pedigree.mother_age_at_diagnosis"
+               value="{{ family_pedigree.motherAgeAtDiagnosis }}" placeholder="e.g. 42">
+      </div>
+      <div class="form-group">
+        <label>Deceased?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="family_pedigree.mother_deceased" value="yes" {% if family_pedigree.motherDeceased == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="family_pedigree.mother_deceased" value="no" {% if family_pedigree.motherDeceased == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <h3>Father</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="father_conditions">Conditions</label>
+        <input type="text" id="father_conditions" name="family_pedigree.father_conditions"
+               value="{{ family_pedigree.fatherConditions }}" placeholder="e.g. familial hypercholesterolemia">
+      </div>
+      <div class="form-group">
+        <label for="father_cancers">Cancers</label>
+        <input type="text" id="father_cancers" name="family_pedigree.father_cancers"
+               value="{{ family_pedigree.fatherCancers }}" placeholder="e.g. lung cancer">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="father_age">Age at Diagnosis</label>
+        <input type="text" id="father_age" name="family_pedigree.father_age_at_diagnosis"
+               value="{{ family_pedigree.fatherAgeAtDiagnosis }}" placeholder="e.g. 58">
+      </div>
+      <div class="form-group">
+        <label>Deceased?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="family_pedigree.father_deceased" value="yes" {% if family_pedigree.fatherDeceased == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="family_pedigree.father_deceased" value="no" {% if family_pedigree.fatherDeceased == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <h3>Siblings & Children</h3>
+    <div class="form-group">
+      <label for="siblings_details">Siblings (conditions, cancers, ages)</label>
+      <textarea id="siblings_details" name="family_pedigree.siblings_details" rows="3"
+                placeholder="e.g. Sister - breast cancer age 38; Brother - healthy">{{ family_pedigree.siblingsDetails }}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="children_details">Children (conditions, cancers, ages)</label>
+      <textarea id="children_details" name="family_pedigree.children_details" rows="3"
+                placeholder="e.g. Son age 12 - healthy; Daughter age 8 - developmental delay">{{ family_pedigree.childrenDetails }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

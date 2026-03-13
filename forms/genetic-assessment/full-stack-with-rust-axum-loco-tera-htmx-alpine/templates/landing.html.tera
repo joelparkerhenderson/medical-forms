@@ -1,0 +1,33 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Genetic Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Genetic Assessment</h1>
+  <p>
+    Clinical genetics assessment for hereditary conditions, evaluating family pedigree,
+    genetic testing candidacy, risk assessment for inherited conditions (cancer genetics,
+    cardiac genetics, reproductive genetics), and genetic counselling needs.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive evaluation of family history, genetic testing, and risk factors</p>
+    </div>
+    <div class="feature-card">
+      <h3>Risk Stratification</h3>
+      <p>Scoring based on family history, affected relatives, age of onset, and test results</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated alerts for cascade testing, urgent referrals, and counselling needs</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

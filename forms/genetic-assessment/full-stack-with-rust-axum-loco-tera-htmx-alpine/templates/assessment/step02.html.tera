@@ -1,0 +1,56 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Referral Reason - Genetic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Referral Reason</h2>
+    <p class="hint">Details of the referral for genetic assessment.</p>
+
+    <div class="form-group">
+      <label for="referral_indication">Referral Indication</label>
+      <select id="referral_indication" name="referral_reason.referral_indication">
+        <option value="">-- Select --</option>
+        <option value="cancerGenetics" {% if referral_reason.referralIndication == "cancerGenetics" %}selected{% endif %}>Cancer Genetics</option>
+        <option value="cardiacGenetics" {% if referral_reason.referralIndication == "cardiacGenetics" %}selected{% endif %}>Cardiac Genetics</option>
+        <option value="reproductiveGenetics" {% if referral_reason.referralIndication == "reproductiveGenetics" %}selected{% endif %}>Reproductive Genetics</option>
+        <option value="neurogenetics" {% if referral_reason.referralIndication == "neurogenetics" %}selected{% endif %}>Neurogenetics</option>
+        <option value="paediatricGenetics" {% if referral_reason.referralIndication == "paediatricGenetics" %}selected{% endif %}>Paediatric Genetics</option>
+        <option value="familyHistory" {% if referral_reason.referralIndication == "familyHistory" %}selected{% endif %}>Family History Concern</option>
+        <option value="carrierTesting" {% if referral_reason.referralIndication == "carrierTesting" %}selected{% endif %}>Carrier Testing</option>
+        <option value="predictiveTesting" {% if referral_reason.referralIndication == "predictiveTesting" %}selected{% endif %}>Predictive Testing</option>
+        <option value="other" {% if referral_reason.referralIndication == "other" %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="referring_clinician">Referring Clinician</label>
+        <input type="text" id="referring_clinician" name="referral_reason.referring_clinician"
+               value="{{ referral_reason.referringClinician }}"
+               placeholder="e.g. Dr Jones, Oncology">
+      </div>
+      <div class="form-group">
+        <label for="referral_date">Referral Date</label>
+        <input type="date" id="referral_date" name="referral_reason.referral_date"
+               value="{{ referral_reason.referralDate }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="urgency">Urgency</label>
+      <select id="urgency" name="referral_reason.urgency">
+        <option value="">-- Select --</option>
+        <option value="routine" {% if referral_reason.urgency == "routine" %}selected{% endif %}>Routine</option>
+        <option value="urgent" {% if referral_reason.urgency == "urgent" %}selected{% endif %}>Urgent</option>
+        <option value="emergency" {% if referral_reason.urgency == "emergency" %}selected{% endif %}>Emergency</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

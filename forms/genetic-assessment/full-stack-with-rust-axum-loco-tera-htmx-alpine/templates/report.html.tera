@@ -1,0 +1,117 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Genetic Assessment Report{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Genetic Assessment Report</h1>
+    <span class="risk-badge risk-{{ risk_level }}">{{ risk_label }}</span>
+  </div>
+
+  <div class="score-display">Risk Score: {{ risk_score }}</div>
+  <div class="score-label">Based on family history, affected relatives, age of onset, and genetic test results</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient Name:</strong> {{ data.patientInformation.patientName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Date of Birth:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Referral Indication:</strong> {{ data.referralReason.referralIndication | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Urgency:</strong> {{ data.referralReason.urgency | default(value="Not provided") }}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Fired Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Risk Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinical Review Notes -->
+{% if data.clinicalReview.clinicianNotes or data.clinicalReview.recommendedActions or data.clinicalReview.followUpPlan %}
+<div class="card">
+  <h2>Clinical Review</h2>
+  {% if data.clinicalReview.clinicianNotes %}
+    <div class="form-group">
+      <strong>Clinician Notes:</strong>
+      <p>{{ data.clinicalReview.clinicianNotes }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.recommendedActions %}
+    <div class="form-group">
+      <strong>Recommended Actions:</strong>
+      <p>{{ data.clinicalReview.recommendedActions }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.followUpPlan %}
+    <div class="form-group">
+      <strong>Follow-up Plan:</strong>
+      <p>{{ data.clinicalReview.followUpPlan }}</p>
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

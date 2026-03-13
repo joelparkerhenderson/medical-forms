@@ -1,0 +1,68 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Psychological Impact - Genetic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Psychological Impact</h2>
+    <p class="hint">Assess psychological readiness for testing, counselling history, and support needs.</p>
+
+    <div class="form-group">
+      <label for="psychological_readiness">Psychological Readiness for Genetic Testing</label>
+      <select id="psychological_readiness" name="psychological_impact.psychological_readiness">
+        <option value="">-- Select --</option>
+        <option value="ready" {% if psychological_impact.psychologicalReadiness == "ready" %}selected{% endif %}>Ready - understands implications</option>
+        <option value="partiallyReady" {% if psychological_impact.psychologicalReadiness == "partiallyReady" %}selected{% endif %}>Partially Ready - some concerns</option>
+        <option value="notReady" {% if psychological_impact.psychologicalReadiness == "notReady" %}selected{% endif %}>Not Ready - significant anxiety or reluctance</option>
+        <option value="unclear" {% if psychological_impact.psychologicalReadiness == "unclear" %}selected{% endif %}>Unclear - needs further assessment</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Previous genetic counselling?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="psychological_impact.genetic_counselling" value="yes" {% if psychological_impact.geneticCounselling == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="psychological_impact.genetic_counselling" value="no" {% if psychological_impact.geneticCounselling == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="family_communication">Ability to communicate genetic information to family</label>
+      <select id="family_communication" name="psychological_impact.family_communication">
+        <option value="">-- Select --</option>
+        <option value="comfortable" {% if psychological_impact.familyCommunication == "comfortable" %}selected{% endif %}>Comfortable</option>
+        <option value="someConcerns" {% if psychological_impact.familyCommunication == "someConcerns" %}selected{% endif %}>Some Concerns</option>
+        <option value="difficult" {% if psychological_impact.familyCommunication == "difficult" %}selected{% endif %}>Difficult - needs support</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Insurance implications concern?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="psychological_impact.insurance_implications" value="yes" {% if psychological_impact.insuranceImplications == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="psychological_impact.insurance_implications" value="no" {% if psychological_impact.insuranceImplications == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="insurance_implications_details">Insurance Concern Details</label>
+      <input type="text" id="insurance_implications_details" name="psychological_impact.insurance_implications_details"
+             value="{{ psychological_impact.insuranceImplicationsDetails }}"
+             placeholder="e.g. concerned about life insurance implications">
+    </div>
+
+    <div class="form-group">
+      <label>Additional psychological support needed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="psychological_impact.support_needs" value="yes" {% if psychological_impact.supportNeeds == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="psychological_impact.support_needs" value="no" {% if psychological_impact.supportNeeds == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

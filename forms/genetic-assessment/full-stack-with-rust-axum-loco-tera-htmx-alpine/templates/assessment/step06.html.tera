@@ -1,0 +1,73 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cardiac Genetic Risk - Genetic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cardiac Genetic Risk</h2>
+    <p class="hint">Family history and testing for inherited cardiac conditions.</p>
+
+    <div class="form-group">
+      <label>Familial hypercholesterolemia?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="cardiac_genetic_risk.familial_hypercholesterolemia" value="yes" {% if cardiac_genetic_risk.familialHypercholesterolemia == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="cardiac_genetic_risk.familial_hypercholesterolemia" value="no" {% if cardiac_genetic_risk.familialHypercholesterolemia == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Cardiomyopathy in family?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="cardiac_genetic_risk.cardiomyopathy" value="yes" {% if cardiac_genetic_risk.cardiomyopathy == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="cardiac_genetic_risk.cardiomyopathy" value="no" {% if cardiac_genetic_risk.cardiomyopathy == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Aortic aneurysm in family?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="cardiac_genetic_risk.aortic_aneurysm" value="yes" {% if cardiac_genetic_risk.aorticAneurysm == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="cardiac_genetic_risk.aortic_aneurysm" value="no" {% if cardiac_genetic_risk.aorticAneurysm == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Sudden cardiac death in family?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="cardiac_genetic_risk.sudden_cardiac_death" value="yes" {% if cardiac_genetic_risk.suddenCardiacDeath == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="cardiac_genetic_risk.sudden_cardiac_death" value="no" {% if cardiac_genetic_risk.suddenCardiacDeath == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Early-onset cardiovascular disease (under 50)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="cardiac_genetic_risk.early_onset_cvd" value="yes" {% if cardiac_genetic_risk.earlyOnsetCvd == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="cardiac_genetic_risk.early_onset_cvd" value="no" {% if cardiac_genetic_risk.earlyOnsetCvd == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cardiac_gene_result">Cardiac Gene Test Result</label>
+      <select id="cardiac_gene_result" name="cardiac_genetic_risk.cardiac_gene_result">
+        <option value="">-- Select --</option>
+        <option value="notTested" {% if cardiac_genetic_risk.cardiacGeneResult == "notTested" %}selected{% endif %}>Not Tested</option>
+        <option value="negative" {% if cardiac_genetic_risk.cardiacGeneResult == "negative" %}selected{% endif %}>Negative</option>
+        <option value="positive" {% if cardiac_genetic_risk.cardiacGeneResult == "positive" %}selected{% endif %}>Pathogenic Variant Found</option>
+        <option value="vus" {% if cardiac_genetic_risk.cardiacGeneResult == "vus" %}selected{% endif %}>VUS</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="cardiovascular_details">Additional Cardiovascular Details</label>
+      <textarea id="cardiovascular_details" name="cardiac_genetic_risk.cardiovascular_details" rows="3"
+                placeholder="Any additional cardiac family history or clinical details">{{ cardiac_genetic_risk.cardiovascularDetails }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
