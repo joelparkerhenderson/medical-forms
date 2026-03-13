@@ -1,0 +1,101 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Pregnancy - Prenatal Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Pregnancy</h2>
+    <p class="hint">Details about the current pregnancy status and symptoms.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pregnancy_type">Pregnancy Type</label>
+        <select id="pregnancy_type" name="current_pregnancy.pregnancy_type">
+          <option value="">-- Select --</option>
+          <option value="singleton" {% if current_pregnancy.pregnancyType == "singleton" %}selected{% endif %}>Singleton</option>
+          <option value="twins" {% if current_pregnancy.pregnancyType == "twins" %}selected{% endif %}>Twins</option>
+          <option value="triplets" {% if current_pregnancy.pregnancyType == "triplets" %}selected{% endif %}>Triplets</option>
+          <option value="higherOrder" {% if current_pregnancy.pregnancyType == "higherOrder" %}selected{% endif %}>Higher Order Multiple</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="conception_method">Conception Method</label>
+        <select id="conception_method" name="current_pregnancy.conception_method">
+          <option value="">-- Select --</option>
+          <option value="natural" {% if current_pregnancy.conceptionMethod == "natural" %}selected{% endif %}>Natural</option>
+          <option value="ivf" {% if current_pregnancy.conceptionMethod == "ivf" %}selected{% endif %}>IVF</option>
+          <option value="iui" {% if current_pregnancy.conceptionMethod == "iui" %}selected{% endif %}>IUI</option>
+          <option value="ovulationInduction" {% if current_pregnancy.conceptionMethod == "ovulationInduction" %}selected{% endif %}>Ovulation Induction</option>
+          <option value="other" {% if current_pregnancy.conceptionMethod == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Vaginal Bleeding</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_pregnancy.vaginal_bleeding" value="yes" {% if current_pregnancy.vaginalBleeding == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_pregnancy.vaginal_bleeding" value="no" {% if current_pregnancy.vaginalBleeding == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Severe Nausea / Hyperemesis</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_pregnancy.severe_nausea" value="yes" {% if current_pregnancy.severeNausea == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_pregnancy.severe_nausea" value="no" {% if current_pregnancy.severeNausea == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fetal_movements">Fetal Movements</label>
+        <select id="fetal_movements" name="current_pregnancy.fetal_movements">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if current_pregnancy.fetalMovements == "normal" %}selected{% endif %}>Normal</option>
+          <option value="reduced" {% if current_pregnancy.fetalMovements == "reduced" %}selected{% endif %}>Reduced</option>
+          <option value="notYetFelt" {% if current_pregnancy.fetalMovements == "notYetFelt" %}selected{% endif %}>Not Yet Felt</option>
+          <option value="increased" {% if current_pregnancy.fetalMovements == "increased" %}selected{% endif %}>Increased</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="gestational_diabetes_screening">Gestational Diabetes Screening</label>
+        <select id="gestational_diabetes_screening" name="current_pregnancy.gestational_diabetes_screening">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if current_pregnancy.gestationalDiabetesScreening == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if current_pregnancy.gestationalDiabetesScreening == "abnormal" %}selected{% endif %}>Abnormal</option>
+          <option value="pending" {% if current_pregnancy.gestationalDiabetesScreening == "pending" %}selected{% endif %}>Pending</option>
+          <option value="notIndicated" {% if current_pregnancy.gestationalDiabetesScreening == "notIndicated" %}selected{% endif %}>Not Indicated</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="rhesus_status">Rhesus Status</label>
+        <select id="rhesus_status" name="current_pregnancy.rhesus_status">
+          <option value="">-- Select --</option>
+          <option value="positive" {% if current_pregnancy.rhesusStatus == "positive" %}selected{% endif %}>Rh Positive</option>
+          <option value="negative" {% if current_pregnancy.rhesusStatus == "negative" %}selected{% endif %}>Rh Negative</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cervical_length">Cervical Length</label>
+        <select id="cervical_length" name="current_pregnancy.cervical_length">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if current_pregnancy.cervicalLength == "normal" %}selected{% endif %}>Normal (&gt; 25mm)</option>
+          <option value="short" {% if current_pregnancy.cervicalLength == "short" %}selected{% endif %}>Short (15-25mm)</option>
+          <option value="veryShort" {% if current_pregnancy.cervicalLength == "veryShort" %}selected{% endif %}>Very Short (&lt; 15mm)</option>
+          <option value="notMeasured" {% if current_pregnancy.cervicalLength == "notMeasured" %}selected{% endif %}>Not Measured</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

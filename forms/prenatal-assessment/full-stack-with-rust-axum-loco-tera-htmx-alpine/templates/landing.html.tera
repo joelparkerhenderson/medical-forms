@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Prenatal Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Prenatal Assessment</h1>
+  <p>
+    This assessment supports the antenatal care pathway by collecting clinical
+    information across patient demographics, obstetric history, current pregnancy
+    status, screening results, physical examination findings, and mental health
+    indicators. The assessment generates a risk profile to guide clinical decision-making.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive prenatal review from booking to clinical summary</p>
+    </div>
+    <div class="feature-card">
+      <h3>Risk Stratification</h3>
+      <p>Automated risk scoring with rule-based clinical alerts</p>
+    </div>
+    <div class="feature-card">
+      <h3>Flagged Issues</h3>
+      <p>Actionable flags for urgent clinical review</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

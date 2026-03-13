@@ -1,0 +1,103 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Antenatal Screening - Prenatal Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Antenatal Screening</h2>
+    <p class="hint">Record the results of antenatal screening tests.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="combined_screening_result">Combined Screening (T21/T18/T13)</label>
+        <select id="combined_screening_result" name="antenatal_screening.combined_screening_result">
+          <option value="">-- Select --</option>
+          <option value="lowRisk" {% if antenatal_screening.combinedScreeningResult == "lowRisk" %}selected{% endif %}>Low Risk</option>
+          <option value="highRisk" {% if antenatal_screening.combinedScreeningResult == "highRisk" %}selected{% endif %}>High Risk</option>
+          <option value="pending" {% if antenatal_screening.combinedScreeningResult == "pending" %}selected{% endif %}>Pending</option>
+          <option value="declined" {% if antenatal_screening.combinedScreeningResult == "declined" %}selected{% endif %}>Declined</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="quadruple_test_result">Quadruple Test</label>
+        <select id="quadruple_test_result" name="antenatal_screening.quadruple_test_result">
+          <option value="">-- Select --</option>
+          <option value="lowRisk" {% if antenatal_screening.quadrupleTestResult == "lowRisk" %}selected{% endif %}>Low Risk</option>
+          <option value="highRisk" {% if antenatal_screening.quadrupleTestResult == "highRisk" %}selected{% endif %}>High Risk</option>
+          <option value="pending" {% if antenatal_screening.quadrupleTestResult == "pending" %}selected{% endif %}>Pending</option>
+          <option value="notApplicable" {% if antenatal_screening.quadrupleTestResult == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nipt_result">NIPT (Non-Invasive Prenatal Testing)</label>
+        <select id="nipt_result" name="antenatal_screening.nipt_result">
+          <option value="">-- Select --</option>
+          <option value="lowRisk" {% if antenatal_screening.niptResult == "lowRisk" %}selected{% endif %}>Low Risk</option>
+          <option value="highRisk" {% if antenatal_screening.niptResult == "highRisk" %}selected{% endif %}>High Risk</option>
+          <option value="pending" {% if antenatal_screening.niptResult == "pending" %}selected{% endif %}>Pending</option>
+          <option value="notPerformed" {% if antenatal_screening.niptResult == "notPerformed" %}selected{% endif %}>Not Performed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="anomaly_scan_result">Anomaly Scan (18-20 weeks)</label>
+        <select id="anomaly_scan_result" name="antenatal_screening.anomaly_scan_result">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if antenatal_screening.anomalyScanResult == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if antenatal_screening.anomalyScanResult == "abnormal" %}selected{% endif %}>Abnormal</option>
+          <option value="pending" {% if antenatal_screening.anomalyScanResult == "pending" %}selected{% endif %}>Pending</option>
+          <option value="incomplete" {% if antenatal_screening.anomalyScanResult == "incomplete" %}selected{% endif %}>Incomplete</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="infectious_disease_screening">Infectious Disease Screening</label>
+        <select id="infectious_disease_screening" name="antenatal_screening.infectious_disease_screening">
+          <option value="">-- Select --</option>
+          <option value="negative" {% if antenatal_screening.infectiousDiseaseScreening == "negative" %}selected{% endif %}>All Negative</option>
+          <option value="positive" {% if antenatal_screening.infectiousDiseaseScreening == "positive" %}selected{% endif %}>Positive Result(s)</option>
+          <option value="pending" {% if antenatal_screening.infectiousDiseaseScreening == "pending" %}selected{% endif %}>Pending</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="group_b_strep">Group B Streptococcus</label>
+        <select id="group_b_strep" name="antenatal_screening.group_b_strep">
+          <option value="">-- Select --</option>
+          <option value="negative" {% if antenatal_screening.groupBStrep == "negative" %}selected{% endif %}>Negative</option>
+          <option value="positive" {% if antenatal_screening.groupBStrep == "positive" %}selected{% endif %}>Positive</option>
+          <option value="notTested" {% if antenatal_screening.groupBStrep == "notTested" %}selected{% endif %}>Not Tested</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sickle_cell_thalassaemia">Sickle Cell / Thalassaemia</label>
+        <select id="sickle_cell_thalassaemia" name="antenatal_screening.sickle_cell_thalassaemia">
+          <option value="">-- Select --</option>
+          <option value="lowRisk" {% if antenatal_screening.sickleCellThalassaemia == "lowRisk" %}selected{% endif %}>Low Risk</option>
+          <option value="carrierDetected" {% if antenatal_screening.sickleCellThalassaemia == "carrierDetected" %}selected{% endif %}>Carrier Detected</option>
+          <option value="affected" {% if antenatal_screening.sickleCellThalassaemia == "affected" %}selected{% endif %}>Affected</option>
+          <option value="pending" {% if antenatal_screening.sickleCellThalassaemia == "pending" %}selected{% endif %}>Pending</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Any Screening Declined?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="antenatal_screening.screening_declined" value="yes" {% if antenatal_screening.screeningDeclined == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="antenatal_screening.screening_declined" value="no" {% if antenatal_screening.screeningDeclined == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Physical Examination - Prenatal Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Physical Examination</h2>
+    <p class="hint">Record findings from the physical examination.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="blood_pressure_systolic">Blood Pressure - Systolic (mmHg)</label>
+        <input type="number" id="blood_pressure_systolic" name="physical_examination.blood_pressure_systolic"
+               value="{{ physical_examination.bloodPressureSystolic }}"
+               min="60" max="250" placeholder="e.g. 120">
+      </div>
+      <div class="form-group">
+        <label for="blood_pressure_diastolic">Blood Pressure - Diastolic (mmHg)</label>
+        <input type="number" id="blood_pressure_diastolic" name="physical_examination.blood_pressure_diastolic"
+               value="{{ physical_examination.bloodPressureDiastolic }}"
+               min="30" max="150" placeholder="e.g. 80">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bmi">BMI (kg/m2)</label>
+        <input type="number" id="bmi" name="physical_examination.bmi"
+               value="{{ physical_examination.bmi }}"
+               min="10" max="70" step="0.1" placeholder="e.g. 24.5">
+      </div>
+      <div class="form-group">
+        <label for="fundal_height">Fundal Height (cm)</label>
+        <input type="number" id="fundal_height" name="physical_examination.fundal_height"
+               value="{{ physical_examination.fundalHeight }}"
+               min="0" max="50" placeholder="e.g. 28">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fetal_heart_rate">Fetal Heart Rate (bpm)</label>
+        <input type="number" id="fetal_heart_rate" name="physical_examination.fetal_heart_rate"
+               value="{{ physical_examination.fetalHeartRate }}"
+               min="60" max="220" placeholder="e.g. 140">
+      </div>
+      <div class="form-group">
+        <label for="fetal_presentation">Fetal Presentation</label>
+        <select id="fetal_presentation" name="physical_examination.fetal_presentation">
+          <option value="">-- Select --</option>
+          <option value="cephalic" {% if physical_examination.fetalPresentation == "cephalic" %}selected{% endif %}>Cephalic (Head Down)</option>
+          <option value="breech" {% if physical_examination.fetalPresentation == "breech" %}selected{% endif %}>Breech</option>
+          <option value="transverse" {% if physical_examination.fetalPresentation == "transverse" %}selected{% endif %}>Transverse</option>
+          <option value="unstable" {% if physical_examination.fetalPresentation == "unstable" %}selected{% endif %}>Unstable Lie</option>
+          <option value="notAssessable" {% if physical_examination.fetalPresentation == "notAssessable" %}selected{% endif %}>Not Assessable</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="oedema">Oedema</label>
+        <select id="oedema" name="physical_examination.oedema">
+          <option value="">-- Select --</option>
+          <option value="none" {% if physical_examination.oedema == "none" %}selected{% endif %}>None</option>
+          <option value="mild" {% if physical_examination.oedema == "mild" %}selected{% endif %}>Mild</option>
+          <option value="moderate" {% if physical_examination.oedema == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="severe" {% if physical_examination.oedema == "severe" %}selected{% endif %}>Severe</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="proteinuria">Proteinuria (Urine Dipstick)</label>
+        <select id="proteinuria" name="physical_examination.proteinuria">
+          <option value="">-- Select --</option>
+          <option value="negative" {% if physical_examination.proteinuria == "negative" %}selected{% endif %}>Negative</option>
+          <option value="trace" {% if physical_examination.proteinuria == "trace" %}selected{% endif %}>Trace</option>
+          <option value="1plus" {% if physical_examination.proteinuria == "1plus" %}selected{% endif %}>1+</option>
+          <option value="2plus" {% if physical_examination.proteinuria == "2plus" %}selected{% endif %}>2+</option>
+          <option value="3plus" {% if physical_examination.proteinuria == "3plus" %}selected{% endif %}>3+</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

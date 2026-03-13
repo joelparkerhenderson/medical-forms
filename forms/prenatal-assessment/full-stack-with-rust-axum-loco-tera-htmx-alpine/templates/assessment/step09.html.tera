@@ -1,0 +1,98 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Birth Planning - Prenatal Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Birth Planning</h2>
+    <p class="hint">Record the patient's birth preferences and planning discussions.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="preferred_birth_place">Preferred Place of Birth</label>
+        <select id="preferred_birth_place" name="birth_planning.preferred_birth_place">
+          <option value="">-- Select --</option>
+          <option value="hospital" {% if birth_planning.preferredBirthPlace == "hospital" %}selected{% endif %}>Hospital Labour Ward</option>
+          <option value="midwiferyUnit" {% if birth_planning.preferredBirthPlace == "midwiferyUnit" %}selected{% endif %}>Midwifery-Led Unit</option>
+          <option value="homeBirth" {% if birth_planning.preferredBirthPlace == "homeBirth" %}selected{% endif %}>Home Birth</option>
+          <option value="undecided" {% if birth_planning.preferredBirthPlace == "undecided" %}selected{% endif %}>Undecided</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Birth Preferences Discussed</label>
+        <div class="radio-group">
+          <label><input type="radio" name="birth_planning.birth_preferences_discussed" value="yes" {% if birth_planning.birthPreferencesDiscussed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="birth_planning.birth_preferences_discussed" value="no" {% if birth_planning.birthPreferencesDiscussed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pain_relief_preferences">Pain Relief Preferences</label>
+        <select id="pain_relief_preferences" name="birth_planning.pain_relief_preferences">
+          <option value="">-- Select --</option>
+          <option value="naturalOnly" {% if birth_planning.painReliefPreferences == "naturalOnly" %}selected{% endif %}>Natural Methods Only</option>
+          <option value="entonox" {% if birth_planning.painReliefPreferences == "entonox" %}selected{% endif %}>Entonox (Gas & Air)</option>
+          <option value="epidural" {% if birth_planning.painReliefPreferences == "epidural" %}selected{% endif %}>Epidural</option>
+          <option value="openToOptions" {% if birth_planning.painReliefPreferences == "openToOptions" %}selected{% endif %}>Open to Options</option>
+          <option value="notDiscussed" {% if birth_planning.painReliefPreferences == "notDiscussed" %}selected{% endif %}>Not Yet Discussed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="breastfeeding_intention">Breastfeeding Intention</label>
+        <select id="breastfeeding_intention" name="birth_planning.breastfeeding_intention">
+          <option value="">-- Select --</option>
+          <option value="breastfeeding" {% if birth_planning.breastfeedingIntention == "breastfeeding" %}selected{% endif %}>Breastfeeding</option>
+          <option value="formulaFeeding" {% if birth_planning.breastfeedingIntention == "formulaFeeding" %}selected{% endif %}>Formula Feeding</option>
+          <option value="combination" {% if birth_planning.breastfeedingIntention == "combination" %}selected{% endif %}>Combination</option>
+          <option value="undecided" {% if birth_planning.breastfeedingIntention == "undecided" %}selected{% endif %}>Undecided</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Antenatal Classes Attended</label>
+        <div class="radio-group">
+          <label><input type="radio" name="birth_planning.antenatal_classes_attended" value="yes" {% if birth_planning.antenatalClassesAttended == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="birth_planning.antenatal_classes_attended" value="no" {% if birth_planning.antenatalClassesAttended == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="birth_planning.antenatal_classes_attended" value="booked" {% if birth_planning.antenatalClassesAttended == "booked" %}checked{% endif %}> Booked</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Birth Partner Identified</label>
+        <div class="radio-group">
+          <label><input type="radio" name="birth_planning.birth_partner_identified" value="yes" {% if birth_planning.birthPartnerIdentified == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="birth_planning.birth_partner_identified" value="no" {% if birth_planning.birthPartnerIdentified == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Consent for Interventions Discussed</label>
+        <div class="radio-group">
+          <label><input type="radio" name="birth_planning.consent_for_interventions" value="yes" {% if birth_planning.consentForInterventions == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="birth_planning.consent_for_interventions" value="no" {% if birth_planning.consentForInterventions == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="vbac_discussion">VBAC Discussion (if applicable)</label>
+        <select id="vbac_discussion" name="birth_planning.vbac_discussion">
+          <option value="">-- Select --</option>
+          <option value="notApplicable" {% if birth_planning.vbacDiscussion == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+          <option value="vbacPlanned" {% if birth_planning.vbacDiscussion == "vbacPlanned" %}selected{% endif %}>VBAC Planned</option>
+          <option value="electiveCaesarean" {% if birth_planning.vbacDiscussion == "electiveCaesarean" %}selected{% endif %}>Elective Caesarean Planned</option>
+          <option value="undecided" {% if birth_planning.vbacDiscussion == "undecided" %}selected{% endif %}>Undecided</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

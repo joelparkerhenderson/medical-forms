@@ -1,0 +1,99 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Blood Tests - Prenatal Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Blood Tests</h2>
+    <p class="hint">Record the results of routine and additional blood tests.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="haemoglobin">Haemoglobin (g/L)</label>
+        <input type="number" id="haemoglobin" name="blood_tests.haemoglobin"
+               value="{{ blood_tests.haemoglobin }}"
+               min="40" max="200" step="0.1" placeholder="e.g. 120">
+      </div>
+      <div class="form-group">
+        <label for="platelet_count">Platelet Count (x10^9/L)</label>
+        <input type="number" id="platelet_count" name="blood_tests.platelet_count"
+               value="{{ blood_tests.plateletCount }}"
+               min="10" max="1000" placeholder="e.g. 250">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="blood_group">Blood Group</label>
+        <select id="blood_group" name="blood_tests.blood_group">
+          <option value="">-- Select --</option>
+          <option value="A+" {% if blood_tests.bloodGroup == "A+" %}selected{% endif %}>A+</option>
+          <option value="A-" {% if blood_tests.bloodGroup == "A-" %}selected{% endif %}>A-</option>
+          <option value="B+" {% if blood_tests.bloodGroup == "B+" %}selected{% endif %}>B+</option>
+          <option value="B-" {% if blood_tests.bloodGroup == "B-" %}selected{% endif %}>B-</option>
+          <option value="AB+" {% if blood_tests.bloodGroup == "AB+" %}selected{% endif %}>AB+</option>
+          <option value="AB-" {% if blood_tests.bloodGroup == "AB-" %}selected{% endif %}>AB-</option>
+          <option value="O+" {% if blood_tests.bloodGroup == "O+" %}selected{% endif %}>O+</option>
+          <option value="O-" {% if blood_tests.bloodGroup == "O-" %}selected{% endif %}>O-</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="antibody_screen">Antibody Screen</label>
+        <select id="antibody_screen" name="blood_tests.antibody_screen">
+          <option value="">-- Select --</option>
+          <option value="negative" {% if blood_tests.antibodyScreen == "negative" %}selected{% endif %}>Negative</option>
+          <option value="positive" {% if blood_tests.antibodyScreen == "positive" %}selected{% endif %}>Positive</option>
+          <option value="pending" {% if blood_tests.antibodyScreen == "pending" %}selected{% endif %}>Pending</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hba1c">HbA1c (mmol/mol)</label>
+        <input type="number" id="hba1c" name="blood_tests.hba1c"
+               value="{{ blood_tests.hba1c }}"
+               min="10" max="200" step="0.1" placeholder="e.g. 38">
+      </div>
+      <div class="form-group">
+        <label for="thyroid_function">Thyroid Function</label>
+        <select id="thyroid_function" name="blood_tests.thyroid_function">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if blood_tests.thyroidFunction == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if blood_tests.thyroidFunction == "abnormal" %}selected{% endif %}>Abnormal</option>
+          <option value="pending" {% if blood_tests.thyroidFunction == "pending" %}selected{% endif %}>Pending</option>
+          <option value="notTested" {% if blood_tests.thyroidFunction == "notTested" %}selected{% endif %}>Not Tested</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="liver_function">Liver Function</label>
+        <select id="liver_function" name="blood_tests.liver_function">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if blood_tests.liverFunction == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if blood_tests.liverFunction == "abnormal" %}selected{% endif %}>Abnormal</option>
+          <option value="pending" {% if blood_tests.liverFunction == "pending" %}selected{% endif %}>Pending</option>
+          <option value="notTested" {% if blood_tests.liverFunction == "notTested" %}selected{% endif %}>Not Tested</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="renal_function">Renal Function</label>
+        <select id="renal_function" name="blood_tests.renal_function">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if blood_tests.renalFunction == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if blood_tests.renalFunction == "abnormal" %}selected{% endif %}>Abnormal</option>
+          <option value="pending" {% if blood_tests.renalFunction == "pending" %}selected{% endif %}>Pending</option>
+          <option value="notTested" {% if blood_tests.renalFunction == "notTested" %}selected{% endif %}>Not Tested</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

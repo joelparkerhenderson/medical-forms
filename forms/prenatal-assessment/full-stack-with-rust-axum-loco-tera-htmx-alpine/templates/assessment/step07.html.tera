@@ -1,0 +1,105 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Ultrasound Findings - Prenatal Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Ultrasound Findings</h2>
+    <p class="hint">Record ultrasound scan results and findings.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="dating_scan_consistent">Dating Scan Consistent with Dates</label>
+        <select id="dating_scan_consistent" name="ultrasound_findings.dating_scan_consistent">
+          <option value="">-- Select --</option>
+          <option value="yes" {% if ultrasound_findings.datingScanConsistent == "yes" %}selected{% endif %}>Yes</option>
+          <option value="no" {% if ultrasound_findings.datingScanConsistent == "no" %}selected{% endif %}>No</option>
+          <option value="notPerformed" {% if ultrasound_findings.datingScanConsistent == "notPerformed" %}selected{% endif %}>Not Performed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="nuchal_translucency">Nuchal Translucency</label>
+        <select id="nuchal_translucency" name="ultrasound_findings.nuchal_translucency">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if ultrasound_findings.nuchalTranslucency == "normal" %}selected{% endif %}>Normal</option>
+          <option value="increased" {% if ultrasound_findings.nuchalTranslucency == "increased" %}selected{% endif %}>Increased</option>
+          <option value="notMeasured" {% if ultrasound_findings.nuchalTranslucency == "notMeasured" %}selected{% endif %}>Not Measured</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="amniotic_fluid_index">Amniotic Fluid</label>
+        <select id="amniotic_fluid_index" name="ultrasound_findings.amniotic_fluid_index">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if ultrasound_findings.amnioticFluidIndex == "normal" %}selected{% endif %}>Normal</option>
+          <option value="oligohydramnios" {% if ultrasound_findings.amnioticFluidIndex == "oligohydramnios" %}selected{% endif %}>Oligohydramnios (Low)</option>
+          <option value="polyhydramnios" {% if ultrasound_findings.amnioticFluidIndex == "polyhydramnios" %}selected{% endif %}>Polyhydramnios (High)</option>
+          <option value="notAssessed" {% if ultrasound_findings.amnioticFluidIndex == "notAssessed" %}selected{% endif %}>Not Assessed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="placental_position">Placental Position</label>
+        <select id="placental_position" name="ultrasound_findings.placental_position">
+          <option value="">-- Select --</option>
+          <option value="anterior" {% if ultrasound_findings.placentalPosition == "anterior" %}selected{% endif %}>Anterior</option>
+          <option value="posterior" {% if ultrasound_findings.placentalPosition == "posterior" %}selected{% endif %}>Posterior</option>
+          <option value="fundal" {% if ultrasound_findings.placentalPosition == "fundal" %}selected{% endif %}>Fundal</option>
+          <option value="low" {% if ultrasound_findings.placentalPosition == "low" %}selected{% endif %}>Low-Lying</option>
+          <option value="praevia" {% if ultrasound_findings.placentalPosition == "praevia" %}selected{% endif %}>Placenta Praevia</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fetal_growth_centile">Fetal Growth Centile</label>
+        <select id="fetal_growth_centile" name="ultrasound_findings.fetal_growth_centile">
+          <option value="">-- Select --</option>
+          <option value="belowTenth" {% if ultrasound_findings.fetalGrowthCentile == "belowTenth" %}selected{% endif %}>Below 10th Centile (SGA)</option>
+          <option value="normal" {% if ultrasound_findings.fetalGrowthCentile == "normal" %}selected{% endif %}>10th - 90th Centile</option>
+          <option value="aboveNinetieth" {% if ultrasound_findings.fetalGrowthCentile == "aboveNinetieth" %}selected{% endif %}>Above 90th Centile (LGA)</option>
+          <option value="notAssessed" {% if ultrasound_findings.fetalGrowthCentile == "notAssessed" %}selected{% endif %}>Not Assessed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="structural_abnormalities">Structural Abnormalities</label>
+        <select id="structural_abnormalities" name="ultrasound_findings.structural_abnormalities">
+          <option value="">-- Select --</option>
+          <option value="none" {% if ultrasound_findings.structuralAbnormalities == "none" %}selected{% endif %}>None Detected</option>
+          <option value="detected" {% if ultrasound_findings.structuralAbnormalities == "detected" %}selected{% endif %}>Detected</option>
+          <option value="pending" {% if ultrasound_findings.structuralAbnormalities == "pending" %}selected{% endif %}>Pending Review</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="doppler_findings">Doppler Findings</label>
+        <select id="doppler_findings" name="ultrasound_findings.doppler_findings">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if ultrasound_findings.dopplerFindings == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if ultrasound_findings.dopplerFindings == "abnormal" %}selected{% endif %}>Abnormal</option>
+          <option value="notPerformed" {% if ultrasound_findings.dopplerFindings == "notPerformed" %}selected{% endif %}>Not Performed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cervical_length_scan">Cervical Length on Scan</label>
+        <select id="cervical_length_scan" name="ultrasound_findings.cervical_length_scan">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if ultrasound_findings.cervicalLengthScan == "normal" %}selected{% endif %}>Normal (&gt; 25mm)</option>
+          <option value="short" {% if ultrasound_findings.cervicalLengthScan == "short" %}selected{% endif %}>Short (15-25mm)</option>
+          <option value="veryShort" {% if ultrasound_findings.cervicalLengthScan == "veryShort" %}selected{% endif %}>Very Short (&lt; 15mm)</option>
+          <option value="notMeasured" {% if ultrasound_findings.cervicalLengthScan == "notMeasured" %}selected{% endif %}>Not Measured</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

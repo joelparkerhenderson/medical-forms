@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Mental Health & Wellbeing - Prenatal Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Mental Health & Wellbeing</h2>
+    <p class="hint">Assess the patient's mental health and social wellbeing.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phq2_score">PHQ-2 Score (0-6)</label>
+        <input type="number" id="phq2_score" name="mental_health_wellbeing.phq2_score"
+               value="{{ mental_health_wellbeing.phq2Score }}"
+               min="0" max="6" placeholder="0-6">
+      </div>
+      <div class="form-group">
+        <label for="gad2_score">GAD-2 Score (0-6)</label>
+        <input type="number" id="gad2_score" name="mental_health_wellbeing.gad2_score"
+               value="{{ mental_health_wellbeing.gad2Score }}"
+               min="0" max="6" placeholder="0-6">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="previous_mental_health_history">Previous Mental Health History</label>
+        <select id="previous_mental_health_history" name="mental_health_wellbeing.previous_mental_health_history">
+          <option value="">-- Select --</option>
+          <option value="none" {% if mental_health_wellbeing.previousMentalHealthHistory == "none" %}selected{% endif %}>None</option>
+          <option value="depression" {% if mental_health_wellbeing.previousMentalHealthHistory == "depression" %}selected{% endif %}>Depression</option>
+          <option value="anxiety" {% if mental_health_wellbeing.previousMentalHealthHistory == "anxiety" %}selected{% endif %}>Anxiety</option>
+          <option value="postnatalDepression" {% if mental_health_wellbeing.previousMentalHealthHistory == "postnatalDepression" %}selected{% endif %}>Postnatal Depression</option>
+          <option value="bipolar" {% if mental_health_wellbeing.previousMentalHealthHistory == "bipolar" %}selected{% endif %}>Bipolar Disorder</option>
+          <option value="other" {% if mental_health_wellbeing.previousMentalHealthHistory == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Current Psychiatric Medication</label>
+        <div class="radio-group">
+          <label><input type="radio" name="mental_health_wellbeing.current_psychiatric_medication" value="yes" {% if mental_health_wellbeing.currentPsychiatricMedication == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mental_health_wellbeing.current_psychiatric_medication" value="no" {% if mental_health_wellbeing.currentPsychiatricMedication == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="social_support">Social Support</label>
+        <select id="social_support" name="mental_health_wellbeing.social_support">
+          <option value="">-- Select --</option>
+          <option value="good" {% if mental_health_wellbeing.socialSupport == "good" %}selected{% endif %}>Good</option>
+          <option value="adequate" {% if mental_health_wellbeing.socialSupport == "adequate" %}selected{% endif %}>Adequate</option>
+          <option value="limited" {% if mental_health_wellbeing.socialSupport == "limited" %}selected{% endif %}>Limited</option>
+          <option value="none" {% if mental_health_wellbeing.socialSupport == "none" %}selected{% endif %}>None</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="domestic_abuse_screening">Domestic Abuse Screening</label>
+        <select id="domestic_abuse_screening" name="mental_health_wellbeing.domestic_abuse_screening">
+          <option value="">-- Select --</option>
+          <option value="negative" {% if mental_health_wellbeing.domesticAbuseScreening == "negative" %}selected{% endif %}>Negative</option>
+          <option value="positive" {% if mental_health_wellbeing.domesticAbuseScreening == "positive" %}selected{% endif %}>Positive</option>
+          <option value="declined" {% if mental_health_wellbeing.domesticAbuseScreening == "declined" %}selected{% endif %}>Declined</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Substance Use (alcohol, drugs)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="mental_health_wellbeing.substance_use" value="yes" {% if mental_health_wellbeing.substanceUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mental_health_wellbeing.substance_use" value="no" {% if mental_health_wellbeing.substanceUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="smoking_status">Smoking Status</label>
+        <select id="smoking_status" name="mental_health_wellbeing.smoking_status">
+          <option value="">-- Select --</option>
+          <option value="never" {% if mental_health_wellbeing.smokingStatus == "never" %}selected{% endif %}>Never Smoked</option>
+          <option value="former" {% if mental_health_wellbeing.smokingStatus == "former" %}selected{% endif %}>Former Smoker</option>
+          <option value="current" {% if mental_health_wellbeing.smokingStatus == "current" %}selected{% endif %}>Current Smoker</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
