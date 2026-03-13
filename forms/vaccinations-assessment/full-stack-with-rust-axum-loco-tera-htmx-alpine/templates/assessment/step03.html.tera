@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Childhood Vaccinations - Vaccinations Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Childhood Vaccinations</h2>
+    <p class="hint">Record the status of childhood vaccinations. 0 = Not Given, 1 = Partial, 2 = Complete.</p>
+
+    <div class="form-group">
+      <label for="dtap_ipv_hib_hepb">DTaP/IPV/Hib/HepB (6-in-1)</label>
+      <select id="dtap_ipv_hib_hepb" name="childhood_vaccinations.dtap_ipv_hib_hepb">
+        <option value="">-- Select --</option>
+        <option value="0" {% if childhood_vaccinations.dtapIpvHibHepb == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if childhood_vaccinations.dtapIpvHibHepb == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if childhood_vaccinations.dtapIpvHibHepb == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="pneumococcal">Pneumococcal (PCV)</label>
+      <select id="pneumococcal" name="childhood_vaccinations.pneumococcal">
+        <option value="">-- Select --</option>
+        <option value="0" {% if childhood_vaccinations.pneumococcal == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if childhood_vaccinations.pneumococcal == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if childhood_vaccinations.pneumococcal == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="rotavirus">Rotavirus</label>
+      <select id="rotavirus" name="childhood_vaccinations.rotavirus">
+        <option value="">-- Select --</option>
+        <option value="0" {% if childhood_vaccinations.rotavirus == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if childhood_vaccinations.rotavirus == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if childhood_vaccinations.rotavirus == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="meningitis_b">Meningitis B (MenB)</label>
+      <select id="meningitis_b" name="childhood_vaccinations.meningitis_b">
+        <option value="">-- Select --</option>
+        <option value="0" {% if childhood_vaccinations.meningitisB == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if childhood_vaccinations.meningitisB == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if childhood_vaccinations.meningitisB == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="mmr">MMR (Measles, Mumps, Rubella)</label>
+      <select id="mmr" name="childhood_vaccinations.mmr">
+        <option value="">-- Select --</option>
+        <option value="0" {% if childhood_vaccinations.mmr == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if childhood_vaccinations.mmr == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if childhood_vaccinations.mmr == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="hib_menc">Hib/MenC Booster</label>
+      <select id="hib_menc" name="childhood_vaccinations.hib_menc">
+        <option value="">-- Select --</option>
+        <option value="0" {% if childhood_vaccinations.hibMenc == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if childhood_vaccinations.hibMenc == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if childhood_vaccinations.hibMenc == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="preschool_booster">Pre-school Booster (DTaP/IPV)</label>
+      <select id="preschool_booster" name="childhood_vaccinations.preschool_booster">
+        <option value="">-- Select --</option>
+        <option value="0" {% if childhood_vaccinations.preschoolBooster == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if childhood_vaccinations.preschoolBooster == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if childhood_vaccinations.preschoolBooster == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

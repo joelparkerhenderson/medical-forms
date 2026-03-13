@@ -1,0 +1,92 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Travel Vaccinations - Vaccinations Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Travel Vaccinations</h2>
+    <p class="hint">Record travel plans and associated vaccination status.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Is travel planned?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="travel_vaccinations.travel_planned" value="yes" {% if travel_vaccinations.travelPlanned == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="travel_vaccinations.travel_planned" value="no" {% if travel_vaccinations.travelPlanned == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="travel_destination">Travel Destination</label>
+        <input type="text" id="travel_destination" name="travel_vaccinations.travel_destination"
+               value="{{ travel_vaccinations.travelDestination }}"
+               placeholder="e.g. Sub-Saharan Africa, Southeast Asia">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="hepatitis_a">Hepatitis A</label>
+      <select id="hepatitis_a" name="travel_vaccinations.hepatitis_a">
+        <option value="">-- Select --</option>
+        <option value="0" {% if travel_vaccinations.hepatitisA == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if travel_vaccinations.hepatitisA == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if travel_vaccinations.hepatitisA == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="hepatitis_b">Hepatitis B</label>
+      <select id="hepatitis_b" name="travel_vaccinations.hepatitis_b">
+        <option value="">-- Select --</option>
+        <option value="0" {% if travel_vaccinations.hepatitisB == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if travel_vaccinations.hepatitisB == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if travel_vaccinations.hepatitisB == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="typhoid">Typhoid</label>
+      <select id="typhoid" name="travel_vaccinations.typhoid">
+        <option value="">-- Select --</option>
+        <option value="0" {% if travel_vaccinations.typhoid == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if travel_vaccinations.typhoid == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if travel_vaccinations.typhoid == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="yellow_fever">Yellow Fever</label>
+      <select id="yellow_fever" name="travel_vaccinations.yellow_fever">
+        <option value="">-- Select --</option>
+        <option value="0" {% if travel_vaccinations.yellowFever == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if travel_vaccinations.yellowFever == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if travel_vaccinations.yellowFever == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="rabies">Rabies</label>
+      <select id="rabies" name="travel_vaccinations.rabies">
+        <option value="">-- Select --</option>
+        <option value="0" {% if travel_vaccinations.rabies == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if travel_vaccinations.rabies == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if travel_vaccinations.rabies == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="japanese_encephalitis">Japanese Encephalitis</label>
+      <select id="japanese_encephalitis" name="travel_vaccinations.japanese_encephalitis">
+        <option value="">-- Select --</option>
+        <option value="0" {% if travel_vaccinations.japaneseEncephalitis == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if travel_vaccinations.japaneseEncephalitis == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if travel_vaccinations.japaneseEncephalitis == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

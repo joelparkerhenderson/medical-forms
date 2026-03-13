@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinician Dashboard - Vaccinations Assessment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <span class="header-title">Clinician Dashboard</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="filter-bar">
+      <input type="text" id="search-input" placeholder="Search by NHS number, name, or clinician...">
+      <select id="level-filter">
+        <option value="">All Levels</option>
+        <option value="upToDate">Up to Date</option>
+        <option value="partiallyComplete">Partially Complete</option>
+        <option value="overdue">Overdue</option>
+        <option value="contraindicated">Contraindicated</option>
+        <option value="draft">Draft</option>
+      </select>
+      <button id="clear-filters">Clear Filters</button>
+    </div>
+
+    <table class="patient-table">
+      <thead>
+        <tr>
+          <th data-sort="nhsNumber">NHS Number</th>
+          <th data-sort="patientName">Patient Name</th>
+          <th data-sort="vaccinationLevel">Level</th>
+          <th data-sort="vaccinationScore">Score</th>
+          <th data-sort="flagCount">Flags</th>
+          <th data-sort="submittedDate">Submitted</th>
+        </tr>
+      </thead>
+      <tbody id="patients-tbody">
+        <tr><td colspan="6" style="text-align:center;color:#6b7280;padding:2rem;">Loading...</td></tr>
+      </tbody>
+    </table>
+
+    <div class="patient-count" id="patient-count"></div>
+  </main>
+
+  <footer class="footer"><p>Vaccinations Assessment System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

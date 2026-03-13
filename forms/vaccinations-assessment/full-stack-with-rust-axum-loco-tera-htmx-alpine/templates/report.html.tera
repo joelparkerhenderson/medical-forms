@@ -1,0 +1,146 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Vaccination Report - Vaccinations Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Vaccination Assessment Report</h1>
+    <span class="vaccination-badge vaccination-{{ vaccination_level }}">{{ vaccination_label }}</span>
+  </div>
+
+  <div class="score-display">{{ vaccination_score }}%</div>
+  <div class="score-label">Vaccination Completeness Score</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient:</strong> {{ data.patientInformation.patientName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Date of Birth:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>NHS Number:</strong> {{ data.patientInformation.nhsNumber | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>GP Practice:</strong> {{ data.patientInformation.gpPractice | default(value="Not provided") }}
+    </div>
+  </div>
+</div>
+
+<!-- Consent Status -->
+<div class="card">
+  <h2>Consent Status</h2>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    {% if data.consentInformation.consentGiven == "yes" %}
+      <span class="concern-badge concern-low">CONSENT GIVEN</span>
+    {% elif data.consentInformation.consentGiven == "no" %}
+      <span class="concern-badge concern-high">CONSENT REFUSED</span>
+    {% else %}
+      <span class="concern-badge concern-medium">CONSENT PENDING</span>
+    {% endif %}
+    {% if data.consentInformation.consentDate %}
+      <span>Date: {{ data.consentInformation.consentDate }}</span>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Vaccination Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Vaccination Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Administration Record -->
+{% if data.administrationRecord.vaccineName %}
+<div class="card">
+  <h2>Administration Record</h2>
+  <div class="form-row">
+    <div><strong>Vaccine:</strong> {{ data.administrationRecord.vaccineName }}</div>
+    <div><strong>Batch:</strong> {{ data.administrationRecord.batchNumber | default(value="Not recorded") }}</div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div><strong>Site:</strong> {{ data.administrationRecord.administrationSite | default(value="Not recorded") }}</div>
+    <div><strong>Route:</strong> {{ data.administrationRecord.administrationRoute | default(value="Not recorded") }}</div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div><strong>Administered By:</strong> {{ data.administrationRecord.administeredBy | default(value="Not recorded") }}</div>
+    <div><strong>Date:</strong> {{ data.administrationRecord.administrationDate | default(value="Not recorded") }}</div>
+  </div>
+</div>
+{% endif %}
+
+<!-- Clinical Notes -->
+{% if data.clinicalReview.clinicianNotes %}
+<div class="card">
+  <h2>Clinical Notes</h2>
+  <div class="form-group">
+    <strong>Reviewing Clinician:</strong> {{ data.clinicalReview.reviewingClinician | default(value="Not recorded") }}
+  </div>
+  <div class="form-group">
+    <p>{{ data.clinicalReview.clinicianNotes }}</p>
+  </div>
+  {% if data.clinicalReview.nextDoseDue %}
+  <div class="form-group">
+    <strong>Next Dose Due:</strong> {{ data.clinicalReview.nextDoseDue }}
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

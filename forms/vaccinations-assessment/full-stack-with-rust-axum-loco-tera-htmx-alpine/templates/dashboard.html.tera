@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Vaccinations Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Vaccination Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient name, date of birth...">
+    </div>
+    <div class="form-group">
+      <label for="vaccination_level">Vaccination Level</label>
+      <select id="vaccination_level" name="vaccination_level">
+        <option value="">All Levels</option>
+        <option value="upToDate" {% if vaccination_level == "upToDate" %}selected{% endif %}>Up to Date</option>
+        <option value="partiallyComplete" {% if vaccination_level == "partiallyComplete" %}selected{% endif %}>Partially Complete</option>
+        <option value="overdue" {% if vaccination_level == "overdue" %}selected{% endif %}>Overdue</option>
+        <option value="contraindicated" {% if vaccination_level == "contraindicated" %}selected{% endif %}>Contraindicated</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="completeness">Completeness</label>
+      <select id="completeness" name="completeness">
+        <option value="">All</option>
+        <option value="complete" {% if completeness == "complete" %}selected{% endif %}>Complete</option>
+        <option value="partial" {% if completeness == "partial" %}selected{% endif %}>Partial</option>
+        <option value="overdue" {% if completeness == "overdue" %}selected{% endif %}>Overdue</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Date of Birth</th>
+      <th>Vaccination Level</th>
+      <th>Score</th>
+      <th>Completeness</th>
+      <th>Consent</th>
+      <th>Next Review</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.dateOfBirth }}</td>
+      <td><span class="vaccination-badge vaccination-{{ patient.vaccinationLevel }}">{{ patient.vaccinationLevel }}</span></td>
+      <td>{{ patient.vaccinationScore }}%</td>
+      <td>{{ patient.completeness }}</td>
+      <td>{{ patient.consentStatus }}</td>
+      <td>{{ patient.reviewDate }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

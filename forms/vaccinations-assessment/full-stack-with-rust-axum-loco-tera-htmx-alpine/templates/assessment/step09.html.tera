@@ -1,0 +1,89 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Administration Record - Vaccinations Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Administration Record</h2>
+    <p class="hint">Record details of the vaccine administration.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="vaccine_name">Vaccine Name</label>
+        <input type="text" id="vaccine_name" name="administration_record.vaccine_name"
+               value="{{ administration_record.vaccineName }}"
+               placeholder="e.g. Priorix (MMR)">
+      </div>
+      <div class="form-group">
+        <label for="batch_number">Batch Number</label>
+        <input type="text" id="batch_number" name="administration_record.batch_number"
+               value="{{ administration_record.batchNumber }}"
+               placeholder="e.g. ABCD1234">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="expiry_date">Expiry Date</label>
+        <input type="date" id="expiry_date" name="administration_record.expiry_date"
+               value="{{ administration_record.expiryDate }}">
+      </div>
+      <div class="form-group">
+        <label for="administration_date">Administration Date</label>
+        <input type="date" id="administration_date" name="administration_record.administration_date"
+               value="{{ administration_record.administrationDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="administration_site">Administration Site</label>
+        <select id="administration_site" name="administration_record.administration_site">
+          <option value="">-- Select --</option>
+          <option value="leftDeltoid" {% if administration_record.administrationSite == "leftDeltoid" %}selected{% endif %}>Left Deltoid</option>
+          <option value="rightDeltoid" {% if administration_record.administrationSite == "rightDeltoid" %}selected{% endif %}>Right Deltoid</option>
+          <option value="leftThigh" {% if administration_record.administrationSite == "leftThigh" %}selected{% endif %}>Left Thigh</option>
+          <option value="rightThigh" {% if administration_record.administrationSite == "rightThigh" %}selected{% endif %}>Right Thigh</option>
+          <option value="oral" {% if administration_record.administrationSite == "oral" %}selected{% endif %}>Oral</option>
+          <option value="nasal" {% if administration_record.administrationSite == "nasal" %}selected{% endif %}>Nasal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="administration_route">Administration Route</label>
+        <select id="administration_route" name="administration_record.administration_route">
+          <option value="">-- Select --</option>
+          <option value="intramuscular" {% if administration_record.administrationRoute == "intramuscular" %}selected{% endif %}>Intramuscular (IM)</option>
+          <option value="subcutaneous" {% if administration_record.administrationRoute == "subcutaneous" %}selected{% endif %}>Subcutaneous (SC)</option>
+          <option value="intradermal" {% if administration_record.administrationRoute == "intradermal" %}selected{% endif %}>Intradermal (ID)</option>
+          <option value="oral" {% if administration_record.administrationRoute == "oral" %}selected{% endif %}>Oral</option>
+          <option value="nasal" {% if administration_record.administrationRoute == "nasal" %}selected{% endif %}>Nasal</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="dose_number">Dose Number</label>
+        <select id="dose_number" name="administration_record.dose_number">
+          <option value="">-- Select --</option>
+          <option value="1" {% if administration_record.doseNumber == "1" %}selected{% endif %}>1st Dose</option>
+          <option value="2" {% if administration_record.doseNumber == "2" %}selected{% endif %}>2nd Dose</option>
+          <option value="3" {% if administration_record.doseNumber == "3" %}selected{% endif %}>3rd Dose</option>
+          <option value="booster" {% if administration_record.doseNumber == "booster" %}selected{% endif %}>Booster</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="administered_by">Administered By</label>
+        <input type="text" id="administered_by" name="administration_record.administered_by"
+               value="{{ administration_record.administeredBy }}"
+               placeholder="e.g. Nurse Jones">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

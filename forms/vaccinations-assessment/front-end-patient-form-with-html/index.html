@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaccinations Assessment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Vaccinations Assessment</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- ─── Landing ────────────────────────────────────── -->
+    <div id="landing" class="hero">
+      <h1>Vaccinations Assessment</h1>
+      <p>Complete this assessment to record vaccination status, screen for contraindications, and generate a compliance summary for clinical review. The form has 10 steps.</p>
+      <div class="feature-grid">
+        <div class="feature-card"><h3>10 Steps</h3><p>Comprehensive vaccination status tracking</p></div>
+        <div class="feature-card"><h3>Compliance Score</h3><p>Automated composite scoring (0-100)</p></div>
+        <div class="feature-card"><h3>Safety Flags</h3><p>Contraindication and allergy screening</p></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Assessment</button>
+    </div>
+
+    <!-- ─── Form ───────────────────────────────────────── -->
+    <div id="form-container" style="display:none;">
+      <div class="progress-container">
+        <div class="progress-header">
+          <span id="step-label">Step 1 of 10: Patient Information</span>
+          <span id="step-percent">10%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
+      </div>
+
+      <!-- ─── Step 1: Patient Information ──────────────── -->
+      <section id="step-1" class="step-section card">
+        <h2>Patient Information</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Patient Name</label>
+            <input type="text" data-field="patientInformation.patientName" placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" data-field="patientInformation.dateOfBirth">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Sex</label>
+            <div class="radio-group">
+              <label><input type="radio" name="patientSex" value="male" data-field="patientInformation.patientSex"><span>Male</span></label>
+              <label><input type="radio" name="patientSex" value="female" data-field="patientInformation.patientSex"><span>Female</span></label>
+              <label><input type="radio" name="patientSex" value="other" data-field="patientInformation.patientSex"><span>Other</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Age</label>
+            <input type="text" data-field="patientInformation.patientAge" placeholder="e.g. 35">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>NHS Number</label>
+            <input type="text" data-field="patientInformation.nhsNumber" placeholder="XXX XXX XXXX">
+          </div>
+          <div class="form-group">
+            <label>GP Practice</label>
+            <input type="text" data-field="patientInformation.gpPractice" placeholder="Practice name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" data-field="patientInformation.contactPhone" placeholder="Phone number">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" data-field="patientInformation.contactEmail" placeholder="Email address">
+          </div>
+        </div>
+        <div class="step-nav">
+          <span></span>
+          <button class="btn btn-primary" onclick="goToStep(2)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 2: Immunization History ─────────────── -->
+      <section id="step-2" class="step-section card">
+        <h2>Immunization History</h2>
+        <div class="form-group">
+          <label>Has vaccination record?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="hasVaccinationRecord" value="yes" data-field="immunizationHistory.hasVaccinationRecord"><span>Yes</span></label>
+            <label><input type="radio" name="hasVaccinationRecord" value="no" data-field="immunizationHistory.hasVaccinationRecord"><span>No</span></label>
+            <label><input type="radio" name="hasVaccinationRecord" value="unknown" data-field="immunizationHistory.hasVaccinationRecord"><span>Unknown</span></label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Record Source</label>
+            <select data-field="immunizationHistory.recordSource">
+              <option value="">-- Select --</option>
+              <option value="redBook">Red Book</option>
+              <option value="gpRecords">GP Records</option>
+              <option value="nhsApp">NHS App</option>
+              <option value="patientRecall">Patient Recall</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Last Review Date</label>
+            <input type="date" data-field="immunizationHistory.lastReviewDate">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Previous adverse reactions to vaccines?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="previousAdverseReactions" value="yes" data-field="immunizationHistory.previousAdverseReactions"><span>Yes</span></label>
+            <label><input type="radio" name="previousAdverseReactions" value="no" data-field="immunizationHistory.previousAdverseReactions"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="immunizationHistory.previousAdverseReactions=yes">
+          <div class="form-group">
+            <label>Adverse reaction details</label>
+            <textarea data-field="immunizationHistory.adverseReactionDetails" rows="3" placeholder="Describe the adverse reactions..."></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Is the patient immunocompromised?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="immunocompromised" value="yes" data-field="immunizationHistory.immunocompromised"><span>Yes</span></label>
+            <label><input type="radio" name="immunocompromised" value="no" data-field="immunizationHistory.immunocompromised"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="immunizationHistory.immunocompromised=yes">
+          <div class="form-group">
+            <label>Immunocompromised details</label>
+            <textarea data-field="immunizationHistory.immunocompromisedDetails" rows="3" placeholder="Describe the condition..."></textarea>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(1)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(3)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 3: Childhood Vaccinations ───────────── -->
+      <section id="step-3" class="step-section card">
+        <h2>Childhood Vaccinations</h2>
+        <p>Rate each: 0 = Not Given, 1 = Partial, 2 = Complete</p>
+        <div class="form-group">
+          <label>DTaP/IPV/Hib/HepB (6-in-1)</label>
+          <select data-field="childhoodVaccinations.dtapIpvHibHepb" data-numeric>
+            <option value="">-- Select --</option>
+            <option value="0">Not Given</option>
+            <option value="1">Partial</option>
+            <option value="2">Complete</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Pneumococcal (PCV)</label>
+          <select data-field="childhoodVaccinations.pneumococcal" data-numeric>
+            <option value="">-- Select --</option>
+            <option value="0">Not Given</option>
+            <option value="1">Partial</option>
+            <option value="2">Complete</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Rotavirus</label>
+          <select data-field="childhoodVaccinations.rotavirus" data-numeric>
+            <option value="">-- Select --</option>
+            <option value="0">Not Given</option>
+            <option value="1">Partial</option>
+            <option value="2">Complete</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Meningitis B (MenB)</label>
+          <select data-field="childhoodVaccinations.meningitisB" data-numeric>
+            <option value="">-- Select --</option>
+            <option value="0">Not Given</option>
+            <option value="1">Partial</option>
+            <option value="2">Complete</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>MMR (Measles, Mumps, Rubella)</label>
+          <select data-field="childhoodVaccinations.mmr" data-numeric>
+            <option value="">-- Select --</option>
+            <option value="0">Not Given</option>
+            <option value="1">Partial</option>
+            <option value="2">Complete</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Hib/MenC Booster</label>
+          <select data-field="childhoodVaccinations.hibMenc" data-numeric>
+            <option value="">-- Select --</option>
+            <option value="0">Not Given</option>
+            <option value="1">Partial</option>
+            <option value="2">Complete</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Pre-school Booster (DTaP/IPV)</label>
+          <select data-field="childhoodVaccinations.preschoolBooster" data-numeric>
+            <option value="">-- Select --</option>
+            <option value="0">Not Given</option>
+            <option value="1">Partial</option>
+            <option value="2">Complete</option>
+          </select>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(2)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(4)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 4: Adult Vaccinations ───────────────── -->
+      <section id="step-4" class="step-section card">
+        <h2>Adult Vaccinations</h2>
+        <p>Rate each: 0 = Not Given, 1 = Partial, 2 = Complete</p>
+        <div class="form-group">
+          <label>Td/IPV Booster (Tetanus, Diphtheria, Polio)</label>
+          <select data-field="adultVaccinations.tdIpvBooster" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select>
+        </div>
+        <div class="form-group">
+          <label>HPV (Human Papillomavirus)</label>
+          <select data-field="adultVaccinations.hpv" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select>
+        </div>
+        <div class="form-group">
+          <label>Meningitis ACWY</label>
+          <select data-field="adultVaccinations.meningitisAcwy" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select>
+        </div>
+        <div class="form-group">
+          <label>Influenza (Annual)</label>
+          <select data-field="adultVaccinations.influenzaAnnual" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select>
+        </div>
+        <div class="form-group">
+          <label>COVID-19</label>
+          <select data-field="adultVaccinations.covid19" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select>
+        </div>
+        <div class="form-group">
+          <label>Shingles (Herpes Zoster)</label>
+          <select data-field="adultVaccinations.shingles" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select>
+        </div>
+        <div class="form-group">
+          <label>Pneumococcal (PPV23)</label>
+          <select data-field="adultVaccinations.pneumococcalPpv" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(3)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(5)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 5: Travel Vaccinations ──────────────── -->
+      <section id="step-5" class="step-section card">
+        <h2>Travel Vaccinations</h2>
+        <div class="form-group">
+          <label>Travel planned?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="travelPlanned" value="yes" data-field="travelVaccinations.travelPlanned"><span>Yes</span></label>
+            <label><input type="radio" name="travelPlanned" value="no" data-field="travelVaccinations.travelPlanned"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="travelVaccinations.travelPlanned=yes">
+          <div class="form-group">
+            <label>Travel Destination</label>
+            <input type="text" data-field="travelVaccinations.travelDestination" placeholder="e.g. Sub-Saharan Africa">
+          </div>
+        </div>
+        <p>Rate each: 0 = Not Given, 1 = Partial, 2 = Complete</p>
+        <div class="form-group"><label>Hepatitis A</label><select data-field="travelVaccinations.hepatitisA" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
+        <div class="form-group"><label>Hepatitis B</label><select data-field="travelVaccinations.hepatitisB" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
+        <div class="form-group"><label>Typhoid</label><select data-field="travelVaccinations.typhoid" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
+        <div class="form-group"><label>Yellow Fever</label><select data-field="travelVaccinations.yellowFever" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
+        <div class="form-group"><label>Rabies</label><select data-field="travelVaccinations.rabies" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
+        <div class="form-group"><label>Japanese Encephalitis</label><select data-field="travelVaccinations.japaneseEncephalitis" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(4)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(6)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 6: Occupational Vaccinations ────────── -->
+      <section id="step-6" class="step-section card">
+        <h2>Occupational Vaccinations</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Occupation</label>
+            <input type="text" data-field="occupationalVaccinations.occupation" placeholder="e.g. Nurse">
+          </div>
+          <div class="form-group">
+            <label>Healthcare worker?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="healthcareWorker" value="yes" data-field="occupationalVaccinations.healthcareWorker"><span>Yes</span></label>
+              <label><input type="radio" name="healthcareWorker" value="no" data-field="occupationalVaccinations.healthcareWorker"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <p>Rate each: 0 = Not Given, 1 = Partial, 2 = Complete</p>
+        <div class="form-group"><label>Hepatitis B (Occupational)</label><select data-field="occupationalVaccinations.hepatitisBOccupational" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
+        <div class="form-group"><label>Influenza (Occupational)</label><select data-field="occupationalVaccinations.influenzaOccupational" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
+        <div class="form-group"><label>Varicella (Chickenpox)</label><select data-field="occupationalVaccinations.varicella" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
+        <div class="form-group"><label>BCG / Tuberculosis</label><select data-field="occupationalVaccinations.bcgTuberculosis" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(5)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(7)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 7: Contraindications & Allergies ────── -->
+      <section id="step-7" class="step-section card">
+        <h2>Contraindications &amp; Allergies</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Egg allergy?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="eggAllergy" value="yes" data-field="contraindicationsAllergies.eggAllergy"><span>Yes</span></label>
+              <label><input type="radio" name="eggAllergy" value="no" data-field="contraindicationsAllergies.eggAllergy"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Gelatin allergy?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="gelatinAllergy" value="yes" data-field="contraindicationsAllergies.gelatinAllergy"><span>Yes</span></label>
+              <label><input type="radio" name="gelatinAllergy" value="no" data-field="contraindicationsAllergies.gelatinAllergy"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Latex allergy?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="latexAllergy" value="yes" data-field="contraindicationsAllergies.latexAllergy"><span>Yes</span></label>
+              <label><input type="radio" name="latexAllergy" value="no" data-field="contraindicationsAllergies.latexAllergy"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Neomycin allergy?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="neomycinAllergy" value="yes" data-field="contraindicationsAllergies.neomycinAllergy"><span>Yes</span></label>
+              <label><input type="radio" name="neomycinAllergy" value="no" data-field="contraindicationsAllergies.neomycinAllergy"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Is the patient pregnant?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="pregnant" value="yes" data-field="contraindicationsAllergies.pregnant"><span>Yes</span></label>
+              <label><input type="radio" name="pregnant" value="no" data-field="contraindicationsAllergies.pregnant"><span>No</span></label>
+              <label><input type="radio" name="pregnant" value="notApplicable" data-field="contraindicationsAllergies.pregnant"><span>N/A</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>If pregnant, weeks gestation</label>
+            <input type="text" data-field="contraindicationsAllergies.pregnancyWeeks" placeholder="e.g. 28">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Currently has severe illness?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="severeIllness" value="yes" data-field="contraindicationsAllergies.severeIllness"><span>Yes</span></label>
+            <label><input type="radio" name="severeIllness" value="no" data-field="contraindicationsAllergies.severeIllness"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Previous anaphylaxis to any vaccine?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="previousAnaphylaxis" value="yes" data-field="contraindicationsAllergies.previousAnaphylaxis"><span>Yes</span></label>
+            <label><input type="radio" name="previousAnaphylaxis" value="no" data-field="contraindicationsAllergies.previousAnaphylaxis"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="contraindicationsAllergies.previousAnaphylaxis=yes">
+          <div class="form-group">
+            <label>Anaphylaxis details</label>
+            <textarea data-field="contraindicationsAllergies.anaphylaxisDetails" rows="3" placeholder="Describe the anaphylactic reaction..."></textarea>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(6)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(8)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 8: Consent & Information ────────────── -->
+      <section id="step-8" class="step-section card">
+        <h2>Consent &amp; Information</h2>
+        <p>Rate 1 (Very Poor) to 5 (Excellent)</p>
+        <div class="form-group"><label>Information provided about the vaccine</label><select data-field="consentInformation.informationProvided" data-numeric><option value="">-- Select --</option><option value="1">1 - Very Poor</option><option value="2">2 - Poor</option><option value="3">3 - Average</option><option value="4">4 - Good</option><option value="5">5 - Excellent</option></select></div>
+        <div class="form-group"><label>Risks explained</label><select data-field="consentInformation.risksExplained" data-numeric><option value="">-- Select --</option><option value="1">1 - Very Poor</option><option value="2">2 - Poor</option><option value="3">3 - Average</option><option value="4">4 - Good</option><option value="5">5 - Excellent</option></select></div>
+        <div class="form-group"><label>Benefits explained</label><select data-field="consentInformation.benefitsExplained" data-numeric><option value="">-- Select --</option><option value="1">1 - Very Poor</option><option value="2">2 - Poor</option><option value="3">3 - Average</option><option value="4">4 - Good</option><option value="5">5 - Excellent</option></select></div>
+        <div class="form-group"><label>Questions answered satisfactorily</label><select data-field="consentInformation.questionsAnswered" data-numeric><option value="">-- Select --</option><option value="1">1 - Very Poor</option><option value="2">2 - Poor</option><option value="3">3 - Average</option><option value="4">4 - Good</option><option value="5">5 - Excellent</option></select></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Consent given?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="consentGiven" value="yes" data-field="consentInformation.consentGiven"><span>Yes</span></label>
+              <label><input type="radio" name="consentGiven" value="no" data-field="consentInformation.consentGiven"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Consent Date</label>
+            <input type="date" data-field="consentInformation.consentDate">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Guardian/parent consent (if minor)?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="guardianConsent" value="yes" data-field="consentInformation.guardianConsent"><span>Yes</span></label>
+            <label><input type="radio" name="guardianConsent" value="no" data-field="consentInformation.guardianConsent"><span>No</span></label>
+            <label><input type="radio" name="guardianConsent" value="notApplicable" data-field="consentInformation.guardianConsent"><span>N/A</span></label>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(7)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(9)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 9: Administration Record ────────────── -->
+      <section id="step-9" class="step-section card">
+        <h2>Administration Record</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Vaccine Name</label>
+            <input type="text" data-field="administrationRecord.vaccineName" placeholder="e.g. Priorix (MMR)">
+          </div>
+          <div class="form-group">
+            <label>Batch Number</label>
+            <input type="text" data-field="administrationRecord.batchNumber" placeholder="e.g. ABCD1234">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Expiry Date</label>
+            <input type="date" data-field="administrationRecord.expiryDate">
+          </div>
+          <div class="form-group">
+            <label>Administration Date</label>
+            <input type="date" data-field="administrationRecord.administrationDate">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Administration Site</label>
+            <select data-field="administrationRecord.administrationSite">
+              <option value="">-- Select --</option>
+              <option value="leftDeltoid">Left Deltoid</option>
+              <option value="rightDeltoid">Right Deltoid</option>
+              <option value="leftThigh">Left Thigh</option>
+              <option value="rightThigh">Right Thigh</option>
+              <option value="oral">Oral</option>
+              <option value="nasal">Nasal</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Administration Route</label>
+            <select data-field="administrationRecord.administrationRoute">
+              <option value="">-- Select --</option>
+              <option value="intramuscular">Intramuscular (IM)</option>
+              <option value="subcutaneous">Subcutaneous (SC)</option>
+              <option value="intradermal">Intradermal (ID)</option>
+              <option value="oral">Oral</option>
+              <option value="nasal">Nasal</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Dose Number</label>
+            <select data-field="administrationRecord.doseNumber">
+              <option value="">-- Select --</option>
+              <option value="1">1st Dose</option>
+              <option value="2">2nd Dose</option>
+              <option value="3">3rd Dose</option>
+              <option value="booster">Booster</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Administered By</label>
+            <input type="text" data-field="administrationRecord.administeredBy" placeholder="e.g. Nurse Jones">
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(8)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(10)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 10: Clinical Review ─────────────────── -->
+      <section id="step-10" class="step-section card">
+        <h2>Clinical Review</h2>
+        <div class="form-group">
+          <label>Post-vaccination observation (1-5)</label>
+          <select data-field="clinicalReview.postVaccinationObservation" data-numeric><option value="">-- Select --</option><option value="1">1 - Very Poor</option><option value="2">2 - Poor</option><option value="3">3 - Average</option><option value="4">4 - Good</option><option value="5">5 - Excellent</option></select>
+        </div>
+        <div class="form-group">
+          <label>Immediate adverse reaction?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="immediateReaction" value="yes" data-field="clinicalReview.immediateReaction"><span>Yes</span></label>
+            <label><input type="radio" name="immediateReaction" value="no" data-field="clinicalReview.immediateReaction"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="clinicalReview.immediateReaction=yes">
+          <div class="form-group">
+            <label>Reaction details</label>
+            <textarea data-field="clinicalReview.reactionDetails" rows="3" placeholder="Describe the reaction..."></textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Next dose due date</label>
+            <input type="date" data-field="clinicalReview.nextDoseDue">
+          </div>
+          <div class="form-group">
+            <label>Catch-up schedule needed?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="catchUpScheduleNeeded" value="yes" data-field="clinicalReview.catchUpScheduleNeeded"><span>Yes</span></label>
+              <label><input type="radio" name="catchUpScheduleNeeded" value="no" data-field="clinicalReview.catchUpScheduleNeeded"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Referral needed?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="referralNeeded" value="yes" data-field="clinicalReview.referralNeeded"><span>Yes</span></label>
+            <label><input type="radio" name="referralNeeded" value="no" data-field="clinicalReview.referralNeeded"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Clinician Notes</label>
+          <textarea data-field="clinicalReview.clinicianNotes" rows="4" placeholder="Any additional clinical notes..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Reviewing Clinician</label>
+          <input type="text" data-field="clinicalReview.reviewingClinician" placeholder="e.g. Dr Smith">
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(9)">Previous</button>
+          <button class="btn btn-success" onclick="submitForm()">Submit &amp; View Report</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer"><p>Vaccinations Assessment System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

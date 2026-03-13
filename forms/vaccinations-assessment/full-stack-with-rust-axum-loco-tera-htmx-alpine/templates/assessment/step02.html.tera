@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Immunization History - Vaccinations Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Immunization History</h2>
+    <p class="hint">Please provide details about the patient's vaccination history and records.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Does the patient have a vaccination record?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="immunization_history.has_vaccination_record" value="yes" {% if immunization_history.hasVaccinationRecord == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="immunization_history.has_vaccination_record" value="no" {% if immunization_history.hasVaccinationRecord == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="immunization_history.has_vaccination_record" value="unknown" {% if immunization_history.hasVaccinationRecord == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="record_source">Record Source</label>
+        <select id="record_source" name="immunization_history.record_source">
+          <option value="">-- Select --</option>
+          <option value="redBook" {% if immunization_history.recordSource == "redBook" %}selected{% endif %}>Red Book</option>
+          <option value="gpRecords" {% if immunization_history.recordSource == "gpRecords" %}selected{% endif %}>GP Records</option>
+          <option value="nhsApp" {% if immunization_history.recordSource == "nhsApp" %}selected{% endif %}>NHS App</option>
+          <option value="patientRecall" {% if immunization_history.recordSource == "patientRecall" %}selected{% endif %}>Patient Recall</option>
+          <option value="other" {% if immunization_history.recordSource == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="last_review_date">Last Immunization Review Date</label>
+        <input type="date" id="last_review_date" name="immunization_history.last_review_date"
+               value="{{ immunization_history.lastReviewDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Any previous adverse reactions to vaccines?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="immunization_history.previous_adverse_reactions" value="yes" {% if immunization_history.previousAdverseReactions == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="immunization_history.previous_adverse_reactions" value="no" {% if immunization_history.previousAdverseReactions == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="adverse_reaction_details">If yes, please describe</label>
+        <textarea id="adverse_reaction_details" name="immunization_history.adverse_reaction_details"
+                  rows="3" placeholder="Describe any adverse reactions...">{{ immunization_history.adverseReactionDetails }}</textarea>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Is the patient immunocompromised?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="immunization_history.immunocompromised" value="yes" {% if immunization_history.immunocompromised == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="immunization_history.immunocompromised" value="no" {% if immunization_history.immunocompromised == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="immunocompromised_details">If yes, please describe</label>
+        <textarea id="immunocompromised_details" name="immunization_history.immunocompromised_details"
+                  rows="3" placeholder="Describe immunocompromised condition...">{{ immunization_history.immunocompromisedDetails }}</textarea>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

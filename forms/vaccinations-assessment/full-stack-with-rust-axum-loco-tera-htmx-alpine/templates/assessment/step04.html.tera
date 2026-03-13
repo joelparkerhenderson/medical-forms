@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Adult Vaccinations - Vaccinations Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Adult Vaccinations</h2>
+    <p class="hint">Record the status of adult vaccinations. 0 = Not Given, 1 = Partial, 2 = Complete.</p>
+
+    <div class="form-group">
+      <label for="td_ipv_booster">Td/IPV Booster (Tetanus, Diphtheria, Polio)</label>
+      <select id="td_ipv_booster" name="adult_vaccinations.td_ipv_booster">
+        <option value="">-- Select --</option>
+        <option value="0" {% if adult_vaccinations.tdIpvBooster == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if adult_vaccinations.tdIpvBooster == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if adult_vaccinations.tdIpvBooster == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="hpv">HPV (Human Papillomavirus)</label>
+      <select id="hpv" name="adult_vaccinations.hpv">
+        <option value="">-- Select --</option>
+        <option value="0" {% if adult_vaccinations.hpv == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if adult_vaccinations.hpv == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if adult_vaccinations.hpv == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="meningitis_acwy">Meningitis ACWY</label>
+      <select id="meningitis_acwy" name="adult_vaccinations.meningitis_acwy">
+        <option value="">-- Select --</option>
+        <option value="0" {% if adult_vaccinations.meningitisAcwy == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if adult_vaccinations.meningitisAcwy == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if adult_vaccinations.meningitisAcwy == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="influenza_annual">Influenza (Annual)</label>
+      <select id="influenza_annual" name="adult_vaccinations.influenza_annual">
+        <option value="">-- Select --</option>
+        <option value="0" {% if adult_vaccinations.influenzaAnnual == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if adult_vaccinations.influenzaAnnual == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if adult_vaccinations.influenzaAnnual == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="covid19">COVID-19</label>
+      <select id="covid19" name="adult_vaccinations.covid19">
+        <option value="">-- Select --</option>
+        <option value="0" {% if adult_vaccinations.covid19 == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if adult_vaccinations.covid19 == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if adult_vaccinations.covid19 == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="shingles">Shingles (Herpes Zoster)</label>
+      <select id="shingles" name="adult_vaccinations.shingles">
+        <option value="">-- Select --</option>
+        <option value="0" {% if adult_vaccinations.shingles == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if adult_vaccinations.shingles == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if adult_vaccinations.shingles == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="pneumococcal_ppv">Pneumococcal (PPV23)</label>
+      <select id="pneumococcal_ppv" name="adult_vaccinations.pneumococcal_ppv">
+        <option value="">-- Select --</option>
+        <option value="0" {% if adult_vaccinations.pneumococcalPpv == 0 %}selected{% endif %}>Not Given</option>
+        <option value="1" {% if adult_vaccinations.pneumococcalPpv == 1 %}selected{% endif %}>Partial</option>
+        <option value="2" {% if adult_vaccinations.pneumococcalPpv == 2 %}selected{% endif %}>Complete</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

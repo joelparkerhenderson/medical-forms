@@ -1,0 +1,92 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Contraindications & Allergies - Vaccinations Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Contraindications & Allergies</h2>
+    <p class="hint">Screen for contraindications and allergies that may affect vaccination.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Egg allergy?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications_allergies.egg_allergy" value="yes" {% if contraindications_allergies.eggAllergy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications_allergies.egg_allergy" value="no" {% if contraindications_allergies.eggAllergy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Gelatin allergy?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications_allergies.gelatin_allergy" value="yes" {% if contraindications_allergies.gelatinAllergy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications_allergies.gelatin_allergy" value="no" {% if contraindications_allergies.gelatinAllergy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Latex allergy?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications_allergies.latex_allergy" value="yes" {% if contraindications_allergies.latexAllergy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications_allergies.latex_allergy" value="no" {% if contraindications_allergies.latexAllergy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Neomycin allergy?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications_allergies.neomycin_allergy" value="yes" {% if contraindications_allergies.neomycinAllergy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications_allergies.neomycin_allergy" value="no" {% if contraindications_allergies.neomycinAllergy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Is the patient pregnant?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications_allergies.pregnant" value="yes" {% if contraindications_allergies.pregnant == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications_allergies.pregnant" value="no" {% if contraindications_allergies.pregnant == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="contraindications_allergies.pregnant" value="notApplicable" {% if contraindications_allergies.pregnant == "notApplicable" %}checked{% endif %}> N/A</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pregnancy_weeks">If pregnant, weeks gestation</label>
+        <input type="text" id="pregnancy_weeks" name="contraindications_allergies.pregnancy_weeks"
+               value="{{ contraindications_allergies.pregnancyWeeks }}"
+               placeholder="e.g. 28">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Currently has severe illness?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications_allergies.severe_illness" value="yes" {% if contraindications_allergies.severeIllness == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications_allergies.severe_illness" value="no" {% if contraindications_allergies.severeIllness == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Previous anaphylaxis to any vaccine?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications_allergies.previous_anaphylaxis" value="yes" {% if contraindications_allergies.previousAnaphylaxis == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications_allergies.previous_anaphylaxis" value="no" {% if contraindications_allergies.previousAnaphylaxis == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="anaphylaxis_details">If yes, please describe</label>
+        <textarea id="anaphylaxis_details" name="contraindications_allergies.anaphylaxis_details"
+                  rows="3" placeholder="Describe the anaphylactic reaction...">{{ contraindications_allergies.anaphylaxisDetails }}</textarea>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

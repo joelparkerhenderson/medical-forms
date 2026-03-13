@@ -1,0 +1,78 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Vaccinations Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide the patient's personal details.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. John Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_sex">Sex</label>
+        <select id="patient_sex" name="patient_information.patient_sex">
+          <option value="">-- Select --</option>
+          <option value="male" {% if patient_information.patientSex == "male" %}selected{% endif %}>Male</option>
+          <option value="female" {% if patient_information.patientSex == "female" %}selected{% endif %}>Female</option>
+          <option value="other" {% if patient_information.patientSex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="patient_age">Age</label>
+        <input type="text" id="patient_age" name="patient_information.patient_age"
+               value="{{ patient_information.patientAge }}"
+               placeholder="e.g. 35">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nhs_number">NHS Number</label>
+        <input type="text" id="nhs_number" name="patient_information.nhs_number"
+               value="{{ patient_information.nhsNumber }}"
+               placeholder="e.g. 123 456 7890">
+      </div>
+      <div class="form-group">
+        <label for="gp_practice">GP Practice</label>
+        <input type="text" id="gp_practice" name="patient_information.gp_practice"
+               value="{{ patient_information.gpPractice }}"
+               placeholder="e.g. Oak Tree Surgery">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="contact_phone">Contact Phone</label>
+        <input type="tel" id="contact_phone" name="patient_information.contact_phone"
+               value="{{ patient_information.contactPhone }}"
+               placeholder="e.g. 07700 900000">
+      </div>
+      <div class="form-group">
+        <label for="contact_email">Contact Email</label>
+        <input type="email" id="contact_email" name="patient_information.contact_email"
+               value="{{ patient_information.contactEmail }}"
+               placeholder="e.g. patient@example.com">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

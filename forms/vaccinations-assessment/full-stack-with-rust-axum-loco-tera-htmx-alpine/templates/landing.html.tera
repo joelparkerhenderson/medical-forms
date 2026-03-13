@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Vaccinations Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Vaccinations Assessment</h1>
+  <p>
+    This assessment records and evaluates a patient's vaccination history,
+    identifies gaps in immunization coverage, and documents new vaccine
+    administrations. It covers childhood, adult, travel, and occupational
+    vaccinations along with contraindications and consent.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive vaccination history and administration record</p>
+    </div>
+    <div class="feature-card">
+      <h3>Completeness Scoring</h3>
+      <p>Immunization coverage analysis with gap identification</p>
+    </div>
+    <div class="feature-card">
+      <h3>Safety Checks</h3>
+      <p>Contraindication screening and consent documentation</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}
