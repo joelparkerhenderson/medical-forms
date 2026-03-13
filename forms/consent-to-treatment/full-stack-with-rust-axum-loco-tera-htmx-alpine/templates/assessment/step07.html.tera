@@ -1,0 +1,79 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Additional Considerations - Consent to Treatment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Additional Considerations</h2>
+    <p class="hint">Record any additional consent elements or special considerations.</p>
+
+    <div class="form-group">
+      <label>Blood Products Consent</label>
+      <div class="radio-group">
+        <label><input type="radio" name="additional_considerations.blood_product_consent" value="consented" {% if additional_considerations.bloodProductConsent == "consented" %}checked{% endif %}> Consented</label>
+        <label><input type="radio" name="additional_considerations.blood_product_consent" value="refused" {% if additional_considerations.bloodProductConsent == "refused" %}checked{% endif %}> Refused</label>
+        <label><input type="radio" name="additional_considerations.blood_product_consent" value="notApplicable" {% if additional_considerations.bloodProductConsent == "notApplicable" %}checked{% endif %}> Not Applicable</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Photography / Video Consent</label>
+      <div class="radio-group">
+        <label><input type="radio" name="additional_considerations.photography_consent" value="consented" {% if additional_considerations.photographyConsent == "consented" %}checked{% endif %}> Consented</label>
+        <label><input type="radio" name="additional_considerations.photography_consent" value="refused" {% if additional_considerations.photographyConsent == "refused" %}checked{% endif %}> Refused</label>
+        <label><input type="radio" name="additional_considerations.photography_consent" value="notApplicable" {% if additional_considerations.photographyConsent == "notApplicable" %}checked{% endif %}> Not Applicable</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Teaching / Training Involvement Consent</label>
+      <div class="radio-group">
+        <label><input type="radio" name="additional_considerations.teaching_consent" value="consented" {% if additional_considerations.teachingConsent == "consented" %}checked{% endif %}> Consented</label>
+        <label><input type="radio" name="additional_considerations.teaching_consent" value="refused" {% if additional_considerations.teachingConsent == "refused" %}checked{% endif %}> Refused</label>
+        <label><input type="radio" name="additional_considerations.teaching_consent" value="notApplicable" {% if additional_considerations.teachingConsent == "notApplicable" %}checked{% endif %}> Not Applicable</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Tissue Storage Consent</label>
+      <div class="radio-group">
+        <label><input type="radio" name="additional_considerations.tissue_storage_consent" value="consented" {% if additional_considerations.tissueStorageConsent == "consented" %}checked{% endif %}> Consented</label>
+        <label><input type="radio" name="additional_considerations.tissue_storage_consent" value="refused" {% if additional_considerations.tissueStorageConsent == "refused" %}checked{% endif %}> Refused</label>
+        <label><input type="radio" name="additional_considerations.tissue_storage_consent" value="notApplicable" {% if additional_considerations.tissueStorageConsent == "notApplicable" %}checked{% endif %}> Not Applicable</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Does an advance directive exist?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="additional_considerations.advance_directive_exists" value="yes" {% if additional_considerations.advanceDirectiveExists == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="additional_considerations.advance_directive_exists" value="no" {% if additional_considerations.advanceDirectiveExists == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="additional_considerations.advance_directive_exists" value="unknown" {% if additional_considerations.advanceDirectiveExists == "unknown" %}checked{% endif %}> Unknown</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="advance_directive_details">Advance Directive Details</label>
+      <textarea id="advance_directive_details" name="additional_considerations.advance_directive_details"
+                placeholder="Details of any advance directive or living will">{{ additional_considerations.advanceDirectiveDetails }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="religious_cultural_considerations">Religious / Cultural Considerations</label>
+      <textarea id="religious_cultural_considerations" name="additional_considerations.religious_cultural_considerations"
+                placeholder="Any religious or cultural factors affecting treatment">{{ additional_considerations.religiousCulturalConsiderations }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_requests">Additional Requests</label>
+      <textarea id="additional_requests" name="additional_considerations.additional_requests"
+                placeholder="Any additional patient requests or concerns">{{ additional_considerations.additionalRequests }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

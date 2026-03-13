@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Consent to Treatment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide the patient's personal details.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Patient Full Name *</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. Jane Smith" required>
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth *</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nhs_number">NHS Number</label>
+        <input type="text" id="nhs_number" name="patient_information.nhs_number"
+               value="{{ patient_information.nhsNumber }}"
+               placeholder="e.g. 123 456 7890">
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="patient_information.address"
+               value="{{ patient_information.address }}"
+               placeholder="Patient address">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="contact_phone">Contact Phone</label>
+        <input type="tel" id="contact_phone" name="patient_information.contact_phone"
+               value="{{ patient_information.contactPhone }}"
+               placeholder="e.g. 07700 900000">
+      </div>
+      <div class="form-group">
+        <label for="contact_email">Contact Email</label>
+        <input type="email" id="contact_email" name="patient_information.contact_email"
+               value="{{ patient_information.contactEmail }}"
+               placeholder="e.g. patient@example.com">
+      </div>
+    </div>
+
+    <h3>Next of Kin</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="next_of_kin_name">Next of Kin Name</label>
+        <input type="text" id="next_of_kin_name" name="patient_information.next_of_kin_name"
+               value="{{ patient_information.nextOfKinName }}">
+      </div>
+      <div class="form-group">
+        <label for="next_of_kin_relationship">Relationship</label>
+        <select id="next_of_kin_relationship" name="patient_information.next_of_kin_relationship">
+          <option value="">-- Select --</option>
+          <option value="spouse" {% if patient_information.nextOfKinRelationship == "spouse" %}selected{% endif %}>Spouse/Partner</option>
+          <option value="parent" {% if patient_information.nextOfKinRelationship == "parent" %}selected{% endif %}>Parent</option>
+          <option value="child" {% if patient_information.nextOfKinRelationship == "child" %}selected{% endif %}>Child</option>
+          <option value="sibling" {% if patient_information.nextOfKinRelationship == "sibling" %}selected{% endif %}>Sibling</option>
+          <option value="other" {% if patient_information.nextOfKinRelationship == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="next_of_kin_phone">Next of Kin Phone</label>
+      <input type="tel" id="next_of_kin_phone" name="patient_information.next_of_kin_phone"
+             value="{{ patient_information.nextOfKinPhone }}">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Capacity Assessment - Consent to Treatment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Capacity Assessment</h2>
+    <p class="hint">Assess whether the patient has capacity to consent to this procedure (Mental Capacity Act 2005).</p>
+
+    <div class="form-group">
+      <label>Does the patient have capacity to consent? *</label>
+      <div class="radio-group">
+        <label><input type="radio" name="capacity_assessment.patient_has_capacity" value="yes" {% if capacity_assessment.patientHasCapacity == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="capacity_assessment.patient_has_capacity" value="no" {% if capacity_assessment.patientHasCapacity == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="capacity_assessment.patient_has_capacity" value="uncertain" {% if capacity_assessment.patientHasCapacity == "uncertain" %}checked{% endif %}> Uncertain</label>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Can the patient understand the information relevant to the decision? *</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="capacity_assessment.can_understand_information" value="{{ i }}"
+                 {% if capacity_assessment.canUnderstandInformation == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Unable{% elif i == 2 %}Poor{% elif i == 3 %}Partial{% elif i == 4 %}Good{% else %}Full{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Can the patient retain the information long enough to make the decision? *</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="capacity_assessment.can_retain_information" value="{{ i }}"
+                 {% if capacity_assessment.canRetainInformation == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Unable{% elif i == 2 %}Poor{% elif i == 3 %}Partial{% elif i == 4 %}Good{% else %}Full{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Can the patient use or weigh the information as part of the decision-making process? *</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="capacity_assessment.can_weigh_information" value="{{ i }}"
+                 {% if capacity_assessment.canWeighInformation == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Unable{% elif i == 2 %}Poor{% elif i == 3 %}Partial{% elif i == 4 %}Good{% else %}Full{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Can the patient communicate the decision? *</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="capacity_assessment.can_communicate_decision" value="{{ i }}"
+                 {% if capacity_assessment.canCommunicateDecision == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Unable{% elif i == 2 %}Poor{% elif i == 3 %}Partial{% elif i == 4 %}Good{% else %}Full{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="capacity_assessed_by">Capacity Assessed By *</label>
+        <input type="text" id="capacity_assessed_by" name="capacity_assessment.capacity_assessed_by"
+               value="{{ capacity_assessment.capacityAssessedBy }}"
+               placeholder="Name and role of assessor">
+      </div>
+      <div class="form-group">
+        <label for="capacity_assessment_date">Assessment Date</label>
+        <input type="date" id="capacity_assessment_date" name="capacity_assessment.capacity_assessment_date"
+               value="{{ capacity_assessment.capacityAssessmentDate }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="capacity_notes">Capacity Assessment Notes</label>
+      <textarea id="capacity_notes" name="capacity_assessment.capacity_notes"
+                placeholder="Additional notes on capacity assessment">{{ capacity_assessment.capacityNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Consent to Treatment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Consent to Treatment Form</h1>
+  <p>
+    This form documents informed consent for medical procedures and treatments.
+    It captures procedure details, risks and benefits, alternatives, capacity assessment,
+    patient understanding verification, and signatures required for valid consent.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Consent Sections</h3>
+      <p>Comprehensive documentation of all elements of informed consent</p>
+    </div>
+    <div class="feature-card">
+      <h3>Consent Validation</h3>
+      <p>Automated checking of required consent elements</p>
+    </div>
+    <div class="feature-card">
+      <h3>Capacity Assessment</h3>
+      <p>Structured evaluation of patient decision-making capacity</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Consent Form</button>
+  </form>
+</div>
+{% endblock %}

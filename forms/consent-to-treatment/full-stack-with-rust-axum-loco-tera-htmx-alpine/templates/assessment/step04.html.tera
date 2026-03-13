@@ -1,0 +1,60 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Alternatives - Consent to Treatment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Alternative Treatments</h2>
+    <p class="hint">Document the alternative treatments discussed with the patient.</p>
+
+    <div class="form-group">
+      <label for="alternative_treatments">Alternative Treatments *</label>
+      <textarea id="alternative_treatments" name="alternatives.alternative_treatments"
+                placeholder="List alternative treatment options discussed (e.g. conservative management, medication, different surgical approach)">{{ alternatives.alternativeTreatments }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="no_treatment_option">Option of No Treatment</label>
+      <textarea id="no_treatment_option" name="alternatives.no_treatment_option"
+                placeholder="Describe what was discussed about the option of not proceeding with treatment">{{ alternatives.noTreatmentOption }}</textarea>
+    </div>
+
+    <div class="likert-group">
+      <label>Were alternatives adequately explained? *</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="alternatives.alternatives_explained" value="{{ i }}"
+                 {% if alternatives.alternativesExplained == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not at all{% elif i == 2 %}Briefly{% elif i == 3 %}Partially{% elif i == 4 %}Mostly{% else %}Thoroughly{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Patient confirms understanding of alternatives *</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="alternatives.alternatives_understood" value="{{ i }}"
+                 {% if alternatives.alternativesUnderstood == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Does not understand{% elif i == 2 %}Poor understanding{% elif i == 3 %}Partial{% elif i == 4 %}Good{% else %}Full understanding{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="reason_for_chosen_treatment">Reason for Choosing This Treatment</label>
+      <textarea id="reason_for_chosen_treatment" name="alternatives.reason_for_chosen_treatment"
+                placeholder="Patient's stated reason for choosing this treatment over alternatives">{{ alternatives.reasonForChosenTreatment }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

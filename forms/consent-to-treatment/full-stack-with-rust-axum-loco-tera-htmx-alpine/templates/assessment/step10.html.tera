@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Verification - Consent to Treatment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Verification</h2>
+    <p class="hint">Clinician confirmation and verification of consent.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_name">Clinician Name *</label>
+        <input type="text" id="clinician_name" name="clinical_verification.clinician_name"
+               value="{{ clinical_verification.clinicianName }}"
+               placeholder="Full name of consenting clinician" required>
+      </div>
+      <div class="form-group">
+        <label for="clinician_role">Clinician Role</label>
+        <select id="clinician_role" name="clinical_verification.clinician_role">
+          <option value="">-- Select --</option>
+          <option value="consultant" {% if clinical_verification.clinicianRole == "consultant" %}selected{% endif %}>Consultant</option>
+          <option value="registrar" {% if clinical_verification.clinicianRole == "registrar" %}selected{% endif %}>Registrar</option>
+          <option value="seniorHouseOfficer" {% if clinical_verification.clinicianRole == "seniorHouseOfficer" %}selected{% endif %}>Senior House Officer</option>
+          <option value="nurse" {% if clinical_verification.clinicianRole == "nurse" %}selected{% endif %}>Nurse</option>
+          <option value="other" {% if clinical_verification.clinicianRole == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinician_gmc_number">GMC / Professional Registration Number</label>
+      <input type="text" id="clinician_gmc_number" name="clinical_verification.clinician_gmc_number"
+             value="{{ clinical_verification.clinicianGmcNumber }}"
+             placeholder="e.g. 1234567">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_signature">Clinician Signature *</label>
+        <input type="text" id="clinician_signature" name="clinical_verification.clinician_signature"
+               value="{{ clinical_verification.clinicianSignature }}"
+               placeholder="Type full name as electronic signature" required>
+      </div>
+      <div class="form-group">
+        <label for="clinician_signature_date">Date *</label>
+        <input type="date" id="clinician_signature_date" name="clinical_verification.clinician_signature_date"
+               value="{{ clinical_verification.clinicianSignatureDate }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Consent confirmed on day of procedure?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clinical_verification.consent_confirmed_on_day" value="yes" {% if clinical_verification.consentConfirmedOnDay == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="clinical_verification.consent_confirmed_on_day" value="no" {% if clinical_verification.consentConfirmedOnDay == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="clinical_verification.consent_confirmed_on_day" value="notYet" {% if clinical_verification.consentConfirmedOnDay == "notYet" %}checked{% endif %}> Not Yet (procedure pending)</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Has the patient's condition changed since consent was given?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clinical_verification.patient_condition_changed" value="yes" {% if clinical_verification.patientConditionChanged == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="clinical_verification.patient_condition_changed" value="no" {% if clinical_verification.patientConditionChanged == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="condition_change_details">Condition Change Details</label>
+      <textarea id="condition_change_details" name="clinical_verification.condition_change_details"
+                placeholder="If condition has changed, describe the changes and any impact on consent">{{ clinical_verification.conditionChangeDetails }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="verification_notes">Verification Notes</label>
+      <textarea id="verification_notes" name="clinical_verification.verification_notes"
+                placeholder="Any additional notes regarding the consent process">{{ clinical_verification.verificationNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

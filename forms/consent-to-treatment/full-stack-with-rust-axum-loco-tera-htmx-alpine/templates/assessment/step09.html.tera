@@ -1,0 +1,108 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Signatures - Consent to Treatment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Signatures</h2>
+    <p class="hint">Patient declaration and signatures for consent.</p>
+
+    <div class="card" style="background: var(--gray-50); border: 1px solid var(--gray-200);">
+      <h3>Patient Declaration</h3>
+      <p>I confirm that I have read and understand the information provided about the proposed procedure.
+         I have had the opportunity to ask questions and have received satisfactory answers.
+         I understand the risks, benefits, and alternatives. I give my consent voluntarily and
+         understand that I may withdraw consent at any time before the procedure.</p>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_signature">Patient Signature *</label>
+        <input type="text" id="patient_signature" name="signatures.patient_signature"
+               value="{{ signatures.patientSignature }}"
+               placeholder="Type full name as electronic signature" required>
+      </div>
+      <div class="form-group">
+        <label for="patient_signature_date">Date *</label>
+        <input type="date" id="patient_signature_date" name="signatures.patient_signature_date"
+               value="{{ signatures.patientSignatureDate }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>I confirm this consent is given voluntarily *</label>
+      <div class="radio-group">
+        <label><input type="radio" name="signatures.consent_voluntary" value="yes" {% if signatures.consentVoluntary == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="signatures.consent_voluntary" value="no" {% if signatures.consentVoluntary == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>I understand my right to withdraw consent at any time *</label>
+      <div class="radio-group">
+        <label><input type="radio" name="signatures.right_to_withdraw_understood" value="yes" {% if signatures.rightToWithdrawUnderstood == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="signatures.right_to_withdraw_understood" value="no" {% if signatures.rightToWithdrawUnderstood == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <h3>Witness (if applicable)</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="witness_name">Witness Name</label>
+        <input type="text" id="witness_name" name="signatures.witness_name"
+               value="{{ signatures.witnessName }}">
+      </div>
+      <div class="form-group">
+        <label for="witness_signature">Witness Signature</label>
+        <input type="text" id="witness_signature" name="signatures.witness_signature"
+               value="{{ signatures.witnessSignature }}"
+               placeholder="Type full name as electronic signature">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="witness_signature_date">Witness Signature Date</label>
+      <input type="date" id="witness_signature_date" name="signatures.witness_signature_date"
+             value="{{ signatures.witnessSignatureDate }}">
+    </div>
+
+    <h3>Parent / Guardian (if patient is a minor or lacks capacity)</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="parent_guardian_name">Parent/Guardian Name</label>
+        <input type="text" id="parent_guardian_name" name="signatures.parent_guardian_name"
+               value="{{ signatures.parentGuardianName }}">
+      </div>
+      <div class="form-group">
+        <label for="parent_guardian_relationship">Relationship to Patient</label>
+        <select id="parent_guardian_relationship" name="signatures.parent_guardian_relationship">
+          <option value="">-- Select --</option>
+          <option value="parent" {% if signatures.parentGuardianRelationship == "parent" %}selected{% endif %}>Parent</option>
+          <option value="legalGuardian" {% if signatures.parentGuardianRelationship == "legalGuardian" %}selected{% endif %}>Legal Guardian</option>
+          <option value="powerOfAttorney" {% if signatures.parentGuardianRelationship == "powerOfAttorney" %}selected{% endif %}>Power of Attorney</option>
+          <option value="other" {% if signatures.parentGuardianRelationship == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="parent_guardian_signature">Parent/Guardian Signature</label>
+        <input type="text" id="parent_guardian_signature" name="signatures.parent_guardian_signature"
+               value="{{ signatures.parentGuardianSignature }}"
+               placeholder="Type full name as electronic signature">
+      </div>
+      <div class="form-group">
+        <label for="parent_guardian_signature_date">Date</label>
+        <input type="date" id="parent_guardian_signature_date" name="signatures.parent_guardian_signature_date"
+               value="{{ signatures.parentGuardianSignatureDate }}">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

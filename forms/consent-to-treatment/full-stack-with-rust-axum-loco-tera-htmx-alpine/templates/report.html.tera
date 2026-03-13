@@ -1,0 +1,139 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Consent Report - Consent to Treatment{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Consent to Treatment Report</h1>
+    <span class="consent-badge consent-{{ consent_status }}">{{ consent_label }}</span>
+  </div>
+
+  <div class="score-display">{{ completeness_score }}%</div>
+  <div class="score-label">Consent Completeness Score</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Patient & Procedure Summary -->
+<div class="card">
+  <h2>Consent Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient:</strong> {{ data.patientInformation.patientName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Date of Birth:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Procedure:</strong> {{ data.procedureDetails.procedureName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Surgeon:</strong> {{ data.procedureDetails.surgeonName | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Anaesthesia:</strong> {{ data.procedureDetails.anaesthesiaType | default(value="Not specified") }}
+    </div>
+    <div>
+      <strong>Planned Date:</strong> {{ data.procedureDetails.plannedDate | default(value="Not set") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Capacity Confirmed:</strong> {{ data.capacityAssessment.patientHasCapacity | default(value="Not assessed") }}
+    </div>
+    <div>
+      <strong>Consent Date:</strong> {{ data.signatures.patientSignatureDate | default(value="Not signed") }}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Consent Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Consent Validation</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Risks & Benefits Summary -->
+{% if data.risksAndBenefits.specificRisks or data.risksAndBenefits.generalRisks or data.risksAndBenefits.expectedBenefits %}
+<div class="card">
+  <h2>Risks & Benefits Documented</h2>
+  {% if data.risksAndBenefits.specificRisks %}
+    <div class="form-group">
+      <strong>Specific Risks:</strong>
+      <p>{{ data.risksAndBenefits.specificRisks }}</p>
+    </div>
+  {% endif %}
+  {% if data.risksAndBenefits.generalRisks %}
+    <div class="form-group">
+      <strong>General Risks:</strong>
+      <p>{{ data.risksAndBenefits.generalRisks }}</p>
+    </div>
+  {% endif %}
+  {% if data.risksAndBenefits.expectedBenefits %}
+    <div class="form-group">
+      <strong>Expected Benefits:</strong>
+      <p>{{ data.risksAndBenefits.expectedBenefits }}</p>
+    </div>
+  {% endif %}
+  {% if data.alternatives.alternativeTreatments %}
+    <div class="form-group">
+      <strong>Alternatives Discussed:</strong>
+      <p>{{ data.alternatives.alternativeTreatments }}</p>
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Consent Form</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

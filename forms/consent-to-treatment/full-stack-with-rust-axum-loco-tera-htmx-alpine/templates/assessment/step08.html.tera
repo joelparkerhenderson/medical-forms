@@ -1,0 +1,65 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Interpreter Requirements - Consent to Treatment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Interpreter Requirements</h2>
+    <p class="hint">Record any interpretation or communication support needs.</p>
+
+    <div class="form-group">
+      <label>Is an interpreter needed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="interpreter_requirements.interpreter_needed" value="yes" {% if interpreter_requirements.interpreterNeeded == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="interpreter_requirements.interpreter_needed" value="no" {% if interpreter_requirements.interpreterNeeded == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="interpreter_language">Language Required</label>
+        <input type="text" id="interpreter_language" name="interpreter_requirements.interpreter_language"
+               value="{{ interpreter_requirements.interpreterLanguage }}"
+               placeholder="e.g. Polish, Urdu, BSL">
+      </div>
+      <div class="form-group">
+        <label for="interpreter_name">Interpreter Name</label>
+        <input type="text" id="interpreter_name" name="interpreter_requirements.interpreter_name"
+               value="{{ interpreter_requirements.interpreterName }}"
+               placeholder="Name of interpreter used">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="interpreter_service">Interpreter Service</label>
+      <select id="interpreter_service" name="interpreter_requirements.interpreter_service">
+        <option value="">-- Select --</option>
+        <option value="inHouse" {% if interpreter_requirements.interpreterService == "inHouse" %}selected{% endif %}>In-house Interpreter</option>
+        <option value="telephone" {% if interpreter_requirements.interpreterService == "telephone" %}selected{% endif %}>Telephone Interpreting</option>
+        <option value="video" {% if interpreter_requirements.interpreterService == "video" %}selected{% endif %}>Video Interpreting</option>
+        <option value="family" {% if interpreter_requirements.interpreterService == "family" %}selected{% endif %}>Family Member (not recommended)</option>
+        <option value="external" {% if interpreter_requirements.interpreterService == "external" %}selected{% endif %}>External Service</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Are communication aids needed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="interpreter_requirements.communication_aids_needed" value="yes" {% if interpreter_requirements.communicationAidsNeeded == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="interpreter_requirements.communication_aids_needed" value="no" {% if interpreter_requirements.communicationAidsNeeded == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="communication_aids_details">Communication Aids Details</label>
+      <textarea id="communication_aids_details" name="interpreter_requirements.communication_aids_details"
+                placeholder="Describe any communication aids required (e.g. hearing loop, large print, easy read)">{{ interpreter_requirements.communicationAidsDetails }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

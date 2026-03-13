@@ -1,0 +1,109 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Procedure Details - Consent to Treatment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Procedure Details</h2>
+    <p class="hint">Provide details of the proposed procedure or treatment.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="procedure_name">Procedure Name *</label>
+        <input type="text" id="procedure_name" name="procedure_details.procedure_name"
+               value="{{ procedure_details.procedureName }}"
+               placeholder="e.g. Total Hip Replacement" required>
+      </div>
+      <div class="form-group">
+        <label for="procedure_type">Procedure Type *</label>
+        <select id="procedure_type" name="procedure_details.procedure_type">
+          <option value="">-- Select --</option>
+          <option value="elective" {% if procedure_details.procedureType == "elective" %}selected{% endif %}>Elective</option>
+          <option value="urgent" {% if procedure_details.procedureType == "urgent" %}selected{% endif %}>Urgent</option>
+          <option value="emergency" {% if procedure_details.procedureType == "emergency" %}selected{% endif %}>Emergency</option>
+          <option value="diagnostic" {% if procedure_details.procedureType == "diagnostic" %}selected{% endif %}>Diagnostic</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="procedure_description">Procedure Description</label>
+      <textarea id="procedure_description" name="procedure_details.procedure_description"
+                placeholder="Describe the procedure in terms the patient can understand">{{ procedure_details.procedureDescription }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="surgeon_name">Surgeon / Lead Clinician *</label>
+        <input type="text" id="surgeon_name" name="procedure_details.surgeon_name"
+               value="{{ procedure_details.surgeonName }}"
+               placeholder="e.g. Mr J. Smith">
+      </div>
+      <div class="form-group">
+        <label for="surgeon_role">Clinician Role</label>
+        <select id="surgeon_role" name="procedure_details.surgeon_role">
+          <option value="">-- Select --</option>
+          <option value="consultant" {% if procedure_details.surgeonRole == "consultant" %}selected{% endif %}>Consultant</option>
+          <option value="registrar" {% if procedure_details.surgeonRole == "registrar" %}selected{% endif %}>Registrar</option>
+          <option value="seniorHouseOfficer" {% if procedure_details.surgeonRole == "seniorHouseOfficer" %}selected{% endif %}>Senior House Officer</option>
+          <option value="other" {% if procedure_details.surgeonRole == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="planned_date">Planned Date</label>
+        <input type="date" id="planned_date" name="procedure_details.planned_date"
+               value="{{ procedure_details.plannedDate }}">
+      </div>
+      <div class="form-group">
+        <label for="planned_location">Location</label>
+        <input type="text" id="planned_location" name="procedure_details.planned_location"
+               value="{{ procedure_details.plannedLocation }}"
+               placeholder="e.g. Theatre 3, Main Hospital">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="anaesthesia_type">Anaesthesia Type *</label>
+        <select id="anaesthesia_type" name="procedure_details.anaesthesia_type">
+          <option value="">-- Select --</option>
+          <option value="general" {% if procedure_details.anaesthesiaType == "general" %}selected{% endif %}>General Anaesthesia</option>
+          <option value="regional" {% if procedure_details.anaesthesiaType == "regional" %}selected{% endif %}>Regional Anaesthesia</option>
+          <option value="local" {% if procedure_details.anaesthesiaType == "local" %}selected{% endif %}>Local Anaesthesia</option>
+          <option value="sedation" {% if procedure_details.anaesthesiaType == "sedation" %}selected{% endif %}>Sedation</option>
+          <option value="none" {% if procedure_details.anaesthesiaType == "none" %}selected{% endif %}>None</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="estimated_duration">Estimated Duration</label>
+        <select id="estimated_duration" name="procedure_details.estimated_duration">
+          <option value="">-- Select --</option>
+          <option value="lessThan30" {% if procedure_details.estimatedDuration == "lessThan30" %}selected{% endif %}>Less than 30 minutes</option>
+          <option value="30to60" {% if procedure_details.estimatedDuration == "30to60" %}selected{% endif %}>30 - 60 minutes</option>
+          <option value="1to2hours" {% if procedure_details.estimatedDuration == "1to2hours" %}selected{% endif %}>1 - 2 hours</option>
+          <option value="2to4hours" {% if procedure_details.estimatedDuration == "2to4hours" %}selected{% endif %}>2 - 4 hours</option>
+          <option value="moreThan4" {% if procedure_details.estimatedDuration == "moreThan4" %}selected{% endif %}>More than 4 hours</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="laterality">Laterality (if applicable)</label>
+      <select id="laterality" name="procedure_details.laterality">
+        <option value="">-- Not applicable --</option>
+        <option value="left" {% if procedure_details.laterality == "left" %}selected{% endif %}>Left</option>
+        <option value="right" {% if procedure_details.laterality == "right" %}selected{% endif %}>Right</option>
+        <option value="bilateral" {% if procedure_details.laterality == "bilateral" %}selected{% endif %}>Bilateral</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

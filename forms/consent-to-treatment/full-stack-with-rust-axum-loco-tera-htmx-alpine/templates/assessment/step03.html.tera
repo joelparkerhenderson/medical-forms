@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Risks & Benefits - Consent to Treatment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Risks & Benefits</h2>
+    <p class="hint">Document the risks and benefits discussed with the patient.</p>
+
+    <div class="form-group">
+      <label for="specific_risks">Specific Risks of this Procedure *</label>
+      <textarea id="specific_risks" name="risks_and_benefits.specific_risks"
+                placeholder="List procedure-specific risks (e.g. infection, nerve damage, blood loss)">{{ risks_and_benefits.specificRisks }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="general_risks">General Risks *</label>
+      <textarea id="general_risks" name="risks_and_benefits.general_risks"
+                placeholder="General surgical/anaesthetic risks (e.g. DVT, PE, anaesthetic complications)">{{ risks_and_benefits.generalRisks }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="risk_of_no_treatment">Risks of Not Having Treatment</label>
+      <textarea id="risk_of_no_treatment" name="risks_and_benefits.risk_of_no_treatment"
+                placeholder="What could happen if the patient chooses not to proceed">{{ risks_and_benefits.riskOfNoTreatment }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="expected_benefits">Expected Benefits *</label>
+      <textarea id="expected_benefits" name="risks_and_benefits.expected_benefits"
+                placeholder="Expected outcomes and benefits of the procedure">{{ risks_and_benefits.expectedBenefits }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="success_rate">Approximate Success Rate</label>
+      <input type="text" id="success_rate" name="risks_and_benefits.success_rate"
+             value="{{ risks_and_benefits.successRate }}"
+             placeholder="e.g. 90-95%">
+    </div>
+
+    <div class="likert-group">
+      <label>Were risks explained verbally to the patient? *</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="risks_and_benefits.risks_explained_verbally" value="{{ i }}"
+                 {% if risks_and_benefits.risksExplainedVerbally == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not at all{% elif i == 2 %}Briefly{% elif i == 3 %}Partially{% elif i == 4 %}Mostly{% else %}Thoroughly{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Patient confirms understanding of risks *</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="risks_and_benefits.risks_understood" value="{{ i }}"
+                 {% if risks_and_benefits.risksUnderstood == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Does not understand{% elif i == 2 %}Poor understanding{% elif i == 3 %}Partial{% elif i == 4 %}Good{% else %}Full understanding{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Patient confirms understanding of benefits *</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="risks_and_benefits.benefits_understood" value="{{ i }}"
+                 {% if risks_and_benefits.benefitsUnderstood == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Does not understand{% elif i == 2 %}Poor understanding{% elif i == 3 %}Partial{% elif i == 4 %}Good{% else %}Full understanding{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
