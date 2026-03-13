@@ -1,0 +1,81 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cognitive Screening - Neurology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cognitive Screening</h2>
+    <p class="hint">Brief cognitive assessment covering key domains and standardised scores.</p>
+
+    <h3>Cognitive Domains</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="orientation">Orientation (0-10)</label>
+        <input type="number" id="orientation" name="cognitive_screening.orientation"
+               value="{{ cognitive_screening.orientation }}"
+               min="0" max="10" placeholder="0-10">
+      </div>
+      <div class="form-group">
+        <label for="attention">Attention (0-5)</label>
+        <input type="number" id="attention" name="cognitive_screening.attention"
+               value="{{ cognitive_screening.attention }}"
+               min="0" max="5" placeholder="0-5">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="memory">Memory (0-5)</label>
+        <input type="number" id="memory" name="cognitive_screening.memory"
+               value="{{ cognitive_screening.memory }}"
+               min="0" max="5" placeholder="0-5">
+      </div>
+      <div class="form-group">
+        <label for="language">Language (0-5)</label>
+        <input type="number" id="language" name="cognitive_screening.language"
+               value="{{ cognitive_screening.language }}"
+               min="0" max="5" placeholder="0-5">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="executive_function">Executive Function (0-5)</label>
+      <input type="number" id="executive_function" name="cognitive_screening.executive_function"
+             value="{{ cognitive_screening.executiveFunction }}"
+             min="0" max="5" placeholder="0-5">
+    </div>
+
+    <h3>Standardised Scores</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mmse_score">MMSE Score (0-30)</label>
+        <input type="number" id="mmse_score" name="cognitive_screening.mmse_score"
+               value="{{ cognitive_screening.mmseScore }}"
+               min="0" max="30" placeholder="0-30">
+      </div>
+      <div class="form-group">
+        <label for="moca_score">MoCA Score (0-30)</label>
+        <input type="number" id="moca_score" name="cognitive_screening.moca_score"
+               value="{{ cognitive_screening.mocaScore }}"
+               min="0" max="30" placeholder="0-30">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="consciousness_level">Consciousness Level</label>
+      <select id="consciousness_level" name="cognitive_screening.consciousness_level">
+        <option value="">-- Select --</option>
+        <option value="alert" {% if cognitive_screening.consciousnessLevel == "alert" %}selected{% endif %}>Alert</option>
+        <option value="drowsy" {% if cognitive_screening.consciousnessLevel == "drowsy" %}selected{% endif %}>Drowsy</option>
+        <option value="stuporous" {% if cognitive_screening.consciousnessLevel == "stuporous" %}selected{% endif %}>Stuporous</option>
+        <option value="comatose" {% if cognitive_screening.consciousnessLevel == "comatose" %}selected{% endif %}>Comatose</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

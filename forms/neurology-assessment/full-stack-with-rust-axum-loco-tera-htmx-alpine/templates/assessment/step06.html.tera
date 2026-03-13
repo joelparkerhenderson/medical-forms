@@ -1,0 +1,80 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Sensory Assessment - Neurology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Sensory Assessment</h2>
+    <p class="hint">Evaluate sensory modalities and distribution of any abnormalities.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="light_touch">Light Touch</label>
+        <select id="light_touch" name="sensory_assessment.light_touch">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if sensory_assessment.lightTouch == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if sensory_assessment.lightTouch == "abnormal" %}selected{% endif %}>Abnormal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pinprick">Pinprick</label>
+        <input type="text" id="pinprick" name="sensory_assessment.pinprick"
+               value="{{ sensory_assessment.pinprick }}"
+               placeholder="e.g. intact, reduced distally">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="vibration_sense">Vibration Sense</label>
+        <input type="text" id="vibration_sense" name="sensory_assessment.vibration_sense"
+               value="{{ sensory_assessment.vibrationSense }}"
+               placeholder="e.g. intact, reduced at ankles">
+      </div>
+      <div class="form-group">
+        <label for="proprioception">Proprioception</label>
+        <input type="text" id="proprioception" name="sensory_assessment.proprioception"
+               value="{{ sensory_assessment.proprioception }}"
+               placeholder="e.g. intact, impaired in toes">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="temperature_sense">Temperature Sense</label>
+        <input type="text" id="temperature_sense" name="sensory_assessment.temperature_sense"
+               value="{{ sensory_assessment.temperatureSense }}"
+               placeholder="e.g. intact bilaterally">
+      </div>
+      <div class="form-group">
+        <label for="sensory_level">Sensory Level</label>
+        <input type="text" id="sensory_level" name="sensory_assessment.sensory_level"
+               value="{{ sensory_assessment.sensoryLevel }}"
+               placeholder="e.g. T10, none">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Dermatomal Pattern</label>
+        <div class="radio-group">
+          <label><input type="radio" name="sensory_assessment.dermatomal_pattern" value="yes" {% if sensory_assessment.dermatomalPattern == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="sensory_assessment.dermatomal_pattern" value="no" {% if sensory_assessment.dermatomalPattern == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Peripheral Neuropathy</label>
+        <div class="radio-group">
+          <label><input type="radio" name="sensory_assessment.peripheral_neuropathy" value="yes" {% if sensory_assessment.peripheralNeuropathy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="sensory_assessment.peripheral_neuropathy" value="no" {% if sensory_assessment.peripheralNeuropathy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Motor Assessment - Neurology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Motor Assessment</h2>
+    <p class="hint">Assess motor power (MRC scale 0-5), tone, and gait.</p>
+
+    <h3>Upper Limb Power (MRC 0-5)</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="upper_limb_power_right">Right Upper Limb</label>
+        <input type="number" id="upper_limb_power_right" name="motor_assessment.upper_limb_power_right"
+               value="{{ motor_assessment.upperLimbPowerRight }}"
+               min="0" max="5" placeholder="0-5">
+      </div>
+      <div class="form-group">
+        <label for="upper_limb_power_left">Left Upper Limb</label>
+        <input type="number" id="upper_limb_power_left" name="motor_assessment.upper_limb_power_left"
+               value="{{ motor_assessment.upperLimbPowerLeft }}"
+               min="0" max="5" placeholder="0-5">
+      </div>
+    </div>
+
+    <h3>Lower Limb Power (MRC 0-5)</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="lower_limb_power_right">Right Lower Limb</label>
+        <input type="number" id="lower_limb_power_right" name="motor_assessment.lower_limb_power_right"
+               value="{{ motor_assessment.lowerLimbPowerRight }}"
+               min="0" max="5" placeholder="0-5">
+      </div>
+      <div class="form-group">
+        <label for="lower_limb_power_left">Left Lower Limb</label>
+        <input type="number" id="lower_limb_power_left" name="motor_assessment.lower_limb_power_left"
+               value="{{ motor_assessment.lowerLimbPowerLeft }}"
+               min="0" max="5" placeholder="0-5">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tonus_abnormality">Tone</label>
+        <select id="tonus_abnormality" name="motor_assessment.tonus_abnormality">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if motor_assessment.tonusAbnormality == "normal" %}selected{% endif %}>Normal</option>
+          <option value="increased" {% if motor_assessment.tonusAbnormality == "increased" %}selected{% endif %}>Increased (Spasticity/Rigidity)</option>
+          <option value="decreased" {% if motor_assessment.tonusAbnormality == "decreased" %}selected{% endif %}>Decreased (Flaccid)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Muscle Wasting</label>
+        <div class="radio-group">
+          <label><input type="radio" name="motor_assessment.muscle_wasting" value="yes" {% if motor_assessment.muscleWasting == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="motor_assessment.muscle_wasting" value="no" {% if motor_assessment.muscleWasting == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="involuntary_movements">Involuntary Movements</label>
+        <input type="text" id="involuntary_movements" name="motor_assessment.involuntary_movements"
+               value="{{ motor_assessment.involuntaryMovements }}"
+               placeholder="e.g. tremor, chorea, dystonia, none">
+      </div>
+      <div class="form-group">
+        <label for="gait_assessment">Gait Assessment</label>
+        <select id="gait_assessment" name="motor_assessment.gait_assessment">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if motor_assessment.gaitAssessment == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if motor_assessment.gaitAssessment == "abnormal" %}selected{% endif %}>Abnormal</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

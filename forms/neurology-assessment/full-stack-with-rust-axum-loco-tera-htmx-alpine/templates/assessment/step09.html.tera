@@ -1,0 +1,67 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Investigations - Neurology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Investigations</h2>
+    <p class="hint">Record investigation results and pending requests.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ct_scan">CT Scan</label>
+        <input type="text" id="ct_scan" name="investigations.ct_scan"
+               value="{{ investigations.ctScan }}"
+               placeholder="e.g. normal, pending, not requested">
+      </div>
+      <div class="form-group">
+        <label for="mri_scan">MRI Scan</label>
+        <input type="text" id="mri_scan" name="investigations.mri_scan"
+               value="{{ investigations.mriScan }}"
+               placeholder="e.g. normal, pending, abnormal">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="eeg">EEG</label>
+        <input type="text" id="eeg" name="investigations.eeg"
+               value="{{ investigations.eeg }}"
+               placeholder="e.g. normal, epileptiform activity, pending">
+      </div>
+      <div class="form-group">
+        <label for="nerve_conduction_study">Nerve Conduction Study</label>
+        <input type="text" id="nerve_conduction_study" name="investigations.nerve_conduction_study"
+               value="{{ investigations.nerveConductionStudy }}"
+               placeholder="e.g. normal, demyelinating pattern, pending">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="lumbar_puncture">Lumbar Puncture</label>
+        <input type="text" id="lumbar_puncture" name="investigations.lumbar_puncture"
+               value="{{ investigations.lumbarPuncture }}"
+               placeholder="e.g. normal CSF, not performed">
+      </div>
+      <div class="form-group">
+        <label for="blood_tests">Blood Tests</label>
+        <input type="text" id="blood_tests" name="investigations.blood_tests"
+               value="{{ investigations.bloodTests }}"
+               placeholder="e.g. FBC, U&Es, TFTs - normal">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="imaging_findings">Imaging Findings Summary</label>
+      <textarea id="imaging_findings" name="investigations.imaging_findings"
+                placeholder="Summarise all relevant imaging findings">{{ investigations.imagingFindings }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

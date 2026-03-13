@@ -1,0 +1,84 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Neurological History - Neurology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Neurological History</h2>
+    <p class="hint">Document the patient's neurological history and presenting complaint.</p>
+
+    <div class="form-group">
+      <label for="primary_complaint">Primary Complaint</label>
+      <textarea id="primary_complaint" name="neurological_history.primary_complaint"
+                placeholder="Describe the main neurological complaint">{{ neurological_history.primaryComplaint }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="symptom_duration">Symptom Duration</label>
+        <select id="symptom_duration" name="neurological_history.symptom_duration">
+          <option value="">-- Select --</option>
+          <option value="minutes" {% if neurological_history.symptomDuration == "minutes" %}selected{% endif %}>Minutes</option>
+          <option value="hours" {% if neurological_history.symptomDuration == "hours" %}selected{% endif %}>Hours</option>
+          <option value="days" {% if neurological_history.symptomDuration == "days" %}selected{% endif %}>Days</option>
+          <option value="weeks" {% if neurological_history.symptomDuration == "weeks" %}selected{% endif %}>Weeks</option>
+          <option value="months" {% if neurological_history.symptomDuration == "months" %}selected{% endif %}>Months</option>
+          <option value="years" {% if neurological_history.symptomDuration == "years" %}selected{% endif %}>Years</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="symptom_onset">Symptom Onset</label>
+        <select id="symptom_onset" name="neurological_history.symptom_onset">
+          <option value="">-- Select --</option>
+          <option value="sudden" {% if neurological_history.symptomOnset == "sudden" %}selected{% endif %}>Sudden</option>
+          <option value="gradual" {% if neurological_history.symptomOnset == "gradual" %}selected{% endif %}>Gradual</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="previous_neurological_condition">Previous Neurological Conditions</label>
+      <textarea id="previous_neurological_condition" name="neurological_history.previous_neurological_condition"
+                placeholder="e.g. epilepsy, migraine, MS, Parkinson's">{{ neurological_history.previousNeurologicalCondition }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Seizure History</label>
+        <div class="radio-group">
+          <label><input type="radio" name="neurological_history.seizure_history" value="yes" {% if neurological_history.seizureHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="neurological_history.seizure_history" value="no" {% if neurological_history.seizureHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Stroke History</label>
+        <div class="radio-group">
+          <label><input type="radio" name="neurological_history.stroke_history" value="yes" {% if neurological_history.strokeHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="neurological_history.stroke_history" value="no" {% if neurological_history.strokeHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Head Injury</label>
+        <div class="radio-group">
+          <label><input type="radio" name="neurological_history.head_injury" value="yes" {% if neurological_history.headInjury == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="neurological_history.head_injury" value="no" {% if neurological_history.headInjury == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="family_neurological_history">Family Neurological History</label>
+        <input type="text" id="family_neurological_history" name="neurological_history.family_neurological_history"
+               value="{{ neurological_history.familyNeurologicalHistory }}"
+               placeholder="e.g. epilepsy in sibling">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

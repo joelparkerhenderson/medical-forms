@@ -1,0 +1,70 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Neurology Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Neurology Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, diagnosis, urgency...">
+    </div>
+    <div class="form-group">
+      <label for="severity_level">Severity Level</label>
+      <select id="severity_level" name="severity_level">
+        <option value="">All Levels</option>
+        <option value="normal" {% if severity_level == "normal" %}selected{% endif %}>Normal</option>
+        <option value="mild" {% if severity_level == "mild" %}selected{% endif %}>Mild</option>
+        <option value="moderate" {% if severity_level == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="severe" {% if severity_level == "severe" %}selected{% endif %}>Severe</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="primary_diagnosis">Primary Diagnosis</label>
+      <input type="text" id="primary_diagnosis" name="primary_diagnosis" value="{{ primary_diagnosis }}"
+             placeholder="Filter by diagnosis">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Primary Diagnosis</th>
+      <th>Severity</th>
+      <th>Motor Status</th>
+      <th>Cognitive Score</th>
+      <th>Urgency</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.primaryDiagnosis }}</td>
+      <td><span class="severity-badge severity-{{ patient.severityLevel }}">{{ patient.severityLevel }}</span></td>
+      <td>{{ patient.motorStatus }}</td>
+      <td>{{ patient.cognitiveScore }}</td>
+      <td>{{ patient.urgency }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Headache Assessment - Neurology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Headache Assessment</h2>
+    <p class="hint">Evaluate headache characteristics and red flag symptoms.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="headache_type">Headache Type</label>
+        <select id="headache_type" name="headache_assessment.headache_type">
+          <option value="">-- Select --</option>
+          <option value="none" {% if headache_assessment.headacheType == "none" %}selected{% endif %}>None</option>
+          <option value="tension" {% if headache_assessment.headacheType == "tension" %}selected{% endif %}>Tension</option>
+          <option value="migraine" {% if headache_assessment.headacheType == "migraine" %}selected{% endif %}>Migraine</option>
+          <option value="cluster" {% if headache_assessment.headacheType == "cluster" %}selected{% endif %}>Cluster</option>
+          <option value="secondary" {% if headache_assessment.headacheType == "secondary" %}selected{% endif %}>Secondary</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="headache_frequency">Headache Frequency</label>
+        <input type="text" id="headache_frequency" name="headache_assessment.headache_frequency"
+               value="{{ headache_assessment.headacheFrequency }}"
+               placeholder="e.g. daily, weekly, monthly">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="headache_severity">Headache Severity (0-10)</label>
+        <input type="number" id="headache_severity" name="headache_assessment.headache_severity"
+               value="{{ headache_assessment.headacheSeverity }}"
+               min="0" max="10" placeholder="0-10">
+      </div>
+      <div class="form-group">
+        <label for="headache_duration">Headache Duration</label>
+        <input type="text" id="headache_duration" name="headache_assessment.headache_duration"
+               value="{{ headache_assessment.headacheDuration }}"
+               placeholder="e.g. 4 hours, 2 days">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Aura Present</label>
+        <div class="radio-group">
+          <label><input type="radio" name="headache_assessment.aura_present" value="yes" {% if headache_assessment.auraPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="headache_assessment.aura_present" value="no" {% if headache_assessment.auraPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="trigger_factors">Trigger Factors</label>
+        <input type="text" id="trigger_factors" name="headache_assessment.trigger_factors"
+               value="{{ headache_assessment.triggerFactors }}"
+               placeholder="e.g. stress, light, food">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Red Flag Symptoms</label>
+        <div class="radio-group">
+          <label><input type="radio" name="headache_assessment.red_flag_symptoms" value="yes" {% if headache_assessment.redFlagSymptoms == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="headache_assessment.red_flag_symptoms" value="no" {% if headache_assessment.redFlagSymptoms == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Thunderclap Onset</label>
+        <div class="radio-group">
+          <label><input type="radio" name="headache_assessment.thunderclap_onset" value="yes" {% if headache_assessment.thunderclapOnset == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="headache_assessment.thunderclap_onset" value="no" {% if headache_assessment.thunderclapOnset == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

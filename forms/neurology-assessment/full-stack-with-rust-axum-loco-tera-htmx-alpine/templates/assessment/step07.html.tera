@@ -1,0 +1,100 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Reflexes & Coordination - Neurology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Reflexes & Coordination</h2>
+    <p class="hint">Assess deep tendon reflexes, plantar response, and coordination tests.</p>
+
+    <h3>Deep Tendon Reflexes</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="biceps_reflex">Biceps Reflex</label>
+        <select id="biceps_reflex" name="reflexes_coordination.biceps_reflex">
+          <option value="">-- Select --</option>
+          <option value="absent" {% if reflexes_coordination.bicepsReflex == "absent" %}selected{% endif %}>Absent</option>
+          <option value="diminished" {% if reflexes_coordination.bicepsReflex == "diminished" %}selected{% endif %}>Diminished</option>
+          <option value="normal" {% if reflexes_coordination.bicepsReflex == "normal" %}selected{% endif %}>Normal</option>
+          <option value="brisk" {% if reflexes_coordination.bicepsReflex == "brisk" %}selected{% endif %}>Brisk</option>
+          <option value="clonusPresent" {% if reflexes_coordination.bicepsReflex == "clonusPresent" %}selected{% endif %}>Clonus Present</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="knee_reflex">Knee Reflex</label>
+        <select id="knee_reflex" name="reflexes_coordination.knee_reflex">
+          <option value="">-- Select --</option>
+          <option value="absent" {% if reflexes_coordination.kneeReflex == "absent" %}selected{% endif %}>Absent</option>
+          <option value="diminished" {% if reflexes_coordination.kneeReflex == "diminished" %}selected{% endif %}>Diminished</option>
+          <option value="normal" {% if reflexes_coordination.kneeReflex == "normal" %}selected{% endif %}>Normal</option>
+          <option value="brisk" {% if reflexes_coordination.kneeReflex == "brisk" %}selected{% endif %}>Brisk</option>
+          <option value="clonusPresent" {% if reflexes_coordination.kneeReflex == "clonusPresent" %}selected{% endif %}>Clonus Present</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ankle_reflex">Ankle Reflex</label>
+        <select id="ankle_reflex" name="reflexes_coordination.ankle_reflex">
+          <option value="">-- Select --</option>
+          <option value="absent" {% if reflexes_coordination.ankleReflex == "absent" %}selected{% endif %}>Absent</option>
+          <option value="diminished" {% if reflexes_coordination.ankleReflex == "diminished" %}selected{% endif %}>Diminished</option>
+          <option value="normal" {% if reflexes_coordination.ankleReflex == "normal" %}selected{% endif %}>Normal</option>
+          <option value="brisk" {% if reflexes_coordination.ankleReflex == "brisk" %}selected{% endif %}>Brisk</option>
+          <option value="clonusPresent" {% if reflexes_coordination.ankleReflex == "clonusPresent" %}selected{% endif %}>Clonus Present</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="plantar_response">Plantar Response</label>
+        <select id="plantar_response" name="reflexes_coordination.plantar_response">
+          <option value="">-- Select --</option>
+          <option value="flexor" {% if reflexes_coordination.plantarResponse == "flexor" %}selected{% endif %}>Flexor (Normal)</option>
+          <option value="extensor" {% if reflexes_coordination.plantarResponse == "extensor" %}selected{% endif %}>Extensor (Babinski Positive)</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Coordination Tests</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="finger_nose_test">Finger-Nose Test</label>
+        <select id="finger_nose_test" name="reflexes_coordination.finger_nose_test">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if reflexes_coordination.fingerNoseTest == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if reflexes_coordination.fingerNoseTest == "abnormal" %}selected{% endif %}>Abnormal (Dysmetria/Intention Tremor)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="heel_shin_test">Heel-Shin Test</label>
+        <input type="text" id="heel_shin_test" name="reflexes_coordination.heel_shin_test"
+               value="{{ reflexes_coordination.heelShinTest }}"
+               placeholder="e.g. normal, ataxic">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="romberg_sign">Romberg Sign</label>
+        <select id="romberg_sign" name="reflexes_coordination.romberg_sign">
+          <option value="">-- Select --</option>
+          <option value="negative" {% if reflexes_coordination.rombergSign == "negative" %}selected{% endif %}>Negative (Normal)</option>
+          <option value="positive" {% if reflexes_coordination.rombergSign == "positive" %}selected{% endif %}>Positive</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Dysdiadochokinesis</label>
+        <div class="radio-group">
+          <label><input type="radio" name="reflexes_coordination.dysdiadochokinesis" value="yes" {% if reflexes_coordination.dysdiadochokinesis == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="reflexes_coordination.dysdiadochokinesis" value="no" {% if reflexes_coordination.dysdiadochokinesis == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
