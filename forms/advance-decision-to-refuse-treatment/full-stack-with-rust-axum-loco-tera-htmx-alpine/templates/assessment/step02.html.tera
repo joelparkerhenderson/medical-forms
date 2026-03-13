@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-group">
+            <label>I confirm that I have the mental capacity to make this advance decision</label>
+            <div class="radio-group">
+                <label><input type="radio" name="capacity_declaration.confirms_capacity" value="yes" {% if capacity_declaration.confirmsCapacity == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="capacity_declaration.confirms_capacity" value="no" {% if capacity_declaration.confirmsCapacity == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>I understand the consequences of refusing the specified treatments, including that I may die</label>
+            <div class="radio-group">
+                <label><input type="radio" name="capacity_declaration.understands_consequences" value="yes" {% if capacity_declaration.understandsConsequences == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="capacity_declaration.understands_consequences" value="no" {% if capacity_declaration.understandsConsequences == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>I confirm that this decision is made freely without undue influence</label>
+            <div class="radio-group">
+                <label><input type="radio" name="capacity_declaration.no_undue_influence" value="yes" {% if capacity_declaration.noUndueInfluence == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="capacity_declaration.no_undue_influence" value="no" {% if capacity_declaration.noUndueInfluence == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Has a professional capacity assessment been conducted?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="capacity_declaration.professional_capacity_assessment" value="yes" {% if capacity_declaration.professionalCapacityAssessment == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="capacity_declaration.professional_capacity_assessment" value="no" {% if capacity_declaration.professionalCapacityAssessment == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% if capacity_declaration.professionalCapacityAssessment == "yes" %}
+        <div class="conditional-field">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="assessed_by_name">Assessed By (Name)</label>
+                    <input type="text" id="assessed_by_name" name="capacity_declaration.assessed_by_name"
+                           value="{{ capacity_declaration.assessedByName }}">
+                </div>
+                <div class="form-group">
+                    <label for="assessed_by_role">Role</label>
+                    <input type="text" id="assessed_by_role" name="capacity_declaration.assessed_by_role"
+                           value="{{ capacity_declaration.assessedByRole }}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="assessment_date">Assessment Date</label>
+                <input type="date" id="assessment_date" name="capacity_declaration.assessment_date"
+                       value="{{ capacity_declaration.assessmentDate }}">
+            </div>
+
+            <div class="form-group">
+                <label for="assessment_details">Assessment Details</label>
+                <textarea id="assessment_details" name="capacity_declaration.assessment_details"
+                          placeholder="Details of the capacity assessment">{{ capacity_declaration.assessmentDetails }}</textarea>
+            </div>
+        </div>
+        {% endif %}
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

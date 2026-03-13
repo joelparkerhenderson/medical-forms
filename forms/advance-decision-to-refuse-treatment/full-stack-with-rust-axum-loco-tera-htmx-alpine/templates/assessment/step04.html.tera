@@ -1,0 +1,181 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <p class="form-hint">For each treatment below, indicate whether you wish to refuse it in the circumstances described.</p>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <!-- Antibiotics -->
+        <div class="treatment-card">
+            <h4>Antibiotics</h4>
+            <div class="form-group">
+                <label>Refuse this treatment?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="treatments_refused_general.antibiotics.refused" value="yes" {% if treatments_refused_general.antibiotics.refused == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="treatments_refused_general.antibiotics.refused" value="no" {% if treatments_refused_general.antibiotics.refused == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+            {% if treatments_refused_general.antibiotics.refused == "yes" %}
+            <div class="conditional-field">
+                <div class="form-group">
+                    <label>Specification</label>
+                    <textarea name="treatments_refused_general.antibiotics.specification"
+                              placeholder="Specify conditions or exceptions for this refusal">{{ treatments_refused_general.antibiotics.specification }}</textarea>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Blood Transfusion -->
+        <div class="treatment-card">
+            <h4>Blood Transfusion</h4>
+            <div class="form-group">
+                <label>Refuse this treatment?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="treatments_refused_general.blood_transfusion.refused" value="yes" {% if treatments_refused_general.bloodTransfusion.refused == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="treatments_refused_general.blood_transfusion.refused" value="no" {% if treatments_refused_general.bloodTransfusion.refused == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+            {% if treatments_refused_general.bloodTransfusion.refused == "yes" %}
+            <div class="conditional-field">
+                <div class="form-group">
+                    <label>Specification</label>
+                    <textarea name="treatments_refused_general.blood_transfusion.specification"
+                              placeholder="Specify conditions or exceptions for this refusal">{{ treatments_refused_general.bloodTransfusion.specification }}</textarea>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- IV Fluids -->
+        <div class="treatment-card">
+            <h4>IV Fluids</h4>
+            <div class="form-group">
+                <label>Refuse this treatment?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="treatments_refused_general.iv_fluids.refused" value="yes" {% if treatments_refused_general.ivFluids.refused == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="treatments_refused_general.iv_fluids.refused" value="no" {% if treatments_refused_general.ivFluids.refused == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+            {% if treatments_refused_general.ivFluids.refused == "yes" %}
+            <div class="conditional-field">
+                <div class="form-group">
+                    <label>Specification</label>
+                    <textarea name="treatments_refused_general.iv_fluids.specification"
+                              placeholder="Specify conditions or exceptions for this refusal">{{ treatments_refused_general.ivFluids.specification }}</textarea>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Tube Feeding -->
+        <div class="treatment-card">
+            <h4>Tube Feeding</h4>
+            <div class="form-group">
+                <label>Refuse this treatment?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="treatments_refused_general.tube_feeding.refused" value="yes" {% if treatments_refused_general.tubeFeeding.refused == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="treatments_refused_general.tube_feeding.refused" value="no" {% if treatments_refused_general.tubeFeeding.refused == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+            {% if treatments_refused_general.tubeFeeding.refused == "yes" %}
+            <div class="conditional-field">
+                <div class="form-group">
+                    <label>Specification</label>
+                    <textarea name="treatments_refused_general.tube_feeding.specification"
+                              placeholder="Specify conditions or exceptions for this refusal">{{ treatments_refused_general.tubeFeeding.specification }}</textarea>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Dialysis -->
+        <div class="treatment-card">
+            <h4>Dialysis</h4>
+            <div class="form-group">
+                <label>Refuse this treatment?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="treatments_refused_general.dialysis.refused" value="yes" {% if treatments_refused_general.dialysis.refused == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="treatments_refused_general.dialysis.refused" value="no" {% if treatments_refused_general.dialysis.refused == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+            {% if treatments_refused_general.dialysis.refused == "yes" %}
+            <div class="conditional-field">
+                <div class="form-group">
+                    <label>Specification</label>
+                    <textarea name="treatments_refused_general.dialysis.specification"
+                              placeholder="Specify conditions or exceptions for this refusal">{{ treatments_refused_general.dialysis.specification }}</textarea>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Ventilation -->
+        <div class="treatment-card">
+            <h4>Ventilation</h4>
+            <div class="form-group">
+                <label>Refuse this treatment?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="treatments_refused_general.ventilation.refused" value="yes" {% if treatments_refused_general.ventilation.refused == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="treatments_refused_general.ventilation.refused" value="no" {% if treatments_refused_general.ventilation.refused == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+            {% if treatments_refused_general.ventilation.refused == "yes" %}
+            <div class="conditional-field">
+                <div class="form-group">
+                    <label>Specification</label>
+                    <textarea name="treatments_refused_general.ventilation.specification"
+                              placeholder="Specify conditions or exceptions for this refusal">{{ treatments_refused_general.ventilation.specification }}</textarea>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Other treatments -->
+        {% for treatment in treatments_refused_general.otherTreatments %}
+        <div class="dynamic-list-item">
+            <div class="form-group">
+                <label>Other Treatment Name</label>
+                <input type="text" name="other_treatments[{{ loop.index0 }}].treatment" value="{{ treatment.treatment }}">
+            </div>
+            <div class="form-group">
+                <label>Refuse?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="other_treatments[{{ loop.index0 }}].refused" value="yes" {% if treatment.refused == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="other_treatments[{{ loop.index0 }}].refused" value="no" {% if treatment.refused == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Specification</label>
+                <textarea name="other_treatments[{{ loop.index0 }}].specification">{{ treatment.specification }}</textarea>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="dynamic-list-item" style="border-style: dashed;">
+            <div class="form-group">
+                <label>Add Other Treatment</label>
+                <input type="text" name="other_treatments[{{ treatments_refused_general.otherTreatments | length }}].treatment" value="" placeholder="Treatment name">
+            </div>
+            <div class="form-group">
+                <label>Refuse?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="other_treatments[{{ treatments_refused_general.otherTreatments | length }}].refused" value="yes"> Yes</label>
+                    <label><input type="radio" name="other_treatments[{{ treatments_refused_general.otherTreatments | length }}].refused" value="no"> No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Specification</label>
+                <textarea name="other_treatments[{{ treatments_refused_general.otherTreatments | length }}].specification" placeholder="Specify conditions"></textarea>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

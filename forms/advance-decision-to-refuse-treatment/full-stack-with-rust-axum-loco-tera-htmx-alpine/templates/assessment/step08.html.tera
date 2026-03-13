@@ -1,0 +1,63 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-group">
+            <label>Do you have a Lasting Power of Attorney (LPA)?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="lasting_power_of_attorney.has_lpa" value="yes" {% if lasting_power_of_attorney.hasLPA == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="lasting_power_of_attorney.has_lpa" value="no" {% if lasting_power_of_attorney.hasLPA == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% if lasting_power_of_attorney.hasLPA == "yes" %}
+        <div class="conditional-field">
+            <div class="form-group">
+                <label for="lpa_type">LPA Type</label>
+                <select id="lpa_type" name="lasting_power_of_attorney.lpa_type">
+                    <option value="" {% if lasting_power_of_attorney.lpaType == "" %}selected{% endif %}>Select...</option>
+                    <option value="health-and-welfare" {% if lasting_power_of_attorney.lpaType == "health-and-welfare" %}selected{% endif %}>Health and Welfare</option>
+                    <option value="property-and-financial" {% if lasting_power_of_attorney.lpaType == "property-and-financial" %}selected{% endif %}>Property and Financial Affairs</option>
+                    <option value="both" {% if lasting_power_of_attorney.lpaType == "both" %}selected{% endif %}>Both</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Is the LPA registered with the Office of the Public Guardian?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="lasting_power_of_attorney.lpa_registered" value="yes" {% if lasting_power_of_attorney.lpaRegistered == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="lasting_power_of_attorney.lpa_registered" value="no" {% if lasting_power_of_attorney.lpaRegistered == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lpa_registration_date">LPA Registration Date</label>
+                <input type="date" id="lpa_registration_date" name="lasting_power_of_attorney.lpa_registration_date"
+                       value="{{ lasting_power_of_attorney.lpaRegistrationDate }}">
+            </div>
+
+            <div class="form-group">
+                <label for="donee_names">Donee Name(s)</label>
+                <input type="text" id="donee_names" name="lasting_power_of_attorney.donee_names"
+                       value="{{ lasting_power_of_attorney.doneeNames }}" placeholder="Name(s) and relationship of attorney(s)">
+            </div>
+
+            <div class="form-group">
+                <label for="relationship_between_adrt_and_lpa">Relationship Between ADRT and LPA</label>
+                <textarea id="relationship_between_adrt_and_lpa" name="lasting_power_of_attorney.relationship_between_adrt_and_lpa"
+                          placeholder="Describe how the ADRT relates to the LPA (e.g. which takes precedence)">{{ lasting_power_of_attorney.relationshipBetweenADRTAndLPA }}</textarea>
+            </div>
+        </div>
+        {% endif %}
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

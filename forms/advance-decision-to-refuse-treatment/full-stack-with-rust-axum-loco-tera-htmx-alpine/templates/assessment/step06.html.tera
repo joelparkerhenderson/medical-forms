@@ -1,0 +1,57 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-group">
+            <label>Are there any exceptions to your treatment refusals?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="exceptions_conditions.has_exceptions" value="yes" {% if exceptions_conditions.hasExceptions == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="exceptions_conditions.has_exceptions" value="no" {% if exceptions_conditions.hasExceptions == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% if exceptions_conditions.hasExceptions == "yes" %}
+        <div class="conditional-field">
+            <div class="form-group">
+                <label for="exceptions_description">Exceptions Description</label>
+                <textarea id="exceptions_description" name="exceptions_conditions.exceptions_description"
+                          placeholder="Describe any exceptions to your treatment refusals">{{ exceptions_conditions.exceptionsDescription }}</textarea>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label>Are there any time limitations on this advance decision?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="exceptions_conditions.has_time_limitations" value="yes" {% if exceptions_conditions.hasTimeLimitations == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="exceptions_conditions.has_time_limitations" value="no" {% if exceptions_conditions.hasTimeLimitations == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% if exceptions_conditions.hasTimeLimitations == "yes" %}
+        <div class="conditional-field">
+            <div class="form-group">
+                <label for="time_limitations_description">Time Limitations Description</label>
+                <textarea id="time_limitations_description" name="exceptions_conditions.time_limitations_description"
+                          placeholder="Describe any time limitations">{{ exceptions_conditions.timeLimitationsDescription }}</textarea>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="invalidating_conditions">Conditions That Would Invalidate This ADRT</label>
+            <textarea id="invalidating_conditions" name="exceptions_conditions.invalidating_conditions"
+                      placeholder="Describe any conditions or changes that would invalidate this advance decision (e.g. new treatment becomes available)">{{ exceptions_conditions.invalidatingConditions }}</textarea>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinician Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>Clinician Dashboard</h1>
+    <a href="/" class="btn btn-primary">New ADRT</a>
+</div>
+
+<form method="GET" action="/dashboard" class="filter-bar">
+    <div class="form-group">
+        <label for="search">Search</label>
+        <input type="text" id="search" name="search" value="{{ search }}"
+               placeholder="NHS number or name...">
+    </div>
+    <div class="form-group">
+        <label for="validity_status">Validity Status</label>
+        <select id="validity_status" name="validity_status">
+            <option value="">All</option>
+            <option value="draft" {% if validity_status == "draft" %}selected{% endif %}>Draft</option>
+            <option value="complete" {% if validity_status == "complete" %}selected{% endif %}>Complete</option>
+            <option value="valid" {% if validity_status == "valid" %}selected{% endif %}>Valid</option>
+            <option value="invalid" {% if validity_status == "invalid" %}selected{% endif %}>Invalid</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="life_sustaining">Life-Sustaining</label>
+        <select id="life_sustaining" name="life_sustaining">
+            <option value="">All</option>
+            <option value="yes" {% if life_sustaining == "yes" %}selected{% endif %}>Yes</option>
+            <option value="no" {% if life_sustaining == "no" %}selected{% endif %}>No</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="witnessed">Witnessed</label>
+        <select id="witnessed" name="witnessed">
+            <option value="">All</option>
+            <option value="yes" {% if witnessed == "yes" %}selected{% endif %}>Yes</option>
+            <option value="no" {% if witnessed == "no" %}selected{% endif %}>No</option>
+        </select>
+    </div>
+    <div class="form-group" style="display: flex; gap: 0.5rem; align-items: flex-end;">
+        <button type="submit" class="btn btn-primary">Filter</button>
+        <a href="/dashboard" class="btn btn-secondary">Clear</a>
+    </div>
+</form>
+
+<p class="total-count">Showing {{ total }} completed assessment{% if total != 1 %}s{% endif %}.</p>
+
+{% if total > 0 %}
+<table class="patient-table">
+    <thead>
+        <tr>
+            <th>NHS Number</th>
+            <th>Patient Name</th>
+            <th>Validity Status</th>
+            <th>Life-Sustaining</th>
+            <th>Witnessed</th>
+            <th>Review Date</th>
+            <th>LPA Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for patient in patients %}
+        <tr>
+            <td><a href="/assessment/{{ patient.id }}/report">{{ patient.nhsNumber }}</a></td>
+            <td>{{ patient.patientName }}</td>
+            <td><span class="validity-badge validity-{{ patient.validityStatus }}" style="font-size: 0.75rem; padding: 0.15rem 0.5rem;">{{ patient.validityStatus }}</span></td>
+            <td>
+                {% if patient.lifeSustainingRefusal %}
+                    <span class="badge badge-yes">Yes</span>
+                {% else %}
+                    <span class="badge badge-no">No</span>
+                {% endif %}
+            </td>
+            <td>
+                {% if patient.witnessed %}
+                    <span class="badge badge-no">Yes</span>
+                {% else %}
+                    <span class="badge badge-yes">No</span>
+                {% endif %}
+            </td>
+            <td>{{ patient.reviewDate }}</td>
+            <td>{{ patient.lpaStatus }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="card" style="text-align: center; color: var(--gray-500);">
+    <p>No completed assessments found matching your filters.</p>
+</div>
+{% endif %}
+{% endblock %}

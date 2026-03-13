@@ -1,0 +1,156 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <p class="form-hint">
+        <strong>Important:</strong> Under the Mental Capacity Act 2005, refusing life-sustaining treatment
+        requires a written statement that the decision applies "even if life is at risk", plus a signature and witness.
+    </p>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <!-- CPR -->
+        <div class="treatment-card">
+            <h4>Cardiopulmonary Resuscitation (CPR)</h4>
+            <div class="form-group">
+                <label>Refuse this treatment?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="treatments_refused_life_sustaining.cpr.refused" value="yes" {% if treatments_refused_life_sustaining.cpr.refused == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="treatments_refused_life_sustaining.cpr.refused" value="no" {% if treatments_refused_life_sustaining.cpr.refused == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+            {% if treatments_refused_life_sustaining.cpr.refused == "yes" %}
+            <div class="conditional-field">
+                <div class="form-group">
+                    <label>Even if your life is at risk?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="treatments_refused_life_sustaining.cpr.even_if_life_at_risk" value="yes" {% if treatments_refused_life_sustaining.cpr.evenIfLifeAtRisk == "yes" %}checked{% endif %}> Yes</label>
+                        <label><input type="radio" name="treatments_refused_life_sustaining.cpr.even_if_life_at_risk" value="no" {% if treatments_refused_life_sustaining.cpr.evenIfLifeAtRisk == "no" %}checked{% endif %}> No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Specification</label>
+                    <textarea name="treatments_refused_life_sustaining.cpr.specification"
+                              placeholder="Specify any conditions for this refusal">{{ treatments_refused_life_sustaining.cpr.specification }}</textarea>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Mechanical Ventilation -->
+        <div class="treatment-card">
+            <h4>Mechanical Ventilation</h4>
+            <div class="form-group">
+                <label>Refuse this treatment?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="treatments_refused_life_sustaining.mechanical_ventilation.refused" value="yes" {% if treatments_refused_life_sustaining.mechanicalVentilation.refused == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="treatments_refused_life_sustaining.mechanical_ventilation.refused" value="no" {% if treatments_refused_life_sustaining.mechanicalVentilation.refused == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+            {% if treatments_refused_life_sustaining.mechanicalVentilation.refused == "yes" %}
+            <div class="conditional-field">
+                <div class="form-group">
+                    <label>Even if your life is at risk?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="treatments_refused_life_sustaining.mechanical_ventilation.even_if_life_at_risk" value="yes" {% if treatments_refused_life_sustaining.mechanicalVentilation.evenIfLifeAtRisk == "yes" %}checked{% endif %}> Yes</label>
+                        <label><input type="radio" name="treatments_refused_life_sustaining.mechanical_ventilation.even_if_life_at_risk" value="no" {% if treatments_refused_life_sustaining.mechanicalVentilation.evenIfLifeAtRisk == "no" %}checked{% endif %}> No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Specification</label>
+                    <textarea name="treatments_refused_life_sustaining.mechanical_ventilation.specification"
+                              placeholder="Specify any conditions for this refusal">{{ treatments_refused_life_sustaining.mechanicalVentilation.specification }}</textarea>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Artificial Nutrition/Hydration -->
+        <div class="treatment-card">
+            <h4>Artificial Nutrition and Hydration</h4>
+            <div class="form-group">
+                <label>Refuse this treatment?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="treatments_refused_life_sustaining.artificial_nutrition_hydration.refused" value="yes" {% if treatments_refused_life_sustaining.artificialNutritionHydration.refused == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="treatments_refused_life_sustaining.artificial_nutrition_hydration.refused" value="no" {% if treatments_refused_life_sustaining.artificialNutritionHydration.refused == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+            {% if treatments_refused_life_sustaining.artificialNutritionHydration.refused == "yes" %}
+            <div class="conditional-field">
+                <div class="form-group">
+                    <label>Even if your life is at risk?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="treatments_refused_life_sustaining.artificial_nutrition_hydration.even_if_life_at_risk" value="yes" {% if treatments_refused_life_sustaining.artificialNutritionHydration.evenIfLifeAtRisk == "yes" %}checked{% endif %}> Yes</label>
+                        <label><input type="radio" name="treatments_refused_life_sustaining.artificial_nutrition_hydration.even_if_life_at_risk" value="no" {% if treatments_refused_life_sustaining.artificialNutritionHydration.evenIfLifeAtRisk == "no" %}checked{% endif %}> No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Specification</label>
+                    <textarea name="treatments_refused_life_sustaining.artificial_nutrition_hydration.specification"
+                              placeholder="Specify any conditions for this refusal">{{ treatments_refused_life_sustaining.artificialNutritionHydration.specification }}</textarea>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Other life-sustaining treatments -->
+        {% for treatment in treatments_refused_life_sustaining.otherLifeSustaining %}
+        <div class="dynamic-list-item">
+            <div class="form-group">
+                <label>Other Life-Sustaining Treatment</label>
+                <input type="text" name="other_life_sustaining[{{ loop.index0 }}].treatment" value="{{ treatment.treatment }}">
+            </div>
+            <div class="form-group">
+                <label>Refuse?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="other_life_sustaining[{{ loop.index0 }}].refused" value="yes" {% if treatment.refused == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="other_life_sustaining[{{ loop.index0 }}].refused" value="no" {% if treatment.refused == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Even if life at risk?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="other_life_sustaining[{{ loop.index0 }}].even_if_life_at_risk" value="yes" {% if treatment.evenIfLifeAtRisk == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="other_life_sustaining[{{ loop.index0 }}].even_if_life_at_risk" value="no" {% if treatment.evenIfLifeAtRisk == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Specification</label>
+                <textarea name="other_life_sustaining[{{ loop.index0 }}].specification">{{ treatment.specification }}</textarea>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="dynamic-list-item" style="border-style: dashed;">
+            <div class="form-group">
+                <label>Add Other Life-Sustaining Treatment</label>
+                <input type="text" name="other_life_sustaining[{{ treatments_refused_life_sustaining.otherLifeSustaining | length }}].treatment" value="" placeholder="Treatment name">
+            </div>
+            <div class="form-group">
+                <label>Refuse?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="other_life_sustaining[{{ treatments_refused_life_sustaining.otherLifeSustaining | length }}].refused" value="yes"> Yes</label>
+                    <label><input type="radio" name="other_life_sustaining[{{ treatments_refused_life_sustaining.otherLifeSustaining | length }}].refused" value="no"> No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Even if life at risk?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="other_life_sustaining[{{ treatments_refused_life_sustaining.otherLifeSustaining | length }}].even_if_life_at_risk" value="yes"> Yes</label>
+                    <label><input type="radio" name="other_life_sustaining[{{ treatments_refused_life_sustaining.otherLifeSustaining | length }}].even_if_life_at_risk" value="no"> No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Specification</label>
+                <textarea name="other_life_sustaining[{{ treatments_refused_life_sustaining.otherLifeSustaining | length }}].specification" placeholder="Specify conditions"></textarea>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

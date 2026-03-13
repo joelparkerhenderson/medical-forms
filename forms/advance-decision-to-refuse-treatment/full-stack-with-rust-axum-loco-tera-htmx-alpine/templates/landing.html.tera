@@ -1,0 +1,38 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Advance Decision to Refuse Treatment - Home{% endblock %}
+
+{% block content %}
+<div class="landing">
+    <div class="card landing-card">
+        <h1>Advance Decision to Refuse Treatment</h1>
+        <p class="landing-description">
+            Complete an Advance Decision to Refuse Treatment (ADRT) under the UK Mental Capacity Act 2005.
+            This form covers 10 sections including personal information, capacity declaration, treatment
+            refusals, legal signatures, and healthcare professional review. The system will determine
+            the Validity Status (Draft / Complete / Valid / Invalid) and identify legal and safety flags.
+        </p>
+
+        <div class="landing-features">
+            <div class="feature">
+                <h3>10 Assessment Steps</h3>
+                <p>Personal info, capacity, treatments refused, LPA, and signatures</p>
+            </div>
+            <div class="feature">
+                <h3>Validity Grading</h3>
+                <p>22 rules determine legal validity status</p>
+            </div>
+            <div class="feature">
+                <h3>Safety Flags</h3>
+                <p>14 legal and safety alerts for clinical review</p>
+            </div>
+        </div>
+
+        <form method="POST" action="/assessment/new">
+            <button type="submit" class="btn btn-primary btn-lg">
+                Begin New ADRT
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

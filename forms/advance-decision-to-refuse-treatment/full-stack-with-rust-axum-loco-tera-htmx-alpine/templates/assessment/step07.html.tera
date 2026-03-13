@@ -1,0 +1,40 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <p class="form-hint">These wishes are non-binding but help clinicians understand your preferences for care.</p>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-group">
+            <label for="preferred_care_setting">Preferred Care Setting</label>
+            <textarea id="preferred_care_setting" name="other_wishes.preferred_care_setting"
+                      placeholder="Where would you prefer to receive care? (e.g. home, hospice)">{{ other_wishes.preferredCareSetting }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="comfort_measures">Comfort Measures</label>
+            <textarea id="comfort_measures" name="other_wishes.comfort_measures"
+                      placeholder="What comfort measures are important to you? (e.g. pain relief, positioning)">{{ other_wishes.comfortMeasures }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="spiritual_religious_wishes">Spiritual or Religious Wishes</label>
+            <textarea id="spiritual_religious_wishes" name="other_wishes.spiritual_religious_wishes"
+                      placeholder="Any spiritual or religious wishes for your care">{{ other_wishes.spiritualReligiousWishes }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="other_preferences">Other Preferences</label>
+            <textarea id="other_preferences" name="other_wishes.other_preferences"
+                      placeholder="Any other preferences or wishes">{{ other_wishes.otherPreferences }}</textarea>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

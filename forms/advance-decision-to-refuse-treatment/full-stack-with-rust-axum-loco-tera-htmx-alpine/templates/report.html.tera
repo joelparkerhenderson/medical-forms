@@ -1,0 +1,83 @@
+{% extends "base.html.tera" %}
+
+{% block title %}ADRT Report - {{ validity_label }}{% endblock %}
+
+{% block content %}
+<div class="report-header">
+    <h1>Advance Decision to Refuse Treatment Report</h1>
+    <div class="validity-badge validity-{{ validity_status }}">{{ validity_label }}</div>
+    <div class="validity-label">Validity Status: {{ validity_label }}</div>
+    <p style="color: var(--gray-500); font-size: 0.85rem;">
+        Assessment ID: {{ id }}<br>
+        Generated: {{ timestamp }}
+    </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+    <h2>Patient Summary</h2>
+    <div class="form-row">
+        <div>
+            <strong>Name:</strong> {{ data.personalInformation.fullLegalName }}<br>
+            <strong>Date of Birth:</strong> {{ data.personalInformation.dateOfBirth }}<br>
+            <strong>NHS Number:</strong> {{ data.personalInformation.nhsNumber }}<br>
+            <strong>GP:</strong> {{ data.personalInformation.gpName }}
+        </div>
+        <div>
+            <strong>Capacity Confirmed:</strong> {{ data.capacityDeclaration.confirmsCapacity }}<br>
+            <strong>Understands Consequences:</strong> {{ data.capacityDeclaration.understandsConsequences }}<br>
+            <strong>No Undue Influence:</strong> {{ data.capacityDeclaration.noUndueInfluence }}<br>
+            <strong>LPA:</strong> {{ data.lastingPowerOfAttorney.hasLPA }}
+        </div>
+    </div>
+</div>
+
+<!-- Safety Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+    <h2>Legal &amp; Safety Flags ({{ additional_flags | length }})</h2>
+    <div class="flags-section">
+        {% for flag in additional_flags %}
+        <div class="flag-item flag-{{ flag.priority }}">
+            <span class="flag-category">{{ flag.category }}</span>
+            <span class="flag-message">{{ flag.message }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Fired Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+    <h2>Validity Rules Triggered ({{ fired_rules | length }})</h2>
+    <table class="rules-table">
+        <thead>
+            <tr>
+                <th>Rule ID</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Severity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rule in fired_rules %}
+            <tr>
+                <td><code>{{ rule.id }}</code></td>
+                <td>{{ rule.category }}</td>
+                <td>{{ rule.description }}</td>
+                <td><span class="severity-badge severity-{{ rule.severity }}">{{ rule.severity }}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+    <a href="/" class="btn btn-primary">New ADRT</a>
+    <a href="/dashboard" class="btn btn-secondary" style="margin-left: 1rem;">View Dashboard</a>
+    <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 1rem;">Print Report</button>
+</div>
+{% endblock %}

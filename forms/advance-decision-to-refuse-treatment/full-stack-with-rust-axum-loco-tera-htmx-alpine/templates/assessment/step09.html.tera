@@ -1,0 +1,59 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <p class="form-hint">A healthcare professional review is recommended but not legally required. It strengthens the validity of the ADRT.</p>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="reviewed_by_clinician_name">Clinician Name</label>
+                <input type="text" id="reviewed_by_clinician_name" name="healthcare_professional_review.reviewed_by_clinician_name"
+                       value="{{ healthcare_professional_review.reviewedByClinicianName }}">
+            </div>
+            <div class="form-group">
+                <label for="reviewed_by_clinician_role">Clinician Role</label>
+                <input type="text" id="reviewed_by_clinician_role" name="healthcare_professional_review.reviewed_by_clinician_role"
+                       value="{{ healthcare_professional_review.reviewedByClinicianRole }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="review_date">Review Date</label>
+            <input type="date" id="review_date" name="healthcare_professional_review.review_date"
+                   value="{{ healthcare_professional_review.reviewDate }}">
+        </div>
+
+        <div class="form-group">
+            <label for="clinical_opinion_on_capacity">Clinical Opinion on Capacity</label>
+            <textarea id="clinical_opinion_on_capacity" name="healthcare_professional_review.clinical_opinion_on_capacity"
+                      placeholder="Clinician's opinion on the patient's mental capacity to make this decision">{{ healthcare_professional_review.clinicalOpinionOnCapacity }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Does the clinician have any concerns?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="healthcare_professional_review.any_concerns" value="yes" {% if healthcare_professional_review.anyConcerns == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="healthcare_professional_review.any_concerns" value="no" {% if healthcare_professional_review.anyConcerns == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% if healthcare_professional_review.anyConcerns == "yes" %}
+        <div class="conditional-field">
+            <div class="form-group">
+                <label for="concerns_details">Concerns Details</label>
+                <textarea id="concerns_details" name="healthcare_professional_review.concerns_details"
+                          placeholder="Describe any concerns about this ADRT">{{ healthcare_professional_review.concernsDetails }}</textarea>
+            </div>
+        </div>
+        {% endif %}
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}
