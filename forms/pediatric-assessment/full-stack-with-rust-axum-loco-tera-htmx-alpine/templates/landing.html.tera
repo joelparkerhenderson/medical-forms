@@ -1,0 +1,33 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Pediatric Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Pediatric Assessment</h1>
+  <p>
+    This assessment collects comprehensive information about a child's health,
+    development, and well-being. It covers birth history, growth, immunizations,
+    feeding, developmental milestones, behavior, family history, and clinical review.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive pediatric evaluation across all domains</p>
+    </div>
+    <div class="feature-card">
+      <h3>Developmental Screening</h3>
+      <p>Milestone tracking with concern-level scoring</p>
+    </div>
+    <div class="feature-card">
+      <h3>Actionable Insights</h3>
+      <p>Flagged issues for clinical follow-up</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

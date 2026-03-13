@@ -1,0 +1,79 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Pediatric Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Please provide the clinician's overall assessment and follow-up plan.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="overall_health_impression">Overall Health Impression</label>
+        <select id="overall_health_impression" name="clinical_review.overall_health_impression">
+          <option value="">-- Select --</option>
+          <option value="1" {% if clinical_review.overallHealthImpression == 1 %}selected{% endif %}>1 - Very Poor</option>
+          <option value="2" {% if clinical_review.overallHealthImpression == 2 %}selected{% endif %}>2 - Below Average</option>
+          <option value="3" {% if clinical_review.overallHealthImpression == 3 %}selected{% endif %}>3 - Average</option>
+          <option value="4" {% if clinical_review.overallHealthImpression == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if clinical_review.overallHealthImpression == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="follow_up_interval">Recommended Follow-up</label>
+        <select id="follow_up_interval" name="clinical_review.follow_up_interval">
+          <option value="">-- Select --</option>
+          <option value="1week" {% if clinical_review.followUpInterval == "1week" %}selected{% endif %}>1 Week</option>
+          <option value="2weeks" {% if clinical_review.followUpInterval == "2weeks" %}selected{% endif %}>2 Weeks</option>
+          <option value="1month" {% if clinical_review.followUpInterval == "1month" %}selected{% endif %}>1 Month</option>
+          <option value="3months" {% if clinical_review.followUpInterval == "3months" %}selected{% endif %}>3 Months</option>
+          <option value="6months" {% if clinical_review.followUpInterval == "6months" %}selected{% endif %}>6 Months</option>
+          <option value="12months" {% if clinical_review.followUpInterval == "12months" %}selected{% endif %}>12 Months (routine well-child)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="current_medications">Current Medications</label>
+        <input type="text" id="current_medications" name="clinical_review.current_medications"
+               value="{{ clinical_review.currentMedications }}"
+               placeholder="e.g. Amoxicillin, Vitamin D, or none">
+      </div>
+      <div class="form-group">
+        <label for="known_allergies">Known Allergies</label>
+        <input type="text" id="known_allergies" name="clinical_review.known_allergies"
+               value="{{ clinical_review.knownAllergies }}"
+               placeholder="e.g. Penicillin, Latex, or none">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="recent_hospitalizations">Recent Hospitalizations</label>
+        <input type="text" id="recent_hospitalizations" name="clinical_review.recent_hospitalizations"
+               value="{{ clinical_review.recentHospitalizations }}"
+               placeholder="e.g. Bronchiolitis Jan 2026, or none">
+      </div>
+      <div class="form-group">
+        <label>Specialist Referrals Needed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.specialist_referrals_needed" value="yes" {% if clinical_review.specialistReferralsNeeded == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.specialist_referrals_needed" value="no" {% if clinical_review.specialistReferralsNeeded == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_notes">Additional Clinical Notes</label>
+      <textarea id="additional_notes" name="clinical_review.additional_notes"
+                rows="4" placeholder="Any additional observations or notes...">{{ clinical_review.additionalNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

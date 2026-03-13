@@ -1,0 +1,105 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Systems Review - Pediatric Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Systems Review</h2>
+    <p class="hint">Rate the level of concern for each body system. (1 = Very Concerning, 5 = No Concerns)</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="respiratory_concerns">Respiratory</label>
+        <select id="respiratory_concerns" name="systems_review.respiratory_concerns">
+          <option value="">-- Select --</option>
+          <option value="1" {% if systems_review.respiratoryConcerns == 1 %}selected{% endif %}>1 - Very Concerning</option>
+          <option value="2" {% if systems_review.respiratoryConcerns == 2 %}selected{% endif %}>2 - Concerning</option>
+          <option value="3" {% if systems_review.respiratoryConcerns == 3 %}selected{% endif %}>3 - Mild Concern</option>
+          <option value="4" {% if systems_review.respiratoryConcerns == 4 %}selected{% endif %}>4 - Minimal Concern</option>
+          <option value="5" {% if systems_review.respiratoryConcerns == 5 %}selected{% endif %}>5 - No Concerns</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="gastrointestinal_concerns">Gastrointestinal</label>
+        <select id="gastrointestinal_concerns" name="systems_review.gastrointestinal_concerns">
+          <option value="">-- Select --</option>
+          <option value="1" {% if systems_review.gastrointestinalConcerns == 1 %}selected{% endif %}>1 - Very Concerning</option>
+          <option value="2" {% if systems_review.gastrointestinalConcerns == 2 %}selected{% endif %}>2 - Concerning</option>
+          <option value="3" {% if systems_review.gastrointestinalConcerns == 3 %}selected{% endif %}>3 - Mild Concern</option>
+          <option value="4" {% if systems_review.gastrointestinalConcerns == 4 %}selected{% endif %}>4 - Minimal Concern</option>
+          <option value="5" {% if systems_review.gastrointestinalConcerns == 5 %}selected{% endif %}>5 - No Concerns</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="skin_concerns">Skin / Dermatology</label>
+        <select id="skin_concerns" name="systems_review.skin_concerns">
+          <option value="">-- Select --</option>
+          <option value="1" {% if systems_review.skinConcerns == 1 %}selected{% endif %}>1 - Very Concerning</option>
+          <option value="2" {% if systems_review.skinConcerns == 2 %}selected{% endif %}>2 - Concerning</option>
+          <option value="3" {% if systems_review.skinConcerns == 3 %}selected{% endif %}>3 - Mild Concern</option>
+          <option value="4" {% if systems_review.skinConcerns == 4 %}selected{% endif %}>4 - Minimal Concern</option>
+          <option value="5" {% if systems_review.skinConcerns == 5 %}selected{% endif %}>5 - No Concerns</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="musculoskeletal_concerns">Musculoskeletal</label>
+        <select id="musculoskeletal_concerns" name="systems_review.musculoskeletal_concerns">
+          <option value="">-- Select --</option>
+          <option value="1" {% if systems_review.musculoskeletalConcerns == 1 %}selected{% endif %}>1 - Very Concerning</option>
+          <option value="2" {% if systems_review.musculoskeletalConcerns == 2 %}selected{% endif %}>2 - Concerning</option>
+          <option value="3" {% if systems_review.musculoskeletalConcerns == 3 %}selected{% endif %}>3 - Mild Concern</option>
+          <option value="4" {% if systems_review.musculoskeletalConcerns == 4 %}selected{% endif %}>4 - Minimal Concern</option>
+          <option value="5" {% if systems_review.musculoskeletalConcerns == 5 %}selected{% endif %}>5 - No Concerns</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="neurological_concerns">Neurological</label>
+        <select id="neurological_concerns" name="systems_review.neurological_concerns">
+          <option value="">-- Select --</option>
+          <option value="1" {% if systems_review.neurologicalConcerns == 1 %}selected{% endif %}>1 - Very Concerning</option>
+          <option value="2" {% if systems_review.neurologicalConcerns == 2 %}selected{% endif %}>2 - Concerning</option>
+          <option value="3" {% if systems_review.neurologicalConcerns == 3 %}selected{% endif %}>3 - Mild Concern</option>
+          <option value="4" {% if systems_review.neurologicalConcerns == 4 %}selected{% endif %}>4 - Minimal Concern</option>
+          <option value="5" {% if systems_review.neurologicalConcerns == 5 %}selected{% endif %}>5 - No Concerns</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="ent_concerns">ENT (Ear, Nose, Throat)</label>
+        <select id="ent_concerns" name="systems_review.ent_concerns">
+          <option value="">-- Select --</option>
+          <option value="1" {% if systems_review.entConcerns == 1 %}selected{% endif %}>1 - Very Concerning</option>
+          <option value="2" {% if systems_review.entConcerns == 2 %}selected{% endif %}>2 - Concerning</option>
+          <option value="3" {% if systems_review.entConcerns == 3 %}selected{% endif %}>3 - Mild Concern</option>
+          <option value="4" {% if systems_review.entConcerns == 4 %}selected{% endif %}>4 - Minimal Concern</option>
+          <option value="5" {% if systems_review.entConcerns == 5 %}selected{% endif %}>5 - No Concerns</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="urinary_concerns">Urinary / Genitourinary</label>
+        <select id="urinary_concerns" name="systems_review.urinary_concerns">
+          <option value="">-- Select --</option>
+          <option value="1" {% if systems_review.urinaryConcerns == 1 %}selected{% endif %}>1 - Very Concerning</option>
+          <option value="2" {% if systems_review.urinaryConcerns == 2 %}selected{% endif %}>2 - Concerning</option>
+          <option value="3" {% if systems_review.urinaryConcerns == 3 %}selected{% endif %}>3 - Mild Concern</option>
+          <option value="4" {% if systems_review.urinaryConcerns == 4 %}selected{% endif %}>4 - Minimal Concern</option>
+          <option value="5" {% if systems_review.urinaryConcerns == 5 %}selected{% endif %}>5 - No Concerns</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

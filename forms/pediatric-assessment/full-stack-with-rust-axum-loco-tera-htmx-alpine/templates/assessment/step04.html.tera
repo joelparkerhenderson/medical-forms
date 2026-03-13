@@ -1,0 +1,68 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Immunization Status - Pediatric Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Immunization Status</h2>
+    <p class="hint">Please provide information about the child's immunization history.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Are immunizations up to date?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="immunization_status.immunizations_up_to_date" value="yes" {% if immunization_status.immunizationsUpToDate == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="immunization_status.immunizations_up_to_date" value="no" {% if immunization_status.immunizationsUpToDate == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="immunization_status.immunizations_up_to_date" value="unknown" {% if immunization_status.immunizationsUpToDate == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="missing_vaccines">Missing Vaccines (if any)</label>
+        <input type="text" id="missing_vaccines" name="immunization_status.missing_vaccines"
+               value="{{ immunization_status.missingVaccines }}"
+               placeholder="e.g. MMR, Varicella or none">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Any vaccine refusal?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="immunization_status.vaccine_refusal" value="yes" {% if immunization_status.vaccineRefusal == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="immunization_status.vaccine_refusal" value="no" {% if immunization_status.vaccineRefusal == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="vaccine_refusal_reason">Reason for Refusal (if applicable)</label>
+        <input type="text" id="vaccine_refusal_reason" name="immunization_status.vaccine_refusal_reason"
+               value="{{ immunization_status.vaccineRefusalReason }}"
+               placeholder="e.g. Religious, Personal beliefs">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="last_flu_vaccine">Last Flu Vaccine</label>
+        <select id="last_flu_vaccine" name="immunization_status.last_flu_vaccine">
+          <option value="">-- Select --</option>
+          <option value="thisSeason" {% if immunization_status.lastFluVaccine == "thisSeason" %}selected{% endif %}>This Season</option>
+          <option value="lastSeason" {% if immunization_status.lastFluVaccine == "lastSeason" %}selected{% endif %}>Last Season</option>
+          <option value="moreThanOneYear" {% if immunization_status.lastFluVaccine == "moreThanOneYear" %}selected{% endif %}>More than 1 Year Ago</option>
+          <option value="never" {% if immunization_status.lastFluVaccine == "never" %}selected{% endif %}>Never</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="adverse_reactions">Adverse Reactions to Vaccines</label>
+        <input type="text" id="adverse_reactions" name="immunization_status.adverse_reactions"
+               value="{{ immunization_status.adverseReactions }}"
+               placeholder="e.g. Fever after DTaP, or none">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

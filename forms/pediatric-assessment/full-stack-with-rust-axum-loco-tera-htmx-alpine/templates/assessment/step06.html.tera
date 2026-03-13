@@ -1,0 +1,105 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Developmental Milestones - Pediatric Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Developmental Milestones</h2>
+    <p class="hint">Rate the child's developmental progress in each area. (1 = Significantly Delayed, 5 = Advanced)</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="gross_motor">Gross Motor Skills</label>
+        <select id="gross_motor" name="developmental_milestones.gross_motor">
+          <option value="">-- Select --</option>
+          <option value="1" {% if developmental_milestones.grossMotor == 1 %}selected{% endif %}>1 - Significantly Delayed</option>
+          <option value="2" {% if developmental_milestones.grossMotor == 2 %}selected{% endif %}>2 - Mildly Delayed</option>
+          <option value="3" {% if developmental_milestones.grossMotor == 3 %}selected{% endif %}>3 - Age Appropriate</option>
+          <option value="4" {% if developmental_milestones.grossMotor == 4 %}selected{% endif %}>4 - Ahead of Schedule</option>
+          <option value="5" {% if developmental_milestones.grossMotor == 5 %}selected{% endif %}>5 - Advanced</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fine_motor">Fine Motor Skills</label>
+        <select id="fine_motor" name="developmental_milestones.fine_motor">
+          <option value="">-- Select --</option>
+          <option value="1" {% if developmental_milestones.fineMotor == 1 %}selected{% endif %}>1 - Significantly Delayed</option>
+          <option value="2" {% if developmental_milestones.fineMotor == 2 %}selected{% endif %}>2 - Mildly Delayed</option>
+          <option value="3" {% if developmental_milestones.fineMotor == 3 %}selected{% endif %}>3 - Age Appropriate</option>
+          <option value="4" {% if developmental_milestones.fineMotor == 4 %}selected{% endif %}>4 - Ahead of Schedule</option>
+          <option value="5" {% if developmental_milestones.fineMotor == 5 %}selected{% endif %}>5 - Advanced</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="language_expressive">Expressive Language</label>
+        <select id="language_expressive" name="developmental_milestones.language_expressive">
+          <option value="">-- Select --</option>
+          <option value="1" {% if developmental_milestones.languageExpressive == 1 %}selected{% endif %}>1 - Significantly Delayed</option>
+          <option value="2" {% if developmental_milestones.languageExpressive == 2 %}selected{% endif %}>2 - Mildly Delayed</option>
+          <option value="3" {% if developmental_milestones.languageExpressive == 3 %}selected{% endif %}>3 - Age Appropriate</option>
+          <option value="4" {% if developmental_milestones.languageExpressive == 4 %}selected{% endif %}>4 - Ahead of Schedule</option>
+          <option value="5" {% if developmental_milestones.languageExpressive == 5 %}selected{% endif %}>5 - Advanced</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="language_receptive">Receptive Language</label>
+        <select id="language_receptive" name="developmental_milestones.language_receptive">
+          <option value="">-- Select --</option>
+          <option value="1" {% if developmental_milestones.languageReceptive == 1 %}selected{% endif %}>1 - Significantly Delayed</option>
+          <option value="2" {% if developmental_milestones.languageReceptive == 2 %}selected{% endif %}>2 - Mildly Delayed</option>
+          <option value="3" {% if developmental_milestones.languageReceptive == 3 %}selected{% endif %}>3 - Age Appropriate</option>
+          <option value="4" {% if developmental_milestones.languageReceptive == 4 %}selected{% endif %}>4 - Ahead of Schedule</option>
+          <option value="5" {% if developmental_milestones.languageReceptive == 5 %}selected{% endif %}>5 - Advanced</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="social_emotional">Social-Emotional</label>
+        <select id="social_emotional" name="developmental_milestones.social_emotional">
+          <option value="">-- Select --</option>
+          <option value="1" {% if developmental_milestones.socialEmotional == 1 %}selected{% endif %}>1 - Significantly Delayed</option>
+          <option value="2" {% if developmental_milestones.socialEmotional == 2 %}selected{% endif %}>2 - Mildly Delayed</option>
+          <option value="3" {% if developmental_milestones.socialEmotional == 3 %}selected{% endif %}>3 - Age Appropriate</option>
+          <option value="4" {% if developmental_milestones.socialEmotional == 4 %}selected{% endif %}>4 - Ahead of Schedule</option>
+          <option value="5" {% if developmental_milestones.socialEmotional == 5 %}selected{% endif %}>5 - Advanced</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cognitive">Cognitive</label>
+        <select id="cognitive" name="developmental_milestones.cognitive">
+          <option value="">-- Select --</option>
+          <option value="1" {% if developmental_milestones.cognitive == 1 %}selected{% endif %}>1 - Significantly Delayed</option>
+          <option value="2" {% if developmental_milestones.cognitive == 2 %}selected{% endif %}>2 - Mildly Delayed</option>
+          <option value="3" {% if developmental_milestones.cognitive == 3 %}selected{% endif %}>3 - Age Appropriate</option>
+          <option value="4" {% if developmental_milestones.cognitive == 4 %}selected{% endif %}>4 - Ahead of Schedule</option>
+          <option value="5" {% if developmental_milestones.cognitive == 5 %}selected{% endif %}>5 - Advanced</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="self_care">Self-Care Skills</label>
+        <select id="self_care" name="developmental_milestones.self_care">
+          <option value="">-- Select --</option>
+          <option value="1" {% if developmental_milestones.selfCare == 1 %}selected{% endif %}>1 - Significantly Delayed</option>
+          <option value="2" {% if developmental_milestones.selfCare == 2 %}selected{% endif %}>2 - Mildly Delayed</option>
+          <option value="3" {% if developmental_milestones.selfCare == 3 %}selected{% endif %}>3 - Age Appropriate</option>
+          <option value="4" {% if developmental_milestones.selfCare == 4 %}selected{% endif %}>4 - Ahead of Schedule</option>
+          <option value="5" {% if developmental_milestones.selfCare == 5 %}selected{% endif %}>5 - Advanced</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient & Parent Information - Pediatric Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient & Parent Information</h2>
+    <p class="hint">Please provide the child's details and parent/guardian contact information.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Child's Full Name</label>
+        <input type="text" id="patient_name" name="patient_parent_information.patient_name"
+               value="{{ patient_parent_information.patientName }}"
+               placeholder="e.g. Jane Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_parent_information.date_of_birth"
+               value="{{ patient_parent_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="age_months">Age Group</label>
+        <select id="age_months" name="patient_parent_information.age_months">
+          <option value="">-- Select --</option>
+          <option value="0to3" {% if patient_parent_information.ageMonths == "0to3" %}selected{% endif %}>0-3 months</option>
+          <option value="4to6" {% if patient_parent_information.ageMonths == "4to6" %}selected{% endif %}>4-6 months</option>
+          <option value="7to12" {% if patient_parent_information.ageMonths == "7to12" %}selected{% endif %}>7-12 months</option>
+          <option value="13to24" {% if patient_parent_information.ageMonths == "13to24" %}selected{% endif %}>13-24 months</option>
+          <option value="25to36" {% if patient_parent_information.ageMonths == "25to36" %}selected{% endif %}>25-36 months</option>
+          <option value="37to60" {% if patient_parent_information.ageMonths == "37to60" %}selected{% endif %}>3-5 years</option>
+          <option value="61to96" {% if patient_parent_information.ageMonths == "61to96" %}selected{% endif %}>5-8 years</option>
+          <option value="97to144" {% if patient_parent_information.ageMonths == "97to144" %}selected{% endif %}>8-12 years</option>
+          <option value="145to216" {% if patient_parent_information.ageMonths == "145to216" %}selected{% endif %}>12-18 years</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sex">Sex</label>
+        <select id="sex" name="patient_parent_information.sex">
+          <option value="">-- Select --</option>
+          <option value="male" {% if patient_parent_information.sex == "male" %}selected{% endif %}>Male</option>
+          <option value="female" {% if patient_parent_information.sex == "female" %}selected{% endif %}>Female</option>
+          <option value="other" {% if patient_parent_information.sex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="parent_guardian_name">Parent/Guardian Name</label>
+        <input type="text" id="parent_guardian_name" name="patient_parent_information.parent_guardian_name"
+               value="{{ patient_parent_information.parentGuardianName }}"
+               placeholder="e.g. John Smith">
+      </div>
+      <div class="form-group">
+        <label for="relationship">Relationship to Child</label>
+        <select id="relationship" name="patient_parent_information.relationship">
+          <option value="">-- Select --</option>
+          <option value="mother" {% if patient_parent_information.relationship == "mother" %}selected{% endif %}>Mother</option>
+          <option value="father" {% if patient_parent_information.relationship == "father" %}selected{% endif %}>Father</option>
+          <option value="guardian" {% if patient_parent_information.relationship == "guardian" %}selected{% endif %}>Legal Guardian</option>
+          <option value="grandparent" {% if patient_parent_information.relationship == "grandparent" %}selected{% endif %}>Grandparent</option>
+          <option value="other" {% if patient_parent_information.relationship == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone_number">Contact Phone Number</label>
+        <input type="tel" id="phone_number" name="patient_parent_information.phone_number"
+               value="{{ patient_parent_information.phoneNumber }}"
+               placeholder="e.g. 555-0123">
+      </div>
+      <div class="form-group">
+        <label for="pediatrician_name">Pediatrician Name</label>
+        <input type="text" id="pediatrician_name" name="patient_parent_information.pediatrician_name"
+               value="{{ patient_parent_information.pediatricianName }}"
+               placeholder="e.g. Dr Johnson">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

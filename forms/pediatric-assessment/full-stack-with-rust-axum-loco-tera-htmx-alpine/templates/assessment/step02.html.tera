@@ -1,0 +1,88 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Birth & Neonatal History - Pediatric Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Birth & Neonatal History</h2>
+    <p class="hint">Please provide details about the child's birth and neonatal period.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="gestational_age_weeks">Gestational Age (weeks)</label>
+        <input type="number" id="gestational_age_weeks" name="birth_neonatal_history.gestational_age_weeks"
+               value="{{ birth_neonatal_history.gestationalAgeWeeks }}"
+               min="20" max="44" placeholder="e.g. 39">
+      </div>
+      <div class="form-group">
+        <label for="birth_weight_grams">Birth Weight (grams)</label>
+        <input type="number" id="birth_weight_grams" name="birth_neonatal_history.birth_weight_grams"
+               value="{{ birth_neonatal_history.birthWeightGrams }}"
+               min="300" max="6000" placeholder="e.g. 3200">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="delivery_type">Delivery Type</label>
+        <select id="delivery_type" name="birth_neonatal_history.delivery_type">
+          <option value="">-- Select --</option>
+          <option value="vaginal" {% if birth_neonatal_history.deliveryType == "vaginal" %}selected{% endif %}>Vaginal</option>
+          <option value="cesarean" {% if birth_neonatal_history.deliveryType == "cesarean" %}selected{% endif %}>Cesarean Section</option>
+          <option value="assisted" {% if birth_neonatal_history.deliveryType == "assisted" %}selected{% endif %}>Assisted (Forceps/Vacuum)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="birth_complications">Birth Complications</label>
+        <select id="birth_complications" name="birth_neonatal_history.birth_complications">
+          <option value="">-- Select --</option>
+          <option value="none" {% if birth_neonatal_history.birthComplications == "none" %}selected{% endif %}>None</option>
+          <option value="minor" {% if birth_neonatal_history.birthComplications == "minor" %}selected{% endif %}>Minor</option>
+          <option value="major" {% if birth_neonatal_history.birthComplications == "major" %}selected{% endif %}>Major</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>NICU Admission</label>
+        <div class="radio-group">
+          <label><input type="radio" name="birth_neonatal_history.nicu_admission" value="yes" {% if birth_neonatal_history.nicuAdmission == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="birth_neonatal_history.nicu_admission" value="no" {% if birth_neonatal_history.nicuAdmission == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nicu_duration_days">NICU Duration</label>
+        <select id="nicu_duration_days" name="birth_neonatal_history.nicu_duration_days">
+          <option value="">-- Select --</option>
+          <option value="notApplicable" {% if birth_neonatal_history.nicuDurationDays == "notApplicable" %}selected{% endif %}>Not applicable</option>
+          <option value="lessThan3" {% if birth_neonatal_history.nicuDurationDays == "lessThan3" %}selected{% endif %}>Less than 3 days</option>
+          <option value="3to7" {% if birth_neonatal_history.nicuDurationDays == "3to7" %}selected{% endif %}>3-7 days</option>
+          <option value="8to14" {% if birth_neonatal_history.nicuDurationDays == "8to14" %}selected{% endif %}>8-14 days</option>
+          <option value="moreThan14" {% if birth_neonatal_history.nicuDurationDays == "moreThan14" %}selected{% endif %}>More than 14 days</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="apgar_score_1min">Apgar Score (1 min)</label>
+        <input type="number" id="apgar_score_1min" name="birth_neonatal_history.apgar_score_1min"
+               value="{{ birth_neonatal_history.apgarScore1min }}"
+               min="0" max="10" placeholder="0-10">
+      </div>
+      <div class="form-group">
+        <label for="apgar_score_5min">Apgar Score (5 min)</label>
+        <input type="number" id="apgar_score_5min" name="birth_neonatal_history.apgar_score_5min"
+               value="{{ birth_neonatal_history.apgarScore5min }}"
+               min="0" max="10" placeholder="0-10">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

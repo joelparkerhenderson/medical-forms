@@ -1,0 +1,115 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Assessment Report - Pediatric Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Pediatric Assessment Report</h1>
+    <span class="concern-badge concern-{{ concern_level }}">{{ concern_label }}</span>
+  </div>
+
+  <div class="score-display">{{ concern_score }}%</div>
+  <div class="score-label">Composite Health Score</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Health Impression -->
+<div class="card">
+  <h2>Overall Health Impression</h2>
+  {% if health_impression %}
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <div style="font-size: 2rem; font-weight: 700;">{{ health_impression }}/5</div>
+      <span class="concern-badge concern-{{ health_category }}">{{ health_category | capitalize }}</span>
+    </div>
+  {% else %}
+    <p style="color: var(--gray-500);">Health impression not provided.</p>
+  {% endif %}
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient Name:</strong> {{ data.patientParentInformation.patientName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Date of Birth:</strong> {{ data.patientParentInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Sex:</strong> {{ data.patientParentInformation.sex | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Pediatrician:</strong> {{ data.patientParentInformation.pediatricianName | default(value="Not provided") }}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Pediatric Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Concern Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinical Notes -->
+{% if data.clinicalReview.additionalNotes %}
+<div class="card">
+  <h2>Clinical Notes</h2>
+  <div class="form-group">
+    <p>{{ data.clinicalReview.additionalNotes }}</p>
+  </div>
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

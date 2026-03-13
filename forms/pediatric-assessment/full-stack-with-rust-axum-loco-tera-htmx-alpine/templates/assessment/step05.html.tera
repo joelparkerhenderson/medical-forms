@@ -1,0 +1,91 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Feeding & Nutrition - Pediatric Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Feeding & Nutrition</h2>
+    <p class="hint">Please provide information about the child's feeding and nutritional status.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="feeding_type">Primary Feeding Type</label>
+        <select id="feeding_type" name="feeding_nutrition.feeding_type">
+          <option value="">-- Select --</option>
+          <option value="breastfed" {% if feeding_nutrition.feedingType == "breastfed" %}selected{% endif %}>Breastfed</option>
+          <option value="formulaFed" {% if feeding_nutrition.feedingType == "formulaFed" %}selected{% endif %}>Formula Fed</option>
+          <option value="mixed" {% if feeding_nutrition.feedingType == "mixed" %}selected{% endif %}>Mixed (Breast + Formula)</option>
+          <option value="solids" {% if feeding_nutrition.feedingType == "solids" %}selected{% endif %}>Primarily Solid Foods</option>
+          <option value="familyDiet" {% if feeding_nutrition.feedingType == "familyDiet" %}selected{% endif %}>Family Diet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Any feeding difficulty?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="feeding_nutrition.feeding_difficulty" value="yes" {% if feeding_nutrition.feedingDifficulty == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="feeding_nutrition.feeding_difficulty" value="no" {% if feeding_nutrition.feedingDifficulty == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="diet_variety">Diet Variety</label>
+        <select id="diet_variety" name="feeding_nutrition.diet_variety">
+          <option value="">-- Select --</option>
+          <option value="1" {% if feeding_nutrition.dietVariety == 1 %}selected{% endif %}>1 - Very Limited</option>
+          <option value="2" {% if feeding_nutrition.dietVariety == 2 %}selected{% endif %}>2 - Limited</option>
+          <option value="3" {% if feeding_nutrition.dietVariety == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if feeding_nutrition.dietVariety == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if feeding_nutrition.dietVariety == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="daily_milk_intake">Daily Milk Intake</label>
+        <select id="daily_milk_intake" name="feeding_nutrition.daily_milk_intake">
+          <option value="">-- Select --</option>
+          <option value="none" {% if feeding_nutrition.dailyMilkIntake == "none" %}selected{% endif %}>None</option>
+          <option value="lessThan500ml" {% if feeding_nutrition.dailyMilkIntake == "lessThan500ml" %}selected{% endif %}>Less than 500ml</option>
+          <option value="500to750ml" {% if feeding_nutrition.dailyMilkIntake == "500to750ml" %}selected{% endif %}>500-750ml</option>
+          <option value="moreThan750ml" {% if feeding_nutrition.dailyMilkIntake == "moreThan750ml" %}selected{% endif %}>More than 750ml</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Vitamin Supplementation?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="feeding_nutrition.vitamin_supplementation" value="yes" {% if feeding_nutrition.vitaminSupplementation == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="feeding_nutrition.vitamin_supplementation" value="no" {% if feeding_nutrition.vitaminSupplementation == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="food_allergies">Food Allergies</label>
+        <input type="text" id="food_allergies" name="feeding_nutrition.food_allergies"
+               value="{{ feeding_nutrition.foodAllergies }}"
+               placeholder="e.g. Peanuts, Eggs, or none">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="appetite_concern">Appetite Concern Level</label>
+        <select id="appetite_concern" name="feeding_nutrition.appetite_concern">
+          <option value="">-- Select --</option>
+          <option value="1" {% if feeding_nutrition.appetiteConcern == 1 %}selected{% endif %}>1 - Very Concerning</option>
+          <option value="2" {% if feeding_nutrition.appetiteConcern == 2 %}selected{% endif %}>2 - Concerning</option>
+          <option value="3" {% if feeding_nutrition.appetiteConcern == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if feeding_nutrition.appetiteConcern == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if feeding_nutrition.appetiteConcern == 5 %}selected{% endif %}>5 - Excellent Appetite</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

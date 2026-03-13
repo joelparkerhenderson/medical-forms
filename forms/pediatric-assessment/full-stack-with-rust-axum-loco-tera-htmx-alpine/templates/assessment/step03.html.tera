@@ -1,0 +1,90 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Growth & Development - Pediatric Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Growth & Development</h2>
+    <p class="hint">Rate the child's current growth parameters. (1 = Very Low/Concerning, 5 = Excellent/On Track)</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="weight_percentile">Weight Percentile</label>
+        <select id="weight_percentile" name="growth_development.weight_percentile">
+          <option value="">-- Select --</option>
+          <option value="1" {% if growth_development.weightPercentile == 1 %}selected{% endif %}>1 - Very Low (&lt;3rd)</option>
+          <option value="2" {% if growth_development.weightPercentile == 2 %}selected{% endif %}>2 - Low (3rd-10th)</option>
+          <option value="3" {% if growth_development.weightPercentile == 3 %}selected{% endif %}>3 - Average (10th-75th)</option>
+          <option value="4" {% if growth_development.weightPercentile == 4 %}selected{% endif %}>4 - Above Average (75th-90th)</option>
+          <option value="5" {% if growth_development.weightPercentile == 5 %}selected{% endif %}>5 - High (90th+)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="height_percentile">Height Percentile</label>
+        <select id="height_percentile" name="growth_development.height_percentile">
+          <option value="">-- Select --</option>
+          <option value="1" {% if growth_development.heightPercentile == 1 %}selected{% endif %}>1 - Very Low (&lt;3rd)</option>
+          <option value="2" {% if growth_development.heightPercentile == 2 %}selected{% endif %}>2 - Low (3rd-10th)</option>
+          <option value="3" {% if growth_development.heightPercentile == 3 %}selected{% endif %}>3 - Average (10th-75th)</option>
+          <option value="4" {% if growth_development.heightPercentile == 4 %}selected{% endif %}>4 - Above Average (75th-90th)</option>
+          <option value="5" {% if growth_development.heightPercentile == 5 %}selected{% endif %}>5 - High (90th+)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="head_circumference_percentile">Head Circumference Percentile</label>
+        <select id="head_circumference_percentile" name="growth_development.head_circumference_percentile">
+          <option value="">-- Select --</option>
+          <option value="1" {% if growth_development.headCircumferencePercentile == 1 %}selected{% endif %}>1 - Very Low (&lt;3rd)</option>
+          <option value="2" {% if growth_development.headCircumferencePercentile == 2 %}selected{% endif %}>2 - Low (3rd-10th)</option>
+          <option value="3" {% if growth_development.headCircumferencePercentile == 3 %}selected{% endif %}>3 - Average (10th-75th)</option>
+          <option value="4" {% if growth_development.headCircumferencePercentile == 4 %}selected{% endif %}>4 - Above Average (75th-90th)</option>
+          <option value="5" {% if growth_development.headCircumferencePercentile == 5 %}selected{% endif %}>5 - High (90th+)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="growth_trend">Growth Trend</label>
+        <select id="growth_trend" name="growth_development.growth_trend">
+          <option value="">-- Select --</option>
+          <option value="steady" {% if growth_development.growthTrend == "steady" %}selected{% endif %}>Steady / On Track</option>
+          <option value="accelerating" {% if growth_development.growthTrend == "accelerating" %}selected{% endif %}>Accelerating</option>
+          <option value="stagnant" {% if growth_development.growthTrend == "stagnant" %}selected{% endif %}>Stagnant</option>
+          <option value="declining" {% if growth_development.growthTrend == "declining" %}selected{% endif %}>Declining</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="weight_for_length">Weight-for-Length</label>
+        <select id="weight_for_length" name="growth_development.weight_for_length">
+          <option value="">-- Select --</option>
+          <option value="1" {% if growth_development.weightForLength == 1 %}selected{% endif %}>1 - Severely Underweight</option>
+          <option value="2" {% if growth_development.weightForLength == 2 %}selected{% endif %}>2 - Underweight</option>
+          <option value="3" {% if growth_development.weightForLength == 3 %}selected{% endif %}>3 - Appropriate</option>
+          <option value="4" {% if growth_development.weightForLength == 4 %}selected{% endif %}>4 - Above Average</option>
+          <option value="5" {% if growth_development.weightForLength == 5 %}selected{% endif %}>5 - Overweight</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="bmi_percentile">BMI Percentile (if applicable)</label>
+        <select id="bmi_percentile" name="growth_development.bmi_percentile">
+          <option value="">-- Select --</option>
+          <option value="1" {% if growth_development.bmiPercentile == 1 %}selected{% endif %}>1 - Underweight (&lt;5th)</option>
+          <option value="2" {% if growth_development.bmiPercentile == 2 %}selected{% endif %}>2 - Low Normal (5th-25th)</option>
+          <option value="3" {% if growth_development.bmiPercentile == 3 %}selected{% endif %}>3 - Normal (25th-75th)</option>
+          <option value="4" {% if growth_development.bmiPercentile == 4 %}selected{% endif %}>4 - Overweight (85th-95th)</option>
+          <option value="5" {% if growth_development.bmiPercentile == 5 %}selected{% endif %}>5 - Obese (&gt;95th)</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

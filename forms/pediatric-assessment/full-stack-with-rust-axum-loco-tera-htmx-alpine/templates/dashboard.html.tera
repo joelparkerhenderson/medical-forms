@@ -1,0 +1,82 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Pediatric Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Pediatric Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, DOB, pediatrician...">
+    </div>
+    <div class="form-group">
+      <label for="concern_level">Concern Level</label>
+      <select id="concern_level" name="concern_level">
+        <option value="">All Levels</option>
+        <option value="wellChild" {% if concern_level == "wellChild" %}selected{% endif %}>Well Child</option>
+        <option value="minorConcern" {% if concern_level == "minorConcern" %}selected{% endif %}>Minor Concern</option>
+        <option value="moderateConcern" {% if concern_level == "moderateConcern" %}selected{% endif %}>Moderate Concern</option>
+        <option value="significantConcern" {% if concern_level == "significantConcern" %}selected{% endif %}>Significant Concern</option>
+        <option value="urgent" {% if concern_level == "urgent" %}selected{% endif %}>Urgent</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="age_group">Age Group</label>
+      <select id="age_group" name="age_group">
+        <option value="">All Ages</option>
+        <option value="Newborn" {% if age_group == "Newborn" %}selected{% endif %}>Newborn</option>
+        <option value="Infant" {% if age_group == "Infant" %}selected{% endif %}>Infant</option>
+        <option value="Toddler" {% if age_group == "Toddler" %}selected{% endif %}>Toddler</option>
+        <option value="Preschool" {% if age_group == "Preschool" %}selected{% endif %}>Preschool</option>
+        <option value="School Age" {% if age_group == "School Age" %}selected{% endif %}>School Age</option>
+        <option value="Adolescent" {% if age_group == "Adolescent" %}selected{% endif %}>Adolescent</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Date of Birth</th>
+      <th>Age Group</th>
+      <th>Pediatrician</th>
+      <th>Concern Level</th>
+      <th>Score</th>
+      <th>Health</th>
+      <th>Immunizations</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.dateOfBirth }}</td>
+      <td>{{ patient.ageGroup }}</td>
+      <td>{{ patient.pediatrician }}</td>
+      <td><span class="concern-badge concern-{{ patient.concernLevel }}">{{ patient.concernLevel }}</span></td>
+      <td>{{ patient.concernScore }}%</td>
+      <td><span class="concern-badge concern-{{ patient.healthCategory }}">{{ patient.healthCategory }}</span></td>
+      <td>{{ patient.immunizationStatus }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="8" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}
