@@ -1,0 +1,85 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Nutritional Assessment - Gastroenterology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Nutritional Assessment</h2>
+    <p class="hint">Record the patient's nutritional status including anthropometrics and screening scores.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="current_weight_kg">Current Weight (kg)</label>
+        <input type="number" id="current_weight_kg" name="nutritional_assessment.current_weight_kg"
+               value="{{ nutritional_assessment.currentWeightKg }}"
+               step="0.1" min="20" max="300" placeholder="e.g. 72.5">
+      </div>
+      <div class="form-group">
+        <label for="height_cm">Height (cm)</label>
+        <input type="number" id="height_cm" name="nutritional_assessment.height_cm"
+               value="{{ nutritional_assessment.heightCm }}"
+               step="0.1" min="100" max="250" placeholder="e.g. 170">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bmi">BMI (calculated or enter manually)</label>
+        <input type="number" id="bmi" name="nutritional_assessment.bmi"
+               value="{{ nutritional_assessment.bmi }}"
+               step="0.1" min="10" max="60" placeholder="e.g. 25.1">
+      </div>
+      <div class="form-group">
+        <label for="albumin_g_l">Albumin (g/L)</label>
+        <input type="number" id="albumin_g_l" name="nutritional_assessment.albumin_g_l"
+               value="{{ nutritional_assessment.albuminGL }}"
+               step="0.1" min="0" max="60" placeholder="e.g. 35.0">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="appetite_change">Appetite Change</label>
+      <select id="appetite_change" name="nutritional_assessment.appetite_change">
+        <option value="">-- Select --</option>
+        <option value="normal" {% if nutritional_assessment.appetiteChange == "normal" %}selected{% endif %}>Normal</option>
+        <option value="decreased" {% if nutritional_assessment.appetiteChange == "decreased" %}selected{% endif %}>Decreased</option>
+        <option value="increased" {% if nutritional_assessment.appetiteChange == "increased" %}selected{% endif %}>Increased</option>
+        <option value="anorexia" {% if nutritional_assessment.appetiteChange == "anorexia" %}selected{% endif %}>Anorexia (no appetite)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="dietary_restrictions">Dietary Restrictions</label>
+      <input type="text" id="dietary_restrictions" name="nutritional_assessment.dietary_restrictions"
+             value="{{ nutritional_assessment.dietaryRestrictions }}"
+             placeholder="e.g. Gluten-free, lactose-free, low FODMAP">
+    </div>
+
+    <div class="form-group">
+      <label>Using nutritional supplements?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="nutritional_assessment.nutritional_supplements" value="yes" {% if nutritional_assessment.nutritionalSupplements == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="nutritional_assessment.nutritional_supplements" value="no" {% if nutritional_assessment.nutritionalSupplements == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>MUST Screening Score (Malnutrition Universal Screening Tool)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="nutritional_assessment.must_screening_score" value="{{ i }}"
+                 {% if nutritional_assessment.mustScreeningScore == i %}checked{% endif %}>
+          <span>{% if i == 0 %}0 (Low Risk){% elif i == 1 %}1 (Medium Risk){% elif i == 2 %}2 (High Risk){% elif i == 3 %}3 (Very High){% else %}4 (Critical){% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

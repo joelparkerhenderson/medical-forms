@@ -1,0 +1,90 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Liver Assessment - Gastroenterology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Liver Assessment</h2>
+    <p class="hint">Record liver function markers and hepatic symptoms.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="alt_u_l">ALT (U/L)</label>
+        <input type="number" id="alt_u_l" name="liver_assessment.alt_u_l"
+               value="{{ liver_assessment.altUL }}"
+               step="1" min="0" max="10000" placeholder="e.g. 35">
+      </div>
+      <div class="form-group">
+        <label for="ast_u_l">AST (U/L)</label>
+        <input type="number" id="ast_u_l" name="liver_assessment.ast_u_l"
+               value="{{ liver_assessment.astUL }}"
+               step="1" min="0" max="10000" placeholder="e.g. 30">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="alp_u_l">ALP (U/L)</label>
+        <input type="number" id="alp_u_l" name="liver_assessment.alp_u_l"
+               value="{{ liver_assessment.alpUL }}"
+               step="1" min="0" max="10000" placeholder="e.g. 80">
+      </div>
+      <div class="form-group">
+        <label for="bilirubin_umol_l">Bilirubin (umol/L)</label>
+        <input type="number" id="bilirubin_umol_l" name="liver_assessment.bilirubin_umol_l"
+               value="{{ liver_assessment.bilirubinUmolL }}"
+               step="0.1" min="0" max="1000" placeholder="e.g. 15">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ggt_u_l">GGT (U/L)</label>
+        <input type="number" id="ggt_u_l" name="liver_assessment.ggt_u_l"
+               value="{{ liver_assessment.ggtUL }}"
+               step="1" min="0" max="10000" placeholder="e.g. 40">
+      </div>
+      <div class="form-group">
+        <label for="alcohol_units_per_week">Alcohol (units/week)</label>
+        <input type="number" id="alcohol_units_per_week" name="liver_assessment.alcohol_units_per_week"
+               value="{{ liver_assessment.alcoholUnitsPerWeek }}"
+               step="1" min="0" max="200" placeholder="e.g. 14">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="liver_symptoms">Liver Symptoms</label>
+      <select id="liver_symptoms" name="liver_assessment.liver_symptoms">
+        <option value="">-- Select --</option>
+        <option value="none" {% if liver_assessment.liverSymptoms == "none" %}selected{% endif %}>None</option>
+        <option value="fatigue" {% if liver_assessment.liverSymptoms == "fatigue" %}selected{% endif %}>Fatigue</option>
+        <option value="pruritus" {% if liver_assessment.liverSymptoms == "pruritus" %}selected{% endif %}>Pruritus (itching)</option>
+        <option value="rightUpperQuadrantPain" {% if liver_assessment.liverSymptoms == "rightUpperQuadrantPain" %}selected{% endif %}>Right upper quadrant pain</option>
+        <option value="multiple" {% if liver_assessment.liverSymptoms == "multiple" %}selected{% endif %}>Multiple symptoms</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Ascites?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="liver_assessment.ascites" value="yes" {% if liver_assessment.ascites == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="liver_assessment.ascites" value="no" {% if liver_assessment.ascites == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Hepatomegaly?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="liver_assessment.hepatomegaly" value="yes" {% if liver_assessment.hepatomegaly == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="liver_assessment.hepatomegaly" value="no" {% if liver_assessment.hepatomegaly == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

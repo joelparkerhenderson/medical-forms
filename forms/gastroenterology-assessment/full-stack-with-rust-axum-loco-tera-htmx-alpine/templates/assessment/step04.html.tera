@@ -1,0 +1,118 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Lower GI Symptoms - Gastroenterology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Lower GI Symptoms</h2>
+    <p class="hint">Record lower gastrointestinal symptoms including bowel habit changes and rectal symptoms.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bowel_habit_change">Bowel Habit Change</label>
+        <select id="bowel_habit_change" name="lower_gi_symptoms.bowel_habit_change">
+          <option value="">-- Select --</option>
+          <option value="none" {% if lower_gi_symptoms.bowelHabitChange == "none" %}selected{% endif %}>No Change</option>
+          <option value="diarrhoea" {% if lower_gi_symptoms.bowelHabitChange == "diarrhoea" %}selected{% endif %}>Diarrhoea</option>
+          <option value="constipation" {% if lower_gi_symptoms.bowelHabitChange == "constipation" %}selected{% endif %}>Constipation</option>
+          <option value="alternating" {% if lower_gi_symptoms.bowelHabitChange == "alternating" %}selected{% endif %}>Alternating</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="stool_frequency">Stool Frequency (per day)</label>
+        <select id="stool_frequency" name="lower_gi_symptoms.stool_frequency">
+          <option value="">-- Select --</option>
+          <option value="lessThan1" {% if lower_gi_symptoms.stoolFrequency == "lessThan1" %}selected{% endif %}>Less than 1</option>
+          <option value="1to2" {% if lower_gi_symptoms.stoolFrequency == "1to2" %}selected{% endif %}>1 - 2</option>
+          <option value="3to5" {% if lower_gi_symptoms.stoolFrequency == "3to5" %}selected{% endif %}>3 - 5</option>
+          <option value="6to10" {% if lower_gi_symptoms.stoolFrequency == "6to10" %}selected{% endif %}>6 - 10</option>
+          <option value="moreThan10" {% if lower_gi_symptoms.stoolFrequency == "moreThan10" %}selected{% endif %}>More than 10</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="stool_consistency">Stool Consistency (Bristol Stool Scale)</label>
+      <select id="stool_consistency" name="lower_gi_symptoms.stool_consistency">
+        <option value="">-- Select --</option>
+        <option value="type1" {% if lower_gi_symptoms.stoolConsistency == "type1" %}selected{% endif %}>Type 1 - Hard lumps</option>
+        <option value="type2" {% if lower_gi_symptoms.stoolConsistency == "type2" %}selected{% endif %}>Type 2 - Lumpy sausage</option>
+        <option value="type3" {% if lower_gi_symptoms.stoolConsistency == "type3" %}selected{% endif %}>Type 3 - Sausage with cracks</option>
+        <option value="type4" {% if lower_gi_symptoms.stoolConsistency == "type4" %}selected{% endif %}>Type 4 - Smooth sausage (normal)</option>
+        <option value="type5" {% if lower_gi_symptoms.stoolConsistency == "type5" %}selected{% endif %}>Type 5 - Soft blobs</option>
+        <option value="type6" {% if lower_gi_symptoms.stoolConsistency == "type6" %}selected{% endif %}>Type 6 - Mushy</option>
+        <option value="type7" {% if lower_gi_symptoms.stoolConsistency == "type7" %}selected{% endif %}>Type 7 - Watery</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Rectal bleeding?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="lower_gi_symptoms.rectal_bleeding" value="yes" {% if lower_gi_symptoms.rectalBleeding == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="lower_gi_symptoms.rectal_bleeding" value="no" {% if lower_gi_symptoms.rectalBleeding == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Rectal bleeding frequency (if present)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="lower_gi_symptoms.rectal_bleeding_frequency" value="{{ i }}"
+                 {% if lower_gi_symptoms.rectalBleedingFrequency == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Rare{% elif i == 2 %}Weekly{% elif i == 3 %}Daily{% else %}Every Stool{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Abdominal pain severity</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="lower_gi_symptoms.abdominal_pain_severity" value="{{ i }}"
+                 {% if lower_gi_symptoms.abdominalPainSeverity == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Bloating severity</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="lower_gi_symptoms.bloating_severity" value="{{ i }}"
+                 {% if lower_gi_symptoms.bloatingSeverity == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Tenesmus (sensation of incomplete evacuation)?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="lower_gi_symptoms.tenesmus" value="yes" {% if lower_gi_symptoms.tenesmus == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="lower_gi_symptoms.tenesmus" value="no" {% if lower_gi_symptoms.tenesmus == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Nocturnal symptoms?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="lower_gi_symptoms.nocturnal_symptoms" value="yes" {% if lower_gi_symptoms.nocturnalSymptoms == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="lower_gi_symptoms.nocturnal_symptoms" value="no" {% if lower_gi_symptoms.nocturnalSymptoms == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

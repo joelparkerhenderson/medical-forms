@@ -1,0 +1,33 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Gastroenterology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Gastroenterology Assessment</h1>
+  <p>
+    This assessment evaluates gastrointestinal symptoms including upper and lower GI conditions,
+    alarm features, IBD activity, liver function, nutritional status, and endoscopy needs.
+    It covers conditions including IBS, IBD, GERD, coeliac disease, and liver disease.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive GI evaluation covering symptoms, investigations, and treatment</p>
+    </div>
+    <div class="feature-card">
+      <h3>Severity Scoring</h3>
+      <p>Draft, mild, moderate, severe, and alarm classifications</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated detection of alarm features and urgent referral needs</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Investigations - Gastroenterology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Investigations</h2>
+    <p class="hint">Record completed and pending investigations including blood tests, imaging, and endoscopy.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="h_pylori_test">H. pylori Test</label>
+        <select id="h_pylori_test" name="investigations.h_pylori_test">
+          <option value="">-- Select --</option>
+          <option value="done" {% if investigations.hPyloriTest == "done" %}selected{% endif %}>Done</option>
+          <option value="pending" {% if investigations.hPyloriTest == "pending" %}selected{% endif %}>Pending</option>
+          <option value="notIndicated" {% if investigations.hPyloriTest == "notIndicated" %}selected{% endif %}>Not Indicated</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="h_pylori_result">H. pylori Result</label>
+        <select id="h_pylori_result" name="investigations.h_pylori_result">
+          <option value="">-- Select --</option>
+          <option value="positive" {% if investigations.hPyloriResult == "positive" %}selected{% endif %}>Positive</option>
+          <option value="negative" {% if investigations.hPyloriResult == "negative" %}selected{% endif %}>Negative</option>
+          <option value="awaiting" {% if investigations.hPyloriResult == "awaiting" %}selected{% endif %}>Awaiting</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="coeliac_screen">Coeliac Screen (tTG antibodies)</label>
+        <select id="coeliac_screen" name="investigations.coeliac_screen">
+          <option value="">-- Select --</option>
+          <option value="done" {% if investigations.coeliacScreen == "done" %}selected{% endif %}>Done</option>
+          <option value="pending" {% if investigations.coeliacScreen == "pending" %}selected{% endif %}>Pending</option>
+          <option value="notIndicated" {% if investigations.coeliacScreen == "notIndicated" %}selected{% endif %}>Not Indicated</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="coeliac_result">Coeliac Result</label>
+        <select id="coeliac_result" name="investigations.coeliac_result">
+          <option value="">-- Select --</option>
+          <option value="positive" {% if investigations.coeliacResult == "positive" %}selected{% endif %}>Positive</option>
+          <option value="negative" {% if investigations.coeliacResult == "negative" %}selected{% endif %}>Negative</option>
+          <option value="awaiting" {% if investigations.coeliacResult == "awaiting" %}selected{% endif %}>Awaiting</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="faecal_calprotectin">Faecal Calprotectin</label>
+        <select id="faecal_calprotectin" name="investigations.faecal_calprotectin">
+          <option value="">-- Select --</option>
+          <option value="done" {% if investigations.faecalCalprotectin == "done" %}selected{% endif %}>Done</option>
+          <option value="pending" {% if investigations.faecalCalprotectin == "pending" %}selected{% endif %}>Pending</option>
+          <option value="notIndicated" {% if investigations.faecalCalprotectin == "notIndicated" %}selected{% endif %}>Not Indicated</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="faecal_calprotectin_result">Faecal Calprotectin Result</label>
+        <select id="faecal_calprotectin_result" name="investigations.faecal_calprotectin_result">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if investigations.faecalCalprotectinResult == "normal" %}selected{% endif %}>Normal (&lt;50)</option>
+          <option value="borderline" {% if investigations.faecalCalprotectinResult == "borderline" %}selected{% endif %}>Borderline (50-200)</option>
+          <option value="elevated" {% if investigations.faecalCalprotectinResult == "elevated" %}selected{% endif %}>Elevated (&gt;200)</option>
+          <option value="awaiting" {% if investigations.faecalCalprotectinResult == "awaiting" %}selected{% endif %}>Awaiting</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="imaging_performed">Imaging Performed</label>
+        <select id="imaging_performed" name="investigations.imaging_performed">
+          <option value="">-- Select --</option>
+          <option value="none" {% if investigations.imagingPerformed == "none" %}selected{% endif %}>None</option>
+          <option value="ultrasound" {% if investigations.imagingPerformed == "ultrasound" %}selected{% endif %}>Ultrasound</option>
+          <option value="ctAbdomen" {% if investigations.imagingPerformed == "ctAbdomen" %}selected{% endif %}>CT Abdomen</option>
+          <option value="mri" {% if investigations.imagingPerformed == "mri" %}selected{% endif %}>MRI</option>
+          <option value="bariumStudy" {% if investigations.imagingPerformed == "bariumStudy" %}selected{% endif %}>Barium Study</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="imaging_findings">Imaging Findings</label>
+        <input type="text" id="imaging_findings" name="investigations.imaging_findings"
+               value="{{ investigations.imagingFindings }}"
+               placeholder="e.g. Normal, gallstones, mass lesion">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="endoscopy_needed">Endoscopy Needed?</label>
+        <select id="endoscopy_needed" name="investigations.endoscopy_needed">
+          <option value="">-- Select --</option>
+          <option value="yes" {% if investigations.endoscopyNeeded == "yes" %}selected{% endif %}>Yes</option>
+          <option value="no" {% if investigations.endoscopyNeeded == "no" %}selected{% endif %}>No</option>
+          <option value="alreadyDone" {% if investigations.endoscopyNeeded == "alreadyDone" %}selected{% endif %}>Already Done</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="endoscopy_urgency">Endoscopy Urgency</label>
+        <select id="endoscopy_urgency" name="investigations.endoscopy_urgency">
+          <option value="">-- Select --</option>
+          <option value="routine" {% if investigations.endoscopyUrgency == "routine" %}selected{% endif %}>Routine</option>
+          <option value="soon" {% if investigations.endoscopyUrgency == "soon" %}selected{% endif %}>Soon (2-4 weeks)</option>
+          <option value="urgent" {% if investigations.endoscopyUrgency == "urgent" %}selected{% endif %}>Urgent (within 2 weeks)</option>
+          <option value="emergency" {% if investigations.endoscopyUrgency == "emergency" %}selected{% endif %}>Emergency (within 24h)</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

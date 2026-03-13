@@ -1,0 +1,74 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Gastroenterology Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>GI Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient name, diagnosis...">
+    </div>
+    <div class="form-group">
+      <label for="severity_level">Severity Level</label>
+      <select id="severity_level" name="severity_level">
+        <option value="">All Levels</option>
+        <option value="mild" {% if severity_level == "mild" %}selected{% endif %}>Mild</option>
+        <option value="moderate" {% if severity_level == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="severe" {% if severity_level == "severe" %}selected{% endif %}>Severe</option>
+        <option value="alarm" {% if severity_level == "alarm" %}selected{% endif %}>Alarm</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="endoscopy_needed">Endoscopy Needed</label>
+      <select id="endoscopy_needed" name="endoscopy_needed">
+        <option value="">All</option>
+        <option value="yes" {% if endoscopy_needed == "yes" %}selected{% endif %}>Yes</option>
+        <option value="no" {% if endoscopy_needed == "no" %}selected{% endif %}>No</option>
+        <option value="alreadyDone" {% if endoscopy_needed == "alreadyDone" %}selected{% endif %}>Already Done</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Primary Diagnosis</th>
+      <th>Severity</th>
+      <th>Alarm Features</th>
+      <th>Weight Change</th>
+      <th>Endoscopy Needed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.primaryDiagnosis }}</td>
+      <td><span class="severity-badge severity-{{ patient.severityLevel }}">{{ patient.severityLevel }}</span></td>
+      <td>{{ patient.alarmFeatures }}</td>
+      <td>{{ patient.weightChange }}</td>
+      <td>{{ patient.endoscopyNeeded }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

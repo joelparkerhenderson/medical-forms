@@ -1,0 +1,101 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Treatment - Gastroenterology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Treatment</h2>
+    <p class="hint">Record current medications and treatments relevant to GI conditions.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>PPI (proton pump inhibitor) use?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.ppi_use" value="yes" {% if current_treatment.ppiUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.ppi_use" value="no" {% if current_treatment.ppiUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ppi_duration">PPI Duration</label>
+        <select id="ppi_duration" name="current_treatment.ppi_duration">
+          <option value="">-- Select --</option>
+          <option value="lessThan4weeks" {% if current_treatment.ppiDuration == "lessThan4weeks" %}selected{% endif %}>Less than 4 weeks</option>
+          <option value="4to8weeks" {% if current_treatment.ppiDuration == "4to8weeks" %}selected{% endif %}>4 - 8 weeks</option>
+          <option value="2to6months" {% if current_treatment.ppiDuration == "2to6months" %}selected{% endif %}>2 - 6 months</option>
+          <option value="moreThan6months" {% if current_treatment.ppiDuration == "moreThan6months" %}selected{% endif %}>More than 6 months</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Antacid use?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.antacid_use" value="yes" {% if current_treatment.antacidUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.antacid_use" value="no" {% if current_treatment.antacidUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Laxative use?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.laxative_use" value="yes" {% if current_treatment.laxativeUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.laxative_use" value="no" {% if current_treatment.laxativeUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Antidiarrhoeal use?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.antidiarrhoeal_use" value="yes" {% if current_treatment.antidiarrhoealUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.antidiarrhoeal_use" value="no" {% if current_treatment.antidiarrhoealUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Immunosuppressant use?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.immunosuppressant_use" value="yes" {% if current_treatment.immunosuppressantUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.immunosuppressant_use" value="no" {% if current_treatment.immunosuppressantUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Biologic therapy?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.biologic_therapy" value="yes" {% if current_treatment.biologicTherapy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.biologic_therapy" value="no" {% if current_treatment.biologicTherapy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>NSAID use?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.nsaid_use" value="yes" {% if current_treatment.nsaidUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.nsaid_use" value="no" {% if current_treatment.nsaidUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Anticoagulant use?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="current_treatment.anticoagulant_use" value="yes" {% if current_treatment.anticoagulantUse == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="current_treatment.anticoagulant_use" value="no" {% if current_treatment.anticoagulantUse == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="other_medications">Other Relevant Medications</label>
+      <textarea id="other_medications" name="current_treatment.other_medications"
+                placeholder="e.g. Metformin, Prednisolone, Azathioprine">{{ current_treatment.otherMedications }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

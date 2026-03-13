@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}GI History - Gastroenterology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>GI History</h2>
+    <p class="hint">Record the patient's gastrointestinal history including family history and previous investigations.</p>
+
+    <div class="form-group">
+      <label for="previous_gi_conditions">Previous GI Conditions</label>
+      <textarea id="previous_gi_conditions" name="gi_history.previous_gi_conditions"
+                placeholder="e.g. IBS diagnosed 2020, Barrett's oesophagus">{{ gi_history.previousGiConditions }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Family history of GI cancer?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gi_history.family_cancer_history" value="yes" {% if gi_history.familyCancerHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="gi_history.family_cancer_history" value="no" {% if gi_history.familyCancerHistory == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="gi_history.family_cancer_history" value="unknown" {% if gi_history.familyCancerHistory == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="family_cancer_details">Family Cancer Details</label>
+        <input type="text" id="family_cancer_details" name="gi_history.family_cancer_details"
+               value="{{ gi_history.familyCancerDetails }}"
+               placeholder="e.g. Father - colorectal cancer age 55">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Family history of IBD?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="gi_history.family_ibd_history" value="yes" {% if gi_history.familyIbdHistory == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="gi_history.family_ibd_history" value="no" {% if gi_history.familyIbdHistory == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="gi_history.family_ibd_history" value="unknown" {% if gi_history.familyIbdHistory == "unknown" %}checked{% endif %}> Unknown</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Previous endoscopy?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gi_history.previous_endoscopy" value="yes" {% if gi_history.previousEndoscopy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="gi_history.previous_endoscopy" value="no" {% if gi_history.previousEndoscopy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="previous_endoscopy_date">Previous Endoscopy Date</label>
+        <input type="date" id="previous_endoscopy_date" name="gi_history.previous_endoscopy_date"
+               value="{{ gi_history.previousEndoscopyDate }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="previous_endoscopy_findings">Previous Endoscopy Findings</label>
+      <textarea id="previous_endoscopy_findings" name="gi_history.previous_endoscopy_findings"
+                placeholder="e.g. Normal, hiatus hernia, polyps found">{{ gi_history.previousEndoscopyFindings }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="surgical_history">GI Surgical History</label>
+      <textarea id="surgical_history" name="gi_history.surgical_history"
+                placeholder="e.g. Appendicectomy 2015, cholecystectomy 2019">{{ gi_history.surgicalHistory }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

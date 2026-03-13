@@ -1,0 +1,99 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Gastroenterology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Final clinical assessment including disease activity, quality of life impact, and follow-up planning.</p>
+
+    <div class="likert-group">
+      <label>IBD Activity Index (if applicable)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="clinical_review.ibd_activity_index" value="{{ i }}"
+                 {% if clinical_review.ibdActivityIndex == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Remission{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="symptom_duration_weeks">Symptom Duration</label>
+      <select id="symptom_duration_weeks" name="clinical_review.symptom_duration_weeks">
+        <option value="">-- Select --</option>
+        <option value="lessThan2" {% if clinical_review.symptomDurationWeeks == "lessThan2" %}selected{% endif %}>Less than 2 weeks</option>
+        <option value="2to4" {% if clinical_review.symptomDurationWeeks == "2to4" %}selected{% endif %}>2 - 4 weeks</option>
+        <option value="1to3months" {% if clinical_review.symptomDurationWeeks == "1to3months" %}selected{% endif %}>1 - 3 months</option>
+        <option value="3to6months" {% if clinical_review.symptomDurationWeeks == "3to6months" %}selected{% endif %}>3 - 6 months</option>
+        <option value="moreThan6months" {% if clinical_review.symptomDurationWeeks == "moreThan6months" %}selected{% endif %}>More than 6 months</option>
+      </select>
+    </div>
+
+    <div class="likert-group">
+      <label>Quality of Life Impact</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="clinical_review.quality_of_life_impact" value="{{ i }}"
+                 {% if clinical_review.qualityOfLifeImpact == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Debilitating{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="work_days_missed">Work/School Days Missed (last month)</label>
+        <select id="work_days_missed" name="clinical_review.work_days_missed">
+          <option value="">-- Select --</option>
+          <option value="none" {% if clinical_review.workDaysMissed == "none" %}selected{% endif %}>None</option>
+          <option value="1to3" {% if clinical_review.workDaysMissed == "1to3" %}selected{% endif %}>1 - 3 days</option>
+          <option value="4to7" {% if clinical_review.workDaysMissed == "4to7" %}selected{% endif %}>4 - 7 days</option>
+          <option value="moreThan7" {% if clinical_review.workDaysMissed == "moreThan7" %}selected{% endif %}>More than 7 days</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="mental_health_impact">Mental Health Impact</label>
+        <select id="mental_health_impact" name="clinical_review.mental_health_impact">
+          <option value="">-- Select --</option>
+          <option value="none" {% if clinical_review.mentalHealthImpact == "none" %}selected{% endif %}>None</option>
+          <option value="anxiety" {% if clinical_review.mentalHealthImpact == "anxiety" %}selected{% endif %}>Anxiety</option>
+          <option value="depression" {% if clinical_review.mentalHealthImpact == "depression" %}selected{% endif %}>Depression</option>
+          <option value="both" {% if clinical_review.mentalHealthImpact == "both" %}selected{% endif %}>Anxiety and Depression</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="smoking_status">Smoking Status</label>
+      <select id="smoking_status" name="clinical_review.smoking_status">
+        <option value="">-- Select --</option>
+        <option value="never" {% if clinical_review.smokingStatus == "never" %}selected{% endif %}>Never Smoked</option>
+        <option value="exSmoker" {% if clinical_review.smokingStatus == "exSmoker" %}selected{% endif %}>Ex-Smoker</option>
+        <option value="current" {% if clinical_review.smokingStatus == "current" %}selected{% endif %}>Current Smoker</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="clinician_notes">Clinician Notes</label>
+      <textarea id="clinician_notes" name="clinical_review.clinician_notes"
+                rows="4" placeholder="Clinical impression, differential diagnosis, management plan notes...">{{ clinical_review.clinicianNotes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="follow_up_plan">Follow-up Plan</label>
+      <textarea id="follow_up_plan" name="clinical_review.follow_up_plan"
+                rows="4" placeholder="e.g. Review in 6 weeks, repeat bloods, arrange endoscopy">{{ clinical_review.followUpPlan }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

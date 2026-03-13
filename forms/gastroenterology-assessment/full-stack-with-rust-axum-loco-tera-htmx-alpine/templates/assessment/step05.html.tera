@@ -1,0 +1,113 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Alarm Features - Gastroenterology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Alarm Features</h2>
+    <p class="hint">Record the presence of red flag symptoms that may require urgent investigation.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Unintentional weight loss?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="alarm_features.unintentional_weight_loss" value="yes" {% if alarm_features.unintentionalWeightLoss == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="alarm_features.unintentional_weight_loss" value="no" {% if alarm_features.unintentionalWeightLoss == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="weight_loss_percentage">Weight Loss Percentage</label>
+        <input type="number" id="weight_loss_percentage" name="alarm_features.weight_loss_percentage"
+               value="{{ alarm_features.weightLossPercentage }}"
+               step="0.1" min="0" max="100" placeholder="e.g. 12.5">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="weight_loss_duration">Weight Loss Duration</label>
+        <select id="weight_loss_duration" name="alarm_features.weight_loss_duration">
+          <option value="">-- Select --</option>
+          <option value="lessThan3months" {% if alarm_features.weightLossDuration == "lessThan3months" %}selected{% endif %}>Less than 3 months</option>
+          <option value="3to6months" {% if alarm_features.weightLossDuration == "3to6months" %}selected{% endif %}>3 - 6 months</option>
+          <option value="moreThan6months" {% if alarm_features.weightLossDuration == "moreThan6months" %}selected{% endif %}>More than 6 months</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Progressive dysphagia?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="alarm_features.dysphagia_present" value="yes" {% if alarm_features.dysphagiaPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="alarm_features.dysphagia_present" value="no" {% if alarm_features.dysphagiaPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>GI bleeding?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="alarm_features.gi_bleeding" value="yes" {% if alarm_features.giBleeding == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="alarm_features.gi_bleeding" value="no" {% if alarm_features.giBleeding == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="gi_bleeding_type">GI Bleeding Type</label>
+        <select id="gi_bleeding_type" name="alarm_features.gi_bleeding_type">
+          <option value="">-- Select --</option>
+          <option value="haematemesis" {% if alarm_features.giBleedingType == "haematemesis" %}selected{% endif %}>Haematemesis (vomiting blood)</option>
+          <option value="melaena" {% if alarm_features.giBleedingType == "melaena" %}selected{% endif %}>Melaena (dark tarry stools)</option>
+          <option value="freshRectal" {% if alarm_features.giBleedingType == "freshRectal" %}selected{% endif %}>Fresh rectal bleeding</option>
+          <option value="occult" {% if alarm_features.giBleedingType == "occult" %}selected{% endif %}>Occult (detected on testing)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Iron deficiency anaemia?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="alarm_features.iron_deficiency_anaemia" value="yes" {% if alarm_features.ironDeficiencyAnaemia == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="alarm_features.iron_deficiency_anaemia" value="no" {% if alarm_features.ironDeficiencyAnaemia == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Palpable abdominal mass?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="alarm_features.palpable_mass" value="yes" {% if alarm_features.palpableMass == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="alarm_features.palpable_mass" value="no" {% if alarm_features.palpableMass == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Jaundice?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="alarm_features.jaundice" value="yes" {% if alarm_features.jaundice == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="alarm_features.jaundice" value="no" {% if alarm_features.jaundice == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Unexplained fever?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="alarm_features.fever_unexplained" value="yes" {% if alarm_features.feverUnexplained == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="alarm_features.fever_unexplained" value="no" {% if alarm_features.feverUnexplained == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Age over 50 with new GI symptoms?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="alarm_features.age_over_50_new_symptoms" value="yes" {% if alarm_features.ageOver50NewSymptoms == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="alarm_features.age_over_50_new_symptoms" value="no" {% if alarm_features.ageOver50NewSymptoms == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
