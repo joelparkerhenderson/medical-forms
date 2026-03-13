@@ -1,0 +1,66 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Ergonomic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Clinician review, recommendations, and action plan.</p>
+
+    <div class="form-group">
+      <label>Previous MSD history?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clinical_review.previous_msd_history" value="yes" {% if clinical_review.previousMsdHistory == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="clinical_review.previous_msd_history" value="no" {% if clinical_review.previousMsdHistory == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="current_treatment">Current Treatment</label>
+      <textarea id="current_treatment" name="clinical_review.current_treatment"
+                placeholder="e.g. Physiotherapy, chiropractic, medication">{{ clinical_review.currentTreatment }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Taking medication for musculoskeletal pain?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clinical_review.medication_for_pain" value="yes" {% if clinical_review.medicationForPain == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="clinical_review.medication_for_pain" value="no" {% if clinical_review.medicationForPain == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Occupational health referral recommended?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clinical_review.occupational_health_referral" value="yes" {% if clinical_review.occupationalHealthReferral == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="clinical_review.occupational_health_referral" value="no" {% if clinical_review.occupationalHealthReferral == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="recommended_adjustments">Recommended Workplace Adjustments</label>
+      <textarea id="recommended_adjustments" name="clinical_review.recommended_adjustments"
+                placeholder="e.g. Adjustable desk, ergonomic chair, monitor riser, wrist rest">{{ clinical_review.recommendedAdjustments }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Follow-up required?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clinical_review.follow_up_required" value="yes" {% if clinical_review.followUpRequired == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="clinical_review.follow_up_required" value="no" {% if clinical_review.followUpRequired == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinician_comments">Clinician Comments</label>
+      <textarea id="clinician_comments" name="clinical_review.clinician_comments"
+                placeholder="Overall assessment findings and clinical notes">{{ clinical_review.clinicianComments }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

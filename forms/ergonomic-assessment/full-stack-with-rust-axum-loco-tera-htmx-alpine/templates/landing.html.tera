@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Ergonomic Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Ergonomic Assessment</h1>
+  <p>
+    This assessment evaluates workplace ergonomic risk factors including workstation setup,
+    posture, musculoskeletal symptoms, manual handling risks, and DSE (Display Screen Equipment)
+    compliance. Results guide recommendations for workplace adjustments to reduce
+    musculoskeletal disorder risk.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive workplace ergonomic evaluation</p>
+    </div>
+    <div class="feature-card">
+      <h3>Risk Scoring</h3>
+      <p>Composite risk score with RULA/REBA analysis</p>
+    </div>
+    <div class="feature-card">
+      <h3>Actionable Recommendations</h3>
+      <p>Flagged issues with workplace adjustment guidance</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

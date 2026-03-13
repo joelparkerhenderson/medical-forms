@@ -1,0 +1,100 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Environmental Factors - Ergonomic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Environmental Factors</h2>
+    <p class="hint">Rate the workplace environment (1 = Very Poor, 5 = Excellent).</p>
+
+    <div class="likert-group">
+      <label>Lighting adequate for tasks</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="environmental_factors.lighting_adequate" value="{{ i }}"
+                 {% if environmental_factors.lightingAdequate == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Adequate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Temperature comfortable</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="environmental_factors.temperature_comfortable" value="{{ i }}"
+                 {% if environmental_factors.temperatureComfortable == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Adequate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Noise level acceptable</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="environmental_factors.noise_level_acceptable" value="{{ i }}"
+                 {% if environmental_factors.noiseLevelAcceptable == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Adequate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Ventilation adequate</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="environmental_factors.ventilation_adequate" value="{{ i }}"
+                 {% if environmental_factors.ventilationAdequate == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Adequate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Space sufficient for work activities</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="environmental_factors.space_sufficient" value="{{ i }}"
+                 {% if environmental_factors.spaceSufficient == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Adequate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Floor surface safe and appropriate</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="environmental_factors.floor_surface_safe" value="{{ i }}"
+                 {% if environmental_factors.floorSurfaceSafe == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Adequate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="environmental_notes">Additional Environmental Notes</label>
+      <textarea id="environmental_notes" name="environmental_factors.environmental_notes"
+                placeholder="Any additional observations about the workplace environment">{{ environmental_factors.environmentalNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

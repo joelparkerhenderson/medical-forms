@@ -1,0 +1,81 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Occupation Details - Ergonomic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Occupation Details</h2>
+    <p class="hint">Please provide details about the patient's occupation and working arrangements.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="job_title">Job Title / Role</label>
+        <input type="text" id="job_title" name="occupation_details.job_title"
+               value="{{ occupation_details.jobTitle }}"
+               placeholder="e.g. Software Developer">
+      </div>
+      <div class="form-group">
+        <label for="department">Department</label>
+        <input type="text" id="department" name="occupation_details.department"
+               value="{{ occupation_details.department }}"
+               placeholder="e.g. IT Services">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="employer">Employer</label>
+        <input type="text" id="employer" name="occupation_details.employer"
+               value="{{ occupation_details.employer }}"
+               placeholder="e.g. Acme Corp">
+      </div>
+      <div class="form-group">
+        <label for="hours_per_week">Hours Worked Per Week</label>
+        <select id="hours_per_week" name="occupation_details.hours_per_week">
+          <option value="">-- Select --</option>
+          <option value="lessThan20" {% if occupation_details.hoursPerWeek == "lessThan20" %}selected{% endif %}>Less than 20</option>
+          <option value="20to30" {% if occupation_details.hoursPerWeek == "20to30" %}selected{% endif %}>20 - 30</option>
+          <option value="30to37" {% if occupation_details.hoursPerWeek == "30to37" %}selected{% endif %}>30 - 37</option>
+          <option value="37to40" {% if occupation_details.hoursPerWeek == "37to40" %}selected{% endif %}>37 - 40</option>
+          <option value="moreThan40" {% if occupation_details.hoursPerWeek == "moreThan40" %}selected{% endif %}>More than 40</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="shift_pattern">Shift Pattern</label>
+        <select id="shift_pattern" name="occupation_details.shift_pattern">
+          <option value="">-- Select --</option>
+          <option value="dayShift" {% if occupation_details.shiftPattern == "dayShift" %}selected{% endif %}>Day shift</option>
+          <option value="nightShift" {% if occupation_details.shiftPattern == "nightShift" %}selected{% endif %}>Night shift</option>
+          <option value="rotating" {% if occupation_details.shiftPattern == "rotating" %}selected{% endif %}>Rotating shifts</option>
+          <option value="flexible" {% if occupation_details.shiftPattern == "flexible" %}selected{% endif %}>Flexible / remote</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="years_in_role">Years in Current Role</label>
+        <select id="years_in_role" name="occupation_details.years_in_role">
+          <option value="">-- Select --</option>
+          <option value="lessThan1" {% if occupation_details.yearsInRole == "lessThan1" %}selected{% endif %}>Less than 1</option>
+          <option value="1to3" {% if occupation_details.yearsInRole == "1to3" %}selected{% endif %}>1 - 3</option>
+          <option value="3to5" {% if occupation_details.yearsInRole == "3to5" %}selected{% endif %}>3 - 5</option>
+          <option value="5to10" {% if occupation_details.yearsInRole == "5to10" %}selected{% endif %}>5 - 10</option>
+          <option value="moreThan10" {% if occupation_details.yearsInRole == "moreThan10" %}selected{% endif %}>More than 10</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="job_description">Brief Job Description</label>
+      <textarea id="job_description" name="occupation_details.job_description"
+                placeholder="Describe main tasks and physical requirements">{{ occupation_details.jobDescription }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

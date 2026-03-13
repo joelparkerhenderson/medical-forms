@@ -1,0 +1,100 @@
+{% extends "base.html.tera" %}
+
+{% block title %}DSE Assessment - Ergonomic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>DSE Assessment</h2>
+    <p class="hint">Display Screen Equipment compliance checklist per Health and Safety (Display Screen Equipment) Regulations.</p>
+
+    <div class="form-group">
+      <label>Screen is flicker-free and stable?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="dse_assessment.screen_flicker_free" value="yes" {% if dse_assessment.screenFlickerFree == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="dse_assessment.screen_flicker_free" value="no" {% if dse_assessment.screenFlickerFree == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Screen brightness is adjustable?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="dse_assessment.screen_brightness_adjustable" value="yes" {% if dse_assessment.screenBrightnessAdjustable == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="dse_assessment.screen_brightness_adjustable" value="no" {% if dse_assessment.screenBrightnessAdjustable == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Screen is free from glare and reflections?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="dse_assessment.screen_glare_free" value="yes" {% if dse_assessment.screenGlareFree == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="dse_assessment.screen_glare_free" value="no" {% if dse_assessment.screenGlareFree == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Keyboard is separate from screen?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="dse_assessment.keyboard_separate" value="yes" {% if dse_assessment.keyboardSeparate == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="dse_assessment.keyboard_separate" value="no" {% if dse_assessment.keyboardSeparate == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Keyboard is tiltable?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="dse_assessment.keyboard_tiltable" value="yes" {% if dse_assessment.keyboardTiltable == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="dse_assessment.keyboard_tiltable" value="no" {% if dse_assessment.keyboardTiltable == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Mouse is comfortable to use?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="dse_assessment.mouse_comfortable" value="yes" {% if dse_assessment.mouseComfortable == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="dse_assessment.mouse_comfortable" value="no" {% if dse_assessment.mouseComfortable == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Software is suitable for the task?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="dse_assessment.software_suitable" value="yes" {% if dse_assessment.softwareSuitable == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="dse_assessment.software_suitable" value="no" {% if dse_assessment.softwareSuitable == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="continuous_dse_hours">Continuous DSE Use (hours per day)</label>
+      <select id="continuous_dse_hours" name="dse_assessment.continuous_dse_hours">
+        <option value="">-- Select --</option>
+        <option value="lessThan2" {% if dse_assessment.continuousDseHours == "lessThan2" %}selected{% endif %}>Less than 2 hours</option>
+        <option value="2to4" {% if dse_assessment.continuousDseHours == "2to4" %}selected{% endif %}>2 - 4 hours</option>
+        <option value="4to6" {% if dse_assessment.continuousDseHours == "4to6" %}selected{% endif %}>4 - 6 hours</option>
+        <option value="6to8" {% if dse_assessment.continuousDseHours == "6to8" %}selected{% endif %}>6 - 8 hours</option>
+        <option value="moreThan8" {% if dse_assessment.continuousDseHours == "moreThan8" %}selected{% endif %}>More than 8 hours</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Eye test offered?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="dse_assessment.eye_test_offered" value="yes" {% if dse_assessment.eyeTestOffered == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="dse_assessment.eye_test_offered" value="no" {% if dse_assessment.eyeTestOffered == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>DSE training completed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="dse_assessment.dse_training_completed" value="yes" {% if dse_assessment.dseTrainingCompleted == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="dse_assessment.dse_training_completed" value="no" {% if dse_assessment.dseTrainingCompleted == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

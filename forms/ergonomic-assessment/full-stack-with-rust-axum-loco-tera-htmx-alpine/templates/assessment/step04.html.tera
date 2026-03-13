@@ -1,0 +1,115 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Posture Assessment - Ergonomic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Posture Assessment</h2>
+    <p class="hint">Rate the observed posture for each body region (1 = Severe deviation, 5 = Neutral/optimal).</p>
+
+    <div class="likert-group">
+      <label>Neck posture</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="posture_assessment.neck_posture" value="{{ i }}"
+                 {% if posture_assessment.neckPosture == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severe{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Neutral{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Shoulder posture</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="posture_assessment.shoulder_posture" value="{{ i }}"
+                 {% if posture_assessment.shoulderPosture == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severe{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Neutral{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Upper back posture</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="posture_assessment.upper_back_posture" value="{{ i }}"
+                 {% if posture_assessment.upperBackPosture == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severe{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Neutral{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Lower back posture</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="posture_assessment.lower_back_posture" value="{{ i }}"
+                 {% if posture_assessment.lowerBackPosture == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severe{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Neutral{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Wrist posture</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="posture_assessment.wrist_posture" value="{{ i }}"
+                 {% if posture_assessment.wristPosture == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severe{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Neutral{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Leg posture</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="posture_assessment.leg_posture" value="{{ i }}"
+                 {% if posture_assessment.legPosture == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severe{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Neutral{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="rula_score">RULA Score (1-7+)</label>
+        <select id="rula_score" name="posture_assessment.rula_score">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5,6,7,8,9,10] %}
+          <option value="{{ i }}" {% if posture_assessment.rulaScore == i %}selected{% endif %}>{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="reba_score">REBA Score (1-15)</label>
+        <select id="reba_score" name="posture_assessment.reba_score">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] %}
+          <option value="{{ i }}" {% if posture_assessment.rebaScore == i %}selected{% endif %}>{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

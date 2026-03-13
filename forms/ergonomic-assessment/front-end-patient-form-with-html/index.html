@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ergonomic Assessment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Ergonomic Assessment</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- ─── Landing ────────────────────────────────────── -->
+    <div id="landing" class="hero">
+      <h1>Workplace Ergonomic Assessment</h1>
+      <p>Complete this REBA (Rapid Entire Body Assessment) to evaluate your workplace ergonomic risk. The form has 10 steps covering your workstation, posture, symptoms, and recommendations.</p>
+      <div class="feature-grid">
+        <div class="feature-card"><h3>10 Steps</h3><p>Comprehensive workplace ergonomic evaluation</p></div>
+        <div class="feature-card"><h3>REBA Scoring</h3><p>Validated musculoskeletal risk assessment (1-15)</p></div>
+        <div class="feature-card"><h3>Safety Flags</h3><p>Actionable alerts for occupational health</p></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Assessment</button>
+    </div>
+
+    <!-- ─── Form ───────────────────────────────────────── -->
+    <div id="form-container" style="display:none;">
+      <div class="progress-container">
+        <div class="progress-header">
+          <span id="step-label">Step 1 of 10: Demographics</span>
+          <span id="step-percent">10%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
+      </div>
+
+      <!-- Step 1: Demographics -->
+      <section id="step-1" class="step-section active">
+        <div class="card">
+          <h2>Demographics</h2>
+          <p>Basic personal and employment information</p>
+          <div class="form-row">
+            <div class="form-group"><label>First Name <span class="required">*</span></label><input type="text" data-field="demographics.firstName"></div>
+            <div class="form-group"><label>Last Name <span class="required">*</span></label><input type="text" data-field="demographics.lastName"></div>
+          </div>
+          <div class="form-group"><label>Date of Birth <span class="required">*</span></label><input type="date" data-field="demographics.dateOfBirth"></div>
+          <div class="form-group"><label>Sex <span class="required">*</span></label>
+            <div class="radio-group">
+              <label><input type="radio" name="sex" value="male" data-field="demographics.sex"><span>Male</span></label>
+              <label><input type="radio" name="sex" value="female" data-field="demographics.sex"><span>Female</span></label>
+              <label><input type="radio" name="sex" value="other" data-field="demographics.sex"><span>Other</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Occupation <span class="required">*</span></label><input type="text" data-field="demographics.occupation"></div>
+          <div class="form-row">
+            <div class="form-group"><label>Employer</label><input type="text" data-field="demographics.employer"></div>
+            <div class="form-group"><label>Job Title <span class="required">*</span></label><input type="text" data-field="demographics.jobTitle"></div>
+          </div>
+          <div class="form-group"><label>Years in Current Role</label><input type="number" min="0" max="60" data-field="demographics.yearsInRole" data-type="number"></div>
+        </div>
+        <div class="step-nav"><span></span><button class="btn btn-primary" onclick="goToStep(2)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 2: Workstation Setup -->
+      <section id="step-2" class="step-section">
+        <div class="card">
+          <h2>Workstation Setup</h2>
+          <p>Evaluate your workstation configuration</p>
+          <div class="form-group"><label>Desk Height</label>
+            <select data-field="workstationSetup.deskHeight">
+              <option value="">-- Select --</option>
+              <option value="too-low">Too low</option>
+              <option value="correct">Correct</option>
+              <option value="too-high">Too high</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Chair Type</label>
+            <select data-field="workstationSetup.chairType">
+              <option value="">-- Select --</option>
+              <option value="fixed">Fixed (non-adjustable)</option>
+              <option value="adjustable">Adjustable office chair</option>
+              <option value="standing-desk">Standing desk / stool</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Is your chair adjustable (height, backrest, armrests)?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="chairAdj" value="yes" data-field="workstationSetup.chairAdjustability"><span>Yes</span></label>
+              <label><input type="radio" name="chairAdj" value="no" data-field="workstationSetup.chairAdjustability"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Monitor Position (distance)</label>
+            <select data-field="workstationSetup.monitorPosition">
+              <option value="">-- Select --</option>
+              <option value="too-close">Too close</option>
+              <option value="correct">Correct</option>
+              <option value="too-far">Too far</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Monitor Distance</label>
+            <select data-field="workstationSetup.monitorDistance">
+              <option value="">-- Select --</option>
+              <option value="less-than-40cm">Less than 40cm</option>
+              <option value="40-70cm">40-70cm (recommended)</option>
+              <option value="more-than-70cm">More than 70cm</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Monitor Height</label>
+            <select data-field="workstationSetup.monitorHeight">
+              <option value="">-- Select --</option>
+              <option value="below-eye-level">Below eye level</option>
+              <option value="at-eye-level">At eye level (recommended)</option>
+              <option value="above-eye-level">Above eye level</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Keyboard Placement</label>
+            <select data-field="workstationSetup.keyboardPlacement">
+              <option value="">-- Select --</option>
+              <option value="correct">Correct (elbows at 90 degrees)</option>
+              <option value="too-high">Too high</option>
+              <option value="too-far">Too far away</option>
+              <option value="angled-incorrectly">Angled incorrectly</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Mouse Placement</label>
+            <select data-field="workstationSetup.mousePlacement">
+              <option value="">-- Select --</option>
+              <option value="beside-keyboard">Beside keyboard (correct)</option>
+              <option value="too-far">Too far from keyboard</option>
+              <option value="awkward-reach">Requires awkward reach</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Lighting</label>
+            <select data-field="workstationSetup.lighting">
+              <option value="">-- Select --</option>
+              <option value="adequate">Adequate</option>
+              <option value="too-bright">Too bright</option>
+              <option value="too-dim">Too dim</option>
+              <option value="glare-present">Glare on screen</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Temperature</label>
+            <select data-field="workstationSetup.temperature">
+              <option value="">-- Select --</option>
+              <option value="comfortable">Comfortable</option>
+              <option value="too-hot">Too hot</option>
+              <option value="too-cold">Too cold</option>
+            </select>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(1)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(3)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 3: Posture Assessment -->
+      <section id="step-3" class="step-section">
+        <div class="card">
+          <h2>Posture Assessment</h2>
+          <p>REBA body region scoring</p>
+          <div class="form-group"><label>Sitting Posture</label>
+            <select data-field="postureAssessment.sittingPosture">
+              <option value="">-- Select --</option>
+              <option value="upright">Upright (good posture)</option>
+              <option value="slouched">Slouched</option>
+              <option value="leaning-forward">Leaning forward</option>
+              <option value="reclined">Reclined</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Standing Posture</label>
+            <select data-field="postureAssessment.standingPosture">
+              <option value="">-- Select --</option>
+              <option value="upright">Upright (balanced)</option>
+              <option value="leaning">Leaning to one side</option>
+              <option value="asymmetric">Asymmetric weight bearing</option>
+              <option value="not-applicable">Not applicable (seated work)</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Neck Angle</label>
+            <select data-field="postureAssessment.neckAngle">
+              <option value="">-- Select --</option>
+              <option value="neutral">Neutral (0 degrees)</option>
+              <option value="flexed-0-20">Flexed 0-20 degrees</option>
+              <option value="flexed-20-plus">Flexed >20 degrees</option>
+              <option value="extended">Extended (looking up)</option>
+              <option value="twisted">Twisted or side-bending</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Trunk Angle</label>
+            <select data-field="postureAssessment.trunkAngle">
+              <option value="">-- Select --</option>
+              <option value="neutral">Neutral (upright)</option>
+              <option value="flexed-0-20">Flexed 0-20 degrees</option>
+              <option value="flexed-20-60">Flexed 20-60 degrees</option>
+              <option value="flexed-60-plus">Flexed >60 degrees</option>
+              <option value="twisted">Twisted or side-bending</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Shoulder Position</label>
+            <select data-field="postureAssessment.shoulderPosition">
+              <option value="">-- Select --</option>
+              <option value="neutral">Neutral (relaxed)</option>
+              <option value="raised">Raised / hunched</option>
+              <option value="abducted">Abducted (arms out)</option>
+              <option value="flexed">Flexed forward</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Wrist Deviation</label>
+            <select data-field="postureAssessment.wristDeviation">
+              <option value="">-- Select --</option>
+              <option value="neutral">Neutral</option>
+              <option value="flexed">Flexed (bent down)</option>
+              <option value="extended">Extended (bent up)</option>
+              <option value="ulnar-deviated">Ulnar deviation (pinky side)</option>
+              <option value="radial-deviated">Radial deviation (thumb side)</option>
+            </select>
+          </div>
+          <div class="reba-scores-box">
+            <h3>REBA Regional Scores (optional clinician input)</h3>
+            <div class="form-row-3">
+              <div class="form-group"><label>Neck Score</label><input type="number" min="1" max="6" data-field="postureAssessment.neckScore" data-type="number"></div>
+              <div class="form-group"><label>Trunk Score</label><input type="number" min="1" max="6" data-field="postureAssessment.trunkScore" data-type="number"></div>
+              <div class="form-group"><label>Leg Score</label><input type="number" min="1" max="4" data-field="postureAssessment.legScore" data-type="number"></div>
+            </div>
+            <div class="form-row-3">
+              <div class="form-group"><label>Upper Arm Score</label><input type="number" min="1" max="6" data-field="postureAssessment.upperArmScore" data-type="number"></div>
+              <div class="form-group"><label>Lower Arm Score</label><input type="number" min="1" max="3" data-field="postureAssessment.lowerArmScore" data-type="number"></div>
+              <div class="form-group"><label>Wrist Score</label><input type="number" min="1" max="4" data-field="postureAssessment.wristScore" data-type="number"></div>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(2)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(4)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 4: Repetitive Tasks -->
+      <section id="step-4" class="step-section">
+        <div class="card">
+          <h2>Repetitive Tasks</h2>
+          <p>Tasks performed repeatedly during work</p>
+          <div class="form-group"><label>Describe the main repetitive task(s)</label><textarea rows="3" data-field="repetitiveTasks.taskDescription" placeholder="e.g., typing, mouse clicking, assembly line work..."></textarea></div>
+          <div class="form-group"><label>How often do you perform this task?</label>
+            <select data-field="repetitiveTasks.frequency">
+              <option value="">-- Select --</option>
+              <option value="rarely">Rarely (a few times per day)</option>
+              <option value="occasionally">Occasionally (several times per day)</option>
+              <option value="frequently">Frequently (most of the day)</option>
+              <option value="constantly">Constantly (almost all day)</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Duration per session</label>
+            <select data-field="repetitiveTasks.durationPerSession">
+              <option value="">-- Select --</option>
+              <option value="less-than-1hr">Less than 1 hour</option>
+              <option value="1-2hrs">1-2 hours</option>
+              <option value="2-4hrs">2-4 hours</option>
+              <option value="more-than-4hrs">More than 4 hours</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Force required for the task</label>
+            <select data-field="repetitiveTasks.forceRequired">
+              <option value="">-- Select --</option>
+              <option value="none">None / negligible</option>
+              <option value="light">Light</option>
+              <option value="moderate">Moderate</option>
+              <option value="heavy">Heavy</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Is there vibration exposure (e.g., power tools)?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="vibration" value="yes" data-field="repetitiveTasks.vibrationExposure"><span>Yes</span></label>
+              <label><input type="radio" name="vibration" value="no" data-field="repetitiveTasks.vibrationExposure"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Cycle time (seconds per repetition)</label><input type="number" min="0" max="3600" data-field="repetitiveTasks.cycleTimeSeconds" data-type="number"></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(3)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(5)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 5: Manual Handling -->
+      <section id="step-5" class="step-section">
+        <div class="card">
+          <h2>Manual Handling</h2>
+          <p>Lifting, carrying, pushing and pulling tasks</p>
+          <div class="form-group"><label>How often do you lift objects?</label>
+            <select data-field="manualHandling.liftingFrequency">
+              <option value="">-- Select --</option>
+              <option value="none">None</option>
+              <option value="occasional">Occasional (a few times per shift)</option>
+              <option value="frequent">Frequent (regularly throughout shift)</option>
+              <option value="constant">Constant (most of the shift)</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Typical load weight (kg)</label><input type="number" min="0" max="200" data-field="manualHandling.loadWeightKg" data-type="number"></div>
+            <div class="form-group"><label>Typical carry distance (metres)</label><input type="number" min="0" max="500" data-field="manualHandling.carryDistanceMetres" data-type="number"></div>
+          </div>
+          <div class="form-group"><label>Push/pull forces required</label>
+            <select data-field="manualHandling.pushPullForces">
+              <option value="">-- Select --</option>
+              <option value="none">None</option>
+              <option value="light">Light</option>
+              <option value="moderate">Moderate</option>
+              <option value="heavy">Heavy</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Is team lifting available when needed?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="teamLift" value="yes" data-field="manualHandling.teamLifting"><span>Yes</span></label>
+              <label><input type="radio" name="teamLift" value="no" data-field="manualHandling.teamLifting"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Are mechanical aids available (trolleys, hoists, etc.)?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="mechAids" value="yes" data-field="manualHandling.mechanicalAidsAvailable"><span>Yes</span></label>
+              <label><input type="radio" name="mechAids" value="no" data-field="manualHandling.mechanicalAidsAvailable"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(4)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(6)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 6: Current Symptoms -->
+      <section id="step-6" class="step-section">
+        <div class="card">
+          <h2>Current Symptoms</h2>
+          <p>Pain and discomfort you are currently experiencing</p>
+          <div class="form-group">
+            <label>Where do you experience pain or discomfort? (select all that apply)</label>
+            <div class="checkbox-group" id="pain-locations">
+              <label><input type="checkbox" value="neck"><span>Neck</span></label>
+              <label><input type="checkbox" value="upper-back"><span>Upper Back</span></label>
+              <label><input type="checkbox" value="lower-back"><span>Lower Back</span></label>
+              <label><input type="checkbox" value="left-shoulder"><span>Left Shoulder</span></label>
+              <label><input type="checkbox" value="right-shoulder"><span>Right Shoulder</span></label>
+              <label><input type="checkbox" value="left-elbow"><span>Left Elbow</span></label>
+              <label><input type="checkbox" value="right-elbow"><span>Right Elbow</span></label>
+              <label><input type="checkbox" value="left-wrist-hand"><span>Left Wrist/Hand</span></label>
+              <label><input type="checkbox" value="right-wrist-hand"><span>Right Wrist/Hand</span></label>
+              <label><input type="checkbox" value="left-hip"><span>Left Hip</span></label>
+              <label><input type="checkbox" value="right-hip"><span>Right Hip</span></label>
+              <label><input type="checkbox" value="left-knee"><span>Left Knee</span></label>
+              <label><input type="checkbox" value="right-knee"><span>Right Knee</span></label>
+              <label><input type="checkbox" value="left-ankle-foot"><span>Left Ankle/Foot</span></label>
+              <label><input type="checkbox" value="right-ankle-foot"><span>Right Ankle/Foot</span></label>
+            </div>
+          </div>
+          <div class="form-group range-container">
+            <label>Pain Severity (0 = no pain, 10 = worst possible)</label>
+            <input type="range" min="0" max="10" step="1" value="0" data-field="currentSymptoms.painSeverity" oninput="updatePainSeverity(this)">
+            <div class="range-labels">
+              <span>0 - None</span>
+              <span class="range-value" id="pain-severity-value">0</span>
+              <span>10 - Worst</span>
+            </div>
+          </div>
+          <div class="form-group"><label>When did symptoms start?</label><input type="date" data-field="currentSymptoms.onsetDate"></div>
+          <div class="form-group"><label>How long have you had these symptoms?</label>
+            <select data-field="currentSymptoms.duration">
+              <option value="">-- Select --</option>
+              <option value="less-than-1-week">Less than 1 week</option>
+              <option value="1-4-weeks">1-4 weeks</option>
+              <option value="1-3-months">1-3 months</option>
+              <option value="3-6-months">3-6 months</option>
+              <option value="more-than-6-months">More than 6 months</option>
+            </select>
+          </div>
+          <div class="form-group"><label>What makes the symptoms worse?</label><textarea rows="2" data-field="currentSymptoms.aggravatingFactors" placeholder="e.g., prolonged sitting, typing, lifting..."></textarea></div>
+          <div class="form-group"><label>What helps relieve the symptoms?</label><textarea rows="2" data-field="currentSymptoms.relievingFactors" placeholder="e.g., stretching, breaks, heat packs..."></textarea></div>
+          <div class="form-group"><label>Impact on your ability to work</label>
+            <select data-field="currentSymptoms.impactOnWork">
+              <option value="">-- Select --</option>
+              <option value="none">No impact</option>
+              <option value="mild">Mild - can work with minor discomfort</option>
+              <option value="moderate">Moderate - work is affected</option>
+              <option value="severe">Severe - significantly limited</option>
+              <option value="unable-to-work">Unable to work</option>
+            </select>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(5)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(7)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 7: Medical History -->
+      <section id="step-7" class="step-section">
+        <div class="card">
+          <h2>Medical History</h2>
+          <p>Relevant musculoskeletal and medical history</p>
+          <div class="form-group">
+            <label>Musculoskeletal conditions (select all that apply)</label>
+            <div class="checkbox-group" id="msk-conditions">
+              <label><input type="checkbox" value="osteoarthritis"><span>Osteoarthritis</span></label>
+              <label><input type="checkbox" value="rheumatoid-arthritis"><span>Rheumatoid Arthritis</span></label>
+              <label><input type="checkbox" value="fibromyalgia"><span>Fibromyalgia</span></label>
+              <label><input type="checkbox" value="disc-herniation"><span>Disc Herniation</span></label>
+              <label><input type="checkbox" value="tendinitis"><span>Tendinitis</span></label>
+              <label><input type="checkbox" value="bursitis"><span>Bursitis</span></label>
+              <label><input type="checkbox" value="scoliosis"><span>Scoliosis</span></label>
+              <label><input type="checkbox" value="osteoporosis"><span>Osteoporosis</span></label>
+              <label><input type="checkbox" value="other"><span>Other</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Previous injuries</label><textarea rows="2" data-field="medicalHistory.previousInjuries"></textarea></div>
+          <div class="form-group"><label>Surgeries</label><textarea rows="2" data-field="medicalHistory.surgeries"></textarea></div>
+          <div class="form-group"><label>Chronic pain</label>
+            <div class="radio-group">
+              <label><input type="radio" name="chronicPain" value="yes" data-field="medicalHistory.chronicPain"><span>Yes</span></label>
+              <label><input type="radio" name="chronicPain" value="no" data-field="medicalHistory.chronicPain"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>RSI / Carpal Tunnel Syndrome</label>
+            <div class="radio-group">
+              <label><input type="radio" name="rsi" value="yes" data-field="medicalHistory.rsiCarpalTunnel"><span>Yes</span></label>
+              <label><input type="radio" name="rsi" value="no" data-field="medicalHistory.rsiCarpalTunnel"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Back problems</label>
+            <div class="radio-group">
+              <label><input type="radio" name="backProbs" value="yes" data-field="medicalHistory.backProblems"><span>Yes</span></label>
+              <label><input type="radio" name="backProbs" value="no" data-field="medicalHistory.backProblems"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(6)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(8)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 8: Current Interventions -->
+      <section id="step-8" class="step-section">
+        <div class="card">
+          <h2>Current Interventions</h2>
+          <p>Ergonomic aids and treatments currently in use</p>
+          <div class="form-group">
+            <label>Ergonomic equipment in use (select all that apply)</label>
+            <div class="checkbox-group" id="ergonomic-equipment">
+              <label><input type="checkbox" value="ergonomic-chair"><span>Ergonomic Chair</span></label>
+              <label><input type="checkbox" value="standing-desk"><span>Standing Desk</span></label>
+              <label><input type="checkbox" value="monitor-arm"><span>Monitor Arm</span></label>
+              <label><input type="checkbox" value="keyboard-tray"><span>Keyboard Tray</span></label>
+              <label><input type="checkbox" value="wrist-rest"><span>Wrist Rest</span></label>
+              <label><input type="checkbox" value="footrest"><span>Footrest</span></label>
+              <label><input type="checkbox" value="document-holder"><span>Document Holder</span></label>
+              <label><input type="checkbox" value="back-support"><span>Lumbar Back Support</span></label>
+              <label><input type="checkbox" value="other"><span>Other</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Receiving physiotherapy?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="physio" value="yes" data-field="currentInterventions.physiotherapy"><span>Yes</span></label>
+              <label><input type="radio" name="physio" value="no" data-field="currentInterventions.physiotherapy"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Receiving occupational therapy?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="ot" value="yes" data-field="currentInterventions.occupationalTherapy"><span>Yes</span></label>
+              <label><input type="radio" name="ot" value="no" data-field="currentInterventions.occupationalTherapy"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Current workplace adjustments</label><textarea rows="2" data-field="currentInterventions.workplaceAdjustments" placeholder="e.g., modified duties, reduced hours, alternative tasks..."></textarea></div>
+          <div class="form-group"><label>Current medications for pain/condition</label><textarea rows="2" data-field="currentInterventions.medications" placeholder="e.g., ibuprofen, paracetamol, prescription medications..."></textarea></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(7)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(9)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 9: Psychosocial Factors -->
+      <section id="step-9" class="step-section">
+        <div class="card">
+          <h2>Psychosocial Factors</h2>
+          <p>Work environment and wellbeing factors</p>
+          <div class="form-group"><label>Job satisfaction</label>
+            <select data-field="psychosocialFactors.jobSatisfaction">
+              <option value="">-- Select --</option>
+              <option value="very-satisfied">Very satisfied</option>
+              <option value="satisfied">Satisfied</option>
+              <option value="neutral">Neutral</option>
+              <option value="dissatisfied">Dissatisfied</option>
+              <option value="very-dissatisfied">Very dissatisfied</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Workload</label>
+            <select data-field="psychosocialFactors.workload">
+              <option value="">-- Select --</option>
+              <option value="manageable">Manageable</option>
+              <option value="slightly-heavy">Slightly heavy</option>
+              <option value="heavy">Heavy</option>
+              <option value="excessive">Excessive</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Stress level</label>
+            <select data-field="psychosocialFactors.stressLevel">
+              <option value="">-- Select --</option>
+              <option value="low">Low</option>
+              <option value="moderate">Moderate</option>
+              <option value="high">High</option>
+              <option value="very-high">Very high</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Breaks taken</label>
+            <select data-field="psychosocialFactors.breaksTaken">
+              <option value="">-- Select --</option>
+              <option value="regular">Regular</option>
+              <option value="occasional">Occasional</option>
+              <option value="rarely">Rarely</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Autonomy over work</label>
+            <select data-field="psychosocialFactors.autonomy">
+              <option value="">-- Select --</option>
+              <option value="high">High</option>
+              <option value="moderate">Moderate</option>
+              <option value="low">Low</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Employer support</label>
+            <select data-field="psychosocialFactors.employerSupport">
+              <option value="">-- Select --</option>
+              <option value="excellent">Excellent</option>
+              <option value="good">Good</option>
+              <option value="fair">Fair</option>
+              <option value="poor">Poor</option>
+            </select>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(8)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(10)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 10: Recommendations & Action Plan -->
+      <section id="step-10" class="step-section">
+        <div class="card">
+          <h2>Recommendations &amp; Action Plan</h2>
+          <p>Suggested changes and follow-up actions</p>
+          <div class="form-group"><label>Equipment changes recommended</label><textarea rows="2" data-field="recommendations.equipmentChanges" placeholder="e.g., new ergonomic chair, monitor riser..."></textarea></div>
+          <div class="form-group"><label>Workstation modifications</label><textarea rows="2" data-field="recommendations.workstationModifications" placeholder="e.g., desk height adjustment, lighting changes..."></textarea></div>
+          <div class="form-group"><label>Training required</label><textarea rows="2" data-field="recommendations.trainingRequired" placeholder="e.g., manual handling training, DSE training..."></textarea></div>
+          <div class="form-group"><label>Break schedule</label><textarea rows="2" data-field="recommendations.breakSchedule" placeholder="e.g., 5-min microbreak every 30 minutes..."></textarea></div>
+          <div class="form-group"><label>Follow-up date</label><input type="date" data-field="recommendations.followUpDate"></div>
+          <div class="form-group"><label>Referrals</label><textarea rows="2" data-field="recommendations.referrals" placeholder="e.g., physiotherapy, occupational health, GP..."></textarea></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(9)">&larr; Previous</button><button class="btn btn-success" onclick="submitForm()">Submit Assessment</button></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer"><p>Ergonomic Assessment System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

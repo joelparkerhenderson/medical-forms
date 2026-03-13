@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Ergonomic Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Ergonomic Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, occupation...">
+    </div>
+    <div class="form-group">
+      <label for="risk_level">Risk Level</label>
+      <select id="risk_level" name="risk_level">
+        <option value="">All Levels</option>
+        <option value="low" {% if risk_level == "low" %}selected{% endif %}>Low</option>
+        <option value="moderate" {% if risk_level == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="high" {% if risk_level == "high" %}selected{% endif %}>High</option>
+        <option value="veryHigh" {% if risk_level == "veryHigh" %}selected{% endif %}>Very High</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="adjustment_needed">Adjustment Needed</label>
+      <select id="adjustment_needed" name="adjustment_needed">
+        <option value="">All</option>
+        <option value="Yes" {% if adjustment_needed == "Yes" %}selected{% endif %}>Yes</option>
+        <option value="No" {% if adjustment_needed == "No" %}selected{% endif %}>No</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Occupation</th>
+      <th>Risk Level</th>
+      <th>Score</th>
+      <th>Symptom Sites</th>
+      <th>DSE Compliance</th>
+      <th>Adjustment Needed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.occupation }}</td>
+      <td><span class="risk-badge risk-{{ patient.riskLevel }}">{{ patient.riskLevel }}</span></td>
+      <td>{{ patient.riskScore }}%</td>
+      <td>{{ patient.symptomCount }}</td>
+      <td>{{ patient.dseCompliance }}</td>
+      <td>{{ patient.adjustmentNeeded }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

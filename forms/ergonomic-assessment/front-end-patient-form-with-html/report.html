@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ergonomic Assessment Report</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Ergonomic Assessment</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content" id="report-content">
+    <p style="text-align:center;color:#6b7280;">Loading report...</p>
+  </main>
+
+  <footer class="footer"><p>Ergonomic Assessment System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module">
+    import { rebaScoreLabel, rebaRiskColor, rebaActionLevel } from './js/utils.js';
+
+    const dataStr = sessionStorage.getItem('ergonomicData');
+    const resultStr = sessionStorage.getItem('ergonomicResult');
+    const container = document.getElementById('report-content');
+
+    if (!dataStr || !resultStr) {
+      container.innerHTML = '<div class="card" style="text-align:center"><h2>No Assessment Data</h2><p>Please complete the ergonomic assessment first.</p><a href="index.html" class="btn btn-primary">Go to Assessment</a></div>';
+    } else {
+      const data = JSON.parse(dataStr);
+      const result = JSON.parse(resultStr);
+      renderReport(data, result);
+    }
+
+    function renderReport(data, result) {
+      const colorClass = rebaRiskColor(result.rebaScore);
+      let html = '';
+
+      // REBA Score Banner
+      html += '<div class="risk-banner ' + colorClass + '">';
+      html += '<h2>' + rebaScoreLabel(result.rebaScore) + '</h2>';
+      html += '<p>' + rebaActionLevel(result.rebaScore) + '</p>';
+      html += '</div>';
+
+      // Flagged Issues
+      if (result.additionalFlags && result.additionalFlags.length > 0) {
+        html += '<div class="card"><h2>Flagged Issues for Assessor</h2>';
+        for (const flag of result.additionalFlags) {
+          const flagClass = 'flag-' + flag.priority;
+          html += '<div class="flag-item ' + flagClass + '">';
+          html += '<div class="flag-category">' + esc(flag.category) + ' (' + flag.priority + ')</div>';
+          html += '<div class="flag-message">' + esc(flag.message) + '</div>';
+          html += '</div>';
+        }
+        html += '</div>';
+      }
+
+      // Fired Rules
+      if (result.firedRules && result.firedRules.length > 0) {
+        html += '<div class="card"><h2>REBA Rules Triggered (' + result.firedRules.length + ')</h2>';
+        html += '<table class="rules-table"><thead><tr><th>ID</th><th>System</th><th>Finding</th><th>Score</th></tr></thead><tbody>';
+        for (const rule of result.firedRules) {
+          html += '<tr><td>' + esc(rule.id) + '</td><td>' + esc(rule.system) + '</td>';
+          html += '<td>' + esc(rule.description) + '</td>';
+          html += '<td>' + rule.score + '</td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      // Patient Summary
+      html += '<div class="card"><h2>Patient Summary</h2><dl class="summary-grid">';
+      html += '<dt>Name</dt><dd>' + esc(data.demographics.firstName) + ' ' + esc(data.demographics.lastName) + '</dd>';
+      html += '<dt>Date of Birth</dt><dd>' + esc(data.demographics.dateOfBirth) + '</dd>';
+      html += '<dt>Sex</dt><dd>' + esc(data.demographics.sex) + '</dd>';
+      html += '<dt>Occupation</dt><dd>' + esc(data.demographics.occupation) + '</dd>';
+      html += '<dt>Employer</dt><dd>' + esc(data.demographics.employer) + '</dd>';
+      html += '<dt>Job Title</dt><dd>' + esc(data.demographics.jobTitle) + '</dd>';
+      html += '<dt>Years in Role</dt><dd>' + (data.demographics.yearsInRole !== null ? data.demographics.yearsInRole : 'N/A') + '</dd>';
+      html += '</dl></div>';
+
+      // Posture Summary
+      html += '<div class="card"><h2>Posture Summary</h2><dl class="summary-grid">';
+      html += '<dt>Sitting Posture</dt><dd>' + esc(data.postureAssessment.sittingPosture || 'N/A') + '</dd>';
+      html += '<dt>Standing Posture</dt><dd>' + esc(data.postureAssessment.standingPosture || 'N/A') + '</dd>';
+      html += '<dt>Neck Angle</dt><dd>' + esc(data.postureAssessment.neckAngle || 'N/A') + '</dd>';
+      html += '<dt>Trunk Angle</dt><dd>' + esc(data.postureAssessment.trunkAngle || 'N/A') + '</dd>';
+      html += '<dt>Shoulder Position</dt><dd>' + esc(data.postureAssessment.shoulderPosition || 'N/A') + '</dd>';
+      html += '<dt>Wrist Deviation</dt><dd>' + esc(data.postureAssessment.wristDeviation || 'N/A') + '</dd>';
+      html += '</dl></div>';
+
+      // Symptoms Summary
+      if (data.currentSymptoms.painLocations.length > 0 || data.currentSymptoms.painSeverity !== null) {
+        html += '<div class="card"><h2>Symptoms</h2><dl class="summary-grid">';
+        html += '<dt>Pain Locations</dt><dd>' + (data.currentSymptoms.painLocations.length > 0 ? esc(data.currentSymptoms.painLocations.join(', ')) : 'None reported') + '</dd>';
+        html += '<dt>Pain Severity</dt><dd>' + (data.currentSymptoms.painSeverity !== null ? data.currentSymptoms.painSeverity + '/10' : 'N/A') + '</dd>';
+        html += '<dt>Duration</dt><dd>' + esc(data.currentSymptoms.duration || 'N/A') + '</dd>';
+        html += '<dt>Impact on Work</dt><dd>' + esc(data.currentSymptoms.impactOnWork || 'N/A') + '</dd>';
+        html += '</dl></div>';
+      }
+
+      // Recommendations
+      const recs = data.recommendations;
+      const hasRecs = recs.equipmentChanges || recs.workstationModifications || recs.trainingRequired || recs.breakSchedule || recs.referrals;
+      if (hasRecs) {
+        html += '<div class="card"><h2>Recommendations</h2><dl class="summary-grid">';
+        if (recs.equipmentChanges) html += '<dt>Equipment Changes</dt><dd>' + esc(recs.equipmentChanges) + '</dd>';
+        if (recs.workstationModifications) html += '<dt>Workstation Modifications</dt><dd>' + esc(recs.workstationModifications) + '</dd>';
+        if (recs.trainingRequired) html += '<dt>Training Required</dt><dd>' + esc(recs.trainingRequired) + '</dd>';
+        if (recs.breakSchedule) html += '<dt>Break Schedule</dt><dd>' + esc(recs.breakSchedule) + '</dd>';
+        if (recs.followUpDate) html += '<dt>Follow-up Date</dt><dd>' + esc(recs.followUpDate) + '</dd>';
+        if (recs.referrals) html += '<dt>Referrals</dt><dd>' + esc(recs.referrals) + '</dd>';
+        html += '</dl></div>';
+      }
+
+      // Action Buttons
+      html += '<div class="action-buttons">';
+      html += '<a href="index.html" class="btn btn-primary">New Assessment</a>';
+      html += '<button class="btn btn-secondary" onclick="window.print()">Print Report</button>';
+      html += '</div>';
+
+      container.innerHTML = html;
+    }
+
+    function esc(str) {
+      const div = document.createElement('div');
+      div.textContent = str || '';
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>

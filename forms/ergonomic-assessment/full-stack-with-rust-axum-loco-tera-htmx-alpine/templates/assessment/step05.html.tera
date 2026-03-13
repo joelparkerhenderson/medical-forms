@@ -1,0 +1,149 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Musculoskeletal Symptoms - Ergonomic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Musculoskeletal Symptoms</h2>
+    <p class="hint">Rate pain/discomfort at each body site (1 = None, 5 = Severe).</p>
+
+    <div class="likert-group">
+      <label>Neck pain</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="musculoskeletal_symptoms.neck_pain" value="{{ i }}"
+                 {% if musculoskeletal_symptoms.neckPain == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Shoulder pain</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="musculoskeletal_symptoms.shoulder_pain" value="{{ i }}"
+                 {% if musculoskeletal_symptoms.shoulderPain == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Upper back pain</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="musculoskeletal_symptoms.upper_back_pain" value="{{ i }}"
+                 {% if musculoskeletal_symptoms.upperBackPain == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Lower back pain</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="musculoskeletal_symptoms.lower_back_pain" value="{{ i }}"
+                 {% if musculoskeletal_symptoms.lowerBackPain == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Wrist / hand pain</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="musculoskeletal_symptoms.wrist_hand_pain" value="{{ i }}"
+                 {% if musculoskeletal_symptoms.wristHandPain == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Elbow pain</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="musculoskeletal_symptoms.elbow_pain" value="{{ i }}"
+                 {% if musculoskeletal_symptoms.elbowPain == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Hip pain</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="musculoskeletal_symptoms.hip_pain" value="{{ i }}"
+                 {% if musculoskeletal_symptoms.hipPain == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Knee pain</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="musculoskeletal_symptoms.knee_pain" value="{{ i }}"
+                 {% if musculoskeletal_symptoms.kneePain == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="symptom_duration">Symptom Duration</label>
+        <select id="symptom_duration" name="musculoskeletal_symptoms.symptom_duration">
+          <option value="">-- Select --</option>
+          <option value="lessThan1Week" {% if musculoskeletal_symptoms.symptomDuration == "lessThan1Week" %}selected{% endif %}>Less than 1 week</option>
+          <option value="1to4Weeks" {% if musculoskeletal_symptoms.symptomDuration == "1to4Weeks" %}selected{% endif %}>1 - 4 weeks</option>
+          <option value="4to12Weeks" {% if musculoskeletal_symptoms.symptomDuration == "4to12Weeks" %}selected{% endif %}>4 - 12 weeks</option>
+          <option value="moreThan12Weeks" {% if musculoskeletal_symptoms.symptomDuration == "moreThan12Weeks" %}selected{% endif %}>More than 12 weeks</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="symptom_frequency">Symptom Frequency</label>
+        <select id="symptom_frequency" name="musculoskeletal_symptoms.symptom_frequency">
+          <option value="">-- Select --</option>
+          <option value="rarely" {% if musculoskeletal_symptoms.symptomFrequency == "rarely" %}selected{% endif %}>Rarely</option>
+          <option value="weekly" {% if musculoskeletal_symptoms.symptomFrequency == "weekly" %}selected{% endif %}>Weekly</option>
+          <option value="daily" {% if musculoskeletal_symptoms.symptomFrequency == "daily" %}selected{% endif %}>Daily</option>
+          <option value="constant" {% if musculoskeletal_symptoms.symptomFrequency == "constant" %}selected{% endif %}>Constant</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="pain_body_map_notes">Pain Body Map Notes</label>
+      <textarea id="pain_body_map_notes" name="musculoskeletal_symptoms.pain_body_map_notes"
+                placeholder="Describe pain locations, radiation patterns, aggravating factors">{{ musculoskeletal_symptoms.painBodyMapNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

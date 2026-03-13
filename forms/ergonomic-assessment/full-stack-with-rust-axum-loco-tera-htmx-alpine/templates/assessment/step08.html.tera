@@ -1,0 +1,82 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Break Patterns - Ergonomic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Break Patterns</h2>
+    <p class="hint">Assess break frequency and rest patterns during the working day.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="break_frequency">How often are breaks taken?</label>
+        <select id="break_frequency" name="break_patterns.break_frequency">
+          <option value="">-- Select --</option>
+          <option value="every30min" {% if break_patterns.breakFrequency == "every30min" %}selected{% endif %}>Every 30 minutes</option>
+          <option value="everyHour" {% if break_patterns.breakFrequency == "everyHour" %}selected{% endif %}>Every hour</option>
+          <option value="every2Hours" {% if break_patterns.breakFrequency == "every2Hours" %}selected{% endif %}>Every 2 hours</option>
+          <option value="rarely" {% if break_patterns.breakFrequency == "rarely" %}selected{% endif %}>Rarely</option>
+          <option value="never" {% if break_patterns.breakFrequency == "never" %}selected{% endif %}>Never</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="break_duration_minutes">Typical Break Duration</label>
+        <select id="break_duration_minutes" name="break_patterns.break_duration_minutes">
+          <option value="">-- Select --</option>
+          <option value="lessThan5" {% if break_patterns.breakDurationMinutes == "lessThan5" %}selected{% endif %}>Less than 5 minutes</option>
+          <option value="5to10" {% if break_patterns.breakDurationMinutes == "5to10" %}selected{% endif %}>5 - 10 minutes</option>
+          <option value="10to15" {% if break_patterns.breakDurationMinutes == "10to15" %}selected{% endif %}>10 - 15 minutes</option>
+          <option value="moreThan15" {% if break_patterns.breakDurationMinutes == "moreThan15" %}selected{% endif %}>More than 15 minutes</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Are micro-breaks taken (brief pauses to change posture)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="break_patterns.micro_breaks_taken" value="yes" {% if break_patterns.microBreaksTaken == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="break_patterns.micro_breaks_taken" value="no" {% if break_patterns.microBreaksTaken == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Are stretching exercises performed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="break_patterns.stretching_exercises" value="yes" {% if break_patterns.stretchingExercises == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="break_patterns.stretching_exercises" value="no" {% if break_patterns.stretchingExercises == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Task variety (opportunity to switch between different tasks)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="break_patterns.task_variety" value="{{ i }}"
+                 {% if break_patterns.taskVariety == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Low{% elif i == 2 %}Low{% elif i == 3 %}Moderate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Autonomy over when to take breaks</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="break_patterns.autonomy_over_breaks" value="{{ i }}"
+                 {% if break_patterns.autonomyOverBreaks == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Very Little{% elif i == 3 %}Some{% elif i == 4 %}Good{% else %}Full{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
