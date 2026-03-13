@@ -1,0 +1,121 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Continence Assessment - Gerontology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Continence Assessment</h2>
+    <p class="hint">Assess urinary and faecal continence status and their impact on quality of life.</p>
+
+    <h3>Urinary Continence</h3>
+
+    <div class="form-group">
+      <label>Urinary incontinence?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="continence_assessment.urinary_incontinence" value="yes"
+               {% if continence_assessment.urinaryIncontinence == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="continence_assessment.urinary_incontinence" value="no"
+               {% if continence_assessment.urinaryIncontinence == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Urinary frequency (more than 8 times per day)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="continence_assessment.urinary_frequency" value="yes"
+               {% if continence_assessment.urinaryFrequency == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="continence_assessment.urinary_frequency" value="no"
+               {% if continence_assessment.urinaryFrequency == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Urinary urgency?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="continence_assessment.urinary_urgency" value="yes"
+               {% if continence_assessment.urinaryUrgency == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="continence_assessment.urinary_urgency" value="no"
+               {% if continence_assessment.urinaryUrgency == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Nocturia (waking at night to urinate)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="continence_assessment.nocturia" value="yes"
+               {% if continence_assessment.nocturia == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="continence_assessment.nocturia" value="no"
+               {% if continence_assessment.nocturia == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Catheter in situ?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="continence_assessment.catheter_in_situ" value="yes"
+               {% if continence_assessment.catheterInSitu == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="continence_assessment.catheter_in_situ" value="no"
+               {% if continence_assessment.catheterInSitu == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <h3>Faecal Continence</h3>
+
+    <div class="form-group">
+      <label>Faecal incontinence?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="continence_assessment.faecal_incontinence" value="yes"
+               {% if continence_assessment.faecalIncontinence == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="continence_assessment.faecal_incontinence" value="no"
+               {% if continence_assessment.faecalIncontinence == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Constipation?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="continence_assessment.constipation" value="yes"
+               {% if continence_assessment.constipation == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="continence_assessment.constipation" value="no"
+               {% if continence_assessment.constipation == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Laxative use?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="continence_assessment.laxative_use" value="yes"
+               {% if continence_assessment.laxativeUse == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="continence_assessment.laxative_use" value="no"
+               {% if continence_assessment.laxativeUse == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Uses continence aids (pads, etc.)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="continence_assessment.continence_aids" value="yes"
+               {% if continence_assessment.continenceAids == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="continence_assessment.continence_aids" value="no"
+               {% if continence_assessment.continenceAids == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Impact of continence issues on quality of life</label>
+      <select name="continence_assessment.continence_impact_on_quality">
+        <option value="">-- Select --</option>
+        <option value="none" {% if continence_assessment.continenceImpactOnQuality == "none" %}selected{% endif %}>No Impact</option>
+        <option value="mild" {% if continence_assessment.continenceImpactOnQuality == "mild" %}selected{% endif %}>Mild Impact</option>
+        <option value="moderate" {% if continence_assessment.continenceImpactOnQuality == "moderate" %}selected{% endif %}>Moderate Impact</option>
+        <option value="significant" {% if continence_assessment.continenceImpactOnQuality == "significant" %}selected{% endif %}>Significant Impact</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

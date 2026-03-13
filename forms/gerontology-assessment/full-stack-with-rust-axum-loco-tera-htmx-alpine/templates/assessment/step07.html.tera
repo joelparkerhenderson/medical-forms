@@ -1,0 +1,205 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Mood Assessment - Gerontology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Mood Assessment</h2>
+    <p class="hint">Screen for depression using the Geriatric Depression Scale (GDS-15) and assess mood-related concerns.</p>
+
+    <h3>GDS-15 Questions</h3>
+    <p class="hint">Answer Yes or No to each question about how you have felt over the past week.</p>
+
+    <div class="gds-checklist">
+      <div class="gds-item">
+        <span class="gds-question">1. Are you basically satisfied with your life?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_satisfied_with_life" value="yes"
+                 {% if mood_assessment.gdsSatisfiedWithLife == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_satisfied_with_life" value="no"
+                 {% if mood_assessment.gdsSatisfiedWithLife == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">2. Have you dropped many of your activities and interests?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_dropped_activities" value="yes"
+                 {% if mood_assessment.gdsDroppedActivities == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_dropped_activities" value="no"
+                 {% if mood_assessment.gdsDroppedActivities == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">3. Do you feel that your life is empty?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_life_feels_empty" value="yes"
+                 {% if mood_assessment.gdsLifeFeelsEmpty == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_life_feels_empty" value="no"
+                 {% if mood_assessment.gdsLifeFeelsEmpty == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">4. Do you often get bored?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_often_bored" value="yes"
+                 {% if mood_assessment.gdsOftenBored == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_often_bored" value="no"
+                 {% if mood_assessment.gdsOftenBored == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">5. Are you in good spirits most of the time?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_good_spirits" value="yes"
+                 {% if mood_assessment.gdsGoodSpirits == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_good_spirits" value="no"
+                 {% if mood_assessment.gdsGoodSpirits == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">6. Are you afraid that something bad is going to happen to you?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_afraid_something_bad" value="yes"
+                 {% if mood_assessment.gdsAfraidSomethingBad == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_afraid_something_bad" value="no"
+                 {% if mood_assessment.gdsAfraidSomethingBad == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">7. Do you feel happy most of the time?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_feels_happy" value="yes"
+                 {% if mood_assessment.gdsFeelsHappy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_feels_happy" value="no"
+                 {% if mood_assessment.gdsFeelsHappy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">8. Do you often feel helpless?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_feels_helpless" value="yes"
+                 {% if mood_assessment.gdsFeelsHelpless == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_feels_helpless" value="no"
+                 {% if mood_assessment.gdsFeelsHelpless == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">9. Do you prefer to stay at home rather than going out?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_prefers_staying_home" value="yes"
+                 {% if mood_assessment.gdsPrefersStayingHome == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_prefers_staying_home" value="no"
+                 {% if mood_assessment.gdsPrefersStayingHome == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">10. Do you feel you have more problems with memory than most?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_memory_problems" value="yes"
+                 {% if mood_assessment.gdsMemoryProblems == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_memory_problems" value="no"
+                 {% if mood_assessment.gdsMemoryProblems == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">11. Do you think it is wonderful to be alive now?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_wonderful_to_be_alive" value="yes"
+                 {% if mood_assessment.gdsWonderfulToBeAlive == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_wonderful_to_be_alive" value="no"
+                 {% if mood_assessment.gdsWonderfulToBeAlive == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">12. Do you feel pretty worthless the way you are now?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_feels_worthless" value="yes"
+                 {% if mood_assessment.gdsFeelsWorthless == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_feels_worthless" value="no"
+                 {% if mood_assessment.gdsFeelsWorthless == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">13. Do you feel full of energy?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_feels_full_of_energy" value="yes"
+                 {% if mood_assessment.gdsFeelsFullOfEnergy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_feels_full_of_energy" value="no"
+                 {% if mood_assessment.gdsFeelsFullOfEnergy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">14. Do you feel that your situation is hopeless?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_feels_hopeless" value="yes"
+                 {% if mood_assessment.gdsFeelsHopeless == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_feels_hopeless" value="no"
+                 {% if mood_assessment.gdsFeelsHopeless == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+
+      <div class="gds-item">
+        <span class="gds-question">15. Do you think that most people are better off than you are?</span>
+        <div class="radio-group">
+          <label><input type="radio" name="mood_assessment.gds_others_better_off" value="yes"
+                 {% if mood_assessment.gdsOthersBetterOff == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="mood_assessment.gds_others_better_off" value="no"
+                 {% if mood_assessment.gdsOthersBetterOff == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <p class="hint">GDS-15 Scoring: 0-4 = Normal, 5-9 = Mild depression, 10-15 = Moderate-severe depression</p>
+
+    <h3>Additional Mood Items</h3>
+
+    <div class="form-group">
+      <label>Sleep disturbance?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="mood_assessment.sleep_disturbance" value="yes"
+               {% if mood_assessment.sleepDisturbance == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="mood_assessment.sleep_disturbance" value="no"
+               {% if mood_assessment.sleepDisturbance == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Anxiety symptoms?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="mood_assessment.anxiety_symptoms" value="yes"
+               {% if mood_assessment.anxietySymptoms == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="mood_assessment.anxiety_symptoms" value="no"
+               {% if mood_assessment.anxietySymptoms == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Social isolation?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="mood_assessment.social_isolation" value="yes"
+               {% if mood_assessment.socialIsolation == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="mood_assessment.social_isolation" value="no"
+               {% if mood_assessment.socialIsolation == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

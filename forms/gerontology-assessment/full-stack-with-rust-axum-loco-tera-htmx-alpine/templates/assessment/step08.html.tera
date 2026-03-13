@@ -1,0 +1,170 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Social Circumstances - Gerontology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Social Circumstances</h2>
+    <p class="hint">Assess the patient's living situation, carer support, and social factors.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="housing_type">Housing type</label>
+        <select id="housing_type" name="social_circumstances.housing_type">
+          <option value="">-- Select --</option>
+          <option value="house" {% if social_circumstances.housingType == "house" %}selected{% endif %}>House</option>
+          <option value="flat" {% if social_circumstances.housingType == "flat" %}selected{% endif %}>Flat/Apartment</option>
+          <option value="bungalow" {% if social_circumstances.housingType == "bungalow" %}selected{% endif %}>Bungalow</option>
+          <option value="shelteredHousing" {% if social_circumstances.housingType == "shelteredHousing" %}selected{% endif %}>Sheltered Housing</option>
+          <option value="careHome" {% if social_circumstances.housingType == "careHome" %}selected{% endif %}>Care Home</option>
+          <option value="other" {% if social_circumstances.housingType == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Housing adaptations in place?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="social_circumstances.housing_adaptations" value="yes"
+                 {% if social_circumstances.housingAdaptations == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="social_circumstances.housing_adaptations" value="no"
+                 {% if social_circumstances.housingAdaptations == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Lives alone?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="social_circumstances.lives_alone" value="yes"
+               {% if social_circumstances.livesAlone == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="social_circumstances.lives_alone" value="no"
+               {% if social_circumstances.livesAlone == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Has a primary carer?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="social_circumstances.primary_carer" value="yes"
+               {% if social_circumstances.primaryCarer == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="social_circumstances.primary_carer" value="no"
+               {% if social_circumstances.primaryCarer == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="carer_relationship">Carer relationship</label>
+        <select id="carer_relationship" name="social_circumstances.carer_relationship">
+          <option value="">-- Select --</option>
+          <option value="spouse" {% if social_circumstances.carerRelationship == "spouse" %}selected{% endif %}>Spouse/Partner</option>
+          <option value="child" {% if social_circumstances.carerRelationship == "child" %}selected{% endif %}>Son/Daughter</option>
+          <option value="sibling" {% if social_circumstances.carerRelationship == "sibling" %}selected{% endif %}>Sibling</option>
+          <option value="friend" {% if social_circumstances.carerRelationship == "friend" %}selected{% endif %}>Friend/Neighbour</option>
+          <option value="professional" {% if social_circumstances.carerRelationship == "professional" %}selected{% endif %}>Professional Carer</option>
+          <option value="other" {% if social_circumstances.carerRelationship == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Carer stress identified?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="social_circumstances.carer_stress" value="yes"
+                 {% if social_circumstances.carerStress == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="social_circumstances.carer_stress" value="no"
+                 {% if social_circumstances.carerStress == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Formal care package in place?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="social_circumstances.formal_care_package" value="yes"
+                 {% if social_circumstances.formalCarePackage == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="social_circumstances.formal_care_package" value="no"
+                 {% if social_circumstances.formalCarePackage == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="care_hours_per_week">Care hours per week</label>
+        <select id="care_hours_per_week" name="social_circumstances.care_hours_per_week">
+          <option value="">-- Select --</option>
+          <option value="none" {% if social_circumstances.careHoursPerWeek == "none" %}selected{% endif %}>None</option>
+          <option value="1to7" {% if social_circumstances.careHoursPerWeek == "1to7" %}selected{% endif %}>1-7 hours</option>
+          <option value="8to14" {% if social_circumstances.careHoursPerWeek == "8to14" %}selected{% endif %}>8-14 hours</option>
+          <option value="15to21" {% if social_circumstances.careHoursPerWeek == "15to21" %}selected{% endif %}>15-21 hours</option>
+          <option value="moreThan21" {% if social_circumstances.careHoursPerWeek == "moreThan21" %}selected{% endif %}>More than 21 hours</option>
+          <option value="24hour" {% if social_circumstances.careHoursPerWeek == "24hour" %}selected{% endif %}>24-hour care</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Social activities (clubs, day centres, etc.)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="social_circumstances.social_activities" value="yes"
+               {% if social_circumstances.socialActivities == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="social_circumstances.social_activities" value="no"
+               {% if social_circumstances.socialActivities == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Financial concerns?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="social_circumstances.financial_concerns" value="yes"
+               {% if social_circumstances.financialConcerns == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="social_circumstances.financial_concerns" value="no"
+               {% if social_circumstances.financialConcerns == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Safeguarding concerns?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="social_circumstances.safeguarding_concerns" value="yes"
+               {% if social_circumstances.safeguardingConcerns == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="social_circumstances.safeguarding_concerns" value="no"
+               {% if social_circumstances.safeguardingConcerns == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Advance care plan in place?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="social_circumstances.advance_care_plan" value="yes"
+                 {% if social_circumstances.advanceCarePlan == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="social_circumstances.advance_care_plan" value="no"
+                 {% if social_circumstances.advanceCarePlan == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Lasting Power of Attorney?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="social_circumstances.lasting_power_of_attorney" value="yes"
+                 {% if social_circumstances.lastingPowerOfAttorney == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="social_circumstances.lasting_power_of_attorney" value="no"
+                 {% if social_circumstances.lastingPowerOfAttorney == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Driving status</label>
+      <select name="social_circumstances.driving_status">
+        <option value="">-- Select --</option>
+        <option value="drives" {% if social_circumstances.drivingStatus == "drives" %}selected{% endif %}>Currently Driving</option>
+        <option value="stoppedRecently" {% if social_circumstances.drivingStatus == "stoppedRecently" %}selected{% endif %}>Recently Stopped</option>
+        <option value="neverDrove" {% if social_circumstances.drivingStatus == "neverDrove" %}selected{% endif %}>Never Drove</option>
+        <option value="notApplicable" {% if social_circumstances.drivingStatus == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

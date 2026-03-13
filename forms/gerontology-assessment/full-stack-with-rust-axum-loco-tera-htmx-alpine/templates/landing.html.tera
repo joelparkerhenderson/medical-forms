@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Gerontology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Comprehensive Geriatric Assessment</h1>
+  <p>
+    This assessment tool provides a structured comprehensive geriatric assessment (CGA)
+    evaluating functional status, cognitive function, falls risk, polypharmacy, nutrition,
+    mood, social support, continence, and overall frailty for older adults.
+    Results are graded using the Clinical Frailty Scale (CFS) and composite assessment.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Domains</h3>
+      <p>Barthel ADL, Katz, IADL, MMSE, 4AT, Tinetti, MNA-SF, GDS-15, and CFS</p>
+    </div>
+    <div class="feature-card">
+      <h3>Frailty Grading</h3>
+      <p>Clinical Frailty Scale with composite functional assessment</p>
+    </div>
+    <div class="feature-card">
+      <h3>Actionable Flags</h3>
+      <p>Falls prevention, medication review, delirium screening, safeguarding, and more</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

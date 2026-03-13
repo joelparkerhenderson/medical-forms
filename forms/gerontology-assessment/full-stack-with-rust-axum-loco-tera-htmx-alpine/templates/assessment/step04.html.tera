@@ -1,0 +1,174 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Falls Risk - Gerontology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Falls Risk Assessment</h2>
+    <p class="hint">Assess falls history, balance, and environmental risk factors.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="falls_last_12_months">Number of falls in last 12 months</label>
+        <input type="number" id="falls_last_12_months" name="falls_risk.falls_last_12_months"
+               value="{{ falls_risk.fallsLast12Months | default(value='') }}"
+               min="0" max="50" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label for="falls_with_injury">Number of falls resulting in injury</label>
+        <input type="number" id="falls_with_injury" name="falls_risk.falls_with_injury"
+               value="{{ falls_risk.fallsWithInjury | default(value='') }}"
+               min="0" max="50" placeholder="0">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Fear of falling?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="falls_risk.fear_of_falling" value="yes"
+               {% if falls_risk.fearOfFalling == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="falls_risk.fear_of_falling" value="no"
+               {% if falls_risk.fearOfFalling == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Uses walking aid?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="falls_risk.uses_walking_aid" value="yes"
+               {% if falls_risk.usesWalkingAid == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="falls_risk.uses_walking_aid" value="no"
+               {% if falls_risk.usesWalkingAid == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="walking_aid_type">Walking aid type (if applicable)</label>
+      <select id="walking_aid_type" name="falls_risk.walking_aid_type">
+        <option value="">-- Select --</option>
+        <option value="stick" {% if falls_risk.walkingAidType == "stick" %}selected{% endif %}>Walking Stick</option>
+        <option value="frame" {% if falls_risk.walkingAidType == "frame" %}selected{% endif %}>Zimmer Frame</option>
+        <option value="rollator" {% if falls_risk.walkingAidType == "rollator" %}selected{% endif %}>Rollator</option>
+        <option value="wheelchair" {% if falls_risk.walkingAidType == "wheelchair" %}selected{% endif %}>Wheelchair</option>
+        <option value="other" {% if falls_risk.walkingAidType == "other" %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+
+    <h3>Tinetti Balance Assessment (0 = Abnormal, 1 = Adaptive, 2 = Normal)</h3>
+
+    <div class="likert-group">
+      <label>Sitting Balance</label>
+      <div class="likert-options">
+        {% for i in [0, 1, 2] %}
+        <label>
+          <input type="radio" name="falls_risk.tinetti_sitting_balance" value="{{ i }}"
+                 {% if falls_risk.tinettiSittingBalance == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Abnormal{% elif i == 1 %}Adaptive{% else %}Normal{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Arising from Chair</label>
+      <div class="likert-options">
+        {% for i in [0, 1, 2] %}
+        <label>
+          <input type="radio" name="falls_risk.tinetti_arising" value="{{ i }}"
+                 {% if falls_risk.tinettiArising == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Abnormal{% elif i == 1 %}Adaptive{% else %}Normal{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Standing Balance</label>
+      <div class="likert-options">
+        {% for i in [0, 1, 2] %}
+        <label>
+          <input type="radio" name="falls_risk.tinetti_standing_balance" value="{{ i }}"
+                 {% if falls_risk.tinettiStandingBalance == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Abnormal{% elif i == 1 %}Adaptive{% else %}Normal{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Nudge Test (sternal push)</label>
+      <div class="likert-options">
+        {% for i in [0, 1, 2] %}
+        <label>
+          <input type="radio" name="falls_risk.tinetti_nudge_test" value="{{ i }}"
+                 {% if falls_risk.tinettiNudgeTest == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Abnormal{% elif i == 1 %}Adaptive{% else %}Normal{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Eyes Closed (standing)</label>
+      <div class="likert-options">
+        {% for i in [0, 1, 2] %}
+        <label>
+          <input type="radio" name="falls_risk.tinetti_eyes_closed" value="{{ i }}"
+                 {% if falls_risk.tinettiEyesClosed == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Abnormal{% elif i == 1 %}Adaptive{% else %}Normal{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Turning 360 Degrees</label>
+      <div class="likert-options">
+        {% for i in [0, 1, 2] %}
+        <label>
+          <input type="radio" name="falls_risk.tinetti_turning" value="{{ i }}"
+                 {% if falls_risk.tinettiTurning == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Abnormal{% elif i == 1 %}Adaptive{% else %}Normal{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Postural hypotension?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="falls_risk.postural_hypotension" value="yes"
+               {% if falls_risk.posturalHypotension == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="falls_risk.postural_hypotension" value="no"
+               {% if falls_risk.posturalHypotension == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Footwear appropriate?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="falls_risk.footwear_appropriate" value="yes"
+                 {% if falls_risk.footwearAppropriate == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="falls_risk.footwear_appropriate" value="no"
+                 {% if falls_risk.footwearAppropriate == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Home hazards identified?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="falls_risk.home_hazards_identified" value="yes"
+                 {% if falls_risk.homeHazardsIdentified == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="falls_risk.home_hazards_identified" value="no"
+                 {% if falls_risk.homeHazardsIdentified == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

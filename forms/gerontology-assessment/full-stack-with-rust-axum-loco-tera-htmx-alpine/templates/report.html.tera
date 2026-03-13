@@ -1,0 +1,140 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Geriatric Assessment Report - Gerontology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Comprehensive Geriatric Assessment Report</h1>
+    <span class="frailty-badge frailty-{{ frailty_level }}">{{ frailty_label }}</span>
+  </div>
+
+  {% if cfs_score %}
+  <div class="score-display">CFS {{ cfs_score }}/9</div>
+  <div class="score-label">Clinical Frailty Scale Score</div>
+  {% endif %}
+
+  <div class="score-cards">
+    <div class="score-card">
+      <div class="score-value">{{ barthel_score }}/20</div>
+      <div class="score-name">Barthel Index</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value">{% if cognitive_score %}{{ cognitive_score }}/30{% else %}N/A{% endif %}</div>
+      <div class="score-name">MMSE Score</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value">{% if falls_count is defined and falls_count %}{{ falls_count }}{% else %}0{% endif %}</div>
+      <div class="score-name">Falls (12 months)</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value">{% if polypharmacy_count is defined and polypharmacy_count %}{{ polypharmacy_count }}{% else %}0{% endif %}</div>
+      <div class="score-name">Medications</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value">{% if mna_score is defined and mna_score %}{{ mna_score }}/14{% else %}N/A{% endif %}</div>
+      <div class="score-name">MNA-SF Score</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value">{{ gds_score }}/15</div>
+      <div class="score-name">GDS-15 Score</div>
+    </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Name:</strong> {{ data.patientInformation.patientName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Age:</strong> {% if data.patientInformation.age %}{{ data.patientInformation.age }}{% else %}Not provided{% endif %}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>NHS Number:</strong> {{ data.patientInformation.nhsNumber | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Assessor:</strong> {{ data.patientInformation.assessorName | default(value="Not provided") }}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Fired Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Assessment Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinical Notes -->
+{% if data.clinicalReview.clinicalSummary or data.clinicalReview.recommendations %}
+<div class="card">
+  <h2>Clinical Notes</h2>
+  {% if data.clinicalReview.clinicalSummary %}
+    <div class="form-group">
+      <strong>Clinical Summary:</strong>
+      <p>{{ data.clinicalReview.clinicalSummary }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.recommendations %}
+    <div class="form-group">
+      <strong>Recommendations:</strong>
+      <p>{{ data.clinicalReview.recommendations }}</p>
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cognitive Screening - Gerontology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cognitive Screening</h2>
+    <p class="hint">Assess cognitive function using MMSE and 4AT delirium screening.</p>
+
+    <h3>MMSE (Mini-Mental State Examination)</h3>
+    <div class="form-group">
+      <label for="mmse_score">MMSE Score (0-30)</label>
+      <input type="number" id="mmse_score" name="cognitive_screening.mmse_score"
+             value="{{ cognitive_screening.mmseScore | default(value='') }}"
+             min="0" max="30" placeholder="Enter score 0-30">
+      <p class="hint">25-30 = Normal, 21-24 = Mild impairment, 10-20 = Moderate, &lt;10 = Severe</p>
+    </div>
+
+    <h3>4AT Delirium Screening</h3>
+    <p class="hint">Score each component to screen for delirium.</p>
+
+    <div class="likert-group">
+      <label>Alertness (0 = Normal, 4 = Abnormal)</label>
+      <div class="likert-options">
+        <label>
+          <input type="radio" name="cognitive_screening.four_at_alertness" value="0"
+                 {% if cognitive_screening.fourAtAlertness == 0 %}checked{% endif %}>
+          <span>0 - Normal</span>
+        </label>
+        <label>
+          <input type="radio" name="cognitive_screening.four_at_alertness" value="4"
+                 {% if cognitive_screening.fourAtAlertness == 4 %}checked{% endif %}>
+          <span>4 - Abnormal</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>AMT4 - Age, Date of Birth, Place, Current Year (0 = No mistakes, 1 = 1 mistake, 2 = 2+ mistakes)</label>
+      <div class="likert-options">
+        {% for i in [0, 1, 2] %}
+        <label>
+          <input type="radio" name="cognitive_screening.four_at_amts4" value="{{ i }}"
+                 {% if cognitive_screening.fourAtAmts4 == i %}checked{% endif %}>
+          <span>{{ i }}{% if i == 0 %} - No mistakes{% elif i == 1 %} - 1 mistake{% else %} - 2+ mistakes{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Attention - Months of the year backwards (0 = 7+ correct, 1 = Less than 7, 2 = Unable)</label>
+      <div class="likert-options">
+        {% for i in [0, 1, 2] %}
+        <label>
+          <input type="radio" name="cognitive_screening.four_at_attention" value="{{ i }}"
+                 {% if cognitive_screening.fourAtAttention == i %}checked{% endif %}>
+          <span>{{ i }}{% if i == 0 %} - 7+ correct{% elif i == 1 %} - &lt;7 correct{% else %} - Unable{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Acute Change or Fluctuation (0 = No, 4 = Yes)</label>
+      <div class="likert-options">
+        <label>
+          <input type="radio" name="cognitive_screening.four_at_acute_change" value="0"
+                 {% if cognitive_screening.fourAtAcuteChange == 0 %}checked{% endif %}>
+          <span>0 - No</span>
+        </label>
+        <label>
+          <input type="radio" name="cognitive_screening.four_at_acute_change" value="4"
+                 {% if cognitive_screening.fourAtAcuteChange == 4 %}checked{% endif %}>
+          <span>4 - Yes</span>
+        </label>
+      </div>
+    </div>
+
+    <h3>General Cognitive Concerns</h3>
+
+    <div class="form-group">
+      <label>Memory concerns reported by patient or carer?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="cognitive_screening.memory_concerns" value="yes"
+               {% if cognitive_screening.memoryConcerns == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="cognitive_screening.memory_concerns" value="no"
+               {% if cognitive_screening.memoryConcerns == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Orientation impaired?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="cognitive_screening.orientation_impaired" value="yes"
+               {% if cognitive_screening.orientationImpaired == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="cognitive_screening.orientation_impaired" value="no"
+               {% if cognitive_screening.orientationImpaired == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Decision-making capacity</label>
+      <select name="cognitive_screening.decision_making_capacity">
+        <option value="">-- Select --</option>
+        <option value="intact" {% if cognitive_screening.decisionMakingCapacity == "intact" %}selected{% endif %}>Intact</option>
+        <option value="impaired" {% if cognitive_screening.decisionMakingCapacity == "impaired" %}selected{% endif %}>Impaired</option>
+        <option value="lacksCapacity" {% if cognitive_screening.decisionMakingCapacity == "lacksCapacity" %}selected{% endif %}>Lacks Capacity</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Known dementia diagnosis?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="cognitive_screening.known_dementia_diagnosis" value="yes"
+               {% if cognitive_screening.knownDementiaDiagnosis == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="cognitive_screening.known_dementia_diagnosis" value="no"
+               {% if cognitive_screening.knownDementiaDiagnosis == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

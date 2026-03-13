@@ -1,0 +1,96 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Gerontology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide the patient's demographic and referral details.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. Margaret Jones">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" name="patient_information.age"
+               value="{{ patient_information.age | default(value='') }}"
+               min="60" max="120" placeholder="e.g. 82">
+      </div>
+      <div class="form-group">
+        <label for="sex">Sex</label>
+        <select id="sex" name="patient_information.sex">
+          <option value="">-- Select --</option>
+          <option value="female" {% if patient_information.sex == "female" %}selected{% endif %}>Female</option>
+          <option value="male" {% if patient_information.sex == "male" %}selected{% endif %}>Male</option>
+          <option value="other" {% if patient_information.sex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nhs_number">NHS Number</label>
+        <input type="text" id="nhs_number" name="patient_information.nhs_number"
+               value="{{ patient_information.nhsNumber }}"
+               placeholder="e.g. 123 456 7890">
+      </div>
+      <div class="form-group">
+        <label for="assessment_date">Assessment Date</label>
+        <input type="date" id="assessment_date" name="patient_information.assessment_date"
+               value="{{ patient_information.assessmentDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="assessor_name">Assessor Name</label>
+        <input type="text" id="assessor_name" name="patient_information.assessor_name"
+               value="{{ patient_information.assessorName }}"
+               placeholder="e.g. Dr Smith">
+      </div>
+      <div class="form-group">
+        <label for="referral_source">Referral Source</label>
+        <select id="referral_source" name="patient_information.referral_source">
+          <option value="">-- Select --</option>
+          <option value="gp" {% if patient_information.referralSource == "gp" %}selected{% endif %}>GP</option>
+          <option value="hospital" {% if patient_information.referralSource == "hospital" %}selected{% endif %}>Hospital</option>
+          <option value="communityTeam" {% if patient_information.referralSource == "communityTeam" %}selected{% endif %}>Community Team</option>
+          <option value="selfReferral" {% if patient_information.referralSource == "selfReferral" %}selected{% endif %}>Self-Referral</option>
+          <option value="socialServices" {% if patient_information.referralSource == "socialServices" %}selected{% endif %}>Social Services</option>
+          <option value="other" {% if patient_information.referralSource == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="living_situation">Living Situation</label>
+      <select id="living_situation" name="patient_information.living_situation">
+        <option value="">-- Select --</option>
+        <option value="ownHome" {% if patient_information.livingSituation == "ownHome" %}selected{% endif %}>Own Home</option>
+        <option value="shelteredHousing" {% if patient_information.livingSituation == "shelteredHousing" %}selected{% endif %}>Sheltered Housing</option>
+        <option value="careHome" {% if patient_information.livingSituation == "careHome" %}selected{% endif %}>Care Home</option>
+        <option value="nursingHome" {% if patient_information.livingSituation == "nursingHome" %}selected{% endif %}>Nursing Home</option>
+        <option value="withFamily" {% if patient_information.livingSituation == "withFamily" %}selected{% endif %}>With Family</option>
+        <option value="other" {% if patient_information.livingSituation == "other" %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

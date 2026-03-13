@@ -1,0 +1,144 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Gerontology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Record the Clinical Frailty Scale score, comorbidities, sensory impairments, and overall clinical assessment.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinical_frailty_scale">Clinical Frailty Scale (CFS) Score</label>
+        <select id="clinical_frailty_scale" name="clinical_review.clinical_frailty_scale">
+          <option value="">-- Select --</option>
+          <option value="1" {% if clinical_review.clinicalFrailtyScale == 1 %}selected{% endif %}>1 - Very Fit</option>
+          <option value="2" {% if clinical_review.clinicalFrailtyScale == 2 %}selected{% endif %}>2 - Well</option>
+          <option value="3" {% if clinical_review.clinicalFrailtyScale == 3 %}selected{% endif %}>3 - Managing Well</option>
+          <option value="4" {% if clinical_review.clinicalFrailtyScale == 4 %}selected{% endif %}>4 - Vulnerable</option>
+          <option value="5" {% if clinical_review.clinicalFrailtyScale == 5 %}selected{% endif %}>5 - Mildly Frail</option>
+          <option value="6" {% if clinical_review.clinicalFrailtyScale == 6 %}selected{% endif %}>6 - Moderately Frail</option>
+          <option value="7" {% if clinical_review.clinicalFrailtyScale == 7 %}selected{% endif %}>7 - Severely Frail</option>
+          <option value="8" {% if clinical_review.clinicalFrailtyScale == 8 %}selected{% endif %}>8 - Very Severely Frail</option>
+          <option value="9" {% if clinical_review.clinicalFrailtyScale == 9 %}selected{% endif %}>9 - Terminally Ill</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="comorbidity_count">Number of comorbidities</label>
+        <input type="number" id="comorbidity_count" name="clinical_review.comorbidity_count"
+               value="{{ clinical_review.comorbidityCount | default(value='') }}"
+               min="0" max="30" placeholder="e.g. 5">
+      </div>
+    </div>
+
+    <h3>Sensory Assessment</h3>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Vision impairment</label>
+        <select name="clinical_review.sensory_impairment_vision">
+          <option value="">-- Select --</option>
+          <option value="none" {% if clinical_review.sensoryImpairmentVision == "none" %}selected{% endif %}>None</option>
+          <option value="mild" {% if clinical_review.sensoryImpairmentVision == "mild" %}selected{% endif %}>Mild (corrected with glasses)</option>
+          <option value="moderate" {% if clinical_review.sensoryImpairmentVision == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="severe" {% if clinical_review.sensoryImpairmentVision == "severe" %}selected{% endif %}>Severe / Registered blind</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Hearing impairment</label>
+        <select name="clinical_review.sensory_impairment_hearing">
+          <option value="">-- Select --</option>
+          <option value="none" {% if clinical_review.sensoryImpairmentHearing == "none" %}selected{% endif %}>None</option>
+          <option value="mild" {% if clinical_review.sensoryImpairmentHearing == "mild" %}selected{% endif %}>Mild (uses hearing aid)</option>
+          <option value="moderate" {% if clinical_review.sensoryImpairmentHearing == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="severe" {% if clinical_review.sensoryImpairmentHearing == "severe" %}selected{% endif %}>Severe / Deaf</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Pain Assessment</h3>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Chronic pain?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.pain_assessment" value="yes"
+                 {% if clinical_review.painAssessment == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.pain_assessment" value="no"
+                 {% if clinical_review.painAssessment == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pain_severity">Pain severity (0-10)</label>
+        <input type="number" id="pain_severity" name="clinical_review.pain_severity"
+               value="{{ clinical_review.painSeverity | default(value='') }}"
+               min="0" max="10" placeholder="0-10">
+      </div>
+    </div>
+
+    <h3>Skin & Tissue Viability</h3>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Skin integrity</label>
+        <select name="clinical_review.skin_integrity">
+          <option value="">-- Select --</option>
+          <option value="intact" {% if clinical_review.skinIntegrity == "intact" %}selected{% endif %}>Intact</option>
+          <option value="fragile" {% if clinical_review.skinIntegrity == "fragile" %}selected{% endif %}>Fragile / Tears</option>
+          <option value="wound" {% if clinical_review.skinIntegrity == "wound" %}selected{% endif %}>Wound Present</option>
+          <option value="ulcer" {% if clinical_review.skinIntegrity == "ulcer" %}selected{% endif %}>Pressure Ulcer</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Pressure ulcer risk</label>
+        <select name="clinical_review.pressure_ulcer_risk">
+          <option value="">-- Select --</option>
+          <option value="low" {% if clinical_review.pressureUlcerRisk == "low" %}selected{% endif %}>Low</option>
+          <option value="moderate" {% if clinical_review.pressureUlcerRisk == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="high" {% if clinical_review.pressureUlcerRisk == "high" %}selected{% endif %}>High</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Immunisation status</label>
+        <select name="clinical_review.immunisation_status">
+          <option value="">-- Select --</option>
+          <option value="upToDate" {% if clinical_review.immunisationStatus == "upToDate" %}selected{% endif %}>Up to Date</option>
+          <option value="overdue" {% if clinical_review.immunisationStatus == "overdue" %}selected{% endif %}>Overdue</option>
+          <option value="unknown" {% if clinical_review.immunisationStatus == "unknown" %}selected{% endif %}>Unknown</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Palliative care needs identified?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.palliative_care_needs" value="yes"
+                 {% if clinical_review.palliativeCareNeeds == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.palliative_care_needs" value="no"
+                 {% if clinical_review.palliativeCareNeeds == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_summary">Clinical Summary</label>
+      <textarea id="clinical_summary" name="clinical_review.clinical_summary"
+                placeholder="Summarise key clinical findings..."
+                rows="4">{{ clinical_review.clinicalSummary }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="recommendations">Recommendations</label>
+      <textarea id="recommendations" name="clinical_review.recommendations"
+                placeholder="List recommendations and referrals..."
+                rows="4">{{ clinical_review.recommendations }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
