@@ -1,0 +1,89 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Intraocular Pressure - Ophthalmology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Intraocular Pressure (IOP)</h2>
+    <p class="hint">Record IOP measurements in mmHg. Normal range: 11-21 mmHg.</p>
+
+    <h3>IOP Measurement</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_iop">Right Eye (OD) - mmHg</label>
+        <input type="number" id="right_iop" name="intraocular_pressure.right_iop"
+               value="{% if intraocular_pressure.rightIop %}{{ intraocular_pressure.rightIop }}{% endif %}"
+               min="0" max="80" placeholder="e.g. 16">
+      </div>
+      <div class="form-group">
+        <label for="left_iop">Left Eye (OS) - mmHg</label>
+        <input type="number" id="left_iop" name="intraocular_pressure.left_iop"
+               value="{% if intraocular_pressure.leftIop %}{{ intraocular_pressure.leftIop }}{% endif %}"
+               min="0" max="80" placeholder="e.g. 15">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="measurement_time">Time of Measurement</label>
+        <input type="time" id="measurement_time" name="intraocular_pressure.measurement_time"
+               value="{{ intraocular_pressure.measurementTime }}">
+      </div>
+      <div class="form-group">
+        <label for="tonometry_method">Tonometry Method</label>
+        <select id="tonometry_method" name="intraocular_pressure.tonometry_method">
+          <option value="">-- Select --</option>
+          <option value="goldmann" {% if intraocular_pressure.tonometryMethod == "goldmann" %}selected{% endif %}>Goldmann Applanation</option>
+          <option value="nonContact" {% if intraocular_pressure.tonometryMethod == "nonContact" %}selected{% endif %}>Non-Contact (Air Puff)</option>
+          <option value="iCare" {% if intraocular_pressure.tonometryMethod == "iCare" %}selected{% endif %}>iCare (Rebound)</option>
+          <option value="tonoPen" {% if intraocular_pressure.tonometryMethod == "tonoPen" %}selected{% endif %}>Tono-Pen</option>
+          <option value="perkins" {% if intraocular_pressure.tonometryMethod == "perkins" %}selected{% endif %}>Perkins</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Central Corneal Thickness (CCT)</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="central_corneal_thickness_right">Right Eye (OD) - microns</label>
+        <input type="text" id="central_corneal_thickness_right" name="intraocular_pressure.central_corneal_thickness_right"
+               value="{{ intraocular_pressure.centralCornealThicknessRight }}" placeholder="e.g. 545">
+      </div>
+      <div class="form-group">
+        <label for="central_corneal_thickness_left">Left Eye (OS) - microns</label>
+        <input type="text" id="central_corneal_thickness_left" name="intraocular_pressure.central_corneal_thickness_left"
+               value="{{ intraocular_pressure.centralCornealThicknessLeft }}" placeholder="e.g. 548">
+      </div>
+    </div>
+
+    <h3>Gonioscopy</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="gonioscopy_right">Right Eye (OD)</label>
+        <select id="gonioscopy_right" name="intraocular_pressure.gonioscopy_right">
+          <option value="">-- Select --</option>
+          <option value="open" {% if intraocular_pressure.gonioscopyRight == "open" %}selected{% endif %}>Open (Grade III-IV)</option>
+          <option value="narrow" {% if intraocular_pressure.gonioscopyRight == "narrow" %}selected{% endif %}>Narrow (Grade I-II)</option>
+          <option value="closed" {% if intraocular_pressure.gonioscopyRight == "closed" %}selected{% endif %}>Closed (Grade 0)</option>
+          <option value="notPerformed" {% if intraocular_pressure.gonioscopyRight == "notPerformed" %}selected{% endif %}>Not Performed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="gonioscopy_left">Left Eye (OS)</label>
+        <select id="gonioscopy_left" name="intraocular_pressure.gonioscopy_left">
+          <option value="">-- Select --</option>
+          <option value="open" {% if intraocular_pressure.gonioscopyLeft == "open" %}selected{% endif %}>Open (Grade III-IV)</option>
+          <option value="narrow" {% if intraocular_pressure.gonioscopyLeft == "narrow" %}selected{% endif %}>Narrow (Grade I-II)</option>
+          <option value="closed" {% if intraocular_pressure.gonioscopyLeft == "closed" %}selected{% endif %}>Closed (Grade 0)</option>
+          <option value="notPerformed" {% if intraocular_pressure.gonioscopyLeft == "notPerformed" %}selected{% endif %}>Not Performed</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

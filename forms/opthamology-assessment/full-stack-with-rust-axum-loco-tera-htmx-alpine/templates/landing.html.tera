@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Ophthalmology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Ophthalmology Assessment</h1>
+  <p>
+    This clinical form captures a comprehensive ophthalmological examination.
+    It covers visual acuity, refraction, anterior and posterior segment evaluation,
+    intraocular pressure measurement, visual field testing, ocular motility assessment,
+    special investigations, and clinical review with management planning.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Complete eye examination covering all major clinical areas</p>
+    </div>
+    <div class="feature-card">
+      <h3>Impairment Grading</h3>
+      <p>Automated clinical grading with rule-based analysis</p>
+    </div>
+    <div class="feature-card">
+      <h3>Flagged Findings</h3>
+      <p>Actionable clinical alerts for urgent conditions</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

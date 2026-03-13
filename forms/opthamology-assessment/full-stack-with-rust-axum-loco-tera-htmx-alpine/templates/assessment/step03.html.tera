@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Refraction - Ophthalmology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Refraction</h2>
+    <p class="hint">Record refractive error measurements for both eyes.</p>
+
+    <h3>Right Eye (OD)</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_sphere">Sphere (D)</label>
+        <input type="text" id="right_sphere" name="refraction.right_sphere"
+               value="{{ refraction.rightSphere }}" placeholder="e.g. -2.50">
+      </div>
+      <div class="form-group">
+        <label for="right_cylinder">Cylinder (D)</label>
+        <input type="text" id="right_cylinder" name="refraction.right_cylinder"
+               value="{{ refraction.rightCylinder }}" placeholder="e.g. -1.00">
+      </div>
+      <div class="form-group">
+        <label for="right_axis">Axis</label>
+        <input type="text" id="right_axis" name="refraction.right_axis"
+               value="{{ refraction.rightAxis }}" placeholder="e.g. 180">
+      </div>
+    </div>
+
+    <h3>Left Eye (OS)</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="left_sphere">Sphere (D)</label>
+        <input type="text" id="left_sphere" name="refraction.left_sphere"
+               value="{{ refraction.leftSphere }}" placeholder="e.g. -2.25">
+      </div>
+      <div class="form-group">
+        <label for="left_cylinder">Cylinder (D)</label>
+        <input type="text" id="left_cylinder" name="refraction.left_cylinder"
+               value="{{ refraction.leftCylinder }}" placeholder="e.g. -0.75">
+      </div>
+      <div class="form-group">
+        <label for="left_axis">Axis</label>
+        <input type="text" id="left_axis" name="refraction.left_axis"
+               value="{{ refraction.leftAxis }}" placeholder="e.g. 90">
+      </div>
+    </div>
+
+    <h3>Reading Addition</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_add">Right Add (D)</label>
+        <input type="text" id="right_add" name="refraction.right_add"
+               value="{{ refraction.rightAdd }}" placeholder="e.g. +2.00">
+      </div>
+      <div class="form-group">
+        <label for="left_add">Left Add (D)</label>
+        <input type="text" id="left_add" name="refraction.left_add"
+               value="{{ refraction.leftAdd }}" placeholder="e.g. +2.00">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pupillary_distance">Pupillary Distance (mm)</label>
+        <input type="text" id="pupillary_distance" name="refraction.pupillary_distance"
+               value="{{ refraction.pupillaryDistance }}" placeholder="e.g. 63">
+      </div>
+      <div class="form-group">
+        <label for="refraction_method">Refraction Method</label>
+        <select id="refraction_method" name="refraction.refraction_method">
+          <option value="">-- Select --</option>
+          <option value="subjective" {% if refraction.refractionMethod == "subjective" %}selected{% endif %}>Subjective</option>
+          <option value="objective" {% if refraction.refractionMethod == "objective" %}selected{% endif %}>Objective (Retinoscopy)</option>
+          <option value="autorefractor" {% if refraction.refractionMethod == "autorefractor" %}selected{% endif %}>Autorefractor</option>
+          <option value="cycloplegic" {% if refraction.refractionMethod == "cycloplegic" %}selected{% endif %}>Cycloplegic</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

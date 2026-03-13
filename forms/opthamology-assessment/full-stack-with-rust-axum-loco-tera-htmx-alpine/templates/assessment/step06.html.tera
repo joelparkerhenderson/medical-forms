@@ -1,0 +1,166 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Posterior Segment - Ophthalmology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Posterior Segment Examination</h2>
+    <p class="hint">Rate each structure from 1 (severely abnormal) to 5 (normal). Dilated fundus examination.</p>
+
+    <h3>Optic Disc</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_optic_disc">Right Eye (OD)</label>
+        <select id="right_optic_disc" name="posterior_segment.right_optic_disc">
+          <option value="">-- Select --</option>
+          <option value="5" {% if posterior_segment.rightOpticDisc == 5 %}selected{% endif %}>5 - Normal, healthy disc</option>
+          <option value="4" {% if posterior_segment.rightOpticDisc == 4 %}selected{% endif %}>4 - Mild changes</option>
+          <option value="3" {% if posterior_segment.rightOpticDisc == 3 %}selected{% endif %}>3 - Moderate cupping/pallor</option>
+          <option value="2" {% if posterior_segment.rightOpticDisc == 2 %}selected{% endif %}>2 - Significant abnormality</option>
+          <option value="1" {% if posterior_segment.rightOpticDisc == 1 %}selected{% endif %}>1 - Severely abnormal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_optic_disc">Left Eye (OS)</label>
+        <select id="left_optic_disc" name="posterior_segment.left_optic_disc">
+          <option value="">-- Select --</option>
+          <option value="5" {% if posterior_segment.leftOpticDisc == 5 %}selected{% endif %}>5 - Normal, healthy disc</option>
+          <option value="4" {% if posterior_segment.leftOpticDisc == 4 %}selected{% endif %}>4 - Mild changes</option>
+          <option value="3" {% if posterior_segment.leftOpticDisc == 3 %}selected{% endif %}>3 - Moderate cupping/pallor</option>
+          <option value="2" {% if posterior_segment.leftOpticDisc == 2 %}selected{% endif %}>2 - Significant abnormality</option>
+          <option value="1" {% if posterior_segment.leftOpticDisc == 1 %}selected{% endif %}>1 - Severely abnormal</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Cup-to-Disc Ratio</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_cup_disc_ratio">Right Eye (OD)</label>
+        <input type="text" id="right_cup_disc_ratio" name="posterior_segment.right_cup_disc_ratio"
+               value="{{ posterior_segment.rightCupDiscRatio }}" placeholder="e.g. 0.3">
+      </div>
+      <div class="form-group">
+        <label for="left_cup_disc_ratio">Left Eye (OS)</label>
+        <input type="text" id="left_cup_disc_ratio" name="posterior_segment.left_cup_disc_ratio"
+               value="{{ posterior_segment.leftCupDiscRatio }}" placeholder="e.g. 0.3">
+      </div>
+    </div>
+
+    <h3>Macula</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_macula">Right Eye (OD)</label>
+        <select id="right_macula" name="posterior_segment.right_macula">
+          <option value="">-- Select --</option>
+          <option value="5" {% if posterior_segment.rightMacula == 5 %}selected{% endif %}>5 - Normal foveal reflex</option>
+          <option value="4" {% if posterior_segment.rightMacula == 4 %}selected{% endif %}>4 - Mild changes/drusen</option>
+          <option value="3" {% if posterior_segment.rightMacula == 3 %}selected{% endif %}>3 - Moderate maculopathy</option>
+          <option value="2" {% if posterior_segment.rightMacula == 2 %}selected{% endif %}>2 - Significant macular disease</option>
+          <option value="1" {% if posterior_segment.rightMacula == 1 %}selected{% endif %}>1 - Severe macular pathology</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_macula">Left Eye (OS)</label>
+        <select id="left_macula" name="posterior_segment.left_macula">
+          <option value="">-- Select --</option>
+          <option value="5" {% if posterior_segment.leftMacula == 5 %}selected{% endif %}>5 - Normal foveal reflex</option>
+          <option value="4" {% if posterior_segment.leftMacula == 4 %}selected{% endif %}>4 - Mild changes/drusen</option>
+          <option value="3" {% if posterior_segment.leftMacula == 3 %}selected{% endif %}>3 - Moderate maculopathy</option>
+          <option value="2" {% if posterior_segment.leftMacula == 2 %}selected{% endif %}>2 - Significant macular disease</option>
+          <option value="1" {% if posterior_segment.leftMacula == 1 %}selected{% endif %}>1 - Severe macular pathology</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Retinal Vessels</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_vessels">Right Eye (OD)</label>
+        <select id="right_vessels" name="posterior_segment.right_vessels">
+          <option value="">-- Select --</option>
+          <option value="5" {% if posterior_segment.rightVessels == 5 %}selected{% endif %}>5 - Normal calibre and course</option>
+          <option value="4" {% if posterior_segment.rightVessels == 4 %}selected{% endif %}>4 - Mild changes</option>
+          <option value="3" {% if posterior_segment.rightVessels == 3 %}selected{% endif %}>3 - Moderate changes</option>
+          <option value="2" {% if posterior_segment.rightVessels == 2 %}selected{% endif %}>2 - Significant vascular disease</option>
+          <option value="1" {% if posterior_segment.rightVessels == 1 %}selected{% endif %}>1 - Severe vascular pathology</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_vessels">Left Eye (OS)</label>
+        <select id="left_vessels" name="posterior_segment.left_vessels">
+          <option value="">-- Select --</option>
+          <option value="5" {% if posterior_segment.leftVessels == 5 %}selected{% endif %}>5 - Normal calibre and course</option>
+          <option value="4" {% if posterior_segment.leftVessels == 4 %}selected{% endif %}>4 - Mild changes</option>
+          <option value="3" {% if posterior_segment.leftVessels == 3 %}selected{% endif %}>3 - Moderate changes</option>
+          <option value="2" {% if posterior_segment.leftVessels == 2 %}selected{% endif %}>2 - Significant vascular disease</option>
+          <option value="1" {% if posterior_segment.leftVessels == 1 %}selected{% endif %}>1 - Severe vascular pathology</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Peripheral Retina</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_peripheral_retina">Right Eye (OD)</label>
+        <select id="right_peripheral_retina" name="posterior_segment.right_peripheral_retina">
+          <option value="">-- Select --</option>
+          <option value="5" {% if posterior_segment.rightPeripheralRetina == 5 %}selected{% endif %}>5 - Normal, flat, intact</option>
+          <option value="4" {% if posterior_segment.rightPeripheralRetina == 4 %}selected{% endif %}>4 - Mild peripheral changes</option>
+          <option value="3" {% if posterior_segment.rightPeripheralRetina == 3 %}selected{% endif %}>3 - Lattice/degeneration</option>
+          <option value="2" {% if posterior_segment.rightPeripheralRetina == 2 %}selected{% endif %}>2 - Tears/holes</option>
+          <option value="1" {% if posterior_segment.rightPeripheralRetina == 1 %}selected{% endif %}>1 - Detachment</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_peripheral_retina">Left Eye (OS)</label>
+        <select id="left_peripheral_retina" name="posterior_segment.left_peripheral_retina">
+          <option value="">-- Select --</option>
+          <option value="5" {% if posterior_segment.leftPeripheralRetina == 5 %}selected{% endif %}>5 - Normal, flat, intact</option>
+          <option value="4" {% if posterior_segment.leftPeripheralRetina == 4 %}selected{% endif %}>4 - Mild peripheral changes</option>
+          <option value="3" {% if posterior_segment.leftPeripheralRetina == 3 %}selected{% endif %}>3 - Lattice/degeneration</option>
+          <option value="2" {% if posterior_segment.leftPeripheralRetina == 2 %}selected{% endif %}>2 - Tears/holes</option>
+          <option value="1" {% if posterior_segment.leftPeripheralRetina == 1 %}selected{% endif %}>1 - Detachment</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Vitreous</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_vitreous">Right Eye (OD)</label>
+        <select id="right_vitreous" name="posterior_segment.right_vitreous">
+          <option value="">-- Select --</option>
+          <option value="5" {% if posterior_segment.rightVitreous == 5 %}selected{% endif %}>5 - Clear</option>
+          <option value="4" {% if posterior_segment.rightVitreous == 4 %}selected{% endif %}>4 - Mild floaters/syneresis</option>
+          <option value="3" {% if posterior_segment.rightVitreous == 3 %}selected{% endif %}>3 - Moderate opacities</option>
+          <option value="2" {% if posterior_segment.rightVitreous == 2 %}selected{% endif %}>2 - Significant haemorrhage/cells</option>
+          <option value="1" {% if posterior_segment.rightVitreous == 1 %}selected{% endif %}>1 - Dense haemorrhage/opacification</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_vitreous">Left Eye (OS)</label>
+        <select id="left_vitreous" name="posterior_segment.left_vitreous">
+          <option value="">-- Select --</option>
+          <option value="5" {% if posterior_segment.leftVitreous == 5 %}selected{% endif %}>5 - Clear</option>
+          <option value="4" {% if posterior_segment.leftVitreous == 4 %}selected{% endif %}>4 - Mild floaters/syneresis</option>
+          <option value="3" {% if posterior_segment.leftVitreous == 3 %}selected{% endif %}>3 - Moderate opacities</option>
+          <option value="2" {% if posterior_segment.leftVitreous == 2 %}selected{% endif %}>2 - Significant haemorrhage/cells</option>
+          <option value="1" {% if posterior_segment.leftVitreous == 1 %}selected{% endif %}>1 - Dense haemorrhage/opacification</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="posterior_segment_notes">Additional Notes</label>
+      <textarea id="posterior_segment_notes" name="posterior_segment.posterior_segment_notes"
+                rows="3" placeholder="e.g. Drusen at macula, disc haemorrhage noted">{{ posterior_segment.posteriorSegmentNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

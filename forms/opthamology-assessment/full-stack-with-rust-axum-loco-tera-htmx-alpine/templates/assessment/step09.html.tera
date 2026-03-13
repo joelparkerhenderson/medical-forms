@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Special Investigations - Ophthalmology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Special Investigations</h2>
+    <p class="hint">Record any additional diagnostic investigations performed.</p>
+
+    <h3>Optical Coherence Tomography (OCT)</h3>
+    <div class="form-group">
+      <label>OCT Performed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="special_investigations.oct_performed" value="yes" {% if special_investigations.octPerformed == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="special_investigations.oct_performed" value="no" {% if special_investigations.octPerformed == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="oct_right_findings">OCT Right Eye Findings</label>
+        <textarea id="oct_right_findings" name="special_investigations.oct_right_findings"
+                  rows="2" placeholder="e.g. Normal foveal contour, RNFL within normal limits">{{ special_investigations.octRightFindings }}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="oct_left_findings">OCT Left Eye Findings</label>
+        <textarea id="oct_left_findings" name="special_investigations.oct_left_findings"
+                  rows="2" placeholder="e.g. Mild RNFL thinning superiorly">{{ special_investigations.octLeftFindings }}</textarea>
+      </div>
+    </div>
+
+    <h3>Fundus Photography</h3>
+    <div class="form-group">
+      <label>Fundus Photography Performed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="special_investigations.fundus_photo_performed" value="yes" {% if special_investigations.fundusPhotoPerformed == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="special_investigations.fundus_photo_performed" value="no" {% if special_investigations.fundusPhotoPerformed == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <h3>Fundus Fluorescein Angiography (FFA)</h3>
+    <div class="form-group">
+      <label>FFA Performed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="special_investigations.ffa_performed" value="yes" {% if special_investigations.ffaPerformed == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="special_investigations.ffa_performed" value="no" {% if special_investigations.ffaPerformed == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="ffa_findings">FFA Findings</label>
+      <textarea id="ffa_findings" name="special_investigations.ffa_findings"
+                rows="2" placeholder="e.g. No leakage, normal filling">{{ special_investigations.ffaFindings }}</textarea>
+    </div>
+
+    <h3>Corneal Topography</h3>
+    <div class="form-group">
+      <label>Corneal Topography Performed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="special_investigations.corneal_topography_performed" value="yes" {% if special_investigations.cornealTopographyPerformed == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="special_investigations.corneal_topography_performed" value="no" {% if special_investigations.cornealTopographyPerformed == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="corneal_topography_findings">Corneal Topography Findings</label>
+      <textarea id="corneal_topography_findings" name="special_investigations.corneal_topography_findings"
+                rows="2" placeholder="e.g. Regular astigmatism, no ectasia">{{ special_investigations.cornealTopographyFindings }}</textarea>
+    </div>
+
+    <h3>Biometry</h3>
+    <div class="form-group">
+      <label>Biometry Performed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="special_investigations.biometry_performed" value="yes" {% if special_investigations.biometryPerformed == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="special_investigations.biometry_performed" value="no" {% if special_investigations.biometryPerformed == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="biometry_findings">Biometry Findings</label>
+      <textarea id="biometry_findings" name="special_investigations.biometry_findings"
+                rows="2" placeholder="e.g. AL 23.5mm, IOL power +21.0D">{{ special_investigations.biometryFindings }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="other_investigations">Other Investigations</label>
+      <textarea id="other_investigations" name="special_investigations.other_investigations"
+                rows="3" placeholder="e.g. B-scan ultrasound, UBM, ERG findings">{{ special_investigations.otherInvestigations }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

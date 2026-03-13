@@ -1,0 +1,93 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Ophthalmology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide patient demographics and clinical history.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="exam_date">Date of Examination</label>
+        <input type="date" id="exam_date" name="patient_information.exam_date"
+               value="{{ patient_information.examDate }}">
+      </div>
+      <div class="form-group">
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. John Smith">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+      <div class="form-group">
+        <label for="patient_age">Age</label>
+        <input type="text" id="patient_age" name="patient_information.patient_age"
+               value="{{ patient_information.patientAge }}"
+               placeholder="e.g. 65">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_sex">Sex</label>
+        <select id="patient_sex" name="patient_information.patient_sex">
+          <option value="">-- Select --</option>
+          <option value="male" {% if patient_information.patientSex == "male" %}selected{% endif %}>Male</option>
+          <option value="female" {% if patient_information.patientSex == "female" %}selected{% endif %}>Female</option>
+          <option value="other" {% if patient_information.patientSex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="referring_clinician">Referring Clinician</label>
+        <input type="text" id="referring_clinician" name="patient_information.referring_clinician"
+               value="{{ patient_information.referringClinician }}"
+               placeholder="e.g. Dr Jones, GP">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="reason_for_visit">Reason for Visit / Chief Complaint</label>
+      <textarea id="reason_for_visit" name="patient_information.reason_for_visit"
+                rows="3" placeholder="e.g. Blurred vision, headaches">{{ patient_information.reasonForVisit }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="ocular_history">Ocular History</label>
+      <textarea id="ocular_history" name="patient_information.ocular_history"
+                rows="3" placeholder="e.g. Previous cataract surgery, glaucoma">{{ patient_information.ocularHistory }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="systemic_history">Systemic History</label>
+      <textarea id="systemic_history" name="patient_information.systemic_history"
+                rows="3" placeholder="e.g. Diabetes, hypertension">{{ patient_information.systemicHistory }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="current_medications">Current Medications</label>
+        <textarea id="current_medications" name="patient_information.current_medications"
+                  rows="2" placeholder="e.g. Timolol 0.5% eye drops BD">{{ patient_information.currentMedications }}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="allergies">Allergies</label>
+        <textarea id="allergies" name="patient_information.allergies"
+                  rows="2" placeholder="e.g. Sulfonamides, NKDA">{{ patient_information.allergies }}</textarea>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

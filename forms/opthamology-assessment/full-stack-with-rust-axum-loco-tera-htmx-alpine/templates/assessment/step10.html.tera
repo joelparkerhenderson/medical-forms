@@ -1,0 +1,97 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Ophthalmology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Record diagnosis, management plan, and follow-up arrangements.</p>
+
+    <div class="form-group">
+      <label for="primary_diagnosis">Primary Diagnosis</label>
+      <textarea id="primary_diagnosis" name="clinical_review.primary_diagnosis"
+                rows="2" placeholder="e.g. Primary open-angle glaucoma, bilateral">{{ clinical_review.primaryDiagnosis }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="secondary_diagnosis">Secondary Diagnosis</label>
+      <textarea id="secondary_diagnosis" name="clinical_review.secondary_diagnosis"
+                rows="2" placeholder="e.g. Age-related nuclear sclerosis cataract, right eye">{{ clinical_review.secondaryDiagnosis }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="management_plan">Management Plan</label>
+      <textarea id="management_plan" name="clinical_review.management_plan"
+                rows="4" placeholder="e.g. Start Latanoprost 0.005% OD nocte both eyes. Review IOP in 6 weeks.">{{ clinical_review.managementPlan }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Surgical Intervention Needed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.surgical_intervention_needed" value="yes" {% if clinical_review.surgicalInterventionNeeded == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.surgical_intervention_needed" value="no" {% if clinical_review.surgicalInterventionNeeded == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="clinical_review.surgical_intervention_needed" value="pending" {% if clinical_review.surgicalInterventionNeeded == "pending" %}checked{% endif %}> Pending further investigation</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Referral Required?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.referral_required" value="yes" {% if clinical_review.referralRequired == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.referral_required" value="no" {% if clinical_review.referralRequired == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="referral_destination">Referral Destination</label>
+        <input type="text" id="referral_destination" name="clinical_review.referral_destination"
+               value="{{ clinical_review.referralDestination }}"
+               placeholder="e.g. Retinal specialist, Neuro-ophthalmology">
+      </div>
+      <div class="form-group">
+        <label for="follow_up_interval">Follow-up Interval</label>
+        <select id="follow_up_interval" name="clinical_review.follow_up_interval">
+          <option value="">-- Select --</option>
+          <option value="1week" {% if clinical_review.followUpInterval == "1week" %}selected{% endif %}>1 Week</option>
+          <option value="2weeks" {% if clinical_review.followUpInterval == "2weeks" %}selected{% endif %}>2 Weeks</option>
+          <option value="1month" {% if clinical_review.followUpInterval == "1month" %}selected{% endif %}>1 Month</option>
+          <option value="6weeks" {% if clinical_review.followUpInterval == "6weeks" %}selected{% endif %}>6 Weeks</option>
+          <option value="3months" {% if clinical_review.followUpInterval == "3months" %}selected{% endif %}>3 Months</option>
+          <option value="6months" {% if clinical_review.followUpInterval == "6months" %}selected{% endif %}>6 Months</option>
+          <option value="12months" {% if clinical_review.followUpInterval == "12months" %}selected{% endif %}>12 Months</option>
+          <option value="asNeeded" {% if clinical_review.followUpInterval == "asNeeded" %}selected{% endif %}>As Needed</option>
+          <option value="discharge" {% if clinical_review.followUpInterval == "discharge" %}selected{% endif %}>Discharge</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Patient Education Provided?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clinical_review.patient_education_provided" value="yes" {% if clinical_review.patientEducationProvided == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="clinical_review.patient_education_provided" value="no" {% if clinical_review.patientEducationProvided == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinician_name">Examining Clinician</label>
+      <input type="text" id="clinician_name" name="clinical_review.clinician_name"
+             value="{{ clinical_review.clinicianName }}"
+             placeholder="e.g. Dr A. Patel, Consultant Ophthalmologist">
+    </div>
+
+    <div class="form-group">
+      <label for="additional_notes">Additional Notes</label>
+      <textarea id="additional_notes" name="clinical_review.additional_notes"
+                rows="4" placeholder="Any additional clinical notes or observations">{{ clinical_review.additionalNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

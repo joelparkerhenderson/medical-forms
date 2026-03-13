@@ -1,0 +1,178 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Anterior Segment - Ophthalmology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Anterior Segment Examination</h2>
+    <p class="hint">Rate each structure from 1 (severely abnormal) to 5 (normal). Slit-lamp biomicroscopy findings.</p>
+
+    <h3>Lids &amp; Adnexa</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_lids">Right Eye (OD)</label>
+        <select id="right_lids" name="anterior_segment.right_lids">
+          <option value="">-- Select --</option>
+          <option value="5" {% if anterior_segment.rightLids == 5 %}selected{% endif %}>5 - Normal</option>
+          <option value="4" {% if anterior_segment.rightLids == 4 %}selected{% endif %}>4 - Mild changes</option>
+          <option value="3" {% if anterior_segment.rightLids == 3 %}selected{% endif %}>3 - Moderate changes</option>
+          <option value="2" {% if anterior_segment.rightLids == 2 %}selected{% endif %}>2 - Significant abnormality</option>
+          <option value="1" {% if anterior_segment.rightLids == 1 %}selected{% endif %}>1 - Severely abnormal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_lids">Left Eye (OS)</label>
+        <select id="left_lids" name="anterior_segment.left_lids">
+          <option value="">-- Select --</option>
+          <option value="5" {% if anterior_segment.leftLids == 5 %}selected{% endif %}>5 - Normal</option>
+          <option value="4" {% if anterior_segment.leftLids == 4 %}selected{% endif %}>4 - Mild changes</option>
+          <option value="3" {% if anterior_segment.leftLids == 3 %}selected{% endif %}>3 - Moderate changes</option>
+          <option value="2" {% if anterior_segment.leftLids == 2 %}selected{% endif %}>2 - Significant abnormality</option>
+          <option value="1" {% if anterior_segment.leftLids == 1 %}selected{% endif %}>1 - Severely abnormal</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Conjunctiva</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_conjunctiva">Right Eye (OD)</label>
+        <select id="right_conjunctiva" name="anterior_segment.right_conjunctiva">
+          <option value="">-- Select --</option>
+          <option value="5" {% if anterior_segment.rightConjunctiva == 5 %}selected{% endif %}>5 - Normal</option>
+          <option value="4" {% if anterior_segment.rightConjunctiva == 4 %}selected{% endif %}>4 - Mild changes</option>
+          <option value="3" {% if anterior_segment.rightConjunctiva == 3 %}selected{% endif %}>3 - Moderate changes</option>
+          <option value="2" {% if anterior_segment.rightConjunctiva == 2 %}selected{% endif %}>2 - Significant abnormality</option>
+          <option value="1" {% if anterior_segment.rightConjunctiva == 1 %}selected{% endif %}>1 - Severely abnormal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_conjunctiva">Left Eye (OS)</label>
+        <select id="left_conjunctiva" name="anterior_segment.left_conjunctiva">
+          <option value="">-- Select --</option>
+          <option value="5" {% if anterior_segment.leftConjunctiva == 5 %}selected{% endif %}>5 - Normal</option>
+          <option value="4" {% if anterior_segment.leftConjunctiva == 4 %}selected{% endif %}>4 - Mild changes</option>
+          <option value="3" {% if anterior_segment.leftConjunctiva == 3 %}selected{% endif %}>3 - Moderate changes</option>
+          <option value="2" {% if anterior_segment.leftConjunctiva == 2 %}selected{% endif %}>2 - Significant abnormality</option>
+          <option value="1" {% if anterior_segment.leftConjunctiva == 1 %}selected{% endif %}>1 - Severely abnormal</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Cornea</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_cornea">Right Eye (OD)</label>
+        <select id="right_cornea" name="anterior_segment.right_cornea">
+          <option value="">-- Select --</option>
+          <option value="5" {% if anterior_segment.rightCornea == 5 %}selected{% endif %}>5 - Clear, normal</option>
+          <option value="4" {% if anterior_segment.rightCornea == 4 %}selected{% endif %}>4 - Mild opacity/changes</option>
+          <option value="3" {% if anterior_segment.rightCornea == 3 %}selected{% endif %}>3 - Moderate opacity</option>
+          <option value="2" {% if anterior_segment.rightCornea == 2 %}selected{% endif %}>2 - Significant opacity</option>
+          <option value="1" {% if anterior_segment.rightCornea == 1 %}selected{% endif %}>1 - Severely opaque</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_cornea">Left Eye (OS)</label>
+        <select id="left_cornea" name="anterior_segment.left_cornea">
+          <option value="">-- Select --</option>
+          <option value="5" {% if anterior_segment.leftCornea == 5 %}selected{% endif %}>5 - Clear, normal</option>
+          <option value="4" {% if anterior_segment.leftCornea == 4 %}selected{% endif %}>4 - Mild opacity/changes</option>
+          <option value="3" {% if anterior_segment.leftCornea == 3 %}selected{% endif %}>3 - Moderate opacity</option>
+          <option value="2" {% if anterior_segment.leftCornea == 2 %}selected{% endif %}>2 - Significant opacity</option>
+          <option value="1" {% if anterior_segment.leftCornea == 1 %}selected{% endif %}>1 - Severely opaque</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Anterior Chamber</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_anterior_chamber">Right Eye (OD)</label>
+        <select id="right_anterior_chamber" name="anterior_segment.right_anterior_chamber">
+          <option value="">-- Select --</option>
+          <option value="5" {% if anterior_segment.rightAnteriorChamber == 5 %}selected{% endif %}>5 - Deep, quiet</option>
+          <option value="4" {% if anterior_segment.rightAnteriorChamber == 4 %}selected{% endif %}>4 - Mildly shallow/cells</option>
+          <option value="3" {% if anterior_segment.rightAnteriorChamber == 3 %}selected{% endif %}>3 - Moderate changes</option>
+          <option value="2" {% if anterior_segment.rightAnteriorChamber == 2 %}selected{% endif %}>2 - Significant inflammation</option>
+          <option value="1" {% if anterior_segment.rightAnteriorChamber == 1 %}selected{% endif %}>1 - Severe inflammation/shallow</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_anterior_chamber">Left Eye (OS)</label>
+        <select id="left_anterior_chamber" name="anterior_segment.left_anterior_chamber">
+          <option value="">-- Select --</option>
+          <option value="5" {% if anterior_segment.leftAnteriorChamber == 5 %}selected{% endif %}>5 - Deep, quiet</option>
+          <option value="4" {% if anterior_segment.leftAnteriorChamber == 4 %}selected{% endif %}>4 - Mildly shallow/cells</option>
+          <option value="3" {% if anterior_segment.leftAnteriorChamber == 3 %}selected{% endif %}>3 - Moderate changes</option>
+          <option value="2" {% if anterior_segment.leftAnteriorChamber == 2 %}selected{% endif %}>2 - Significant inflammation</option>
+          <option value="1" {% if anterior_segment.leftAnteriorChamber == 1 %}selected{% endif %}>1 - Severe inflammation/shallow</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Iris</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_iris">Right Eye (OD)</label>
+        <select id="right_iris" name="anterior_segment.right_iris">
+          <option value="">-- Select --</option>
+          <option value="5" {% if anterior_segment.rightIris == 5 %}selected{% endif %}>5 - Normal</option>
+          <option value="4" {% if anterior_segment.rightIris == 4 %}selected{% endif %}>4 - Mild changes</option>
+          <option value="3" {% if anterior_segment.rightIris == 3 %}selected{% endif %}>3 - Moderate changes</option>
+          <option value="2" {% if anterior_segment.rightIris == 2 %}selected{% endif %}>2 - Significant abnormality</option>
+          <option value="1" {% if anterior_segment.rightIris == 1 %}selected{% endif %}>1 - Severely abnormal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_iris">Left Eye (OS)</label>
+        <select id="left_iris" name="anterior_segment.left_iris">
+          <option value="">-- Select --</option>
+          <option value="5" {% if anterior_segment.leftIris == 5 %}selected{% endif %}>5 - Normal</option>
+          <option value="4" {% if anterior_segment.leftIris == 4 %}selected{% endif %}>4 - Mild changes</option>
+          <option value="3" {% if anterior_segment.leftIris == 3 %}selected{% endif %}>3 - Moderate changes</option>
+          <option value="2" {% if anterior_segment.leftIris == 2 %}selected{% endif %}>2 - Significant abnormality</option>
+          <option value="1" {% if anterior_segment.leftIris == 1 %}selected{% endif %}>1 - Severely abnormal</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Lens</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_lens">Right Eye (OD)</label>
+        <select id="right_lens" name="anterior_segment.right_lens">
+          <option value="">-- Select --</option>
+          <option value="5" {% if anterior_segment.rightLens == 5 %}selected{% endif %}>5 - Clear</option>
+          <option value="4" {% if anterior_segment.rightLens == 4 %}selected{% endif %}>4 - Early opacity</option>
+          <option value="3" {% if anterior_segment.rightLens == 3 %}selected{% endif %}>3 - Moderate cataract</option>
+          <option value="2" {% if anterior_segment.rightLens == 2 %}selected{% endif %}>2 - Dense cataract</option>
+          <option value="1" {% if anterior_segment.rightLens == 1 %}selected{% endif %}>1 - Mature/hypermature cataract</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_lens">Left Eye (OS)</label>
+        <select id="left_lens" name="anterior_segment.left_lens">
+          <option value="">-- Select --</option>
+          <option value="5" {% if anterior_segment.leftLens == 5 %}selected{% endif %}>5 - Clear</option>
+          <option value="4" {% if anterior_segment.leftLens == 4 %}selected{% endif %}>4 - Early opacity</option>
+          <option value="3" {% if anterior_segment.leftLens == 3 %}selected{% endif %}>3 - Moderate cataract</option>
+          <option value="2" {% if anterior_segment.leftLens == 2 %}selected{% endif %}>2 - Dense cataract</option>
+          <option value="1" {% if anterior_segment.leftLens == 1 %}selected{% endif %}>1 - Mature/hypermature cataract</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="anterior_segment_notes">Additional Notes</label>
+      <textarea id="anterior_segment_notes" name="anterior_segment.anterior_segment_notes"
+                rows="3" placeholder="e.g. Arcus senilis, pterygium, etc.">{{ anterior_segment.anteriorSegmentNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,135 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Ocular Motility - Ophthalmology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Ocular Motility</h2>
+    <p class="hint">Record eye movement, pupil responses, and binocular function assessments.</p>
+
+    <h3>Extraocular Movements</h3>
+    <div class="form-group">
+      <label for="extraocular_movements">EOM Assessment</label>
+      <select id="extraocular_movements" name="ocular_motility.extraocular_movements">
+        <option value="">-- Select --</option>
+        <option value="5" {% if ocular_motility.extraocularMovements == 5 %}selected{% endif %}>5 - Full, unrestricted in all positions</option>
+        <option value="4" {% if ocular_motility.extraocularMovements == 4 %}selected{% endif %}>4 - Mildly limited in one direction</option>
+        <option value="3" {% if ocular_motility.extraocularMovements == 3 %}selected{% endif %}>3 - Moderate limitation</option>
+        <option value="2" {% if ocular_motility.extraocularMovements == 2 %}selected{% endif %}>2 - Significant restriction</option>
+        <option value="1" {% if ocular_motility.extraocularMovements == 1 %}selected{% endif %}>1 - Severe palsy/paralysis</option>
+      </select>
+    </div>
+
+    <h3>Cover Test</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cover_test_distance">Distance</label>
+        <select id="cover_test_distance" name="ocular_motility.cover_test_distance">
+          <option value="">-- Select --</option>
+          <option value="ortho" {% if ocular_motility.coverTestDistance == "ortho" %}selected{% endif %}>Orthophoria</option>
+          <option value="exophoria" {% if ocular_motility.coverTestDistance == "exophoria" %}selected{% endif %}>Exophoria</option>
+          <option value="esophoria" {% if ocular_motility.coverTestDistance == "esophoria" %}selected{% endif %}>Esophoria</option>
+          <option value="exotropia" {% if ocular_motility.coverTestDistance == "exotropia" %}selected{% endif %}>Exotropia</option>
+          <option value="esotropia" {% if ocular_motility.coverTestDistance == "esotropia" %}selected{% endif %}>Esotropia</option>
+          <option value="hypertropia" {% if ocular_motility.coverTestDistance == "hypertropia" %}selected{% endif %}>Hypertropia</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cover_test_near">Near</label>
+        <select id="cover_test_near" name="ocular_motility.cover_test_near">
+          <option value="">-- Select --</option>
+          <option value="ortho" {% if ocular_motility.coverTestNear == "ortho" %}selected{% endif %}>Orthophoria</option>
+          <option value="exophoria" {% if ocular_motility.coverTestNear == "exophoria" %}selected{% endif %}>Exophoria</option>
+          <option value="esophoria" {% if ocular_motility.coverTestNear == "esophoria" %}selected{% endif %}>Esophoria</option>
+          <option value="exotropia" {% if ocular_motility.coverTestNear == "exotropia" %}selected{% endif %}>Exotropia</option>
+          <option value="esotropia" {% if ocular_motility.coverTestNear == "esotropia" %}selected{% endif %}>Esotropia</option>
+          <option value="hypertropia" {% if ocular_motility.coverTestNear == "hypertropia" %}selected{% endif %}>Hypertropia</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Pupil Responses</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pupil_right_direct">Right Direct Response</label>
+        <select id="pupil_right_direct" name="ocular_motility.pupil_right_direct">
+          <option value="">-- Select --</option>
+          <option value="5" {% if ocular_motility.pupilRightDirect == 5 %}selected{% endif %}>5 - Brisk, normal</option>
+          <option value="4" {% if ocular_motility.pupilRightDirect == 4 %}selected{% endif %}>4 - Mildly sluggish</option>
+          <option value="3" {% if ocular_motility.pupilRightDirect == 3 %}selected{% endif %}>3 - Sluggish</option>
+          <option value="2" {% if ocular_motility.pupilRightDirect == 2 %}selected{% endif %}>2 - Minimal response</option>
+          <option value="1" {% if ocular_motility.pupilRightDirect == 1 %}selected{% endif %}>1 - No response (fixed)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pupil_left_direct">Left Direct Response</label>
+        <select id="pupil_left_direct" name="ocular_motility.pupil_left_direct">
+          <option value="">-- Select --</option>
+          <option value="5" {% if ocular_motility.pupilLeftDirect == 5 %}selected{% endif %}>5 - Brisk, normal</option>
+          <option value="4" {% if ocular_motility.pupilLeftDirect == 4 %}selected{% endif %}>4 - Mildly sluggish</option>
+          <option value="3" {% if ocular_motility.pupilLeftDirect == 3 %}selected{% endif %}>3 - Sluggish</option>
+          <option value="2" {% if ocular_motility.pupilLeftDirect == 2 %}selected{% endif %}>2 - Minimal response</option>
+          <option value="1" {% if ocular_motility.pupilLeftDirect == 1 %}selected{% endif %}>1 - No response (fixed)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pupil_right_consensual">Right Consensual Response</label>
+        <select id="pupil_right_consensual" name="ocular_motility.pupil_right_consensual">
+          <option value="">-- Select --</option>
+          <option value="5" {% if ocular_motility.pupilRightConsensual == 5 %}selected{% endif %}>5 - Brisk, normal</option>
+          <option value="4" {% if ocular_motility.pupilRightConsensual == 4 %}selected{% endif %}>4 - Mildly sluggish</option>
+          <option value="3" {% if ocular_motility.pupilRightConsensual == 3 %}selected{% endif %}>3 - Sluggish</option>
+          <option value="2" {% if ocular_motility.pupilRightConsensual == 2 %}selected{% endif %}>2 - Minimal response</option>
+          <option value="1" {% if ocular_motility.pupilRightConsensual == 1 %}selected{% endif %}>1 - No response</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pupil_left_consensual">Left Consensual Response</label>
+        <select id="pupil_left_consensual" name="ocular_motility.pupil_left_consensual">
+          <option value="">-- Select --</option>
+          <option value="5" {% if ocular_motility.pupilLeftConsensual == 5 %}selected{% endif %}>5 - Brisk, normal</option>
+          <option value="4" {% if ocular_motility.pupilLeftConsensual == 4 %}selected{% endif %}>4 - Mildly sluggish</option>
+          <option value="3" {% if ocular_motility.pupilLeftConsensual == 3 %}selected{% endif %}>3 - Sluggish</option>
+          <option value="2" {% if ocular_motility.pupilLeftConsensual == 2 %}selected{% endif %}>2 - Minimal response</option>
+          <option value="1" {% if ocular_motility.pupilLeftConsensual == 1 %}selected{% endif %}>1 - No response</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Relative Afferent Pupillary Defect (RAPD)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="ocular_motility.relative_afferent_pupil_defect" value="no" {% if ocular_motility.relativeAfferentPupilDefect == "no" %}checked{% endif %}> No RAPD</label>
+          <label><input type="radio" name="ocular_motility.relative_afferent_pupil_defect" value="yes" {% if ocular_motility.relativeAfferentPupilDefect == "yes" %}checked{% endif %}> RAPD Present</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="convergence">Convergence</label>
+        <select id="convergence" name="ocular_motility.convergence">
+          <option value="">-- Select --</option>
+          <option value="5" {% if ocular_motility.convergence == 5 %}selected{% endif %}>5 - Normal (< 10cm)</option>
+          <option value="4" {% if ocular_motility.convergence == 4 %}selected{% endif %}>4 - Mildly reduced</option>
+          <option value="3" {% if ocular_motility.convergence == 3 %}selected{% endif %}>3 - Moderately reduced</option>
+          <option value="2" {% if ocular_motility.convergence == 2 %}selected{% endif %}>2 - Significantly reduced</option>
+          <option value="1" {% if ocular_motility.convergence == 1 %}selected{% endif %}>1 - Absent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="stereopsis">Stereopsis</label>
+      <input type="text" id="stereopsis" name="ocular_motility.stereopsis"
+             value="{{ ocular_motility.stereopsis }}" placeholder="e.g. 40 seconds of arc (Titmus)">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

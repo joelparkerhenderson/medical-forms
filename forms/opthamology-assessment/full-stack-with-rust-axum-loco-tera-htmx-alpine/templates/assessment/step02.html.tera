@@ -1,0 +1,150 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Visual Acuity - Ophthalmology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Visual Acuity</h2>
+    <p class="hint">Record visual acuity measurements for both eyes using Snellen notation.</p>
+
+    <h3>Distance Vision (Uncorrected)</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_uncorrected">Right Eye (OD)</label>
+        <select id="right_uncorrected" name="visual_acuity.right_uncorrected">
+          <option value="">-- Select --</option>
+          <option value="6/5" {% if visual_acuity.rightUncorrected == "6/5" %}selected{% endif %}>6/5</option>
+          <option value="6/6" {% if visual_acuity.rightUncorrected == "6/6" %}selected{% endif %}>6/6</option>
+          <option value="6/9" {% if visual_acuity.rightUncorrected == "6/9" %}selected{% endif %}>6/9</option>
+          <option value="6/12" {% if visual_acuity.rightUncorrected == "6/12" %}selected{% endif %}>6/12</option>
+          <option value="6/18" {% if visual_acuity.rightUncorrected == "6/18" %}selected{% endif %}>6/18</option>
+          <option value="6/24" {% if visual_acuity.rightUncorrected == "6/24" %}selected{% endif %}>6/24</option>
+          <option value="6/36" {% if visual_acuity.rightUncorrected == "6/36" %}selected{% endif %}>6/36</option>
+          <option value="6/60" {% if visual_acuity.rightUncorrected == "6/60" %}selected{% endif %}>6/60</option>
+          <option value="3/60" {% if visual_acuity.rightUncorrected == "3/60" %}selected{% endif %}>3/60</option>
+          <option value="1/60" {% if visual_acuity.rightUncorrected == "1/60" %}selected{% endif %}>1/60</option>
+          <option value="CF" {% if visual_acuity.rightUncorrected == "CF" %}selected{% endif %}>CF (Counting Fingers)</option>
+          <option value="HM" {% if visual_acuity.rightUncorrected == "HM" %}selected{% endif %}>HM (Hand Movements)</option>
+          <option value="PL" {% if visual_acuity.rightUncorrected == "PL" %}selected{% endif %}>PL (Perception of Light)</option>
+          <option value="NPL" {% if visual_acuity.rightUncorrected == "NPL" %}selected{% endif %}>NPL (No Perception of Light)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_uncorrected">Left Eye (OS)</label>
+        <select id="left_uncorrected" name="visual_acuity.left_uncorrected">
+          <option value="">-- Select --</option>
+          <option value="6/5" {% if visual_acuity.leftUncorrected == "6/5" %}selected{% endif %}>6/5</option>
+          <option value="6/6" {% if visual_acuity.leftUncorrected == "6/6" %}selected{% endif %}>6/6</option>
+          <option value="6/9" {% if visual_acuity.leftUncorrected == "6/9" %}selected{% endif %}>6/9</option>
+          <option value="6/12" {% if visual_acuity.leftUncorrected == "6/12" %}selected{% endif %}>6/12</option>
+          <option value="6/18" {% if visual_acuity.leftUncorrected == "6/18" %}selected{% endif %}>6/18</option>
+          <option value="6/24" {% if visual_acuity.leftUncorrected == "6/24" %}selected{% endif %}>6/24</option>
+          <option value="6/36" {% if visual_acuity.leftUncorrected == "6/36" %}selected{% endif %}>6/36</option>
+          <option value="6/60" {% if visual_acuity.leftUncorrected == "6/60" %}selected{% endif %}>6/60</option>
+          <option value="3/60" {% if visual_acuity.leftUncorrected == "3/60" %}selected{% endif %}>3/60</option>
+          <option value="1/60" {% if visual_acuity.leftUncorrected == "1/60" %}selected{% endif %}>1/60</option>
+          <option value="CF" {% if visual_acuity.leftUncorrected == "CF" %}selected{% endif %}>CF (Counting Fingers)</option>
+          <option value="HM" {% if visual_acuity.leftUncorrected == "HM" %}selected{% endif %}>HM (Hand Movements)</option>
+          <option value="PL" {% if visual_acuity.leftUncorrected == "PL" %}selected{% endif %}>PL (Perception of Light)</option>
+          <option value="NPL" {% if visual_acuity.leftUncorrected == "NPL" %}selected{% endif %}>NPL (No Perception of Light)</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Best Corrected Visual Acuity (BCVA)</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_best_corrected">Right Eye (OD)</label>
+        <select id="right_best_corrected" name="visual_acuity.right_best_corrected">
+          <option value="">-- Select --</option>
+          <option value="6/5" {% if visual_acuity.rightBestCorrected == "6/5" %}selected{% endif %}>6/5</option>
+          <option value="6/6" {% if visual_acuity.rightBestCorrected == "6/6" %}selected{% endif %}>6/6</option>
+          <option value="6/9" {% if visual_acuity.rightBestCorrected == "6/9" %}selected{% endif %}>6/9</option>
+          <option value="6/12" {% if visual_acuity.rightBestCorrected == "6/12" %}selected{% endif %}>6/12</option>
+          <option value="6/18" {% if visual_acuity.rightBestCorrected == "6/18" %}selected{% endif %}>6/18</option>
+          <option value="6/24" {% if visual_acuity.rightBestCorrected == "6/24" %}selected{% endif %}>6/24</option>
+          <option value="6/36" {% if visual_acuity.rightBestCorrected == "6/36" %}selected{% endif %}>6/36</option>
+          <option value="6/60" {% if visual_acuity.rightBestCorrected == "6/60" %}selected{% endif %}>6/60</option>
+          <option value="3/60" {% if visual_acuity.rightBestCorrected == "3/60" %}selected{% endif %}>3/60</option>
+          <option value="1/60" {% if visual_acuity.rightBestCorrected == "1/60" %}selected{% endif %}>1/60</option>
+          <option value="CF" {% if visual_acuity.rightBestCorrected == "CF" %}selected{% endif %}>CF (Counting Fingers)</option>
+          <option value="HM" {% if visual_acuity.rightBestCorrected == "HM" %}selected{% endif %}>HM (Hand Movements)</option>
+          <option value="PL" {% if visual_acuity.rightBestCorrected == "PL" %}selected{% endif %}>PL (Perception of Light)</option>
+          <option value="NPL" {% if visual_acuity.rightBestCorrected == "NPL" %}selected{% endif %}>NPL (No Perception of Light)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_best_corrected">Left Eye (OS)</label>
+        <select id="left_best_corrected" name="visual_acuity.left_best_corrected">
+          <option value="">-- Select --</option>
+          <option value="6/5" {% if visual_acuity.leftBestCorrected == "6/5" %}selected{% endif %}>6/5</option>
+          <option value="6/6" {% if visual_acuity.leftBestCorrected == "6/6" %}selected{% endif %}>6/6</option>
+          <option value="6/9" {% if visual_acuity.leftBestCorrected == "6/9" %}selected{% endif %}>6/9</option>
+          <option value="6/12" {% if visual_acuity.leftBestCorrected == "6/12" %}selected{% endif %}>6/12</option>
+          <option value="6/18" {% if visual_acuity.leftBestCorrected == "6/18" %}selected{% endif %}>6/18</option>
+          <option value="6/24" {% if visual_acuity.leftBestCorrected == "6/24" %}selected{% endif %}>6/24</option>
+          <option value="6/36" {% if visual_acuity.leftBestCorrected == "6/36" %}selected{% endif %}>6/36</option>
+          <option value="6/60" {% if visual_acuity.leftBestCorrected == "6/60" %}selected{% endif %}>6/60</option>
+          <option value="3/60" {% if visual_acuity.leftBestCorrected == "3/60" %}selected{% endif %}>3/60</option>
+          <option value="1/60" {% if visual_acuity.leftBestCorrected == "1/60" %}selected{% endif %}>1/60</option>
+          <option value="CF" {% if visual_acuity.leftBestCorrected == "CF" %}selected{% endif %}>CF (Counting Fingers)</option>
+          <option value="HM" {% if visual_acuity.leftBestCorrected == "HM" %}selected{% endif %}>HM (Hand Movements)</option>
+          <option value="PL" {% if visual_acuity.leftBestCorrected == "PL" %}selected{% endif %}>PL (Perception of Light)</option>
+          <option value="NPL" {% if visual_acuity.leftBestCorrected == "NPL" %}selected{% endif %}>NPL (No Perception of Light)</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Pinhole Acuity</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_pinhole">Right Eye (OD)</label>
+        <input type="text" id="right_pinhole" name="visual_acuity.right_pinhole"
+               value="{{ visual_acuity.rightPinhole }}" placeholder="e.g. 6/6">
+      </div>
+      <div class="form-group">
+        <label for="left_pinhole">Left Eye (OS)</label>
+        <input type="text" id="left_pinhole" name="visual_acuity.left_pinhole"
+               value="{{ visual_acuity.leftPinhole }}" placeholder="e.g. 6/6">
+      </div>
+    </div>
+
+    <h3>Near Vision</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_near_vision">Right Eye (OD)</label>
+        <input type="text" id="right_near_vision" name="visual_acuity.right_near_vision"
+               value="{{ visual_acuity.rightNearVision }}" placeholder="e.g. N5">
+      </div>
+      <div class="form-group">
+        <label for="left_near_vision">Left Eye (OS)</label>
+        <input type="text" id="left_near_vision" name="visual_acuity.left_near_vision"
+               value="{{ visual_acuity.leftNearVision }}" placeholder="e.g. N5">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="binocular_vision">Binocular Vision</label>
+        <input type="text" id="binocular_vision" name="visual_acuity.binocular_vision"
+               value="{{ visual_acuity.binocularVision }}" placeholder="e.g. 6/6">
+      </div>
+      <div class="form-group">
+        <label for="visual_acuity_method">Method</label>
+        <select id="visual_acuity_method" name="visual_acuity.visual_acuity_method">
+          <option value="">-- Select --</option>
+          <option value="snellen" {% if visual_acuity.visualAcuityMethod == "snellen" %}selected{% endif %}>Snellen Chart</option>
+          <option value="logMAR" {% if visual_acuity.visualAcuityMethod == "logMAR" %}selected{% endif %}>LogMAR</option>
+          <option value="eChart" {% if visual_acuity.visualAcuityMethod == "eChart" %}selected{% endif %}>E Chart</option>
+          <option value="cardiff" {% if visual_acuity.visualAcuityMethod == "cardiff" %}selected{% endif %}>Cardiff Cards</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Visual Fields - Ophthalmology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Visual Fields</h2>
+    <p class="hint">Record visual field examination findings for both eyes.</p>
+
+    <h3>Confrontation Visual Fields</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_confrontation">Right Eye (OD)</label>
+        <select id="right_confrontation" name="visual_fields.right_confrontation">
+          <option value="">-- Select --</option>
+          <option value="5" {% if visual_fields.rightConfrontation == 5 %}selected{% endif %}>5 - Full to confrontation</option>
+          <option value="4" {% if visual_fields.rightConfrontation == 4 %}selected{% endif %}>4 - Mild constriction</option>
+          <option value="3" {% if visual_fields.rightConfrontation == 3 %}selected{% endif %}>3 - Quadrantanopia</option>
+          <option value="2" {% if visual_fields.rightConfrontation == 2 %}selected{% endif %}>2 - Hemianopia</option>
+          <option value="1" {% if visual_fields.rightConfrontation == 1 %}selected{% endif %}>1 - Severely constricted/absent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="left_confrontation">Left Eye (OS)</label>
+        <select id="left_confrontation" name="visual_fields.left_confrontation">
+          <option value="">-- Select --</option>
+          <option value="5" {% if visual_fields.leftConfrontation == 5 %}selected{% endif %}>5 - Full to confrontation</option>
+          <option value="4" {% if visual_fields.leftConfrontation == 4 %}selected{% endif %}>4 - Mild constriction</option>
+          <option value="3" {% if visual_fields.leftConfrontation == 3 %}selected{% endif %}>3 - Quadrantanopia</option>
+          <option value="2" {% if visual_fields.leftConfrontation == 2 %}selected{% endif %}>2 - Hemianopia</option>
+          <option value="1" {% if visual_fields.leftConfrontation == 1 %}selected{% endif %}>1 - Severely constricted/absent</option>
+        </select>
+      </div>
+    </div>
+
+    <h3>Automated Perimetry (if performed)</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_mean_deviation">Right MD (dB)</label>
+        <input type="text" id="right_mean_deviation" name="visual_fields.right_mean_deviation"
+               value="{{ visual_fields.rightMeanDeviation }}" placeholder="e.g. -2.5">
+      </div>
+      <div class="form-group">
+        <label for="left_mean_deviation">Left MD (dB)</label>
+        <input type="text" id="left_mean_deviation" name="visual_fields.left_mean_deviation"
+               value="{{ visual_fields.leftMeanDeviation }}" placeholder="e.g. -1.8">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_pattern_standard_deviation">Right PSD (dB)</label>
+        <input type="text" id="right_pattern_standard_deviation" name="visual_fields.right_pattern_standard_deviation"
+               value="{{ visual_fields.rightPatternStandardDeviation }}" placeholder="e.g. 1.5">
+      </div>
+      <div class="form-group">
+        <label for="left_pattern_standard_deviation">Left PSD (dB)</label>
+        <input type="text" id="left_pattern_standard_deviation" name="visual_fields.left_pattern_standard_deviation"
+               value="{{ visual_fields.leftPatternStandardDeviation }}" placeholder="e.g. 1.3">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="visual_field_test_type">Test Type</label>
+        <select id="visual_field_test_type" name="visual_fields.visual_field_test_type">
+          <option value="">-- Select --</option>
+          <option value="humphrey24-2" {% if visual_fields.visualFieldTestType == "humphrey24-2" %}selected{% endif %}>Humphrey 24-2</option>
+          <option value="humphrey30-2" {% if visual_fields.visualFieldTestType == "humphrey30-2" %}selected{% endif %}>Humphrey 30-2</option>
+          <option value="humphrey10-2" {% if visual_fields.visualFieldTestType == "humphrey10-2" %}selected{% endif %}>Humphrey 10-2</option>
+          <option value="octopus" {% if visual_fields.visualFieldTestType == "octopus" %}selected{% endif %}>Octopus</option>
+          <option value="goldmann" {% if visual_fields.visualFieldTestType == "goldmann" %}selected{% endif %}>Goldmann</option>
+          <option value="confrontation" {% if visual_fields.visualFieldTestType == "confrontation" %}selected{% endif %}>Confrontation Only</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="visual_field_reliability">Test Reliability</label>
+        <select id="visual_field_reliability" name="visual_fields.visual_field_reliability">
+          <option value="">-- Select --</option>
+          <option value="5" {% if visual_fields.visualFieldReliability == 5 %}selected{% endif %}>5 - Excellent reliability</option>
+          <option value="4" {% if visual_fields.visualFieldReliability == 4 %}selected{% endif %}>4 - Good reliability</option>
+          <option value="3" {% if visual_fields.visualFieldReliability == 3 %}selected{% endif %}>3 - Borderline reliability</option>
+          <option value="2" {% if visual_fields.visualFieldReliability == 2 %}selected{% endif %}>2 - Poor reliability</option>
+          <option value="1" {% if visual_fields.visualFieldReliability == 1 %}selected{% endif %}>1 - Unreliable</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="visual_field_notes">Visual Field Notes</label>
+      <textarea id="visual_field_notes" name="visual_fields.visual_field_notes"
+                rows="3" placeholder="e.g. Arcuate scotoma, nasal step">{{ visual_fields.visualFieldNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

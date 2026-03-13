@@ -1,0 +1,184 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Assessment Report - Ophthalmology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Ophthalmology Assessment Report</h1>
+    <span class="impairment-badge impairment-{{ impairment_level }}">{{ impairment_label }}</span>
+  </div>
+
+  <div class="score-display">{{ impairment_score }}%</div>
+  <div class="score-label">Composite Clinical Score</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient:</strong> {{ data.patientInformation.patientName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Exam Date:</strong> {{ data.patientInformation.examDate | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>DOB:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Referring Clinician:</strong> {{ data.patientInformation.referringClinician | default(value="Not provided") }}
+    </div>
+  </div>
+  {% if data.patientInformation.reasonForVisit %}
+  <div style="margin-top: 0.5rem;">
+    <strong>Chief Complaint:</strong> {{ data.patientInformation.reasonForVisit }}
+  </div>
+  {% endif %}
+</div>
+
+<!-- Visual Acuity Summary -->
+<div class="card">
+  <h2>Visual Acuity</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Right Eye (OD)</th>
+        <th>Left Eye (OS)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Uncorrected</strong></td>
+        <td>{{ data.visualAcuity.rightUncorrected | default(value="N/A") }}</td>
+        <td>{{ data.visualAcuity.leftUncorrected | default(value="N/A") }}</td>
+      </tr>
+      <tr>
+        <td><strong>Best Corrected</strong></td>
+        <td>{{ data.visualAcuity.rightBestCorrected | default(value="N/A") }}</td>
+        <td>{{ data.visualAcuity.leftBestCorrected | default(value="N/A") }}</td>
+      </tr>
+      <tr>
+        <td><strong>Near Vision</strong></td>
+        <td>{{ data.visualAcuity.rightNearVision | default(value="N/A") }}</td>
+        <td>{{ data.visualAcuity.leftNearVision | default(value="N/A") }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- IOP Summary -->
+<div class="card">
+  <h2>Intraocular Pressure</h2>
+  <div style="display: flex; gap: 2rem;">
+    <div>
+      <strong>Right Eye:</strong>
+      {% if data.intraocularPressure.rightIop %}
+        {{ data.intraocularPressure.rightIop }} mmHg
+        <span class="concern-badge concern-{% if right_iop_risk == "high" %}high{% elif right_iop_risk == "elevated" %}medium{% else %}low{% endif %}">{{ right_iop_risk | upper }}</span>
+      {% else %}
+        N/A
+      {% endif %}
+    </div>
+    <div>
+      <strong>Left Eye:</strong>
+      {% if data.intraocularPressure.leftIop %}
+        {{ data.intraocularPressure.leftIop }} mmHg
+        <span class="concern-badge concern-{% if left_iop_risk == "high" %}high{% elif left_iop_risk == "elevated" %}medium{% else %}low{% endif %}">{{ left_iop_risk | upper }}</span>
+      {% else %}
+        N/A
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Fired Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Clinical Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Diagnosis & Management -->
+{% if data.clinicalReview.primaryDiagnosis or data.clinicalReview.managementPlan %}
+<div class="card">
+  <h2>Diagnosis &amp; Management</h2>
+  {% if data.clinicalReview.primaryDiagnosis %}
+    <div class="form-group">
+      <strong>Primary Diagnosis:</strong>
+      <p>{{ data.clinicalReview.primaryDiagnosis }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.secondaryDiagnosis %}
+    <div class="form-group">
+      <strong>Secondary Diagnosis:</strong>
+      <p>{{ data.clinicalReview.secondaryDiagnosis }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.managementPlan %}
+    <div class="form-group">
+      <strong>Management Plan:</strong>
+      <p>{{ data.clinicalReview.managementPlan }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.additionalNotes %}
+    <div class="form-group">
+      <strong>Additional Notes:</strong>
+      <p>{{ data.clinicalReview.additionalNotes }}</p>
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

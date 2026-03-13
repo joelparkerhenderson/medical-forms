@@ -1,0 +1,72 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Ophthalmology Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Ophthalmology Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by date, patient, clinician...">
+    </div>
+    <div class="form-group">
+      <label for="impairment_level">Impairment Level</label>
+      <select id="impairment_level" name="impairment_level">
+        <option value="">All Levels</option>
+        <option value="normal" {% if impairment_level == "normal" %}selected{% endif %}>Normal</option>
+        <option value="mildImpairment" {% if impairment_level == "mildImpairment" %}selected{% endif %}>Mild Impairment</option>
+        <option value="moderateImpairment" {% if impairment_level == "moderateImpairment" %}selected{% endif %}>Moderate Impairment</option>
+        <option value="severeImpairment" {% if impairment_level == "severeImpairment" %}selected{% endif %}>Severe Impairment</option>
+        <option value="blind" {% if impairment_level == "blind" %}selected{% endif %}>Blind</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Exam Date</th>
+      <th>Patient</th>
+      <th>Referring Clinician</th>
+      <th>Impairment</th>
+      <th>Score</th>
+      <th>R BCVA</th>
+      <th>L BCVA</th>
+      <th>R IOP</th>
+      <th>L IOP</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.examDate }}</a></td>
+      <td>{{ patient.patientName }}</td>
+      <td>{{ patient.referringClinician }}</td>
+      <td><span class="impairment-badge impairment-{{ patient.impairmentLevel }}">{{ patient.impairmentLevel }}</span></td>
+      <td>{{ patient.impairmentScore }}%</td>
+      <td>{{ patient.rightBcva }}</td>
+      <td>{{ patient.leftBcva }}</td>
+      <td>{{ patient.rightIop }}</td>
+      <td>{{ patient.leftIop }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="9" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}
