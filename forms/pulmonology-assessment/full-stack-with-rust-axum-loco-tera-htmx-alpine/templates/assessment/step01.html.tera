@@ -1,0 +1,87 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Pulmonology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide the patient's basic information and reason for assessment.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. John Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_age">Age Range</label>
+        <select id="patient_age" name="patient_information.patient_age">
+          <option value="">-- Select --</option>
+          <option value="under18" {% if patient_information.patientAge == "under18" %}selected{% endif %}>Under 18</option>
+          <option value="18to34" {% if patient_information.patientAge == "18to34" %}selected{% endif %}>18 - 34</option>
+          <option value="35to49" {% if patient_information.patientAge == "35to49" %}selected{% endif %}>35 - 49</option>
+          <option value="50to64" {% if patient_information.patientAge == "50to64" %}selected{% endif %}>50 - 64</option>
+          <option value="65to79" {% if patient_information.patientAge == "65to79" %}selected{% endif %}>65 - 79</option>
+          <option value="80plus" {% if patient_information.patientAge == "80plus" %}selected{% endif %}>80+</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="patient_sex">Sex</label>
+        <select id="patient_sex" name="patient_information.patient_sex">
+          <option value="">-- Select --</option>
+          <option value="male" {% if patient_information.patientSex == "male" %}selected{% endif %}>Male</option>
+          <option value="female" {% if patient_information.patientSex == "female" %}selected{% endif %}>Female</option>
+          <option value="other" {% if patient_information.patientSex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="referring_physician">Referring Physician</label>
+        <input type="text" id="referring_physician" name="patient_information.referring_physician"
+               value="{{ patient_information.referringPhysician }}"
+               placeholder="e.g. Dr Jones">
+      </div>
+      <div class="form-group">
+        <label for="assessment_date">Assessment Date</label>
+        <input type="date" id="assessment_date" name="patient_information.assessment_date"
+               value="{{ patient_information.assessmentDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="primary_complaint">Primary Complaint</label>
+        <input type="text" id="primary_complaint" name="patient_information.primary_complaint"
+               value="{{ patient_information.primaryComplaint }}"
+               placeholder="e.g. Chronic cough, shortness of breath">
+      </div>
+      <div class="form-group">
+        <label for="insurance_status">Insurance Status</label>
+        <select id="insurance_status" name="patient_information.insurance_status">
+          <option value="">-- Select --</option>
+          <option value="insured" {% if patient_information.insuranceStatus == "insured" %}selected{% endif %}>Insured</option>
+          <option value="uninsured" {% if patient_information.insuranceStatus == "uninsured" %}selected{% endif %}>Uninsured</option>
+          <option value="medicare" {% if patient_information.insuranceStatus == "medicare" %}selected{% endif %}>Medicare</option>
+          <option value="medicaid" {% if patient_information.insuranceStatus == "medicaid" %}selected{% endif %}>Medicaid</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Symptom Assessment - Pulmonology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Symptom Assessment</h2>
+    <p class="hint">Rate the severity of respiratory symptoms. 1 = Minimal, 5 = Most severe.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="dyspnea_severity">Dyspnea (Shortness of Breath)</label>
+        <select id="dyspnea_severity" name="symptom_assessment.dyspnea_severity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if symptom_assessment.dyspneaSeverity == 1 %}selected{% endif %}>1 - Minimal</option>
+          <option value="2" {% if symptom_assessment.dyspneaSeverity == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if symptom_assessment.dyspneaSeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if symptom_assessment.dyspneaSeverity == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if symptom_assessment.dyspneaSeverity == 5 %}selected{% endif %}>5 - Very Severe</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cough_severity">Cough Severity</label>
+        <select id="cough_severity" name="symptom_assessment.cough_severity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if symptom_assessment.coughSeverity == 1 %}selected{% endif %}>1 - Minimal</option>
+          <option value="2" {% if symptom_assessment.coughSeverity == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if symptom_assessment.coughSeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if symptom_assessment.coughSeverity == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if symptom_assessment.coughSeverity == 5 %}selected{% endif %}>5 - Very Severe</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sputum_production">Sputum Production</label>
+        <select id="sputum_production" name="symptom_assessment.sputum_production">
+          <option value="">-- Select --</option>
+          <option value="1" {% if symptom_assessment.sputumProduction == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if symptom_assessment.sputumProduction == 2 %}selected{% endif %}>2 - Scant</option>
+          <option value="3" {% if symptom_assessment.sputumProduction == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if symptom_assessment.sputumProduction == 4 %}selected{% endif %}>4 - Copious</option>
+          <option value="5" {% if symptom_assessment.sputumProduction == 5 %}selected{% endif %}>5 - Very Copious</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="wheezing_frequency">Wheezing Frequency</label>
+        <select id="wheezing_frequency" name="symptom_assessment.wheezing_frequency">
+          <option value="">-- Select --</option>
+          <option value="1" {% if symptom_assessment.wheezingFrequency == 1 %}selected{% endif %}>1 - Never</option>
+          <option value="2" {% if symptom_assessment.wheezingFrequency == 2 %}selected{% endif %}>2 - Rarely</option>
+          <option value="3" {% if symptom_assessment.wheezingFrequency == 3 %}selected{% endif %}>3 - Sometimes</option>
+          <option value="4" {% if symptom_assessment.wheezingFrequency == 4 %}selected{% endif %}>4 - Often</option>
+          <option value="5" {% if symptom_assessment.wheezingFrequency == 5 %}selected{% endif %}>5 - Constant</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="chest_tightness">Chest Tightness</label>
+        <select id="chest_tightness" name="symptom_assessment.chest_tightness">
+          <option value="">-- Select --</option>
+          <option value="1" {% if symptom_assessment.chestTightness == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if symptom_assessment.chestTightness == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if symptom_assessment.chestTightness == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if symptom_assessment.chestTightness == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if symptom_assessment.chestTightness == 5 %}selected{% endif %}>5 - Very Severe</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="nocturnal_symptoms">Nocturnal Symptoms</label>
+        <select id="nocturnal_symptoms" name="symptom_assessment.nocturnal_symptoms">
+          <option value="">-- Select --</option>
+          <option value="1" {% if symptom_assessment.nocturnalSymptoms == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if symptom_assessment.nocturnalSymptoms == 2 %}selected{% endif %}>2 - Rare</option>
+          <option value="3" {% if symptom_assessment.nocturnalSymptoms == 3 %}selected{% endif %}>3 - Weekly</option>
+          <option value="4" {% if symptom_assessment.nocturnalSymptoms == 4 %}selected{% endif %}>4 - Most nights</option>
+          <option value="5" {% if symptom_assessment.nocturnalSymptoms == 5 %}selected{% endif %}>5 - Every night</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Hemoptysis (Coughing Up Blood)?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="symptom_assessment.hemoptysis_present" value="yes" {% if symptom_assessment.hemoptysisPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="symptom_assessment.hemoptysis_present" value="no" {% if symptom_assessment.hemoptysisPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="symptom_duration">Symptom Duration</label>
+        <select id="symptom_duration" name="symptom_assessment.symptom_duration">
+          <option value="">-- Select --</option>
+          <option value="lessThan1Week" {% if symptom_assessment.symptomDuration == "lessThan1Week" %}selected{% endif %}>Less than 1 week</option>
+          <option value="1to4Weeks" {% if symptom_assessment.symptomDuration == "1to4Weeks" %}selected{% endif %}>1 - 4 weeks</option>
+          <option value="1to3Months" {% if symptom_assessment.symptomDuration == "1to3Months" %}selected{% endif %}>1 - 3 months</option>
+          <option value="3to12Months" {% if symptom_assessment.symptomDuration == "3to12Months" %}selected{% endif %}>3 - 12 months</option>
+          <option value="moreThan1Year" {% if symptom_assessment.symptomDuration == "moreThan1Year" %}selected{% endif %}>More than 1 year</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

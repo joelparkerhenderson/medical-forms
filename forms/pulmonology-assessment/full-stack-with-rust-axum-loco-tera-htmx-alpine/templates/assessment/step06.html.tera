@@ -1,0 +1,107 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Chest Imaging - Pulmonology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Chest Imaging</h2>
+    <p class="hint">Document chest X-ray and CT scan findings.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="chest_xray_findings">Chest X-ray Findings</label>
+        <select id="chest_xray_findings" name="chest_imaging.chest_xray_findings">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if chest_imaging.chestXrayFindings == "normal" %}selected{% endif %}>Normal</option>
+          <option value="hyperinflation" {% if chest_imaging.chestXrayFindings == "hyperinflation" %}selected{% endif %}>Hyperinflation</option>
+          <option value="infiltrates" {% if chest_imaging.chestXrayFindings == "infiltrates" %}selected{% endif %}>Infiltrates</option>
+          <option value="mass" {% if chest_imaging.chestXrayFindings == "mass" %}selected{% endif %}>Mass/Nodule</option>
+          <option value="effusion" {% if chest_imaging.chestXrayFindings == "effusion" %}selected{% endif %}>Pleural Effusion</option>
+          <option value="fibrosis" {% if chest_imaging.chestXrayFindings == "fibrosis" %}selected{% endif %}>Fibrotic Changes</option>
+          <option value="notDone" {% if chest_imaging.chestXrayFindings == "notDone" %}selected{% endif %}>Not Done</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="ct_scan_findings">CT Scan Findings</label>
+        <select id="ct_scan_findings" name="chest_imaging.ct_scan_findings">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if chest_imaging.ctScanFindings == "normal" %}selected{% endif %}>Normal</option>
+          <option value="emphysema" {% if chest_imaging.ctScanFindings == "emphysema" %}selected{% endif %}>Emphysema</option>
+          <option value="groundGlass" {% if chest_imaging.ctScanFindings == "groundGlass" %}selected{% endif %}>Ground Glass Opacities</option>
+          <option value="nodule" {% if chest_imaging.ctScanFindings == "nodule" %}selected{% endif %}>Nodule(s)</option>
+          <option value="bronchiectasis" {% if chest_imaging.ctScanFindings == "bronchiectasis" %}selected{% endif %}>Bronchiectasis</option>
+          <option value="fibrosis" {% if chest_imaging.ctScanFindings == "fibrosis" %}selected{% endif %}>Fibrosis</option>
+          <option value="notDone" {% if chest_imaging.ctScanFindings == "notDone" %}selected{% endif %}>Not Done</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Pulmonary Nodule Detected?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="chest_imaging.nodule_detected" value="yes" {% if chest_imaging.noduleDetected == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="chest_imaging.nodule_detected" value="no" {% if chest_imaging.noduleDetected == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nodule_size_mm">Nodule Size (if applicable)</label>
+        <select id="nodule_size_mm" name="chest_imaging.nodule_size_mm">
+          <option value="">-- Select --</option>
+          <option value="notApplicable" {% if chest_imaging.noduleSizeMm == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+          <option value="lessThan6" {% if chest_imaging.noduleSizeMm == "lessThan6" %}selected{% endif %}>Less than 6 mm</option>
+          <option value="6to8" {% if chest_imaging.noduleSizeMm == "6to8" %}selected{% endif %}>6 - 8 mm</option>
+          <option value="8to15" {% if chest_imaging.noduleSizeMm == "8to15" %}selected{% endif %}>8 - 15 mm</option>
+          <option value="moreThan15" {% if chest_imaging.noduleSizeMm == "moreThan15" %}selected{% endif %}>More than 15 mm</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Pleural Effusion?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="chest_imaging.pleural_effusion" value="yes" {% if chest_imaging.pleuralEffusion == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="chest_imaging.pleural_effusion" value="no" {% if chest_imaging.pleuralEffusion == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Consolidation Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="chest_imaging.consolidation_present" value="yes" {% if chest_imaging.consolidationPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="chest_imaging.consolidation_present" value="no" {% if chest_imaging.consolidationPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fibrosis_pattern">Fibrosis Pattern</label>
+        <select id="fibrosis_pattern" name="chest_imaging.fibrosis_pattern">
+          <option value="">-- Select --</option>
+          <option value="none" {% if chest_imaging.fibrosisPattern == "none" %}selected{% endif %}>None</option>
+          <option value="uip" {% if chest_imaging.fibrosisPattern == "uip" %}selected{% endif %}>UIP (Usual Interstitial Pneumonia)</option>
+          <option value="nsip" {% if chest_imaging.fibrosisPattern == "nsip" %}selected{% endif %}>NSIP</option>
+          <option value="other" {% if chest_imaging.fibrosisPattern == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="imaging_urgency">Imaging Urgency Level</label>
+        <select id="imaging_urgency" name="chest_imaging.imaging_urgency">
+          <option value="">-- Select --</option>
+          <option value="1" {% if chest_imaging.imagingUrgency == 1 %}selected{% endif %}>1 - Routine</option>
+          <option value="2" {% if chest_imaging.imagingUrgency == 2 %}selected{% endif %}>2 - Low</option>
+          <option value="3" {% if chest_imaging.imagingUrgency == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if chest_imaging.imagingUrgency == 4 %}selected{% endif %}>4 - High</option>
+          <option value="5" {% if chest_imaging.imagingUrgency == 5 %}selected{% endif %}>5 - Urgent</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

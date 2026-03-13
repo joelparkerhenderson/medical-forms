@@ -1,0 +1,93 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Respiratory History - Pulmonology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Respiratory History</h2>
+    <p class="hint">Document the patient's respiratory medical history.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>History of Asthma?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="respiratory_history.asthma_history" value="yes" {% if respiratory_history.asthmaHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="respiratory_history.asthma_history" value="no" {% if respiratory_history.asthmaHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>History of COPD?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="respiratory_history.copd_history" value="yes" {% if respiratory_history.copdHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="respiratory_history.copd_history" value="no" {% if respiratory_history.copdHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>History of Pneumonia?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="respiratory_history.pneumonia_history" value="yes" {% if respiratory_history.pneumoniaHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="respiratory_history.pneumonia_history" value="no" {% if respiratory_history.pneumoniaHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>History of Tuberculosis?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="respiratory_history.tuberculosis_history" value="yes" {% if respiratory_history.tuberculosisHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="respiratory_history.tuberculosis_history" value="no" {% if respiratory_history.tuberculosisHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>History of Lung Cancer?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="respiratory_history.lung_cancer_history" value="yes" {% if respiratory_history.lungCancerHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="respiratory_history.lung_cancer_history" value="no" {% if respiratory_history.lungCancerHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Interstitial Lung Disease?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="respiratory_history.interstitial_lung_disease" value="yes" {% if respiratory_history.interstitialLungDisease == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="respiratory_history.interstitial_lung_disease" value="no" {% if respiratory_history.interstitialLungDisease == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="family_respiratory_history">Family Respiratory History</label>
+        <select id="family_respiratory_history" name="respiratory_history.family_respiratory_history">
+          <option value="">-- Select --</option>
+          <option value="none" {% if respiratory_history.familyRespiratoryHistory == "none" %}selected{% endif %}>None</option>
+          <option value="asthma" {% if respiratory_history.familyRespiratoryHistory == "asthma" %}selected{% endif %}>Asthma</option>
+          <option value="copd" {% if respiratory_history.familyRespiratoryHistory == "copd" %}selected{% endif %}>COPD</option>
+          <option value="lungCancer" {% if respiratory_history.familyRespiratoryHistory == "lungCancer" %}selected{% endif %}>Lung Cancer</option>
+          <option value="other" {% if respiratory_history.familyRespiratoryHistory == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="previous_hospitalizations">Previous Respiratory Hospitalizations</label>
+        <p class="hint">1 = None, 5 = Many (4+)</p>
+        <select id="previous_hospitalizations" name="respiratory_history.previous_hospitalizations">
+          <option value="">-- Select --</option>
+          <option value="1" {% if respiratory_history.previousHospitalizations == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if respiratory_history.previousHospitalizations == 2 %}selected{% endif %}>2 - One</option>
+          <option value="3" {% if respiratory_history.previousHospitalizations == 3 %}selected{% endif %}>3 - Two</option>
+          <option value="4" {% if respiratory_history.previousHospitalizations == 4 %}selected{% endif %}>4 - Three</option>
+          <option value="5" {% if respiratory_history.previousHospitalizations == 5 %}selected{% endif %}>5 - Four or more</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

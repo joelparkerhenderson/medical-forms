@@ -1,0 +1,95 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Smoking & Exposure - Pulmonology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Smoking & Exposure History</h2>
+    <p class="hint">Document smoking status and environmental/occupational exposures.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="smoking_status">Smoking Status</label>
+        <select id="smoking_status" name="smoking_exposure.smoking_status">
+          <option value="">-- Select --</option>
+          <option value="never" {% if smoking_exposure.smokingStatus == "never" %}selected{% endif %}>Never Smoked</option>
+          <option value="former" {% if smoking_exposure.smokingStatus == "former" %}selected{% endif %}>Former Smoker</option>
+          <option value="current" {% if smoking_exposure.smokingStatus == "current" %}selected{% endif %}>Current Smoker</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pack_years">Pack Years (if applicable)</label>
+        <select id="pack_years" name="smoking_exposure.pack_years">
+          <option value="">-- Select --</option>
+          <option value="none" {% if smoking_exposure.packYears == "none" %}selected{% endif %}>None</option>
+          <option value="lessThan10" {% if smoking_exposure.packYears == "lessThan10" %}selected{% endif %}>Less than 10</option>
+          <option value="10to20" {% if smoking_exposure.packYears == "10to20" %}selected{% endif %}>10 - 20</option>
+          <option value="20to40" {% if smoking_exposure.packYears == "20to40" %}selected{% endif %}>20 - 40</option>
+          <option value="moreThan40" {% if smoking_exposure.packYears == "moreThan40" %}selected{% endif %}>More than 40</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Secondhand Smoke Exposure?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="smoking_exposure.secondhand_smoke" value="yes" {% if smoking_exposure.secondhandSmoke == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="smoking_exposure.secondhand_smoke" value="no" {% if smoking_exposure.secondhandSmoke == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="occupational_exposure">Occupational Exposure</label>
+        <select id="occupational_exposure" name="smoking_exposure.occupational_exposure">
+          <option value="">-- Select --</option>
+          <option value="none" {% if smoking_exposure.occupationalExposure == "none" %}selected{% endif %}>None</option>
+          <option value="mining" {% if smoking_exposure.occupationalExposure == "mining" %}selected{% endif %}>Mining</option>
+          <option value="construction" {% if smoking_exposure.occupationalExposure == "construction" %}selected{% endif %}>Construction</option>
+          <option value="manufacturing" {% if smoking_exposure.occupationalExposure == "manufacturing" %}selected{% endif %}>Manufacturing</option>
+          <option value="agriculture" {% if smoking_exposure.occupationalExposure == "agriculture" %}selected{% endif %}>Agriculture</option>
+          <option value="other" {% if smoking_exposure.occupationalExposure == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Environmental Allergen Exposure?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="smoking_exposure.environmental_allergens" value="yes" {% if smoking_exposure.environmentalAllergens == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="smoking_exposure.environmental_allergens" value="no" {% if smoking_exposure.environmentalAllergens == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Dust Exposure?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="smoking_exposure.dust_exposure" value="yes" {% if smoking_exposure.dustExposure == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="smoking_exposure.dust_exposure" value="no" {% if smoking_exposure.dustExposure == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Chemical Exposure?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="smoking_exposure.chemical_exposure" value="yes" {% if smoking_exposure.chemicalExposure == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="smoking_exposure.chemical_exposure" value="no" {% if smoking_exposure.chemicalExposure == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Asbestos Exposure?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="smoking_exposure.asbestos_exposure" value="yes" {% if smoking_exposure.asbestosExposure == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="smoking_exposure.asbestos_exposure" value="no" {% if smoking_exposure.asbestosExposure == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Sleep & Breathing - Pulmonology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Sleep & Breathing</h2>
+    <p class="hint">Assess sleep-disordered breathing and related symptoms.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="snoring_severity">Snoring Severity</label>
+        <select id="snoring_severity" name="sleep_breathing.snoring_severity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if sleep_breathing.snoringSeverity == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if sleep_breathing.snoringSeverity == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if sleep_breathing.snoringSeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if sleep_breathing.snoringSeverity == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if sleep_breathing.snoringSeverity == 5 %}selected{% endif %}>5 - Very Severe</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Witnessed Apnea Episodes?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="sleep_breathing.apnea_witnessed" value="yes" {% if sleep_breathing.apneaWitnessed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="sleep_breathing.apnea_witnessed" value="no" {% if sleep_breathing.apneaWitnessed == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="sleep_breathing.apnea_witnessed" value="unknown" {% if sleep_breathing.apneaWitnessed == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="daytime_sleepiness">Daytime Sleepiness</label>
+        <select id="daytime_sleepiness" name="sleep_breathing.daytime_sleepiness">
+          <option value="">-- Select --</option>
+          <option value="1" {% if sleep_breathing.daytimeSleepiness == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if sleep_breathing.daytimeSleepiness == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if sleep_breathing.daytimeSleepiness == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if sleep_breathing.daytimeSleepiness == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if sleep_breathing.daytimeSleepiness == 5 %}selected{% endif %}>5 - Very Severe</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Sleep Study Done?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="sleep_breathing.sleep_study_done" value="yes" {% if sleep_breathing.sleepStudyDone == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="sleep_breathing.sleep_study_done" value="no" {% if sleep_breathing.sleepStudyDone == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ahi_score">AHI Score (if available)</label>
+        <select id="ahi_score" name="sleep_breathing.ahi_score">
+          <option value="">-- Select --</option>
+          <option value="notAvailable" {% if sleep_breathing.ahiScore == "notAvailable" %}selected{% endif %}>Not Available</option>
+          <option value="lessThan5" {% if sleep_breathing.ahiScore == "lessThan5" %}selected{% endif %}>Less than 5 (Normal)</option>
+          <option value="5to14" {% if sleep_breathing.ahiScore == "5to14" %}selected{% endif %}>5 - 14 (Mild OSA)</option>
+          <option value="15to29" {% if sleep_breathing.ahiScore == "15to29" %}selected{% endif %}>15 - 29 (Moderate OSA)</option>
+          <option value="moreThan30" {% if sleep_breathing.ahiScore == "moreThan30" %}selected{% endif %}>30+ (Severe OSA)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cpap_compliance">CPAP Compliance (if applicable)</label>
+        <select id="cpap_compliance" name="sleep_breathing.cpap_compliance">
+          <option value="">-- Select --</option>
+          <option value="notApplicable" {% if sleep_breathing.cpapCompliance == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+          <option value="compliant" {% if sleep_breathing.cpapCompliance == "compliant" %}selected{% endif %}>Compliant</option>
+          <option value="partiallyCompliant" {% if sleep_breathing.cpapCompliance == "partiallyCompliant" %}selected{% endif %}>Partially Compliant</option>
+          <option value="nonCompliant" {% if sleep_breathing.cpapCompliance == "nonCompliant" %}selected{% endif %}>Non-Compliant</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sleep_quality">Overall Sleep Quality</label>
+        <select id="sleep_quality" name="sleep_breathing.sleep_quality">
+          <option value="">-- Select --</option>
+          <option value="1" {% if sleep_breathing.sleepQuality == 1 %}selected{% endif %}>1 - Excellent</option>
+          <option value="2" {% if sleep_breathing.sleepQuality == 2 %}selected{% endif %}>2 - Good</option>
+          <option value="3" {% if sleep_breathing.sleepQuality == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if sleep_breathing.sleepQuality == 4 %}selected{% endif %}>4 - Poor</option>
+          <option value="5" {% if sleep_breathing.sleepQuality == 5 %}selected{% endif %}>5 - Very Poor</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Morning Headaches?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="sleep_breathing.morning_headaches" value="yes" {% if sleep_breathing.morningHeadaches == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="sleep_breathing.morning_headaches" value="no" {% if sleep_breathing.morningHeadaches == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

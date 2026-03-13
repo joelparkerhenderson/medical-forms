@@ -1,0 +1,110 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Pulmonary Function Tests - Pulmonology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Pulmonary Function Tests</h2>
+    <p class="hint">Record spirometry and lung function results. 1 = Severely reduced, 5 = Normal.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fev1_percent_predicted">FEV1 (% Predicted)</label>
+        <select id="fev1_percent_predicted" name="pulmonary_function_tests.fev1_percent_predicted">
+          <option value="">-- Select --</option>
+          <option value="1" {% if pulmonary_function_tests.fev1PercentPredicted == 1 %}selected{% endif %}>1 - &lt;30% (Very Severe)</option>
+          <option value="2" {% if pulmonary_function_tests.fev1PercentPredicted == 2 %}selected{% endif %}>2 - 30-49% (Severe)</option>
+          <option value="3" {% if pulmonary_function_tests.fev1PercentPredicted == 3 %}selected{% endif %}>3 - 50-69% (Moderate)</option>
+          <option value="4" {% if pulmonary_function_tests.fev1PercentPredicted == 4 %}selected{% endif %}>4 - 70-79% (Mild)</option>
+          <option value="5" {% if pulmonary_function_tests.fev1PercentPredicted == 5 %}selected{% endif %}>5 - &ge;80% (Normal)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fvc_percent_predicted">FVC (% Predicted)</label>
+        <select id="fvc_percent_predicted" name="pulmonary_function_tests.fvc_percent_predicted">
+          <option value="">-- Select --</option>
+          <option value="1" {% if pulmonary_function_tests.fvcPercentPredicted == 1 %}selected{% endif %}>1 - &lt;50% (Very Severe)</option>
+          <option value="2" {% if pulmonary_function_tests.fvcPercentPredicted == 2 %}selected{% endif %}>2 - 50-64% (Severe)</option>
+          <option value="3" {% if pulmonary_function_tests.fvcPercentPredicted == 3 %}selected{% endif %}>3 - 65-74% (Moderate)</option>
+          <option value="4" {% if pulmonary_function_tests.fvcPercentPredicted == 4 %}selected{% endif %}>4 - 75-79% (Mild)</option>
+          <option value="5" {% if pulmonary_function_tests.fvcPercentPredicted == 5 %}selected{% endif %}>5 - &ge;80% (Normal)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fev1_fvc_ratio">FEV1/FVC Ratio</label>
+        <select id="fev1_fvc_ratio" name="pulmonary_function_tests.fev1_fvc_ratio">
+          <option value="">-- Select --</option>
+          <option value="1" {% if pulmonary_function_tests.fev1FvcRatio == 1 %}selected{% endif %}>1 - &lt;40% (Very Severe obstruction)</option>
+          <option value="2" {% if pulmonary_function_tests.fev1FvcRatio == 2 %}selected{% endif %}>2 - 40-54% (Severe obstruction)</option>
+          <option value="3" {% if pulmonary_function_tests.fev1FvcRatio == 3 %}selected{% endif %}>3 - 55-64% (Moderate obstruction)</option>
+          <option value="4" {% if pulmonary_function_tests.fev1FvcRatio == 4 %}selected{% endif %}>4 - 65-69% (Mild obstruction)</option>
+          <option value="5" {% if pulmonary_function_tests.fev1FvcRatio == 5 %}selected{% endif %}>5 - &ge;70% (Normal)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dlco_percent_predicted">DLCO (% Predicted)</label>
+        <select id="dlco_percent_predicted" name="pulmonary_function_tests.dlco_percent_predicted">
+          <option value="">-- Select --</option>
+          <option value="1" {% if pulmonary_function_tests.dlcoPercentPredicted == 1 %}selected{% endif %}>1 - &lt;40% (Severe)</option>
+          <option value="2" {% if pulmonary_function_tests.dlcoPercentPredicted == 2 %}selected{% endif %}>2 - 40-59% (Moderate)</option>
+          <option value="3" {% if pulmonary_function_tests.dlcoPercentPredicted == 3 %}selected{% endif %}>3 - 60-74% (Mild)</option>
+          <option value="4" {% if pulmonary_function_tests.dlcoPercentPredicted == 4 %}selected{% endif %}>4 - 75-79% (Borderline)</option>
+          <option value="5" {% if pulmonary_function_tests.dlcoPercentPredicted == 5 %}selected{% endif %}>5 - &ge;80% (Normal)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Bronchodilator Response</label>
+        <div class="radio-group">
+          <label><input type="radio" name="pulmonary_function_tests.bronchodilator_response" value="positive" {% if pulmonary_function_tests.bronchodilatorResponse == "positive" %}checked{% endif %}> Positive</label>
+          <label><input type="radio" name="pulmonary_function_tests.bronchodilator_response" value="negative" {% if pulmonary_function_tests.bronchodilatorResponse == "negative" %}checked{% endif %}> Negative</label>
+          <label><input type="radio" name="pulmonary_function_tests.bronchodilator_response" value="notDone" {% if pulmonary_function_tests.bronchodilatorResponse == "notDone" %}checked{% endif %}> Not Done</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="peak_flow_variability">Peak Flow Variability</label>
+        <select id="peak_flow_variability" name="pulmonary_function_tests.peak_flow_variability">
+          <option value="">-- Select --</option>
+          <option value="1" {% if pulmonary_function_tests.peakFlowVariability == 1 %}selected{% endif %}>1 - &gt;30% (Highly variable)</option>
+          <option value="2" {% if pulmonary_function_tests.peakFlowVariability == 2 %}selected{% endif %}>2 - 20-30%</option>
+          <option value="3" {% if pulmonary_function_tests.peakFlowVariability == 3 %}selected{% endif %}>3 - 10-20%</option>
+          <option value="4" {% if pulmonary_function_tests.peakFlowVariability == 4 %}selected{% endif %}>4 - 5-10%</option>
+          <option value="5" {% if pulmonary_function_tests.peakFlowVariability == 5 %}selected{% endif %}>5 - &lt;5% (Stable)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Lung Volumes Normal?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="pulmonary_function_tests.lung_volumes_normal" value="yes" {% if pulmonary_function_tests.lungVolumesNormal == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="pulmonary_function_tests.lung_volumes_normal" value="no" {% if pulmonary_function_tests.lungVolumesNormal == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="pulmonary_function_tests.lung_volumes_normal" value="notDone" {% if pulmonary_function_tests.lungVolumesNormal == "notDone" %}checked{% endif %}> Not Done</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="flow_volume_loop_pattern">Flow-Volume Loop Pattern</label>
+        <select id="flow_volume_loop_pattern" name="pulmonary_function_tests.flow_volume_loop_pattern">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if pulmonary_function_tests.flowVolumeLoopPattern == "normal" %}selected{% endif %}>Normal</option>
+          <option value="obstructive" {% if pulmonary_function_tests.flowVolumeLoopPattern == "obstructive" %}selected{% endif %}>Obstructive</option>
+          <option value="restrictive" {% if pulmonary_function_tests.flowVolumeLoopPattern == "restrictive" %}selected{% endif %}>Restrictive</option>
+          <option value="mixed" {% if pulmonary_function_tests.flowVolumeLoopPattern == "mixed" %}selected{% endif %}>Mixed</option>
+          <option value="notDone" {% if pulmonary_function_tests.flowVolumeLoopPattern == "notDone" %}selected{% endif %}>Not Done</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

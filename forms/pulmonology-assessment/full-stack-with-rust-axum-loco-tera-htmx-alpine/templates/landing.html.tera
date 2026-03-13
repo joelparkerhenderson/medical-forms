@@ -1,0 +1,35 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Pulmonology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Pulmonology Assessment</h1>
+  <p>
+    This clinical assessment tool evaluates respiratory health across multiple
+    dimensions including symptom severity, pulmonary function, imaging findings,
+    blood gases, sleep-disordered breathing, and treatment effectiveness.
+    The assessment generates a severity score and identifies clinical flags
+    requiring attention.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive pulmonary evaluation covering all key clinical domains</p>
+    </div>
+    <div class="feature-card">
+      <h3>Severity Scoring</h3>
+      <p>Composite score with rule-based severity classification</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Actionable alerts for conditions requiring immediate attention</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

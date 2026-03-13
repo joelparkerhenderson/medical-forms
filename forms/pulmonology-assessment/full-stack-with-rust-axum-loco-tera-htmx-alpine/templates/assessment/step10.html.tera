@@ -1,0 +1,107 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Pulmonology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Clinician's overall assessment and follow-up recommendations.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="overall_severity_impression">Overall Severity Impression</label>
+        <select id="overall_severity_impression" name="clinical_review.overall_severity_impression">
+          <option value="">-- Select --</option>
+          <option value="1" {% if clinical_review.overallSeverityImpression == 1 %}selected{% endif %}>1 - Normal</option>
+          <option value="2" {% if clinical_review.overallSeverityImpression == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if clinical_review.overallSeverityImpression == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if clinical_review.overallSeverityImpression == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if clinical_review.overallSeverityImpression == 5 %}selected{% endif %}>5 - Critical</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exacerbation_frequency">Exacerbation Frequency (past year)</label>
+        <select id="exacerbation_frequency" name="clinical_review.exacerbation_frequency">
+          <option value="">-- Select --</option>
+          <option value="none" {% if clinical_review.exacerbationFrequency == "none" %}selected{% endif %}>None</option>
+          <option value="one" {% if clinical_review.exacerbationFrequency == "one" %}selected{% endif %}>One</option>
+          <option value="two" {% if clinical_review.exacerbationFrequency == "two" %}selected{% endif %}>Two</option>
+          <option value="threeOrMore" {% if clinical_review.exacerbationFrequency == "threeOrMore" %}selected{% endif %}>Three or More</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="exercise_tolerance">Exercise Tolerance</label>
+        <p class="hint">1 = Minimal limitation, 5 = Severe limitation</p>
+        <select id="exercise_tolerance" name="clinical_review.exercise_tolerance">
+          <option value="">-- Select --</option>
+          <option value="1" {% if clinical_review.exerciseTolerance == 1 %}selected{% endif %}>1 - Normal (no limitation)</option>
+          <option value="2" {% if clinical_review.exerciseTolerance == 2 %}selected{% endif %}>2 - Mild limitation</option>
+          <option value="3" {% if clinical_review.exerciseTolerance == 3 %}selected{% endif %}>3 - Moderate limitation</option>
+          <option value="4" {% if clinical_review.exerciseTolerance == 4 %}selected{% endif %}>4 - Severe limitation</option>
+          <option value="5" {% if clinical_review.exerciseTolerance == 5 %}selected{% endif %}>5 - Unable to exercise</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="quality_of_life_impact">Quality of Life Impact</label>
+        <select id="quality_of_life_impact" name="clinical_review.quality_of_life_impact">
+          <option value="">-- Select --</option>
+          <option value="1" {% if clinical_review.qualityOfLifeImpact == 1 %}selected{% endif %}>1 - No impact</option>
+          <option value="2" {% if clinical_review.qualityOfLifeImpact == 2 %}selected{% endif %}>2 - Mild impact</option>
+          <option value="3" {% if clinical_review.qualityOfLifeImpact == 3 %}selected{% endif %}>3 - Moderate impact</option>
+          <option value="4" {% if clinical_review.qualityOfLifeImpact == 4 %}selected{% endif %}>4 - Major impact</option>
+          <option value="5" {% if clinical_review.qualityOfLifeImpact == 5 %}selected{% endif %}>5 - Devastating impact</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="follow_up_urgency">Follow-up Urgency</label>
+        <select id="follow_up_urgency" name="clinical_review.follow_up_urgency">
+          <option value="">-- Select --</option>
+          <option value="1" {% if clinical_review.followUpUrgency == 1 %}selected{% endif %}>1 - Routine (6-12 months)</option>
+          <option value="2" {% if clinical_review.followUpUrgency == 2 %}selected{% endif %}>2 - Soon (3-6 months)</option>
+          <option value="3" {% if clinical_review.followUpUrgency == 3 %}selected{% endif %}>3 - Prompt (1-3 months)</option>
+          <option value="4" {% if clinical_review.followUpUrgency == 4 %}selected{% endif %}>4 - Urgent (1-4 weeks)</option>
+          <option value="5" {% if clinical_review.followUpUrgency == 5 %}selected{% endif %}>5 - Immediate (within days)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Specialist Referral Needed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.specialist_referral_needed" value="yes" {% if clinical_review.specialistReferralNeeded == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.specialist_referral_needed" value="no" {% if clinical_review.specialistReferralNeeded == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="additional_tests_needed">Additional Tests Needed</label>
+        <select id="additional_tests_needed" name="clinical_review.additional_tests_needed">
+          <option value="">-- Select --</option>
+          <option value="none" {% if clinical_review.additionalTestsNeeded == "none" %}selected{% endif %}>None</option>
+          <option value="pft" {% if clinical_review.additionalTestsNeeded == "pft" %}selected{% endif %}>Pulmonary Function Tests</option>
+          <option value="ctScan" {% if clinical_review.additionalTestsNeeded == "ctScan" %}selected{% endif %}>CT Scan</option>
+          <option value="sleepStudy" {% if clinical_review.additionalTestsNeeded == "sleepStudy" %}selected{% endif %}>Sleep Study</option>
+          <option value="bronchoscopy" {% if clinical_review.additionalTestsNeeded == "bronchoscopy" %}selected{% endif %}>Bronchoscopy</option>
+          <option value="multiple" {% if clinical_review.additionalTestsNeeded == "multiple" %}selected{% endif %}>Multiple Tests</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="clinical_notes">Clinical Notes</label>
+        <textarea id="clinical_notes" name="clinical_review.clinical_notes"
+                  rows="4" placeholder="Additional clinical observations...">{{ clinical_review.clinicalNotes }}</textarea>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Arterial Blood Gases - Pulmonology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Arterial Blood Gases</h2>
+    <p class="hint">Record ABG values and oxygenation status.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pao2_mmhg">PaO2 (mmHg)</label>
+        <select id="pao2_mmhg" name="arterial_blood_gases.pao2_mmhg">
+          <option value="">-- Select --</option>
+          <option value="lessThan60" {% if arterial_blood_gases.pao2Mmhg == "lessThan60" %}selected{% endif %}>Less than 60 (Hypoxemia)</option>
+          <option value="60to79" {% if arterial_blood_gases.pao2Mmhg == "60to79" %}selected{% endif %}>60 - 79 (Mild Hypoxemia)</option>
+          <option value="80to100" {% if arterial_blood_gases.pao2Mmhg == "80to100" %}selected{% endif %}>80 - 100 (Normal)</option>
+          <option value="moreThan100" {% if arterial_blood_gases.pao2Mmhg == "moreThan100" %}selected{% endif %}>More than 100</option>
+          <option value="notDone" {% if arterial_blood_gases.pao2Mmhg == "notDone" %}selected{% endif %}>Not Done</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="paco2_mmhg">PaCO2 (mmHg)</label>
+        <select id="paco2_mmhg" name="arterial_blood_gases.paco2_mmhg">
+          <option value="">-- Select --</option>
+          <option value="lessThan35" {% if arterial_blood_gases.paco2Mmhg == "lessThan35" %}selected{% endif %}>Less than 35 (Hypocapnia)</option>
+          <option value="35to45" {% if arterial_blood_gases.paco2Mmhg == "35to45" %}selected{% endif %}>35 - 45 (Normal)</option>
+          <option value="46to55" {% if arterial_blood_gases.paco2Mmhg == "46to55" %}selected{% endif %}>46 - 55 (Mild Hypercapnia)</option>
+          <option value="moreThan55" {% if arterial_blood_gases.paco2Mmhg == "moreThan55" %}selected{% endif %}>More than 55 (Severe Hypercapnia)</option>
+          <option value="notDone" {% if arterial_blood_gases.paco2Mmhg == "notDone" %}selected{% endif %}>Not Done</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ph_level">pH Level</label>
+        <select id="ph_level" name="arterial_blood_gases.ph_level">
+          <option value="">-- Select --</option>
+          <option value="lessThan7.35" {% if arterial_blood_gases.phLevel == "lessThan7.35" %}selected{% endif %}>Less than 7.35 (Acidosis)</option>
+          <option value="7.35to7.45" {% if arterial_blood_gases.phLevel == "7.35to7.45" %}selected{% endif %}>7.35 - 7.45 (Normal)</option>
+          <option value="moreThan7.45" {% if arterial_blood_gases.phLevel == "moreThan7.45" %}selected{% endif %}>More than 7.45 (Alkalosis)</option>
+          <option value="notDone" {% if arterial_blood_gases.phLevel == "notDone" %}selected{% endif %}>Not Done</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sao2_percent">SaO2 (%)</label>
+        <select id="sao2_percent" name="arterial_blood_gases.sao2_percent">
+          <option value="">-- Select --</option>
+          <option value="lessThan88" {% if arterial_blood_gases.sao2Percent == "lessThan88" %}selected{% endif %}>Less than 88% (Severe)</option>
+          <option value="88to92" {% if arterial_blood_gases.sao2Percent == "88to92" %}selected{% endif %}>88 - 92%</option>
+          <option value="93to95" {% if arterial_blood_gases.sao2Percent == "93to95" %}selected{% endif %}>93 - 95%</option>
+          <option value="moreThan95" {% if arterial_blood_gases.sao2Percent == "moreThan95" %}selected{% endif %}>More than 95% (Normal)</option>
+          <option value="notDone" {% if arterial_blood_gases.sao2Percent == "notDone" %}selected{% endif %}>Not Done</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bicarbonate_level">Bicarbonate Level</label>
+        <select id="bicarbonate_level" name="arterial_blood_gases.bicarbonate_level">
+          <option value="">-- Select --</option>
+          <option value="low" {% if arterial_blood_gases.bicarbonateLevel == "low" %}selected{% endif %}>Low (&lt;22 mEq/L)</option>
+          <option value="normal" {% if arterial_blood_gases.bicarbonateLevel == "normal" %}selected{% endif %}>Normal (22-26 mEq/L)</option>
+          <option value="high" {% if arterial_blood_gases.bicarbonateLevel == "high" %}selected{% endif %}>High (&gt;26 mEq/L)</option>
+          <option value="notDone" {% if arterial_blood_gases.bicarbonateLevel == "notDone" %}selected{% endif %}>Not Done</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Supplemental Oxygen Required?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="arterial_blood_gases.supplemental_oxygen" value="yes" {% if arterial_blood_gases.supplementalOxygen == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="arterial_blood_gases.supplemental_oxygen" value="no" {% if arterial_blood_gases.supplementalOxygen == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="oxygen_flow_rate">Oxygen Flow Rate (if applicable)</label>
+        <select id="oxygen_flow_rate" name="arterial_blood_gases.oxygen_flow_rate">
+          <option value="">-- Select --</option>
+          <option value="notApplicable" {% if arterial_blood_gases.oxygenFlowRate == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+          <option value="1to2L" {% if arterial_blood_gases.oxygenFlowRate == "1to2L" %}selected{% endif %}>1 - 2 L/min</option>
+          <option value="3to4L" {% if arterial_blood_gases.oxygenFlowRate == "3to4L" %}selected{% endif %}>3 - 4 L/min</option>
+          <option value="5to6L" {% if arterial_blood_gases.oxygenFlowRate == "5to6L" %}selected{% endif %}>5 - 6 L/min</option>
+          <option value="moreThan6L" {% if arterial_blood_gases.oxygenFlowRate == "moreThan6L" %}selected{% endif %}>More than 6 L/min</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="abg_interpretation">ABG Overall Interpretation</label>
+        <select id="abg_interpretation" name="arterial_blood_gases.abg_interpretation">
+          <option value="">-- Select --</option>
+          <option value="1" {% if arterial_blood_gases.abgInterpretation == 1 %}selected{% endif %}>1 - Normal</option>
+          <option value="2" {% if arterial_blood_gases.abgInterpretation == 2 %}selected{% endif %}>2 - Mildly Abnormal</option>
+          <option value="3" {% if arterial_blood_gases.abgInterpretation == 3 %}selected{% endif %}>3 - Moderately Abnormal</option>
+          <option value="4" {% if arterial_blood_gases.abgInterpretation == 4 %}selected{% endif %}>4 - Severely Abnormal</option>
+          <option value="5" {% if arterial_blood_gases.abgInterpretation == 5 %}selected{% endif %}>5 - Critical</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
