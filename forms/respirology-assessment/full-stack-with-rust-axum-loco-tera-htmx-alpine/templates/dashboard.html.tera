@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Respirology Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Respirology Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, DOB, smoking status...">
+    </div>
+    <div class="form-group">
+      <label for="respiratory_level">Respiratory Level</label>
+      <select id="respiratory_level" name="respiratory_level">
+        <option value="">All Levels</option>
+        <option value="normal" {% if respiratory_level == "normal" %}selected{% endif %}>Normal</option>
+        <option value="mildImpairment" {% if respiratory_level == "mildImpairment" %}selected{% endif %}>Mild Impairment</option>
+        <option value="moderateImpairment" {% if respiratory_level == "moderateImpairment" %}selected{% endif %}>Moderate Impairment</option>
+        <option value="severeImpairment" {% if respiratory_level == "severeImpairment" %}selected{% endif %}>Severe Impairment</option>
+        <option value="respiratoryFailure" {% if respiratory_level == "respiratoryFailure" %}selected{% endif %}>Respiratory Failure</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="smoking_category">Smoking</label>
+      <select id="smoking_category" name="smoking_category">
+        <option value="">All</option>
+        <option value="none" {% if smoking_category == "none" %}selected{% endif %}>None</option>
+        <option value="minimal" {% if smoking_category == "minimal" %}selected{% endif %}>Minimal</option>
+        <option value="light" {% if smoking_category == "light" %}selected{% endif %}>Light</option>
+        <option value="moderate" {% if smoking_category == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="heavy" {% if smoking_category == "heavy" %}selected{% endif %}>Heavy</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Date of Birth</th>
+      <th>Smoking</th>
+      <th>Respiratory Level</th>
+      <th>Score</th>
+      <th>Follow-up</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.dateOfBirth }}</td>
+      <td>{{ patient.smokingStatus }}</td>
+      <td><span class="satisfaction-badge satisfaction-{{ patient.respiratoryLevel }}">{{ patient.respiratoryLevel }}</span></td>
+      <td>{{ patient.respiratoryScore }}%</td>
+      <td>{{ patient.followUpUrgency }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

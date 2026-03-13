@@ -1,0 +1,78 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Oxygen Assessment - Respirology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Oxygen Assessment</h2>
+    <p class="hint">Rate each oxygen parameter (1 = Normal, 5 = Critically abnormal).</p>
+
+    <div class="form-group">
+      <label>Resting SpO2</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="oxygen_assessment.resting_spo2" value="{{ i }}" {% if oxygen_assessment.restingSpo2 == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>&gt;95% (Normal)</span><span>&lt;88% (Critical)</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Exertional SpO2</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="oxygen_assessment.exertional_spo2" value="{{ i }}" {% if oxygen_assessment.exertionalSpo2 == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>&gt;95% (Normal)</span><span>&lt;85% (Severe desaturation)</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Oxygen Requirement</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="oxygen_assessment.oxygen_requirement" value="{{ i }}" {% if oxygen_assessment.oxygenRequirement == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>None needed</span><span>High flow / ventilatory support</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Arterial Blood Gas</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="oxygen_assessment.arterial_blood_gas" value="{{ i }}" {% if oxygen_assessment.arterialBloodGas == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Normal</span><span>Severe abnormality</span></div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Supplemental Oxygen Use</label>
+        <div class="radio-group">
+          <label><input type="radio" name="oxygen_assessment.supplemental_oxygen_use" value="yes" {% if oxygen_assessment.supplementalOxygenUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="oxygen_assessment.supplemental_oxygen_use" value="no" {% if oxygen_assessment.supplementalOxygenUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="oxygen_delivery_method">Oxygen Delivery Method</label>
+        <select id="oxygen_delivery_method" name="oxygen_assessment.oxygen_delivery_method">
+          <option value="">-- Select --</option>
+          <option value="nasal" {% if oxygen_assessment.oxygenDeliveryMethod == "nasal" %}selected{% endif %}>Nasal Cannulae</option>
+          <option value="venturi" {% if oxygen_assessment.oxygenDeliveryMethod == "venturi" %}selected{% endif %}>Venturi Mask</option>
+          <option value="nonRebreathe" {% if oxygen_assessment.oxygenDeliveryMethod == "nonRebreathe" %}selected{% endif %}>Non-Rebreathe Mask</option>
+          <option value="highFlow" {% if oxygen_assessment.oxygenDeliveryMethod == "highFlow" %}selected{% endif %}>High Flow Nasal</option>
+          <option value="niv" {% if oxygen_assessment.oxygenDeliveryMethod == "niv" %}selected{% endif %}>NIV (BiPAP/CPAP)</option>
+          <option value="none" {% if oxygen_assessment.oxygenDeliveryMethod == "none" %}selected{% endif %}>None</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

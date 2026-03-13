@@ -1,0 +1,68 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Inhaler & Medications - Respirology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Inhaler &amp; Medications</h2>
+    <p class="hint">Rate each medication aspect (1 = Excellent, 5 = Very poor).</p>
+
+    <div class="form-group">
+      <label>Inhaler Technique</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="inhaler_medications.inhaler_technique" value="{{ i }}" {% if inhaler_medications.inhalerTechnique == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Excellent</span><span>Very poor</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Medication Adherence</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="inhaler_medications.medication_adherence" value="{{ i }}" {% if inhaler_medications.medicationAdherence == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Fully adherent</span><span>Non-adherent</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Inhaler Device Suitability</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="inhaler_medications.inhaler_device_suitability" value="{{ i }}" {% if inhaler_medications.inhalerDeviceSuitability == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Very suitable</span><span>Unsuitable</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Side Effects Severity</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="inhaler_medications.side_effects_severity" value="{{ i }}" {% if inhaler_medications.sideEffectsSeverity == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>None</span><span>Severe</span></div>
+    </div>
+
+    <div class="form-group">
+      <label for="current_inhalers">Current Inhalers</label>
+      <textarea id="current_inhalers" name="inhaler_medications.current_inhalers" rows="3"
+                placeholder="List current inhaler medications...">{{ inhaler_medications.currentInhalers }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="oral_medications">Oral Medications</label>
+      <textarea id="oral_medications" name="inhaler_medications.oral_medications" rows="3"
+                placeholder="List oral respiratory medications...">{{ inhaler_medications.oralMedications }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

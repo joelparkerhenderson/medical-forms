@@ -1,0 +1,80 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Respiratory Infections - Respirology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Respiratory Infections</h2>
+    <p class="hint">Rate frequency/severity (1 = None/Rare, 5 = Very frequent/severe).</p>
+
+    <div class="form-group">
+      <label>Exacerbation Frequency (past 12 months)</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="respiratory_infections.exacerbation_frequency" value="{{ i }}" {% if respiratory_infections.exacerbationFrequency == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>None</span><span>5+ per year</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Antibiotic Courses (past 12 months)</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="respiratory_infections.antibiotic_courses" value="{{ i }}" {% if respiratory_infections.antibioticCourses == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>None</span><span>5+ courses</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Hospitalisation Frequency (past 12 months)</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="respiratory_infections.hospitalisation_frequency" value="{{ i }}" {% if respiratory_infections.hospitalisationFrequency == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>None</span><span>3+ admissions</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Vaccination Status</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="respiratory_infections.vaccination_status" value="{{ i }}" {% if respiratory_infections.vaccinationStatus == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Fully up to date</span><span>No vaccinations</span></div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="last_exacerbation">Last Exacerbation</label>
+        <select id="last_exacerbation" name="respiratory_infections.last_exacerbation">
+          <option value="">-- Select --</option>
+          <option value="none" {% if respiratory_infections.lastExacerbation == "none" %}selected{% endif %}>None / N/A</option>
+          <option value="lessThan1Month" {% if respiratory_infections.lastExacerbation == "lessThan1Month" %}selected{% endif %}>Less than 1 month ago</option>
+          <option value="1to3Months" {% if respiratory_infections.lastExacerbation == "1to3Months" %}selected{% endif %}>1 - 3 months ago</option>
+          <option value="3to6Months" {% if respiratory_infections.lastExacerbation == "3to6Months" %}selected{% endif %}>3 - 6 months ago</option>
+          <option value="moreThan6Months" {% if respiratory_infections.lastExacerbation == "moreThan6Months" %}selected{% endif %}>More than 6 months ago</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sputum_culture">Sputum Culture</label>
+        <select id="sputum_culture" name="respiratory_infections.sputum_culture">
+          <option value="">-- Select --</option>
+          <option value="notSent" {% if respiratory_infections.sputumCulture == "notSent" %}selected{% endif %}>Not Sent</option>
+          <option value="normalFlora" {% if respiratory_infections.sputumCulture == "normalFlora" %}selected{% endif %}>Normal Flora</option>
+          <option value="pathogenDetected" {% if respiratory_infections.sputumCulture == "pathogenDetected" %}selected{% endif %}>Pathogen Detected</option>
+          <option value="pending" {% if respiratory_infections.sputumCulture == "pending" %}selected{% endif %}>Pending</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

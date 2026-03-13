@@ -1,0 +1,78 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Respiratory Symptoms - Respirology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Respiratory Symptoms</h2>
+    <p class="hint">Rate the severity of each symptom (1 = None/Minimal, 5 = Severe).</p>
+
+    <div class="form-group">
+      <label>Dyspnoea Severity</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="respiratory_symptoms.dyspnoea_severity" value="{{ i }}" {% if respiratory_symptoms.dyspnoeaSeverity == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>None</span><span>Severe</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Wheeze Frequency</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="respiratory_symptoms.wheeze_frequency" value="{{ i }}" {% if respiratory_symptoms.wheezeFrequency == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Never</span><span>Constant</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Chest Tightness</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="respiratory_symptoms.chest_tightness" value="{{ i }}" {% if respiratory_symptoms.chestTightness == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>None</span><span>Severe</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Exercise Tolerance</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="respiratory_symptoms.exercise_tolerance" value="{{ i }}" {% if respiratory_symptoms.exerciseTolerance == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Normal</span><span>Severely limited</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Nocturnal Symptoms</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="respiratory_symptoms.nocturnal_symptoms" value="{{ i }}" {% if respiratory_symptoms.nocturnalSymptoms == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>None</span><span>Every night</span></div>
+    </div>
+
+    <div class="form-group">
+      <label for="symptom_duration">Symptom Duration</label>
+      <select id="symptom_duration" name="respiratory_symptoms.symptom_duration">
+        <option value="">-- Select --</option>
+        <option value="lessThan1Week" {% if respiratory_symptoms.symptomDuration == "lessThan1Week" %}selected{% endif %}>Less than 1 week</option>
+        <option value="1to4Weeks" {% if respiratory_symptoms.symptomDuration == "1to4Weeks" %}selected{% endif %}>1 - 4 weeks</option>
+        <option value="1to3Months" {% if respiratory_symptoms.symptomDuration == "1to3Months" %}selected{% endif %}>1 - 3 months</option>
+        <option value="3to12Months" {% if respiratory_symptoms.symptomDuration == "3to12Months" %}selected{% endif %}>3 - 12 months</option>
+        <option value="moreThan1Year" {% if respiratory_symptoms.symptomDuration == "moreThan1Year" %}selected{% endif %}>More than 1 year</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Respirology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Respirology Assessment</h1>
+  <p>
+    This assessment tool evaluates respiratory health through a comprehensive
+    clinical questionnaire. It covers respiratory symptoms, cough assessment,
+    dyspnoea grading, chest examination findings, spirometry results, oxygen
+    status, infection history, and medication management.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive respiratory evaluation across all clinical domains</p>
+    </div>
+    <div class="feature-card">
+      <h3>Impairment Grading</h3>
+      <p>Composite score with severity classification from normal to respiratory failure</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Alerts</h3>
+      <p>Flagged issues for urgent clinical review and management decisions</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

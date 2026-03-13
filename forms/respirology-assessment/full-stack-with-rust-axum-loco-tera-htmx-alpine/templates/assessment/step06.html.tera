@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Spirometry Results - Respirology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Spirometry Results</h2>
+    <p class="hint">Rate each spirometry parameter (1 = Normal/&gt;80% predicted, 5 = Very severe/&lt;30% predicted).</p>
+
+    <div class="form-group">
+      <label>FEV1 (% Predicted)</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="spirometry_results.fev1_percent_predicted" value="{{ i }}" {% if spirometry_results.fev1PercentPredicted == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>&gt;80% (Normal)</span><span>&lt;30% (Very severe)</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>FVC (% Predicted)</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="spirometry_results.fvc_percent_predicted" value="{{ i }}" {% if spirometry_results.fvcPercentPredicted == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>&gt;80% (Normal)</span><span>&lt;50% (Severe)</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>FEV1/FVC Ratio</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="spirometry_results.fev1_fvc_ratio" value="{{ i }}" {% if spirometry_results.fev1FvcRatio == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>&gt;0.70 (Normal)</span><span>&lt;0.40 (Severe obstruction)</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Peak Flow (% Predicted)</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="spirometry_results.peak_flow_percent_predicted" value="{{ i }}" {% if spirometry_results.peakFlowPercentPredicted == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>&gt;80% (Normal)</span><span>&lt;33% (Severe)</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Bronchodilator Response</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="spirometry_results.bronchodilator_response" value="{{ i }}" {% if spirometry_results.bronchodilatorResponse == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Full reversibility</span><span>No response</span></div>
+    </div>
+
+    <div class="form-group">
+      <label for="spirometry_quality">Spirometry Quality</label>
+      <select id="spirometry_quality" name="spirometry_results.spirometry_quality">
+        <option value="">-- Select --</option>
+        <option value="good" {% if spirometry_results.spirometryQuality == "good" %}selected{% endif %}>Good (meets ATS/ERS criteria)</option>
+        <option value="acceptable" {% if spirometry_results.spirometryQuality == "acceptable" %}selected{% endif %}>Acceptable</option>
+        <option value="poor" {% if spirometry_results.spirometryQuality == "poor" %}selected{% endif %}>Poor (suboptimal effort)</option>
+        <option value="notPerformed" {% if spirometry_results.spirometryQuality == "notPerformed" %}selected{% endif %}>Not Performed</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

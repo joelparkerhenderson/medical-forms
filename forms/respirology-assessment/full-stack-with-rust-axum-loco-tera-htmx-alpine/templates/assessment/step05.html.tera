@@ -1,0 +1,78 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Chest Examination - Respirology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Chest Examination</h2>
+    <p class="hint">Rate each finding (1 = Normal, 5 = Markedly abnormal).</p>
+
+    <div class="form-group">
+      <label>Breath Sounds</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="chest_examination.breath_sounds" value="{{ i }}" {% if chest_examination.breathSounds == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Normal vesicular</span><span>Absent/markedly abnormal</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Chest Expansion</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="chest_examination.chest_expansion" value="{{ i }}" {% if chest_examination.chestExpansion == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Normal/symmetrical</span><span>Severely reduced</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Percussion Note</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="chest_examination.percussion_note" value="{{ i }}" {% if chest_examination.percussionNote == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Resonant</span><span>Stony dull/hyper-resonant</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Vocal Resonance</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="chest_examination.vocal_resonance" value="{{ i }}" {% if chest_examination.vocalResonance == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Normal</span><span>Markedly abnormal</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Accessory Muscle Use</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="chest_examination.accessory_muscle_use" value="{{ i }}" {% if chest_examination.accessoryMuscleUse == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>None</span><span>Severe</span></div>
+    </div>
+
+    <div class="form-group">
+      <label for="chest_deformity">Chest Deformity</label>
+      <select id="chest_deformity" name="chest_examination.chest_deformity">
+        <option value="">-- Select --</option>
+        <option value="none" {% if chest_examination.chestDeformity == "none" %}selected{% endif %}>None</option>
+        <option value="barrelChest" {% if chest_examination.chestDeformity == "barrelChest" %}selected{% endif %}>Barrel Chest</option>
+        <option value="pectusExcavatum" {% if chest_examination.chestDeformity == "pectusExcavatum" %}selected{% endif %}>Pectus Excavatum</option>
+        <option value="pectusCarinatum" {% if chest_examination.chestDeformity == "pectusCarinatum" %}selected{% endif %}>Pectus Carinatum</option>
+        <option value="kyphoscoliosis" {% if chest_examination.chestDeformity == "kyphoscoliosis" %}selected{% endif %}>Kyphoscoliosis</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
