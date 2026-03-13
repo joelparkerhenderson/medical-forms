@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Falls Risk Assessment - Mobility Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Falls Risk Assessment</h2>
+    <p class="hint">Evaluate falls history and contributing risk factors. Rate risk items from 1 (Severe/High Risk) to 5 (No Risk).</p>
+
+    <div class="form-group">
+      <label for="falls_in_past_year">Falls in Past 12 Months</label>
+      <select id="falls_in_past_year" name="falls_risk_assessment.falls_in_past_year">
+        <option value="">-- Select --</option>
+        <option value="none" {% if falls_risk_assessment.fallsInPastYear == "none" %}selected{% endif %}>None</option>
+        <option value="one" {% if falls_risk_assessment.fallsInPastYear == "one" %}selected{% endif %}>One fall</option>
+        <option value="twoOrMore" {% if falls_risk_assessment.fallsInPastYear == "twoOrMore" %}selected{% endif %}>Two or more falls</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="fear_of_falling">Fear of Falling</label>
+      <select id="fear_of_falling" name="falls_risk_assessment.fear_of_falling">
+        <option value="">-- Select --</option>
+        <option value="1" {% if falls_risk_assessment.fearOfFalling == 1 %}selected{% endif %}>1 - Severely limits all activity</option>
+        <option value="2" {% if falls_risk_assessment.fearOfFalling == 2 %}selected{% endif %}>2 - Significantly limits activity</option>
+        <option value="3" {% if falls_risk_assessment.fearOfFalling == 3 %}selected{% endif %}>3 - Moderate concern</option>
+        <option value="4" {% if falls_risk_assessment.fearOfFalling == 4 %}selected{% endif %}>4 - Mild concern</option>
+        <option value="5" {% if falls_risk_assessment.fearOfFalling == 5 %}selected{% endif %}>5 - No fear of falling</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="medication_fall_risk">Medication Fall Risk</label>
+      <select id="medication_fall_risk" name="falls_risk_assessment.medication_fall_risk">
+        <option value="">-- Select --</option>
+        <option value="1" {% if falls_risk_assessment.medicationFallRisk == 1 %}selected{% endif %}>1 - High risk (multiple fall-risk medications)</option>
+        <option value="2" {% if falls_risk_assessment.medicationFallRisk == 2 %}selected{% endif %}>2 - Significant risk</option>
+        <option value="3" {% if falls_risk_assessment.medicationFallRisk == 3 %}selected{% endif %}>3 - Moderate risk</option>
+        <option value="4" {% if falls_risk_assessment.medicationFallRisk == 4 %}selected{% endif %}>4 - Low risk</option>
+        <option value="5" {% if falls_risk_assessment.medicationFallRisk == 5 %}selected{% endif %}>5 - No fall-risk medications</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="postural_hypotension">Postural Hypotension</label>
+      <select id="postural_hypotension" name="falls_risk_assessment.postural_hypotension">
+        <option value="">-- Select --</option>
+        <option value="1" {% if falls_risk_assessment.posturalHypotension == 1 %}selected{% endif %}>1 - Severe (symptomatic on standing)</option>
+        <option value="2" {% if falls_risk_assessment.posturalHypotension == 2 %}selected{% endif %}>2 - Significant drop</option>
+        <option value="3" {% if falls_risk_assessment.posturalHypotension == 3 %}selected{% endif %}>3 - Moderate</option>
+        <option value="4" {% if falls_risk_assessment.posturalHypotension == 4 %}selected{% endif %}>4 - Mild</option>
+        <option value="5" {% if falls_risk_assessment.posturalHypotension == 5 %}selected{% endif %}>5 - No postural hypotension</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="vision_impairment">Vision Impairment</label>
+      <select id="vision_impairment" name="falls_risk_assessment.vision_impairment">
+        <option value="">-- Select --</option>
+        <option value="1" {% if falls_risk_assessment.visionImpairment == 1 %}selected{% endif %}>1 - Severe impairment</option>
+        <option value="2" {% if falls_risk_assessment.visionImpairment == 2 %}selected{% endif %}>2 - Significant impairment</option>
+        <option value="3" {% if falls_risk_assessment.visionImpairment == 3 %}selected{% endif %}>3 - Moderate impairment</option>
+        <option value="4" {% if falls_risk_assessment.visionImpairment == 4 %}selected{% endif %}>4 - Mild impairment</option>
+        <option value="5" {% if falls_risk_assessment.visionImpairment == 5 %}selected{% endif %}>5 - Normal vision</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="cognitive_impact_on_mobility">Cognitive Impact on Mobility</label>
+      <select id="cognitive_impact_on_mobility" name="falls_risk_assessment.cognitive_impact_on_mobility">
+        <option value="">-- Select --</option>
+        <option value="1" {% if falls_risk_assessment.cognitiveImpactOnMobility == 1 %}selected{% endif %}>1 - Severe (constant supervision needed)</option>
+        <option value="2" {% if falls_risk_assessment.cognitiveImpactOnMobility == 2 %}selected{% endif %}>2 - Significant impact</option>
+        <option value="3" {% if falls_risk_assessment.cognitiveImpactOnMobility == 3 %}selected{% endif %}>3 - Moderate impact</option>
+        <option value="4" {% if falls_risk_assessment.cognitiveImpactOnMobility == 4 %}selected{% endif %}>4 - Mild impact</option>
+        <option value="5" {% if falls_risk_assessment.cognitiveImpactOnMobility == 5 %}selected{% endif %}>5 - No cognitive impact</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

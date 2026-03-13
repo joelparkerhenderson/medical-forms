@@ -1,0 +1,87 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Mobility History - Mobility Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Mobility History</h2>
+    <p class="hint">Assess the patient's mobility status before and after the current condition. Rate 1 (Very Poor) to 5 (Excellent).</p>
+
+    <div class="form-group">
+      <label for="pre_morbid_mobility">Pre-morbid Mobility Level</label>
+      <select id="pre_morbid_mobility" name="mobility_history.pre_morbid_mobility">
+        <option value="">-- Select --</option>
+        <option value="1" {% if mobility_history.preMorbidMobility == 1 %}selected{% endif %}>1 - Dependent</option>
+        <option value="2" {% if mobility_history.preMorbidMobility == 2 %}selected{% endif %}>2 - Maximal Assistance</option>
+        <option value="3" {% if mobility_history.preMorbidMobility == 3 %}selected{% endif %}>3 - Moderate Assistance</option>
+        <option value="4" {% if mobility_history.preMorbidMobility == 4 %}selected{% endif %}>4 - Minimal Assistance</option>
+        <option value="5" {% if mobility_history.preMorbidMobility == 5 %}selected{% endif %}>5 - Independent</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="current_mobility_level">Current Mobility Level</label>
+      <select id="current_mobility_level" name="mobility_history.current_mobility_level">
+        <option value="">-- Select --</option>
+        <option value="1" {% if mobility_history.currentMobilityLevel == 1 %}selected{% endif %}>1 - Dependent</option>
+        <option value="2" {% if mobility_history.currentMobilityLevel == 2 %}selected{% endif %}>2 - Maximal Assistance</option>
+        <option value="3" {% if mobility_history.currentMobilityLevel == 3 %}selected{% endif %}>3 - Moderate Assistance</option>
+        <option value="4" {% if mobility_history.currentMobilityLevel == 4 %}selected{% endif %}>4 - Minimal Assistance</option>
+        <option value="5" {% if mobility_history.currentMobilityLevel == 5 %}selected{% endif %}>5 - Independent</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mobility_change_onset">Onset of Mobility Change</label>
+        <select id="mobility_change_onset" name="mobility_history.mobility_change_onset">
+          <option value="">-- Select --</option>
+          <option value="acute" {% if mobility_history.mobilityChangeOnset == "acute" %}selected{% endif %}>Acute (sudden)</option>
+          <option value="subacute" {% if mobility_history.mobilityChangeOnset == "subacute" %}selected{% endif %}>Subacute (days to weeks)</option>
+          <option value="gradual" {% if mobility_history.mobilityChangeOnset == "gradual" %}selected{% endif %}>Gradual (weeks to months)</option>
+          <option value="chronic" {% if mobility_history.mobilityChangeOnset == "chronic" %}selected{% endif %}>Chronic (long-standing)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="mobility_change_duration">Duration of Current Limitation</label>
+        <select id="mobility_change_duration" name="mobility_history.mobility_change_duration">
+          <option value="">-- Select --</option>
+          <option value="lessThan1Week" {% if mobility_history.mobilityChangeDuration == "lessThan1Week" %}selected{% endif %}>Less than 1 week</option>
+          <option value="1to4Weeks" {% if mobility_history.mobilityChangeDuration == "1to4Weeks" %}selected{% endif %}>1-4 weeks</option>
+          <option value="1to3Months" {% if mobility_history.mobilityChangeDuration == "1to3Months" %}selected{% endif %}>1-3 months</option>
+          <option value="moreThan3Months" {% if mobility_history.mobilityChangeDuration == "moreThan3Months" %}selected{% endif %}>More than 3 months</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="pain_with_movement">Pain with Movement</label>
+      <select id="pain_with_movement" name="mobility_history.pain_with_movement">
+        <option value="">-- Select --</option>
+        <option value="1" {% if mobility_history.painWithMovement == 1 %}selected{% endif %}>1 - Severe pain limiting all movement</option>
+        <option value="2" {% if mobility_history.painWithMovement == 2 %}selected{% endif %}>2 - Significant pain limiting most movement</option>
+        <option value="3" {% if mobility_history.painWithMovement == 3 %}selected{% endif %}>3 - Moderate pain limiting some activities</option>
+        <option value="4" {% if mobility_history.painWithMovement == 4 %}selected{% endif %}>4 - Mild pain, minimal limitation</option>
+        <option value="5" {% if mobility_history.painWithMovement == 5 %}selected{% endif %}>5 - No pain with movement</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="endurance_level">Endurance Level</label>
+      <select id="endurance_level" name="mobility_history.endurance_level">
+        <option value="">-- Select --</option>
+        <option value="1" {% if mobility_history.enduranceLevel == 1 %}selected{% endif %}>1 - Very Poor (fatigues within minutes)</option>
+        <option value="2" {% if mobility_history.enduranceLevel == 2 %}selected{% endif %}>2 - Poor (limited tolerance)</option>
+        <option value="3" {% if mobility_history.enduranceLevel == 3 %}selected{% endif %}>3 - Fair (moderate tolerance)</option>
+        <option value="4" {% if mobility_history.enduranceLevel == 4 %}selected{% endif %}>4 - Good (adequate for daily activities)</option>
+        <option value="5" {% if mobility_history.enduranceLevel == 5 %}selected{% endif %}>5 - Excellent (no endurance concerns)</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

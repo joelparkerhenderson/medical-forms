@@ -1,0 +1,88 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Balance Assessment - Mobility Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Balance Assessment</h2>
+    <p class="hint">Rate each balance component from 1 (Unable/Very Poor) to 5 (Normal/Excellent).</p>
+
+    <div class="form-group">
+      <label for="static_sitting_balance">Static Sitting Balance</label>
+      <select id="static_sitting_balance" name="balance_assessment.static_sitting_balance">
+        <option value="">-- Select --</option>
+        <option value="1" {% if balance_assessment.staticSittingBalance == 1 %}selected{% endif %}>1 - Unable to maintain</option>
+        <option value="2" {% if balance_assessment.staticSittingBalance == 2 %}selected{% endif %}>2 - Poor, requires support</option>
+        <option value="3" {% if balance_assessment.staticSittingBalance == 3 %}selected{% endif %}>3 - Fair, maintains with difficulty</option>
+        <option value="4" {% if balance_assessment.staticSittingBalance == 4 %}selected{% endif %}>4 - Good, stable</option>
+        <option value="5" {% if balance_assessment.staticSittingBalance == 5 %}selected{% endif %}>5 - Normal</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="dynamic_sitting_balance">Dynamic Sitting Balance</label>
+      <select id="dynamic_sitting_balance" name="balance_assessment.dynamic_sitting_balance">
+        <option value="">-- Select --</option>
+        <option value="1" {% if balance_assessment.dynamicSittingBalance == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if balance_assessment.dynamicSittingBalance == 2 %}selected{% endif %}>2 - Poor</option>
+        <option value="3" {% if balance_assessment.dynamicSittingBalance == 3 %}selected{% endif %}>3 - Fair</option>
+        <option value="4" {% if balance_assessment.dynamicSittingBalance == 4 %}selected{% endif %}>4 - Good</option>
+        <option value="5" {% if balance_assessment.dynamicSittingBalance == 5 %}selected{% endif %}>5 - Normal</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="static_standing_balance">Static Standing Balance</label>
+      <select id="static_standing_balance" name="balance_assessment.static_standing_balance">
+        <option value="">-- Select --</option>
+        <option value="1" {% if balance_assessment.staticStandingBalance == 1 %}selected{% endif %}>1 - Unable to stand unsupported</option>
+        <option value="2" {% if balance_assessment.staticStandingBalance == 2 %}selected{% endif %}>2 - Poor, needs support</option>
+        <option value="3" {% if balance_assessment.staticStandingBalance == 3 %}selected{% endif %}>3 - Fair, sways</option>
+        <option value="4" {% if balance_assessment.staticStandingBalance == 4 %}selected{% endif %}>4 - Good, stable</option>
+        <option value="5" {% if balance_assessment.staticStandingBalance == 5 %}selected{% endif %}>5 - Normal</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="dynamic_standing_balance">Dynamic Standing Balance</label>
+      <select id="dynamic_standing_balance" name="balance_assessment.dynamic_standing_balance">
+        <option value="">-- Select --</option>
+        <option value="1" {% if balance_assessment.dynamicStandingBalance == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if balance_assessment.dynamicStandingBalance == 2 %}selected{% endif %}>2 - Poor</option>
+        <option value="3" {% if balance_assessment.dynamicStandingBalance == 3 %}selected{% endif %}>3 - Fair</option>
+        <option value="4" {% if balance_assessment.dynamicStandingBalance == 4 %}selected{% endif %}>4 - Good</option>
+        <option value="5" {% if balance_assessment.dynamicStandingBalance == 5 %}selected{% endif %}>5 - Normal</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="single_leg_stance">Single Leg Stance</label>
+      <select id="single_leg_stance" name="balance_assessment.single_leg_stance">
+        <option value="">-- Select --</option>
+        <option value="1" {% if balance_assessment.singleLegStance == 1 %}selected{% endif %}>1 - Unable to attempt</option>
+        <option value="2" {% if balance_assessment.singleLegStance == 2 %}selected{% endif %}>2 - Less than 5 seconds</option>
+        <option value="3" {% if balance_assessment.singleLegStance == 3 %}selected{% endif %}>3 - 5-10 seconds</option>
+        <option value="4" {% if balance_assessment.singleLegStance == 4 %}selected{% endif %}>4 - 10-30 seconds</option>
+        <option value="5" {% if balance_assessment.singleLegStance == 5 %}selected{% endif %}>5 - Greater than 30 seconds</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="tandem_stance">Tandem Stance</label>
+      <select id="tandem_stance" name="balance_assessment.tandem_stance">
+        <option value="">-- Select --</option>
+        <option value="1" {% if balance_assessment.tandemStance == 1 %}selected{% endif %}>1 - Unable to attempt</option>
+        <option value="2" {% if balance_assessment.tandemStance == 2 %}selected{% endif %}>2 - Less than 5 seconds</option>
+        <option value="3" {% if balance_assessment.tandemStance == 3 %}selected{% endif %}>3 - 5-10 seconds</option>
+        <option value="4" {% if balance_assessment.tandemStance == 4 %}selected{% endif %}>4 - 10-30 seconds</option>
+        <option value="5" {% if balance_assessment.tandemStance == 5 %}selected{% endif %}>5 - Greater than 30 seconds</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

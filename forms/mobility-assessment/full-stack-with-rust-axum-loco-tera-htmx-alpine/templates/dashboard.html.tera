@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Mobility Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Mobility Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by date, diagnosis, assessor...">
+    </div>
+    <div class="form-group">
+      <label for="mobility_level">Mobility Level</label>
+      <select id="mobility_level" name="mobility_level">
+        <option value="">All Levels</option>
+        <option value="independent" {% if mobility_level == "independent" %}selected{% endif %}>Independent</option>
+        <option value="minimalAssistance" {% if mobility_level == "minimalAssistance" %}selected{% endif %}>Minimal Assistance</option>
+        <option value="moderateAssistance" {% if mobility_level == "moderateAssistance" %}selected{% endif %}>Moderate Assistance</option>
+        <option value="maximalAssistance" {% if mobility_level == "maximalAssistance" %}selected{% endif %}>Maximal Assistance</option>
+        <option value="dependent" {% if mobility_level == "dependent" %}selected{% endif %}>Dependent</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="falls_risk">Falls Risk</label>
+      <select id="falls_risk" name="falls_risk">
+        <option value="">All</option>
+        <option value="low" {% if falls_risk == "low" %}selected{% endif %}>Low</option>
+        <option value="moderate" {% if falls_risk == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="high" {% if falls_risk == "high" %}selected{% endif %}>High</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Assessment Date</th>
+      <th>Diagnosis</th>
+      <th>Assessor</th>
+      <th>Mobility Level</th>
+      <th>Score</th>
+      <th>Falls Risk</th>
+      <th>Rehab Potential</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.assessmentDate }}</a></td>
+      <td>{{ patient.primaryDiagnosis }}</td>
+      <td>{{ patient.assessorName }}</td>
+      <td><span class="mobility-badge mobility-{{ patient.mobilityLevel }}">{{ patient.mobilityLevel }}</span></td>
+      <td>{{ patient.mobilityScore }}%</td>
+      <td><span class="falls-badge falls-{{ patient.fallsRisk }}">{{ patient.fallsRisk }}</span></td>
+      <td>{{ patient.rehabilitationPotential }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

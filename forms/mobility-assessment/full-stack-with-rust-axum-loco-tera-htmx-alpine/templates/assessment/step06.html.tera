@@ -1,0 +1,88 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Stairs & Obstacles - Mobility Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Stairs & Obstacles</h2>
+    <p class="hint">Rate each item from 1 (Unable) to 5 (Independent/Normal).</p>
+
+    <div class="form-group">
+      <label for="stair_ascent">Stair Ascent</label>
+      <select id="stair_ascent" name="stairs_obstacles.stair_ascent">
+        <option value="">-- Select --</option>
+        <option value="1" {% if stairs_obstacles.stairAscent == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if stairs_obstacles.stairAscent == 2 %}selected{% endif %}>2 - With assistance and rail</option>
+        <option value="3" {% if stairs_obstacles.stairAscent == 3 %}selected{% endif %}>3 - With rail only</option>
+        <option value="4" {% if stairs_obstacles.stairAscent == 4 %}selected{% endif %}>4 - Independent, step-over-step</option>
+        <option value="5" {% if stairs_obstacles.stairAscent == 5 %}selected{% endif %}>5 - Normal, reciprocal</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="stair_descent">Stair Descent</label>
+      <select id="stair_descent" name="stairs_obstacles.stair_descent">
+        <option value="">-- Select --</option>
+        <option value="1" {% if stairs_obstacles.stairDescent == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if stairs_obstacles.stairDescent == 2 %}selected{% endif %}>2 - With assistance and rail</option>
+        <option value="3" {% if stairs_obstacles.stairDescent == 3 %}selected{% endif %}>3 - With rail only</option>
+        <option value="4" {% if stairs_obstacles.stairDescent == 4 %}selected{% endif %}>4 - Independent, step-over-step</option>
+        <option value="5" {% if stairs_obstacles.stairDescent == 5 %}selected{% endif %}>5 - Normal, reciprocal</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="curb_negotiation">Curb Negotiation</label>
+      <select id="curb_negotiation" name="stairs_obstacles.curb_negotiation">
+        <option value="">-- Select --</option>
+        <option value="1" {% if stairs_obstacles.curbNegotiation == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if stairs_obstacles.curbNegotiation == 2 %}selected{% endif %}>2 - Requires assistance</option>
+        <option value="3" {% if stairs_obstacles.curbNegotiation == 3 %}selected{% endif %}>3 - With difficulty</option>
+        <option value="4" {% if stairs_obstacles.curbNegotiation == 4 %}selected{% endif %}>4 - Safe with care</option>
+        <option value="5" {% if stairs_obstacles.curbNegotiation == 5 %}selected{% endif %}>5 - Normal</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="uneven_surfaces">Uneven Surfaces</label>
+      <select id="uneven_surfaces" name="stairs_obstacles.uneven_surfaces">
+        <option value="">-- Select --</option>
+        <option value="1" {% if stairs_obstacles.unevenSurfaces == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if stairs_obstacles.unevenSurfaces == 2 %}selected{% endif %}>2 - Requires assistance</option>
+        <option value="3" {% if stairs_obstacles.unevenSurfaces == 3 %}selected{% endif %}>3 - With difficulty</option>
+        <option value="4" {% if stairs_obstacles.unevenSurfaces == 4 %}selected{% endif %}>4 - Safe with care</option>
+        <option value="5" {% if stairs_obstacles.unevenSurfaces == 5 %}selected{% endif %}>5 - Normal</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="obstacle_avoidance">Obstacle Avoidance</label>
+      <select id="obstacle_avoidance" name="stairs_obstacles.obstacle_avoidance">
+        <option value="">-- Select --</option>
+        <option value="1" {% if stairs_obstacles.obstacleAvoidance == 1 %}selected{% endif %}>1 - Unable to navigate obstacles</option>
+        <option value="2" {% if stairs_obstacles.obstacleAvoidance == 2 %}selected{% endif %}>2 - Frequently trips/bumps</option>
+        <option value="3" {% if stairs_obstacles.obstacleAvoidance == 3 %}selected{% endif %}>3 - Occasional difficulty</option>
+        <option value="4" {% if stairs_obstacles.obstacleAvoidance == 4 %}selected{% endif %}>4 - Good awareness</option>
+        <option value="5" {% if stairs_obstacles.obstacleAvoidance == 5 %}selected{% endif %}>5 - Normal avoidance</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="ramp_navigation">Ramp Navigation</label>
+      <select id="ramp_navigation" name="stairs_obstacles.ramp_navigation">
+        <option value="">-- Select --</option>
+        <option value="1" {% if stairs_obstacles.rampNavigation == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if stairs_obstacles.rampNavigation == 2 %}selected{% endif %}>2 - Requires assistance</option>
+        <option value="3" {% if stairs_obstacles.rampNavigation == 3 %}selected{% endif %}>3 - With difficulty</option>
+        <option value="4" {% if stairs_obstacles.rampNavigation == 4 %}selected{% endif %}>4 - Safe independently</option>
+        <option value="5" {% if stairs_obstacles.rampNavigation == 5 %}selected{% endif %}>5 - Normal</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

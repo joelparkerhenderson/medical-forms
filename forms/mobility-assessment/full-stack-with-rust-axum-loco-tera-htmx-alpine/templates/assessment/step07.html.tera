@@ -1,0 +1,88 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Upper Limb Function - Mobility Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Upper Limb Function</h2>
+    <p class="hint">Rate each upper limb function from 1 (Unable/Very Poor) to 5 (Normal/Excellent).</p>
+
+    <div class="form-group">
+      <label for="reaching_overhead">Reaching Overhead</label>
+      <select id="reaching_overhead" name="upper_limb_function.reaching_overhead">
+        <option value="">-- Select --</option>
+        <option value="1" {% if upper_limb_function.reachingOverhead == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if upper_limb_function.reachingOverhead == 2 %}selected{% endif %}>2 - Severely limited</option>
+        <option value="3" {% if upper_limb_function.reachingOverhead == 3 %}selected{% endif %}>3 - Moderately limited</option>
+        <option value="4" {% if upper_limb_function.reachingOverhead == 4 %}selected{% endif %}>4 - Mildly limited</option>
+        <option value="5" {% if upper_limb_function.reachingOverhead == 5 %}selected{% endif %}>5 - Full range</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="grip_strength">Grip Strength</label>
+      <select id="grip_strength" name="upper_limb_function.grip_strength">
+        <option value="">-- Select --</option>
+        <option value="1" {% if upper_limb_function.gripStrength == 1 %}selected{% endif %}>1 - No functional grip</option>
+        <option value="2" {% if upper_limb_function.gripStrength == 2 %}selected{% endif %}>2 - Very weak</option>
+        <option value="3" {% if upper_limb_function.gripStrength == 3 %}selected{% endif %}>3 - Reduced</option>
+        <option value="4" {% if upper_limb_function.gripStrength == 4 %}selected{% endif %}>4 - Functional</option>
+        <option value="5" {% if upper_limb_function.gripStrength == 5 %}selected{% endif %}>5 - Normal strength</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="fine_motor_control">Fine Motor Control</label>
+      <select id="fine_motor_control" name="upper_limb_function.fine_motor_control">
+        <option value="">-- Select --</option>
+        <option value="1" {% if upper_limb_function.fineMotorControl == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if upper_limb_function.fineMotorControl == 2 %}selected{% endif %}>2 - Severely impaired</option>
+        <option value="3" {% if upper_limb_function.fineMotorControl == 3 %}selected{% endif %}>3 - Moderately impaired</option>
+        <option value="4" {% if upper_limb_function.fineMotorControl == 4 %}selected{% endif %}>4 - Mildly impaired</option>
+        <option value="5" {% if upper_limb_function.fineMotorControl == 5 %}selected{% endif %}>5 - Normal</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="bilateral_coordination">Bilateral Coordination</label>
+      <select id="bilateral_coordination" name="upper_limb_function.bilateral_coordination">
+        <option value="">-- Select --</option>
+        <option value="1" {% if upper_limb_function.bilateralCoordination == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if upper_limb_function.bilateralCoordination == 2 %}selected{% endif %}>2 - Severely impaired</option>
+        <option value="3" {% if upper_limb_function.bilateralCoordination == 3 %}selected{% endif %}>3 - Moderately impaired</option>
+        <option value="4" {% if upper_limb_function.bilateralCoordination == 4 %}selected{% endif %}>4 - Mildly impaired</option>
+        <option value="5" {% if upper_limb_function.bilateralCoordination == 5 %}selected{% endif %}>5 - Normal</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="upper_limb_weight_bearing">Upper Limb Weight Bearing</label>
+      <select id="upper_limb_weight_bearing" name="upper_limb_function.upper_limb_weight_bearing">
+        <option value="">-- Select --</option>
+        <option value="1" {% if upper_limb_function.upperLimbWeightBearing == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if upper_limb_function.upperLimbWeightBearing == 2 %}selected{% endif %}>2 - Very limited</option>
+        <option value="3" {% if upper_limb_function.upperLimbWeightBearing == 3 %}selected{% endif %}>3 - Partial</option>
+        <option value="4" {% if upper_limb_function.upperLimbWeightBearing == 4 %}selected{% endif %}>4 - Functional</option>
+        <option value="5" {% if upper_limb_function.upperLimbWeightBearing == 5 %}selected{% endif %}>5 - Full</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="functional_reach">Functional Reach</label>
+      <select id="functional_reach" name="upper_limb_function.functional_reach">
+        <option value="">-- Select --</option>
+        <option value="1" {% if upper_limb_function.functionalReach == 1 %}selected{% endif %}>1 - Less than 15cm</option>
+        <option value="2" {% if upper_limb_function.functionalReach == 2 %}selected{% endif %}>2 - 15-20cm</option>
+        <option value="3" {% if upper_limb_function.functionalReach == 3 %}selected{% endif %}>3 - 20-25cm</option>
+        <option value="4" {% if upper_limb_function.functionalReach == 4 %}selected{% endif %}>4 - 25-30cm</option>
+        <option value="5" {% if upper_limb_function.functionalReach == 5 %}selected{% endif %}>5 - Greater than 30cm</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

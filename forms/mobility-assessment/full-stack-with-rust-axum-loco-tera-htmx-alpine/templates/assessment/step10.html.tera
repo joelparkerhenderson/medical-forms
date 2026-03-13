@@ -1,0 +1,64 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Mobility Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Provide your overall clinical assessment, goals, and recommended plan.</p>
+
+    <div class="form-group">
+      <label for="overall_mobility_rating">Overall Mobility Rating</label>
+      <select id="overall_mobility_rating" name="clinical_review.overall_mobility_rating">
+        <option value="">-- Select --</option>
+        <option value="1" {% if clinical_review.overallMobilityRating == 1 %}selected{% endif %}>1 - Dependent</option>
+        <option value="2" {% if clinical_review.overallMobilityRating == 2 %}selected{% endif %}>2 - Maximal Assistance</option>
+        <option value="3" {% if clinical_review.overallMobilityRating == 3 %}selected{% endif %}>3 - Moderate Assistance</option>
+        <option value="4" {% if clinical_review.overallMobilityRating == 4 %}selected{% endif %}>4 - Minimal Assistance</option>
+        <option value="5" {% if clinical_review.overallMobilityRating == 5 %}selected{% endif %}>5 - Independent</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="rehabilitation_potential">Rehabilitation Potential</label>
+      <select id="rehabilitation_potential" name="clinical_review.rehabilitation_potential">
+        <option value="">-- Select --</option>
+        <option value="1" {% if clinical_review.rehabilitationPotential == 1 %}selected{% endif %}>1 - Very Low</option>
+        <option value="2" {% if clinical_review.rehabilitationPotential == 2 %}selected{% endif %}>2 - Low</option>
+        <option value="3" {% if clinical_review.rehabilitationPotential == 3 %}selected{% endif %}>3 - Moderate</option>
+        <option value="4" {% if clinical_review.rehabilitationPotential == 4 %}selected{% endif %}>4 - Good</option>
+        <option value="5" {% if clinical_review.rehabilitationPotential == 5 %}selected{% endif %}>5 - Excellent</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="patient_goals">Patient Goals</label>
+      <textarea id="patient_goals" name="clinical_review.patient_goals" rows="3"
+                placeholder="e.g. Return to independent walking, manage stairs at home">{{ clinical_review.patientGoals }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="recommended_interventions">Recommended Interventions</label>
+      <textarea id="recommended_interventions" name="clinical_review.recommended_interventions" rows="3"
+                placeholder="e.g. Physiotherapy 3x/week, balance training, stair practice">{{ clinical_review.recommendedInterventions }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="follow_up_plan">Follow-up Plan</label>
+      <textarea id="follow_up_plan" name="clinical_review.follow_up_plan" rows="3"
+                placeholder="e.g. Review in 4 weeks, re-assess mobility and falls risk">{{ clinical_review.followUpPlan }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_notes">Additional Notes</label>
+      <textarea id="additional_notes" name="clinical_review.additional_notes" rows="3"
+                placeholder="Any other relevant observations or concerns">{{ clinical_review.additionalNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Assistive Devices - Mobility Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Assistive Devices</h2>
+    <p class="hint">Document current assistive device use and competence.</p>
+
+    <div class="form-group">
+      <label for="current_device_type">Current Assistive Device</label>
+      <select id="current_device_type" name="assistive_devices.current_device_type">
+        <option value="">-- Select --</option>
+        <option value="none" {% if assistive_devices.currentDeviceType == "none" %}selected{% endif %}>None</option>
+        <option value="walkingStick" {% if assistive_devices.currentDeviceType == "walkingStick" %}selected{% endif %}>Walking Stick</option>
+        <option value="crutches" {% if assistive_devices.currentDeviceType == "crutches" %}selected{% endif %}>Crutches</option>
+        <option value="zimmerFrame" {% if assistive_devices.currentDeviceType == "zimmerFrame" %}selected{% endif %}>Zimmer Frame</option>
+        <option value="rollator" {% if assistive_devices.currentDeviceType == "rollator" %}selected{% endif %}>Rollator</option>
+        <option value="wheelchair" {% if assistive_devices.currentDeviceType == "wheelchair" %}selected{% endif %}>Wheelchair</option>
+        <option value="powerchair" {% if assistive_devices.currentDeviceType == "powerchair" %}selected{% endif %}>Powerchair</option>
+        <option value="other" {% if assistive_devices.currentDeviceType == "other" %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="device_appropriateness">Device Appropriateness</label>
+      <select id="device_appropriateness" name="assistive_devices.device_appropriateness">
+        <option value="">-- Select --</option>
+        <option value="1" {% if assistive_devices.deviceAppropriateness == 1 %}selected{% endif %}>1 - Inappropriate/wrong device</option>
+        <option value="2" {% if assistive_devices.deviceAppropriateness == 2 %}selected{% endif %}>2 - Poorly matched</option>
+        <option value="3" {% if assistive_devices.deviceAppropriateness == 3 %}selected{% endif %}>3 - Adequate</option>
+        <option value="4" {% if assistive_devices.deviceAppropriateness == 4 %}selected{% endif %}>4 - Well matched</option>
+        <option value="5" {% if assistive_devices.deviceAppropriateness == 5 %}selected{% endif %}>5 - Optimal</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="device_usage_competence">Device Usage Competence</label>
+      <select id="device_usage_competence" name="assistive_devices.device_usage_competence">
+        <option value="">-- Select --</option>
+        <option value="1" {% if assistive_devices.deviceUsageCompetence == 1 %}selected{% endif %}>1 - Unsafe use</option>
+        <option value="2" {% if assistive_devices.deviceUsageCompetence == 2 %}selected{% endif %}>2 - Poor technique</option>
+        <option value="3" {% if assistive_devices.deviceUsageCompetence == 3 %}selected{% endif %}>3 - Adequate technique</option>
+        <option value="4" {% if assistive_devices.deviceUsageCompetence == 4 %}selected{% endif %}>4 - Good technique</option>
+        <option value="5" {% if assistive_devices.deviceUsageCompetence == 5 %}selected{% endif %}>5 - Excellent technique</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="device_condition">Device Condition</label>
+      <select id="device_condition" name="assistive_devices.device_condition">
+        <option value="">-- Select --</option>
+        <option value="1" {% if assistive_devices.deviceCondition == 1 %}selected{% endif %}>1 - Unsafe / needs replacement</option>
+        <option value="2" {% if assistive_devices.deviceCondition == 2 %}selected{% endif %}>2 - Poor condition</option>
+        <option value="3" {% if assistive_devices.deviceCondition == 3 %}selected{% endif %}>3 - Acceptable</option>
+        <option value="4" {% if assistive_devices.deviceCondition == 4 %}selected{% endif %}>4 - Good condition</option>
+        <option value="5" {% if assistive_devices.deviceCondition == 5 %}selected{% endif %}>5 - Excellent condition</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="home_equipment_needs">Home Equipment Needs</label>
+      <select id="home_equipment_needs" name="assistive_devices.home_equipment_needs">
+        <option value="">-- Select --</option>
+        <option value="none" {% if assistive_devices.homeEquipmentNeeds == "none" %}selected{% endif %}>None identified</option>
+        <option value="rails" {% if assistive_devices.homeEquipmentNeeds == "rails" %}selected{% endif %}>Grab rails / handrails</option>
+        <option value="raisedSeat" {% if assistive_devices.homeEquipmentNeeds == "raisedSeat" %}selected{% endif %}>Raised toilet seat</option>
+        <option value="showerSeat" {% if assistive_devices.homeEquipmentNeeds == "showerSeat" %}selected{% endif %}>Shower seat / board</option>
+        <option value="bedAid" {% if assistive_devices.homeEquipmentNeeds == "bedAid" %}selected{% endif %}>Bed lever / rail</option>
+        <option value="multiple" {% if assistive_devices.homeEquipmentNeeds == "multiple" %}selected{% endif %}>Multiple items needed</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="wheelchair_skills">Wheelchair Skills (if applicable)</label>
+      <select id="wheelchair_skills" name="assistive_devices.wheelchair_skills">
+        <option value="">-- Select / N/A --</option>
+        <option value="1" {% if assistive_devices.wheelchairSkills == 1 %}selected{% endif %}>1 - Unable to self-propel</option>
+        <option value="2" {% if assistive_devices.wheelchairSkills == 2 %}selected{% endif %}>2 - Short distances on flat</option>
+        <option value="3" {% if assistive_devices.wheelchairSkills == 3 %}selected{% endif %}>3 - Indoor mobility</option>
+        <option value="4" {% if assistive_devices.wheelchairSkills == 4 %}selected{% endif %}>4 - Indoor and outdoor</option>
+        <option value="5" {% if assistive_devices.wheelchairSkills == 5 %}selected{% endif %}>5 - Fully competent</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

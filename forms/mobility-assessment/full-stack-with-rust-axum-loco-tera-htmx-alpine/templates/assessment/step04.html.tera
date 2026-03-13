@@ -1,0 +1,88 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Gait Analysis - Mobility Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Gait Analysis</h2>
+    <p class="hint">Rate each gait component from 1 (Unable/Very Poor) to 5 (Normal/Excellent).</p>
+
+    <div class="form-group">
+      <label for="gait_pattern_quality">Gait Pattern Quality</label>
+      <select id="gait_pattern_quality" name="gait_analysis.gait_pattern_quality">
+        <option value="">-- Select --</option>
+        <option value="1" {% if gait_analysis.gaitPatternQuality == 1 %}selected{% endif %}>1 - Unable to ambulate</option>
+        <option value="2" {% if gait_analysis.gaitPatternQuality == 2 %}selected{% endif %}>2 - Severely abnormal</option>
+        <option value="3" {% if gait_analysis.gaitPatternQuality == 3 %}selected{% endif %}>3 - Moderately abnormal</option>
+        <option value="4" {% if gait_analysis.gaitPatternQuality == 4 %}selected{% endif %}>4 - Mildly abnormal</option>
+        <option value="5" {% if gait_analysis.gaitPatternQuality == 5 %}selected{% endif %}>5 - Normal gait pattern</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="gait_speed">Gait Speed</label>
+      <select id="gait_speed" name="gait_analysis.gait_speed">
+        <option value="">-- Select --</option>
+        <option value="1" {% if gait_analysis.gaitSpeed == 1 %}selected{% endif %}>1 - Unable to walk</option>
+        <option value="2" {% if gait_analysis.gaitSpeed == 2 %}selected{% endif %}>2 - Very slow</option>
+        <option value="3" {% if gait_analysis.gaitSpeed == 3 %}selected{% endif %}>3 - Slow</option>
+        <option value="4" {% if gait_analysis.gaitSpeed == 4 %}selected{% endif %}>4 - Functional speed</option>
+        <option value="5" {% if gait_analysis.gaitSpeed == 5 %}selected{% endif %}>5 - Normal speed</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="step_length_symmetry">Step Length & Symmetry</label>
+      <select id="step_length_symmetry" name="gait_analysis.step_length_symmetry">
+        <option value="">-- Select --</option>
+        <option value="1" {% if gait_analysis.stepLengthSymmetry == 1 %}selected{% endif %}>1 - Severely asymmetric</option>
+        <option value="2" {% if gait_analysis.stepLengthSymmetry == 2 %}selected{% endif %}>2 - Markedly asymmetric</option>
+        <option value="3" {% if gait_analysis.stepLengthSymmetry == 3 %}selected{% endif %}>3 - Moderately asymmetric</option>
+        <option value="4" {% if gait_analysis.stepLengthSymmetry == 4 %}selected{% endif %}>4 - Mildly asymmetric</option>
+        <option value="5" {% if gait_analysis.stepLengthSymmetry == 5 %}selected{% endif %}>5 - Symmetric</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="turning_ability">Turning Ability</label>
+      <select id="turning_ability" name="gait_analysis.turning_ability">
+        <option value="">-- Select --</option>
+        <option value="1" {% if gait_analysis.turningAbility == 1 %}selected{% endif %}>1 - Unable to turn</option>
+        <option value="2" {% if gait_analysis.turningAbility == 2 %}selected{% endif %}>2 - Unsteady, multiple steps</option>
+        <option value="3" {% if gait_analysis.turningAbility == 3 %}selected{% endif %}>3 - Slow but safe</option>
+        <option value="4" {% if gait_analysis.turningAbility == 4 %}selected{% endif %}>4 - Good, slight hesitation</option>
+        <option value="5" {% if gait_analysis.turningAbility == 5 %}selected{% endif %}>5 - Normal, smooth</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="outdoor_walking">Outdoor Walking</label>
+      <select id="outdoor_walking" name="gait_analysis.outdoor_walking">
+        <option value="">-- Select --</option>
+        <option value="1" {% if gait_analysis.outdoorWalking == 1 %}selected{% endif %}>1 - Unable to walk outdoors</option>
+        <option value="2" {% if gait_analysis.outdoorWalking == 2 %}selected{% endif %}>2 - Very limited outdoor mobility</option>
+        <option value="3" {% if gait_analysis.outdoorWalking == 3 %}selected{% endif %}>3 - Short distances only</option>
+        <option value="4" {% if gait_analysis.outdoorWalking == 4 %}selected{% endif %}>4 - Most outdoor surfaces</option>
+        <option value="5" {% if gait_analysis.outdoorWalking == 5 %}selected{% endif %}>5 - Unrestricted outdoor walking</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="walking_endurance">Walking Endurance</label>
+      <select id="walking_endurance" name="gait_analysis.walking_endurance">
+        <option value="">-- Select --</option>
+        <option value="1" {% if gait_analysis.walkingEndurance == 1 %}selected{% endif %}>1 - Unable or under 10 metres</option>
+        <option value="2" {% if gait_analysis.walkingEndurance == 2 %}selected{% endif %}>2 - 10-50 metres</option>
+        <option value="3" {% if gait_analysis.walkingEndurance == 3 %}selected{% endif %}>3 - 50-150 metres</option>
+        <option value="4" {% if gait_analysis.walkingEndurance == 4 %}selected{% endif %}>4 - 150-500 metres</option>
+        <option value="5" {% if gait_analysis.walkingEndurance == 5 %}selected{% endif %}>5 - Unlimited</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

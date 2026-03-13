@@ -1,0 +1,89 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Mobility Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide the patient details and assessment context.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. Jane Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="assessment_date">Assessment Date</label>
+        <input type="date" id="assessment_date" name="patient_information.assessment_date"
+               value="{{ patient_information.assessmentDate }}">
+      </div>
+      <div class="form-group">
+        <label for="referral_source">Referral Source</label>
+        <select id="referral_source" name="patient_information.referral_source">
+          <option value="">-- Select --</option>
+          <option value="gp" {% if patient_information.referralSource == "gp" %}selected{% endif %}>GP</option>
+          <option value="consultant" {% if patient_information.referralSource == "consultant" %}selected{% endif %}>Consultant</option>
+          <option value="ward" {% if patient_information.referralSource == "ward" %}selected{% endif %}>Ward</option>
+          <option value="selfReferral" {% if patient_information.referralSource == "selfReferral" %}selected{% endif %}>Self-Referral</option>
+          <option value="emergency" {% if patient_information.referralSource == "emergency" %}selected{% endif %}>Emergency</option>
+          <option value="other" {% if patient_information.referralSource == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="primary_diagnosis">Primary Diagnosis</label>
+        <input type="text" id="primary_diagnosis" name="patient_information.primary_diagnosis"
+               value="{{ patient_information.primaryDiagnosis }}"
+               placeholder="e.g. Hip fracture, Stroke, Parkinson's">
+      </div>
+      <div class="form-group">
+        <label for="setting">Assessment Setting</label>
+        <select id="setting" name="patient_information.setting">
+          <option value="">-- Select --</option>
+          <option value="inpatient" {% if patient_information.setting == "inpatient" %}selected{% endif %}>Inpatient</option>
+          <option value="outpatient" {% if patient_information.setting == "outpatient" %}selected{% endif %}>Outpatient</option>
+          <option value="community" {% if patient_information.setting == "community" %}selected{% endif %}>Community</option>
+          <option value="domiciliary" {% if patient_information.setting == "domiciliary" %}selected{% endif %}>Domiciliary</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="assessor_name">Assessor Name</label>
+        <input type="text" id="assessor_name" name="patient_information.assessor_name"
+               value="{{ patient_information.assessorName }}"
+               placeholder="e.g. Dr Johnson">
+      </div>
+      <div class="form-group">
+        <label for="assessor_role">Assessor Role</label>
+        <select id="assessor_role" name="patient_information.assessor_role">
+          <option value="">-- Select --</option>
+          <option value="physiotherapist" {% if patient_information.assessorRole == "physiotherapist" %}selected{% endif %}>Physiotherapist</option>
+          <option value="occupationalTherapist" {% if patient_information.assessorRole == "occupationalTherapist" %}selected{% endif %}>Occupational Therapist</option>
+          <option value="doctor" {% if patient_information.assessorRole == "doctor" %}selected{% endif %}>Doctor</option>
+          <option value="nurse" {% if patient_information.assessorRole == "nurse" %}selected{% endif %}>Nurse</option>
+          <option value="other" {% if patient_information.assessorRole == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

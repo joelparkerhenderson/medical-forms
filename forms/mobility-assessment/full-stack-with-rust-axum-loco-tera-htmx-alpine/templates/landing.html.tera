@@ -1,0 +1,33 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Mobility Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Mobility Assessment</h1>
+  <p>
+    This assessment tool evaluates patient mobility across multiple functional
+    domains including balance, gait, transfers, stairs, and upper limb function.
+    Results inform rehabilitation planning and falls risk management.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive evaluation across all mobility domains</p>
+    </div>
+    <div class="feature-card">
+      <h3>Mobility Scoring</h3>
+      <p>Composite score with dimension-level analysis</p>
+    </div>
+    <div class="feature-card">
+      <h3>Falls Risk Screening</h3>
+      <p>Integrated falls risk and flagged concerns</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

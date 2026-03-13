@@ -1,0 +1,88 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Transfers & Bed Mobility - Mobility Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Transfers & Bed Mobility</h2>
+    <p class="hint">Rate each transfer from 1 (Dependent/Unable) to 5 (Independent/Normal).</p>
+
+    <div class="form-group">
+      <label for="bed_mobility">Bed Mobility (rolling, repositioning)</label>
+      <select id="bed_mobility" name="transfers_bed_mobility.bed_mobility">
+        <option value="">-- Select --</option>
+        <option value="1" {% if transfers_bed_mobility.bedMobility == 1 %}selected{% endif %}>1 - Dependent</option>
+        <option value="2" {% if transfers_bed_mobility.bedMobility == 2 %}selected{% endif %}>2 - Maximal assistance</option>
+        <option value="3" {% if transfers_bed_mobility.bedMobility == 3 %}selected{% endif %}>3 - Moderate assistance</option>
+        <option value="4" {% if transfers_bed_mobility.bedMobility == 4 %}selected{% endif %}>4 - Minimal assistance</option>
+        <option value="5" {% if transfers_bed_mobility.bedMobility == 5 %}selected{% endif %}>5 - Independent</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="sit_to_stand">Sit to Stand</label>
+      <select id="sit_to_stand" name="transfers_bed_mobility.sit_to_stand">
+        <option value="">-- Select --</option>
+        <option value="1" {% if transfers_bed_mobility.sitToStand == 1 %}selected{% endif %}>1 - Unable / hoist required</option>
+        <option value="2" {% if transfers_bed_mobility.sitToStand == 2 %}selected{% endif %}>2 - Maximal assistance</option>
+        <option value="3" {% if transfers_bed_mobility.sitToStand == 3 %}selected{% endif %}>3 - Moderate assistance</option>
+        <option value="4" {% if transfers_bed_mobility.sitToStand == 4 %}selected{% endif %}>4 - Minimal assistance / standby</option>
+        <option value="5" {% if transfers_bed_mobility.sitToStand == 5 %}selected{% endif %}>5 - Independent</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="stand_to_sit">Stand to Sit</label>
+      <select id="stand_to_sit" name="transfers_bed_mobility.stand_to_sit">
+        <option value="">-- Select --</option>
+        <option value="1" {% if transfers_bed_mobility.standToSit == 1 %}selected{% endif %}>1 - Unable / hoist required</option>
+        <option value="2" {% if transfers_bed_mobility.standToSit == 2 %}selected{% endif %}>2 - Maximal assistance</option>
+        <option value="3" {% if transfers_bed_mobility.standToSit == 3 %}selected{% endif %}>3 - Moderate assistance</option>
+        <option value="4" {% if transfers_bed_mobility.standToSit == 4 %}selected{% endif %}>4 - Minimal assistance / standby</option>
+        <option value="5" {% if transfers_bed_mobility.standToSit == 5 %}selected{% endif %}>5 - Independent</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="chair_transfer">Chair Transfer</label>
+      <select id="chair_transfer" name="transfers_bed_mobility.chair_transfer">
+        <option value="">-- Select --</option>
+        <option value="1" {% if transfers_bed_mobility.chairTransfer == 1 %}selected{% endif %}>1 - Dependent</option>
+        <option value="2" {% if transfers_bed_mobility.chairTransfer == 2 %}selected{% endif %}>2 - Maximal assistance</option>
+        <option value="3" {% if transfers_bed_mobility.chairTransfer == 3 %}selected{% endif %}>3 - Moderate assistance</option>
+        <option value="4" {% if transfers_bed_mobility.chairTransfer == 4 %}selected{% endif %}>4 - Minimal assistance</option>
+        <option value="5" {% if transfers_bed_mobility.chairTransfer == 5 %}selected{% endif %}>5 - Independent</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="toilet_transfer">Toilet Transfer</label>
+      <select id="toilet_transfer" name="transfers_bed_mobility.toilet_transfer">
+        <option value="">-- Select --</option>
+        <option value="1" {% if transfers_bed_mobility.toiletTransfer == 1 %}selected{% endif %}>1 - Dependent</option>
+        <option value="2" {% if transfers_bed_mobility.toiletTransfer == 2 %}selected{% endif %}>2 - Maximal assistance</option>
+        <option value="3" {% if transfers_bed_mobility.toiletTransfer == 3 %}selected{% endif %}>3 - Moderate assistance</option>
+        <option value="4" {% if transfers_bed_mobility.toiletTransfer == 4 %}selected{% endif %}>4 - Minimal assistance</option>
+        <option value="5" {% if transfers_bed_mobility.toiletTransfer == 5 %}selected{% endif %}>5 - Independent</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="car_transfer">Car Transfer</label>
+      <select id="car_transfer" name="transfers_bed_mobility.car_transfer">
+        <option value="">-- Select --</option>
+        <option value="1" {% if transfers_bed_mobility.carTransfer == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if transfers_bed_mobility.carTransfer == 2 %}selected{% endif %}>2 - Maximal assistance</option>
+        <option value="3" {% if transfers_bed_mobility.carTransfer == 3 %}selected{% endif %}>3 - Moderate assistance</option>
+        <option value="4" {% if transfers_bed_mobility.carTransfer == 4 %}selected{% endif %}>4 - Minimal assistance</option>
+        <option value="5" {% if transfers_bed_mobility.carTransfer == 5 %}selected{% endif %}>5 - Independent</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
