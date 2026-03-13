@@ -1,0 +1,70 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Urology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide patient demographic and referral details.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. John Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_sex">Sex</label>
+        <select id="patient_sex" name="patient_information.patient_sex">
+          <option value="">-- Select --</option>
+          <option value="male" {% if patient_information.patientSex == "male" %}selected{% endif %}>Male</option>
+          <option value="female" {% if patient_information.patientSex == "female" %}selected{% endif %}>Female</option>
+          <option value="other" {% if patient_information.patientSex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="referral_date">Referral Date</label>
+        <input type="date" id="referral_date" name="patient_information.referral_date"
+               value="{{ patient_information.referralDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="referring_provider">Referring Provider</label>
+        <input type="text" id="referring_provider" name="patient_information.referring_provider"
+               value="{{ patient_information.referringProvider }}"
+               placeholder="e.g. Dr Jones, GP">
+      </div>
+      <div class="form-group">
+        <label for="reason_for_referral">Reason for Referral</label>
+        <select id="reason_for_referral" name="patient_information.reason_for_referral">
+          <option value="">-- Select --</option>
+          <option value="luts" {% if patient_information.reasonForReferral == "luts" %}selected{% endif %}>Lower Urinary Tract Symptoms</option>
+          <option value="haematuria" {% if patient_information.reasonForReferral == "haematuria" %}selected{% endif %}>Haematuria</option>
+          <option value="raisedPsa" {% if patient_information.reasonForReferral == "raisedPsa" %}selected{% endif %}>Raised PSA</option>
+          <option value="renalStone" {% if patient_information.reasonForReferral == "renalStone" %}selected{% endif %}>Renal / Ureteric Stone</option>
+          <option value="incontinence" {% if patient_information.reasonForReferral == "incontinence" %}selected{% endif %}>Incontinence</option>
+          <option value="suspectedCancer" {% if patient_information.reasonForReferral == "suspectedCancer" %}selected{% endif %}>Suspected Cancer</option>
+          <option value="erectileDysfunction" {% if patient_information.reasonForReferral == "erectileDysfunction" %}selected{% endif %}>Erectile Dysfunction</option>
+          <option value="other" {% if patient_information.reasonForReferral == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

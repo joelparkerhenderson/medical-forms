@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Urology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Urology Assessment</h1>
+  <p>
+    This assessment collects clinical information for urological evaluation.
+    It covers urinary symptoms (IPSS), lower urinary tract, renal function,
+    prostate and bladder assessment, stone disease, urological cancers,
+    sexual function, and clinical review.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive urological clinical evaluation</p>
+    </div>
+    <div class="feature-card">
+      <h3>Severity Scoring</h3>
+      <p>Composite score with IPSS and clinical indicators</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Actionable alerts for urgent findings</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

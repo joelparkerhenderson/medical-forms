@@ -1,0 +1,121 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Urinary Symptoms (IPSS) - Urology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Urinary Symptoms (IPSS)</h2>
+    <p class="hint">International Prostate Symptom Score. Rate each symptom from 0 (Not at all) to 5 (Almost always).</p>
+
+    <div class="form-group">
+      <label for="incomplete_emptying">Incomplete Emptying: How often have you had a sensation of not emptying your bladder completely?</label>
+      <select id="incomplete_emptying" name="urinary_symptoms.incomplete_emptying">
+        <option value="">-- Select --</option>
+        <option value="0" {% if urinary_symptoms.incompleteEmptying == 0 %}selected{% endif %}>0 - Not at all</option>
+        <option value="1" {% if urinary_symptoms.incompleteEmptying == 1 %}selected{% endif %}>1 - Less than 1 in 5 times</option>
+        <option value="2" {% if urinary_symptoms.incompleteEmptying == 2 %}selected{% endif %}>2 - Less than half the time</option>
+        <option value="3" {% if urinary_symptoms.incompleteEmptying == 3 %}selected{% endif %}>3 - About half the time</option>
+        <option value="4" {% if urinary_symptoms.incompleteEmptying == 4 %}selected{% endif %}>4 - More than half the time</option>
+        <option value="5" {% if urinary_symptoms.incompleteEmptying == 5 %}selected{% endif %}>5 - Almost always</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="frequency">Frequency: How often have you had to urinate again less than two hours after finishing?</label>
+      <select id="frequency" name="urinary_symptoms.frequency">
+        <option value="">-- Select --</option>
+        <option value="0" {% if urinary_symptoms.frequency == 0 %}selected{% endif %}>0 - Not at all</option>
+        <option value="1" {% if urinary_symptoms.frequency == 1 %}selected{% endif %}>1 - Less than 1 in 5 times</option>
+        <option value="2" {% if urinary_symptoms.frequency == 2 %}selected{% endif %}>2 - Less than half the time</option>
+        <option value="3" {% if urinary_symptoms.frequency == 3 %}selected{% endif %}>3 - About half the time</option>
+        <option value="4" {% if urinary_symptoms.frequency == 4 %}selected{% endif %}>4 - More than half the time</option>
+        <option value="5" {% if urinary_symptoms.frequency == 5 %}selected{% endif %}>5 - Almost always</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="intermittency">Intermittency: How often have you found you stopped and started again several times when urinating?</label>
+      <select id="intermittency" name="urinary_symptoms.intermittency">
+        <option value="">-- Select --</option>
+        <option value="0" {% if urinary_symptoms.intermittency == 0 %}selected{% endif %}>0 - Not at all</option>
+        <option value="1" {% if urinary_symptoms.intermittency == 1 %}selected{% endif %}>1 - Less than 1 in 5 times</option>
+        <option value="2" {% if urinary_symptoms.intermittency == 2 %}selected{% endif %}>2 - Less than half the time</option>
+        <option value="3" {% if urinary_symptoms.intermittency == 3 %}selected{% endif %}>3 - About half the time</option>
+        <option value="4" {% if urinary_symptoms.intermittency == 4 %}selected{% endif %}>4 - More than half the time</option>
+        <option value="5" {% if urinary_symptoms.intermittency == 5 %}selected{% endif %}>5 - Almost always</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="urgency">Urgency: How often have you found it difficult to postpone urination?</label>
+      <select id="urgency" name="urinary_symptoms.urgency">
+        <option value="">-- Select --</option>
+        <option value="0" {% if urinary_symptoms.urgency == 0 %}selected{% endif %}>0 - Not at all</option>
+        <option value="1" {% if urinary_symptoms.urgency == 1 %}selected{% endif %}>1 - Less than 1 in 5 times</option>
+        <option value="2" {% if urinary_symptoms.urgency == 2 %}selected{% endif %}>2 - Less than half the time</option>
+        <option value="3" {% if urinary_symptoms.urgency == 3 %}selected{% endif %}>3 - About half the time</option>
+        <option value="4" {% if urinary_symptoms.urgency == 4 %}selected{% endif %}>4 - More than half the time</option>
+        <option value="5" {% if urinary_symptoms.urgency == 5 %}selected{% endif %}>5 - Almost always</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="weak_stream">Weak Stream: How often have you had a weak urinary stream?</label>
+      <select id="weak_stream" name="urinary_symptoms.weak_stream">
+        <option value="">-- Select --</option>
+        <option value="0" {% if urinary_symptoms.weakStream == 0 %}selected{% endif %}>0 - Not at all</option>
+        <option value="1" {% if urinary_symptoms.weakStream == 1 %}selected{% endif %}>1 - Less than 1 in 5 times</option>
+        <option value="2" {% if urinary_symptoms.weakStream == 2 %}selected{% endif %}>2 - Less than half the time</option>
+        <option value="3" {% if urinary_symptoms.weakStream == 3 %}selected{% endif %}>3 - About half the time</option>
+        <option value="4" {% if urinary_symptoms.weakStream == 4 %}selected{% endif %}>4 - More than half the time</option>
+        <option value="5" {% if urinary_symptoms.weakStream == 5 %}selected{% endif %}>5 - Almost always</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="straining">Straining: How often have you had to push or strain to begin urination?</label>
+      <select id="straining" name="urinary_symptoms.straining">
+        <option value="">-- Select --</option>
+        <option value="0" {% if urinary_symptoms.straining == 0 %}selected{% endif %}>0 - Not at all</option>
+        <option value="1" {% if urinary_symptoms.straining == 1 %}selected{% endif %}>1 - Less than 1 in 5 times</option>
+        <option value="2" {% if urinary_symptoms.straining == 2 %}selected{% endif %}>2 - Less than half the time</option>
+        <option value="3" {% if urinary_symptoms.straining == 3 %}selected{% endif %}>3 - About half the time</option>
+        <option value="4" {% if urinary_symptoms.straining == 4 %}selected{% endif %}>4 - More than half the time</option>
+        <option value="5" {% if urinary_symptoms.straining == 5 %}selected{% endif %}>5 - Almost always</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="nocturia">Nocturia: How many times did you most typically get up to urinate from going to bed until getting up in the morning?</label>
+      <select id="nocturia" name="urinary_symptoms.nocturia">
+        <option value="">-- Select --</option>
+        <option value="0" {% if urinary_symptoms.nocturia == 0 %}selected{% endif %}>0 - None</option>
+        <option value="1" {% if urinary_symptoms.nocturia == 1 %}selected{% endif %}>1 - Once</option>
+        <option value="2" {% if urinary_symptoms.nocturia == 2 %}selected{% endif %}>2 - Twice</option>
+        <option value="3" {% if urinary_symptoms.nocturia == 3 %}selected{% endif %}>3 - Three times</option>
+        <option value="4" {% if urinary_symptoms.nocturia == 4 %}selected{% endif %}>4 - Four times</option>
+        <option value="5" {% if urinary_symptoms.nocturia == 5 %}selected{% endif %}>5 - Five or more times</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="quality_of_life">Quality of Life: If you were to spend the rest of your life with your urinary condition just the way it is now, how would you feel?</label>
+      <select id="quality_of_life" name="urinary_symptoms.quality_of_life">
+        <option value="">-- Select --</option>
+        <option value="0" {% if urinary_symptoms.qualityOfLife == 0 %}selected{% endif %}>0 - Delighted</option>
+        <option value="1" {% if urinary_symptoms.qualityOfLife == 1 %}selected{% endif %}>1 - Pleased</option>
+        <option value="2" {% if urinary_symptoms.qualityOfLife == 2 %}selected{% endif %}>2 - Mostly satisfied</option>
+        <option value="3" {% if urinary_symptoms.qualityOfLife == 3 %}selected{% endif %}>3 - Mixed</option>
+        <option value="4" {% if urinary_symptoms.qualityOfLife == 4 %}selected{% endif %}>4 - Mostly dissatisfied</option>
+        <option value="5" {% if urinary_symptoms.qualityOfLife == 5 %}selected{% endif %}>5 - Unhappy</option>
+        <option value="6" {% if urinary_symptoms.qualityOfLife == 6 %}selected{% endif %}>6 - Terrible</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

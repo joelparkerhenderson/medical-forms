@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Prostate Assessment - Urology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Prostate Assessment</h2>
+    <p class="hint">Record PSA levels, DRE findings, and prostate-related history.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="psa_level">PSA Level (ng/mL)</label>
+        <input type="number" id="psa_level" name="prostate_assessment.psa_level"
+               value="{% if prostate_assessment.psaLevel %}{{ prostate_assessment.psaLevel }}{% endif %}"
+               min="0" max="1000" step="0.1" placeholder="e.g. 4.5">
+      </div>
+      <div class="form-group">
+        <label for="psa_velocity">PSA Velocity</label>
+        <select id="psa_velocity" name="prostate_assessment.psa_velocity">
+          <option value="">-- Select --</option>
+          <option value="stable" {% if prostate_assessment.psaVelocity == "stable" %}selected{% endif %}>Stable</option>
+          <option value="rising" {% if prostate_assessment.psaVelocity == "rising" %}selected{% endif %}>Rising</option>
+          <option value="declining" {% if prostate_assessment.psaVelocity == "declining" %}selected{% endif %}>Declining</option>
+          <option value="unknown" {% if prostate_assessment.psaVelocity == "unknown" %}selected{% endif %}>Unknown</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="dre_findings">Digital Rectal Examination (DRE) Findings</label>
+        <select id="dre_findings" name="prostate_assessment.dre_findings">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if prostate_assessment.dreFindings == "normal" %}selected{% endif %}>Normal</option>
+          <option value="enlarged" {% if prostate_assessment.dreFindings == "enlarged" %}selected{% endif %}>Enlarged but smooth</option>
+          <option value="abnormal" {% if prostate_assessment.dreFindings == "abnormal" %}selected{% endif %}>Abnormal (nodule/irregularity)</option>
+          <option value="notPerformed" {% if prostate_assessment.dreFindings == "notPerformed" %}selected{% endif %}>Not Performed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="prostate_volume">Prostate Volume</label>
+        <select id="prostate_volume" name="prostate_assessment.prostate_volume">
+          <option value="">-- Select --</option>
+          <option value="lessThan30" {% if prostate_assessment.prostateVolume == "lessThan30" %}selected{% endif %}>Less than 30 mL</option>
+          <option value="30to60" {% if prostate_assessment.prostateVolume == "30to60" %}selected{% endif %}>30 - 60 mL</option>
+          <option value="60to100" {% if prostate_assessment.prostateVolume == "60to100" %}selected{% endif %}>60 - 100 mL</option>
+          <option value="moreThan100" {% if prostate_assessment.prostateVolume == "moreThan100" %}selected{% endif %}>More than 100 mL</option>
+          <option value="unknown" {% if prostate_assessment.prostateVolume == "unknown" %}selected{% endif %}>Unknown</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Currently on BPH Medication?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="prostate_assessment.bph_medication" value="yes" {% if prostate_assessment.bphMedication == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="prostate_assessment.bph_medication" value="no" {% if prostate_assessment.bphMedication == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Family History of Prostate Cancer?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="prostate_assessment.family_history_prostate_cancer" value="yes" {% if prostate_assessment.familyHistoryProstateCancer == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="prostate_assessment.family_history_prostate_cancer" value="no" {% if prostate_assessment.familyHistoryProstateCancer == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

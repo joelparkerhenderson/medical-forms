@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Urological Cancers - Urology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Urological Cancers</h2>
+    <p class="hint">Record any urological cancer history, treatment, and red flag symptoms.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cancer_type">Cancer Type</label>
+        <select id="cancer_type" name="urological_cancers.cancer_type">
+          <option value="">-- Select --</option>
+          <option value="none" {% if urological_cancers.cancerType == "none" %}selected{% endif %}>None</option>
+          <option value="prostate" {% if urological_cancers.cancerType == "prostate" %}selected{% endif %}>Prostate</option>
+          <option value="bladder" {% if urological_cancers.cancerType == "bladder" %}selected{% endif %}>Bladder</option>
+          <option value="kidney" {% if urological_cancers.cancerType == "kidney" %}selected{% endif %}>Kidney (Renal Cell)</option>
+          <option value="testicular" {% if urological_cancers.cancerType == "testicular" %}selected{% endif %}>Testicular</option>
+          <option value="penile" {% if urological_cancers.cancerType == "penile" %}selected{% endif %}>Penile</option>
+          <option value="other" {% if urological_cancers.cancerType == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cancer_stage">Cancer Stage (if known)</label>
+        <select id="cancer_stage" name="urological_cancers.cancer_stage">
+          <option value="">-- Select --</option>
+          <option value="unknown" {% if urological_cancers.cancerStage == "unknown" %}selected{% endif %}>Unknown</option>
+          <option value="stage1" {% if urological_cancers.cancerStage == "stage1" %}selected{% endif %}>Stage I</option>
+          <option value="stage2" {% if urological_cancers.cancerStage == "stage2" %}selected{% endif %}>Stage II</option>
+          <option value="stage3" {% if urological_cancers.cancerStage == "stage3" %}selected{% endif %}>Stage III</option>
+          <option value="stage4" {% if urological_cancers.cancerStage == "stage4" %}selected{% endif %}>Stage IV</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="prior_cancer_treatment">Prior Cancer Treatment</label>
+        <select id="prior_cancer_treatment" name="urological_cancers.prior_cancer_treatment">
+          <option value="">-- Select --</option>
+          <option value="none" {% if urological_cancers.priorCancerTreatment == "none" %}selected{% endif %}>None</option>
+          <option value="surgery" {% if urological_cancers.priorCancerTreatment == "surgery" %}selected{% endif %}>Surgery</option>
+          <option value="radiotherapy" {% if urological_cancers.priorCancerTreatment == "radiotherapy" %}selected{% endif %}>Radiotherapy</option>
+          <option value="chemotherapy" {% if urological_cancers.priorCancerTreatment == "chemotherapy" %}selected{% endif %}>Chemotherapy</option>
+          <option value="hormoneTherapy" {% if urological_cancers.priorCancerTreatment == "hormoneTherapy" %}selected{% endif %}>Hormone Therapy</option>
+          <option value="activeSurveillance" {% if urological_cancers.priorCancerTreatment == "activeSurveillance" %}selected{% endif %}>Active Surveillance</option>
+          <option value="multiple" {% if urological_cancers.priorCancerTreatment == "multiple" %}selected{% endif %}>Multiple Treatments</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="surveillance_status">Surveillance Status</label>
+        <select id="surveillance_status" name="urological_cancers.surveillance_status">
+          <option value="">-- Select --</option>
+          <option value="none" {% if urological_cancers.surveillanceStatus == "none" %}selected{% endif %}>Not applicable</option>
+          <option value="stable" {% if urological_cancers.surveillanceStatus == "stable" %}selected{% endif %}>Stable</option>
+          <option value="progressing" {% if urological_cancers.surveillanceStatus == "progressing" %}selected{% endif %}>Progressing</option>
+          <option value="remission" {% if urological_cancers.surveillanceStatus == "remission" %}selected{% endif %}>In Remission</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Unexplained Weight Loss?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="urological_cancers.unexplained_weight_loss" value="yes" {% if urological_cancers.unexplainedWeightLoss == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="urological_cancers.unexplained_weight_loss" value="no" {% if urological_cancers.unexplainedWeightLoss == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Bone Pain?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="urological_cancers.bone_pain" value="yes" {% if urological_cancers.bonePain == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="urological_cancers.bone_pain" value="no" {% if urological_cancers.bonePain == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Urology Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Urology Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by date, patient, provider...">
+    </div>
+    <div class="form-group">
+      <label for="severity_level">Severity Level</label>
+      <select id="severity_level" name="severity_level">
+        <option value="">All Levels</option>
+        <option value="urgent" {% if severity_level == "urgent" %}selected{% endif %}>Urgent</option>
+        <option value="severe" {% if severity_level == "severe" %}selected{% endif %}>Severe</option>
+        <option value="moderate" {% if severity_level == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="mild" {% if severity_level == "mild" %}selected{% endif %}>Mild</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="ipss_category">IPSS Category</label>
+      <select id="ipss_category" name="ipss_category">
+        <option value="">All</option>
+        <option value="severe" {% if ipss_category == "severe" %}selected{% endif %}>Severe</option>
+        <option value="moderate" {% if ipss_category == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="mild" {% if ipss_category == "mild" %}selected{% endif %}>Mild</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Referral Date</th>
+      <th>Patient</th>
+      <th>Referring Provider</th>
+      <th>Severity</th>
+      <th>Score</th>
+      <th>IPSS</th>
+      <th>Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.referralDate }}</a></td>
+      <td>{{ patient.patientName }}</td>
+      <td>{{ patient.referringProvider }}</td>
+      <td><span class="severity-badge severity-{{ patient.severityLevel }}">{{ patient.severityLevel }}</span></td>
+      <td>{{ patient.severityScore }}%</td>
+      <td><span class="ipss-badge ipss-{{ patient.ipssCategory }}">{{ patient.ipssCategory }}</span></td>
+      <td>{{ patient.reasonForReferral }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

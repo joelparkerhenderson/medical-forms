@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Stone Disease - Urology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Stone Disease</h2>
+    <p class="hint">Record urinary stone history and current presentation.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>History of Urinary Stones?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="stone_disease.stone_history" value="yes" {% if stone_disease.stoneHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="stone_disease.stone_history" value="no" {% if stone_disease.stoneHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="stone_location">Stone Location</label>
+        <select id="stone_location" name="stone_disease.stone_location">
+          <option value="">-- Select --</option>
+          <option value="none" {% if stone_disease.stoneLocation == "none" %}selected{% endif %}>No current stone</option>
+          <option value="kidney" {% if stone_disease.stoneLocation == "kidney" %}selected{% endif %}>Kidney</option>
+          <option value="ureter" {% if stone_disease.stoneLocation == "ureter" %}selected{% endif %}>Ureter</option>
+          <option value="bladder" {% if stone_disease.stoneLocation == "bladder" %}selected{% endif %}>Bladder</option>
+          <option value="multiple" {% if stone_disease.stoneLocation == "multiple" %}selected{% endif %}>Multiple locations</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="stone_size_mm">Stone Size (mm)</label>
+        <input type="number" id="stone_size_mm" name="stone_disease.stone_size_mm"
+               value="{% if stone_disease.stoneSizeMm %}{{ stone_disease.stoneSizeMm }}{% endif %}"
+               min="0" max="100" placeholder="e.g. 8">
+      </div>
+      <div class="form-group">
+        <label for="stone_composition">Stone Composition (if known)</label>
+        <select id="stone_composition" name="stone_disease.stone_composition">
+          <option value="">-- Select --</option>
+          <option value="unknown" {% if stone_disease.stoneComposition == "unknown" %}selected{% endif %}>Unknown</option>
+          <option value="calciumOxalate" {% if stone_disease.stoneComposition == "calciumOxalate" %}selected{% endif %}>Calcium Oxalate</option>
+          <option value="calciumPhosphate" {% if stone_disease.stoneComposition == "calciumPhosphate" %}selected{% endif %}>Calcium Phosphate</option>
+          <option value="uricAcid" {% if stone_disease.stoneComposition == "uricAcid" %}selected{% endif %}>Uric Acid</option>
+          <option value="struvite" {% if stone_disease.stoneComposition == "struvite" %}selected{% endif %}>Struvite</option>
+          <option value="cystine" {% if stone_disease.stoneComposition == "cystine" %}selected{% endif %}>Cystine</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="current_pain_level">Current Pain Level (0-10)</label>
+        <select id="current_pain_level" name="stone_disease.current_pain_level">
+          <option value="">-- Select --</option>
+          {% for i in range(end=11) %}
+          <option value="{{ i }}" {% if stone_disease.currentPainLevel == i %}selected{% endif %}>{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Recurrent Stones?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="stone_disease.recurrent_stones" value="yes" {% if stone_disease.recurrentStones == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="stone_disease.recurrent_stones" value="no" {% if stone_disease.recurrentStones == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

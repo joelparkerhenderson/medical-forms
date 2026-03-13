@@ -1,0 +1,92 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Lower Urinary Tract - Urology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Lower Urinary Tract</h2>
+    <p class="hint">Assess lower urinary tract signs and symptoms.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Dysuria (painful urination)?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="lower_urinary_tract.dysuria" value="yes" {% if lower_urinary_tract.dysuria == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="lower_urinary_tract.dysuria" value="no" {% if lower_urinary_tract.dysuria == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="haematuria">Haematuria (blood in urine)?</label>
+        <select id="haematuria" name="lower_urinary_tract.haematuria">
+          <option value="">-- Select --</option>
+          <option value="none" {% if lower_urinary_tract.haematuria == "none" %}selected{% endif %}>None</option>
+          <option value="nonVisible" {% if lower_urinary_tract.haematuria == "nonVisible" %}selected{% endif %}>Non-visible (microscopic)</option>
+          <option value="visible" {% if lower_urinary_tract.haematuria == "visible" %}selected{% endif %}>Visible (macroscopic)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="incontinence_type">Incontinence Type</label>
+        <select id="incontinence_type" name="lower_urinary_tract.incontinence_type">
+          <option value="">-- Select --</option>
+          <option value="none" {% if lower_urinary_tract.incontinenceType == "none" %}selected{% endif %}>None</option>
+          <option value="stress" {% if lower_urinary_tract.incontinenceType == "stress" %}selected{% endif %}>Stress</option>
+          <option value="urge" {% if lower_urinary_tract.incontinenceType == "urge" %}selected{% endif %}>Urge</option>
+          <option value="mixed" {% if lower_urinary_tract.incontinenceType == "mixed" %}selected{% endif %}>Mixed</option>
+          <option value="overflow" {% if lower_urinary_tract.incontinenceType == "overflow" %}selected{% endif %}>Overflow</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="incontinence_severity">Incontinence Severity (1-5)</label>
+        <select id="incontinence_severity" name="lower_urinary_tract.incontinence_severity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if lower_urinary_tract.incontinenceSeverity == 1 %}selected{% endif %}>1 - Minimal</option>
+          <option value="2" {% if lower_urinary_tract.incontinenceSeverity == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if lower_urinary_tract.incontinenceSeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if lower_urinary_tract.incontinenceSeverity == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if lower_urinary_tract.incontinenceSeverity == 5 %}selected{% endif %}>5 - Very Severe</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="urinary_retention">Urinary Retention</label>
+        <select id="urinary_retention" name="lower_urinary_tract.urinary_retention">
+          <option value="">-- Select --</option>
+          <option value="none" {% if lower_urinary_tract.urinaryRetention == "none" %}selected{% endif %}>None</option>
+          <option value="chronic" {% if lower_urinary_tract.urinaryRetention == "chronic" %}selected{% endif %}>Chronic</option>
+          <option value="acute" {% if lower_urinary_tract.urinaryRetention == "acute" %}selected{% endif %}>Acute</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Recurrent UTIs?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="lower_urinary_tract.recurrent_uti" value="yes" {% if lower_urinary_tract.recurrentUti == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="lower_urinary_tract.recurrent_uti" value="no" {% if lower_urinary_tract.recurrentUti == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="uti_frequency_per_year">UTI Frequency (episodes per year)</label>
+      <select id="uti_frequency_per_year" name="lower_urinary_tract.uti_frequency_per_year">
+        <option value="">-- Select --</option>
+        <option value="0" {% if lower_urinary_tract.utiFrequencyPerYear == 0 %}selected{% endif %}>0</option>
+        <option value="1" {% if lower_urinary_tract.utiFrequencyPerYear == 1 %}selected{% endif %}>1</option>
+        <option value="2" {% if lower_urinary_tract.utiFrequencyPerYear == 2 %}selected{% endif %}>2</option>
+        <option value="3" {% if lower_urinary_tract.utiFrequencyPerYear == 3 %}selected{% endif %}>3</option>
+        <option value="4" {% if lower_urinary_tract.utiFrequencyPerYear == 4 %}selected{% endif %}>4</option>
+        <option value="5" {% if lower_urinary_tract.utiFrequencyPerYear == 5 %}selected{% endif %}>5+</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
