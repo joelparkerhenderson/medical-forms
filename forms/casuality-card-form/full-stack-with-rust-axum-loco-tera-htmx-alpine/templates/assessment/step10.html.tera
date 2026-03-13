@@ -1,0 +1,99 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        ecgPerformed: '{{ investigations.ecgPerformed }}',
+        imaging: [
+            {% for img in imaging %}
+            { imaging_type: '{{ img.imaging_type }}', site: '{{ img.site }}', findings: '{{ img.findings }}' }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ],
+        addImaging() { this.imaging.push({ imaging_type: '', site: '', findings: '' }); },
+        removeImaging(i) { this.imaging.splice(i, 1); }
+    }">
+        <h3>Blood Tests</h3>
+        <p class="form-hint">Select ordered blood tests.</p>
+        <div class="checkbox-group" style="flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 1rem;">
+            {% set blood_test_options = ["FBC", "U&E", "LFTs", "CRP", "Coagulation", "Troponin", "D-Dimer", "Blood Gas", "Lactate", "Amylase", "Group & Save", "Cross-match"] %}
+            {% for test in blood_test_options %}
+            <label>
+                <input type="checkbox" name="blood_tests[{{ loop.index0 }}].test_name" value="{{ test }}"
+                       {% for bt in blood_tests %}{% if bt.testName == test %}checked{% endif %}{% endfor %}>
+                {{ test }}
+            </label>
+            {% endfor %}
+        </div>
+
+        <h3 style="margin-top: 1.5rem;">Urinalysis</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="urinalysis">Dipstick Results</label>
+                <textarea id="urinalysis" name="investigations.urinalysis">{{ investigations.urinalysis }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="pregnancy_test">Pregnancy Test</label>
+                <select id="pregnancy_test" name="investigations.pregnancy_test">
+                    <option value="" {% if investigations.pregnancyTest == "" %}selected{% endif %}>N/A</option>
+                    <option value="positive" {% if investigations.pregnancyTest == "positive" %}selected{% endif %}>Positive</option>
+                    <option value="negative" {% if investigations.pregnancyTest == "negative" %}selected{% endif %}>Negative</option>
+                    <option value="not-done" {% if investigations.pregnancyTest == "not-done" %}selected{% endif %}>Not Done</option>
+                </select>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 1.5rem;">Imaging</h3>
+        <div id="imaging-list">
+            <template x-for="(item, i) in imaging" :key="i">
+                <div class="dynamic-list-item">
+                    <button type="button" class="btn-remove-item" @click="removeImaging(i)">&times;</button>
+                    <div class="form-row-3">
+                        <div class="form-group">
+                            <label>Type</label>
+                            <input type="text" :name="'imaging[' + i + '].imaging_type'" x-model="item.imaging_type" placeholder="e.g. X-ray, CT, USS">
+                        </div>
+                        <div class="form-group">
+                            <label>Site</label>
+                            <input type="text" :name="'imaging[' + i + '].site'" x-model="item.site">
+                        </div>
+                        <div class="form-group">
+                            <label>Findings</label>
+                            <input type="text" :name="'imaging[' + i + '].findings'" x-model="item.findings">
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <button type="button" class="btn-add-item" @click="addImaging()">+ Add Imaging</button>
+
+        <h3 style="margin-top: 1.5rem;">ECG</h3>
+        <div class="form-group">
+            <label>ECG Performed</label>
+            <div class="radio-group">
+                <label><input type="radio" name="investigations.ecg_performed" value="yes" x-model="ecgPerformed" {% if investigations.ecgPerformed == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="investigations.ecg_performed" value="no" x-model="ecgPerformed" {% if investigations.ecgPerformed == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="ecgPerformed === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="ecg_findings">ECG Findings</label>
+                <textarea id="ecg_findings" name="investigations.ecg_findings">{{ investigations.ecgFindings }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="other_investigations">Other Investigations</label>
+            <textarea id="other_investigations" name="investigations.other_investigations">{{ investigations.otherInvestigations }}</textarea>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

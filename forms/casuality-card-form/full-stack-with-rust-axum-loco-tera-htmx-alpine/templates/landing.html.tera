@@ -1,0 +1,38 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Casualty Card Form - Home{% endblock %}
+
+{% block content %}
+<div class="landing">
+    <div class="card landing-card">
+        <h1>Casualty Card Form</h1>
+        <p class="landing-description">
+            Complete a comprehensive Emergency Department casualty card covering 14 sections
+            including patient demographics, triage, vital signs, primary survey, investigations,
+            treatment, and disposition. The system will calculate a NEWS2 score and
+            identify safety-critical flags for clinical review.
+        </p>
+
+        <div class="landing-features">
+            <div class="feature">
+                <h3>14 Assessment Steps</h3>
+                <p>From triage through disposition with conditional fields</p>
+            </div>
+            <div class="feature">
+                <h3>NEWS2 Scoring</h3>
+                <p>Auto-calculated National Early Warning Score 2</p>
+            </div>
+            <div class="feature">
+                <h3>Safety Flags</h3>
+                <p>Critical alerts for safeguarding, airway, consciousness</p>
+            </div>
+        </div>
+
+        <form method="POST" action="/assessment/new">
+            <button type="submit" class="btn btn-primary btn-lg">
+                Begin New Assessment
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

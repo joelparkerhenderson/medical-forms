@@ -1,0 +1,71 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        nokNotified: '{{ next_of_kin.notified }}'
+    }">
+        <h3>Next of Kin</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="nok_name">Name</label>
+                <input type="text" id="nok_name" name="next_of_kin.name"
+                       value="{{ next_of_kin.name }}">
+            </div>
+            <div class="form-group">
+                <label for="nok_relationship">Relationship</label>
+                <input type="text" id="nok_relationship" name="next_of_kin.relationship"
+                       value="{{ next_of_kin.relationship }}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="nok_phone">Phone</label>
+                <input type="text" id="nok_phone" name="next_of_kin.phone"
+                       value="{{ next_of_kin.phone }}">
+            </div>
+            <div class="form-group">
+                <label>Notified</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="next_of_kin.notified" value="yes" x-model="nokNotified" {% if next_of_kin.notified == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="next_of_kin.notified" value="no" x-model="nokNotified" {% if next_of_kin.notified == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 1.5rem;">GP Details</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="gp_name">GP Name</label>
+                <input type="text" id="gp_name" name="gp.name"
+                       value="{{ gp.name }}">
+            </div>
+            <div class="form-group">
+                <label for="gp_practice_name">Practice Name</label>
+                <input type="text" id="gp_practice_name" name="gp.practice_name"
+                       value="{{ gp.practiceName }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gp_practice_address">Practice Address</label>
+            <textarea id="gp_practice_address" name="gp.practice_address">{{ gp.practiceAddress }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="gp_practice_phone">Practice Phone</label>
+            <input type="text" id="gp_practice_phone" name="gp.practice_phone"
+                   value="{{ gp.practicePhone }}">
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

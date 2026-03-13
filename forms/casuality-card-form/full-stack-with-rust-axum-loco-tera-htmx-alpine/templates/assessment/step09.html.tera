@@ -1,0 +1,80 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-group">
+            <label for="general_appearance">General Appearance</label>
+            <textarea id="general_appearance" name="clinical_examination.general_appearance">{{ clinical_examination.generalAppearance }}</textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="head_and_face">Head and Face</label>
+                <textarea id="head_and_face" name="clinical_examination.head_and_face">{{ clinical_examination.headAndFace }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="neck">Neck</label>
+                <textarea id="neck" name="clinical_examination.neck">{{ clinical_examination.neck }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="chest_cardiovascular">Chest - Cardiovascular</label>
+                <textarea id="chest_cardiovascular" name="clinical_examination.chest_cardiovascular">{{ clinical_examination.chestCardiovascular }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="chest_respiratory">Chest - Respiratory</label>
+                <textarea id="chest_respiratory" name="clinical_examination.chest_respiratory">{{ clinical_examination.chestRespiratory }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="abdomen">Abdomen</label>
+                <textarea id="abdomen" name="clinical_examination.abdomen">{{ clinical_examination.abdomen }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="pelvis">Pelvis</label>
+                <textarea id="pelvis" name="clinical_examination.pelvis">{{ clinical_examination.pelvis }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="musculoskeletal_limbs">Musculoskeletal / Limbs</label>
+                <textarea id="musculoskeletal_limbs" name="clinical_examination.musculoskeletal_limbs">{{ clinical_examination.musculoskeletalLimbs }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="neurological">Neurological</label>
+                <textarea id="neurological" name="clinical_examination.neurological">{{ clinical_examination.neurological }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="skin">Skin</label>
+                <textarea id="skin" name="clinical_examination.skin">{{ clinical_examination.skin }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="mental_state">Mental State</label>
+                <textarea id="mental_state" name="clinical_examination.mental_state">{{ clinical_examination.mentalState }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="body_diagram_notes">Body Diagram Notes</label>
+            <textarea id="body_diagram_notes" name="clinical_examination.body_diagram_notes">{{ clinical_examination.bodyDiagramNotes }}</textarea>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

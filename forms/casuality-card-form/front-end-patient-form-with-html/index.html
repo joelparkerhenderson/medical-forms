@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casualty Card Form</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Casualty Card Form</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- ─── Landing ────────────────────────────────────── -->
+    <div id="landing" class="hero">
+      <h1>Casualty Card Form</h1>
+      <p>Emergency Department / Minor Injury Unit clinical documentation. Captures patient information from arrival through triage, assessment, treatment, and disposition including NEWS2 scoring.</p>
+      <div class="feature-grid">
+        <div class="feature-card"><h3>14 Steps</h3><p>Demographics to safeguarding</p></div>
+        <div class="feature-card"><h3>NEWS2 Scoring</h3><p>Auto-calculated from vital signs</p></div>
+        <div class="feature-card"><h3>Safety Flags</h3><p>Clinical safety alerts for care team</p></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Casualty Card</button>
+      <p style="margin-top:1rem;font-size:.85rem;color:#6b7280;">This tool is for clinical support only. All assessments must be reviewed by a qualified clinician.</p>
+    </div>
+
+    <!-- ─── Form ───────────────────────────────────────── -->
+    <div id="form-container" style="display:none;">
+      <div class="progress-container">
+        <div class="progress-header">
+          <span id="step-label">Step 1 of 14: Patient Demographics</span>
+          <span id="step-percent">7%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:7%"></div></div>
+      </div>
+
+      <!-- ═══ STEP 1: Patient Demographics ═══ -->
+      <section id="step-1" class="step-section active">
+        <div class="card">
+          <h2>Step 1: Patient Demographics</h2>
+          <p>Patient identification and contact details</p>
+          <div class="form-row">
+            <div class="form-group"><label>First Name <span class="required">*</span></label><input type="text" data-field="demographics.firstName" required></div>
+            <div class="form-group"><label>Last Name <span class="required">*</span></label><input type="text" data-field="demographics.lastName" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Date of Birth <span class="required">*</span></label><input type="date" data-field="demographics.dateOfBirth" required></div>
+            <div class="form-group"><label>NHS Number</label><input type="text" data-field="demographics.nhsNumber" placeholder="000 000 0000"></div>
+          </div>
+          <div class="form-group">
+            <label>Sex</label>
+            <div class="radio-group">
+              <label><input type="radio" name="sex" value="male" data-field="demographics.sex"><span>Male</span></label>
+              <label><input type="radio" name="sex" value="female" data-field="demographics.sex"><span>Female</span></label>
+              <label><input type="radio" name="sex" value="other" data-field="demographics.sex"><span>Other</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Address</label><input type="text" data-field="demographics.address"></div>
+          <div class="form-row">
+            <div class="form-group"><label>Postcode</label><input type="text" data-field="demographics.postcode"></div>
+            <div class="form-group"><label>Phone</label><input type="tel" data-field="demographics.phone"></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" data-field="demographics.email"></div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Ethnicity</label>
+              <select data-field="demographics.ethnicity">
+                <option value="">-- Select --</option>
+                <option value="white-british">White British</option>
+                <option value="white-irish">White Irish</option>
+                <option value="white-other">White Other</option>
+                <option value="mixed-white-black-caribbean">Mixed - White &amp; Black Caribbean</option>
+                <option value="mixed-white-black-african">Mixed - White &amp; Black African</option>
+                <option value="mixed-white-asian">Mixed - White &amp; Asian</option>
+                <option value="mixed-other">Mixed Other</option>
+                <option value="asian-indian">Asian Indian</option>
+                <option value="asian-pakistani">Asian Pakistani</option>
+                <option value="asian-bangladeshi">Asian Bangladeshi</option>
+                <option value="asian-chinese">Asian Chinese</option>
+                <option value="asian-other">Asian Other</option>
+                <option value="black-african">Black African</option>
+                <option value="black-caribbean">Black Caribbean</option>
+                <option value="black-other">Black Other</option>
+                <option value="other">Other</option>
+                <option value="not-stated">Not Stated</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Preferred Language</label><input type="text" data-field="demographics.preferredLanguage"></div>
+          </div>
+          <div class="form-group">
+            <label>Interpreter Required?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="interpreterRequired" value="yes" data-field="demographics.interpreterRequired"><span>Yes</span></label>
+              <label><input type="radio" name="interpreterRequired" value="no" data-field="demographics.interpreterRequired"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <span></span>
+          <button class="btn btn-primary" onclick="goToStep(2)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 2: Next of Kin & GP ═══ -->
+      <section id="step-2" class="step-section">
+        <div class="card">
+          <h2>Step 2: Next of Kin &amp; GP</h2>
+          <p>Emergency contact and GP details</p>
+          <h3>Next of Kin</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Name</label><input type="text" data-field="nextOfKinGP.nextOfKin.name"></div>
+            <div class="form-group"><label>Relationship</label><input type="text" data-field="nextOfKinGP.nextOfKin.relationship"></div>
+          </div>
+          <div class="form-group"><label>Phone</label><input type="tel" data-field="nextOfKinGP.nextOfKin.phone"></div>
+          <div class="form-group">
+            <label>Next of Kin Notified?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="nokNotified" value="yes" data-field="nextOfKinGP.nextOfKin.notified"><span>Yes</span></label>
+              <label><input type="radio" name="nokNotified" value="no" data-field="nextOfKinGP.nextOfKin.notified"><span>No</span></label>
+            </div>
+          </div>
+          <hr class="section-divider">
+          <h3>General Practitioner</h3>
+          <div class="form-group"><label>GP Name</label><input type="text" data-field="nextOfKinGP.gp.name"></div>
+          <div class="form-group"><label>Practice Name</label><input type="text" data-field="nextOfKinGP.gp.practiceName"></div>
+          <div class="form-group"><label>Practice Address</label><input type="text" data-field="nextOfKinGP.gp.practiceAddress"></div>
+          <div class="form-group"><label>Practice Phone</label><input type="tel" data-field="nextOfKinGP.gp.practicePhone"></div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(1)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(3)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 3: Arrival & Triage ═══ -->
+      <section id="step-3" class="step-section">
+        <div class="card">
+          <h2>Step 3: Arrival &amp; Triage</h2>
+          <p>Attendance details and Manchester Triage System assessment</p>
+          <div class="form-row">
+            <div class="form-group"><label>Attendance Date</label><input type="date" data-field="arrivalTriage.attendanceDate"></div>
+            <div class="form-group"><label>Arrival Time</label><input type="time" data-field="arrivalTriage.arrivalTime"></div>
+          </div>
+          <div class="form-group">
+            <label>Attendance Category</label>
+            <div class="radio-group">
+              <label><input type="radio" name="attendanceCategory" value="first" data-field="arrivalTriage.attendanceCategory"><span>First</span></label>
+              <label><input type="radio" name="attendanceCategory" value="follow-up" data-field="arrivalTriage.attendanceCategory"><span>Follow-up</span></label>
+              <label><input type="radio" name="attendanceCategory" value="planned" data-field="arrivalTriage.attendanceCategory"><span>Planned</span></label>
+              <label><input type="radio" name="attendanceCategory" value="unplanned" data-field="arrivalTriage.attendanceCategory"><span>Unplanned</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Arrival Mode</label>
+            <select data-field="arrivalTriage.arrivalMode">
+              <option value="">-- Select --</option>
+              <option value="ambulance">Ambulance</option>
+              <option value="walk-in">Walk-in</option>
+              <option value="helicopter">Helicopter</option>
+              <option value="police">Police</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Referral Source</label>
+            <select data-field="arrivalTriage.referralSource">
+              <option value="">-- Select --</option>
+              <option value="self">Self-referral</option>
+              <option value="gp">GP</option>
+              <option value="999">999</option>
+              <option value="nhs111">NHS 111</option>
+              <option value="other-hospital">Other Hospital</option>
+              <option value="police">Police</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="conditional-field" data-show-if="arrivalTriage.arrivalMode=ambulance">
+            <div class="form-group"><label>Ambulance Incident Number</label><input type="text" data-field="arrivalTriage.ambulanceIncidentNumber"></div>
+          </div>
+          <hr class="section-divider">
+          <h3>Triage</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Triage Time</label><input type="time" data-field="arrivalTriage.triageTime"></div>
+            <div class="form-group"><label>Triage Nurse</label><input type="text" data-field="arrivalTriage.triageNurse"></div>
+          </div>
+          <div class="form-group">
+            <label>MTS Flowchart</label>
+            <select data-field="arrivalTriage.mtsFlowchart">
+              <option value="">-- Select --</option>
+              <option value="abdominal-pain">Abdominal Pain</option>
+              <option value="allergy">Allergy</option>
+              <option value="asthma">Asthma</option>
+              <option value="back-pain">Back Pain</option>
+              <option value="breathing-difficulty">Breathing Difficulty</option>
+              <option value="burns-scalds">Burns &amp; Scalds</option>
+              <option value="chest-pain">Chest Pain</option>
+              <option value="collapse">Collapse</option>
+              <option value="dental-problems">Dental Problems</option>
+              <option value="diarrhoea-vomiting">Diarrhoea &amp; Vomiting</option>
+              <option value="ear-problems">Ear Problems</option>
+              <option value="eye-problems">Eye Problems</option>
+              <option value="falls">Falls</option>
+              <option value="head-injury">Head Injury</option>
+              <option value="headache">Headache</option>
+              <option value="limb-problems">Limb Problems</option>
+              <option value="major-trauma">Major Trauma</option>
+              <option value="mental-health">Mental Health</option>
+              <option value="neck-pain">Neck Pain</option>
+              <option value="overdose-poisoning">Overdose &amp; Poisoning</option>
+              <option value="palpitations">Palpitations</option>
+              <option value="rashes">Rashes</option>
+              <option value="self-harm">Self-Harm</option>
+              <option value="shortness-of-breath">Shortness of Breath</option>
+              <option value="sore-throat">Sore Throat</option>
+              <option value="unwell-adult">Unwell Adult</option>
+              <option value="unwell-child">Unwell Child</option>
+              <option value="urinary-problems">Urinary Problems</option>
+              <option value="wound">Wound</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>MTS Category</label>
+            <select data-field="arrivalTriage.mtsCategory">
+              <option value="">-- Select --</option>
+              <option value="1-immediate">1 - Immediate (Red)</option>
+              <option value="2-very-urgent">2 - Very Urgent (Orange)</option>
+              <option value="3-urgent">3 - Urgent (Yellow)</option>
+              <option value="4-standard">4 - Standard (Green)</option>
+              <option value="5-non-urgent">5 - Non-Urgent (Blue)</option>
+            </select>
+          </div>
+          <div class="form-group"><label>MTS Discriminator</label><input type="text" data-field="arrivalTriage.mtsDiscriminator"></div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(2)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(4)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 4: Presenting Complaint ═══ -->
+      <section id="step-4" class="step-section">
+        <div class="card">
+          <h2>Step 4: Presenting Complaint</h2>
+          <p>Chief complaint and history of presenting illness</p>
+          <div class="form-group"><label>Chief Complaint <span class="required">*</span></label><input type="text" data-field="presentingComplaint.chiefComplaint" required></div>
+          <div class="form-group"><label>History of Presenting Complaint</label><textarea data-field="presentingComplaint.historyOfPresentingComplaint" rows="4"></textarea></div>
+          <h3>Symptom Details</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Onset</label><input type="text" data-field="presentingComplaint.onset" placeholder="When did it start?"></div>
+            <div class="form-group"><label>Duration</label><input type="text" data-field="presentingComplaint.duration"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Character</label><input type="text" data-field="presentingComplaint.character" placeholder="e.g. sharp, dull, burning"></div>
+            <div class="form-group"><label>Severity</label><input type="text" data-field="presentingComplaint.severity"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Location</label><input type="text" data-field="presentingComplaint.location"></div>
+            <div class="form-group"><label>Radiation</label><input type="text" data-field="presentingComplaint.radiation"></div>
+          </div>
+          <div class="form-group"><label>Aggravating Factors</label><textarea data-field="presentingComplaint.aggravatingFactors" rows="2"></textarea></div>
+          <div class="form-group"><label>Relieving Factors</label><textarea data-field="presentingComplaint.relievingFactors" rows="2"></textarea></div>
+          <div class="form-group"><label>Associated Symptoms</label><textarea data-field="presentingComplaint.associatedSymptoms" rows="2"></textarea></div>
+          <div class="form-group"><label>Previous Episodes</label><textarea data-field="presentingComplaint.previousEpisodes" rows="2"></textarea></div>
+          <div class="form-group"><label>Treatment Prior to Arrival</label><textarea data-field="presentingComplaint.treatmentPriorToArrival" rows="2"></textarea></div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(3)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(5)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 5: Pain Assessment ═══ -->
+      <section id="step-5" class="step-section">
+        <div class="card">
+          <h2>Step 5: Pain Assessment</h2>
+          <p>Numeric Rating Scale (NRS) pain evaluation</p>
+          <div class="form-group">
+            <label>Is the patient in pain?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="painPresent" value="yes" data-field="painAssessment.painPresent"><span>Yes</span></label>
+              <label><input type="radio" name="painPresent" value="no" data-field="painAssessment.painPresent"><span>No</span></label>
+            </div>
+          </div>
+          <div class="conditional-field" data-show-if="painAssessment.painPresent=yes">
+            <div class="form-group"><label>Pain Score (0-10 NRS)</label><input type="number" data-field="painAssessment.painScore" data-type="number" min="0" max="10"></div>
+            <div class="form-group"><label>Pain Location</label><input type="text" data-field="painAssessment.painLocation"></div>
+            <div class="form-group"><label>Pain Character</label><input type="text" data-field="painAssessment.painCharacter" placeholder="e.g. sharp, aching, burning, throbbing"></div>
+            <div class="form-group"><label>Pain Onset</label><input type="text" data-field="painAssessment.painOnset" placeholder="e.g. sudden, gradual"></div>
+            <div class="form-group">
+              <label>Pain Severity Category</label>
+              <div class="radio-group">
+                <label><input type="radio" name="painSeverityCategory" value="mild" data-field="painAssessment.painSeverityCategory"><span>Mild (1-3)</span></label>
+                <label><input type="radio" name="painSeverityCategory" value="moderate" data-field="painAssessment.painSeverityCategory"><span>Moderate (4-6)</span></label>
+                <label><input type="radio" name="painSeverityCategory" value="severe" data-field="painAssessment.painSeverityCategory"><span>Severe (7-10)</span></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(4)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(6)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 6: Medical History ═══ -->
+      <section id="step-6" class="step-section">
+        <div class="card">
+          <h2>Step 6: Medical History</h2>
+          <p>Past medical and surgical history, medications, allergies</p>
+          <div class="form-group"><label>Past Medical History</label><textarea data-field="medicalHistory.pastMedicalHistory" rows="3"></textarea></div>
+          <div class="form-group"><label>Past Surgical History</label><textarea data-field="medicalHistory.pastSurgicalHistory" rows="2"></textarea></div>
+          <hr class="section-divider">
+          <h3>Current Medications</h3>
+          <div id="medications-list"></div>
+          <button class="add-btn" onclick="addMedication()">+ Add Medication</button>
+          <hr class="section-divider">
+          <h3>Allergies</h3>
+          <div id="allergies-list"></div>
+          <button class="add-btn" onclick="addAllergy()">+ Add Allergy</button>
+          <hr class="section-divider">
+          <div class="form-group">
+            <label>Tetanus Status</label>
+            <div class="radio-group">
+              <label><input type="radio" name="tetanusStatus" value="up-to-date" data-field="medicalHistory.tetanusStatus"><span>Up to Date</span></label>
+              <label><input type="radio" name="tetanusStatus" value="not-up-to-date" data-field="medicalHistory.tetanusStatus"><span>Not Up to Date</span></label>
+              <label><input type="radio" name="tetanusStatus" value="unknown" data-field="medicalHistory.tetanusStatus"><span>Unknown</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Smoking Status</label>
+            <div class="radio-group">
+              <label><input type="radio" name="smokingStatus" value="current" data-field="medicalHistory.smokingStatus"><span>Current</span></label>
+              <label><input type="radio" name="smokingStatus" value="ex" data-field="medicalHistory.smokingStatus"><span>Ex-smoker</span></label>
+              <label><input type="radio" name="smokingStatus" value="never" data-field="medicalHistory.smokingStatus"><span>Never</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Alcohol Consumption</label><input type="text" data-field="medicalHistory.alcoholConsumption"></div>
+          <div class="form-group"><label>Recreational Drug Use</label><input type="text" data-field="medicalHistory.recreationalDrugUse"></div>
+          <div class="form-group"><label>Last Oral Intake</label><input type="text" data-field="medicalHistory.lastOralIntake"></div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(5)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(7)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 7: Vital Signs ═══ -->
+      <section id="step-7" class="step-section">
+        <div class="card">
+          <h2>Step 7: Vital Signs</h2>
+          <p>Observations for NEWS2 auto-calculation</p>
+          <div class="form-row">
+            <div class="form-group"><label>Heart Rate (bpm)</label><input type="number" data-field="vitalSigns.heartRate" data-type="number" min="20" max="250"></div>
+            <div class="form-group"><label>Respiratory Rate (/min)</label><input type="number" data-field="vitalSigns.respiratoryRate" data-type="number" min="1" max="60"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Systolic BP (mmHg)</label><input type="number" data-field="vitalSigns.systolicBP" data-type="number" min="40" max="300"></div>
+            <div class="form-group"><label>Diastolic BP (mmHg)</label><input type="number" data-field="vitalSigns.diastolicBP" data-type="number" min="20" max="200"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Oxygen Saturation (%)</label><input type="number" data-field="vitalSigns.oxygenSaturation" data-type="number" min="50" max="100"></div>
+            <div class="form-group"><label>Temperature (&deg;C)</label><input type="number" data-field="vitalSigns.temperature" data-type="number" min="30" max="45" step="0.1"></div>
+          </div>
+          <div class="form-group">
+            <label>Supplemental Oxygen?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="supplementalOxygen" value="yes" data-field="vitalSigns.supplementalOxygen"><span>Yes</span></label>
+              <label><input type="radio" name="supplementalOxygen" value="no" data-field="vitalSigns.supplementalOxygen"><span>No</span></label>
+            </div>
+          </div>
+          <div class="conditional-field" data-show-if="vitalSigns.supplementalOxygen=yes">
+            <div class="form-group"><label>Oxygen Flow Rate (L/min)</label><input type="number" data-field="vitalSigns.oxygenFlowRate" data-type="number" min="0" max="15" step="0.5"></div>
+          </div>
+          <div class="form-group"><label>Blood Glucose (mmol/L)</label><input type="number" data-field="vitalSigns.bloodGlucose" data-type="number" min="0" max="40" step="0.1"></div>
+          <div class="form-group">
+            <label>Consciousness Level (ACVPU)</label>
+            <div class="radio-group">
+              <label><input type="radio" name="consciousnessLevel" value="alert" data-field="vitalSigns.consciousnessLevel"><span>Alert</span></label>
+              <label><input type="radio" name="consciousnessLevel" value="verbal" data-field="vitalSigns.consciousnessLevel"><span>Verbal</span></label>
+              <label><input type="radio" name="consciousnessLevel" value="pain" data-field="vitalSigns.consciousnessLevel"><span>Pain</span></label>
+              <label><input type="radio" name="consciousnessLevel" value="unresponsive" data-field="vitalSigns.consciousnessLevel"><span>Unresponsive</span></label>
+            </div>
+          </div>
+          <hr class="section-divider">
+          <h3>Pupils</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Left Pupil Size (mm)</label><input type="number" data-field="vitalSigns.pupilLeftSize" data-type="number" min="1" max="9"></div>
+            <div class="form-group">
+              <label>Left Reactive?</label>
+              <div class="radio-group">
+                <label><input type="radio" name="pupilLeftReactive" value="yes" data-field="vitalSigns.pupilLeftReactive"><span>Yes</span></label>
+                <label><input type="radio" name="pupilLeftReactive" value="no" data-field="vitalSigns.pupilLeftReactive"><span>No</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Right Pupil Size (mm)</label><input type="number" data-field="vitalSigns.pupilRightSize" data-type="number" min="1" max="9"></div>
+            <div class="form-group">
+              <label>Right Reactive?</label>
+              <div class="radio-group">
+                <label><input type="radio" name="pupilRightReactive" value="yes" data-field="vitalSigns.pupilRightReactive"><span>Yes</span></label>
+                <label><input type="radio" name="pupilRightReactive" value="no" data-field="vitalSigns.pupilRightReactive"><span>No</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Capillary Refill Time (seconds)</label><input type="number" data-field="vitalSigns.capillaryRefillTime" data-type="number" min="0" max="10" step="0.5"></div>
+            <div class="form-group"><label>Weight (kg)</label><input type="number" data-field="vitalSigns.weight" data-type="number" min="1" max="400" step="0.1"></div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(6)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(8)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 8: Primary Survey (ABCDE) ═══ -->
+      <section id="step-8" class="step-section">
+        <div class="card">
+          <h2>Step 8: Primary Survey (ABCDE)</h2>
+          <p>Systematic ABCDE assessment</p>
+
+          <h3>A &mdash; Airway</h3>
+          <div class="form-group">
+            <label>Airway Status</label>
+            <select data-field="primarySurvey.airway.status">
+              <option value="">-- Select --</option>
+              <option value="patent">Patent</option>
+              <option value="compromised">Compromised</option>
+              <option value="obstructed">Obstructed</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Adjuncts Used</label><input type="text" data-field="primarySurvey.airway.adjuncts" placeholder="e.g. OPA, NPA, LMA"></div>
+          <div class="form-group">
+            <label>C-Spine Immobilised?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="cSpineImmobilised" value="yes" data-field="primarySurvey.airway.cSpineImmobilised"><span>Yes</span></label>
+              <label><input type="radio" name="cSpineImmobilised" value="no" data-field="primarySurvey.airway.cSpineImmobilised"><span>No</span></label>
+            </div>
+          </div>
+
+          <hr class="section-divider">
+          <h3>B &mdash; Breathing</h3>
+          <div class="form-group">
+            <label>Breathing Effort</label>
+            <select data-field="primarySurvey.breathing.effort">
+              <option value="">-- Select --</option>
+              <option value="normal">Normal</option>
+              <option value="laboured">Laboured</option>
+              <option value="shallow">Shallow</option>
+              <option value="absent">Absent</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Chest Movement</label><input type="text" data-field="primarySurvey.breathing.chestMovement" placeholder="e.g. bilateral, equal"></div>
+          <div class="form-group"><label>Breath Sounds</label><input type="text" data-field="primarySurvey.breathing.breathSounds" placeholder="e.g. clear, wheeze, crackles"></div>
+          <div class="form-group"><label>Trachea Position</label><input type="text" data-field="primarySurvey.breathing.tracheaPosition" placeholder="e.g. central, deviated"></div>
+
+          <hr class="section-divider">
+          <h3>C &mdash; Circulation</h3>
+          <div class="form-group"><label>Pulse Character</label><input type="text" data-field="primarySurvey.circulation.pulseCharacter" placeholder="e.g. regular, strong"></div>
+          <div class="form-row">
+            <div class="form-group"><label>Skin Colour</label><input type="text" data-field="primarySurvey.circulation.skinColour" placeholder="e.g. normal, pale, cyanosed"></div>
+            <div class="form-group"><label>Skin Temperature</label><input type="text" data-field="primarySurvey.circulation.skinTemperature" placeholder="e.g. warm, cool, clammy"></div>
+          </div>
+          <div class="form-group"><label>Capillary Refill</label><input type="text" data-field="primarySurvey.circulation.capillaryRefill" placeholder="e.g. &lt; 2 seconds"></div>
+          <div class="form-group"><label>Haemorrhage</label><textarea data-field="primarySurvey.circulation.haemorrhage" rows="2" placeholder="Describe any bleeding"></textarea></div>
+          <div class="form-group"><label>IV Access</label><input type="text" data-field="primarySurvey.circulation.ivAccess" placeholder="e.g. 18G left ACF"></div>
+
+          <hr class="section-divider">
+          <h3>D &mdash; Disability</h3>
+          <div class="form-row-3">
+            <div class="form-group"><label>GCS Eye (1-4)</label><input type="number" data-field="primarySurvey.disability.gcsEye" data-type="number" min="1" max="4"></div>
+            <div class="form-group"><label>GCS Verbal (1-5)</label><input type="number" data-field="primarySurvey.disability.gcsVerbal" data-type="number" min="1" max="5"></div>
+            <div class="form-group"><label>GCS Motor (1-6)</label><input type="number" data-field="primarySurvey.disability.gcsMotor" data-type="number" min="1" max="6"></div>
+          </div>
+          <div class="form-group">
+            <label>GCS Total</label>
+            <span class="computed-value" id="gcs-total-display">&mdash;</span>
+          </div>
+          <div class="form-group"><label>Pupils</label><input type="text" data-field="primarySurvey.disability.pupils" placeholder="e.g. equal and reactive"></div>
+          <div class="form-group"><label>Blood Glucose</label><input type="text" data-field="primarySurvey.disability.bloodGlucose" placeholder="e.g. 5.5 mmol/L"></div>
+          <div class="form-group"><label>Limb Movements</label><input type="text" data-field="primarySurvey.disability.limbMovements" placeholder="e.g. all limbs moving"></div>
+
+          <hr class="section-divider">
+          <h3>E &mdash; Exposure</h3>
+          <div class="form-group"><label>Skin Examination</label><textarea data-field="primarySurvey.exposure.skinExamination" rows="2"></textarea></div>
+          <div class="form-group"><label>Injuries Identified</label><textarea data-field="primarySurvey.exposure.injuriesIdentified" rows="2"></textarea></div>
+          <div class="form-group"><label>Log Roll Findings</label><textarea data-field="primarySurvey.exposure.logRollFindings" rows="2"></textarea></div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(7)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(9)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 9: Clinical Examination ═══ -->
+      <section id="step-9" class="step-section">
+        <div class="card">
+          <h2>Step 9: Clinical Examination</h2>
+          <p>Systematic clinical examination findings</p>
+          <div class="form-group"><label>General Appearance</label><textarea data-field="clinicalExamination.generalAppearance" placeholder="e.g. alert, orientated, comfortable at rest"></textarea></div>
+          <div class="form-group"><label>Head &amp; Face</label><textarea data-field="clinicalExamination.headAndFace" rows="2"></textarea></div>
+          <div class="form-group"><label>Neck</label><textarea data-field="clinicalExamination.neck" rows="2"></textarea></div>
+          <div class="form-group"><label>Chest &mdash; Cardiovascular</label><textarea data-field="clinicalExamination.chestCardiovascular" rows="2"></textarea></div>
+          <div class="form-group"><label>Chest &mdash; Respiratory</label><textarea data-field="clinicalExamination.chestRespiratory" rows="2"></textarea></div>
+          <div class="form-group"><label>Abdomen</label><textarea data-field="clinicalExamination.abdomen" rows="2"></textarea></div>
+          <div class="form-group"><label>Pelvis</label><textarea data-field="clinicalExamination.pelvis" rows="2"></textarea></div>
+          <div class="form-group"><label>Musculoskeletal / Limbs</label><textarea data-field="clinicalExamination.musculoskeletalLimbs" rows="2"></textarea></div>
+          <div class="form-group"><label>Neurological</label><textarea data-field="clinicalExamination.neurological" rows="2"></textarea></div>
+          <div class="form-group"><label>Skin</label><textarea data-field="clinicalExamination.skin" rows="2"></textarea></div>
+          <div class="form-group"><label>Mental State</label><textarea data-field="clinicalExamination.mentalState" rows="2"></textarea></div>
+          <div class="form-group"><label>Body Diagram Notes</label><textarea data-field="clinicalExamination.bodyDiagramNotes" rows="3" placeholder="Document any injury locations or findings"></textarea></div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(8)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(10)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 10: Investigations ═══ -->
+      <section id="step-10" class="step-section">
+        <div class="card">
+          <h2>Step 10: Investigations</h2>
+          <p>Blood tests, imaging, and other investigations</p>
+          <h3>Blood Tests</h3>
+          <div class="checkbox-group" id="blood-tests">
+            <label><input type="checkbox" value="FBC"><span>FBC</span></label>
+            <label><input type="checkbox" value="U&E"><span>U&amp;E</span></label>
+            <label><input type="checkbox" value="LFTs"><span>LFTs</span></label>
+            <label><input type="checkbox" value="CRP"><span>CRP</span></label>
+            <label><input type="checkbox" value="Coagulation"><span>Coagulation</span></label>
+            <label><input type="checkbox" value="Troponin"><span>Troponin</span></label>
+            <label><input type="checkbox" value="D-dimer"><span>D-dimer</span></label>
+            <label><input type="checkbox" value="Amylase"><span>Amylase</span></label>
+            <label><input type="checkbox" value="Blood glucose"><span>Blood Glucose</span></label>
+            <label><input type="checkbox" value="Blood gases"><span>Blood Gases</span></label>
+            <label><input type="checkbox" value="Lactate"><span>Lactate</span></label>
+            <label><input type="checkbox" value="Cross-match"><span>Cross-match</span></label>
+          </div>
+          <hr class="section-divider">
+          <div class="form-group"><label>Urinalysis</label><input type="text" data-field="investigations.urinalysis"></div>
+          <div class="form-group"><label>Pregnancy Test</label><input type="text" data-field="investigations.pregnancyTest" placeholder="e.g. positive, negative, not done"></div>
+          <hr class="section-divider">
+          <h3>Imaging</h3>
+          <div id="imaging-list"></div>
+          <button class="add-btn" onclick="addImaging()">+ Add Imaging Study</button>
+          <hr class="section-divider">
+          <div class="form-group">
+            <label>ECG Performed?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="ecgPerformed" value="yes" data-field="investigations.ecgPerformed"><span>Yes</span></label>
+              <label><input type="radio" name="ecgPerformed" value="no" data-field="investigations.ecgPerformed"><span>No</span></label>
+            </div>
+          </div>
+          <div class="conditional-field" data-show-if="investigations.ecgPerformed=yes">
+            <div class="form-group"><label>ECG Findings</label><textarea data-field="investigations.ecgFindings" rows="2"></textarea></div>
+          </div>
+          <div class="form-group"><label>Other Investigations</label><textarea data-field="investigations.otherInvestigations" rows="2"></textarea></div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(9)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(11)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 11: Treatment & Interventions ═══ -->
+      <section id="step-11" class="step-section">
+        <div class="card">
+          <h2>Step 11: Treatment &amp; Interventions</h2>
+          <p>Medications, fluids, and procedures</p>
+          <h3>Medications Administered</h3>
+          <div id="meds-administered-list"></div>
+          <button class="add-btn" onclick="addMedAdmin()">+ Add Medication</button>
+          <hr class="section-divider">
+          <h3>Fluid Therapy</h3>
+          <div id="fluid-therapy-list"></div>
+          <button class="add-btn" onclick="addFluid()">+ Add Fluid</button>
+          <hr class="section-divider">
+          <h3>Procedures</h3>
+          <div id="procedures-list"></div>
+          <button class="add-btn" onclick="addProcedure()">+ Add Procedure</button>
+          <hr class="section-divider">
+          <div class="form-group"><label>Oxygen Therapy Device</label><input type="text" data-field="treatment.oxygenTherapyDevice" placeholder="e.g. nasal cannula, non-rebreather"></div>
+          <div class="form-group"><label>Oxygen Therapy Flow Rate</label><input type="text" data-field="treatment.oxygenTherapyFlowRate" placeholder="e.g. 2L/min"></div>
+          <div class="form-group">
+            <label>Tetanus Prophylaxis</label>
+            <div class="radio-group">
+              <label><input type="radio" name="tetanusProphylaxis" value="given" data-field="treatment.tetanusProphylaxis"><span>Given</span></label>
+              <label><input type="radio" name="tetanusProphylaxis" value="not-indicated" data-field="treatment.tetanusProphylaxis"><span>Not Indicated</span></label>
+              <label><input type="radio" name="tetanusProphylaxis" value="status-checked" data-field="treatment.tetanusProphylaxis"><span>Status Checked</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(10)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(12)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 12: Assessment & Plan ═══ -->
+      <section id="step-12" class="step-section">
+        <div class="card">
+          <h2>Step 12: Assessment &amp; Plan</h2>
+          <p>Working diagnosis and clinical plan</p>
+          <div class="form-group"><label>Working Diagnosis <span class="required">*</span></label><input type="text" data-field="assessmentPlan.workingDiagnosis" required></div>
+          <div class="form-group"><label>Differential Diagnoses</label><textarea data-field="assessmentPlan.differentialDiagnoses" rows="3"></textarea></div>
+          <div class="form-group"><label>Clinical Impression</label><textarea data-field="assessmentPlan.clinicalImpression" rows="3"></textarea></div>
+          <div class="form-group"><label>Risk Stratification</label><textarea data-field="assessmentPlan.riskStratification" rows="2" placeholder="e.g. HEART score, Wells score, CURB-65"></textarea></div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(11)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(13)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 13: Disposition ═══ -->
+      <section id="step-13" class="step-section">
+        <div class="card">
+          <h2>Step 13: Disposition</h2>
+          <p>Patient outcome and discharge details</p>
+          <div class="form-group">
+            <label>Disposition</label>
+            <div class="radio-group">
+              <label><input type="radio" name="disposition" value="admitted" data-field="disposition.disposition"><span>Admitted</span></label>
+              <label><input type="radio" name="disposition" value="discharged" data-field="disposition.disposition"><span>Discharged</span></label>
+              <label><input type="radio" name="disposition" value="transferred" data-field="disposition.disposition"><span>Transferred</span></label>
+              <label><input type="radio" name="disposition" value="left-before-seen" data-field="disposition.disposition"><span>Left Before Seen</span></label>
+              <label><input type="radio" name="disposition" value="self-discharged" data-field="disposition.disposition"><span>Self-Discharged</span></label>
+            </div>
+          </div>
+          <div class="conditional-field" data-show-if="disposition.disposition=admitted">
+            <h3>Admission Details</h3>
+            <div class="form-group"><label>Admitting Specialty</label><input type="text" data-field="disposition.admittingSpecialty"></div>
+            <div class="form-group"><label>Admitting Consultant</label><input type="text" data-field="disposition.admittingConsultant"></div>
+            <div class="form-group"><label>Ward</label><input type="text" data-field="disposition.ward"></div>
+            <div class="form-group"><label>Level of Care</label><input type="text" data-field="disposition.levelOfCare" placeholder="e.g. Level 1, Level 2, Level 3"></div>
+          </div>
+          <div class="conditional-field" data-show-if="disposition.disposition=discharged">
+            <h3>Discharge Details</h3>
+            <div class="form-group"><label>Discharge Diagnosis</label><input type="text" data-field="disposition.dischargeDiagnosis"></div>
+            <div class="form-group"><label>Discharge Medications</label><textarea data-field="disposition.dischargeMedications" rows="2"></textarea></div>
+            <div class="form-group"><label>Discharge Instructions</label><textarea data-field="disposition.dischargeInstructions" rows="3"></textarea></div>
+            <div class="form-group"><label>Follow-up</label><input type="text" data-field="disposition.followUp" placeholder="e.g. GP in 48 hours, fracture clinic 1 week"></div>
+            <div class="form-group"><label>Return Precautions</label><textarea data-field="disposition.returnPrecautions" rows="2" placeholder="Safety-net advice for patient"></textarea></div>
+          </div>
+          <div class="conditional-field" data-show-if="disposition.disposition=transferred">
+            <h3>Transfer Details</h3>
+            <div class="form-group"><label>Receiving Hospital</label><input type="text" data-field="disposition.receivingHospital"></div>
+            <div class="form-group"><label>Reason for Transfer</label><input type="text" data-field="disposition.reasonForTransfer"></div>
+            <div class="form-group"><label>Mode of Transfer</label><input type="text" data-field="disposition.modeOfTransfer" placeholder="e.g. ambulance, helicopter"></div>
+          </div>
+          <hr class="section-divider">
+          <div class="form-row">
+            <div class="form-group"><label>Discharge/Transfer Time</label><input type="time" data-field="disposition.dischargeTime"></div>
+            <div class="form-group"><label>Total Time in Department</label><input type="text" data-field="disposition.totalTimeInDepartment" placeholder="e.g. 4h 30m"></div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(12)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(14)">Next</button>
+        </div>
+      </section>
+
+      <!-- ═══ STEP 14: Safeguarding & Consent ═══ -->
+      <section id="step-14" class="step-section">
+        <div class="card">
+          <h2>Step 14: Safeguarding &amp; Consent</h2>
+          <p>Safeguarding concerns, mental capacity, and completion details</p>
+          <div class="form-group">
+            <label>Safeguarding Concern?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="safeguardingConcern" value="yes" data-field="safeguardingConsent.safeguardingConcern"><span>Yes</span></label>
+              <label><input type="radio" name="safeguardingConcern" value="no" data-field="safeguardingConsent.safeguardingConcern"><span>No</span></label>
+            </div>
+          </div>
+          <div class="conditional-field" data-show-if="safeguardingConsent.safeguardingConcern=yes">
+            <div class="form-group"><label>Safeguarding Type</label><input type="text" data-field="safeguardingConsent.safeguardingType" placeholder="e.g. adult, child, domestic violence"></div>
+            <div class="form-group">
+              <label>Referral Made?</label>
+              <div class="radio-group">
+                <label><input type="radio" name="referralMade" value="yes" data-field="safeguardingConsent.referralMade"><span>Yes</span></label>
+                <label><input type="radio" name="referralMade" value="no" data-field="safeguardingConsent.referralMade"><span>No</span></label>
+              </div>
+            </div>
+          </div>
+          <hr class="section-divider">
+          <div class="form-group"><label>Mental Capacity Assessment</label><textarea data-field="safeguardingConsent.mentalCapacityAssessment" rows="2" placeholder="Assessment of capacity to make decisions"></textarea></div>
+          <div class="form-group"><label>Mental Health Act Status</label><input type="text" data-field="safeguardingConsent.mentalHealthActStatus" placeholder="e.g. Section 136, Section 2, informal"></div>
+          <div class="form-group">
+            <label>Consent for Treatment</label>
+            <div class="radio-group">
+              <label><input type="radio" name="consentForTreatment" value="verbal" data-field="safeguardingConsent.consentForTreatment"><span>Verbal</span></label>
+              <label><input type="radio" name="consentForTreatment" value="written" data-field="safeguardingConsent.consentForTreatment"><span>Written</span></label>
+              <label><input type="radio" name="consentForTreatment" value="lacks-capacity" data-field="safeguardingConsent.consentForTreatment"><span>Lacks Capacity</span></label>
+            </div>
+          </div>
+          <hr class="section-divider">
+          <h3>Completed By</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Name <span class="required">*</span></label><input type="text" data-field="safeguardingConsent.completedByName" required></div>
+            <div class="form-group"><label>Role</label><input type="text" data-field="safeguardingConsent.completedByRole"></div>
+          </div>
+          <div class="form-group"><label>GMC Number</label><input type="text" data-field="safeguardingConsent.completedByGmcNumber"></div>
+          <div class="form-group"><label>Senior Reviewing Clinician</label><input type="text" data-field="safeguardingConsent.seniorReviewingClinician"></div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(13)">Previous</button>
+          <button class="btn btn-success btn-lg" onclick="submitForm()">Submit Casualty Card</button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer"><p>Casualty Card Form &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

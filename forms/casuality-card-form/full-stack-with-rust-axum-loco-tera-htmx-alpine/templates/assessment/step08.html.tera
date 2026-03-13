@@ -1,0 +1,181 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        haemorrhage: '{{ primary_survey.haemorrhage }}',
+        ivAccess: '{{ primary_survey.ivAccess }}',
+        cSpineImmobilised: '{{ primary_survey.cSpineImmobilised }}'
+    }">
+        <h3>A - Airway</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="airway_status">Airway Status</label>
+                <select id="airway_status" name="primary_survey.airway_status">
+                    <option value="" {% if primary_survey.airwayStatus == "" %}selected{% endif %}>Select...</option>
+                    <option value="patent" {% if primary_survey.airwayStatus == "patent" %}selected{% endif %}>Patent</option>
+                    <option value="compromised" {% if primary_survey.airwayStatus == "compromised" %}selected{% endif %}>Compromised</option>
+                    <option value="obstructed" {% if primary_survey.airwayStatus == "obstructed" %}selected{% endif %}>Obstructed</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="airway_adjuncts">Airway Adjuncts</label>
+                <input type="text" id="airway_adjuncts" name="primary_survey.airway_adjuncts"
+                       value="{{ primary_survey.airwayAdjuncts }}" placeholder="e.g. OPA, NPA, LMA">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>C-Spine Immobilised</label>
+            <div class="radio-group">
+                <label><input type="radio" name="primary_survey.c_spine_immobilised" value="yes" x-model="cSpineImmobilised" {% if primary_survey.cSpineImmobilised == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="primary_survey.c_spine_immobilised" value="no" x-model="cSpineImmobilised" {% if primary_survey.cSpineImmobilised == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 1.5rem;">B - Breathing</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="breathing_effort">Breathing Effort</label>
+                <select id="breathing_effort" name="primary_survey.breathing_effort">
+                    <option value="" {% if primary_survey.breathingEffort == "" %}selected{% endif %}>Select...</option>
+                    <option value="normal" {% if primary_survey.breathingEffort == "normal" %}selected{% endif %}>Normal</option>
+                    <option value="laboured" {% if primary_survey.breathingEffort == "laboured" %}selected{% endif %}>Laboured</option>
+                    <option value="shallow" {% if primary_survey.breathingEffort == "shallow" %}selected{% endif %}>Shallow</option>
+                    <option value="absent" {% if primary_survey.breathingEffort == "absent" %}selected{% endif %}>Absent</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="chest_movement">Chest Movement</label>
+                <input type="text" id="chest_movement" name="primary_survey.chest_movement"
+                       value="{{ primary_survey.chestMovement }}" placeholder="e.g. Equal bilateral">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="breath_sounds">Breath Sounds</label>
+                <input type="text" id="breath_sounds" name="primary_survey.breath_sounds"
+                       value="{{ primary_survey.breathSounds }}">
+            </div>
+            <div class="form-group">
+                <label for="trachea_position">Trachea Position</label>
+                <input type="text" id="trachea_position" name="primary_survey.trachea_position"
+                       value="{{ primary_survey.tracheaPosition }}" placeholder="e.g. Central">
+            </div>
+        </div>
+
+        <h3 style="margin-top: 1.5rem;">C - Circulation</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="pulse_character">Pulse Character</label>
+                <input type="text" id="pulse_character" name="primary_survey.pulse_character"
+                       value="{{ primary_survey.pulseCharacter }}" placeholder="e.g. Regular, strong">
+            </div>
+            <div class="form-group">
+                <label for="skin_colour">Skin Colour</label>
+                <input type="text" id="skin_colour" name="primary_survey.skin_colour"
+                       value="{{ primary_survey.skinColour }}" placeholder="e.g. Pink, Pale, Cyanotic">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="skin_temperature">Skin Temperature</label>
+                <input type="text" id="skin_temperature" name="primary_survey.skin_temperature"
+                       value="{{ primary_survey.skinTemperature }}" placeholder="e.g. Warm, Cool, Cold">
+            </div>
+            <div class="form-group">
+                <label for="capillary_refill">Capillary Refill</label>
+                <input type="text" id="capillary_refill" name="primary_survey.capillary_refill"
+                       value="{{ primary_survey.capillaryRefill }}" placeholder="e.g. < 2 seconds">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Active Haemorrhage</label>
+            <div class="radio-group">
+                <label><input type="radio" name="primary_survey.haemorrhage" value="yes" x-model="haemorrhage" {% if primary_survey.haemorrhage == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="primary_survey.haemorrhage" value="no" x-model="haemorrhage" {% if primary_survey.haemorrhage == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="haemorrhage === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="haemorrhage_details">Haemorrhage Details</label>
+                <textarea id="haemorrhage_details" name="primary_survey.haemorrhage_details">{{ primary_survey.haemorrhageDetails }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>IV Access</label>
+            <div class="radio-group">
+                <label><input type="radio" name="primary_survey.iv_access" value="yes" x-model="ivAccess" {% if primary_survey.ivAccess == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="primary_survey.iv_access" value="no" x-model="ivAccess" {% if primary_survey.ivAccess == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 1.5rem;">D - Disability</h3>
+        <div class="form-row-3">
+            <div class="form-group">
+                <label for="gcs_eye">GCS Eye (1-4)</label>
+                <input type="number" id="gcs_eye" name="primary_survey.gcs_eye"
+                       value="{{ primary_survey.gcsEye | default(value='') }}" min="1" max="4" step="1">
+            </div>
+            <div class="form-group">
+                <label for="gcs_verbal">GCS Verbal (1-5)</label>
+                <input type="number" id="gcs_verbal" name="primary_survey.gcs_verbal"
+                       value="{{ primary_survey.gcsVerbal | default(value='') }}" min="1" max="5" step="1">
+            </div>
+            <div class="form-group">
+                <label for="gcs_motor">GCS Motor (1-6)</label>
+                <input type="number" id="gcs_motor" name="primary_survey.gcs_motor"
+                       value="{{ primary_survey.gcsMotor | default(value='') }}" min="1" max="6" step="1">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="pupils_d">Pupils</label>
+                <input type="text" id="pupils_d" name="primary_survey.pupils"
+                       value="{{ primary_survey.pupils }}" placeholder="e.g. PERLA">
+            </div>
+            <div class="form-group">
+                <label for="limb_movements">Limb Movements</label>
+                <input type="text" id="limb_movements" name="primary_survey.limb_movements"
+                       value="{{ primary_survey.limbMovements }}" placeholder="e.g. All 4 limbs moving">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="disability_blood_glucose">Blood Glucose (mmol/L)</label>
+            <input type="number" id="disability_blood_glucose" name="primary_survey.disability_blood_glucose"
+                   value="{{ primary_survey.disabilityBloodGlucose | default(value='') }}" min="0" step="0.1">
+        </div>
+
+        <h3 style="margin-top: 1.5rem;">E - Exposure</h3>
+        <div class="form-group">
+            <label for="skin_examination">Skin Examination</label>
+            <textarea id="skin_examination" name="primary_survey.skin_examination">{{ primary_survey.skinExamination }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="injuries_identified">Injuries Identified</label>
+            <textarea id="injuries_identified" name="primary_survey.injuries_identified">{{ primary_survey.injuriesIdentified }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="log_roll_findings">Log Roll Findings</label>
+            <textarea id="log_roll_findings" name="primary_survey.log_roll_findings">{{ primary_survey.logRollFindings }}</textarea>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

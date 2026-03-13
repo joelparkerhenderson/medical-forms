@@ -1,0 +1,98 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        interpreterRequired: '{{ demographics.interpreterRequired }}'
+    }">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="nhs_number">NHS Number</label>
+                <input type="text" id="nhs_number" name="demographics.nhs_number"
+                       value="{{ demographics.nhsNumber }}" placeholder="e.g. 123 456 7890">
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex</label>
+                <select id="sex" name="demographics.sex">
+                    <option value="" {% if demographics.sex == "" %}selected{% endif %}>Select...</option>
+                    <option value="male" {% if demographics.sex == "male" %}selected{% endif %}>Male</option>
+                    <option value="female" {% if demographics.sex == "female" %}selected{% endif %}>Female</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" id="first_name" name="demographics.first_name"
+                       value="{{ demographics.firstName }}">
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" id="last_name" name="demographics.last_name"
+                       value="{{ demographics.lastName }}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="date_of_birth">Date of Birth</label>
+                <input type="date" id="date_of_birth" name="demographics.date_of_birth"
+                       value="{{ demographics.dateOfBirth }}">
+            </div>
+            <div class="form-group">
+                <label for="ethnicity">Ethnicity</label>
+                <input type="text" id="ethnicity" name="demographics.ethnicity"
+                       value="{{ demographics.ethnicity }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="demographics.address">{{ demographics.address }}</textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="postcode">Postcode</label>
+                <input type="text" id="postcode" name="demographics.postcode"
+                       value="{{ demographics.postcode }}">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="demographics.phone"
+                       value="{{ demographics.phone }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="demographics.email"
+                   value="{{ demographics.email }}">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="preferred_language">Preferred Language</label>
+                <input type="text" id="preferred_language" name="demographics.preferred_language"
+                       value="{{ demographics.preferredLanguage }}" placeholder="e.g. English">
+            </div>
+            <div class="form-group">
+                <label>Interpreter Required</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="demographics.interpreter_required" value="yes" x-model="interpreterRequired" {% if demographics.interpreterRequired == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="demographics.interpreter_required" value="no" x-model="interpreterRequired" {% if demographics.interpreterRequired == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

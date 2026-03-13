@@ -1,0 +1,145 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        medsAdmin: [
+            {% for med in medications_administered %}
+            { drug: '{{ med.drug }}', dose: '{{ med.dose }}', route: '{{ med.route }}', time: '{{ med.time }}', given_by: '{{ med.givenBy }}' }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ],
+        fluids: [
+            {% for f in fluid_therapy %}
+            { fluid_type: '{{ f.fluidType }}', volume: '{{ f.volume }}', rate: '{{ f.rate }}', time_started: '{{ f.timeStarted }}' }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ],
+        procedures: [
+            {% for p in procedures %}
+            { description: '{{ p.description }}', time: '{{ p.time }}' }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ],
+        addMed() { this.medsAdmin.push({ drug: '', dose: '', route: '', time: '', given_by: '' }); },
+        removeMed(i) { this.medsAdmin.splice(i, 1); },
+        addFluid() { this.fluids.push({ fluid_type: '', volume: '', rate: '', time_started: '' }); },
+        removeFluid(i) { this.fluids.splice(i, 1); },
+        addProc() { this.procedures.push({ description: '', time: '' }); },
+        removeProc(i) { this.procedures.splice(i, 1); }
+    }">
+        <h3>Medications Administered</h3>
+        <div id="meds-admin-list">
+            <template x-for="(item, i) in medsAdmin" :key="i">
+                <div class="dynamic-list-item">
+                    <button type="button" class="btn-remove-item" @click="removeMed(i)">&times;</button>
+                    <div class="form-row-3">
+                        <div class="form-group">
+                            <label>Drug</label>
+                            <input type="text" :name="'medications_administered[' + i + '].drug'" x-model="item.drug">
+                        </div>
+                        <div class="form-group">
+                            <label>Dose</label>
+                            <input type="text" :name="'medications_administered[' + i + '].dose'" x-model="item.dose">
+                        </div>
+                        <div class="form-group">
+                            <label>Route</label>
+                            <input type="text" :name="'medications_administered[' + i + '].route'" x-model="item.route" placeholder="e.g. IV, IM, PO">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Time</label>
+                            <input type="text" :name="'medications_administered[' + i + '].time'" x-model="item.time" placeholder="HH:MM">
+                        </div>
+                        <div class="form-group">
+                            <label>Given By</label>
+                            <input type="text" :name="'medications_administered[' + i + '].given_by'" x-model="item.given_by">
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <button type="button" class="btn-add-item" @click="addMed()">+ Add Medication</button>
+
+        <h3 style="margin-top: 1.5rem;">Fluid Therapy</h3>
+        <div id="fluids-list">
+            <template x-for="(item, i) in fluids" :key="i">
+                <div class="dynamic-list-item">
+                    <button type="button" class="btn-remove-item" @click="removeFluid(i)">&times;</button>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Fluid Type</label>
+                            <input type="text" :name="'fluid_therapy[' + i + '].fluid_type'" x-model="item.fluid_type" placeholder="e.g. 0.9% NaCl">
+                        </div>
+                        <div class="form-group">
+                            <label>Volume (mL)</label>
+                            <input type="text" :name="'fluid_therapy[' + i + '].volume'" x-model="item.volume">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Rate</label>
+                            <input type="text" :name="'fluid_therapy[' + i + '].rate'" x-model="item.rate" placeholder="e.g. 125 mL/hr">
+                        </div>
+                        <div class="form-group">
+                            <label>Time Started</label>
+                            <input type="text" :name="'fluid_therapy[' + i + '].time_started'" x-model="item.time_started" placeholder="HH:MM">
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <button type="button" class="btn-add-item" @click="addFluid()">+ Add Fluid</button>
+
+        <h3 style="margin-top: 1.5rem;">Procedures</h3>
+        <div id="procedures-list">
+            <template x-for="(item, i) in procedures" :key="i">
+                <div class="dynamic-list-item">
+                    <button type="button" class="btn-remove-item" @click="removeProc(i)">&times;</button>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" :name="'procedures[' + i + '].description'" x-model="item.description">
+                        </div>
+                        <div class="form-group">
+                            <label>Time</label>
+                            <input type="text" :name="'procedures[' + i + '].time'" x-model="item.time" placeholder="HH:MM">
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <button type="button" class="btn-add-item" @click="addProc()">+ Add Procedure</button>
+
+        <h3 style="margin-top: 1.5rem;">Other Treatment</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="oxygen_therapy_device">Oxygen Therapy Device</label>
+                <input type="text" id="oxygen_therapy_device" name="treatment_interventions.oxygen_therapy_device"
+                       value="{{ treatment_interventions.oxygenTherapyDevice }}" placeholder="e.g. Nasal cannula, Non-rebreather">
+            </div>
+            <div class="form-group">
+                <label for="oxygen_therapy_flow_rate">Oxygen Flow Rate</label>
+                <input type="text" id="oxygen_therapy_flow_rate" name="treatment_interventions.oxygen_therapy_flow_rate"
+                       value="{{ treatment_interventions.oxygenTherapyFlowRate }}" placeholder="e.g. 2L/min">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="tetanus_prophylaxis">Tetanus Prophylaxis</label>
+            <select id="tetanus_prophylaxis" name="treatment_interventions.tetanus_prophylaxis">
+                <option value="" {% if treatment_interventions.tetanusProphylaxis == "" %}selected{% endif %}>Select...</option>
+                <option value="given" {% if treatment_interventions.tetanusProphylaxis == "given" %}selected{% endif %}>Given</option>
+                <option value="not-indicated" {% if treatment_interventions.tetanusProphylaxis == "not-indicated" %}selected{% endif %}>Not Indicated</option>
+                <option value="status-checked" {% if treatment_interventions.tetanusProphylaxis == "status-checked" %}selected{% endif %}>Status Checked</option>
+            </select>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

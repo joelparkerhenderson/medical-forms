@@ -1,0 +1,140 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        medications: [
+            {% for med in medications %}
+            { name: '{{ med.name }}', dose: '{{ med.dose }}', frequency: '{{ med.frequency }}' }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ],
+        allergies: [
+            {% for a in allergies %}
+            { allergen: '{{ a.allergen }}', reaction: '{{ a.reaction }}', severity: '{{ a.severity }}' }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ],
+        addMed() { this.medications.push({ name: '', dose: '', frequency: '' }); },
+        removeMed(i) { this.medications.splice(i, 1); },
+        addAllergy() { this.allergies.push({ allergen: '', reaction: '', severity: '' }); },
+        removeAllergy(i) { this.allergies.splice(i, 1); }
+    }">
+        <div class="form-group">
+            <label for="past_medical_history">Past Medical History</label>
+            <textarea id="past_medical_history" name="medical_history.past_medical_history">{{ medical_history.pastMedicalHistory }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="past_surgical_history">Past Surgical History</label>
+            <textarea id="past_surgical_history" name="medical_history.past_surgical_history">{{ medical_history.pastSurgicalHistory }}</textarea>
+        </div>
+
+        <h3 style="margin-top: 1.5rem;">Current Medications</h3>
+        <p class="form-hint">List all current medications including dose and frequency.</p>
+
+        <div id="medications-list">
+            <template x-for="(item, i) in medications" :key="i">
+                <div class="dynamic-list-item">
+                    <button type="button" class="btn-remove-item" @click="removeMed(i)">&times;</button>
+                    <div class="form-row-3">
+                        <div class="form-group">
+                            <label>Medication Name</label>
+                            <input type="text" :name="'medications[' + i + '].name'" x-model="item.name">
+                        </div>
+                        <div class="form-group">
+                            <label>Dose</label>
+                            <input type="text" :name="'medications[' + i + '].dose'" x-model="item.dose">
+                        </div>
+                        <div class="form-group">
+                            <label>Frequency</label>
+                            <input type="text" :name="'medications[' + i + '].frequency'" x-model="item.frequency">
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <button type="button" class="btn-add-item" @click="addMed()">+ Add Medication</button>
+
+        <h3 style="margin-top: 1.5rem;">Allergies</h3>
+        <p class="form-hint">List all known allergies, reactions, and severity.</p>
+
+        <div id="allergies-list">
+            <template x-for="(item, i) in allergies" :key="i">
+                <div class="dynamic-list-item">
+                    <button type="button" class="btn-remove-item" @click="removeAllergy(i)">&times;</button>
+                    <div class="form-row-3">
+                        <div class="form-group">
+                            <label>Allergen</label>
+                            <input type="text" :name="'allergies[' + i + '].allergen'" x-model="item.allergen">
+                        </div>
+                        <div class="form-group">
+                            <label>Reaction</label>
+                            <input type="text" :name="'allergies[' + i + '].reaction'" x-model="item.reaction">
+                        </div>
+                        <div class="form-group">
+                            <label>Severity</label>
+                            <select :name="'allergies[' + i + '].severity'" x-model="item.severity">
+                                <option value="">Select...</option>
+                                <option value="mild">Mild</option>
+                                <option value="moderate">Moderate</option>
+                                <option value="severe">Severe</option>
+                                <option value="anaphylaxis">Anaphylaxis</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <button type="button" class="btn-add-item" @click="addAllergy()">+ Add Allergy</button>
+
+        <h3 style="margin-top: 1.5rem;">Social History</h3>
+
+        <div class="form-group">
+            <label for="tetanus_status">Tetanus Status</label>
+            <select id="tetanus_status" name="medical_history.tetanus_status">
+                <option value="" {% if medical_history.tetanusStatus == "" %}selected{% endif %}>Select...</option>
+                <option value="up-to-date" {% if medical_history.tetanusStatus == "up-to-date" %}selected{% endif %}>Up to Date</option>
+                <option value="overdue" {% if medical_history.tetanusStatus == "overdue" %}selected{% endif %}>Overdue</option>
+                <option value="unknown" {% if medical_history.tetanusStatus == "unknown" %}selected{% endif %}>Unknown</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="smoking_status">Smoking Status</label>
+                <select id="smoking_status" name="medical_history.smoking_status">
+                    <option value="" {% if medical_history.smokingStatus == "" %}selected{% endif %}>Select...</option>
+                    <option value="never" {% if medical_history.smokingStatus == "never" %}selected{% endif %}>Never</option>
+                    <option value="ex-smoker" {% if medical_history.smokingStatus == "ex-smoker" %}selected{% endif %}>Ex-smoker</option>
+                    <option value="current" {% if medical_history.smokingStatus == "current" %}selected{% endif %}>Current</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="alcohol_consumption">Alcohol Consumption</label>
+                <input type="text" id="alcohol_consumption" name="medical_history.alcohol_consumption"
+                       value="{{ medical_history.alcoholConsumption }}" placeholder="e.g. 10 units/week">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="recreational_drug_use">Recreational Drug Use</label>
+                <input type="text" id="recreational_drug_use" name="medical_history.recreational_drug_use"
+                       value="{{ medical_history.recreationalDrugUse }}">
+            </div>
+            <div class="form-group">
+                <label for="last_oral_intake">Last Oral Intake</label>
+                <input type="text" id="last_oral_intake" name="medical_history.last_oral_intake"
+                       value="{{ medical_history.lastOralIntake }}" placeholder="Time and what was consumed">
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

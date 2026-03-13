@@ -1,0 +1,40 @@
+<p class="total-count">Showing {{ total }} completed assessment{% if total != 1 %}s{% endif %}.</p>
+
+{% if total > 0 %}
+<table class="patient-table">
+    <thead>
+        <tr>
+            <th>NHS Number</th>
+            <th>Patient Name</th>
+            <th>NEWS2</th>
+            <th>Response</th>
+            <th>Chief Complaint</th>
+            <th>MTS</th>
+            <th>Allergy</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for patient in patients %}
+        <tr>
+            <td><a href="/assessment/{{ patient.id }}/report">{{ patient.nhsNumber }}</a></td>
+            <td>{{ patient.patientName }}</td>
+            <td>{{ patient.news2Score }}</td>
+            <td>{{ patient.clinicalResponse }}</td>
+            <td>{{ patient.chiefComplaint }}</td>
+            <td>{{ patient.mtsCategory }}</td>
+            <td>
+                {% if patient.allergyFlag %}
+                    <span class="badge badge-yes">Yes</span>
+                {% else %}
+                    <span class="badge badge-no">No</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="card" style="text-align: center; color: var(--gray-500);">
+    <p>No completed assessments found matching your filters.</p>
+</div>
+{% endif %}

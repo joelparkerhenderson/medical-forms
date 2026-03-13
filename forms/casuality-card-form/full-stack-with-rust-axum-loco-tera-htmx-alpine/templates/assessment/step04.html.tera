@@ -1,0 +1,95 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        previousEpisodes: '{{ presenting_complaint.previousEpisodes }}'
+    }">
+        <div class="form-group">
+            <label for="chief_complaint">Chief Complaint</label>
+            <input type="text" id="chief_complaint" name="presenting_complaint.chief_complaint"
+                   value="{{ presenting_complaint.chiefComplaint }}" placeholder="Main reason for attendance">
+        </div>
+
+        <div class="form-group">
+            <label for="history_of_presenting_complaint">History of Presenting Complaint</label>
+            <textarea id="history_of_presenting_complaint" name="presenting_complaint.history_of_presenting_complaint">{{ presenting_complaint.historyOfPresentingComplaint }}</textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="onset">Onset</label>
+                <input type="text" id="onset" name="presenting_complaint.onset"
+                       value="{{ presenting_complaint.onset }}" placeholder="e.g. Sudden, Gradual">
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration</label>
+                <input type="text" id="duration" name="presenting_complaint.duration"
+                       value="{{ presenting_complaint.duration }}" placeholder="e.g. 2 hours">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="character">Character</label>
+                <input type="text" id="character" name="presenting_complaint.character"
+                       value="{{ presenting_complaint.character }}" placeholder="e.g. Sharp, Dull, Burning">
+            </div>
+            <div class="form-group">
+                <label for="severity">Severity</label>
+                <input type="text" id="severity" name="presenting_complaint.severity"
+                       value="{{ presenting_complaint.severity }}" placeholder="e.g. Mild, Moderate, Severe">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="presenting_complaint.location"
+                       value="{{ presenting_complaint.location }}">
+            </div>
+            <div class="form-group">
+                <label for="radiation">Radiation</label>
+                <input type="text" id="radiation" name="presenting_complaint.radiation"
+                       value="{{ presenting_complaint.radiation }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="aggravating_factors">Aggravating Factors</label>
+            <textarea id="aggravating_factors" name="presenting_complaint.aggravating_factors">{{ presenting_complaint.aggravatingFactors }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="relieving_factors">Relieving Factors</label>
+            <textarea id="relieving_factors" name="presenting_complaint.relieving_factors">{{ presenting_complaint.relievingFactors }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="associated_symptoms">Associated Symptoms</label>
+            <textarea id="associated_symptoms" name="presenting_complaint.associated_symptoms">{{ presenting_complaint.associatedSymptoms }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Previous Episodes</label>
+            <div class="radio-group">
+                <label><input type="radio" name="presenting_complaint.previous_episodes" value="yes" x-model="previousEpisodes" {% if presenting_complaint.previousEpisodes == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="presenting_complaint.previous_episodes" value="no" x-model="previousEpisodes" {% if presenting_complaint.previousEpisodes == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="treatment_prior_to_arrival">Treatment Prior to Arrival</label>
+            <textarea id="treatment_prior_to_arrival" name="presenting_complaint.treatment_prior_to_arrival">{{ presenting_complaint.treatmentPriorToArrival }}</textarea>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

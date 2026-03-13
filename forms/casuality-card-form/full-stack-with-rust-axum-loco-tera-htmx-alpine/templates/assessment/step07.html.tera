@@ -1,0 +1,136 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        supplementalOxygen: '{{ vital_signs.supplementalOxygen }}'
+    }">
+        <p class="form-hint">Vital signs are used to auto-calculate the NEWS2 score in the report.</p>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="heart_rate">Heart Rate (bpm)</label>
+                <input type="number" id="heart_rate" name="vital_signs.heart_rate"
+                       value="{{ vital_signs.heartRate | default(value='') }}" min="0" step="1">
+            </div>
+            <div class="form-group">
+                <label for="respiratory_rate">Respiratory Rate (/min)</label>
+                <input type="number" id="respiratory_rate" name="vital_signs.respiratory_rate"
+                       value="{{ vital_signs.respiratoryRate | default(value='') }}" min="0" step="1">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="systolic_bp">Systolic BP (mmHg)</label>
+                <input type="number" id="systolic_bp" name="vital_signs.systolic_bp"
+                       value="{{ vital_signs.systolicBP | default(value='') }}" min="0" step="1">
+            </div>
+            <div class="form-group">
+                <label for="diastolic_bp">Diastolic BP (mmHg)</label>
+                <input type="number" id="diastolic_bp" name="vital_signs.diastolic_bp"
+                       value="{{ vital_signs.diastolicBP | default(value='') }}" min="0" step="1">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="oxygen_saturation">Oxygen Saturation (%)</label>
+                <input type="number" id="oxygen_saturation" name="vital_signs.oxygen_saturation"
+                       value="{{ vital_signs.oxygenSaturation | default(value='') }}" min="0" max="100" step="1">
+            </div>
+            <div class="form-group">
+                <label for="temperature">Temperature (&deg;C)</label>
+                <input type="number" id="temperature" name="vital_signs.temperature"
+                       value="{{ vital_signs.temperature | default(value='') }}" min="25" max="45" step="0.1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Supplemental Oxygen</label>
+            <div class="radio-group">
+                <label><input type="radio" name="vital_signs.supplemental_oxygen" value="yes" x-model="supplementalOxygen" {% if vital_signs.supplementalOxygen == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="vital_signs.supplemental_oxygen" value="no" x-model="supplementalOxygen" {% if vital_signs.supplementalOxygen == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="supplementalOxygen === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="oxygen_flow_rate">Oxygen Flow Rate (L/min)</label>
+                <input type="number" id="oxygen_flow_rate" name="vital_signs.oxygen_flow_rate"
+                       value="{{ vital_signs.oxygenFlowRate | default(value='') }}" min="0" step="0.5">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="consciousness_level">Consciousness Level (AVPU)</label>
+            <select id="consciousness_level" name="vital_signs.consciousness_level">
+                <option value="" {% if vital_signs.consciousnessLevel == "" %}selected{% endif %}>Select...</option>
+                <option value="alert" {% if vital_signs.consciousnessLevel == "alert" %}selected{% endif %}>Alert</option>
+                <option value="confusion" {% if vital_signs.consciousnessLevel == "confusion" %}selected{% endif %}>New Confusion</option>
+                <option value="verbal" {% if vital_signs.consciousnessLevel == "verbal" %}selected{% endif %}>Voice</option>
+                <option value="pain" {% if vital_signs.consciousnessLevel == "pain" %}selected{% endif %}>Pain</option>
+                <option value="unresponsive" {% if vital_signs.consciousnessLevel == "unresponsive" %}selected{% endif %}>Unresponsive</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="blood_glucose">Blood Glucose (mmol/L)</label>
+                <input type="number" id="blood_glucose" name="vital_signs.blood_glucose"
+                       value="{{ vital_signs.bloodGlucose | default(value='') }}" min="0" step="0.1">
+            </div>
+            <div class="form-group">
+                <label for="capillary_refill_time">Capillary Refill Time (seconds)</label>
+                <input type="number" id="capillary_refill_time" name="vital_signs.capillary_refill_time"
+                       value="{{ vital_signs.capillaryRefillTime | default(value='') }}" min="0" step="1">
+            </div>
+        </div>
+
+        <h3 style="margin-top: 1.5rem;">Pupils</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="pupil_left_size">Left Pupil Size (mm)</label>
+                <input type="number" id="pupil_left_size" name="vital_signs.pupil_left_size"
+                       value="{{ vital_signs.pupilLeftSize | default(value='') }}" min="1" max="9" step="1">
+            </div>
+            <div class="form-group">
+                <label>Left Pupil Reactive</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="vital_signs.pupil_left_reactive" value="yes" {% if vital_signs.pupilLeftReactive == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="vital_signs.pupil_left_reactive" value="no" {% if vital_signs.pupilLeftReactive == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="pupil_right_size">Right Pupil Size (mm)</label>
+                <input type="number" id="pupil_right_size" name="vital_signs.pupil_right_size"
+                       value="{{ vital_signs.pupilRightSize | default(value='') }}" min="1" max="9" step="1">
+            </div>
+            <div class="form-group">
+                <label>Right Pupil Reactive</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="vital_signs.pupil_right_reactive" value="yes" {% if vital_signs.pupilRightReactive == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="vital_signs.pupil_right_reactive" value="no" {% if vital_signs.pupilRightReactive == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" name="vital_signs.weight"
+                   value="{{ vital_signs.weight | default(value='') }}" min="0" step="0.1">
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

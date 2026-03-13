@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:cdn.who.int)",
+      "WebFetch(domain:hsc.unm.edu)",
+      "WebFetch(domain:www.saem.org)",
+      "WebFetch(domain:www.realfirstaid.co.uk)",
+      "WebFetch(domain:theprsb.org)",
+      "WebFetch(domain:pmc.ncbi.nlm.nih.gov)",
+      "WebFetch(domain:codimg.com)",
+      "WebFetch(domain:www.triagenet.net)",
+      "Bash(find /Users/jph/git/joelparkerhenderson/medical-forms/forms/pre-operative-assessment/front-end-patient-form-with-svelte/src/lib/components/steps -name \"Step*.svelte\" 2>/dev/null | head -5)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/casuality-card-form/front-end-with-svelte && npm install 2>&1)",
+      "Bash(npm run check 2>&1)",
+      "Bash(timeout 10 npm run dev 2>&1 || true)",
+      "Bash(wc -l /Users/jph/git/joelparkerhenderson/medical-forms/forms/casuality-card-form/front-end-patient-form-with-svelte/src/routes/assessment/[step=step]/+page.svelte)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/casuality-card-form/front-end-patient-form-with-svelte && npx vite build 2>&1 | tail -50)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms && bash bin/test-forms 2>&1 | grep -A5 \"casuality-card\" | head -30)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms && bash bin/test-forms 2>&1 | head -60)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms && bash bin/test-forms 2>&1 | grep -i \"casuality\\\\|casualty\")",
+      "Bash(ls /Users/jph/git/joelparkerhenderson/medical-forms/forms/pre-operative-assessment/front-end-patient-form-with-svelte/*.md /Users/jph/git/joelparkerhenderson/medical-forms/forms/pre-operative-assessment/front-end-patient-form-with-svelte/CLAUDE.md /Users/jph/git/joelparkerhenderson/medical-forms/forms/pre-operative-assessment/front-end-patient-form-with-svelte/AGENTS.md 2>/dev/null)",
+      "Bash(cat /Users/jph/git/joelparkerhenderson/medical-forms/forms/pre-operative-assessment/front-end-patient-form-with-svelte/src/routes/assessment/\\\\[step=step\\\\]/+page.svelte)",
+      "mcp__svelte__svelte-autofixer",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/casuality-card-form/front-end-patient-form-with-svelte && ln -sf index.md README.md && ls -la README.md)",
+      "Bash(npm run build 2>&1)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms && bin/test-forms 2>&1)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/casuality-card-form/front-end-patient-form-with-svelte && npm run build 2>&1 | tail -5)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/heart-health-check && rm -rf front-end-patient-form-with-html/front-end-patient-form-with-svelte && ls front-end-patient-form-with-html/)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/pre-operative-assessment/full-stack-with-rust-axum-loco-tera-htmx-alpine && cargo build 2>&1)",
+      "Bash(cargo test 2>&1)",
+      "Bash(grep -l \"medications\\\\|allergies\" /Users/jph/git/joelparkerhenderson/medical-forms/forms/pre-operative-assessment/full-stack-with-rust-axum-loco-tera-htmx-alpine/templates/assessment/step*.tera | head -3)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/casuality-card-form/full-stack-with-rust-axum-loco-tera-htmx-alpine && mkdir -p migration/src config src/controllers src/engine src/models/_entities src/views templates/assessment assets/static/css tests/engine)",
+      "Bash(cargo build 2>&1)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms && ls -d */ | head -20)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/sleep-quality-assessment/full-stack-with-rust-axum-loco-tera-htmx-alpine && cargo build 2>&1)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/sleep-quality-assessment/full-stack-with-rust-axum-loco-tera-htmx-alpine && cargo test 2>&1)"
+    ]
+  }
+}

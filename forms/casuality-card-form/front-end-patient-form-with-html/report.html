@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casualty Card Report</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Casualty Card Form</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content" id="report-content">
+    <p style="text-align:center;color:#6b7280;">Loading report...</p>
+  </main>
+
+  <footer class="footer"><p>Casualty Card Form &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module">
+    import { news2ResponseLabel, news2ResponseColor, news2ScoreColor, mtsCategoryLabel, calculateAge } from './js/utils.js';
+
+    const dataStr = sessionStorage.getItem('casualtyCardData');
+    const resultStr = sessionStorage.getItem('casualtyCardResult');
+    const container = document.getElementById('report-content');
+
+    if (!dataStr || !resultStr) {
+      container.innerHTML = '<div class="card" style="text-align:center"><h2>No Assessment Data</h2><p>Please complete the casualty card form first.</p><a href="index.html" class="btn btn-primary">Go to Casualty Card Form</a></div>';
+    } else {
+      const data = JSON.parse(dataStr);
+      const result = JSON.parse(resultStr);
+      renderReport(data, result);
+    }
+
+    function renderReport(data, result) {
+      const news2 = result.news2;
+      const colorClass = news2ResponseColor(news2.clinicalResponse);
+      let html = '';
+
+      // NEWS2 Banner
+      html += '<div class="risk-banner ' + colorClass + '">';
+      html += '<h2>NEWS2 Score: <span class="news2-score">' + news2.totalScore + '</span></h2>';
+      html += '<p>' + news2ResponseLabel(news2.clinicalResponse) + '</p>';
+      if (news2.hasAnySingleScore3) {
+        html += '<p style="font-weight:600;">Single parameter score of 3 detected</p>';
+      }
+      html += '</div>';
+
+      // NEWS2 Parameter Breakdown
+      html += '<div class="card"><h2>NEWS2 Parameter Scores</h2>';
+      html += '<table class="news2-params"><thead><tr><th>Parameter</th><th>Value</th><th>Score</th></tr></thead><tbody>';
+      for (const p of news2.parameterScores) {
+        const cls = p.score === 3 ? ' class="score-3"' : '';
+        html += '<tr' + cls + '><td>' + esc(p.parameter) + '</td><td>' + esc(p.value) + '</td><td>' + p.score + '</td></tr>';
+      }
+      html += '<tr style="font-weight:700;border-top:2px solid #d1d5db"><td>Total</td><td></td><td>' + news2.totalScore + '</td></tr>';
+      html += '</tbody></table></div>';
+
+      // Flagged Issues
+      if (result.flaggedIssues && result.flaggedIssues.length > 0) {
+        html += '<div class="card"><h2>Flagged Issues (' + result.flaggedIssues.length + ')</h2>';
+        for (const flag of result.flaggedIssues) {
+          const flagClass = 'flag-' + flag.priority;
+          html += '<div class="flag-item ' + flagClass + '">';
+          html += '<div class="flag-category">' + esc(flag.category) + ' (' + flag.priority + ')</div>';
+          html += '<div class="flag-message">' + esc(flag.message) + '</div>';
+          html += '</div>';
+        }
+        html += '</div>';
+      } else {
+        html += '<div class="card"><h2>Flagged Issues</h2><p style="color:#16a34a;font-weight:500;">No safety flags identified.</p></div>';
+      }
+
+      // Patient Summary
+      const age = calculateAge(data.demographics.dateOfBirth);
+      html += '<div class="card"><h2>Patient Summary</h2><dl class="summary-grid">';
+      html += '<dt>Name</dt><dd>' + esc(data.demographics.firstName) + ' ' + esc(data.demographics.lastName) + '</dd>';
+      html += '<dt>Date of Birth</dt><dd>' + esc(data.demographics.dateOfBirth) + (age !== null ? ' (age ' + age + ')' : '') + '</dd>';
+      html += '<dt>Sex</dt><dd>' + esc(data.demographics.sex) + '</dd>';
+      html += '<dt>NHS Number</dt><dd>' + esc(data.demographics.nhsNumber) + '</dd>';
+      html += '<dt>Triage Category</dt><dd>' + esc(mtsCategoryLabel(data.arrivalTriage.mtsCategory) || data.arrivalTriage.mtsCategory) + '</dd>';
+      html += '<dt>Chief Complaint</dt><dd>' + esc(data.presentingComplaint.chiefComplaint) + '</dd>';
+      html += '<dt>Working Diagnosis</dt><dd>' + esc(data.assessmentPlan.workingDiagnosis) + '</dd>';
+      html += '<dt>Disposition</dt><dd>' + esc(data.disposition.disposition) + '</dd>';
+      html += '<dt>Completed By</dt><dd>' + esc(data.safeguardingConsent.completedByName) + (data.safeguardingConsent.completedByRole ? ' (' + esc(data.safeguardingConsent.completedByRole) + ')' : '') + '</dd>';
+      html += '<dt>Timestamp</dt><dd>' + esc(result.timestamp) + '</dd>';
+      html += '</dl></div>';
+
+      // Vital Signs
+      html += '<div class="card"><h2>Vital Signs</h2><dl class="summary-grid">';
+      html += '<dt>Heart Rate</dt><dd>' + (data.vitalSigns.heartRate !== null ? data.vitalSigns.heartRate + ' bpm' : '\u2014') + '</dd>';
+      html += '<dt>Blood Pressure</dt><dd>' + (data.vitalSigns.systolicBP !== null ? data.vitalSigns.systolicBP + '/' + (data.vitalSigns.diastolicBP || '\u2014') + ' mmHg' : '\u2014') + '</dd>';
+      html += '<dt>Respiratory Rate</dt><dd>' + (data.vitalSigns.respiratoryRate !== null ? data.vitalSigns.respiratoryRate + ' /min' : '\u2014') + '</dd>';
+      html += '<dt>SpO2</dt><dd>' + (data.vitalSigns.oxygenSaturation !== null ? data.vitalSigns.oxygenSaturation + '%' : '\u2014') + '</dd>';
+      html += '<dt>Temperature</dt><dd>' + (data.vitalSigns.temperature !== null ? data.vitalSigns.temperature + ' \u00B0C' : '\u2014') + '</dd>';
+      html += '<dt>Consciousness</dt><dd>' + esc(data.vitalSigns.consciousnessLevel || '\u2014') + '</dd>';
+      html += '<dt>GCS Total</dt><dd>' + (data.primarySurvey.disability.gcsTotal !== null ? data.primarySurvey.disability.gcsTotal + '/15' : '\u2014') + '</dd>';
+      html += '</dl></div>';
+
+      // Medications
+      if (data.medicalHistory.medications && data.medicalHistory.medications.length > 0) {
+        html += '<div class="card"><h2>Current Medications (' + data.medicalHistory.medications.length + ')</h2>';
+        html += '<table class="rules-table"><thead><tr><th>Name</th><th>Dose</th><th>Frequency</th></tr></thead><tbody>';
+        for (const med of data.medicalHistory.medications) {
+          html += '<tr><td>' + esc(med.name) + '</td><td>' + esc(med.dose) + '</td><td>' + esc(med.frequency) + '</td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      // Allergies
+      if (data.medicalHistory.allergies && data.medicalHistory.allergies.length > 0) {
+        html += '<div class="card"><h2>Allergies (' + data.medicalHistory.allergies.length + ')</h2>';
+        html += '<table class="rules-table"><thead><tr><th>Allergen</th><th>Reaction</th><th>Severity</th></tr></thead><tbody>';
+        for (const a of data.medicalHistory.allergies) {
+          html += '<tr><td>' + esc(a.allergen) + '</td><td>' + esc(a.reaction) + '</td><td>' + esc(a.severity) + '</td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      // Action Buttons
+      html += '<div class="action-buttons">';
+      html += '<a href="index.html" class="btn btn-primary">New Casualty Card</a>';
+      html += '<button class="btn btn-secondary" onclick="window.print()">Print Report</button>';
+      html += '</div>';
+
+      container.innerHTML = html;
+    }
+
+    function esc(str) {
+      const div = document.createElement('div');
+      div.textContent = str || '';
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>

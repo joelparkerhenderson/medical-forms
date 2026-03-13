@@ -1,0 +1,125 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        disposition: '{{ disposition.disposition }}'
+    }">
+        <div class="form-group">
+            <label for="disposition">Disposition</label>
+            <select id="disposition" name="disposition.disposition" x-model="disposition">
+                <option value="" {% if disposition.disposition == "" %}selected{% endif %}>Select...</option>
+                <option value="admitted" {% if disposition.disposition == "admitted" %}selected{% endif %}>Admitted</option>
+                <option value="discharged" {% if disposition.disposition == "discharged" %}selected{% endif %}>Discharged</option>
+                <option value="transferred" {% if disposition.disposition == "transferred" %}selected{% endif %}>Transferred</option>
+                <option value="left-before-seen" {% if disposition.disposition == "left-before-seen" %}selected{% endif %}>Left Before Seen</option>
+                <option value="self-discharged" {% if disposition.disposition == "self-discharged" %}selected{% endif %}>Self-Discharged</option>
+            </select>
+        </div>
+
+        <!-- Admitted fields -->
+        <div class="conditional-field" x-show="disposition === 'admitted'" x-transition x-cloak>
+            <h3>Admission Details</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="admitting_specialty">Admitting Specialty</label>
+                    <input type="text" id="admitting_specialty" name="disposition.admitting_specialty"
+                           value="{{ disposition.admittingSpecialty }}">
+                </div>
+                <div class="form-group">
+                    <label for="admitting_consultant">Admitting Consultant</label>
+                    <input type="text" id="admitting_consultant" name="disposition.admitting_consultant"
+                           value="{{ disposition.admittingConsultant }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="ward">Ward</label>
+                    <input type="text" id="ward" name="disposition.ward"
+                           value="{{ disposition.ward }}">
+                </div>
+                <div class="form-group">
+                    <label for="level_of_care">Level of Care</label>
+                    <select id="level_of_care" name="disposition.level_of_care">
+                        <option value="" {% if disposition.levelOfCare == "" %}selected{% endif %}>Select...</option>
+                        <option value="level-0" {% if disposition.levelOfCare == "level-0" %}selected{% endif %}>Level 0 - Ward</option>
+                        <option value="level-1" {% if disposition.levelOfCare == "level-1" %}selected{% endif %}>Level 1 - Enhanced Ward</option>
+                        <option value="level-2" {% if disposition.levelOfCare == "level-2" %}selected{% endif %}>Level 2 - HDU</option>
+                        <option value="level-3" {% if disposition.levelOfCare == "level-3" %}selected{% endif %}>Level 3 - ICU</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Discharged fields -->
+        <div class="conditional-field" x-show="disposition === 'discharged'" x-transition x-cloak>
+            <h3>Discharge Details</h3>
+            <div class="form-group">
+                <label for="discharge_diagnosis">Discharge Diagnosis</label>
+                <textarea id="discharge_diagnosis" name="disposition.discharge_diagnosis">{{ disposition.dischargeDiagnosis }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="discharge_medications">Discharge Medications</label>
+                <textarea id="discharge_medications" name="disposition.discharge_medications">{{ disposition.dischargeMedications }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="discharge_instructions">Discharge Instructions</label>
+                <textarea id="discharge_instructions" name="disposition.discharge_instructions">{{ disposition.dischargeInstructions }}</textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="follow_up">Follow-up</label>
+                    <input type="text" id="follow_up" name="disposition.follow_up"
+                           value="{{ disposition.followUp }}" placeholder="e.g. GP in 48 hours">
+                </div>
+                <div class="form-group">
+                    <label for="return_precautions">Return Precautions</label>
+                    <textarea id="return_precautions" name="disposition.return_precautions">{{ disposition.returnPrecautions }}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transferred fields -->
+        <div class="conditional-field" x-show="disposition === 'transferred'" x-transition x-cloak>
+            <h3>Transfer Details</h3>
+            <div class="form-group">
+                <label for="receiving_hospital">Receiving Hospital</label>
+                <input type="text" id="receiving_hospital" name="disposition.receiving_hospital"
+                       value="{{ disposition.receivingHospital }}">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="reason_for_transfer">Reason for Transfer</label>
+                    <textarea id="reason_for_transfer" name="disposition.reason_for_transfer">{{ disposition.reasonForTransfer }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="mode_of_transfer">Mode of Transfer</label>
+                    <input type="text" id="mode_of_transfer" name="disposition.mode_of_transfer"
+                           value="{{ disposition.modeOfTransfer }}" placeholder="e.g. Ambulance, Air ambulance">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row" style="margin-top: 1.5rem;">
+            <div class="form-group">
+                <label for="discharge_time">Discharge/Departure Time</label>
+                <input type="text" id="discharge_time" name="disposition.discharge_time"
+                       value="{{ disposition.dischargeTime }}" placeholder="HH:MM">
+            </div>
+            <div class="form-group">
+                <label for="total_time_in_department">Total Time in Department</label>
+                <input type="text" id="total_time_in_department" name="disposition.total_time_in_department"
+                       value="{{ disposition.totalTimeInDepartment }}" placeholder="e.g. 3h 45m">
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

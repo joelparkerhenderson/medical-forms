@@ -1,0 +1,102 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        safeguardingConcern: '{{ safeguarding.safeguardingConcern }}'
+    }">
+        <h3>Safeguarding</h3>
+        <div class="form-group">
+            <label>Safeguarding Concern</label>
+            <div class="radio-group">
+                <label><input type="radio" name="safeguarding.safeguarding_concern" value="yes" x-model="safeguardingConcern" {% if safeguarding.safeguardingConcern == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="safeguarding.safeguarding_concern" value="no" x-model="safeguardingConcern" {% if safeguarding.safeguardingConcern == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="safeguardingConcern === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="safeguarding_type">Safeguarding Type</label>
+                <input type="text" id="safeguarding_type" name="safeguarding.safeguarding_type"
+                       value="{{ safeguarding.safeguardingType }}" placeholder="e.g. Child, Adult, Domestic abuse">
+            </div>
+            <div class="form-group">
+                <label>Referral Made</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="safeguarding.referral_made" value="yes" {% if safeguarding.referralMade == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="safeguarding.referral_made" value="no" {% if safeguarding.referralMade == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 1.5rem;">Mental Capacity & Mental Health</h3>
+        <div class="form-group">
+            <label for="mental_capacity_assessment">Mental Capacity Assessment</label>
+            <select id="mental_capacity_assessment" name="safeguarding.mental_capacity_assessment">
+                <option value="" {% if safeguarding.mentalCapacityAssessment == "" %}selected{% endif %}>Select...</option>
+                <option value="has-capacity" {% if safeguarding.mentalCapacityAssessment == "has-capacity" %}selected{% endif %}>Has Capacity</option>
+                <option value="lacks-capacity" {% if safeguarding.mentalCapacityAssessment == "lacks-capacity" %}selected{% endif %}>Lacks Capacity</option>
+                <option value="not-assessed" {% if safeguarding.mentalCapacityAssessment == "not-assessed" %}selected{% endif %}>Not Assessed</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="mental_health_act_status">Mental Health Act Status</label>
+            <select id="mental_health_act_status" name="safeguarding.mental_health_act_status">
+                <option value="" {% if safeguarding.mentalHealthActStatus == "" %}selected{% endif %}>N/A</option>
+                <option value="section-2" {% if safeguarding.mentalHealthActStatus == "section-2" %}selected{% endif %}>Section 2</option>
+                <option value="section-3" {% if safeguarding.mentalHealthActStatus == "section-3" %}selected{% endif %}>Section 3</option>
+                <option value="section-5-2" {% if safeguarding.mentalHealthActStatus == "section-5-2" %}selected{% endif %}>Section 5(2)</option>
+                <option value="section-136" {% if safeguarding.mentalHealthActStatus == "section-136" %}selected{% endif %}>Section 136</option>
+                <option value="informal" {% if safeguarding.mentalHealthActStatus == "informal" %}selected{% endif %}>Informal</option>
+            </select>
+        </div>
+
+        <h3 style="margin-top: 1.5rem;">Consent</h3>
+        <div class="form-group">
+            <label for="consent_for_treatment">Consent for Treatment</label>
+            <select id="consent_for_treatment" name="safeguarding.consent_for_treatment">
+                <option value="" {% if safeguarding.consentForTreatment == "" %}selected{% endif %}>Select...</option>
+                <option value="verbal" {% if safeguarding.consentForTreatment == "verbal" %}selected{% endif %}>Verbal</option>
+                <option value="written" {% if safeguarding.consentForTreatment == "written" %}selected{% endif %}>Written</option>
+                <option value="lacks-capacity" {% if safeguarding.consentForTreatment == "lacks-capacity" %}selected{% endif %}>Lacks Capacity</option>
+            </select>
+        </div>
+
+        <h3 style="margin-top: 1.5rem;">Clinician Details</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="completed_by_name">Completed By (Name)</label>
+                <input type="text" id="completed_by_name" name="safeguarding.completed_by_name"
+                       value="{{ safeguarding.completedByName }}">
+            </div>
+            <div class="form-group">
+                <label for="completed_by_role">Role</label>
+                <input type="text" id="completed_by_role" name="safeguarding.completed_by_role"
+                       value="{{ safeguarding.completedByRole }}" placeholder="e.g. ED Consultant, SHO">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="completed_by_gmc_number">GMC Number</label>
+                <input type="text" id="completed_by_gmc_number" name="safeguarding.completed_by_gmc_number"
+                       value="{{ safeguarding.completedByGMCNumber }}">
+            </div>
+            <div class="form-group">
+                <label for="senior_reviewing_clinician">Senior Reviewing Clinician</label>
+                <input type="text" id="senior_reviewing_clinician" name="safeguarding.senior_reviewing_clinician"
+                       value="{{ safeguarding.seniorReviewingClinician }}">
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

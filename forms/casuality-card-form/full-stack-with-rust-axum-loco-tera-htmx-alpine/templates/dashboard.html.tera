@@ -1,0 +1,61 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinician Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>Clinician Dashboard</h1>
+    <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard" class="filter-bar"
+      hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+    <div class="form-group">
+        <label for="search">Search</label>
+        <input type="text" id="search" name="search" value="{{ search }}"
+               placeholder="NHS number, name, complaint..."
+               hx-trigger="keyup changed delay:300ms"
+               hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+    </div>
+    <div class="form-group">
+        <label for="news2_min">NEWS2 Min</label>
+        <select id="news2_min" name="news2_min"
+                hx-trigger="change" hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+            <option value="">All</option>
+            <option value="1" {% if news2_min == "1" %}selected{% endif %}>1+</option>
+            <option value="3" {% if news2_min == "3" %}selected{% endif %}>3+</option>
+            <option value="5" {% if news2_min == "5" %}selected{% endif %}>5+</option>
+            <option value="7" {% if news2_min == "7" %}selected{% endif %}>7+</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="mts_category">MTS Category</label>
+        <select id="mts_category" name="mts_category"
+                hx-trigger="change" hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+            <option value="">All</option>
+            <option value="1" {% if mts_category == "1" %}selected{% endif %}>1 - Immediate</option>
+            <option value="2" {% if mts_category == "2" %}selected{% endif %}>2 - Very Urgent</option>
+            <option value="3" {% if mts_category == "3" %}selected{% endif %}>3 - Urgent</option>
+            <option value="4" {% if mts_category == "4" %}selected{% endif %}>4 - Standard</option>
+            <option value="5" {% if mts_category == "5" %}selected{% endif %}>5 - Non-Urgent</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="allergy">Allergy</label>
+        <select id="allergy" name="allergy"
+                hx-trigger="change" hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+            <option value="">All</option>
+            <option value="yes" {% if allergy == "yes" %}selected{% endif %}>Yes</option>
+            <option value="no" {% if allergy == "no" %}selected{% endif %}>No</option>
+        </select>
+    </div>
+    <div class="form-group" style="display: flex; gap: 0.5rem; align-items: flex-end;">
+        <button type="submit" class="btn btn-primary">Filter</button>
+        <a href="/dashboard" class="btn btn-secondary">Clear</a>
+    </div>
+</form>
+
+<div id="results-container">
+    {% include "_dashboard_results.html.tera" %}
+</div>
+{% endblock %}

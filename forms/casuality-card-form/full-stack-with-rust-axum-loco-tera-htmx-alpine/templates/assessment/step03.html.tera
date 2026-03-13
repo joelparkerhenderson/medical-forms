@@ -1,0 +1,123 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="attendance_date">Attendance Date</label>
+                <input type="date" id="attendance_date" name="arrival_triage.attendance_date"
+                       value="{{ arrival_triage.attendanceDate }}">
+            </div>
+            <div class="form-group">
+                <label for="arrival_time">Arrival Time</label>
+                <input type="text" id="arrival_time" name="arrival_triage.arrival_time"
+                       value="{{ arrival_triage.arrivalTime }}" placeholder="HH:MM">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="attendance_category">Attendance Category</label>
+                <select id="attendance_category" name="arrival_triage.attendance_category">
+                    <option value="" {% if arrival_triage.attendanceCategory == "" %}selected{% endif %}>Select...</option>
+                    <option value="first" {% if arrival_triage.attendanceCategory == "first" %}selected{% endif %}>First Attendance</option>
+                    <option value="follow-up" {% if arrival_triage.attendanceCategory == "follow-up" %}selected{% endif %}>Follow-up</option>
+                    <option value="planned" {% if arrival_triage.attendanceCategory == "planned" %}selected{% endif %}>Planned</option>
+                    <option value="unplanned" {% if arrival_triage.attendanceCategory == "unplanned" %}selected{% endif %}>Unplanned</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="arrival_mode">Arrival Mode</label>
+                <select id="arrival_mode" name="arrival_triage.arrival_mode">
+                    <option value="" {% if arrival_triage.arrivalMode == "" %}selected{% endif %}>Select...</option>
+                    <option value="ambulance" {% if arrival_triage.arrivalMode == "ambulance" %}selected{% endif %}>Ambulance</option>
+                    <option value="walk-in" {% if arrival_triage.arrivalMode == "walk-in" %}selected{% endif %}>Walk-in</option>
+                    <option value="helicopter" {% if arrival_triage.arrivalMode == "helicopter" %}selected{% endif %}>Helicopter</option>
+                    <option value="police" {% if arrival_triage.arrivalMode == "police" %}selected{% endif %}>Police</option>
+                    <option value="other" {% if arrival_triage.arrivalMode == "other" %}selected{% endif %}>Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="referral_source">Referral Source</label>
+                <select id="referral_source" name="arrival_triage.referral_source">
+                    <option value="" {% if arrival_triage.referralSource == "" %}selected{% endif %}>Select...</option>
+                    <option value="self" {% if arrival_triage.referralSource == "self" %}selected{% endif %}>Self</option>
+                    <option value="gp" {% if arrival_triage.referralSource == "gp" %}selected{% endif %}>GP</option>
+                    <option value="999" {% if arrival_triage.referralSource == "999" %}selected{% endif %}>999</option>
+                    <option value="nhs111" {% if arrival_triage.referralSource == "nhs111" %}selected{% endif %}>NHS 111</option>
+                    <option value="other-hospital" {% if arrival_triage.referralSource == "other-hospital" %}selected{% endif %}>Other Hospital</option>
+                    <option value="police" {% if arrival_triage.referralSource == "police" %}selected{% endif %}>Police</option>
+                    <option value="other" {% if arrival_triage.referralSource == "other" %}selected{% endif %}>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ambulance_incident_number">Ambulance Incident Number</label>
+                <input type="text" id="ambulance_incident_number" name="arrival_triage.ambulance_incident_number"
+                       value="{{ arrival_triage.ambulanceIncidentNumber }}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="triage_time">Triage Time</label>
+                <input type="text" id="triage_time" name="arrival_triage.triage_time"
+                       value="{{ arrival_triage.triageTime }}" placeholder="HH:MM">
+            </div>
+            <div class="form-group">
+                <label for="triage_nurse">Triage Nurse</label>
+                <input type="text" id="triage_nurse" name="arrival_triage.triage_nurse"
+                       value="{{ arrival_triage.triageNurse }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="mts_flowchart">MTS Flowchart</label>
+            <select id="mts_flowchart" name="arrival_triage.mts_flowchart">
+                <option value="" {% if arrival_triage.mtsFlowchart == "" %}selected{% endif %}>Select...</option>
+                <option value="abdominal-pain" {% if arrival_triage.mtsFlowchart == "abdominal-pain" %}selected{% endif %}>Abdominal Pain</option>
+                <option value="chest-pain" {% if arrival_triage.mtsFlowchart == "chest-pain" %}selected{% endif %}>Chest Pain</option>
+                <option value="shortness-of-breath" {% if arrival_triage.mtsFlowchart == "shortness-of-breath" %}selected{% endif %}>Shortness of Breath</option>
+                <option value="limb-problems" {% if arrival_triage.mtsFlowchart == "limb-problems" %}selected{% endif %}>Limb Problems</option>
+                <option value="head-injury" {% if arrival_triage.mtsFlowchart == "head-injury" %}selected{% endif %}>Head Injury</option>
+                <option value="falls" {% if arrival_triage.mtsFlowchart == "falls" %}selected{% endif %}>Falls</option>
+                <option value="unwell-adult" {% if arrival_triage.mtsFlowchart == "unwell-adult" %}selected{% endif %}>Unwell Adult</option>
+                <option value="unwell-child" {% if arrival_triage.mtsFlowchart == "unwell-child" %}selected{% endif %}>Unwell Child</option>
+                <option value="wounds" {% if arrival_triage.mtsFlowchart == "wounds" %}selected{% endif %}>Wounds</option>
+                <option value="mental-health" {% if arrival_triage.mtsFlowchart == "mental-health" %}selected{% endif %}>Mental Health</option>
+                <option value="other" {% if arrival_triage.mtsFlowchart == "other" %}selected{% endif %}>Other</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="mts_category">MTS Category</label>
+                <select id="mts_category" name="arrival_triage.mts_category">
+                    <option value="" {% if arrival_triage.mtsCategory == "" %}selected{% endif %}>Select...</option>
+                    <option value="1" {% if arrival_triage.mtsCategory == "1" %}selected{% endif %}>1 - Immediate</option>
+                    <option value="2" {% if arrival_triage.mtsCategory == "2" %}selected{% endif %}>2 - Very Urgent</option>
+                    <option value="3" {% if arrival_triage.mtsCategory == "3" %}selected{% endif %}>3 - Urgent</option>
+                    <option value="4" {% if arrival_triage.mtsCategory == "4" %}selected{% endif %}>4 - Standard</option>
+                    <option value="5" {% if arrival_triage.mtsCategory == "5" %}selected{% endif %}>5 - Non-Urgent</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mts_discriminator">MTS Discriminator</label>
+                <input type="text" id="mts_discriminator" name="arrival_triage.mts_discriminator"
+                       value="{{ arrival_triage.mtsDiscriminator }}">
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}
