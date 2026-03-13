@@ -1,0 +1,58 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Demographics & Ethnicity - Heart Health Check{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Demographics & Ethnicity</h2>
+    <p class="hint">Ethnicity and deprivation are significant factors in cardiovascular risk calculation.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="age">Age (years)</label>
+        <input type="number" id="age" name="demographics_ethnicity.age"
+               value="{{ demographics_ethnicity.age }}"
+               min="18" max="100" placeholder="e.g. 55">
+      </div>
+      <div class="form-group">
+        <label for="sex">Sex</label>
+        <select id="sex" name="demographics_ethnicity.sex">
+          <option value="">-- Select --</option>
+          <option value="male" {% if demographics_ethnicity.sex == "male" %}selected{% endif %}>Male</option>
+          <option value="female" {% if demographics_ethnicity.sex == "female" %}selected{% endif %}>Female</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ethnicity">Ethnicity</label>
+        <select id="ethnicity" name="demographics_ethnicity.ethnicity">
+          <option value="">-- Select --</option>
+          <option value="white" {% if demographics_ethnicity.ethnicity == "white" %}selected{% endif %}>White</option>
+          <option value="indian" {% if demographics_ethnicity.ethnicity == "indian" %}selected{% endif %}>Indian</option>
+          <option value="pakistani" {% if demographics_ethnicity.ethnicity == "pakistani" %}selected{% endif %}>Pakistani</option>
+          <option value="bangladeshi" {% if demographics_ethnicity.ethnicity == "bangladeshi" %}selected{% endif %}>Bangladeshi</option>
+          <option value="otherAsian" {% if demographics_ethnicity.ethnicity == "otherAsian" %}selected{% endif %}>Other Asian</option>
+          <option value="blackCaribbean" {% if demographics_ethnicity.ethnicity == "blackCaribbean" %}selected{% endif %}>Black Caribbean</option>
+          <option value="blackAfrican" {% if demographics_ethnicity.ethnicity == "blackAfrican" %}selected{% endif %}>Black African</option>
+          <option value="chinese" {% if demographics_ethnicity.ethnicity == "chinese" %}selected{% endif %}>Chinese</option>
+          <option value="other" {% if demographics_ethnicity.ethnicity == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="townsend_deprivation">Townsend Deprivation Score</label>
+        <input type="number" id="townsend_deprivation" name="demographics_ethnicity.townsend_deprivation"
+               value="{{ demographics_ethnicity.townsendDeprivation }}"
+               step="0.1" min="-6" max="12" placeholder="e.g. 0.5">
+        <span class="hint">UK deprivation index (-6 to +12). Higher = more deprived.</span>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

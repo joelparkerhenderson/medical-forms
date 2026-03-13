@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Health Check Report</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Heart Health Check</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content" id="report-content">
+    <p style="text-align:center;color:#6b7280;">Loading report...</p>
+  </main>
+
+  <footer class="footer"><p>Heart Health Check System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module">
+    import { riskCategoryLabel, riskCategoryColor, formatDate, formatNhsNumber, bmiCategory, calculateBMI, calculateTcHdlRatio } from './js/utils.js';
+
+    const dataStr = sessionStorage.getItem('hhcData');
+    const resultStr = sessionStorage.getItem('hhcResult');
+    const container = document.getElementById('report-content');
+
+    if (!dataStr || !resultStr) {
+      container.innerHTML = '<div class="card" style="text-align:center"><h2>No Assessment Data</h2><p>Please complete the Heart Health Check assessment first.</p><a href="index.html" class="btn btn-primary">Go to Assessment</a></div>';
+    } else {
+      const data = JSON.parse(dataStr);
+      const result = JSON.parse(resultStr);
+      renderReport(data, result);
+    }
+
+    function renderReport(data, result) {
+      const colorClass = riskCategoryColor(result.riskCategory);
+      let html = '';
+
+      // Risk Banner
+      html += '<div class="risk-banner ' + colorClass + '">';
+      html += '<h2>' + riskCategoryLabel(result.riskCategory) + '</h2>';
+      html += '<p>10-Year CVD Risk: <strong>' + result.tenYearRiskPercent + '%</strong>';
+      if (result.heartAge != null) {
+        html += ' &mdash; Heart Age: <strong>' + result.heartAge + ' years</strong>';
+      }
+      html += '</p>';
+      if (data.demographicsEthnicity.age != null && result.heartAge != null) {
+        const diff = result.heartAge - data.demographicsEthnicity.age;
+        if (diff > 0) {
+          html += '<p>Heart age is <strong>' + diff + ' years</strong> above chronological age (' + data.demographicsEthnicity.age + ')</p>';
+        } else if (diff < 0) {
+          html += '<p>Heart age is <strong>' + Math.abs(diff) + ' years</strong> below chronological age (' + data.demographicsEthnicity.age + ')</p>';
+        } else {
+          html += '<p>Heart age matches chronological age (' + data.demographicsEthnicity.age + ')</p>';
+        }
+      }
+      html += '</div>';
+
+      // Additional Flags
+      if (result.additionalFlags && result.additionalFlags.length > 0) {
+        html += '<div class="card"><h2>Flagged Issues for Clinician (' + result.additionalFlags.length + ')</h2>';
+        for (const flag of result.additionalFlags) {
+          const flagClass = 'flag-' + flag.priority;
+          html += '<div class="flag-item ' + flagClass + '">';
+          html += '<div class="flag-category">' + esc(flag.category) + ' (' + flag.priority + ')</div>';
+          html += '<div class="flag-message">' + esc(flag.message) + '</div>';
+          html += '</div>';
+        }
+        html += '</div>';
+      }
+
+      // Fired Rules
+      const highRules = result.firedRules.filter(r => r.riskLevel === 'high');
+      const medRules = result.firedRules.filter(r => r.riskLevel === 'medium');
+      const lowRules = result.firedRules.filter(r => r.riskLevel === 'low');
+
+      if (highRules.length > 0 || medRules.length > 0) {
+        html += '<div class="card"><h2>Risk Factors Identified</h2>';
+        html += '<table class="rules-table"><thead><tr><th>ID</th><th>Category</th><th>Description</th><th>Level</th></tr></thead><tbody>';
+        for (const rule of [...highRules, ...medRules]) {
+          html += '<tr><td>' + esc(rule.id) + '</td><td>' + esc(rule.category) + '</td>';
+          html += '<td>' + esc(rule.description) + '</td>';
+          html += '<td><span class="risk-badge risk-' + rule.riskLevel + '">' + capitalize(rule.riskLevel) + '</span></td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      if (lowRules.length > 0) {
+        html += '<div class="card"><h2>Protective Factors</h2>';
+        html += '<table class="rules-table"><thead><tr><th>ID</th><th>Category</th><th>Description</th></tr></thead><tbody>';
+        for (const rule of lowRules) {
+          html += '<tr><td>' + esc(rule.id) + '</td><td>' + esc(rule.category) + '</td>';
+          html += '<td>' + esc(rule.description) + '</td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      // Patient Summary
+      html += '<div class="card"><h2>Patient Summary</h2><dl class="summary-grid">';
+      html += '<dt>Patient Name</dt><dd>' + esc(data.patientInformation.fullName) + '</dd>';
+      html += '<dt>Date of Birth</dt><dd>' + formatDate(data.patientInformation.dateOfBirth) + '</dd>';
+      html += '<dt>NHS Number</dt><dd>' + esc(formatNhsNumber(data.patientInformation.nhsNumber)) + '</dd>';
+      html += '<dt>Age</dt><dd>' + (data.demographicsEthnicity.age != null ? data.demographicsEthnicity.age + ' years' : 'N/A') + '</dd>';
+      html += '<dt>Sex</dt><dd>' + capitalize(data.demographicsEthnicity.sex) + '</dd>';
+      html += '<dt>Ethnicity</dt><dd>' + esc(data.demographicsEthnicity.ethnicity || 'Not stated') + '</dd>';
+      html += '<dt>GP</dt><dd>' + esc(data.patientInformation.gpName) + '</dd>';
+      html += '<dt>GP Practice</dt><dd>' + esc(data.patientInformation.gpPractice) + '</dd>';
+      html += '</dl></div>';
+
+      // Clinical Measurements
+      html += '<div class="card"><h2>Clinical Measurements</h2><dl class="summary-grid">';
+      html += '<dt>Systolic BP</dt><dd>' + (data.bloodPressure.systolicBP != null ? data.bloodPressure.systolicBP + ' mmHg' : 'N/A') + '</dd>';
+      html += '<dt>Diastolic BP</dt><dd>' + (data.bloodPressure.diastolicBP != null ? data.bloodPressure.diastolicBP + ' mmHg' : 'N/A') + '</dd>';
+      html += '<dt>On BP Treatment</dt><dd>' + capitalize(data.bloodPressure.onBPTreatment) + '</dd>';
+      const ratio = data.cholesterol.totalHDLRatio ?? calculateTcHdlRatio(data.cholesterol.totalCholesterol, data.cholesterol.hdlCholesterol);
+      html += '<dt>TC/HDL Ratio</dt><dd>' + (ratio != null ? ratio : 'N/A') + '</dd>';
+      html += '<dt>On Statin</dt><dd>' + capitalize(data.cholesterol.onStatin) + '</dd>';
+      const bmi = data.bodyMeasurements.bmi ?? calculateBMI(data.bodyMeasurements.heightCm, data.bodyMeasurements.weightKg);
+      html += '<dt>BMI</dt><dd>' + (bmi != null ? bmi + ' (' + bmiCategory(bmi) + ')' : 'N/A') + '</dd>';
+      html += '<dt>Smoking Status</dt><dd>' + esc(data.smokingAlcohol.smokingStatus || 'Not stated') + '</dd>';
+      html += '</dl></div>';
+
+      // Review
+      if (data.reviewCalculate.clinicianName || data.reviewCalculate.clinicalNotes) {
+        html += '<div class="card"><h2>Clinician Review</h2><dl class="summary-grid">';
+        html += '<dt>Clinician</dt><dd>' + esc(data.reviewCalculate.clinicianName) + '</dd>';
+        html += '<dt>Review Date</dt><dd>' + formatDate(data.reviewCalculate.reviewDate) + '</dd>';
+        if (data.reviewCalculate.auditScore != null) {
+          html += '<dt>AUDIT Score</dt><dd>' + data.reviewCalculate.auditScore + '</dd>';
+        }
+        html += '</dl>';
+        if (data.reviewCalculate.clinicalNotes) {
+          html += '<p style="margin-top:.75rem;white-space:pre-wrap;">' + esc(data.reviewCalculate.clinicalNotes) + '</p>';
+        }
+        html += '</div>';
+      }
+
+      // Action Buttons
+      html += '<div class="action-buttons">';
+      html += '<a href="index.html" class="btn btn-primary">New Assessment</a>';
+      html += '<button class="btn btn-secondary" onclick="window.print()">Print Report</button>';
+      html += '</div>';
+
+      container.innerHTML = html;
+    }
+
+    function esc(str) {
+      const div = document.createElement('div');
+      div.textContent = str || '';
+      return div.innerHTML;
+    }
+
+    function capitalize(s) {
+      return s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Blood Pressure - Heart Health Check{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Blood Pressure</h2>
+    <p class="hint">Enter the most recent blood pressure readings. If multiple readings were taken, record the standard deviation.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="systolic_bp">Systolic BP (mmHg)</label>
+        <input type="number" id="systolic_bp" name="blood_pressure.systolic_bp"
+               value="{{ blood_pressure.systolicBp }}"
+               min="70" max="250" placeholder="e.g. 130">
+      </div>
+      <div class="form-group">
+        <label for="diastolic_bp">Diastolic BP (mmHg)</label>
+        <input type="number" id="diastolic_bp" name="blood_pressure.diastolic_bp"
+               value="{{ blood_pressure.diastolicBp }}"
+               min="40" max="150" placeholder="e.g. 80">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="systolic_bp_sd">Systolic BP Std Deviation</label>
+        <input type="number" id="systolic_bp_sd" name="blood_pressure.systolic_bp_sd"
+               value="{{ blood_pressure.systolicBpSd }}"
+               step="0.1" min="0" max="50" placeholder="e.g. 8.5">
+        <span class="hint">Standard deviation of repeated systolic readings.</span>
+      </div>
+      <div class="form-group">
+        <label for="number_of_bp_medications">Number of BP Medications</label>
+        <input type="number" id="number_of_bp_medications" name="blood_pressure.number_of_bp_medications"
+               value="{{ blood_pressure.numberOfBpMedications }}"
+               min="0" max="10" placeholder="e.g. 1">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Currently on blood pressure treatment?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="blood_pressure.on_bp_treatment" value="yes"
+                      {% if blood_pressure.onBpTreatment == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="blood_pressure.on_bp_treatment" value="no"
+                      {% if blood_pressure.onBpTreatment == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Heart Health Check{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Heart Health Check Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient name...">
+    </div>
+    <div class="form-group">
+      <label for="risk_category">Risk Category</label>
+      <select id="risk_category" name="risk_category">
+        <option value="">All</option>
+        <option value="low" {% if risk_category == "low" %}selected{% endif %}>Low Risk</option>
+        <option value="moderate" {% if risk_category == "moderate" %}selected{% endif %}>Moderate Risk</option>
+        <option value="high" {% if risk_category == "high" %}selected{% endif %}>High Risk</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="smoking_status">Smoking Status</label>
+      <select id="smoking_status" name="smoking_status">
+        <option value="">All</option>
+        <option value="nonSmoker" {% if smoking_status == "nonSmoker" %}selected{% endif %}>Non-Smoker</option>
+        <option value="exSmoker" {% if smoking_status == "exSmoker" %}selected{% endif %}>Ex-Smoker</option>
+        <option value="lightSmoker" {% if smoking_status == "lightSmoker" %}selected{% endif %}>Light Smoker</option>
+        <option value="moderateSmoker" {% if smoking_status == "moderateSmoker" %}selected{% endif %}>Moderate Smoker</option>
+        <option value="heavySmoker" {% if smoking_status == "heavySmoker" %}selected{% endif %}>Heavy Smoker</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>Risk Category</th>
+      <th>10-Year Risk</th>
+      <th>Heart Age</th>
+      <th>Smoking</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName | default(value="--") }}</a></td>
+      <td>{{ patient.age | default(value="--") }}</td>
+      <td>{{ patient.sex | default(value="--") }}</td>
+      <td><span class="risk-badge risk-{{ patient.riskCategory }}">{{ patient.riskCategory }}</span></td>
+      <td>{{ patient.tenYearRisk }}%</td>
+      <td>{{ patient.heartAge | default(value="--") }}</td>
+      <td>{{ patient.smokingStatus | default(value="--") }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,174 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Risk Report - Heart Health Check{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Heart Health Check Report</h1>
+    <span class="risk-badge risk-{{ risk_category }}">{{ risk_label }}</span>
+  </div>
+
+  <div class="score-display">{{ ten_year_risk }}%</div>
+  <div class="score-label">10-Year CVD Risk</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Heart Age Section -->
+<div class="card">
+  <h2>Heart Age</h2>
+  {% if heart_age %}
+    <div class="heart-age-display">
+      <div class="heart-age-value">
+        <div style="font-size: 2.5rem; font-weight: 700;">{{ heart_age }}</div>
+        <div style="color: var(--gray-500);">Your Heart Age</div>
+      </div>
+      {% if actual_age %}
+        <div class="heart-age-comparison">
+          <div style="font-size: 1.5rem; font-weight: 600;">vs</div>
+        </div>
+        <div class="heart-age-value">
+          <div style="font-size: 2.5rem; font-weight: 700;">{{ actual_age }}</div>
+          <div style="color: var(--gray-500);">Your Actual Age</div>
+        </div>
+      {% endif %}
+    </div>
+    {% if actual_age %}
+      {% if heart_age > actual_age %}
+        <div class="heart-age-warning">
+          Your heart is {{ heart_age - actual_age }} years older than it should be. Modifiable risk factors can help reduce this.
+        </div>
+      {% elif heart_age < actual_age %}
+        <div class="heart-age-good">
+          Your heart age is {{ actual_age - heart_age }} years younger than your actual age. Keep up the good work!
+        </div>
+      {% else %}
+        <div class="heart-age-neutral">
+          Your heart age matches your actual age.
+        </div>
+      {% endif %}
+    {% endif %}
+  {% else %}
+    <p style="color: var(--gray-500);">Heart age could not be calculated. Please ensure age and sex are provided.</p>
+  {% endif %}
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Name:</strong> {{ data.patientInformation.fullName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Date of Birth:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Age:</strong> {{ data.demographicsEthnicity.age | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Sex:</strong> {{ data.demographicsEthnicity.sex | default(value="Not provided") }}
+    </div>
+  </div>
+</div>
+
+<!-- Key Inputs -->
+<div class="card">
+  <h2>Key Risk Inputs</h2>
+  <div class="form-row">
+    <div>
+      <strong>Systolic BP:</strong> {{ data.bloodPressure.systolicBp | default(value="--") }} mmHg
+    </div>
+    <div>
+      <strong>TC/HDL Ratio:</strong> {{ data.cholesterol.totalHdlRatio | default(value="--") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Smoking:</strong> {{ data.smokingAlcohol.smokingStatus | default(value="--") }}
+    </div>
+    <div>
+      <strong>Diabetes:</strong> {{ data.medicalConditions.hasDiabetes | default(value="--") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>BMI:</strong> {{ data.bodyMeasurements.bmi | default(value="--") }}
+    </div>
+    <div>
+      <strong>Family CVD &lt;60:</strong> {{ data.familyHistory.familyCvdUnder60 | default(value="--") }}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Risk Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Risk Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Risk Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.riskLevel }}">{{ rule.riskLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinical Notes -->
+{% if data.reviewCalculate.clinicalNotes %}
+<div class="card">
+  <h2>Clinical Notes</h2>
+  <p>{{ data.reviewCalculate.clinicalNotes }}</p>
+  {% if data.reviewCalculate.clinicianName %}
+    <p style="color: var(--gray-500); font-size: 0.875rem; margin-top: 0.5rem;">
+      Clinician: {{ data.reviewCalculate.clinicianName }}
+      {% if data.reviewCalculate.reviewDate %} | Date: {{ data.reviewCalculate.reviewDate }}{% endif %}
+    </p>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

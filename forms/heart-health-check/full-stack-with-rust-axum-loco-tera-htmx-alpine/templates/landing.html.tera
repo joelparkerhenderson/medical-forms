@@ -1,0 +1,35 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Heart Health Check - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>NHS Heart Health Check</h1>
+  <p>
+    The NHS Heart Health Check estimates your 10-year cardiovascular disease (CVD) risk
+    and calculates your heart age based on the QRISK3 framework. This assessment is designed
+    for UK adults aged 25-84 who do not have pre-existing cardiovascular disease.
+    It combines blood pressure, cholesterol, clinical history, and lifestyle factors
+    to provide a personalised risk assessment.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10-Year CVD Risk</h3>
+      <p>Estimates your percentage risk of a cardiovascular event in the next 10 years</p>
+    </div>
+    <div class="feature-card">
+      <h3>Heart Age Calculator</h3>
+      <p>Compares your heart age to your actual age to highlight excess risk</p>
+    </div>
+    <div class="feature-card">
+      <h3>Personalised Advice</h3>
+      <p>Identifies modifiable risk factors and flags requiring clinical attention</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

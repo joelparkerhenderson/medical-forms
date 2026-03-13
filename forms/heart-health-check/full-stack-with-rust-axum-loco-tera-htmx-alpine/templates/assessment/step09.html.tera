@@ -1,0 +1,47 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Body Measurements - Heart Health Check{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Body Measurements</h2>
+    <p class="hint">BMI and waist circumference are indicators of cardiovascular risk. BMI will be calculated automatically if height and weight are provided.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="height_cm">Height (cm)</label>
+        <input type="number" id="height_cm" name="body_measurements.height_cm"
+               value="{{ body_measurements.heightCm }}"
+               step="0.1" min="100" max="250" placeholder="e.g. 175">
+      </div>
+      <div class="form-group">
+        <label for="weight_kg">Weight (kg)</label>
+        <input type="number" id="weight_kg" name="body_measurements.weight_kg"
+               value="{{ body_measurements.weightKg }}"
+               step="0.1" min="30" max="300" placeholder="e.g. 80">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bmi">BMI (auto-calculated if blank)</label>
+        <input type="number" id="bmi" name="body_measurements.bmi"
+               value="{{ body_measurements.bmi }}"
+               step="0.1" min="10" max="70" placeholder="e.g. 26.1">
+      </div>
+      <div class="form-group">
+        <label for="waist_circumference_cm">Waist Circumference (cm)</label>
+        <input type="number" id="waist_circumference_cm" name="body_measurements.waist_circumference_cm"
+               value="{{ body_measurements.waistCircumferenceCm }}"
+               step="0.1" min="40" max="200" placeholder="e.g. 88">
+        <span class="hint">Men: risk increases above 94cm. Women: above 80cm.</span>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
