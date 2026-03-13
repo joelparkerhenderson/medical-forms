@@ -1,5 +1,5 @@
 -- 13_grading_result.sql
--- Stores the computed DASH grading result for an orthopaedic assessment.
+-- Stores the computed DASH grading result for an orthopedic assessment.
 
 CREATE TABLE grading_result (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -23,7 +23,7 @@ CREATE TRIGGER trg_grading_result_updated_at
     EXECUTE FUNCTION set_updated_at();
 
 COMMENT ON TABLE grading_result IS
-    'Computed DASH grading result for the orthopaedic assessment. One-to-one child of assessment.';
+    'Computed DASH grading result for the orthopedic assessment. One-to-one child of assessment.';
 COMMENT ON COLUMN grading_result.dash_score IS
     'DASH score: 0 = no disability, 100 = most severe disability.';
 COMMENT ON COLUMN grading_result.disability_category IS

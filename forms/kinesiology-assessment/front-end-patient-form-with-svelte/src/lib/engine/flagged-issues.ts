@@ -80,7 +80,7 @@ export function detectAdditionalFlags(data: AssessmentData): AdditionalFlag[] {
 		flags.push({
 			id: 'FLAG-CLEARING-SHOULDER',
 			category: 'Clearing Test Failure',
-			message: 'Shoulder clearing test produced pain - refer for orthopaedic evaluation before upper extremity training',
+			message: 'Shoulder clearing test produced pain - refer for orthopedic evaluation before upper extremity training',
 			priority: 'high'
 		});
 	}

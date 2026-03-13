@@ -1,5 +1,5 @@
 -- 03_assessment_demographics.sql
--- Demographics section of the orthopaedic assessment.
+-- Demographics section of the orthopedic assessment.
 
 CREATE TABLE assessment_demographics (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

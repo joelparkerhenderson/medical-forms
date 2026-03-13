@@ -1,5 +1,5 @@
 -- 12_assessment_surgical_history.sql
--- Surgical history section of the orthopaedic assessment.
+-- Surgical history section of the orthopedic assessment.
 
 CREATE TABLE assessment_surgical_history (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -36,7 +36,7 @@ COMMENT ON TABLE assessment_surgical_history IS
 COMMENT ON COLUMN assessment_surgical_history.assessment_id IS
     'Foreign key to the parent assessment (unique, enforcing 1:1).';
 COMMENT ON COLUMN assessment_surgical_history.has_previous_surgery IS
-    'Whether the patient has had previous orthopaedic surgery: yes, no, or empty.';
+    'Whether the patient has had previous orthopedic surgery: yes, no, or empty.';
 COMMENT ON COLUMN assessment_surgical_history.surgery_considered IS
     'Whether surgery is being considered for the current condition: yes, no, or empty.';
 COMMENT ON COLUMN assessment_surgical_history.surgery_considered_details IS
@@ -80,7 +80,7 @@ CREATE TRIGGER trg_assessment_surgery_item_updated_at
     EXECUTE FUNCTION set_updated_at();
 
 COMMENT ON TABLE assessment_surgery_item IS
-    'Individual previous orthopaedic surgery entry with procedure, date, and outcome.';
+    'Individual previous orthopedic surgery entry with procedure, date, and outcome.';
 COMMENT ON COLUMN assessment_surgery_item.procedure_name IS
     'Name of the surgical procedure.';
 COMMENT ON COLUMN assessment_surgery_item.date_performed IS

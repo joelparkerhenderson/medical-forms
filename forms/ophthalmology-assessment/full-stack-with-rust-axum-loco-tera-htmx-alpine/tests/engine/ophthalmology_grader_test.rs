@@ -1,6 +1,6 @@
-use opthamology_assessment_tera_crate::engine::ophthalmology_grader::calculate_impairment;
-use opthamology_assessment_tera_crate::engine::ophthalmology_rules::all_rules;
-use opthamology_assessment_tera_crate::engine::types::*;
+use ophthalmology_assessment_tera_crate::engine::ophthalmology_grader::calculate_impairment;
+use ophthalmology_assessment_tera_crate::engine::ophthalmology_rules::all_rules;
+use ophthalmology_assessment_tera_crate::engine::types::*;
 
 fn create_empty_assessment() -> AssessmentData {
     AssessmentData::default()

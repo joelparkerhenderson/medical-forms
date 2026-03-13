@@ -1,5 +1,5 @@
 -- 02_assessment.sql
--- Top-level orthopaedic assessment linking a patient to an assessment instance.
+-- Top-level orthopedic assessment linking a patient to an assessment instance.
 
 CREATE TABLE assessment (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

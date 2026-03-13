@@ -1,5 +1,5 @@
 -- 15_grading_additional_flag.sql
--- Additional flags detected during orthopaedic assessment grading.
+-- Additional flags detected during orthopedic assessment grading.
 
 CREATE TABLE grading_additional_flag (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -23,7 +23,7 @@ CREATE TRIGGER trg_grading_additional_flag_updated_at
     EXECUTE FUNCTION set_updated_at();
 
 COMMENT ON TABLE grading_additional_flag IS
-    'Additional flags detected during orthopaedic assessment grading, such as red flag symptoms or surgical urgency indicators.';
+    'Additional flags detected during orthopedic assessment grading, such as red flag symptoms or surgical urgency indicators.';
 COMMENT ON COLUMN grading_additional_flag.flag_id IS
     'Identifier of the flag (e.g. FLAG-RED-FLAG-001, FLAG-NERVE-001).';
 COMMENT ON COLUMN grading_additional_flag.category IS

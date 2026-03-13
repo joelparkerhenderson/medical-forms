@@ -1,5 +1,5 @@
 -- 09_assessment_functional_limitations.sql
--- Functional limitations section of the orthopaedic assessment.
+-- Functional limitations section of the orthopedic assessment.
 
 CREATE TABLE assessment_functional_limitations (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

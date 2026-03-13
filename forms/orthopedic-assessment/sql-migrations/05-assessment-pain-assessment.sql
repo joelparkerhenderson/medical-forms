@@ -1,5 +1,5 @@
 -- 05_assessment_pain_assessment.sql
--- Pain assessment section of the orthopaedic assessment.
+-- Pain assessment section of the orthopedic assessment.
 
 CREATE TABLE assessment_pain_assessment (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

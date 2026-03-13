@@ -12,7 +12,7 @@ A clinical document used in Emergency Departments (ED) and Minor Injury Units (M
 ## Directory Structure
 
 ```
-casuality-card-form/
+casualty-card-form/
 ├── front-end-patient-form-with-svelte/   # SvelteKit patient form
 ├── front-end-clinician-dashboard-with-svelte/  # Clinician dashboard
 ├── front-end-patient-form-with-html/     # HTML form (scaffold)

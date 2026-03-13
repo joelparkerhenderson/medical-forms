@@ -1,4 +1,4 @@
-# Opthamology Assessment: Front End Patient Form With Svelte
+# Ophthalmology Assessment: Front End Patient Form With Svelte
 
 @../../../AGENTS/front-end-with-sveltekit-tailwind-svar.md
 

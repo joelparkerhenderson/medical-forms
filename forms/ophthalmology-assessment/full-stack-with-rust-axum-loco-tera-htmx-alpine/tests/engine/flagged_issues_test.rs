@@ -1,5 +1,5 @@
-use opthamology_assessment_tera_crate::engine::flagged_issues::detect_additional_flags;
-use opthamology_assessment_tera_crate::engine::types::*;
+use ophthalmology_assessment_tera_crate::engine::flagged_issues::detect_additional_flags;
+use ophthalmology_assessment_tera_crate::engine::types::*;
 
 fn create_normal_assessment() -> AssessmentData {
     let mut data = AssessmentData::default();

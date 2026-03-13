@@ -70,7 +70,7 @@ pub fn detect_additional_flags(data: &AssessmentData) -> Vec<AdditionalFlag> {
         flags.push(AdditionalFlag {
             id: "FLAG-POST-001".to_string(),
             category: "Posture".to_string(),
-            message: "Severe spinal curvature abnormality - orthopaedic referral recommended".to_string(),
+            message: "Severe spinal curvature abnormality - orthopedic referral recommended".to_string(),
             priority: "high".to_string(),
         });
     }

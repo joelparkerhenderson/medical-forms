@@ -1,5 +1,5 @@
 -- 04_assessment_chief_complaint.sql
--- Chief complaint section of the orthopaedic assessment.
+-- Chief complaint section of the orthopedic assessment.
 
 CREATE TABLE assessment_chief_complaint (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -42,7 +42,7 @@ COMMENT ON TABLE assessment_chief_complaint IS
 COMMENT ON COLUMN assessment_chief_complaint.assessment_id IS
     'Foreign key to the parent assessment (unique, enforcing 1:1).';
 COMMENT ON COLUMN assessment_chief_complaint.primary_complaint IS
-    'Primary reason for the orthopaedic consultation.';
+    'Primary reason for the orthopedic consultation.';
 COMMENT ON COLUMN assessment_chief_complaint.affected_region IS
     'Anatomical region affected: shoulder, elbow, wrist, hand, hip, knee, ankle, foot, spine regions, other, or empty.';
 COMMENT ON COLUMN assessment_chief_complaint.affected_side IS

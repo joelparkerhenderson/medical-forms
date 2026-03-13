@@ -23,7 +23,7 @@ CREATE TRIGGER trg_grading_fired_rule_updated_at
     EXECUTE FUNCTION set_updated_at();
 
 COMMENT ON TABLE grading_fired_rule IS
-    'Individual DASH classification rules that evaluated to true during grading of the orthopaedic assessment.';
+    'Individual DASH classification rules that evaluated to true during grading of the orthopedic assessment.';
 COMMENT ON COLUMN grading_fired_rule.rule_id IS
     'Identifier of the rule that fired (e.g. DASH-FUNC-001, DASH-PAIN-001).';
 COMMENT ON COLUMN grading_fired_rule.category IS

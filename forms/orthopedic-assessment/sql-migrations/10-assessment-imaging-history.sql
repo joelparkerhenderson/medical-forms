@@ -1,5 +1,5 @@
 -- 10_assessment_imaging_history.sql
--- Imaging history section of the orthopaedic assessment.
+-- Imaging history section of the orthopedic assessment.
 
 CREATE TABLE assessment_imaging_history (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

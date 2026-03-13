@@ -1,5 +1,5 @@
 -- 11_assessment_current_treatment.sql
--- Current treatment section of the orthopaedic assessment.
+-- Current treatment section of the orthopedic assessment.
 
 CREATE TABLE assessment_current_treatment (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -57,7 +57,7 @@ COMMENT ON COLUMN assessment_current_treatment.has_splinting_bracing IS
 COMMENT ON COLUMN assessment_current_treatment.splinting_bracing_details IS
     'Details of splinting or bracing in use.';
 COMMENT ON COLUMN assessment_current_treatment.current_medications IS
-    'Current medications related to the orthopaedic condition.';
+    'Current medications related to the orthopedic condition.';
 COMMENT ON COLUMN assessment_current_treatment.has_alternative_therapy IS
     'Whether the patient uses alternative therapy: yes, no, or empty.';
 COMMENT ON COLUMN assessment_current_treatment.alternative_therapy_details IS

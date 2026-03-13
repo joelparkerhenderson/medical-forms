@@ -2,11 +2,11 @@
 members = ["migration"]
 
 [package]
-name = "opthamology-assessment-tera-crate"
+name = "ophthalmology-assessment-tera-crate"
 version = "0.1.0"
 edition = "2024"
 publish = false
-default-run = "opthamology-assessment-tera-crate-cli"
+default-run = "ophthalmology-assessment-tera-crate-cli"
 
 [workspace.dependencies]
 loco-rs = { version = "0.16" }
@@ -33,7 +33,7 @@ tracing = { version = "0.1" }
 tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
 
 [[bin]]
-name = "opthamology-assessment-tera-crate-cli"
+name = "ophthalmology-assessment-tera-crate-cli"
 path = "src/bin/main.rs"
 required-features = []
 

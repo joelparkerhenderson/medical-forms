@@ -1,5 +1,5 @@
 -- 08_assessment_strength_testing.sql
--- Strength testing section of the orthopaedic assessment.
+-- Strength testing section of the orthopedic assessment.
 
 CREATE TABLE assessment_strength_testing (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

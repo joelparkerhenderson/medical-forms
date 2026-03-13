@@ -26,7 +26,7 @@ Ophthalmic evaluation covering visual acuity, anterior and posterior segment exa
 ## Directory structure
 
 ```
-opthamology-assessment/
+ophthalmology-assessment/
   front-end-patient-form-with-svelte/
   front-end-clinician-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera/

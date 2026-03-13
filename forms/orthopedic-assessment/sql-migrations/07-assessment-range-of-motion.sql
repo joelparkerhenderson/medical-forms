@@ -1,5 +1,5 @@
 -- 07_assessment_range_of_motion.sql
--- Range of motion section of the orthopaedic assessment.
+-- Range of motion section of the orthopedic assessment.
 
 CREATE TABLE assessment_range_of_motion (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
