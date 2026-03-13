@@ -1,0 +1,87 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Surgical Considerations - Orthopedic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Surgical Considerations</h2>
+    <p class="hint">Evaluate surgical candidacy and risk factors. 1 = Low/Good, 5 = High/Poor.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Surgical Candidate?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="surgical_considerations.surgical_candidate" value="yes" {% if surgical_considerations.surgicalCandidate == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="surgical_considerations.surgical_candidate" value="no" {% if surgical_considerations.surgicalCandidate == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="surgical_considerations.surgical_candidate" value="undecided" {% if surgical_considerations.surgicalCandidate == "undecided" %}checked{% endif %}> Undecided</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Conservative Options Exhausted?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="surgical_considerations.conservative_options_exhausted" value="yes" {% if surgical_considerations.conservativeOptionsExhausted == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="surgical_considerations.conservative_options_exhausted" value="no" {% if surgical_considerations.conservativeOptionsExhausted == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="surgical_urgency">Surgical Urgency (1-5)</label>
+        <select id="surgical_urgency" name="surgical_considerations.surgical_urgency">
+          <option value="">-- Select --</option>
+          <option value="1" {% if surgical_considerations.surgicalUrgency == 1 %}selected{% endif %}>1 - Elective</option>
+          <option value="2" {% if surgical_considerations.surgicalUrgency == 2 %}selected{% endif %}>2 - Soon</option>
+          <option value="3" {% if surgical_considerations.surgicalUrgency == 3 %}selected{% endif %}>3 - Urgent</option>
+          <option value="4" {% if surgical_considerations.surgicalUrgency == 4 %}selected{% endif %}>4 - Very urgent</option>
+          <option value="5" {% if surgical_considerations.surgicalUrgency == 5 %}selected{% endif %}>5 - Emergency</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="anaesthetic_risk">Anaesthetic Risk (1-5)</label>
+        <select id="anaesthetic_risk" name="surgical_considerations.anaesthetic_risk">
+          <option value="">-- Select --</option>
+          <option value="1" {% if surgical_considerations.anaestheticRisk == 1 %}selected{% endif %}>1 - ASA I (healthy)</option>
+          <option value="2" {% if surgical_considerations.anaestheticRisk == 2 %}selected{% endif %}>2 - ASA II (mild disease)</option>
+          <option value="3" {% if surgical_considerations.anaestheticRisk == 3 %}selected{% endif %}>3 - ASA III (severe disease)</option>
+          <option value="4" {% if surgical_considerations.anaestheticRisk == 4 %}selected{% endif %}>4 - ASA IV (life-threatening)</option>
+          <option value="5" {% if surgical_considerations.anaestheticRisk == 5 %}selected{% endif %}>5 - ASA V (moribund)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="expected_outcome">Expected Outcome (1-5)</label>
+        <select id="expected_outcome" name="surgical_considerations.expected_outcome">
+          <option value="">-- Select --</option>
+          <option value="1" {% if surgical_considerations.expectedOutcome == 1 %}selected{% endif %}>1 - Excellent prognosis</option>
+          <option value="2" {% if surgical_considerations.expectedOutcome == 2 %}selected{% endif %}>2 - Good prognosis</option>
+          <option value="3" {% if surgical_considerations.expectedOutcome == 3 %}selected{% endif %}>3 - Fair prognosis</option>
+          <option value="4" {% if surgical_considerations.expectedOutcome == 4 %}selected{% endif %}>4 - Guarded prognosis</option>
+          <option value="5" {% if surgical_considerations.expectedOutcome == 5 %}selected{% endif %}>5 - Poor prognosis</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Consent Discussion Completed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="surgical_considerations.patient_consent_discussion" value="yes" {% if surgical_considerations.patientConsentDiscussion == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="surgical_considerations.patient_consent_discussion" value="no" {% if surgical_considerations.patientConsentDiscussion == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="surgical_considerations.patient_consent_discussion" value="notApplicable" {% if surgical_considerations.patientConsentDiscussion == "notApplicable" %}checked{% endif %}> N/A</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="rehabilitation_plan">Rehabilitation Plan</label>
+      <textarea id="rehabilitation_plan" name="surgical_considerations.rehabilitation_plan"
+                rows="3" placeholder="Outline the rehabilitation plan">{{ surgical_considerations.rehabilitationPlan }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Imaging & Investigations - Orthopedic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Imaging & Investigations</h2>
+    <p class="hint">Record imaging findings and investigation results.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="xray_findings">X-ray Findings</label>
+        <textarea id="xray_findings" name="imaging_investigations.xray_findings"
+                  rows="2" placeholder="e.g. Joint space narrowing, osteophytes">{{ imaging_investigations.xrayFindings }}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="mri_findings">MRI Findings</label>
+        <textarea id="mri_findings" name="imaging_investigations.mri_findings"
+                  rows="2" placeholder="e.g. Meniscal tear, disc herniation">{{ imaging_investigations.mriFindings }}</textarea>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ct_findings">CT Findings</label>
+        <textarea id="ct_findings" name="imaging_investigations.ct_findings"
+                  rows="2" placeholder="e.g. Fracture pattern, bony lesion">{{ imaging_investigations.ctFindings }}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="bone_density_result">Bone Density (DEXA) Result</label>
+        <select id="bone_density_result" name="imaging_investigations.bone_density_result">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if imaging_investigations.boneDensityResult == "normal" %}selected{% endif %}>Normal</option>
+          <option value="osteopenia" {% if imaging_investigations.boneDensityResult == "osteopenia" %}selected{% endif %}>Osteopenia</option>
+          <option value="osteoporosis" {% if imaging_investigations.boneDensityResult == "osteoporosis" %}selected{% endif %}>Osteoporosis</option>
+          <option value="notDone" {% if imaging_investigations.boneDensityResult == "notDone" %}selected{% endif %}>Not Done</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="blood_tests_result">Blood Tests Result</label>
+        <select id="blood_tests_result" name="imaging_investigations.blood_tests_result">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if imaging_investigations.bloodTestsResult == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if imaging_investigations.bloodTestsResult == "abnormal" %}selected{% endif %}>Abnormal</option>
+          <option value="pending" {% if imaging_investigations.bloodTestsResult == "pending" %}selected{% endif %}>Pending</option>
+          <option value="notDone" {% if imaging_investigations.bloodTestsResult == "notDone" %}selected{% endif %}>Not Done</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="imaging_urgency">Imaging Urgency (1-5)</label>
+        <select id="imaging_urgency" name="imaging_investigations.imaging_urgency">
+          <option value="">-- Select --</option>
+          <option value="1" {% if imaging_investigations.imagingUrgency == 1 %}selected{% endif %}>1 - Routine</option>
+          <option value="2" {% if imaging_investigations.imagingUrgency == 2 %}selected{% endif %}>2 - Soon</option>
+          <option value="3" {% if imaging_investigations.imagingUrgency == 3 %}selected{% endif %}>3 - Urgent</option>
+          <option value="4" {% if imaging_investigations.imagingUrgency == 4 %}selected{% endif %}>4 - Very urgent</option>
+          <option value="5" {% if imaging_investigations.imagingUrgency == 5 %}selected{% endif %}>5 - Immediate</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Further Imaging Needed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="imaging_investigations.further_imaging_needed" value="yes" {% if imaging_investigations.furtherImagingNeeded == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="imaging_investigations.further_imaging_needed" value="no" {% if imaging_investigations.furtherImagingNeeded == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Orthopedic Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Orthopedic Assessment</h1>
+  <p>
+    This assessment form collects comprehensive orthopedic examination data
+    for evaluating musculoskeletal conditions. It covers patient history,
+    pain evaluation, joint and muscle examination, spinal assessment,
+    imaging review, functional status, and surgical considerations.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive evaluation of musculoskeletal conditions</p>
+    </div>
+    <div class="feature-card">
+      <h3>Severity Grading</h3>
+      <p>Composite scoring with severity classification</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated flagging of urgent findings</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

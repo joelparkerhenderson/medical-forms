@@ -1,0 +1,104 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Functional Status - Orthopedic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Functional Status</h2>
+    <p class="hint">Assess the patient's functional capacity. 1 = Normal/Good, 5 = Severely Impaired.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mobility_level">Mobility Level (1-5)</label>
+        <select id="mobility_level" name="functional_status.mobility_level">
+          <option value="">-- Select --</option>
+          <option value="1" {% if functional_status.mobilityLevel == 1 %}selected{% endif %}>1 - Fully mobile</option>
+          <option value="2" {% if functional_status.mobilityLevel == 2 %}selected{% endif %}>2 - Mildly limited</option>
+          <option value="3" {% if functional_status.mobilityLevel == 3 %}selected{% endif %}>3 - Moderately limited</option>
+          <option value="4" {% if functional_status.mobilityLevel == 4 %}selected{% endif %}>4 - Severely limited</option>
+          <option value="5" {% if functional_status.mobilityLevel == 5 %}selected{% endif %}>5 - Immobile</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="daily_activities">Daily Activities (1-5)</label>
+        <select id="daily_activities" name="functional_status.daily_activities">
+          <option value="">-- Select --</option>
+          <option value="1" {% if functional_status.dailyActivities == 1 %}selected{% endif %}>1 - Fully independent</option>
+          <option value="2" {% if functional_status.dailyActivities == 2 %}selected{% endif %}>2 - Minimal difficulty</option>
+          <option value="3" {% if functional_status.dailyActivities == 3 %}selected{% endif %}>3 - Moderate difficulty</option>
+          <option value="4" {% if functional_status.dailyActivities == 4 %}selected{% endif %}>4 - Requires assistance</option>
+          <option value="5" {% if functional_status.dailyActivities == 5 %}selected{% endif %}>5 - Fully dependent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="work_capacity">Work Capacity (1-5)</label>
+        <select id="work_capacity" name="functional_status.work_capacity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if functional_status.workCapacity == 1 %}selected{% endif %}>1 - Full capacity</option>
+          <option value="2" {% if functional_status.workCapacity == 2 %}selected{% endif %}>2 - Light duties</option>
+          <option value="3" {% if functional_status.workCapacity == 3 %}selected{% endif %}>3 - Reduced hours</option>
+          <option value="4" {% if functional_status.workCapacity == 4 %}selected{% endif %}>4 - Unable to work</option>
+          <option value="5" {% if functional_status.workCapacity == 5 %}selected{% endif %}>5 - Long-term absence</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sleep_quality">Sleep Quality (1-5)</label>
+        <select id="sleep_quality" name="functional_status.sleep_quality">
+          <option value="">-- Select --</option>
+          <option value="1" {% if functional_status.sleepQuality == 1 %}selected{% endif %}>1 - Good</option>
+          <option value="2" {% if functional_status.sleepQuality == 2 %}selected{% endif %}>2 - Mildly disrupted</option>
+          <option value="3" {% if functional_status.sleepQuality == 3 %}selected{% endif %}>3 - Moderately disrupted</option>
+          <option value="4" {% if functional_status.sleepQuality == 4 %}selected{% endif %}>4 - Severely disrupted</option>
+          <option value="5" {% if functional_status.sleepQuality == 5 %}selected{% endif %}>5 - Unable to sleep</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="walking_distance">Walking Distance</label>
+        <select id="walking_distance" name="functional_status.walking_distance">
+          <option value="">-- Select --</option>
+          <option value="unlimited" {% if functional_status.walkingDistance == "unlimited" %}selected{% endif %}>Unlimited</option>
+          <option value="moreThan1km" {% if functional_status.walkingDistance == "moreThan1km" %}selected{% endif %}>More than 1 km</option>
+          <option value="500mTo1km" {% if functional_status.walkingDistance == "500mTo1km" %}selected{% endif %}>500m - 1 km</option>
+          <option value="100mTo500m" {% if functional_status.walkingDistance == "100mTo500m" %}selected{% endif %}>100m - 500m</option>
+          <option value="lessThan100m" {% if functional_status.walkingDistance == "lessThan100m" %}selected{% endif %}>Less than 100m</option>
+          <option value="housebound" {% if functional_status.walkingDistance == "housebound" %}selected{% endif %}>Housebound</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="assistive_devices">Assistive Devices</label>
+        <select id="assistive_devices" name="functional_status.assistive_devices">
+          <option value="">-- Select --</option>
+          <option value="none" {% if functional_status.assistiveDevices == "none" %}selected{% endif %}>None</option>
+          <option value="stick" {% if functional_status.assistiveDevices == "stick" %}selected{% endif %}>Walking Stick</option>
+          <option value="crutches" {% if functional_status.assistiveDevices == "crutches" %}selected{% endif %}>Crutches</option>
+          <option value="frame" {% if functional_status.assistiveDevices == "frame" %}selected{% endif %}>Walking Frame</option>
+          <option value="wheelchair" {% if functional_status.assistiveDevices == "wheelchair" %}selected{% endif %}>Wheelchair</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fall_risk">Fall Risk (1-5)</label>
+      <select id="fall_risk" name="functional_status.fall_risk">
+        <option value="">-- Select --</option>
+        <option value="1" {% if functional_status.fallRisk == 1 %}selected{% endif %}>1 - Low</option>
+        <option value="2" {% if functional_status.fallRisk == 2 %}selected{% endif %}>2 - Mildly elevated</option>
+        <option value="3" {% if functional_status.fallRisk == 3 %}selected{% endif %}>3 - Moderate</option>
+        <option value="4" {% if functional_status.fallRisk == 4 %}selected{% endif %}>4 - High</option>
+        <option value="5" {% if functional_status.fallRisk == 5 %}selected{% endif %}>5 - Very high</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

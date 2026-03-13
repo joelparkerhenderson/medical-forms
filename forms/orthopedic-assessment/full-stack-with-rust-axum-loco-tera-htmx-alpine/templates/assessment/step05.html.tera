@@ -1,0 +1,95 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Muscle Assessment - Orthopedic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Muscle Assessment</h2>
+    <p class="hint">Evaluate muscle function. 1 = Normal, 5 = Severely Abnormal.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="muscle_strength">Muscle Strength (1-5)</label>
+        <select id="muscle_strength" name="muscle_assessment.muscle_strength">
+          <option value="">-- Select --</option>
+          <option value="1" {% if muscle_assessment.muscleStrength == 1 %}selected{% endif %}>1 - Normal (5/5)</option>
+          <option value="2" {% if muscle_assessment.muscleStrength == 2 %}selected{% endif %}>2 - Mild weakness (4/5)</option>
+          <option value="3" {% if muscle_assessment.muscleStrength == 3 %}selected{% endif %}>3 - Moderate weakness (3/5)</option>
+          <option value="4" {% if muscle_assessment.muscleStrength == 4 %}selected{% endif %}>4 - Severe weakness (2/5)</option>
+          <option value="5" {% if muscle_assessment.muscleStrength == 5 %}selected{% endif %}>5 - Trace/absent (0-1/5)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="muscle_atrophy">Muscle Atrophy (1-5)</label>
+        <select id="muscle_atrophy" name="muscle_assessment.muscle_atrophy">
+          <option value="">-- Select --</option>
+          <option value="1" {% if muscle_assessment.muscleAtrophy == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if muscle_assessment.muscleAtrophy == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if muscle_assessment.muscleAtrophy == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if muscle_assessment.muscleAtrophy == 4 %}selected{% endif %}>4 - Significant</option>
+          <option value="5" {% if muscle_assessment.muscleAtrophy == 5 %}selected{% endif %}>5 - Severe wasting</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="muscle_tone">Muscle Tone (1-5)</label>
+        <select id="muscle_tone" name="muscle_assessment.muscle_tone">
+          <option value="">-- Select --</option>
+          <option value="1" {% if muscle_assessment.muscleTone == 1 %}selected{% endif %}>1 - Normal</option>
+          <option value="2" {% if muscle_assessment.muscleTone == 2 %}selected{% endif %}>2 - Mildly abnormal</option>
+          <option value="3" {% if muscle_assessment.muscleTone == 3 %}selected{% endif %}>3 - Moderately abnormal</option>
+          <option value="4" {% if muscle_assessment.muscleTone == 4 %}selected{% endif %}>4 - Significantly abnormal</option>
+          <option value="5" {% if muscle_assessment.muscleTone == 5 %}selected{% endif %}>5 - Severely abnormal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="grip_strength">Grip Strength (1-5)</label>
+        <select id="grip_strength" name="muscle_assessment.grip_strength">
+          <option value="">-- Select --</option>
+          <option value="1" {% if muscle_assessment.gripStrength == 1 %}selected{% endif %}>1 - Normal</option>
+          <option value="2" {% if muscle_assessment.gripStrength == 2 %}selected{% endif %}>2 - Mildly reduced</option>
+          <option value="3" {% if muscle_assessment.gripStrength == 3 %}selected{% endif %}>3 - Moderately reduced</option>
+          <option value="4" {% if muscle_assessment.gripStrength == 4 %}selected{% endif %}>4 - Severely reduced</option>
+          <option value="5" {% if muscle_assessment.gripStrength == 5 %}selected{% endif %}>5 - Absent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="muscle_tenderness">Muscle Tenderness (1-5)</label>
+      <select id="muscle_tenderness" name="muscle_assessment.muscle_tenderness">
+        <option value="">-- Select --</option>
+        <option value="1" {% if muscle_assessment.muscleTenderness == 1 %}selected{% endif %}>1 - None</option>
+        <option value="2" {% if muscle_assessment.muscleTenderness == 2 %}selected{% endif %}>2 - Mild</option>
+        <option value="3" {% if muscle_assessment.muscleTenderness == 3 %}selected{% endif %}>3 - Moderate</option>
+        <option value="4" {% if muscle_assessment.muscleTenderness == 4 %}selected{% endif %}>4 - Significant</option>
+        <option value="5" {% if muscle_assessment.muscleTenderness == 5 %}selected{% endif %}>5 - Severe</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Reflexes Normal?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="muscle_assessment.reflexes_normal" value="yes" {% if muscle_assessment.reflexesNormal == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="muscle_assessment.reflexes_normal" value="no" {% if muscle_assessment.reflexesNormal == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Sensation Intact?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="muscle_assessment.sensation_intact" value="yes" {% if muscle_assessment.sensationIntact == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="muscle_assessment.sensation_intact" value="no" {% if muscle_assessment.sensationIntact == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

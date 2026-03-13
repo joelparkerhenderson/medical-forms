@@ -1,0 +1,91 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Orthopedic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Final clinical summary and recommendations. 1 = Normal/Mild, 5 = Severe/Critical.</p>
+
+    <div class="form-group">
+      <label for="overall_severity">Overall Severity (1-5)</label>
+      <select id="overall_severity" name="clinical_review.overall_severity">
+        <option value="">-- Select --</option>
+        <option value="1" {% if clinical_review.overallSeverity == 1 %}selected{% endif %}>1 - Mild</option>
+        <option value="2" {% if clinical_review.overallSeverity == 2 %}selected{% endif %}>2 - Mild-Moderate</option>
+        <option value="3" {% if clinical_review.overallSeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+        <option value="4" {% if clinical_review.overallSeverity == 4 %}selected{% endif %}>4 - Severe</option>
+        <option value="5" {% if clinical_review.overallSeverity == 5 %}selected{% endif %}>5 - Critical</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="treatment_recommendation">Treatment Recommendation</label>
+        <select id="treatment_recommendation" name="clinical_review.treatment_recommendation">
+          <option value="">-- Select --</option>
+          <option value="conservative" {% if clinical_review.treatmentRecommendation == "conservative" %}selected{% endif %}>Conservative Management</option>
+          <option value="physiotherapy" {% if clinical_review.treatmentRecommendation == "physiotherapy" %}selected{% endif %}>Physiotherapy</option>
+          <option value="injection" {% if clinical_review.treatmentRecommendation == "injection" %}selected{% endif %}>Injection Therapy</option>
+          <option value="surgical" {% if clinical_review.treatmentRecommendation == "surgical" %}selected{% endif %}>Surgical Intervention</option>
+          <option value="furtherInvestigation" {% if clinical_review.treatmentRecommendation == "furtherInvestigation" %}selected{% endif %}>Further Investigation</option>
+          <option value="multidisciplinary" {% if clinical_review.treatmentRecommendation == "multidisciplinary" %}selected{% endif %}>Multidisciplinary Team</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="follow_up_interval">Follow-up Interval</label>
+        <select id="follow_up_interval" name="clinical_review.follow_up_interval">
+          <option value="">-- Select --</option>
+          <option value="1week" {% if clinical_review.followUpInterval == "1week" %}selected{% endif %}>1 Week</option>
+          <option value="2weeks" {% if clinical_review.followUpInterval == "2weeks" %}selected{% endif %}>2 Weeks</option>
+          <option value="4weeks" {% if clinical_review.followUpInterval == "4weeks" %}selected{% endif %}>4 Weeks</option>
+          <option value="6weeks" {% if clinical_review.followUpInterval == "6weeks" %}selected{% endif %}>6 Weeks</option>
+          <option value="3months" {% if clinical_review.followUpInterval == "3months" %}selected{% endif %}>3 Months</option>
+          <option value="6months" {% if clinical_review.followUpInterval == "6months" %}selected{% endif %}>6 Months</option>
+          <option value="asNeeded" {% if clinical_review.followUpInterval == "asNeeded" %}selected{% endif %}>As Needed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Referral Needed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.referral_needed" value="yes" {% if clinical_review.referralNeeded == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.referral_needed" value="no" {% if clinical_review.referralNeeded == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="patient_understanding">Patient Understanding (1-5)</label>
+        <select id="patient_understanding" name="clinical_review.patient_understanding">
+          <option value="">-- Select --</option>
+          <option value="1" {% if clinical_review.patientUnderstanding == 1 %}selected{% endif %}>1 - Excellent</option>
+          <option value="2" {% if clinical_review.patientUnderstanding == 2 %}selected{% endif %}>2 - Good</option>
+          <option value="3" {% if clinical_review.patientUnderstanding == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if clinical_review.patientUnderstanding == 4 %}selected{% endif %}>4 - Limited</option>
+          <option value="5" {% if clinical_review.patientUnderstanding == 5 %}selected{% endif %}>5 - Poor</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Red Flag Symptoms Present?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clinical_review.red_flag_symptoms" value="yes" {% if clinical_review.redFlagSymptoms == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="clinical_review.red_flag_symptoms" value="no" {% if clinical_review.redFlagSymptoms == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_notes">Clinical Notes</label>
+      <textarea id="clinical_notes" name="clinical_review.clinical_notes"
+                rows="4" placeholder="Additional clinical notes and observations">{{ clinical_review.clinicalNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Pain Assessment - Orthopedic Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Pain Assessment</h2>
+    <p class="hint">Rate the patient's pain levels. 1 = Minimal/None, 5 = Severe/Maximum.</p>
+
+    <div class="form-group">
+      <label for="pain_severity">Overall Pain Severity (1-5)</label>
+      <select id="pain_severity" name="pain_assessment.pain_severity">
+        <option value="">-- Select --</option>
+        <option value="1" {% if pain_assessment.painSeverity == 1 %}selected{% endif %}>1 - Minimal</option>
+        <option value="2" {% if pain_assessment.painSeverity == 2 %}selected{% endif %}>2 - Mild</option>
+        <option value="3" {% if pain_assessment.painSeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+        <option value="4" {% if pain_assessment.painSeverity == 4 %}selected{% endif %}>4 - Severe</option>
+        <option value="5" {% if pain_assessment.painSeverity == 5 %}selected{% endif %}>5 - Very Severe</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pain_at_rest">Pain at Rest (1-5)</label>
+        <select id="pain_at_rest" name="pain_assessment.pain_at_rest">
+          <option value="">-- Select --</option>
+          <option value="1" {% if pain_assessment.painAtRest == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if pain_assessment.painAtRest == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if pain_assessment.painAtRest == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if pain_assessment.painAtRest == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if pain_assessment.painAtRest == 5 %}selected{% endif %}>5 - Constant</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pain_with_activity">Pain with Activity (1-5)</label>
+        <select id="pain_with_activity" name="pain_assessment.pain_with_activity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if pain_assessment.painWithActivity == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if pain_assessment.painWithActivity == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if pain_assessment.painWithActivity == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if pain_assessment.painWithActivity == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if pain_assessment.painWithActivity == 5 %}selected{% endif %}>5 - Incapacitating</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="night_pain">Night Pain (1-5)</label>
+      <select id="night_pain" name="pain_assessment.night_pain">
+        <option value="">-- Select --</option>
+        <option value="1" {% if pain_assessment.nightPain == 1 %}selected{% endif %}>1 - None</option>
+        <option value="2" {% if pain_assessment.nightPain == 2 %}selected{% endif %}>2 - Occasional</option>
+        <option value="3" {% if pain_assessment.nightPain == 3 %}selected{% endif %}>3 - Frequent</option>
+        <option value="4" {% if pain_assessment.nightPain == 4 %}selected{% endif %}>4 - Most nights</option>
+        <option value="5" {% if pain_assessment.nightPain == 5 %}selected{% endif %}>5 - Every night</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pain_location">Pain Location</label>
+        <input type="text" id="pain_location" name="pain_assessment.pain_location"
+               value="{{ pain_assessment.painLocation }}"
+               placeholder="e.g. right knee, lower back">
+      </div>
+      <div class="form-group">
+        <label for="pain_character">Pain Character</label>
+        <select id="pain_character" name="pain_assessment.pain_character">
+          <option value="">-- Select --</option>
+          <option value="sharp" {% if pain_assessment.painCharacter == "sharp" %}selected{% endif %}>Sharp</option>
+          <option value="dull" {% if pain_assessment.painCharacter == "dull" %}selected{% endif %}>Dull / Aching</option>
+          <option value="burning" {% if pain_assessment.painCharacter == "burning" %}selected{% endif %}>Burning</option>
+          <option value="throbbing" {% if pain_assessment.painCharacter == "throbbing" %}selected{% endif %}>Throbbing</option>
+          <option value="shooting" {% if pain_assessment.painCharacter == "shooting" %}selected{% endif %}>Shooting</option>
+          <option value="stiffness" {% if pain_assessment.painCharacter == "stiffness" %}selected{% endif %}>Stiffness</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Does the pain radiate?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="pain_assessment.pain_radiating" value="yes" {% if pain_assessment.painRadiating == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="pain_assessment.pain_radiating" value="no" {% if pain_assessment.painRadiating == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pain_duration_weeks">Pain Duration</label>
+        <select id="pain_duration_weeks" name="pain_assessment.pain_duration_weeks">
+          <option value="">-- Select --</option>
+          <option value="lessThan2" {% if pain_assessment.painDurationWeeks == "lessThan2" %}selected{% endif %}>Less than 2 weeks</option>
+          <option value="2to6" {% if pain_assessment.painDurationWeeks == "2to6" %}selected{% endif %}>2 - 6 weeks</option>
+          <option value="6to12" {% if pain_assessment.painDurationWeeks == "6to12" %}selected{% endif %}>6 - 12 weeks</option>
+          <option value="moreThan12" {% if pain_assessment.painDurationWeeks == "moreThan12" %}selected{% endif %}>More than 12 weeks</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
