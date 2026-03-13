@@ -1,0 +1,78 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Kinesiology Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Kinesiology Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by date, name, complaint...">
+    </div>
+    <div class="form-group">
+      <label for="impairment_level">Impairment Level</label>
+      <select id="impairment_level" name="impairment_level">
+        <option value="">All Levels</option>
+        <option value="optimal" {% if impairment_level == "optimal" %}selected{% endif %}>Optimal</option>
+        <option value="mildImpairment" {% if impairment_level == "mildImpairment" %}selected{% endif %}>Mild Impairment</option>
+        <option value="moderateImpairment" {% if impairment_level == "moderateImpairment" %}selected{% endif %}>Moderate Impairment</option>
+        <option value="severeImpairment" {% if impairment_level == "severeImpairment" %}selected{% endif %}>Severe Impairment</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="pain_category">Pain Category</label>
+      <select id="pain_category" name="pain_category">
+        <option value="">All</option>
+        <option value="minimal" {% if pain_category == "minimal" %}selected{% endif %}>Minimal</option>
+        <option value="mild" {% if pain_category == "mild" %}selected{% endif %}>Mild</option>
+        <option value="moderate" {% if pain_category == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="severe" {% if pain_category == "severe" %}selected{% endif %}>Severe</option>
+        <option value="extreme" {% if pain_category == "extreme" %}selected{% endif %}>Extreme</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Patient</th>
+      <th>Primary Complaint</th>
+      <th>Impairment</th>
+      <th>Score</th>
+      <th>Pain</th>
+      <th>Follow-Up</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.assessmentDate }}</a></td>
+      <td>{{ patient.patientName }}</td>
+      <td>{{ patient.primaryComplaint }}</td>
+      <td><span class="impairment-badge impairment-{{ patient.impairmentLevel }}">{{ patient.impairmentLevel }}</span></td>
+      <td>{{ patient.impairmentScore }}%</td>
+      <td><span class="pain-badge pain-{{ patient.painCategory }}">{{ patient.painCategory }}</span></td>
+      <td>{{ patient.followUpNeeded }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

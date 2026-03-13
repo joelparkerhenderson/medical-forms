@@ -1,0 +1,116 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Range of Motion - Kinesiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Range of Motion</h2>
+    <p class="hint">Rate each movement range (1 = Severely Restricted, 5 = Full / Normal Range).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cervical_flexion">Cervical Flexion</label>
+        <select id="cervical_flexion" name="range_of_motion.cervical_flexion">
+          <option value="">-- Select --</option>
+          <option value="1" {% if range_of_motion.cervicalFlexion == 1 %}selected{% endif %}>1 - Severely Restricted</option>
+          <option value="2" {% if range_of_motion.cervicalFlexion == 2 %}selected{% endif %}>2 - Moderately Restricted</option>
+          <option value="3" {% if range_of_motion.cervicalFlexion == 3 %}selected{% endif %}>3 - Mildly Restricted</option>
+          <option value="4" {% if range_of_motion.cervicalFlexion == 4 %}selected{% endif %}>4 - Near Normal</option>
+          <option value="5" {% if range_of_motion.cervicalFlexion == 5 %}selected{% endif %}>5 - Full Range</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cervical_rotation">Cervical Rotation</label>
+        <select id="cervical_rotation" name="range_of_motion.cervical_rotation">
+          <option value="">-- Select --</option>
+          <option value="1" {% if range_of_motion.cervicalRotation == 1 %}selected{% endif %}>1 - Severely Restricted</option>
+          <option value="2" {% if range_of_motion.cervicalRotation == 2 %}selected{% endif %}>2 - Moderately Restricted</option>
+          <option value="3" {% if range_of_motion.cervicalRotation == 3 %}selected{% endif %}>3 - Mildly Restricted</option>
+          <option value="4" {% if range_of_motion.cervicalRotation == 4 %}selected{% endif %}>4 - Near Normal</option>
+          <option value="5" {% if range_of_motion.cervicalRotation == 5 %}selected{% endif %}>5 - Full Range</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="shoulder_flexion">Shoulder Flexion</label>
+        <select id="shoulder_flexion" name="range_of_motion.shoulder_flexion">
+          <option value="">-- Select --</option>
+          <option value="1" {% if range_of_motion.shoulderFlexion == 1 %}selected{% endif %}>1 - Severely Restricted</option>
+          <option value="2" {% if range_of_motion.shoulderFlexion == 2 %}selected{% endif %}>2 - Moderately Restricted</option>
+          <option value="3" {% if range_of_motion.shoulderFlexion == 3 %}selected{% endif %}>3 - Mildly Restricted</option>
+          <option value="4" {% if range_of_motion.shoulderFlexion == 4 %}selected{% endif %}>4 - Near Normal</option>
+          <option value="5" {% if range_of_motion.shoulderFlexion == 5 %}selected{% endif %}>5 - Full Range</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="shoulder_abduction">Shoulder Abduction</label>
+        <select id="shoulder_abduction" name="range_of_motion.shoulder_abduction">
+          <option value="">-- Select --</option>
+          <option value="1" {% if range_of_motion.shoulderAbduction == 1 %}selected{% endif %}>1 - Severely Restricted</option>
+          <option value="2" {% if range_of_motion.shoulderAbduction == 2 %}selected{% endif %}>2 - Moderately Restricted</option>
+          <option value="3" {% if range_of_motion.shoulderAbduction == 3 %}selected{% endif %}>3 - Mildly Restricted</option>
+          <option value="4" {% if range_of_motion.shoulderAbduction == 4 %}selected{% endif %}>4 - Near Normal</option>
+          <option value="5" {% if range_of_motion.shoulderAbduction == 5 %}selected{% endif %}>5 - Full Range</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="lumbar_flexion">Lumbar Flexion</label>
+        <select id="lumbar_flexion" name="range_of_motion.lumbar_flexion">
+          <option value="">-- Select --</option>
+          <option value="1" {% if range_of_motion.lumbarFlexion == 1 %}selected{% endif %}>1 - Severely Restricted</option>
+          <option value="2" {% if range_of_motion.lumbarFlexion == 2 %}selected{% endif %}>2 - Moderately Restricted</option>
+          <option value="3" {% if range_of_motion.lumbarFlexion == 3 %}selected{% endif %}>3 - Mildly Restricted</option>
+          <option value="4" {% if range_of_motion.lumbarFlexion == 4 %}selected{% endif %}>4 - Near Normal</option>
+          <option value="5" {% if range_of_motion.lumbarFlexion == 5 %}selected{% endif %}>5 - Full Range</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="lumbar_extension">Lumbar Extension</label>
+        <select id="lumbar_extension" name="range_of_motion.lumbar_extension">
+          <option value="">-- Select --</option>
+          <option value="1" {% if range_of_motion.lumbarExtension == 1 %}selected{% endif %}>1 - Severely Restricted</option>
+          <option value="2" {% if range_of_motion.lumbarExtension == 2 %}selected{% endif %}>2 - Moderately Restricted</option>
+          <option value="3" {% if range_of_motion.lumbarExtension == 3 %}selected{% endif %}>3 - Mildly Restricted</option>
+          <option value="4" {% if range_of_motion.lumbarExtension == 4 %}selected{% endif %}>4 - Near Normal</option>
+          <option value="5" {% if range_of_motion.lumbarExtension == 5 %}selected{% endif %}>5 - Full Range</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hip_flexion">Hip Flexion</label>
+        <select id="hip_flexion" name="range_of_motion.hip_flexion">
+          <option value="">-- Select --</option>
+          <option value="1" {% if range_of_motion.hipFlexion == 1 %}selected{% endif %}>1 - Severely Restricted</option>
+          <option value="2" {% if range_of_motion.hipFlexion == 2 %}selected{% endif %}>2 - Moderately Restricted</option>
+          <option value="3" {% if range_of_motion.hipFlexion == 3 %}selected{% endif %}>3 - Mildly Restricted</option>
+          <option value="4" {% if range_of_motion.hipFlexion == 4 %}selected{% endif %}>4 - Near Normal</option>
+          <option value="5" {% if range_of_motion.hipFlexion == 5 %}selected{% endif %}>5 - Full Range</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="knee_flexion">Knee Flexion</label>
+        <select id="knee_flexion" name="range_of_motion.knee_flexion">
+          <option value="">-- Select --</option>
+          <option value="1" {% if range_of_motion.kneeFlexion == 1 %}selected{% endif %}>1 - Severely Restricted</option>
+          <option value="2" {% if range_of_motion.kneeFlexion == 2 %}selected{% endif %}>2 - Moderately Restricted</option>
+          <option value="3" {% if range_of_motion.kneeFlexion == 3 %}selected{% endif %}>3 - Mildly Restricted</option>
+          <option value="4" {% if range_of_motion.kneeFlexion == 4 %}selected{% endif %}>4 - Near Normal</option>
+          <option value="5" {% if range_of_motion.kneeFlexion == 5 %}selected{% endif %}>5 - Full Range</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

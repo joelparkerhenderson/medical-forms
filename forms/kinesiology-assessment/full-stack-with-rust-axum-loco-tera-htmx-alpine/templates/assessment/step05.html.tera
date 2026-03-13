@@ -1,0 +1,103 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Muscle Strength Testing - Kinesiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Muscle Strength Testing</h2>
+    <p class="hint">Rate each muscle group (1 = Very Weak / Grade 1, 5 = Normal Strength / Grade 5).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="upper_extremity_strength">Upper Extremity Strength</label>
+        <select id="upper_extremity_strength" name="muscle_strength_testing.upper_extremity_strength">
+          <option value="">-- Select --</option>
+          <option value="1" {% if muscle_strength_testing.upperExtremityStrength == 1 %}selected{% endif %}>1 - Very Weak</option>
+          <option value="2" {% if muscle_strength_testing.upperExtremityStrength == 2 %}selected{% endif %}>2 - Weak</option>
+          <option value="3" {% if muscle_strength_testing.upperExtremityStrength == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if muscle_strength_testing.upperExtremityStrength == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if muscle_strength_testing.upperExtremityStrength == 5 %}selected{% endif %}>5 - Normal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="lower_extremity_strength">Lower Extremity Strength</label>
+        <select id="lower_extremity_strength" name="muscle_strength_testing.lower_extremity_strength">
+          <option value="">-- Select --</option>
+          <option value="1" {% if muscle_strength_testing.lowerExtremityStrength == 1 %}selected{% endif %}>1 - Very Weak</option>
+          <option value="2" {% if muscle_strength_testing.lowerExtremityStrength == 2 %}selected{% endif %}>2 - Weak</option>
+          <option value="3" {% if muscle_strength_testing.lowerExtremityStrength == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if muscle_strength_testing.lowerExtremityStrength == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if muscle_strength_testing.lowerExtremityStrength == 5 %}selected{% endif %}>5 - Normal</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="core_stability">Core Stability</label>
+        <select id="core_stability" name="muscle_strength_testing.core_stability">
+          <option value="">-- Select --</option>
+          <option value="1" {% if muscle_strength_testing.coreStability == 1 %}selected{% endif %}>1 - Very Weak</option>
+          <option value="2" {% if muscle_strength_testing.coreStability == 2 %}selected{% endif %}>2 - Weak</option>
+          <option value="3" {% if muscle_strength_testing.coreStability == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if muscle_strength_testing.coreStability == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if muscle_strength_testing.coreStability == 5 %}selected{% endif %}>5 - Normal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="grip_strength">Grip Strength</label>
+        <select id="grip_strength" name="muscle_strength_testing.grip_strength">
+          <option value="">-- Select --</option>
+          <option value="1" {% if muscle_strength_testing.gripStrength == 1 %}selected{% endif %}>1 - Very Weak</option>
+          <option value="2" {% if muscle_strength_testing.gripStrength == 2 %}selected{% endif %}>2 - Weak</option>
+          <option value="3" {% if muscle_strength_testing.gripStrength == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if muscle_strength_testing.gripStrength == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if muscle_strength_testing.gripStrength == 5 %}selected{% endif %}>5 - Normal</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bilateral_symmetry">Bilateral Symmetry</label>
+        <select id="bilateral_symmetry" name="muscle_strength_testing.bilateral_symmetry">
+          <option value="">-- Select --</option>
+          <option value="1" {% if muscle_strength_testing.bilateralSymmetry == 1 %}selected{% endif %}>1 - Significant Asymmetry</option>
+          <option value="2" {% if muscle_strength_testing.bilateralSymmetry == 2 %}selected{% endif %}>2 - Moderate Asymmetry</option>
+          <option value="3" {% if muscle_strength_testing.bilateralSymmetry == 3 %}selected{% endif %}>3 - Mild Asymmetry</option>
+          <option value="4" {% if muscle_strength_testing.bilateralSymmetry == 4 %}selected{% endif %}>4 - Near Symmetrical</option>
+          <option value="5" {% if muscle_strength_testing.bilateralSymmetry == 5 %}selected{% endif %}>5 - Symmetrical</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="muscle_endurance">Muscle Endurance</label>
+        <select id="muscle_endurance" name="muscle_strength_testing.muscle_endurance">
+          <option value="">-- Select --</option>
+          <option value="1" {% if muscle_strength_testing.muscleEndurance == 1 %}selected{% endif %}>1 - Very Poor</option>
+          <option value="2" {% if muscle_strength_testing.muscleEndurance == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if muscle_strength_testing.muscleEndurance == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if muscle_strength_testing.muscleEndurance == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if muscle_strength_testing.muscleEndurance == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="functional_strength">Functional Strength</label>
+      <select id="functional_strength" name="muscle_strength_testing.functional_strength">
+        <option value="">-- Select --</option>
+        <option value="1" {% if muscle_strength_testing.functionalStrength == 1 %}selected{% endif %}>1 - Very Poor</option>
+        <option value="2" {% if muscle_strength_testing.functionalStrength == 2 %}selected{% endif %}>2 - Poor</option>
+        <option value="3" {% if muscle_strength_testing.functionalStrength == 3 %}selected{% endif %}>3 - Fair</option>
+        <option value="4" {% if muscle_strength_testing.functionalStrength == 4 %}selected{% endif %}>4 - Good</option>
+        <option value="5" {% if muscle_strength_testing.functionalStrength == 5 %}selected{% endif %}>5 - Excellent</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

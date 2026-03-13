@@ -1,0 +1,100 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Pain Assessment - Kinesiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Pain Assessment</h2>
+    <p class="hint">Describe the patient's pain profile.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pain_severity">Pain Severity</label>
+        <select id="pain_severity" name="pain_assessment.pain_severity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if pain_assessment.painSeverity == 1 %}selected{% endif %}>1 - Minimal</option>
+          <option value="2" {% if pain_assessment.painSeverity == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if pain_assessment.painSeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if pain_assessment.painSeverity == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if pain_assessment.painSeverity == 5 %}selected{% endif %}>5 - Extreme</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pain_location">Pain Location</label>
+        <input type="text" id="pain_location" name="pain_assessment.pain_location"
+               value="{{ pain_assessment.painLocation }}"
+               placeholder="e.g. Lower back, Right knee">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pain_type">Pain Type</label>
+        <select id="pain_type" name="pain_assessment.pain_type">
+          <option value="">-- Select --</option>
+          <option value="sharp" {% if pain_assessment.painType == "sharp" %}selected{% endif %}>Sharp</option>
+          <option value="dull" {% if pain_assessment.painType == "dull" %}selected{% endif %}>Dull / Aching</option>
+          <option value="burning" {% if pain_assessment.painType == "burning" %}selected{% endif %}>Burning</option>
+          <option value="throbbing" {% if pain_assessment.painType == "throbbing" %}selected{% endif %}>Throbbing</option>
+          <option value="shooting" {% if pain_assessment.painType == "shooting" %}selected{% endif %}>Shooting / Radiating</option>
+          <option value="tingling" {% if pain_assessment.painType == "tingling" %}selected{% endif %}>Tingling / Numbness</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pain_frequency">Pain Frequency</label>
+        <select id="pain_frequency" name="pain_assessment.pain_frequency">
+          <option value="">-- Select --</option>
+          <option value="constant" {% if pain_assessment.painFrequency == "constant" %}selected{% endif %}>Constant</option>
+          <option value="frequent" {% if pain_assessment.painFrequency == "frequent" %}selected{% endif %}>Frequent (daily)</option>
+          <option value="intermittent" {% if pain_assessment.painFrequency == "intermittent" %}selected{% endif %}>Intermittent</option>
+          <option value="occasional" {% if pain_assessment.painFrequency == "occasional" %}selected{% endif %}>Occasional</option>
+          <option value="rare" {% if pain_assessment.painFrequency == "rare" %}selected{% endif %}>Rare</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pain_with_movement">Pain with Movement</label>
+        <select id="pain_with_movement" name="pain_assessment.pain_with_movement">
+          <option value="">-- Select --</option>
+          <option value="1" {% if pain_assessment.painWithMovement == 1 %}selected{% endif %}>1 - Minimal</option>
+          <option value="2" {% if pain_assessment.painWithMovement == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if pain_assessment.painWithMovement == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if pain_assessment.painWithMovement == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if pain_assessment.painWithMovement == 5 %}selected{% endif %}>5 - Extreme</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pain_at_rest">Pain at Rest</label>
+        <select id="pain_at_rest" name="pain_assessment.pain_at_rest">
+          <option value="">-- Select --</option>
+          <option value="1" {% if pain_assessment.painAtRest == 1 %}selected{% endif %}>1 - Minimal</option>
+          <option value="2" {% if pain_assessment.painAtRest == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if pain_assessment.painAtRest == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if pain_assessment.painAtRest == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if pain_assessment.painAtRest == 5 %}selected{% endif %}>5 - Extreme</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="aggravating_factors">Aggravating Factors</label>
+        <textarea id="aggravating_factors" name="pain_assessment.aggravating_factors"
+                  placeholder="What makes it worse?">{{ pain_assessment.aggravatingFactors }}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="relieving_factors">Relieving Factors</label>
+        <textarea id="relieving_factors" name="pain_assessment.relieving_factors"
+                  placeholder="What makes it better?">{{ pain_assessment.relievingFactors }}</textarea>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

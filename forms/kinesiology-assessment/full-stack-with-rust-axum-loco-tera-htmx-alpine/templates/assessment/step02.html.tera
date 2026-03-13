@@ -1,0 +1,96 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Movement History - Kinesiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Movement History</h2>
+    <p class="hint">Rate the patient's movement and activity history (1 = Very Poor, 5 = Excellent).</p>
+
+    <div class="form-group">
+      <label for="activity_level">Current Activity Level</label>
+      <select id="activity_level" name="movement_history.activity_level">
+        <option value="">-- Select --</option>
+        <option value="1" {% if movement_history.activityLevel == 1 %}selected{% endif %}>1 - Sedentary</option>
+        <option value="2" {% if movement_history.activityLevel == 2 %}selected{% endif %}>2 - Low Activity</option>
+        <option value="3" {% if movement_history.activityLevel == 3 %}selected{% endif %}>3 - Moderate</option>
+        <option value="4" {% if movement_history.activityLevel == 4 %}selected{% endif %}>4 - Active</option>
+        <option value="5" {% if movement_history.activityLevel == 5 %}selected{% endif %}>5 - Very Active</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="exercise_frequency">Exercise Frequency</label>
+        <select id="exercise_frequency" name="movement_history.exercise_frequency">
+          <option value="">-- Select --</option>
+          <option value="never" {% if movement_history.exerciseFrequency == "never" %}selected{% endif %}>Never</option>
+          <option value="1to2" {% if movement_history.exerciseFrequency == "1to2" %}selected{% endif %}>1-2 times/week</option>
+          <option value="3to4" {% if movement_history.exerciseFrequency == "3to4" %}selected{% endif %}>3-4 times/week</option>
+          <option value="5plus" {% if movement_history.exerciseFrequency == "5plus" %}selected{% endif %}>5+ times/week</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sport_participation">Sport Participation</label>
+        <input type="text" id="sport_participation" name="movement_history.sport_participation"
+               value="{{ movement_history.sportParticipation }}"
+               placeholder="e.g. Running, Swimming">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="occupational_demands">Occupational Physical Demands</label>
+      <select id="occupational_demands" name="movement_history.occupational_demands">
+        <option value="">-- Select --</option>
+        <option value="1" {% if movement_history.occupationalDemands == 1 %}selected{% endif %}>1 - Sedentary Desk Work</option>
+        <option value="2" {% if movement_history.occupationalDemands == 2 %}selected{% endif %}>2 - Light Physical</option>
+        <option value="3" {% if movement_history.occupationalDemands == 3 %}selected{% endif %}>3 - Moderate Physical</option>
+        <option value="4" {% if movement_history.occupationalDemands == 4 %}selected{% endif %}>4 - Heavy Physical</option>
+        <option value="5" {% if movement_history.occupationalDemands == 5 %}selected{% endif %}>5 - Very Heavy Physical</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="previous_injuries">Previous Injuries</label>
+        <textarea id="previous_injuries" name="movement_history.previous_injuries"
+                  placeholder="Describe any previous injuries">{{ movement_history.previousInjuries }}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="surgical_history">Surgical History</label>
+        <textarea id="surgical_history" name="movement_history.surgical_history"
+                  placeholder="Describe any relevant surgeries">{{ movement_history.surgicalHistory }}</textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="daily_activity_limitation">Daily Activity Limitation</label>
+      <select id="daily_activity_limitation" name="movement_history.daily_activity_limitation">
+        <option value="">-- Select --</option>
+        <option value="1" {% if movement_history.dailyActivityLimitation == 1 %}selected{% endif %}>1 - No Limitation</option>
+        <option value="2" {% if movement_history.dailyActivityLimitation == 2 %}selected{% endif %}>2 - Mild Limitation</option>
+        <option value="3" {% if movement_history.dailyActivityLimitation == 3 %}selected{% endif %}>3 - Moderate Limitation</option>
+        <option value="4" {% if movement_history.dailyActivityLimitation == 4 %}selected{% endif %}>4 - Severe Limitation</option>
+        <option value="5" {% if movement_history.dailyActivityLimitation == 5 %}selected{% endif %}>5 - Complete Limitation</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="sleep_quality">Sleep Quality</label>
+      <select id="sleep_quality" name="movement_history.sleep_quality">
+        <option value="">-- Select --</option>
+        <option value="1" {% if movement_history.sleepQuality == 1 %}selected{% endif %}>1 - Very Poor</option>
+        <option value="2" {% if movement_history.sleepQuality == 2 %}selected{% endif %}>2 - Poor</option>
+        <option value="3" {% if movement_history.sleepQuality == 3 %}selected{% endif %}>3 - Fair</option>
+        <option value="4" {% if movement_history.sleepQuality == 4 %}selected{% endif %}>4 - Good</option>
+        <option value="5" {% if movement_history.sleepQuality == 5 %}selected{% endif %}>5 - Excellent</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

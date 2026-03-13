@@ -1,0 +1,103 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Functional Testing - Kinesiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Functional Testing</h2>
+    <p class="hint">Rate each functional test (1 = Unable / Very Poor, 5 = Excellent / Normal).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sit_to_stand">Sit-to-Stand</label>
+        <select id="sit_to_stand" name="functional_testing.sit_to_stand">
+          <option value="">-- Select --</option>
+          <option value="1" {% if functional_testing.sitToStand == 1 %}selected{% endif %}>1 - Unable</option>
+          <option value="2" {% if functional_testing.sitToStand == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if functional_testing.sitToStand == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if functional_testing.sitToStand == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if functional_testing.sitToStand == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="single_leg_balance">Single Leg Balance</label>
+        <select id="single_leg_balance" name="functional_testing.single_leg_balance">
+          <option value="">-- Select --</option>
+          <option value="1" {% if functional_testing.singleLegBalance == 1 %}selected{% endif %}>1 - Unable</option>
+          <option value="2" {% if functional_testing.singleLegBalance == 2 %}selected{% endif %}>2 - Poor (&lt;5s)</option>
+          <option value="3" {% if functional_testing.singleLegBalance == 3 %}selected{% endif %}>3 - Fair (5-15s)</option>
+          <option value="4" {% if functional_testing.singleLegBalance == 4 %}selected{% endif %}>4 - Good (15-30s)</option>
+          <option value="5" {% if functional_testing.singleLegBalance == 5 %}selected{% endif %}>5 - Excellent (&gt;30s)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="squat_quality">Squat Quality</label>
+        <select id="squat_quality" name="functional_testing.squat_quality">
+          <option value="">-- Select --</option>
+          <option value="1" {% if functional_testing.squatQuality == 1 %}selected{% endif %}>1 - Unable</option>
+          <option value="2" {% if functional_testing.squatQuality == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if functional_testing.squatQuality == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if functional_testing.squatQuality == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if functional_testing.squatQuality == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="lunge_quality">Lunge Quality</label>
+        <select id="lunge_quality" name="functional_testing.lunge_quality">
+          <option value="">-- Select --</option>
+          <option value="1" {% if functional_testing.lungeQuality == 1 %}selected{% endif %}>1 - Unable</option>
+          <option value="2" {% if functional_testing.lungeQuality == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if functional_testing.lungeQuality == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if functional_testing.lungeQuality == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if functional_testing.lungeQuality == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="push_up_quality">Push-Up Quality</label>
+        <select id="push_up_quality" name="functional_testing.push_up_quality">
+          <option value="">-- Select --</option>
+          <option value="1" {% if functional_testing.pushUpQuality == 1 %}selected{% endif %}>1 - Unable</option>
+          <option value="2" {% if functional_testing.pushUpQuality == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if functional_testing.pushUpQuality == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if functional_testing.pushUpQuality == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if functional_testing.pushUpQuality == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="overhead_reach">Overhead Reach</label>
+        <select id="overhead_reach" name="functional_testing.overhead_reach">
+          <option value="">-- Select --</option>
+          <option value="1" {% if functional_testing.overheadReach == 1 %}selected{% endif %}>1 - Unable</option>
+          <option value="2" {% if functional_testing.overheadReach == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if functional_testing.overheadReach == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if functional_testing.overheadReach == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if functional_testing.overheadReach == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="step_up_quality">Step-Up Quality</label>
+      <select id="step_up_quality" name="functional_testing.step_up_quality">
+        <option value="">-- Select --</option>
+        <option value="1" {% if functional_testing.stepUpQuality == 1 %}selected{% endif %}>1 - Unable</option>
+        <option value="2" {% if functional_testing.stepUpQuality == 2 %}selected{% endif %}>2 - Poor</option>
+        <option value="3" {% if functional_testing.stepUpQuality == 3 %}selected{% endif %}>3 - Fair</option>
+        <option value="4" {% if functional_testing.stepUpQuality == 4 %}selected{% endif %}>4 - Good</option>
+        <option value="5" {% if functional_testing.stepUpQuality == 5 %}selected{% endif %}>5 - Excellent</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

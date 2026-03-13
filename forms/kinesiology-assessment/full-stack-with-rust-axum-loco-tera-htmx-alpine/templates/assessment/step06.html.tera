@@ -1,0 +1,103 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Gait Analysis - Kinesiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Gait Analysis</h2>
+    <p class="hint">Rate each gait parameter (1 = Very Poor / Abnormal, 5 = Excellent / Normal).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="stride_symmetry">Stride Symmetry</label>
+        <select id="stride_symmetry" name="gait_analysis.stride_symmetry">
+          <option value="">-- Select --</option>
+          <option value="1" {% if gait_analysis.strideSymmetry == 1 %}selected{% endif %}>1 - Very Poor</option>
+          <option value="2" {% if gait_analysis.strideSymmetry == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if gait_analysis.strideSymmetry == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if gait_analysis.strideSymmetry == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if gait_analysis.strideSymmetry == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cadence">Cadence</label>
+        <select id="cadence" name="gait_analysis.cadence">
+          <option value="">-- Select --</option>
+          <option value="1" {% if gait_analysis.cadence == 1 %}selected{% endif %}>1 - Very Abnormal</option>
+          <option value="2" {% if gait_analysis.cadence == 2 %}selected{% endif %}>2 - Abnormal</option>
+          <option value="3" {% if gait_analysis.cadence == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if gait_analysis.cadence == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if gait_analysis.cadence == 5 %}selected{% endif %}>5 - Normal</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="heel_strike_pattern">Heel Strike Pattern</label>
+        <select id="heel_strike_pattern" name="gait_analysis.heel_strike_pattern">
+          <option value="">-- Select --</option>
+          <option value="1" {% if gait_analysis.heelStrikePattern == 1 %}selected{% endif %}>1 - Very Poor</option>
+          <option value="2" {% if gait_analysis.heelStrikePattern == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if gait_analysis.heelStrikePattern == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if gait_analysis.heelStrikePattern == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if gait_analysis.heelStrikePattern == 5 %}selected{% endif %}>5 - Normal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="toe_off_pattern">Toe-Off Pattern</label>
+        <select id="toe_off_pattern" name="gait_analysis.toe_off_pattern">
+          <option value="">-- Select --</option>
+          <option value="1" {% if gait_analysis.toeOffPattern == 1 %}selected{% endif %}>1 - Very Poor</option>
+          <option value="2" {% if gait_analysis.toeOffPattern == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if gait_analysis.toeOffPattern == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if gait_analysis.toeOffPattern == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if gait_analysis.toeOffPattern == 5 %}selected{% endif %}>5 - Normal</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="arm_swing">Arm Swing</label>
+        <select id="arm_swing" name="gait_analysis.arm_swing">
+          <option value="">-- Select --</option>
+          <option value="1" {% if gait_analysis.armSwing == 1 %}selected{% endif %}>1 - Absent / Abnormal</option>
+          <option value="2" {% if gait_analysis.armSwing == 2 %}selected{% endif %}>2 - Reduced</option>
+          <option value="3" {% if gait_analysis.armSwing == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if gait_analysis.armSwing == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if gait_analysis.armSwing == 5 %}selected{% endif %}>5 - Normal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="balance_during_gait">Balance During Gait</label>
+        <select id="balance_during_gait" name="gait_analysis.balance_during_gait">
+          <option value="">-- Select --</option>
+          <option value="1" {% if gait_analysis.balanceDuringGait == 1 %}selected{% endif %}>1 - Very Poor (Fall Risk)</option>
+          <option value="2" {% if gait_analysis.balanceDuringGait == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if gait_analysis.balanceDuringGait == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if gait_analysis.balanceDuringGait == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if gait_analysis.balanceDuringGait == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="assistive_device_used">Assistive Device Used</label>
+      <select id="assistive_device_used" name="gait_analysis.assistive_device_used">
+        <option value="">-- Select --</option>
+        <option value="none" {% if gait_analysis.assistiveDeviceUsed == "none" %}selected{% endif %}>None</option>
+        <option value="cane" {% if gait_analysis.assistiveDeviceUsed == "cane" %}selected{% endif %}>Cane</option>
+        <option value="crutches" {% if gait_analysis.assistiveDeviceUsed == "crutches" %}selected{% endif %}>Crutches</option>
+        <option value="walker" {% if gait_analysis.assistiveDeviceUsed == "walker" %}selected{% endif %}>Walker</option>
+        <option value="wheelchair" {% if gait_analysis.assistiveDeviceUsed == "wheelchair" %}selected{% endif %}>Wheelchair</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

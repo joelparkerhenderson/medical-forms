@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Kinesiology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Kinesiology Assessment</h1>
+  <p>
+    This assessment evaluates musculoskeletal function, movement quality, and
+    physical capacity. It covers posture, range of motion, muscle strength,
+    gait, functional testing, and pain to develop a comprehensive movement
+    profile and exercise prescription.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive evaluation across all movement domains</p>
+    </div>
+    <div class="feature-card">
+      <h3>Impairment Grading</h3>
+      <p>Composite score with dimension-level analysis</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated detection of high-priority findings</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Exercise Prescription - Kinesiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Exercise Prescription</h2>
+    <p class="hint">Rate the patient's exercise capacity and readiness (1 = Very Poor, 5 = Excellent).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="exercise_tolerance">Exercise Tolerance</label>
+        <select id="exercise_tolerance" name="exercise_prescription.exercise_tolerance">
+          <option value="">-- Select --</option>
+          <option value="1" {% if exercise_prescription.exerciseTolerance == 1 %}selected{% endif %}>1 - Very Poor</option>
+          <option value="2" {% if exercise_prescription.exerciseTolerance == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if exercise_prescription.exerciseTolerance == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if exercise_prescription.exerciseTolerance == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if exercise_prescription.exerciseTolerance == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cardiovascular_fitness">Cardiovascular Fitness</label>
+        <select id="cardiovascular_fitness" name="exercise_prescription.cardiovascular_fitness">
+          <option value="">-- Select --</option>
+          <option value="1" {% if exercise_prescription.cardiovascularFitness == 1 %}selected{% endif %}>1 - Very Poor</option>
+          <option value="2" {% if exercise_prescription.cardiovascularFitness == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if exercise_prescription.cardiovascularFitness == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if exercise_prescription.cardiovascularFitness == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if exercise_prescription.cardiovascularFitness == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="flexibility_level">Flexibility Level</label>
+        <select id="flexibility_level" name="exercise_prescription.flexibility_level">
+          <option value="">-- Select --</option>
+          <option value="1" {% if exercise_prescription.flexibilityLevel == 1 %}selected{% endif %}>1 - Very Poor</option>
+          <option value="2" {% if exercise_prescription.flexibilityLevel == 2 %}selected{% endif %}>2 - Poor</option>
+          <option value="3" {% if exercise_prescription.flexibilityLevel == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if exercise_prescription.flexibilityLevel == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if exercise_prescription.flexibilityLevel == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="motivation_level">Motivation Level</label>
+        <select id="motivation_level" name="exercise_prescription.motivation_level">
+          <option value="">-- Select --</option>
+          <option value="1" {% if exercise_prescription.motivationLevel == 1 %}selected{% endif %}>1 - Very Low</option>
+          <option value="2" {% if exercise_prescription.motivationLevel == 2 %}selected{% endif %}>2 - Low</option>
+          <option value="3" {% if exercise_prescription.motivationLevel == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if exercise_prescription.motivationLevel == 4 %}selected{% endif %}>4 - High</option>
+          <option value="5" {% if exercise_prescription.motivationLevel == 5 %}selected{% endif %}>5 - Very High</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="home_exercise_compliance">Home Exercise Compliance</label>
+      <select id="home_exercise_compliance" name="exercise_prescription.home_exercise_compliance">
+        <option value="">-- Select --</option>
+        <option value="1" {% if exercise_prescription.homeExerciseCompliance == 1 %}selected{% endif %}>1 - Non-Compliant</option>
+        <option value="2" {% if exercise_prescription.homeExerciseCompliance == 2 %}selected{% endif %}>2 - Rarely Compliant</option>
+        <option value="3" {% if exercise_prescription.homeExerciseCompliance == 3 %}selected{% endif %}>3 - Sometimes Compliant</option>
+        <option value="4" {% if exercise_prescription.homeExerciseCompliance == 4 %}selected{% endif %}>4 - Usually Compliant</option>
+        <option value="5" {% if exercise_prescription.homeExerciseCompliance == 5 %}selected{% endif %}>5 - Fully Compliant</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="equipment_access">Equipment Access</label>
+        <select id="equipment_access" name="exercise_prescription.equipment_access">
+          <option value="">-- Select --</option>
+          <option value="none" {% if exercise_prescription.equipmentAccess == "none" %}selected{% endif %}>No Equipment</option>
+          <option value="basic" {% if exercise_prescription.equipmentAccess == "basic" %}selected{% endif %}>Basic (bands, mat)</option>
+          <option value="homeGym" {% if exercise_prescription.equipmentAccess == "homeGym" %}selected{% endif %}>Home Gym</option>
+          <option value="fullGym" {% if exercise_prescription.equipmentAccess == "fullGym" %}selected{% endif %}>Full Gym Access</option>
+          <option value="clinic" {% if exercise_prescription.equipmentAccess == "clinic" %}selected{% endif %}>Clinic Only</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exercise_goals">Exercise Goals</label>
+        <textarea id="exercise_goals" name="exercise_prescription.exercise_goals"
+                  placeholder="e.g. Return to running, improve mobility">{{ exercise_prescription.exerciseGoals }}</textarea>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

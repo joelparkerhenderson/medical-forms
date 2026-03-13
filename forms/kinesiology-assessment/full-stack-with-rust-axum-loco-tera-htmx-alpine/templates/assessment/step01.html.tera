@@ -1,0 +1,81 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Kinesiology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide the patient's demographic and referral details.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. Jane Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sex">Sex</label>
+        <select id="sex" name="patient_information.sex">
+          <option value="">-- Select --</option>
+          <option value="male" {% if patient_information.sex == "male" %}selected{% endif %}>Male</option>
+          <option value="female" {% if patient_information.sex == "female" %}selected{% endif %}>Female</option>
+          <option value="other" {% if patient_information.sex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="assessment_date">Assessment Date</label>
+        <input type="date" id="assessment_date" name="patient_information.assessment_date"
+               value="{{ patient_information.assessmentDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="referring_provider">Referring Provider</label>
+        <input type="text" id="referring_provider" name="patient_information.referring_provider"
+               value="{{ patient_information.referringProvider }}"
+               placeholder="e.g. Dr Johnson">
+      </div>
+      <div class="form-group">
+        <label for="primary_complaint">Primary Complaint</label>
+        <input type="text" id="primary_complaint" name="patient_information.primary_complaint"
+               value="{{ patient_information.primaryComplaint }}"
+               placeholder="e.g. Lower back pain">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="onset_date">Onset Date</label>
+        <input type="date" id="onset_date" name="patient_information.onset_date"
+               value="{{ patient_information.onsetDate }}">
+      </div>
+      <div class="form-group">
+        <label for="mechanism_of_injury">Mechanism of Injury</label>
+        <select id="mechanism_of_injury" name="patient_information.mechanism_of_injury">
+          <option value="">-- Select --</option>
+          <option value="acute" {% if patient_information.mechanismOfInjury == "acute" %}selected{% endif %}>Acute Trauma</option>
+          <option value="overuse" {% if patient_information.mechanismOfInjury == "overuse" %}selected{% endif %}>Overuse / Repetitive</option>
+          <option value="gradual" {% if patient_information.mechanismOfInjury == "gradual" %}selected{% endif %}>Gradual Onset</option>
+          <option value="postSurgical" {% if patient_information.mechanismOfInjury == "postSurgical" %}selected{% endif %}>Post-Surgical</option>
+          <option value="unknown" {% if patient_information.mechanismOfInjury == "unknown" %}selected{% endif %}>Unknown</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
