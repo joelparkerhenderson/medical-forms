@@ -1,0 +1,67 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Review & Calculate - Framingham Risk Score{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Review & Calculate</h2>
+    <p class="hint">Review the assessment and provide clinician details before calculating the Framingham Risk Score.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_name">Clinician Name</label>
+        <input type="text" id="clinician_name" name="review_calculate.clinician_name"
+               value="{{ review_calculate.clinicianName }}"
+               placeholder="e.g. Dr Smith">
+      </div>
+      <div class="form-group">
+        <label for="review_date">Review Date</label>
+        <input type="date" id="review_date" name="review_calculate.review_date"
+               value="{{ review_calculate.reviewDate }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_notes">Clinical Notes</label>
+      <textarea id="clinical_notes" name="review_calculate.clinical_notes" rows="4"
+                placeholder="Any additional clinical observations or notes">{{ review_calculate.clinicalNotes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Patient Consent Obtained?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="review_calculate.patient_consent" value="yes"
+                      {% if review_calculate.patientConsent == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="review_calculate.patient_consent" value="no"
+                      {% if review_calculate.patientConsent == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <!-- Summary of key inputs -->
+    <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 0.375rem; padding: 1.25rem; margin-top: 1.5rem;">
+      <h3>Key Inputs Summary</h3>
+      <div class="form-row">
+        <div><strong>Age:</strong> {{ demographics.age | default(value="Not set") }}</div>
+        <div><strong>Sex:</strong> {{ demographics.sex | default(value="Not set") }}</div>
+      </div>
+      <div class="form-row" style="margin-top: 0.5rem;">
+        <div><strong>Smoking:</strong> {{ smoking_history.smokingStatus | default(value="Not set") }}</div>
+        <div><strong>BP Treatment:</strong> {{ blood_pressure.onBpTreatment | default(value="Not set") }}</div>
+      </div>
+      <div class="form-row" style="margin-top: 0.5rem;">
+        <div><strong>Systolic BP:</strong> {{ blood_pressure.systolicBp | default(value="Not set") }}</div>
+        <div><strong>Total Cholesterol:</strong> {{ cholesterol.totalCholesterol | default(value="Not set") }}</div>
+      </div>
+      <div class="form-row" style="margin-top: 0.5rem;">
+        <div><strong>HDL:</strong> {{ cholesterol.hdlCholesterol | default(value="Not set") }}</div>
+        <div><strong>Diabetes:</strong> {{ medical_history.hasDiabetes | default(value="Not set") }}</div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

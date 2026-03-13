@@ -1,0 +1,122 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Risk Report - Framingham Risk Score{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Framingham Risk Score Report</h1>
+    <span class="risk-badge risk-{{ risk_category }}">{{ risk_label }}</span>
+  </div>
+
+  <div class="score-display">{{ ten_year_risk_percent }}%</div>
+  <div class="score-label">10-Year Risk of Hard Coronary Heart Disease</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Key Inputs Summary -->
+<div class="card">
+  <h2>Key Inputs</h2>
+  <div class="form-row">
+    <div>
+      <strong>Age:</strong> {{ data.demographics.age | default(value="N/A") }}
+    </div>
+    <div>
+      <strong>Sex:</strong> {{ data.demographics.sex | default(value="N/A") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Total Cholesterol:</strong> {{ data.cholesterol.totalCholesterol | default(value="N/A") }} {{ data.cholesterol.cholesterolUnit | default(value="mg/dL") }}
+    </div>
+    <div>
+      <strong>HDL Cholesterol:</strong> {{ data.cholesterol.hdlCholesterol | default(value="N/A") }} {{ data.cholesterol.cholesterolUnit | default(value="mg/dL") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Systolic BP:</strong> {{ data.bloodPressure.systolicBp | default(value="N/A") }} mmHg
+    </div>
+    <div>
+      <strong>BP Treatment:</strong> {{ data.bloodPressure.onBpTreatment | default(value="N/A") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Smoker:</strong> {{ data.smokingHistory.smokingStatus | default(value="N/A") }}
+    </div>
+    <div>
+      <strong>Patient:</strong> {{ data.patientInformation.fullName | default(value="Not provided") }}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Risk Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Risk Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.riskLevel }}">{{ rule.riskLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinical Notes -->
+{% if data.reviewCalculate.clinicalNotes %}
+<div class="card">
+  <h2>Clinical Notes</h2>
+  <div class="form-group">
+    <strong>Clinician:</strong> {{ data.reviewCalculate.clinicianName | default(value="Not provided") }}
+  </div>
+  <div class="form-group">
+    <strong>Review Date:</strong> {{ data.reviewCalculate.reviewDate | default(value="Not provided") }}
+  </div>
+  <p>{{ data.reviewCalculate.clinicalNotes }}</p>
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

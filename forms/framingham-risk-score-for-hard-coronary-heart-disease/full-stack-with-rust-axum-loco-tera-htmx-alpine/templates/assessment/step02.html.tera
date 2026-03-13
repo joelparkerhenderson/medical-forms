@@ -1,0 +1,63 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Demographics - Framingham Risk Score{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Demographics</h2>
+    <p class="hint">Age and sex are required for the Framingham calculation. Valid age range: 30-79.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="age">Age (years)</label>
+        <input type="number" id="age" name="demographics.age" min="1" max="120"
+               value="{{ demographics.age | default(value='') }}"
+               placeholder="e.g. 55">
+      </div>
+      <div class="form-group">
+        <label for="sex">Sex</label>
+        <select id="sex" name="demographics.sex">
+          <option value="">-- Select --</option>
+          <option value="male" {% if demographics.sex == "male" %}selected{% endif %}>Male</option>
+          <option value="female" {% if demographics.sex == "female" %}selected{% endif %}>Female</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ethnicity">Ethnicity</label>
+        <select id="ethnicity" name="demographics.ethnicity">
+          <option value="">-- Prefer not to say --</option>
+          <option value="whitebritish" {% if demographics.ethnicity == "whitebritish" %}selected{% endif %}>White - British</option>
+          <option value="whiteother" {% if demographics.ethnicity == "whiteother" %}selected{% endif %}>White - Other</option>
+          <option value="asian" {% if demographics.ethnicity == "asian" %}selected{% endif %}>Asian or Asian British</option>
+          <option value="black" {% if demographics.ethnicity == "black" %}selected{% endif %}>Black or Black British</option>
+          <option value="mixed" {% if demographics.ethnicity == "mixed" %}selected{% endif %}>Mixed / Multiple</option>
+          <option value="other" {% if demographics.ethnicity == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="height_cm">Height (cm)</label>
+        <input type="number" id="height_cm" name="demographics.height_cm" step="0.1" min="50" max="250"
+               value="{{ demographics.heightCm | default(value='') }}"
+               placeholder="e.g. 175">
+      </div>
+      <div class="form-group">
+        <label for="weight_kg">Weight (kg)</label>
+        <input type="number" id="weight_kg" name="demographics.weight_kg" step="0.1" min="20" max="300"
+               value="{{ demographics.weightKg | default(value='') }}"
+               placeholder="e.g. 80">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient</th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>Risk Level</th>
+      <th>10-Year Risk</th>
+      <th>Smoking</th>
+      <th>On Treatment</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName | default(value="Unknown") }}</a></td>
+      <td>{{ patient.age }}</td>
+      <td>{{ patient.sex }}</td>
+      <td><span class="risk-badge risk-{{ patient.riskLevel }}">{{ patient.riskLevel }}</span></td>
+      <td>{{ patient.tenYearRiskPercent }}%</td>
+      <td>{{ patient.smokingStatus }}</td>
+      <td>{{ patient.onTreatment }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>

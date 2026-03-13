@@ -1,0 +1,51 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Framingham Risk Score{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Risk Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard" hx-boost="false">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient name..."
+             hx-get="/dashboard" hx-target="#results-container" hx-include="closest form"
+             hx-trigger="keyup changed delay:300ms">
+    </div>
+    <div class="form-group">
+      <label for="risk_level">Risk Level</label>
+      <select id="risk_level" name="risk_level"
+              hx-get="/dashboard" hx-target="#results-container" hx-include="closest form"
+              hx-trigger="change">
+        <option value="">All Levels</option>
+        <option value="low" {% if risk_level == "low" %}selected{% endif %}>Low</option>
+        <option value="intermediate" {% if risk_level == "intermediate" %}selected{% endif %}>Intermediate</option>
+        <option value="high" {% if risk_level == "high" %}selected{% endif %}>High</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="smoking_status">Smoking Status</label>
+      <select id="smoking_status" name="smoking_status"
+              hx-get="/dashboard" hx-target="#results-container" hx-include="closest form"
+              hx-trigger="change">
+        <option value="">All</option>
+        <option value="current" {% if smoking_status == "current" %}selected{% endif %}>Current</option>
+        <option value="former" {% if smoking_status == "former" %}selected{% endif %}>Former</option>
+        <option value="never" {% if smoking_status == "never" %}selected{% endif %}>Never</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<div id="results-container">
+  {% include "_dashboard_results.html.tera" %}
+</div>
+{% endblock %}

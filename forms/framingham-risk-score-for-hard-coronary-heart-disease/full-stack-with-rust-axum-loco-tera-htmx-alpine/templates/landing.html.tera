@@ -1,0 +1,39 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Framingham Risk Score - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Framingham Risk Score for Hard Coronary Heart Disease</h1>
+  <p>
+    The Framingham Risk Score estimates the 10-year risk of developing hard coronary
+    heart disease (myocardial infarction or coronary death) in adults aged 30-79.
+    This calculator uses the Wilson/D'Agostino 1998 Cox regression model with
+    sex-specific coefficients.
+  </p>
+  <p>
+    <strong>Who is it for?</strong> Non-diabetic adults aged 30-79 without prior
+    coronary heart disease. Patients with existing CHD or diabetes should use
+    disease-specific risk calculators instead.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10-Year Risk</h3>
+      <p>Calculates probability of heart attack using validated Framingham model</p>
+    </div>
+    <div class="feature-card">
+      <h3>Risk Classification</h3>
+      <p>Low (&lt;10%), Intermediate (10-19.9%), or High (&ge;20%) risk categories</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Actionable alerts for eligibility, medications, and lifestyle factors</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

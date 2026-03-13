@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Lifestyle Factors - Framingham Risk Score{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Lifestyle Factors</h2>
+    <p class="hint">Lifestyle factors provide additional context for clinical decision-making beyond the core risk score.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="physical_activity">Physical Activity Level</label>
+        <select id="physical_activity" name="lifestyle_factors.physical_activity">
+          <option value="">-- Select --</option>
+          <option value="sedentary" {% if lifestyle_factors.physicalActivity == "sedentary" %}selected{% endif %}>Sedentary</option>
+          <option value="light" {% if lifestyle_factors.physicalActivity == "light" %}selected{% endif %}>Light</option>
+          <option value="moderate" {% if lifestyle_factors.physicalActivity == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="vigorous" {% if lifestyle_factors.physicalActivity == "vigorous" %}selected{% endif %}>Vigorous</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="alcohol_consumption">Alcohol Consumption</label>
+        <select id="alcohol_consumption" name="lifestyle_factors.alcohol_consumption">
+          <option value="">-- Select --</option>
+          <option value="none" {% if lifestyle_factors.alcoholConsumption == "none" %}selected{% endif %}>None</option>
+          <option value="moderate" {% if lifestyle_factors.alcoholConsumption == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="heavy" {% if lifestyle_factors.alcoholConsumption == "heavy" %}selected{% endif %}>Heavy</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="diet_quality">Diet Quality</label>
+        <select id="diet_quality" name="lifestyle_factors.diet_quality">
+          <option value="">-- Select --</option>
+          <option value="poor" {% if lifestyle_factors.dietQuality == "poor" %}selected{% endif %}>Poor</option>
+          <option value="average" {% if lifestyle_factors.dietQuality == "average" %}selected{% endif %}>Average</option>
+          <option value="good" {% if lifestyle_factors.dietQuality == "good" %}selected{% endif %}>Good</option>
+          <option value="excellent" {% if lifestyle_factors.dietQuality == "excellent" %}selected{% endif %}>Excellent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="stress_level">Stress Level</label>
+        <select id="stress_level" name="lifestyle_factors.stress_level">
+          <option value="">-- Select --</option>
+          <option value="low" {% if lifestyle_factors.stressLevel == "low" %}selected{% endif %}>Low</option>
+          <option value="moderate" {% if lifestyle_factors.stressLevel == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="high" {% if lifestyle_factors.stressLevel == "high" %}selected{% endif %}>High</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bmi">BMI (if known)</label>
+        <input type="number" id="bmi" name="lifestyle_factors.bmi" step="0.1" min="10" max="80"
+               value="{{ lifestyle_factors.bmi | default(value='') }}"
+               placeholder="e.g. 27.5">
+      </div>
+      <div class="form-group">
+        <label for="waist_circumference_cm">Waist Circumference (cm)</label>
+        <input type="number" id="waist_circumference_cm" name="lifestyle_factors.waist_circumference_cm"
+               step="0.1" min="30" max="250"
+               value="{{ lifestyle_factors.waistCircumferenceCm | default(value='') }}"
+               placeholder="e.g. 95">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

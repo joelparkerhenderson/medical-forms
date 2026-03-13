@@ -1,0 +1,61 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Blood Pressure - Framingham Risk Score{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Blood Pressure</h2>
+    <p class="hint">Blood pressure and treatment status affect risk calculation. Treatment increases the BP coefficient.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="systolic_bp">Systolic BP (mmHg)</label>
+        <input type="number" id="systolic_bp" name="blood_pressure.systolic_bp"
+               min="60" max="300" step="1"
+               value="{{ blood_pressure.systolicBp | default(value='') }}"
+               placeholder="e.g. 130">
+      </div>
+      <div class="form-group">
+        <label for="diastolic_bp">Diastolic BP (mmHg)</label>
+        <input type="number" id="diastolic_bp" name="blood_pressure.diastolic_bp"
+               min="30" max="200" step="1"
+               value="{{ blood_pressure.diastolicBp | default(value='') }}"
+               placeholder="e.g. 85">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Currently on Blood Pressure Treatment?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="blood_pressure.on_bp_treatment" value="yes"
+                      {% if blood_pressure.onBpTreatment == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="blood_pressure.on_bp_treatment" value="no"
+                      {% if blood_pressure.onBpTreatment == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bp_medication_name">BP Medication Name (if applicable)</label>
+        <input type="text" id="bp_medication_name" name="blood_pressure.bp_medication_name"
+               value="{{ blood_pressure.bpMedicationName }}"
+               placeholder="e.g. Amlodipine 5mg">
+      </div>
+      <div class="form-group">
+        <label for="bp_measurement_method">Measurement Method</label>
+        <select id="bp_measurement_method" name="blood_pressure.bp_measurement_method">
+          <option value="">-- Select --</option>
+          <option value="clinic" {% if blood_pressure.bpMeasurementMethod == "clinic" %}selected{% endif %}>Clinic Reading</option>
+          <option value="ambulatory" {% if blood_pressure.bpMeasurementMethod == "ambulatory" %}selected{% endif %}>Ambulatory (24h)</option>
+          <option value="home" {% if blood_pressure.bpMeasurementMethod == "home" %}selected{% endif %}>Home Monitoring</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

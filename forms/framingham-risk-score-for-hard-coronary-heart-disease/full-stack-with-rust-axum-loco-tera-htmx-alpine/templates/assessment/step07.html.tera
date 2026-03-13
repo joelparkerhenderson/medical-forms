@@ -1,0 +1,63 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Family History - Framingham Risk Score{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Family History</h2>
+    <p class="hint">Family history of premature CHD is an important risk modifier not captured in the core Framingham equation.</p>
+
+    <div class="form-group">
+      <label>Family History of Coronary Heart Disease?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="family_history.family_chd_history" value="yes"
+                      {% if family_history.familyChdHistory == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="family_history.family_chd_history" value="no"
+                      {% if family_history.familyChdHistory == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="family_chd_age_onset">Age of Onset in Family Member</label>
+      <select id="family_chd_age_onset" name="family_history.family_chd_age_onset">
+        <option value="">-- Select --</option>
+        <option value="under55" {% if family_history.familyChdAgeOnset == "under55" %}selected{% endif %}>Under 55</option>
+        <option value="55to65" {% if family_history.familyChdAgeOnset == "55to65" %}selected{% endif %}>55 - 65</option>
+        <option value="over65" {% if family_history.familyChdAgeOnset == "over65" %}selected{% endif %}>Over 65</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="family_chd_relationship">Relationship to Patient</label>
+      <input type="text" id="family_chd_relationship" name="family_history.family_chd_relationship"
+             value="{{ family_history.familyChdRelationship }}"
+             placeholder="e.g. Father, Mother, Sibling">
+    </div>
+
+    <div class="form-group">
+      <label>Family History of Stroke?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="family_history.family_stroke_history" value="yes"
+                      {% if family_history.familyStrokeHistory == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="family_history.family_stroke_history" value="no"
+                      {% if family_history.familyStrokeHistory == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Family History of Diabetes?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="family_history.family_diabetes_history" value="yes"
+                      {% if family_history.familyDiabetesHistory == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="family_history.family_diabetes_history" value="no"
+                      {% if family_history.familyDiabetesHistory == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
