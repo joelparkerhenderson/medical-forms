@@ -1,0 +1,85 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Oncology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Document clinical review findings, follow-up plans, and referrals.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Reviewed by Tumor Board?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.tumor_board_reviewed" value="yes" {% if clinical_review.tumorBoardReviewed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.tumor_board_reviewed" value="no" {% if clinical_review.tumorBoardReviewed == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="clinical_review.tumor_board_reviewed" value="pending" {% if clinical_review.tumorBoardReviewed == "pending" %}checked{% endif %}> Pending</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="next_imaging_date">Next Imaging Date</label>
+        <input type="date" id="next_imaging_date" name="clinical_review.next_imaging_date"
+               value="{{ clinical_review.nextImagingDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="lab_monitoring_plan">Lab Monitoring Plan</label>
+        <textarea id="lab_monitoring_plan" name="clinical_review.lab_monitoring_plan"
+                  rows="3" placeholder="e.g. CBC weekly, LFTs monthly, tumour markers q3months">{{ clinical_review.labMonitoringPlan }}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="follow_up_interval">Follow-Up Interval</label>
+        <select id="follow_up_interval" name="clinical_review.follow_up_interval">
+          <option value="">-- Select --</option>
+          <option value="1week" {% if clinical_review.followUpInterval == "1week" %}selected{% endif %}>1 Week</option>
+          <option value="2weeks" {% if clinical_review.followUpInterval == "2weeks" %}selected{% endif %}>2 Weeks</option>
+          <option value="3weeks" {% if clinical_review.followUpInterval == "3weeks" %}selected{% endif %}>3 Weeks</option>
+          <option value="1month" {% if clinical_review.followUpInterval == "1month" %}selected{% endif %}>1 Month</option>
+          <option value="3months" {% if clinical_review.followUpInterval == "3months" %}selected{% endif %}>3 Months</option>
+          <option value="6months" {% if clinical_review.followUpInterval == "6months" %}selected{% endif %}>6 Months</option>
+          <option value="12months" {% if clinical_review.followUpInterval == "12months" %}selected{% endif %}>12 Months</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="referrals_needed">Referrals Needed</label>
+        <textarea id="referrals_needed" name="clinical_review.referrals_needed"
+                  rows="3" placeholder="e.g. Palliative care, Social work, Genetic counselling">{{ clinical_review.referralsNeeded }}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="clinical_notes">Clinical Notes</label>
+        <textarea id="clinical_notes" name="clinical_review.clinical_notes"
+                  rows="3" placeholder="Additional clinical notes...">{{ clinical_review.clinicalNotes }}</textarea>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="survivorship_plan">Survivorship Plan</label>
+        <select id="survivorship_plan" name="clinical_review.survivorship_plan">
+          <option value="">-- Select --</option>
+          <option value="inPlace" {% if clinical_review.survivorshipPlan == "inPlace" %}selected{% endif %}>In Place</option>
+          <option value="inDevelopment" {% if clinical_review.survivorshipPlan == "inDevelopment" %}selected{% endif %}>In Development</option>
+          <option value="notApplicable" {% if clinical_review.survivorshipPlan == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Patient Education Provided?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.patient_education_provided" value="yes" {% if clinical_review.patientEducationProvided == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.patient_education_provided" value="no" {% if clinical_review.patientEducationProvided == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

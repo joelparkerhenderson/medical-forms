@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cancer Diagnosis - Oncology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cancer Diagnosis</h2>
+    <p class="hint">Provide details about the cancer diagnosis including type, site, and testing.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cancer_type">Cancer Type</label>
+        <select id="cancer_type" name="cancer_diagnosis.cancer_type">
+          <option value="">-- Select --</option>
+          <option value="breast" {% if cancer_diagnosis.cancerType == "breast" %}selected{% endif %}>Breast</option>
+          <option value="lung" {% if cancer_diagnosis.cancerType == "lung" %}selected{% endif %}>Lung</option>
+          <option value="colorectal" {% if cancer_diagnosis.cancerType == "colorectal" %}selected{% endif %}>Colorectal</option>
+          <option value="prostate" {% if cancer_diagnosis.cancerType == "prostate" %}selected{% endif %}>Prostate</option>
+          <option value="melanoma" {% if cancer_diagnosis.cancerType == "melanoma" %}selected{% endif %}>Melanoma</option>
+          <option value="lymphoma" {% if cancer_diagnosis.cancerType == "lymphoma" %}selected{% endif %}>Lymphoma</option>
+          <option value="leukemia" {% if cancer_diagnosis.cancerType == "leukemia" %}selected{% endif %}>Leukaemia</option>
+          <option value="pancreatic" {% if cancer_diagnosis.cancerType == "pancreatic" %}selected{% endif %}>Pancreatic</option>
+          <option value="ovarian" {% if cancer_diagnosis.cancerType == "ovarian" %}selected{% endif %}>Ovarian</option>
+          <option value="other" {% if cancer_diagnosis.cancerType == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cancer_site">Primary Site</label>
+        <input type="text" id="cancer_site" name="cancer_diagnosis.cancer_site"
+               value="{{ cancer_diagnosis.cancerSite }}"
+               placeholder="e.g. Left breast, Right upper lobe">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="histology">Histology</label>
+        <input type="text" id="histology" name="cancer_diagnosis.histology"
+               value="{{ cancer_diagnosis.histology }}"
+               placeholder="e.g. Invasive ductal carcinoma">
+      </div>
+      <div class="form-group">
+        <label for="date_of_diagnosis">Date of Diagnosis</label>
+        <input type="date" id="date_of_diagnosis" name="cancer_diagnosis.date_of_diagnosis"
+               value="{{ cancer_diagnosis.dateOfDiagnosis }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="diagnosis_method">Diagnosis Method</label>
+        <select id="diagnosis_method" name="cancer_diagnosis.diagnosis_method">
+          <option value="">-- Select --</option>
+          <option value="biopsy" {% if cancer_diagnosis.diagnosisMethod == "biopsy" %}selected{% endif %}>Biopsy</option>
+          <option value="imaging" {% if cancer_diagnosis.diagnosisMethod == "imaging" %}selected{% endif %}>Imaging</option>
+          <option value="bloodTest" {% if cancer_diagnosis.diagnosisMethod == "bloodTest" %}selected{% endif %}>Blood Test</option>
+          <option value="surgery" {% if cancer_diagnosis.diagnosisMethod == "surgery" %}selected{% endif %}>Surgical Finding</option>
+          <option value="other" {% if cancer_diagnosis.diagnosisMethod == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="biomarkers_tested">Biomarkers Tested</label>
+        <input type="text" id="biomarkers_tested" name="cancer_diagnosis.biomarkers_tested"
+               value="{{ cancer_diagnosis.biomarkersTested }}"
+               placeholder="e.g. ER, PR, HER2, PD-L1">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Genetic Testing Done?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cancer_diagnosis.genetic_testing_done" value="yes" {% if cancer_diagnosis.geneticTestingDone == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cancer_diagnosis.genetic_testing_done" value="no" {% if cancer_diagnosis.geneticTestingDone == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="cancer_diagnosis.genetic_testing_done" value="pending" {% if cancer_diagnosis.geneticTestingDone == "pending" %}checked{% endif %}> Pending</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Family Cancer History?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="cancer_diagnosis.family_cancer_history" value="yes" {% if cancer_diagnosis.familyCancerHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="cancer_diagnosis.family_cancer_history" value="no" {% if cancer_diagnosis.familyCancerHistory == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="cancer_diagnosis.family_cancer_history" value="unknown" {% if cancer_diagnosis.familyCancerHistory == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

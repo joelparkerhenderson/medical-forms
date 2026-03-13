@@ -1,0 +1,120 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Performance Status - Oncology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Performance Status</h2>
+    <p class="hint">Assess functional status using standard scales and daily living measures (1 = Best, 5 = Worst).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ecog_score">ECOG Performance Status (0-4)</label>
+        <select id="ecog_score" name="performance_status.ecog_score">
+          <option value="">-- Select --</option>
+          <option value="0" {% if performance_status.ecogScore == 0 %}selected{% endif %}>0 - Fully active</option>
+          <option value="1" {% if performance_status.ecogScore == 1 %}selected{% endif %}>1 - Restricted but ambulatory</option>
+          <option value="2" {% if performance_status.ecogScore == 2 %}selected{% endif %}>2 - Ambulatory, unable to work</option>
+          <option value="3" {% if performance_status.ecogScore == 3 %}selected{% endif %}>3 - Limited self-care</option>
+          <option value="4" {% if performance_status.ecogScore == 4 %}selected{% endif %}>4 - Completely disabled</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="karnofsky_score">Karnofsky Score (0-100)</label>
+        <select id="karnofsky_score" name="performance_status.karnofsky_score">
+          <option value="">-- Select --</option>
+          <option value="100" {% if performance_status.karnofskyScore == 100 %}selected{% endif %}>100 - Normal, no complaints</option>
+          <option value="90" {% if performance_status.karnofskyScore == 90 %}selected{% endif %}>90 - Minor symptoms</option>
+          <option value="80" {% if performance_status.karnofskyScore == 80 %}selected{% endif %}>80 - Normal activity with effort</option>
+          <option value="70" {% if performance_status.karnofskyScore == 70 %}selected{% endif %}>70 - Unable to carry on normal activity</option>
+          <option value="60" {% if performance_status.karnofskyScore == 60 %}selected{% endif %}>60 - Requires occasional assistance</option>
+          <option value="50" {% if performance_status.karnofskyScore == 50 %}selected{% endif %}>50 - Requires considerable assistance</option>
+          <option value="40" {% if performance_status.karnofskyScore == 40 %}selected{% endif %}>40 - Disabled, requires special care</option>
+          <option value="30" {% if performance_status.karnofskyScore == 30 %}selected{% endif %}>30 - Severely disabled</option>
+          <option value="20" {% if performance_status.karnofskyScore == 20 %}selected{% endif %}>20 - Very sick, hospitalisation needed</option>
+          <option value="10" {% if performance_status.karnofskyScore == 10 %}selected{% endif %}>10 - Moribund</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mobility_level">Mobility Level</label>
+        <select id="mobility_level" name="performance_status.mobility_level">
+          <option value="">-- Select --</option>
+          <option value="fullyMobile" {% if performance_status.mobilityLevel == "fullyMobile" %}selected{% endif %}>Fully Mobile</option>
+          <option value="mobilityAid" {% if performance_status.mobilityLevel == "mobilityAid" %}selected{% endif %}>Uses Mobility Aid</option>
+          <option value="wheelchair" {% if performance_status.mobilityLevel == "wheelchair" %}selected{% endif %}>Wheelchair</option>
+          <option value="bedbound" {% if performance_status.mobilityLevel == "bedbound" %}selected{% endif %}>Bedbound</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="self_care_ability">Self-Care Ability (1-5)</label>
+        <select id="self_care_ability" name="performance_status.self_care_ability">
+          <option value="">-- Select --</option>
+          <option value="1" {% if performance_status.selfCareAbility == 1 %}selected{% endif %}>1 - Fully independent</option>
+          <option value="2" {% if performance_status.selfCareAbility == 2 %}selected{% endif %}>2 - Mostly independent</option>
+          <option value="3" {% if performance_status.selfCareAbility == 3 %}selected{% endif %}>3 - Needs some assistance</option>
+          <option value="4" {% if performance_status.selfCareAbility == 4 %}selected{% endif %}>4 - Needs significant assistance</option>
+          <option value="5" {% if performance_status.selfCareAbility == 5 %}selected{% endif %}>5 - Totally dependent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="daily_activity_level">Daily Activity Level (1-5)</label>
+        <select id="daily_activity_level" name="performance_status.daily_activity_level">
+          <option value="">-- Select --</option>
+          <option value="1" {% if performance_status.dailyActivityLevel == 1 %}selected{% endif %}>1 - Normal activity</option>
+          <option value="2" {% if performance_status.dailyActivityLevel == 2 %}selected{% endif %}>2 - Slightly reduced</option>
+          <option value="3" {% if performance_status.dailyActivityLevel == 3 %}selected{% endif %}>3 - Moderately reduced</option>
+          <option value="4" {% if performance_status.dailyActivityLevel == 4 %}selected{% endif %}>4 - Severely reduced</option>
+          <option value="5" {% if performance_status.dailyActivityLevel == 5 %}selected{% endif %}>5 - Bedridden</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="nutritional_status">Nutritional Status (1-5)</label>
+        <select id="nutritional_status" name="performance_status.nutritional_status">
+          <option value="">-- Select --</option>
+          <option value="1" {% if performance_status.nutritionalStatus == 1 %}selected{% endif %}>1 - Well nourished</option>
+          <option value="2" {% if performance_status.nutritionalStatus == 2 %}selected{% endif %}>2 - Mildly at risk</option>
+          <option value="3" {% if performance_status.nutritionalStatus == 3 %}selected{% endif %}>3 - Moderately at risk</option>
+          <option value="4" {% if performance_status.nutritionalStatus == 4 %}selected{% endif %}>4 - Severely malnourished</option>
+          <option value="5" {% if performance_status.nutritionalStatus == 5 %}selected{% endif %}>5 - Critical malnutrition</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cognitive_function">Cognitive Function (1-5)</label>
+        <select id="cognitive_function" name="performance_status.cognitive_function">
+          <option value="">-- Select --</option>
+          <option value="1" {% if performance_status.cognitiveFunction == 1 %}selected{% endif %}>1 - Normal</option>
+          <option value="2" {% if performance_status.cognitiveFunction == 2 %}selected{% endif %}>2 - Mild impairment</option>
+          <option value="3" {% if performance_status.cognitiveFunction == 3 %}selected{% endif %}>3 - Moderate impairment</option>
+          <option value="4" {% if performance_status.cognitiveFunction == 4 %}selected{% endif %}>4 - Severe impairment</option>
+          <option value="5" {% if performance_status.cognitiveFunction == 5 %}selected{% endif %}>5 - Unresponsive</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sleep_quality">Sleep Quality (1-5)</label>
+        <select id="sleep_quality" name="performance_status.sleep_quality">
+          <option value="">-- Select --</option>
+          <option value="1" {% if performance_status.sleepQuality == 1 %}selected{% endif %}>1 - Good</option>
+          <option value="2" {% if performance_status.sleepQuality == 2 %}selected{% endif %}>2 - Fair</option>
+          <option value="3" {% if performance_status.sleepQuality == 3 %}selected{% endif %}>3 - Poor</option>
+          <option value="4" {% if performance_status.sleepQuality == 4 %}selected{% endif %}>4 - Very poor</option>
+          <option value="5" {% if performance_status.sleepQuality == 5 %}selected{% endif %}>5 - Severe insomnia</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

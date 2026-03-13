@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Oncology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Oncology Assessment</h1>
+  <p>
+    This assessment tool collects comprehensive oncology patient data across
+    diagnosis, staging, treatment, side effects, performance status, and
+    psychosocial factors. The assessment engine evaluates clinical severity
+    and generates actionable flags for the care team.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive oncology evaluation from diagnosis to clinical review</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Grading</h3>
+      <p>Automated severity scoring with rule-based analysis</p>
+    </div>
+    <div class="feature-card">
+      <h3>Actionable Flags</h3>
+      <p>Priority-sorted clinical alerts for the care team</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

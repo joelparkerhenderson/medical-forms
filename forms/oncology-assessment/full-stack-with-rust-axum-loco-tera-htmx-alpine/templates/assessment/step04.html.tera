@@ -1,0 +1,84 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Treatment History - Oncology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Treatment History</h2>
+    <p class="hint">Document prior treatments and their outcomes.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Prior Surgery?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="treatment_history.prior_surgery" value="yes" {% if treatment_history.priorSurgery == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="treatment_history.prior_surgery" value="no" {% if treatment_history.priorSurgery == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="surgery_date">Surgery Date</label>
+        <input type="date" id="surgery_date" name="treatment_history.surgery_date"
+               value="{{ treatment_history.surgeryDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Prior Radiation?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="treatment_history.prior_radiation" value="yes" {% if treatment_history.priorRadiation == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="treatment_history.prior_radiation" value="no" {% if treatment_history.priorRadiation == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="radiation_site">Radiation Site</label>
+        <input type="text" id="radiation_site" name="treatment_history.radiation_site"
+               value="{{ treatment_history.radiationSite }}"
+               placeholder="e.g. Chest wall, Pelvis">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Prior Chemotherapy?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="treatment_history.prior_chemotherapy" value="yes" {% if treatment_history.priorChemotherapy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="treatment_history.prior_chemotherapy" value="no" {% if treatment_history.priorChemotherapy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="chemotherapy_regimen">Chemotherapy Regimen</label>
+        <input type="text" id="chemotherapy_regimen" name="treatment_history.chemotherapy_regimen"
+               value="{{ treatment_history.chemotherapyRegimen }}"
+               placeholder="e.g. AC-T, FOLFOX">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Prior Immunotherapy?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="treatment_history.prior_immunotherapy" value="yes" {% if treatment_history.priorImmunotherapy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="treatment_history.prior_immunotherapy" value="no" {% if treatment_history.priorImmunotherapy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="treatment_response">Best Treatment Response</label>
+        <select id="treatment_response" name="treatment_history.treatment_response">
+          <option value="">-- Select --</option>
+          <option value="completeResponse" {% if treatment_history.treatmentResponse == "completeResponse" %}selected{% endif %}>Complete Response</option>
+          <option value="partialResponse" {% if treatment_history.treatmentResponse == "partialResponse" %}selected{% endif %}>Partial Response</option>
+          <option value="stableDisease" {% if treatment_history.treatmentResponse == "stableDisease" %}selected{% endif %}>Stable Disease</option>
+          <option value="progressiveDisease" {% if treatment_history.treatmentResponse == "progressiveDisease" %}selected{% endif %}>Progressive Disease</option>
+          <option value="notEvaluated" {% if treatment_history.treatmentResponse == "notEvaluated" %}selected{% endif %}>Not Yet Evaluated</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

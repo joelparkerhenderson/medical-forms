@@ -1,0 +1,91 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Treatment - Oncology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Treatment</h2>
+    <p class="hint">Document the current treatment plan and modifications.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="current_treatment_type">Treatment Type</label>
+        <select id="current_treatment_type" name="current_treatment.current_treatment_type">
+          <option value="">-- Select --</option>
+          <option value="chemotherapy" {% if current_treatment.currentTreatmentType == "chemotherapy" %}selected{% endif %}>Chemotherapy</option>
+          <option value="radiation" {% if current_treatment.currentTreatmentType == "radiation" %}selected{% endif %}>Radiation</option>
+          <option value="immunotherapy" {% if current_treatment.currentTreatmentType == "immunotherapy" %}selected{% endif %}>Immunotherapy</option>
+          <option value="targetedTherapy" {% if current_treatment.currentTreatmentType == "targetedTherapy" %}selected{% endif %}>Targeted Therapy</option>
+          <option value="hormoneTherapy" {% if current_treatment.currentTreatmentType == "hormoneTherapy" %}selected{% endif %}>Hormone Therapy</option>
+          <option value="combination" {% if current_treatment.currentTreatmentType == "combination" %}selected{% endif %}>Combination</option>
+          <option value="surveillance" {% if current_treatment.currentTreatmentType == "surveillance" %}selected{% endif %}>Active Surveillance</option>
+          <option value="none" {% if current_treatment.currentTreatmentType == "none" %}selected{% endif %}>None Currently</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="current_regimen">Current Regimen</label>
+        <input type="text" id="current_regimen" name="current_treatment.current_regimen"
+               value="{{ current_treatment.currentRegimen }}"
+               placeholder="e.g. Pembrolizumab + Carboplatin">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="treatment_cycle">Treatment Cycle</label>
+        <input type="text" id="treatment_cycle" name="current_treatment.treatment_cycle"
+               value="{{ current_treatment.treatmentCycle }}"
+               placeholder="e.g. Cycle 3 of 6">
+      </div>
+      <div class="form-group">
+        <label for="treatment_start_date">Treatment Start Date</label>
+        <input type="date" id="treatment_start_date" name="current_treatment.treatment_start_date"
+               value="{{ current_treatment.treatmentStartDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="treatment_intent">Treatment Intent</label>
+        <select id="treatment_intent" name="current_treatment.treatment_intent">
+          <option value="">-- Select --</option>
+          <option value="curative" {% if current_treatment.treatmentIntent == "curative" %}selected{% endif %}>Curative</option>
+          <option value="palliative" {% if current_treatment.treatmentIntent == "palliative" %}selected{% endif %}>Palliative</option>
+          <option value="adjuvant" {% if current_treatment.treatmentIntent == "adjuvant" %}selected{% endif %}>Adjuvant</option>
+          <option value="neoadjuvant" {% if current_treatment.treatmentIntent == "neoadjuvant" %}selected{% endif %}>Neoadjuvant</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Clinical Trial Enrollment?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.clinical_trial_enrollment" value="yes" {% if current_treatment.clinicalTrialEnrollment == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.clinical_trial_enrollment" value="no" {% if current_treatment.clinicalTrialEnrollment == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="treatment_modifications">Treatment Modifications</label>
+        <select id="treatment_modifications" name="current_treatment.treatment_modifications">
+          <option value="">-- Select --</option>
+          <option value="none" {% if current_treatment.treatmentModifications == "none" %}selected{% endif %}>None</option>
+          <option value="doseReduction" {% if current_treatment.treatmentModifications == "doseReduction" %}selected{% endif %}>Dose Reduction</option>
+          <option value="doseDelay" {% if current_treatment.treatmentModifications == "doseDelay" %}selected{% endif %}>Dose Delay</option>
+          <option value="regimenChange" {% if current_treatment.treatmentModifications == "regimenChange" %}selected{% endif %}>Regimen Change</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="next_treatment_date">Next Treatment Date</label>
+        <input type="date" id="next_treatment_date" name="current_treatment.next_treatment_date"
+               value="{{ current_treatment.nextTreatmentDate }}">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

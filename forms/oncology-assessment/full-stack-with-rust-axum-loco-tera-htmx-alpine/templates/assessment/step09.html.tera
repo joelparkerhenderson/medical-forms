@@ -1,0 +1,104 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Palliative Care Needs - Oncology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Palliative Care Needs</h2>
+    <p class="hint">Evaluate palliative care requirements, advance planning, and quality of life (1 = Good, 5 = Poor).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="symptom_burden">Symptom Burden (1-5)</label>
+        <select id="symptom_burden" name="palliative_care_needs.symptom_burden">
+          <option value="">-- Select --</option>
+          <option value="1" {% if palliative_care_needs.symptomBurden == 1 %}selected{% endif %}>1 - Minimal</option>
+          <option value="2" {% if palliative_care_needs.symptomBurden == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if palliative_care_needs.symptomBurden == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if palliative_care_needs.symptomBurden == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if palliative_care_needs.symptomBurden == 5 %}selected{% endif %}>5 - Overwhelming</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pain_management_adequacy">Pain Management Adequacy (1-5)</label>
+        <select id="pain_management_adequacy" name="palliative_care_needs.pain_management_adequacy">
+          <option value="">-- Select --</option>
+          <option value="1" {% if palliative_care_needs.painManagementAdequacy == 1 %}selected{% endif %}>1 - Well managed</option>
+          <option value="2" {% if palliative_care_needs.painManagementAdequacy == 2 %}selected{% endif %}>2 - Mostly managed</option>
+          <option value="3" {% if palliative_care_needs.painManagementAdequacy == 3 %}selected{% endif %}>3 - Partially managed</option>
+          <option value="4" {% if palliative_care_needs.painManagementAdequacy == 4 %}selected{% endif %}>4 - Poorly managed</option>
+          <option value="5" {% if palliative_care_needs.painManagementAdequacy == 5 %}selected{% endif %}>5 - Uncontrolled pain</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="advance_directive_status">Advance Directive Status</label>
+        <select id="advance_directive_status" name="palliative_care_needs.advance_directive_status">
+          <option value="">-- Select --</option>
+          <option value="completed" {% if palliative_care_needs.advanceDirectiveStatus == "completed" %}selected{% endif %}>Completed</option>
+          <option value="inProgress" {% if palliative_care_needs.advanceDirectiveStatus == "inProgress" %}selected{% endif %}>In Progress</option>
+          <option value="none" {% if palliative_care_needs.advanceDirectiveStatus == "none" %}selected{% endif %}>None</option>
+          <option value="declined" {% if palliative_care_needs.advanceDirectiveStatus == "declined" %}selected{% endif %}>Declined</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Goals of Care Discussed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="palliative_care_needs.goals_of_care_discussed" value="yes" {% if palliative_care_needs.goalsOfCareDiscussed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="palliative_care_needs.goals_of_care_discussed" value="no" {% if palliative_care_needs.goalsOfCareDiscussed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Hospice Referral Indicated?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="palliative_care_needs.hospice_referral_indicated" value="yes" {% if palliative_care_needs.hospiceReferralIndicated == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="palliative_care_needs.hospice_referral_indicated" value="no" {% if palliative_care_needs.hospiceReferralIndicated == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="palliative_care_needs.hospice_referral_indicated" value="undecided" {% if palliative_care_needs.hospiceReferralIndicated == "undecided" %}checked{% endif %}> Undecided</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="quality_of_life_score">Quality of Life (1-5)</label>
+        <select id="quality_of_life_score" name="palliative_care_needs.quality_of_life_score">
+          <option value="">-- Select --</option>
+          <option value="1" {% if palliative_care_needs.qualityOfLifeScore == 1 %}selected{% endif %}>1 - Excellent</option>
+          <option value="2" {% if palliative_care_needs.qualityOfLifeScore == 2 %}selected{% endif %}>2 - Good</option>
+          <option value="3" {% if palliative_care_needs.qualityOfLifeScore == 3 %}selected{% endif %}>3 - Fair</option>
+          <option value="4" {% if palliative_care_needs.qualityOfLifeScore == 4 %}selected{% endif %}>4 - Poor</option>
+          <option value="5" {% if palliative_care_needs.qualityOfLifeScore == 5 %}selected{% endif %}>5 - Very poor</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="end_of_life_planning">End-of-Life Planning</label>
+        <select id="end_of_life_planning" name="palliative_care_needs.end_of_life_planning">
+          <option value="">-- Select --</option>
+          <option value="notApplicable" {% if palliative_care_needs.endOfLifePlanning == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+          <option value="discussed" {% if palliative_care_needs.endOfLifePlanning == "discussed" %}selected{% endif %}>Discussed</option>
+          <option value="notDiscussed" {% if palliative_care_needs.endOfLifePlanning == "notDiscussed" %}selected{% endif %}>Not Discussed</option>
+          <option value="patientDeclined" {% if palliative_care_needs.endOfLifePlanning == "patientDeclined" %}selected{% endif %}>Patient Declined</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Palliative Care Referral?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="palliative_care_needs.palliative_care_referral" value="yes" {% if palliative_care_needs.palliativeCareReferral == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="palliative_care_needs.palliative_care_referral" value="no" {% if palliative_care_needs.palliativeCareReferral == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="palliative_care_needs.palliative_care_referral" value="pending" {% if palliative_care_needs.palliativeCareReferral == "pending" %}checked{% endif %}> Pending</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

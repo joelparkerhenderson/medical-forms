@@ -1,0 +1,111 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Psychosocial Assessment - Oncology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Psychosocial Assessment</h2>
+    <p class="hint">Assess psychological and social factors (1 = Low/Good, 5 = High/Severe).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="anxiety_level">Anxiety Level (1-5)</label>
+        <select id="anxiety_level" name="psychosocial_assessment.anxiety_level">
+          <option value="">-- Select --</option>
+          <option value="1" {% if psychosocial_assessment.anxietyLevel == 1 %}selected{% endif %}>1 - Minimal</option>
+          <option value="2" {% if psychosocial_assessment.anxietyLevel == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if psychosocial_assessment.anxietyLevel == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if psychosocial_assessment.anxietyLevel == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if psychosocial_assessment.anxietyLevel == 5 %}selected{% endif %}>5 - Extreme</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="depression_screening">Depression Screening (1-5)</label>
+        <select id="depression_screening" name="psychosocial_assessment.depression_screening">
+          <option value="">-- Select --</option>
+          <option value="1" {% if psychosocial_assessment.depressionScreening == 1 %}selected{% endif %}>1 - No symptoms</option>
+          <option value="2" {% if psychosocial_assessment.depressionScreening == 2 %}selected{% endif %}>2 - Mild symptoms</option>
+          <option value="3" {% if psychosocial_assessment.depressionScreening == 3 %}selected{% endif %}>3 - Moderate symptoms</option>
+          <option value="4" {% if psychosocial_assessment.depressionScreening == 4 %}selected{% endif %}>4 - Severe symptoms</option>
+          <option value="5" {% if psychosocial_assessment.depressionScreening == 5 %}selected{% endif %}>5 - Critical depression</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="distress_thermometer">Distress Thermometer (1-5)</label>
+        <select id="distress_thermometer" name="psychosocial_assessment.distress_thermometer">
+          <option value="">-- Select --</option>
+          <option value="1" {% if psychosocial_assessment.distressThermometer == 1 %}selected{% endif %}>1 - No distress</option>
+          <option value="2" {% if psychosocial_assessment.distressThermometer == 2 %}selected{% endif %}>2 - Mild distress</option>
+          <option value="3" {% if psychosocial_assessment.distressThermometer == 3 %}selected{% endif %}>3 - Moderate distress</option>
+          <option value="4" {% if psychosocial_assessment.distressThermometer == 4 %}selected{% endif %}>4 - High distress</option>
+          <option value="5" {% if psychosocial_assessment.distressThermometer == 5 %}selected{% endif %}>5 - Extreme distress</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="social_support">Social Support (1-5)</label>
+        <select id="social_support" name="psychosocial_assessment.social_support">
+          <option value="">-- Select --</option>
+          <option value="1" {% if psychosocial_assessment.socialSupport == 1 %}selected{% endif %}>1 - Strong support</option>
+          <option value="2" {% if psychosocial_assessment.socialSupport == 2 %}selected{% endif %}>2 - Adequate support</option>
+          <option value="3" {% if psychosocial_assessment.socialSupport == 3 %}selected{% endif %}>3 - Some support</option>
+          <option value="4" {% if psychosocial_assessment.socialSupport == 4 %}selected{% endif %}>4 - Minimal support</option>
+          <option value="5" {% if psychosocial_assessment.socialSupport == 5 %}selected{% endif %}>5 - No support</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="financial_toxicity">Financial Toxicity (1-5)</label>
+        <select id="financial_toxicity" name="psychosocial_assessment.financial_toxicity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if psychosocial_assessment.financialToxicity == 1 %}selected{% endif %}>1 - No financial strain</option>
+          <option value="2" {% if psychosocial_assessment.financialToxicity == 2 %}selected{% endif %}>2 - Mild strain</option>
+          <option value="3" {% if psychosocial_assessment.financialToxicity == 3 %}selected{% endif %}>3 - Moderate strain</option>
+          <option value="4" {% if psychosocial_assessment.financialToxicity == 4 %}selected{% endif %}>4 - Severe strain</option>
+          <option value="5" {% if psychosocial_assessment.financialToxicity == 5 %}selected{% endif %}>5 - Financial hardship</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="coping_ability">Coping Ability (1-5)</label>
+        <select id="coping_ability" name="psychosocial_assessment.coping_ability">
+          <option value="">-- Select --</option>
+          <option value="1" {% if psychosocial_assessment.copingAbility == 1 %}selected{% endif %}>1 - Coping well</option>
+          <option value="2" {% if psychosocial_assessment.copingAbility == 2 %}selected{% endif %}>2 - Mostly coping</option>
+          <option value="3" {% if psychosocial_assessment.copingAbility == 3 %}selected{% endif %}>3 - Some difficulty</option>
+          <option value="4" {% if psychosocial_assessment.copingAbility == 4 %}selected{% endif %}>4 - Significant difficulty</option>
+          <option value="5" {% if psychosocial_assessment.copingAbility == 5 %}selected{% endif %}>5 - Unable to cope</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Spiritual Needs?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="psychosocial_assessment.spiritual_needs" value="yes" {% if psychosocial_assessment.spiritualNeeds == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="psychosocial_assessment.spiritual_needs" value="no" {% if psychosocial_assessment.spiritualNeeds == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="caregiver_burden">Caregiver Burden</label>
+        <select id="caregiver_burden" name="psychosocial_assessment.caregiver_burden">
+          <option value="">-- Select --</option>
+          <option value="none" {% if psychosocial_assessment.caregiverBurden == "none" %}selected{% endif %}>None</option>
+          <option value="low" {% if psychosocial_assessment.caregiverBurden == "low" %}selected{% endif %}>Low</option>
+          <option value="moderate" {% if psychosocial_assessment.caregiverBurden == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="high" {% if psychosocial_assessment.caregiverBurden == "high" %}selected{% endif %}>High</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

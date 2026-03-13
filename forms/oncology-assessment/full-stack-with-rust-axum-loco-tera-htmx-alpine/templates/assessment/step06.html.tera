@@ -1,0 +1,115 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Side Effects & Toxicity - Oncology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Side Effects & Toxicity</h2>
+    <p class="hint">Rate severity of side effects on a 1-5 scale (1 = None/Minimal, 5 = Severe/Life-threatening).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nausea_severity">Nausea Severity (1-5)</label>
+        <select id="nausea_severity" name="side_effects_toxicity.nausea_severity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if side_effects_toxicity.nauseaSeverity == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if side_effects_toxicity.nauseaSeverity == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if side_effects_toxicity.nauseaSeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if side_effects_toxicity.nauseaSeverity == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if side_effects_toxicity.nauseaSeverity == 5 %}selected{% endif %}>5 - Life-threatening</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fatigue_severity">Fatigue Severity (1-5)</label>
+        <select id="fatigue_severity" name="side_effects_toxicity.fatigue_severity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if side_effects_toxicity.fatigueSeverity == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if side_effects_toxicity.fatigueSeverity == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if side_effects_toxicity.fatigueSeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if side_effects_toxicity.fatigueSeverity == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if side_effects_toxicity.fatigueSeverity == 5 %}selected{% endif %}>5 - Debilitating</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pain_severity">Pain Severity (1-5)</label>
+        <select id="pain_severity" name="side_effects_toxicity.pain_severity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if side_effects_toxicity.painSeverity == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if side_effects_toxicity.painSeverity == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if side_effects_toxicity.painSeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if side_effects_toxicity.painSeverity == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if side_effects_toxicity.painSeverity == 5 %}selected{% endif %}>5 - Maximum</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="neuropathy_severity">Neuropathy Severity (1-5)</label>
+        <select id="neuropathy_severity" name="side_effects_toxicity.neuropathy_severity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if side_effects_toxicity.neuropathySeverity == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if side_effects_toxicity.neuropathySeverity == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if side_effects_toxicity.neuropathySeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if side_effects_toxicity.neuropathySeverity == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if side_effects_toxicity.neuropathySeverity == 5 %}selected{% endif %}>5 - Disabling</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mucositis_severity">Mucositis Severity (1-5)</label>
+        <select id="mucositis_severity" name="side_effects_toxicity.mucositis_severity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if side_effects_toxicity.mucositisSeverity == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if side_effects_toxicity.mucositisSeverity == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if side_effects_toxicity.mucositisSeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if side_effects_toxicity.mucositisSeverity == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if side_effects_toxicity.mucositisSeverity == 5 %}selected{% endif %}>5 - Life-threatening</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="skin_toxicity_severity">Skin Toxicity Severity (1-5)</label>
+        <select id="skin_toxicity_severity" name="side_effects_toxicity.skin_toxicity_severity">
+          <option value="">-- Select --</option>
+          <option value="1" {% if side_effects_toxicity.skinToxicitySeverity == 1 %}selected{% endif %}>1 - None</option>
+          <option value="2" {% if side_effects_toxicity.skinToxicitySeverity == 2 %}selected{% endif %}>2 - Mild</option>
+          <option value="3" {% if side_effects_toxicity.skinToxicitySeverity == 3 %}selected{% endif %}>3 - Moderate</option>
+          <option value="4" {% if side_effects_toxicity.skinToxicitySeverity == 4 %}selected{% endif %}>4 - Severe</option>
+          <option value="5" {% if side_effects_toxicity.skinToxicitySeverity == 5 %}selected{% endif %}>5 - Life-threatening</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hematologic_toxicity">Hematologic Toxicity</label>
+        <select id="hematologic_toxicity" name="side_effects_toxicity.hematologic_toxicity">
+          <option value="">-- Select --</option>
+          <option value="none" {% if side_effects_toxicity.hematologicToxicity == "none" %}selected{% endif %}>None</option>
+          <option value="grade1" {% if side_effects_toxicity.hematologicToxicity == "grade1" %}selected{% endif %}>Grade 1</option>
+          <option value="grade2" {% if side_effects_toxicity.hematologicToxicity == "grade2" %}selected{% endif %}>Grade 2</option>
+          <option value="grade3" {% if side_effects_toxicity.hematologicToxicity == "grade3" %}selected{% endif %}>Grade 3</option>
+          <option value="grade4" {% if side_effects_toxicity.hematologicToxicity == "grade4" %}selected{% endif %}>Grade 4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="weight_change">Weight Change</label>
+        <select id="weight_change" name="side_effects_toxicity.weight_change">
+          <option value="">-- Select --</option>
+          <option value="stable" {% if side_effects_toxicity.weightChange == "stable" %}selected{% endif %}>Stable</option>
+          <option value="mildLoss" {% if side_effects_toxicity.weightChange == "mildLoss" %}selected{% endif %}>Mild Loss (&lt;5%)</option>
+          <option value="significantLoss" {% if side_effects_toxicity.weightChange == "significantLoss" %}selected{% endif %}>Significant Loss (&ge;5%)</option>
+          <option value="gain" {% if side_effects_toxicity.weightChange == "gain" %}selected{% endif %}>Weight Gain</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

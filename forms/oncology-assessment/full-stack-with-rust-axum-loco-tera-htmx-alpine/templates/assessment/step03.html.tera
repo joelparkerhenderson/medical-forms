@@ -1,0 +1,110 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Staging & Grading - Oncology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Staging & Grading</h2>
+    <p class="hint">Enter TNM staging, overall stage, and tumor grading information.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tnm_t_stage">T Stage (Tumor)</label>
+        <select id="tnm_t_stage" name="staging_grading.tnm_t_stage">
+          <option value="">-- Select --</option>
+          <option value="Tis" {% if staging_grading.tnmTStage == "Tis" %}selected{% endif %}>Tis (in situ)</option>
+          <option value="T1" {% if staging_grading.tnmTStage == "T1" %}selected{% endif %}>T1</option>
+          <option value="T2" {% if staging_grading.tnmTStage == "T2" %}selected{% endif %}>T2</option>
+          <option value="T3" {% if staging_grading.tnmTStage == "T3" %}selected{% endif %}>T3</option>
+          <option value="T4" {% if staging_grading.tnmTStage == "T4" %}selected{% endif %}>T4</option>
+          <option value="TX" {% if staging_grading.tnmTStage == "TX" %}selected{% endif %}>TX (unknown)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tnm_n_stage">N Stage (Nodes)</label>
+        <select id="tnm_n_stage" name="staging_grading.tnm_n_stage">
+          <option value="">-- Select --</option>
+          <option value="N0" {% if staging_grading.tnmNStage == "N0" %}selected{% endif %}>N0</option>
+          <option value="N1" {% if staging_grading.tnmNStage == "N1" %}selected{% endif %}>N1</option>
+          <option value="N2" {% if staging_grading.tnmNStage == "N2" %}selected{% endif %}>N2</option>
+          <option value="N3" {% if staging_grading.tnmNStage == "N3" %}selected{% endif %}>N3</option>
+          <option value="NX" {% if staging_grading.tnmNStage == "NX" %}selected{% endif %}>NX (unknown)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tnm_m_stage">M Stage (Metastasis)</label>
+        <select id="tnm_m_stage" name="staging_grading.tnm_m_stage">
+          <option value="">-- Select --</option>
+          <option value="M0" {% if staging_grading.tnmMStage == "M0" %}selected{% endif %}>M0 (no distant metastasis)</option>
+          <option value="M1" {% if staging_grading.tnmMStage == "M1" %}selected{% endif %}>M1 (distant metastasis)</option>
+          <option value="MX" {% if staging_grading.tnmMStage == "MX" %}selected{% endif %}>MX (unknown)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="overall_stage">Overall Stage</label>
+        <select id="overall_stage" name="staging_grading.overall_stage">
+          <option value="">-- Select --</option>
+          <option value="I" {% if staging_grading.overallStage == "I" %}selected{% endif %}>Stage I</option>
+          <option value="IA" {% if staging_grading.overallStage == "IA" %}selected{% endif %}>Stage IA</option>
+          <option value="IB" {% if staging_grading.overallStage == "IB" %}selected{% endif %}>Stage IB</option>
+          <option value="II" {% if staging_grading.overallStage == "II" %}selected{% endif %}>Stage II</option>
+          <option value="IIA" {% if staging_grading.overallStage == "IIA" %}selected{% endif %}>Stage IIA</option>
+          <option value="IIB" {% if staging_grading.overallStage == "IIB" %}selected{% endif %}>Stage IIB</option>
+          <option value="III" {% if staging_grading.overallStage == "III" %}selected{% endif %}>Stage III</option>
+          <option value="IIIA" {% if staging_grading.overallStage == "IIIA" %}selected{% endif %}>Stage IIIA</option>
+          <option value="IIIB" {% if staging_grading.overallStage == "IIIB" %}selected{% endif %}>Stage IIIB</option>
+          <option value="IIIC" {% if staging_grading.overallStage == "IIIC" %}selected{% endif %}>Stage IIIC</option>
+          <option value="IV" {% if staging_grading.overallStage == "IV" %}selected{% endif %}>Stage IV</option>
+          <option value="IVA" {% if staging_grading.overallStage == "IVA" %}selected{% endif %}>Stage IVA</option>
+          <option value="IVB" {% if staging_grading.overallStage == "IVB" %}selected{% endif %}>Stage IVB</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tumor_grade">Tumor Grade</label>
+        <select id="tumor_grade" name="staging_grading.tumor_grade">
+          <option value="">-- Select --</option>
+          <option value="G1" {% if staging_grading.tumorGrade == "G1" %}selected{% endif %}>G1 (well differentiated)</option>
+          <option value="G2" {% if staging_grading.tumorGrade == "G2" %}selected{% endif %}>G2 (moderately differentiated)</option>
+          <option value="G3" {% if staging_grading.tumorGrade == "G3" %}selected{% endif %}>G3 (poorly differentiated)</option>
+          <option value="G4" {% if staging_grading.tumorGrade == "G4" %}selected{% endif %}>G4 (undifferentiated)</option>
+          <option value="GX" {% if staging_grading.tumorGrade == "GX" %}selected{% endif %}>GX (cannot be assessed)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="metastatic_sites">Metastatic Sites (if any)</label>
+        <input type="text" id="metastatic_sites" name="staging_grading.metastatic_sites"
+               value="{{ staging_grading.metastaticSites }}"
+               placeholder="e.g. Liver, Bone, Brain">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="staging_date">Staging Date</label>
+        <input type="date" id="staging_date" name="staging_grading.staging_date"
+               value="{{ staging_grading.stagingDate }}">
+      </div>
+      <div class="form-group">
+        <label for="staging_method">Staging Method</label>
+        <select id="staging_method" name="staging_grading.staging_method">
+          <option value="">-- Select --</option>
+          <option value="clinical" {% if staging_grading.stagingMethod == "clinical" %}selected{% endif %}>Clinical</option>
+          <option value="pathological" {% if staging_grading.stagingMethod == "pathological" %}selected{% endif %}>Pathological</option>
+          <option value="postTherapy" {% if staging_grading.stagingMethod == "postTherapy" %}selected{% endif %}>Post-therapy</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

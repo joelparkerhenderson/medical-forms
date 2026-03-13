@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Oncology Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Oncology Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, cancer type, stage...">
+    </div>
+    <div class="form-group">
+      <label for="oncology_level">Oncology Level</label>
+      <select id="oncology_level" name="oncology_level">
+        <option value="">All Levels</option>
+        <option value="stable" {% if oncology_level == "stable" %}selected{% endif %}>Stable</option>
+        <option value="monitoring" {% if oncology_level == "monitoring" %}selected{% endif %}>Monitoring</option>
+        <option value="activeIssue" {% if oncology_level == "activeIssue" %}selected{% endif %}>Active Issue</option>
+        <option value="urgent" {% if oncology_level == "urgent" %}selected{% endif %}>Urgent</option>
+        <option value="palliative" {% if oncology_level == "palliative" %}selected{% endif %}>Palliative</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="stage_category">Stage Category</label>
+      <select id="stage_category" name="stage_category">
+        <option value="">All</option>
+        <option value="early" {% if stage_category == "early" %}selected{% endif %}>Early (I-II)</option>
+        <option value="advanced" {% if stage_category == "advanced" %}selected{% endif %}>Advanced (III)</option>
+        <option value="metastatic" {% if stage_category == "metastatic" %}selected{% endif %}>Metastatic (IV)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient</th>
+      <th>Cancer Type</th>
+      <th>Stage</th>
+      <th>Level</th>
+      <th>Score</th>
+      <th>ECOG</th>
+      <th>Treatment</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.cancerType }}</td>
+      <td>{{ patient.overallStage }}</td>
+      <td><span class="oncology-badge oncology-{{ patient.oncologyLevel }}">{{ patient.oncologyLevel }}</span></td>
+      <td>{{ patient.oncologyScore }}%</td>
+      <td>{{ patient.ecogScore }}</td>
+      <td>{{ patient.currentTreatment }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}
