@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Trigger Identification - MCAS Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Trigger Identification</h2>
+    <p class="hint">Rate the significance of each trigger in provoking mast cell activation episodes (1=Not a trigger, 5=Major trigger).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="heat_trigger">Heat / Temperature Changes (1-5)</label>
+        <select id="heat_trigger" name="trigger_identification.heat_trigger">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if trigger_identification.heatTrigger == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="stress_trigger">Emotional / Physical Stress (1-5)</label>
+        <select id="stress_trigger" name="trigger_identification.stress_trigger">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if trigger_identification.stressTrigger == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="exercise_trigger">Exercise (1-5)</label>
+        <select id="exercise_trigger" name="trigger_identification.exercise_trigger">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if trigger_identification.exerciseTrigger == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="food_trigger">Food / Alcohol (1-5)</label>
+        <select id="food_trigger" name="trigger_identification.food_trigger">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if trigger_identification.foodTrigger == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="medication_trigger">Medications (e.g. NSAIDs, opioids) (1-5)</label>
+        <select id="medication_trigger" name="trigger_identification.medication_trigger">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if trigger_identification.medicationTrigger == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fragrance_chemical_trigger">Fragrances / Chemicals (1-5)</label>
+        <select id="fragrance_chemical_trigger" name="trigger_identification.fragrance_chemical_trigger">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if trigger_identification.fragranceChemicalTrigger == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="insect_sting_trigger">Insect Stings / Venom (1-5)</label>
+        <select id="insect_sting_trigger" name="trigger_identification.insect_sting_trigger">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if trigger_identification.insectStingTrigger == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="trigger_predictability">Trigger Predictability</label>
+        <select id="trigger_predictability" name="trigger_identification.trigger_predictability">
+          <option value="">-- Select --</option>
+          <option value="predictable" {% if trigger_identification.triggerPredictability == "predictable" %}selected{% endif %}>Predictable</option>
+          <option value="somewhatPredictable" {% if trigger_identification.triggerPredictability == "somewhatPredictable" %}selected{% endif %}>Somewhat Predictable</option>
+          <option value="unpredictable" {% if trigger_identification.triggerPredictability == "unpredictable" %}selected{% endif %}>Unpredictable</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

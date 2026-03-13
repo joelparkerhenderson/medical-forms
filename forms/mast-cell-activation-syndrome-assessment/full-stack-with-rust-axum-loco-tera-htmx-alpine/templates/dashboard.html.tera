@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - MCAS Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>MCAS Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by date, patient name...">
+    </div>
+    <div class="form-group">
+      <label for="severity_level">Severity Level</label>
+      <select id="severity_level" name="severity_level">
+        <option value="">All Levels</option>
+        <option value="mild" {% if severity_level == "mild" %}selected{% endif %}>Mild</option>
+        <option value="moderate" {% if severity_level == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="severe" {% if severity_level == "severe" %}selected{% endif %}>Severe</option>
+        <option value="anaphylactic" {% if severity_level == "anaphylactic" %}selected{% endif %}>Anaphylactic</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="organ_systems">Organ Systems</label>
+      <select id="organ_systems" name="organ_systems">
+        <option value="">All</option>
+        <option value="1" {% if organ_systems == "1" %}selected{% endif %}>1</option>
+        <option value="2" {% if organ_systems == "2" %}selected{% endif %}>2</option>
+        <option value="3" {% if organ_systems == "3" %}selected{% endif %}>3</option>
+        <option value="4" {% if organ_systems == "4" %}selected{% endif %}>4</option>
+        <option value="5orMore" {% if organ_systems == "5orMore" %}selected{% endif %}>5+</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Assessment Date</th>
+      <th>Patient</th>
+      <th>Severity</th>
+      <th>Score</th>
+      <th>Organ Systems</th>
+      <th>Mediator Response</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.assessmentDate }}</a></td>
+      <td>{{ patient.patientName }}</td>
+      <td><span class="severity-badge severity-{{ patient.severityLevel }}">{{ patient.severityLevel }}</span></td>
+      <td>{{ patient.severityScore }}%</td>
+      <td>{{ patient.organSystems }}</td>
+      <td>{{ patient.mediatorResponse }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

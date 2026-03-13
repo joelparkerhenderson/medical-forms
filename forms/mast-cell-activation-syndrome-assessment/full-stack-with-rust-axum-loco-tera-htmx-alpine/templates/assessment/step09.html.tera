@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Treatment - MCAS Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Treatment</h2>
+    <p class="hint">Rate the response to current medications (1=No Response, 5=Excellent Response).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="h1_antihistamine_response">H1 Antihistamine Response (1-5)</label>
+        <select id="h1_antihistamine_response" name="current_treatment.h1_antihistamine_response">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if current_treatment.h1AntihistamineResponse == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="h2_antihistamine_response">H2 Antihistamine Response (1-5)</label>
+        <select id="h2_antihistamine_response" name="current_treatment.h2_antihistamine_response">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if current_treatment.h2AntihistamineResponse == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mast_cell_stabilizer_response">Mast Cell Stabilizer Response (1-5)</label>
+        <select id="mast_cell_stabilizer_response" name="current_treatment.mast_cell_stabilizer_response">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if current_treatment.mastCellStabilizerResponse == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="leukotriene_inhibitor_response">Leukotriene Inhibitor Response (1-5)</label>
+        <select id="leukotriene_inhibitor_response" name="current_treatment.leukotriene_inhibitor_response">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if current_treatment.leukotrieneInhibitorResponse == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Epinephrine Auto-Injector Prescribed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.epinephrine_auto_injector" value="yes" {% if current_treatment.epinephrineAutoInjector == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.epinephrine_auto_injector" value="no" {% if current_treatment.epinephrineAutoInjector == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="corticosteroid_use">Corticosteroid Use</label>
+        <select id="corticosteroid_use" name="current_treatment.corticosteroid_use">
+          <option value="">-- Select --</option>
+          <option value="none" {% if current_treatment.corticosteroidUse == "none" %}selected{% endif %}>None</option>
+          <option value="asNeeded" {% if current_treatment.corticosteroidUse == "asNeeded" %}selected{% endif %}>As Needed</option>
+          <option value="shortCourse" {% if current_treatment.corticosteroidUse == "shortCourse" %}selected{% endif %}>Short Course</option>
+          <option value="chronic" {% if current_treatment.corticosteroidUse == "chronic" %}selected{% endif %}>Chronic</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="treatment_adherence">Treatment Adherence (1=Poor, 5=Excellent)</label>
+        <select id="treatment_adherence" name="current_treatment.treatment_adherence">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if current_treatment.treatmentAdherence == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="other_medications">Other Medications</label>
+        <input type="text" id="other_medications" name="current_treatment.other_medications"
+               value="{{ current_treatment.otherMedications }}"
+               placeholder="e.g. cromolyn sodium, omalizumab">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

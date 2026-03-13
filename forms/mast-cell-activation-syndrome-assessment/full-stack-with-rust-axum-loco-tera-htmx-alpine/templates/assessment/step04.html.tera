@@ -1,0 +1,78 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Gastrointestinal Symptoms - MCAS Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Gastrointestinal Symptoms</h2>
+    <p class="hint">Rate the severity of GI symptoms (1=None/Minimal, 5=Severe/Constant).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="abdominal_pain_severity">Abdominal Pain Severity (1-5)</label>
+        <select id="abdominal_pain_severity" name="gastrointestinal_symptoms.abdominal_pain_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if gastrointestinal_symptoms.abdominalPainSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="nausea_severity">Nausea Severity (1-5)</label>
+        <select id="nausea_severity" name="gastrointestinal_symptoms.nausea_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if gastrointestinal_symptoms.nauseaSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="diarrhea_severity">Diarrhea Severity (1-5)</label>
+        <select id="diarrhea_severity" name="gastrointestinal_symptoms.diarrhea_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if gastrointestinal_symptoms.diarrheaSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="bloating_severity">Bloating Severity (1-5)</label>
+        <select id="bloating_severity" name="gastrointestinal_symptoms.bloating_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if gastrointestinal_symptoms.bloatingSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="gastroesophageal_reflux">Gastroesophageal Reflux (1-5)</label>
+        <select id="gastroesophageal_reflux" name="gastrointestinal_symptoms.gastroesophageal_reflux">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if gastrointestinal_symptoms.gastroesophagealReflux == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="food_intolerances_count">Number of Food Intolerances</label>
+        <select id="food_intolerances_count" name="gastrointestinal_symptoms.food_intolerances_count">
+          <option value="">-- Select --</option>
+          <option value="none" {% if gastrointestinal_symptoms.foodIntolerancesCount == "none" %}selected{% endif %}>None</option>
+          <option value="1to2" {% if gastrointestinal_symptoms.foodIntolerancesCount == "1to2" %}selected{% endif %}>1 - 2</option>
+          <option value="3to5" {% if gastrointestinal_symptoms.foodIntolerancesCount == "3to5" %}selected{% endif %}>3 - 5</option>
+          <option value="moreThan5" {% if gastrointestinal_symptoms.foodIntolerancesCount == "moreThan5" %}selected{% endif %}>More than 5</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Signs of Malabsorption?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="gastrointestinal_symptoms.malabsorption_signs" value="yes" {% if gastrointestinal_symptoms.malabsorptionSigns == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="gastrointestinal_symptoms.malabsorption_signs" value="no" {% if gastrointestinal_symptoms.malabsorptionSigns == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Skin Manifestations - MCAS Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Skin Manifestations</h2>
+    <p class="hint">Rate the severity of cutaneous symptoms (1=None/Minimal, 5=Severe/Constant).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="flushing_severity">Flushing Severity (1-5)</label>
+        <select id="flushing_severity" name="skin_manifestations.flushing_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if skin_manifestations.flushingSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="flushing_frequency">Flushing Frequency</label>
+        <select id="flushing_frequency" name="skin_manifestations.flushing_frequency">
+          <option value="">-- Select --</option>
+          <option value="never" {% if skin_manifestations.flushingFrequency == "never" %}selected{% endif %}>Never</option>
+          <option value="rarely" {% if skin_manifestations.flushingFrequency == "rarely" %}selected{% endif %}>Rarely</option>
+          <option value="weekly" {% if skin_manifestations.flushingFrequency == "weekly" %}selected{% endif %}>Weekly</option>
+          <option value="daily" {% if skin_manifestations.flushingFrequency == "daily" %}selected{% endif %}>Daily</option>
+          <option value="multipleDaily" {% if skin_manifestations.flushingFrequency == "multipleDaily" %}selected{% endif %}>Multiple Times Daily</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="urticaria_severity">Urticaria (Hives) Severity (1-5)</label>
+        <select id="urticaria_severity" name="skin_manifestations.urticaria_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if skin_manifestations.urticariaSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="angioedema_severity">Angioedema Severity (1-5)</label>
+        <select id="angioedema_severity" name="skin_manifestations.angioedema_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if skin_manifestations.angioedemaSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pruritus_severity">Pruritus (Itching) Severity (1-5)</label>
+        <select id="pruritus_severity" name="skin_manifestations.pruritus_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if skin_manifestations.pruritusSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Dermatographism Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="skin_manifestations.dermatographism_present" value="yes" {% if skin_manifestations.dermatographismPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="skin_manifestations.dermatographism_present" value="no" {% if skin_manifestations.dermatographismPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Skin Lesions Present (e.g. urticaria pigmentosa)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="skin_manifestations.skin_lesions_present" value="yes" {% if skin_manifestations.skinLesionsPresent == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="skin_manifestations.skin_lesions_present" value="no" {% if skin_manifestations.skinLesionsPresent == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

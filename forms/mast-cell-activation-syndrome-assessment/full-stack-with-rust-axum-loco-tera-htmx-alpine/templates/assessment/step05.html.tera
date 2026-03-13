@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cardiovascular & Neurological - MCAS Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cardiovascular &amp; Neurological</h2>
+    <p class="hint">Rate the severity of cardiovascular and neurological symptoms (1=None/Minimal, 5=Severe/Constant).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tachycardia_severity">Tachycardia Severity (1-5)</label>
+        <select id="tachycardia_severity" name="cardiovascular_neurological.tachycardia_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if cardiovascular_neurological.tachycardiaSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="hypotension_episodes">Hypotension Episodes (1-5)</label>
+        <select id="hypotension_episodes" name="cardiovascular_neurological.hypotension_episodes">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if cardiovascular_neurological.hypotensionEpisodes == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="presyncope_syncope">Presyncope / Syncope (1-5)</label>
+        <select id="presyncope_syncope" name="cardiovascular_neurological.presyncope_syncope">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if cardiovascular_neurological.presyncopeSyncope == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="headache_severity">Headache Severity (1-5)</label>
+        <select id="headache_severity" name="cardiovascular_neurological.headache_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if cardiovascular_neurological.headacheSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="brain_fog_severity">Brain Fog Severity (1-5)</label>
+        <select id="brain_fog_severity" name="cardiovascular_neurological.brain_fog_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if cardiovascular_neurological.brainFogSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="neuropathic_pain">Neuropathic Pain (1-5)</label>
+        <select id="neuropathic_pain" name="cardiovascular_neurological.neuropathic_pain">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if cardiovascular_neurological.neuropathicPain == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dizziness_severity">Dizziness Severity (1-5)</label>
+      <select id="dizziness_severity" name="cardiovascular_neurological.dizziness_severity">
+        <option value="">-- Select --</option>
+        {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if cardiovascular_neurological.dizzinessSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

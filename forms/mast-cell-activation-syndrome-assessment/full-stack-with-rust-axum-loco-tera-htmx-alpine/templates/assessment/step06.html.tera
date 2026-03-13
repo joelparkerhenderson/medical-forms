@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Respiratory Symptoms - MCAS Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Respiratory Symptoms</h2>
+    <p class="hint">Rate the severity of respiratory symptoms (1=None/Minimal, 5=Severe/Constant).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="wheezing_severity">Wheezing Severity (1-5)</label>
+        <select id="wheezing_severity" name="respiratory_symptoms.wheezing_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if respiratory_symptoms.wheezingSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dyspnea_severity">Dyspnea (Shortness of Breath) Severity (1-5)</label>
+        <select id="dyspnea_severity" name="respiratory_symptoms.dyspnea_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if respiratory_symptoms.dyspneaSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nasal_congestion_severity">Nasal Congestion Severity (1-5)</label>
+        <select id="nasal_congestion_severity" name="respiratory_symptoms.nasal_congestion_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if respiratory_symptoms.nasalCongestionSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="throat_tightness_severity">Throat Tightness Severity (1-5)</label>
+        <select id="throat_tightness_severity" name="respiratory_symptoms.throat_tightness_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if respiratory_symptoms.throatTightnessSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cough_severity">Cough Severity (1-5)</label>
+        <select id="cough_severity" name="respiratory_symptoms.cough_severity">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if respiratory_symptoms.coughSeverity == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Stridor Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="respiratory_symptoms.stridor_present" value="yes" {% if respiratory_symptoms.stridorPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="respiratory_symptoms.stridor_present" value="no" {% if respiratory_symptoms.stridorPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Previous Anaphylaxis?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="respiratory_symptoms.previous_anaphylaxis" value="yes" {% if respiratory_symptoms.previousAnaphylaxis == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="respiratory_symptoms.previous_anaphylaxis" value="no" {% if respiratory_symptoms.previousAnaphylaxis == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

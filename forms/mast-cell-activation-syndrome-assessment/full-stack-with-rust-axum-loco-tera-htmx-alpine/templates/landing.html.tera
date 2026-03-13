@@ -1,0 +1,33 @@
+{% extends "base.html.tera" %}
+
+{% block title %}MCAS Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Mast Cell Activation Syndrome Assessment</h1>
+  <p>
+    This clinical assessment tool evaluates patients for Mast Cell Activation Syndrome (MCAS).
+    It systematically captures symptom severity across multiple organ systems, laboratory findings,
+    trigger patterns, and treatment responses to support clinical decision-making.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Steps</h3>
+      <p>Comprehensive multi-system evaluation including skin, GI, cardiovascular, respiratory, and neurological symptoms</p>
+    </div>
+    <div class="feature-card">
+      <h3>Severity Scoring</h3>
+      <p>Composite severity score with 20 clinical rules for mild, moderate, severe, and anaphylactic classification</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>14 actionable flags for anaphylaxis risk, laboratory findings, and treatment concerns</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

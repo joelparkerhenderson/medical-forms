@@ -1,0 +1,102 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Symptom History - MCAS Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Symptom History</h2>
+    <p class="hint">Document the timeline, frequency, and overall severity of mast cell activation symptoms.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="symptom_duration_months">Symptom Duration</label>
+        <select id="symptom_duration_months" name="symptom_history.symptom_duration_months">
+          <option value="">-- Select --</option>
+          <option value="lessThan6" {% if symptom_history.symptomDurationMonths == "lessThan6" %}selected{% endif %}>Less than 6 months</option>
+          <option value="6to12" {% if symptom_history.symptomDurationMonths == "6to12" %}selected{% endif %}>6 - 12 months</option>
+          <option value="1to3years" {% if symptom_history.symptomDurationMonths == "1to3years" %}selected{% endif %}>1 - 3 years</option>
+          <option value="3to5years" {% if symptom_history.symptomDurationMonths == "3to5years" %}selected{% endif %}>3 - 5 years</option>
+          <option value="moreThan5years" {% if symptom_history.symptomDurationMonths == "moreThan5years" %}selected{% endif %}>More than 5 years</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="symptom_frequency">Symptom Frequency</label>
+        <select id="symptom_frequency" name="symptom_history.symptom_frequency">
+          <option value="">-- Select --</option>
+          <option value="daily" {% if symptom_history.symptomFrequency == "daily" %}selected{% endif %}>Daily</option>
+          <option value="weekly" {% if symptom_history.symptomFrequency == "weekly" %}selected{% endif %}>Weekly</option>
+          <option value="monthly" {% if symptom_history.symptomFrequency == "monthly" %}selected{% endif %}>Monthly</option>
+          <option value="intermittent" {% if symptom_history.symptomFrequency == "intermittent" %}selected{% endif %}>Intermittent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="symptom_pattern">Symptom Pattern</label>
+        <select id="symptom_pattern" name="symptom_history.symptom_pattern">
+          <option value="">-- Select --</option>
+          <option value="episodic" {% if symptom_history.symptomPattern == "episodic" %}selected{% endif %}>Episodic</option>
+          <option value="chronic" {% if symptom_history.symptomPattern == "chronic" %}selected{% endif %}>Chronic/Continuous</option>
+          <option value="progressive" {% if symptom_history.symptomPattern == "progressive" %}selected{% endif %}>Progressive</option>
+          <option value="waxingWaning" {% if symptom_history.symptomPattern == "waxingWaning" %}selected{% endif %}>Waxing and Waning</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="symptom_progression">Symptom Progression</label>
+        <select id="symptom_progression" name="symptom_history.symptom_progression">
+          <option value="">-- Select --</option>
+          <option value="improving" {% if symptom_history.symptomProgression == "improving" %}selected{% endif %}>Improving</option>
+          <option value="stable" {% if symptom_history.symptomProgression == "stable" %}selected{% endif %}>Stable</option>
+          <option value="worsening" {% if symptom_history.symptomProgression == "worsening" %}selected{% endif %}>Worsening</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="symptom_severity_overall">Overall Symptom Severity (1=Mild, 5=Severe)</label>
+        <select id="symptom_severity_overall" name="symptom_history.symptom_severity_overall">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if symptom_history.symptomSeverityOverall == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="symptom_impact_daily_life">Impact on Daily Life (1=Minimal, 5=Debilitating)</label>
+        <select id="symptom_impact_daily_life" name="symptom_history.symptom_impact_daily_life">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if symptom_history.symptomImpactDailyLife == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="episode_duration">Typical Episode Duration</label>
+        <select id="episode_duration" name="symptom_history.episode_duration">
+          <option value="">-- Select --</option>
+          <option value="minutes" {% if symptom_history.episodeDuration == "minutes" %}selected{% endif %}>Minutes</option>
+          <option value="hours" {% if symptom_history.episodeDuration == "hours" %}selected{% endif %}>Hours</option>
+          <option value="days" {% if symptom_history.episodeDuration == "days" %}selected{% endif %}>Days</option>
+          <option value="continuous" {% if symptom_history.episodeDuration == "continuous" %}selected{% endif %}>Continuous</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="emergency_visits_past_year">Emergency Visits (Past Year)</label>
+        <select id="emergency_visits_past_year" name="symptom_history.emergency_visits_past_year">
+          <option value="">-- Select --</option>
+          <option value="0" {% if symptom_history.emergencyVisitsPastYear == "0" %}selected{% endif %}>None</option>
+          <option value="1to2" {% if symptom_history.emergencyVisitsPastYear == "1to2" %}selected{% endif %}>1 - 2</option>
+          <option value="3to5" {% if symptom_history.emergencyVisitsPastYear == "3to5" %}selected{% endif %}>3 - 5</option>
+          <option value="moreThan5" {% if symptom_history.emergencyVisitsPastYear == "moreThan5" %}selected{% endif %}>More than 5</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

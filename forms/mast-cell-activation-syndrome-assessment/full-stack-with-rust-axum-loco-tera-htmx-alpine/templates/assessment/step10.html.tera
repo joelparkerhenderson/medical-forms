@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - MCAS Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Clinician assessment of diagnostic criteria, severity, and treatment response.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Consensus Diagnostic Criteria Met?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.consensus_criteria_met" value="yes" {% if clinical_review.consensusCriteriaMet == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.consensus_criteria_met" value="no" {% if clinical_review.consensusCriteriaMet == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="clinical_review.consensus_criteria_met" value="partial" {% if clinical_review.consensusCriteriaMet == "partial" %}checked{% endif %}> Partial</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="organ_systems_involved_count">Organ Systems Involved</label>
+        <select id="organ_systems_involved_count" name="clinical_review.organ_systems_involved_count">
+          <option value="">-- Select --</option>
+          <option value="1" {% if clinical_review.organSystemsInvolvedCount == "1" %}selected{% endif %}>1</option>
+          <option value="2" {% if clinical_review.organSystemsInvolvedCount == "2" %}selected{% endif %}>2</option>
+          <option value="3" {% if clinical_review.organSystemsInvolvedCount == "3" %}selected{% endif %}>3</option>
+          <option value="4" {% if clinical_review.organSystemsInvolvedCount == "4" %}selected{% endif %}>4</option>
+          <option value="5orMore" {% if clinical_review.organSystemsInvolvedCount == "5orMore" %}selected{% endif %}>5 or more</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="response_to_mediator_therapy">Response to Mediator-Directed Therapy (1-5)</label>
+        <select id="response_to_mediator_therapy" name="clinical_review.response_to_mediator_therapy">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if clinical_review.responseToMediatorTherapy == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Differential Diagnoses Excluded?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.differential_diagnoses_excluded" value="yes" {% if clinical_review.differentialDiagnosesExcluded == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.differential_diagnoses_excluded" value="no" {% if clinical_review.differentialDiagnosesExcluded == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="clinical_review.differential_diagnoses_excluded" value="inProgress" {% if clinical_review.differentialDiagnosesExcluded == "inProgress" %}checked{% endif %}> In Progress</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="quality_of_life_impact">Quality of Life Impact (1=Minimal, 5=Devastating)</label>
+        <select id="quality_of_life_impact" name="clinical_review.quality_of_life_impact">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if clinical_review.qualityOfLifeImpact == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="clinician_severity_assessment">Clinician Severity Assessment (1=Mild, 5=Anaphylactic)</label>
+        <select id="clinician_severity_assessment" name="clinical_review.clinician_severity_assessment">
+          <option value="">-- Select --</option>
+          {% for i in [1,2,3,4,5] %}<option value="{{ i }}" {% if clinical_review.clinicianSeverityAssessment == i %}selected{% endif %}>{{ i }}</option>{% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="comorbid_conditions">Comorbid Conditions</label>
+      <input type="text" id="comorbid_conditions" name="clinical_review.comorbid_conditions"
+             value="{{ clinical_review.comorbidConditions }}"
+             placeholder="e.g. POTS, EDS, IBS">
+    </div>
+
+    <div class="form-group">
+      <label for="additional_notes">Additional Clinical Notes</label>
+      <textarea id="additional_notes" name="clinical_review.additional_notes"
+                rows="4" placeholder="Any additional observations or clinical notes">{{ clinical_review.additionalNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

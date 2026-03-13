@@ -1,0 +1,89 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Laboratory Studies - MCAS Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Laboratory Studies</h2>
+    <p class="hint">Record mast cell mediator laboratory results. Select whether each marker is elevated above reference range.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Serum Tryptase Elevated?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="laboratory_studies.serum_tryptase_elevated" value="yes" {% if laboratory_studies.serumTryptaseElevated == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="laboratory_studies.serum_tryptase_elevated" value="no" {% if laboratory_studies.serumTryptaseElevated == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="laboratory_studies.serum_tryptase_elevated" value="notTested" {% if laboratory_studies.serumTryptaseElevated == "notTested" %}checked{% endif %}> Not Tested</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="serum_tryptase_level">Serum Tryptase Level (ng/mL)</label>
+        <input type="text" id="serum_tryptase_level" name="laboratory_studies.serum_tryptase_level"
+               value="{{ laboratory_studies.serumTryptaseLevel }}"
+               placeholder="e.g. 11.5">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Urine Prostaglandin D2 Elevated?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="laboratory_studies.urine_prostaglandin_d2_elevated" value="yes" {% if laboratory_studies.urineProstaglandinD2Elevated == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="laboratory_studies.urine_prostaglandin_d2_elevated" value="no" {% if laboratory_studies.urineProstaglandinD2Elevated == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="laboratory_studies.urine_prostaglandin_d2_elevated" value="notTested" {% if laboratory_studies.urineProstaglandinD2Elevated == "notTested" %}checked{% endif %}> Not Tested</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Urine N-Methylhistamine Elevated?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="laboratory_studies.urine_n_methylhistamine_elevated" value="yes" {% if laboratory_studies.urineNMethylhistamineElevated == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="laboratory_studies.urine_n_methylhistamine_elevated" value="no" {% if laboratory_studies.urineNMethylhistamineElevated == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="laboratory_studies.urine_n_methylhistamine_elevated" value="notTested" {% if laboratory_studies.urineNMethylhistamineElevated == "notTested" %}checked{% endif %}> Not Tested</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Plasma Histamine Elevated?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="laboratory_studies.plasma_histamine_elevated" value="yes" {% if laboratory_studies.plasmaHistamineElevated == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="laboratory_studies.plasma_histamine_elevated" value="no" {% if laboratory_studies.plasmaHistamineElevated == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="laboratory_studies.plasma_histamine_elevated" value="notTested" {% if laboratory_studies.plasmaHistamineElevated == "notTested" %}checked{% endif %}> Not Tested</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Serum Chromogranin A Elevated?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="laboratory_studies.serum_chromogranin_a_elevated" value="yes" {% if laboratory_studies.serumChromograninAElevated == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="laboratory_studies.serum_chromogranin_a_elevated" value="no" {% if laboratory_studies.serumChromograninAElevated == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="laboratory_studies.serum_chromogranin_a_elevated" value="notTested" {% if laboratory_studies.serumChromograninAElevated == "notTested" %}checked{% endif %}> Not Tested</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Other Mediators Elevated?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="laboratory_studies.other_mediators_elevated" value="yes" {% if laboratory_studies.otherMediatorsElevated == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="laboratory_studies.other_mediators_elevated" value="no" {% if laboratory_studies.otherMediatorsElevated == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="laboratory_studies.other_mediators_elevated" value="notTested" {% if laboratory_studies.otherMediatorsElevated == "notTested" %}checked{% endif %}> Not Tested</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Bone Marrow Biopsy Performed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="laboratory_studies.bone_marrow_biopsy_done" value="yes" {% if laboratory_studies.boneMarrowBiopsyDone == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="laboratory_studies.bone_marrow_biopsy_done" value="no" {% if laboratory_studies.boneMarrowBiopsyDone == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
