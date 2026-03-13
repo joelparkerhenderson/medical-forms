@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Skin History - Dermatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Skin History</h2>
+    <p class="hint">Provide details about the patient's dermatological history.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="primary_diagnosis">Primary Diagnosis</label>
+        <select id="primary_diagnosis" name="skin_history.primary_diagnosis">
+          <option value="">-- Select --</option>
+          <option value="eczema" {% if skin_history.primaryDiagnosis == "eczema" %}selected{% endif %}>Eczema</option>
+          <option value="psoriasis" {% if skin_history.primaryDiagnosis == "psoriasis" %}selected{% endif %}>Psoriasis</option>
+          <option value="acne" {% if skin_history.primaryDiagnosis == "acne" %}selected{% endif %}>Acne</option>
+          <option value="rosacea" {% if skin_history.primaryDiagnosis == "rosacea" %}selected{% endif %}>Rosacea</option>
+          <option value="dermatitis" {% if skin_history.primaryDiagnosis == "dermatitis" %}selected{% endif %}>Dermatitis</option>
+          <option value="urticaria" {% if skin_history.primaryDiagnosis == "urticaria" %}selected{% endif %}>Urticaria</option>
+          <option value="other" {% if skin_history.primaryDiagnosis == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="age_of_onset">Age of Onset (years)</label>
+        <input type="number" id="age_of_onset" name="skin_history.age_of_onset"
+               value="{{ skin_history.ageOfOnset }}" min="0" max="120"
+               placeholder="e.g. 12">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="duration_years">Duration (years)</label>
+        <input type="number" id="duration_years" name="skin_history.duration_years"
+               value="{{ skin_history.durationYears }}" min="0" max="120"
+               placeholder="e.g. 5">
+      </div>
+      <div class="form-group">
+        <label>Family History of Skin Conditions</label>
+        <div class="radio-group">
+          <label><input type="radio" name="skin_history.family_history" value="yes" {% if skin_history.familyHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="skin_history.family_history" value="no" {% if skin_history.familyHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Previous Biopsies</label>
+        <div class="radio-group">
+          <label><input type="radio" name="skin_history.previous_biopsies" value="yes" {% if skin_history.previousBiopsies == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="skin_history.previous_biopsies" value="no" {% if skin_history.previousBiopsies == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="skin_cancer_history">Skin Cancer History</label>
+        <select id="skin_cancer_history" name="skin_history.skin_cancer_history">
+          <option value="">-- Select --</option>
+          <option value="none" {% if skin_history.skinCancerHistory == "none" %}selected{% endif %}>None</option>
+          <option value="bcc" {% if skin_history.skinCancerHistory == "bcc" %}selected{% endif %}>Basal Cell Carcinoma</option>
+          <option value="scc" {% if skin_history.skinCancerHistory == "scc" %}selected{% endif %}>Squamous Cell Carcinoma</option>
+          <option value="melanoma" {% if skin_history.skinCancerHistory == "melanoma" %}selected{% endif %}>Melanoma</option>
+          <option value="other" {% if skin_history.skinCancerHistory == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

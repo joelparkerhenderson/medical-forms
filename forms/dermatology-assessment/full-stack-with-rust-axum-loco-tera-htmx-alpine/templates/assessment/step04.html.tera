@@ -1,0 +1,120 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Affected Areas - Dermatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Affected Areas</h2>
+    <p class="hint">Rate the severity of involvement for each body area (0 = None, 1 = Mild, 2 = Moderate, 3 = Severe, 4 = Very Severe).</p>
+
+    <div class="likert-group">
+      <label>Head / Face / Scalp</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="affected_areas.head" value="{{ i }}"
+                 {% if affected_areas.head == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Upper Limbs (Arms)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="affected_areas.upper_limbs" value="{{ i }}"
+                 {% if affected_areas.upperLimbs == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Trunk (Chest / Back / Abdomen)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="affected_areas.trunk" value="{{ i }}"
+                 {% if affected_areas.trunk == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Lower Limbs (Legs)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="affected_areas.lower_limbs" value="{{ i }}"
+                 {% if affected_areas.lowerLimbs == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Hands</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="affected_areas.hands" value="{{ i }}"
+                 {% if affected_areas.hands == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Feet</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="affected_areas.feet" value="{{ i }}"
+                 {% if affected_areas.feet == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Genital Area</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="affected_areas.genital_area" value="{{ i }}"
+                 {% if affected_areas.genitalArea == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Nails</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="affected_areas.nails" value="{{ i }}"
+                 {% if affected_areas.nails == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Previous Treatments - Dermatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Previous Treatments</h2>
+    <p class="hint">Detail treatments that have been tried previously.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Topical Steroids Used</label>
+        <div class="radio-group">
+          <label><input type="radio" name="previous_treatments.topical_steroids_used" value="yes" {% if previous_treatments.topicalSteroidsUsed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="previous_treatments.topical_steroids_used" value="no" {% if previous_treatments.topicalSteroidsUsed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="topical_steroid_response">Topical Steroid Response</label>
+        <select id="topical_steroid_response" name="previous_treatments.topical_steroid_response">
+          <option value="">-- Select --</option>
+          <option value="good" {% if previous_treatments.topicalSteroidResponse == "good" %}selected{% endif %}>Good</option>
+          <option value="partial" {% if previous_treatments.topicalSteroidResponse == "partial" %}selected{% endif %}>Partial</option>
+          <option value="poor" {% if previous_treatments.topicalSteroidResponse == "poor" %}selected{% endif %}>Poor</option>
+          <option value="notApplicable" {% if previous_treatments.topicalSteroidResponse == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="emollients_used">Emollients Used</label>
+        <input type="text" id="emollients_used" name="previous_treatments.emollients_used"
+               value="{{ previous_treatments.emollientsUsed }}"
+               placeholder="e.g. Cetraben, Diprobase, Epaderm">
+      </div>
+      <div class="form-group">
+        <label>Phototherapy</label>
+        <div class="radio-group">
+          <label><input type="radio" name="previous_treatments.phototherapy" value="yes" {% if previous_treatments.phototherapy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="previous_treatments.phototherapy" value="no" {% if previous_treatments.phototherapy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="systemic_therapy">Systemic Therapy</label>
+        <input type="text" id="systemic_therapy" name="previous_treatments.systemic_therapy"
+               value="{{ previous_treatments.systemicTherapy }}"
+               placeholder="e.g. methotrexate, ciclosporin, acitretin, or none">
+      </div>
+      <div class="form-group">
+        <label for="biologic_therapy">Biologic Therapy</label>
+        <input type="text" id="biologic_therapy" name="previous_treatments.biologic_therapy"
+               value="{{ previous_treatments.biologicTherapy }}"
+               placeholder="e.g. adalimumab, secukinumab, or none">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="treatment_failures">Number of Treatment Failures</label>
+      <input type="number" id="treatment_failures" name="previous_treatments.treatment_failures"
+             value="{{ previous_treatments.treatmentFailures }}" min="0" max="20"
+             placeholder="e.g. 2">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

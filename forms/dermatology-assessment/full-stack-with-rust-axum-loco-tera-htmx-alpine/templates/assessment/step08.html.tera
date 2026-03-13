@@ -1,0 +1,83 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Treatment - Dermatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Treatment</h2>
+    <p class="hint">Detail the patient's current treatment regimen and response.</p>
+
+    <div class="form-group">
+      <label for="current_topical">Current Topical Treatment</label>
+      <input type="text" id="current_topical" name="current_treatment.current_topical"
+             value="{{ current_treatment.currentTopical }}"
+             placeholder="e.g. betamethasone 0.1% ointment, tacrolimus">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="current_systemic">Current Systemic Treatment</label>
+        <input type="text" id="current_systemic" name="current_treatment.current_systemic"
+               value="{{ current_treatment.currentSystemic }}"
+               placeholder="e.g. methotrexate 15mg weekly, or none">
+      </div>
+      <div class="form-group">
+        <label for="current_biologic">Current Biologic Treatment</label>
+        <input type="text" id="current_biologic" name="current_treatment.current_biologic"
+               value="{{ current_treatment.currentBiologic }}"
+               placeholder="e.g. adalimumab, or none">
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Treatment Adherence</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="current_treatment.treatment_adherence" value="{{ i }}"
+                 {% if current_treatment.treatmentAdherence == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Moderate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Treatment Response</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="current_treatment.treatment_response" value="{{ i }}"
+                 {% if current_treatment.treatmentResponse == i %}checked{% endif %}>
+          <span>{% if i == 1 %}No Response{% elif i == 2 %}Minimal{% elif i == 3 %}Moderate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="side_effects">Side Effects</label>
+      <textarea id="side_effects" name="current_treatment.side_effects"
+                placeholder="Describe any side effects experienced">{{ current_treatment.sideEffects }}</textarea>
+    </div>
+
+    <div class="likert-group">
+      <label>Emollient Use Frequency</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="current_treatment.emollient_use" value="{{ i }}"
+                 {% if current_treatment.emollientUse == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Never{% elif i == 2 %}Rarely{% elif i == 3 %}Sometimes{% elif i == 4 %}Often{% else %}Always{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

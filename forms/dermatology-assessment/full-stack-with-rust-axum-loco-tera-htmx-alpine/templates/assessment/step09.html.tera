@@ -1,0 +1,93 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Triggers & Comorbidities - Dermatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Triggers & Comorbidities</h2>
+    <p class="hint">Identify known triggers and associated conditions.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Stress as a Trigger</label>
+        <div class="radio-group">
+          <label><input type="radio" name="triggers_comorbidities.stress_trigger" value="yes" {% if triggers_comorbidities.stressTrigger == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="triggers_comorbidities.stress_trigger" value="no" {% if triggers_comorbidities.stressTrigger == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="weather_trigger">Weather Trigger</label>
+        <select id="weather_trigger" name="triggers_comorbidities.weather_trigger">
+          <option value="">-- Select --</option>
+          <option value="cold" {% if triggers_comorbidities.weatherTrigger == "cold" %}selected{% endif %}>Cold Weather</option>
+          <option value="hot" {% if triggers_comorbidities.weatherTrigger == "hot" %}selected{% endif %}>Hot Weather</option>
+          <option value="humidity" {% if triggers_comorbidities.weatherTrigger == "humidity" %}selected{% endif %}>Humidity</option>
+          <option value="sunExposure" {% if triggers_comorbidities.weatherTrigger == "sunExposure" %}selected{% endif %}>Sun Exposure</option>
+          <option value="none" {% if triggers_comorbidities.weatherTrigger == "none" %}selected{% endif %}>None</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="contact_allergens">Contact Allergens</label>
+      <input type="text" id="contact_allergens" name="triggers_comorbidities.contact_allergens"
+             value="{{ triggers_comorbidities.contactAllergens }}"
+             placeholder="e.g. nickel, fragrance, latex, or none">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Psoriatic Arthritis</label>
+        <div class="radio-group">
+          <label><input type="radio" name="triggers_comorbidities.psoriasis_arthritis" value="yes" {% if triggers_comorbidities.psoriasisArthritis == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="triggers_comorbidities.psoriasis_arthritis" value="no" {% if triggers_comorbidities.psoriasisArthritis == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Allergic Rhinitis</label>
+        <div class="radio-group">
+          <label><input type="radio" name="triggers_comorbidities.allergic_rhinitis" value="yes" {% if triggers_comorbidities.allergicRhinitis == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="triggers_comorbidities.allergic_rhinitis" value="no" {% if triggers_comorbidities.allergicRhinitis == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Asthma</label>
+        <div class="radio-group">
+          <label><input type="radio" name="triggers_comorbidities.asthma" value="yes" {% if triggers_comorbidities.asthma == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="triggers_comorbidities.asthma" value="no" {% if triggers_comorbidities.asthma == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="metabolic_syndrome">Metabolic Syndrome</label>
+        <select id="metabolic_syndrome" name="triggers_comorbidities.metabolic_syndrome">
+          <option value="">-- Select --</option>
+          <option value="yes" {% if triggers_comorbidities.metabolicSyndrome == "yes" %}selected{% endif %}>Yes</option>
+          <option value="no" {% if triggers_comorbidities.metabolicSyndrome == "no" %}selected{% endif %}>No</option>
+          <option value="suspected" {% if triggers_comorbidities.metabolicSyndrome == "suspected" %}selected{% endif %}>Suspected</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Mental Health Impact</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="triggers_comorbidities.mental_health_impact" value="{{ i }}"
+                 {% if triggers_comorbidities.mentalHealthImpact == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

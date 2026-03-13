@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dermatology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Dermatology Assessment</h1>
+  <p>
+    This comprehensive dermatology assessment evaluates skin conditions, severity scoring
+    (DLQI - Dermatology Life Quality Index), treatment response, and quality of life impact.
+    It covers patient history, current condition, affected areas, symptom severity,
+    previous and current treatments, triggers, and clinical review.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Steps</h3>
+      <p>Comprehensive evaluation across all dermatological dimensions</p>
+    </div>
+    <div class="feature-card">
+      <h3>DLQI Scoring</h3>
+      <p>Standardised quality of life impact measurement (0-30)</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated identification of treatment and referral needs</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

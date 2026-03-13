@@ -1,0 +1,146 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Quality of Life (DLQI) - Dermatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Quality of Life (DLQI)</h2>
+    <p class="hint">The Dermatology Life Quality Index. Over the <strong>last week</strong>, how much has your skin problem affected you? (0 = Not at all, 1 = A little, 2 = A lot, 3 = Very much)</p>
+
+    <div class="likert-group">
+      <label>1. How itchy, sore, painful, or stinging has your skin been?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="quality_of_life.dlqi1_symptoms" value="{{ i }}"
+                 {% if quality_of_life.dlqi1Symptoms == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}A little{% elif i == 2 %}A lot{% else %}Very much{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>2. How embarrassed or self-conscious have you been because of your skin?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="quality_of_life.dlqi2_embarrassment" value="{{ i }}"
+                 {% if quality_of_life.dlqi2Embarrassment == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}A little{% elif i == 2 %}A lot{% else %}Very much{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>3. How much has your skin interfered with you going shopping or looking after your home/garden?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="quality_of_life.dlqi3_shopping" value="{{ i }}"
+                 {% if quality_of_life.dlqi3Shopping == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}A little{% elif i == 2 %}A lot{% else %}Very much{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>4. How much has your skin influenced the clothes you wear?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="quality_of_life.dlqi4_clothing" value="{{ i }}"
+                 {% if quality_of_life.dlqi4Clothing == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}A little{% elif i == 2 %}A lot{% else %}Very much{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>5. How much has your skin affected any social or leisure activities?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="quality_of_life.dlqi5_social" value="{{ i }}"
+                 {% if quality_of_life.dlqi5Social == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}A little{% elif i == 2 %}A lot{% else %}Very much{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>6. How much has your skin made it difficult for you to do any sport?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="quality_of_life.dlqi6_sport" value="{{ i }}"
+                 {% if quality_of_life.dlqi6Sport == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}A little{% elif i == 2 %}A lot{% else %}Very much{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>7. Has your skin prevented you from working or studying? If "No", how much has your skin been a problem at work or studying?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="quality_of_life.dlqi7_work" value="{{ i }}"
+                 {% if quality_of_life.dlqi7Work == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}A little{% elif i == 2 %}A lot{% else %}Very much{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>8. How much has your skin created problems with your partner, close friends, or relatives?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="quality_of_life.dlqi8_relationships" value="{{ i }}"
+                 {% if quality_of_life.dlqi8Relationships == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}A little{% elif i == 2 %}A lot{% else %}Very much{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>9. How much has your skin caused any sexual difficulties?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="quality_of_life.dlqi9_sex" value="{{ i }}"
+                 {% if quality_of_life.dlqi9Sex == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}A little{% elif i == 2 %}A lot{% else %}Very much{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>10. How much of a problem has the treatment for your skin been, for example by making your home messy, or by taking up time?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="quality_of_life.dlqi10_treatment" value="{{ i }}"
+                 {% if quality_of_life.dlqi10Treatment == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}A little{% elif i == 2 %}A lot{% else %}Very much{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

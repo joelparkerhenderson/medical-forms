@@ -1,0 +1,132 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Symptom Severity - Dermatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Symptom Severity</h2>
+    <p class="hint">Rate the severity of each symptom.</p>
+
+    <div class="likert-group">
+      <label>Itching (0-10, where 0 = none and 10 = worst imaginable)</label>
+      <div class="nps-options">
+        {% for i in [0,1,2,3,4,5,6,7,8,9,10] %}
+        <label>
+          <input type="radio" name="symptom_severity.itching" value="{{ i }}"
+                 {% if symptom_severity.itching == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="nps-labels">
+        <span>No itching</span>
+        <span>Worst imaginable</span>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Pain (0-10, where 0 = none and 10 = worst imaginable)</label>
+      <div class="nps-options">
+        {% for i in [0,1,2,3,4,5,6,7,8,9,10] %}
+        <label>
+          <input type="radio" name="symptom_severity.pain" value="{{ i }}"
+                 {% if symptom_severity.pain == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="nps-labels">
+        <span>No pain</span>
+        <span>Worst imaginable</span>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Burning (0-10, where 0 = none and 10 = worst imaginable)</label>
+      <div class="nps-options">
+        {% for i in [0,1,2,3,4,5,6,7,8,9,10] %}
+        <label>
+          <input type="radio" name="symptom_severity.burning" value="{{ i }}"
+                 {% if symptom_severity.burning == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="nps-labels">
+        <span>No burning</span>
+        <span>Worst imaginable</span>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Dryness</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptom_severity.dryness" value="{{ i }}"
+                 {% if symptom_severity.dryness == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Scaling</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptom_severity.scaling" value="{{ i }}"
+                 {% if symptom_severity.scaling == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Erythema (Redness)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptom_severity.erythema" value="{{ i }}"
+                 {% if symptom_severity.erythema == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Thickness / Induration</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptom_severity.thickness" value="{{ i }}"
+                 {% if symptom_severity.thickness == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Sleep Disturbance</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptom_severity.sleep_disturbance" value="{{ i }}"
+                 {% if symptom_severity.sleepDisturbance == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

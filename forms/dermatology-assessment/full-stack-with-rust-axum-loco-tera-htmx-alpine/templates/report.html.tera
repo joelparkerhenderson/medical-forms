@@ -1,0 +1,135 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Assessment Report - Dermatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Dermatology Assessment Report</h1>
+    <span class="severity-badge severity-{{ severity_level }}">{{ severity_label }}</span>
+  </div>
+
+  <div class="score-display">{{ dlqi_score }}/30</div>
+  <div class="score-label">DLQI Score (Dermatology Life Quality Index)</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient:</strong> {{ data.patientInformation.fullName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Date of Birth:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Diagnosis:</strong> {{ data.skinHistory.primaryDiagnosis | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Condition Status:</strong> {{ data.currentCondition.conditionStatus | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>BSA Affected:</strong> {% if bsa_percent %}{{ bsa_percent }}%{% else %}Not provided{% endif %}
+    </div>
+    <div>
+      <strong>Duration:</strong> {% if data.skinHistory.durationYears %}{{ data.skinHistory.durationYears }} years{% else %}Not provided{% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Dermatology Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Clinical Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinical Notes -->
+{% if data.clinicalReview.clinicalNotes or data.clinicalReview.treatmentPlan %}
+<div class="card">
+  <h2>Clinical Notes & Treatment Plan</h2>
+  {% if data.clinicalReview.clinicianName %}
+    <div class="form-group">
+      <strong>Clinician:</strong> {{ data.clinicalReview.clinicianName }}
+      {% if data.clinicalReview.reviewDate %} | <strong>Review Date:</strong> {{ data.clinicalReview.reviewDate }}{% endif %}
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.clinicalNotes %}
+    <div class="form-group">
+      <strong>Clinical Notes:</strong>
+      <p>{{ data.clinicalReview.clinicalNotes }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.treatmentPlan %}
+    <div class="form-group">
+      <strong>Treatment Plan:</strong>
+      <p>{{ data.clinicalReview.treatmentPlan }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.referralNeeded == "yes" %}
+    <div class="form-group">
+      <span class="concern-badge concern-medium">REFERRAL NEEDED</span>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.nextReviewDate %}
+    <div class="form-group">
+      <strong>Next Review:</strong> {{ data.clinicalReview.nextReviewDate }}
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}
