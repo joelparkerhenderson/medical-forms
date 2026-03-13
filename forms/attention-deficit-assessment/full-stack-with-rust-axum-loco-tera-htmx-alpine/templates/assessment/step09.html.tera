@@ -1,0 +1,102 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Management - Attention Deficit Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Management</h2>
+    <p class="hint">Record current and past ADHD treatment, including cardiac screening for stimulant safety.</p>
+
+    <div class="form-group">
+      <label>Currently on ADHD medication?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="current_management.currently_on_medication" value="yes" {% if current_management.currentlyOnMedication == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="current_management.currently_on_medication" value="no" {% if current_management.currentlyOnMedication == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="current_management.currently_on_medication" value="previously" {% if current_management.currentlyOnMedication == "previously" %}checked{% endif %}> Previously</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="current_medication_name">Current medication name</label>
+        <input type="text" id="current_medication_name" name="current_management.current_medication_name"
+               value="{{ current_management.currentMedicationName }}"
+               placeholder="e.g. Methylphenidate, Lisdexamfetamine">
+      </div>
+      <div class="form-group">
+        <label for="current_medication_dose">Current dose</label>
+        <input type="text" id="current_medication_dose" name="current_management.current_medication_dose"
+               value="{{ current_management.currentMedicationDose }}"
+               placeholder="e.g. 36mg daily">
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Medication effectiveness (if applicable)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="current_management.medication_effectiveness" value="{{ i }}"
+                 {% if current_management.medicationEffectiveness == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not Effective{% elif i == 1 %}Slightly{% elif i == 2 %}Moderately{% elif i == 3 %}Effective{% else %}Very Effective{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="medication_side_effects">Medication side effects</label>
+      <textarea id="medication_side_effects" name="current_management.medication_side_effects"
+                rows="2" placeholder="List any side effects experienced...">{{ current_management.medicationSideEffects }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="previous_adhd_medications">Previous ADHD medications tried</label>
+      <textarea id="previous_adhd_medications" name="current_management.previous_adhd_medications"
+                rows="2" placeholder="List medications and reasons for discontinuation...">{{ current_management.previousAdhdMedications }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="non_pharmacological_strategies">Non-pharmacological strategies</label>
+      <textarea id="non_pharmacological_strategies" name="current_management.non_pharmacological_strategies"
+                rows="2" placeholder="CBT, coaching, organisational tools, etc.">{{ current_management.nonPharmacologicalStrategies }}</textarea>
+    </div>
+
+    <h3 style="margin-top: 1.5rem;">Cardiac Safety Screening</h3>
+    <p class="hint">Required before prescribing stimulant medication (NICE guidelines).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Personal cardiac history?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_management.cardiac_history" value="yes" {% if current_management.cardiacHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_management.cardiac_history" value="no" {% if current_management.cardiacHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Family history of cardiac problems?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_management.family_cardiac_history" value="yes" {% if current_management.familyCardiacHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_management.family_cardiac_history" value="no" {% if current_management.familyCardiacHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="blood_pressure_status">Blood pressure status</label>
+      <select id="blood_pressure_status" name="current_management.blood_pressure_status">
+        <option value="">-- Select --</option>
+        <option value="normal" {% if current_management.bloodPressureStatus == "normal" %}selected{% endif %}>Normal</option>
+        <option value="elevated" {% if current_management.bloodPressureStatus == "elevated" %}selected{% endif %}>Elevated</option>
+        <option value="high" {% if current_management.bloodPressureStatus == "high" %}selected{% endif %}>High</option>
+        <option value="notChecked" {% if current_management.bloodPressureStatus == "notChecked" %}selected{% endif %}>Not Checked</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

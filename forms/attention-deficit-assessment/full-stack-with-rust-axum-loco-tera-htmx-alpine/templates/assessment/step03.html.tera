@@ -1,0 +1,133 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Inattention Symptoms - Attention Deficit Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Inattention Symptoms</h2>
+    <p class="hint">Rate how often you have experienced each symptom over the past 6 months. (0 = Never, 4 = Very Often)</p>
+
+    <div class="likert-group">
+      <label>Difficulty sustaining attention in tasks or activities</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="inattention_symptoms.difficulty_sustaining_attention" value="{{ i }}"
+                 {% if inattention_symptoms.difficultySustainingAttention == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Fails to give close attention to details or makes careless mistakes</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="inattention_symptoms.fails_to_give_close_attention" value="{{ i }}"
+                 {% if inattention_symptoms.failsToGiveCloseAttention == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Does not seem to listen when spoken to directly</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="inattention_symptoms.does_not_listen_when_spoken_to" value="{{ i }}"
+                 {% if inattention_symptoms.doesNotListenWhenSpokenTo == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Fails to follow through on instructions or finish tasks</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="inattention_symptoms.fails_to_follow_through" value="{{ i }}"
+                 {% if inattention_symptoms.failsToFollowThrough == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Difficulty organising tasks and activities</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="inattention_symptoms.difficulty_organizing_tasks" value="{{ i }}"
+                 {% if inattention_symptoms.difficultyOrganizingTasks == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Avoids or is reluctant to engage in tasks requiring sustained mental effort</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="inattention_symptoms.avoids_sustained_mental_effort" value="{{ i }}"
+                 {% if inattention_symptoms.avoidsSustainedMentalEffort == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Loses things necessary for tasks and activities</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="inattention_symptoms.loses_things_necessary" value="{{ i }}"
+                 {% if inattention_symptoms.losesThingsNecessary == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Easily distracted by extraneous stimuli</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="inattention_symptoms.easily_distracted" value="{{ i }}"
+                 {% if inattention_symptoms.easilyDistracted == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Forgetful in daily activities</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="inattention_symptoms.forgetful_in_daily_activities" value="{{ i }}"
+                 {% if inattention_symptoms.forgetfulInDailyActivities == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

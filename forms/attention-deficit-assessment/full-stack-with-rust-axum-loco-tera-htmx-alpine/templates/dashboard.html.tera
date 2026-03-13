@@ -1,0 +1,74 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Attention Deficit Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>ADHD Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient name, date...">
+    </div>
+    <div class="form-group">
+      <label for="likelihood_level">Likelihood</label>
+      <select id="likelihood_level" name="likelihood_level">
+        <option value="">All Levels</option>
+        <option value="highlyLikely" {% if likelihood_level == "highlyLikely" %}selected{% endif %}>Highly Likely</option>
+        <option value="likely" {% if likelihood_level == "likely" %}selected{% endif %}>Likely</option>
+        <option value="possible" {% if likelihood_level == "possible" %}selected{% endif %}>Possible</option>
+        <option value="unlikely" {% if likelihood_level == "unlikely" %}selected{% endif %}>Unlikely</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="treatment_status">Treatment Status</label>
+      <select id="treatment_status" name="treatment_status">
+        <option value="">All</option>
+        <option value="On Medication" {% if treatment_status == "On Medication" %}selected{% endif %}>On Medication</option>
+        <option value="No Medication" {% if treatment_status == "No Medication" %}selected{% endif %}>No Medication</option>
+        <option value="Previously Treated" {% if treatment_status == "Previously Treated" %}selected{% endif %}>Previously Treated</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Assessment Date</th>
+      <th>ASRS Score</th>
+      <th>Likelihood</th>
+      <th>Functional Impact</th>
+      <th>Treatment Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.assessmentDate }}</td>
+      <td>{{ patient.asrsScore }}/24</td>
+      <td><span class="likelihood-badge likelihood-{{ patient.likelihoodLevel }}">{{ patient.likelihoodLevel }}</span></td>
+      <td>{{ patient.functionalImpact }}</td>
+      <td>{{ patient.treatmentStatus }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,133 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Hyperactivity-Impulsivity - Attention Deficit Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Hyperactivity-Impulsivity</h2>
+    <p class="hint">Rate how often you have experienced each symptom over the past 6 months. (0 = Never, 4 = Very Often)</p>
+
+    <div class="likert-group">
+      <label>Fidgets with or taps hands/feet, or squirms in seat</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="hyperactivity_impulsivity.fidgets_or_squirms" value="{{ i }}"
+                 {% if hyperactivity_impulsivity.fidgetsOrSquirms == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Leaves seat in situations when remaining seated is expected</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="hyperactivity_impulsivity.leaves_seat_unexpectedly" value="{{ i }}"
+                 {% if hyperactivity_impulsivity.leavesSeatUnexpectedly == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Feels restless or has difficulty being still</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="hyperactivity_impulsivity.feels_restless" value="{{ i }}"
+                 {% if hyperactivity_impulsivity.feelsRestless == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Difficulty engaging in leisure activities quietly</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="hyperactivity_impulsivity.difficulty_engaging_quietly" value="{{ i }}"
+                 {% if hyperactivity_impulsivity.difficultyEngagingQuietly == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Feels "on the go" or "driven by a motor"</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="hyperactivity_impulsivity.on_the_go_driven_by_motor" value="{{ i }}"
+                 {% if hyperactivity_impulsivity.onTheGoDrivenByMotor == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Talks excessively</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="hyperactivity_impulsivity.talks_excessively" value="{{ i }}"
+                 {% if hyperactivity_impulsivity.talksExcessively == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Blurts out answers before questions have been completed</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="hyperactivity_impulsivity.blurts_out_answers" value="{{ i }}"
+                 {% if hyperactivity_impulsivity.blurtsOutAnswers == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Difficulty waiting turn</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="hyperactivity_impulsivity.difficulty_waiting_turn" value="{{ i }}"
+                 {% if hyperactivity_impulsivity.difficultyWaitingTurn == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Interrupts or intrudes on others</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="hyperactivity_impulsivity.interrupts_or_intrudes" value="{{ i }}"
+                 {% if hyperactivity_impulsivity.interruptsOrIntrudes == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

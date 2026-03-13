@@ -1,0 +1,108 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Developmental History - Attention Deficit Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Developmental History</h2>
+    <p class="hint">Childhood symptom history is essential for ADHD diagnosis (DSM-5 requires onset before age 12).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Were ADHD-like symptoms present in childhood?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="developmental_history.childhood_symptoms_present" value="yes" {% if developmental_history.childhoodSymptomsPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="developmental_history.childhood_symptoms_present" value="no" {% if developmental_history.childhoodSymptomsPresent == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="developmental_history.childhood_symptoms_present" value="unsure" {% if developmental_history.childhoodSymptomsPresent == "unsure" %}checked{% endif %}> Unsure</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="age_of_onset">Approximate age of symptom onset</label>
+        <select id="age_of_onset" name="developmental_history.age_of_onset">
+          <option value="">-- Select --</option>
+          <option value="beforeAge6" {% if developmental_history.ageOfOnset == "beforeAge6" %}selected{% endif %}>Before age 6</option>
+          <option value="6to12" {% if developmental_history.ageOfOnset == "6to12" %}selected{% endif %}>Age 6 - 12</option>
+          <option value="13to17" {% if developmental_history.ageOfOnset == "13to17" %}selected{% endif %}>Age 13 - 17</option>
+          <option value="adultOnset" {% if developmental_history.ageOfOnset == "adultOnset" %}selected{% endif %}>Adult onset</option>
+          <option value="unsure" {% if developmental_history.ageOfOnset == "unsure" %}selected{% endif %}>Unsure</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Childhood hyperactivity level</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="developmental_history.childhood_hyperactivity" value="{{ i }}"
+                 {% if developmental_history.childhoodHyperactivity == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Childhood inattention level</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="developmental_history.childhood_inattention" value="{{ i }}"
+                 {% if developmental_history.childhoodInattention == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Childhood impulsivity level</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="developmental_history.childhood_impulsivity" value="{{ i }}"
+                 {% if developmental_history.childhoodImpulsivity == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Were there school performance issues?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="developmental_history.school_performance_issues" value="yes" {% if developmental_history.schoolPerformanceIssues == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="developmental_history.school_performance_issues" value="no" {% if developmental_history.schoolPerformanceIssues == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Are school behaviour reports available?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="developmental_history.school_behavior_reports" value="yes" {% if developmental_history.schoolBehaviorReports == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="developmental_history.school_behavior_reports" value="no" {% if developmental_history.schoolBehaviorReports == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Were there any learning difficulties?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="developmental_history.learning_difficulties" value="yes" {% if developmental_history.learningDifficulties == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="developmental_history.learning_difficulties" value="no" {% if developmental_history.learningDifficulties == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="childhood_notes">Additional childhood notes</label>
+      <textarea id="childhood_notes" name="developmental_history.childhood_notes"
+                rows="3" placeholder="Any relevant details about childhood development...">{{ developmental_history.childhoodNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

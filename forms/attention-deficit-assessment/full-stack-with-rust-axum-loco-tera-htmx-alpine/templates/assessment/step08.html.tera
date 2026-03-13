@@ -1,0 +1,80 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Previous Assessment - Attention Deficit Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Previous Assessment</h2>
+    <p class="hint">Record any prior ADHD assessments or neuropsychological testing.</p>
+
+    <div class="form-group">
+      <label>Has the patient been previously assessed for ADHD?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="previous_assessment.previously_assessed_for_adhd" value="yes" {% if previous_assessment.previouslyAssessedForAdhd == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="previous_assessment.previously_assessed_for_adhd" value="no" {% if previous_assessment.previouslyAssessedForAdhd == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="previous_assessment_date">Previous assessment date</label>
+        <input type="date" id="previous_assessment_date" name="previous_assessment.previous_assessment_date"
+               value="{{ previous_assessment.previousAssessmentDate }}">
+      </div>
+      <div class="form-group">
+        <label for="previous_assessment_result">Previous assessment result</label>
+        <select id="previous_assessment_result" name="previous_assessment.previous_assessment_result">
+          <option value="">-- Select --</option>
+          <option value="diagnosedAdhd" {% if previous_assessment.previousAssessmentResult == "diagnosedAdhd" %}selected{% endif %}>Diagnosed with ADHD</option>
+          <option value="notDiagnosed" {% if previous_assessment.previousAssessmentResult == "notDiagnosed" %}selected{% endif %}>Not diagnosed</option>
+          <option value="inconclusive" {% if previous_assessment.previousAssessmentResult == "inconclusive" %}selected{% endif %}>Inconclusive</option>
+          <option value="otherDiagnosis" {% if previous_assessment.previousAssessmentResult == "otherDiagnosis" %}selected{% endif %}>Other diagnosis given</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="previous_assessment_provider">Previous assessment provider</label>
+      <input type="text" id="previous_assessment_provider" name="previous_assessment.previous_assessment_provider"
+             value="{{ previous_assessment.previousAssessmentProvider }}"
+             placeholder="Name and role of previous assessor">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Neuropsychological testing done?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="previous_assessment.previous_neuropsychological_testing" value="yes" {% if previous_assessment.previousNeuropsychologicalTesting == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="previous_assessment.previous_neuropsychological_testing" value="no" {% if previous_assessment.previousNeuropsychologicalTesting == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>School assessment reports available?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="previous_assessment.school_assessment_reports" value="yes" {% if previous_assessment.schoolAssessmentReports == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="previous_assessment.school_assessment_reports" value="no" {% if previous_assessment.schoolAssessmentReports == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Informant reports available (e.g. parent, partner)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="previous_assessment.informant_reports_available" value="yes" {% if previous_assessment.informantReportsAvailable == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="previous_assessment.informant_reports_available" value="no" {% if previous_assessment.informantReportsAvailable == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="previous_diagnosis_other">Other diagnoses given previously</label>
+      <textarea id="previous_diagnosis_other" name="previous_assessment.previous_diagnosis_other"
+                rows="2" placeholder="List any other diagnoses...">{{ previous_assessment.previousDiagnosisOther }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

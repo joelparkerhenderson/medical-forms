@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Attention Deficit Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Attention Deficit Assessment</h1>
+  <p>
+    This assessment uses the ASRS (Adult ADHD Self-Report Scale) alongside
+    comprehensive clinical evaluation to assess for adult ADHD. The tool
+    evaluates inattention, hyperactivity-impulsivity, functional impact,
+    developmental history, and comorbidities to support diagnosis and management planning.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>ASRS screener, symptom scales, developmental history, and clinical review</p>
+    </div>
+    <div class="feature-card">
+      <h3>ASRS Scoring</h3>
+      <p>WHO-validated screener with clinical threshold analysis</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Safety alerts, comorbidity screening, and cardiac considerations</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

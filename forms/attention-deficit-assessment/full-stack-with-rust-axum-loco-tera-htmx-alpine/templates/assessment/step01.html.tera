@@ -1,0 +1,89 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Attention Deficit Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide the patient's demographic and referral details.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. Jane Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_age">Age Range</label>
+        <select id="patient_age" name="patient_information.patient_age">
+          <option value="">-- Select --</option>
+          <option value="18to24" {% if patient_information.patientAge == "18to24" %}selected{% endif %}>18 - 24</option>
+          <option value="25to34" {% if patient_information.patientAge == "25to34" %}selected{% endif %}>25 - 34</option>
+          <option value="35to44" {% if patient_information.patientAge == "35to44" %}selected{% endif %}>35 - 44</option>
+          <option value="45to54" {% if patient_information.patientAge == "45to54" %}selected{% endif %}>45 - 54</option>
+          <option value="55to64" {% if patient_information.patientAge == "55to64" %}selected{% endif %}>55 - 64</option>
+          <option value="65plus" {% if patient_information.patientAge == "65plus" %}selected{% endif %}>65+</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="patient_sex">Sex</label>
+        <select id="patient_sex" name="patient_information.patient_sex">
+          <option value="">-- Select --</option>
+          <option value="male" {% if patient_information.patientSex == "male" %}selected{% endif %}>Male</option>
+          <option value="female" {% if patient_information.patientSex == "female" %}selected{% endif %}>Female</option>
+          <option value="other" {% if patient_information.patientSex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="referral_source">Referral Source</label>
+        <select id="referral_source" name="patient_information.referral_source">
+          <option value="">-- Select --</option>
+          <option value="gp" {% if patient_information.referralSource == "gp" %}selected{% endif %}>GP Referral</option>
+          <option value="selfReferral" {% if patient_information.referralSource == "selfReferral" %}selected{% endif %}>Self-Referral</option>
+          <option value="psychiatrist" {% if patient_information.referralSource == "psychiatrist" %}selected{% endif %}>Psychiatrist</option>
+          <option value="psychologist" {% if patient_information.referralSource == "psychologist" %}selected{% endif %}>Psychologist</option>
+          <option value="occupationalHealth" {% if patient_information.referralSource == "occupationalHealth" %}selected{% endif %}>Occupational Health</option>
+          <option value="other" {% if patient_information.referralSource == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="assessment_date">Assessment Date</label>
+        <input type="date" id="assessment_date" name="patient_information.assessment_date"
+               value="{{ patient_information.assessmentDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_name">Clinician Name</label>
+        <input type="text" id="clinician_name" name="patient_information.clinician_name"
+               value="{{ patient_information.clinicianName }}"
+               placeholder="e.g. Dr Williams">
+      </div>
+      <div class="form-group">
+        <label for="clinic_location">Clinic / Location</label>
+        <input type="text" id="clinic_location" name="patient_information.clinic_location"
+               value="{{ patient_information.clinicLocation }}"
+               placeholder="e.g. Adult ADHD Service, City Hospital">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Comorbidities - Attention Deficit Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Comorbidities</h2>
+    <p class="hint">Screen for conditions commonly co-occurring with ADHD. Accurate identification improves differential diagnosis and treatment planning.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Anxiety symptoms present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.anxiety_symptoms" value="yes" {% if comorbidities.anxietySymptoms == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.anxiety_symptoms" value="no" {% if comorbidities.anxietySymptoms == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Depression symptoms present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.depression_symptoms" value="yes" {% if comorbidities.depressionSymptoms == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.depression_symptoms" value="no" {% if comorbidities.depressionSymptoms == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>History of mood disorder (e.g. bipolar)?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.mood_disorder_history" value="yes" {% if comorbidities.moodDisorderHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.mood_disorder_history" value="no" {% if comorbidities.moodDisorderHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Sleep disorder?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.sleep_disorder" value="yes" {% if comorbidities.sleepDisorder == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.sleep_disorder" value="no" {% if comorbidities.sleepDisorder == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Current substance use?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.substance_use_current" value="yes" {% if comorbidities.substanceUseCurrent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.substance_use_current" value="no" {% if comorbidities.substanceUseCurrent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>History of substance use?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.substance_use_history" value="yes" {% if comorbidities.substanceUseHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.substance_use_history" value="no" {% if comorbidities.substanceUseHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="substance_use_details">If yes, please describe substance use</label>
+      <textarea id="substance_use_details" name="comorbidities.substance_use_details"
+                rows="2" placeholder="Type, frequency, duration...">{{ comorbidities.substanceUseDetails }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Autism spectrum traits?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.autism_spectrum_traits" value="yes" {% if comorbidities.autismSpectrumTraits == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.autism_spectrum_traits" value="no" {% if comorbidities.autismSpectrumTraits == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tic disorder?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.tic_disorder" value="yes" {% if comorbidities.ticDisorder == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.tic_disorder" value="no" {% if comorbidities.ticDisorder == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Eating disorder?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.eating_disorder" value="yes" {% if comorbidities.eatingDisorder == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.eating_disorder" value="no" {% if comorbidities.eatingDisorder == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Personality disorder traits?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.personality_disorder_traits" value="yes" {% if comorbidities.personalityDisorderTraits == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.personality_disorder_traits" value="no" {% if comorbidities.personalityDisorderTraits == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="other_psychiatric_conditions">Other psychiatric conditions</label>
+      <textarea id="other_psychiatric_conditions" name="comorbidities.other_psychiatric_conditions"
+                rows="2" placeholder="List any other relevant conditions...">{{ comorbidities.otherPsychiatricConditions }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

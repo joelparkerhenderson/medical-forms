@@ -1,0 +1,80 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Attention Deficit Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Clinician's assessment summary, examination findings, and management plan.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Collateral history obtained?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.collateral_history_obtained" value="yes" {% if clinical_review.collateralHistoryObtained == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.collateral_history_obtained" value="no" {% if clinical_review.collateralHistoryObtained == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="collateral_source">Collateral source</label>
+        <input type="text" id="collateral_source" name="clinical_review.collateral_source"
+               value="{{ clinical_review.collateralSource }}"
+               placeholder="e.g. Parent, Partner, School reports">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="mental_state_examination">Mental state examination findings</label>
+      <textarea id="mental_state_examination" name="clinical_review.mental_state_examination"
+                rows="3" placeholder="Key MSE findings...">{{ clinical_review.mentalStateExamination }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Physical examination done?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.physical_examination_done" value="yes" {% if clinical_review.physicalExaminationDone == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.physical_examination_done" value="no" {% if clinical_review.physicalExaminationDone == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>ECG done?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.ecg_done" value="yes" {% if clinical_review.ecgDone == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.ecg_done" value="no" {% if clinical_review.ecgDone == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="clinical_review.ecg_done" value="notRequired" {% if clinical_review.ecgDone == "notRequired" %}checked{% endif %}> Not Required</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinician_impression">Clinician's diagnostic impression</label>
+      <textarea id="clinician_impression" name="clinical_review.clinician_impression"
+                rows="3" placeholder="Diagnostic formulation...">{{ clinical_review.clinicianImpression }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="treatment_plan">Treatment plan</label>
+      <textarea id="treatment_plan" name="clinical_review.treatment_plan"
+                rows="3" placeholder="Recommended interventions...">{{ clinical_review.treatmentPlan }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="follow_up_plan">Follow-up plan</label>
+      <textarea id="follow_up_plan" name="clinical_review.follow_up_plan"
+                rows="2" placeholder="Timing and purpose of follow-up...">{{ clinical_review.followUpPlan }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_notes">Additional clinical notes</label>
+      <textarea id="additional_notes" name="clinical_review.additional_notes"
+                rows="3" placeholder="Any other relevant observations...">{{ clinical_review.additionalNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

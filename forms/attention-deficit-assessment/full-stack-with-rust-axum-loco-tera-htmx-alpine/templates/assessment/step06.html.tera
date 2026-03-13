@@ -1,0 +1,120 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Functional Impact - Attention Deficit Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Functional Impact</h2>
+    <p class="hint">Rate the extent to which attention/hyperactivity symptoms affect your daily life. (0 = Not at all, 4 = Very Severely)</p>
+
+    <div class="likert-group">
+      <label>Impact on work performance</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="functional_impact.work_performance_impact" value="{{ i }}"
+                 {% if functional_impact.workPerformanceImpact == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not At All{% elif i == 1 %}Mildly{% elif i == 2 %}Moderately{% elif i == 3 %}Severely{% else %}Very Severely{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Impact on academic performance</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="functional_impact.academic_impact" value="{{ i }}"
+                 {% if functional_impact.academicImpact == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not At All{% elif i == 1 %}Mildly{% elif i == 2 %}Moderately{% elif i == 3 %}Severely{% else %}Very Severely{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Impact on relationships (partner, family, friends)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="functional_impact.relationship_impact" value="{{ i }}"
+                 {% if functional_impact.relationshipImpact == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not At All{% elif i == 1 %}Mildly{% elif i == 2 %}Moderately{% elif i == 3 %}Severely{% else %}Very Severely{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Impact on social functioning</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="functional_impact.social_functioning_impact" value="{{ i }}"
+                 {% if functional_impact.socialFunctioningImpact == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not At All{% elif i == 1 %}Mildly{% elif i == 2 %}Moderately{% elif i == 3 %}Severely{% else %}Very Severely{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Impact on financial management</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="functional_impact.financial_management_impact" value="{{ i }}"
+                 {% if functional_impact.financialManagementImpact == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not At All{% elif i == 1 %}Mildly{% elif i == 2 %}Moderately{% elif i == 3 %}Severely{% else %}Very Severely{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Driving safety concerns related to attention/impulsivity</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="functional_impact.driving_safety_concern" value="{{ i }}"
+                 {% if functional_impact.drivingSafetyConcern == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Concern{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Impact on daily task management (household, errands)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="functional_impact.daily_task_management" value="{{ i }}"
+                 {% if functional_impact.dailyTaskManagement == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not At All{% elif i == 1 %}Mildly{% elif i == 2 %}Moderately{% elif i == 3 %}Severely{% else %}Very Severely{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Impact on self-esteem and emotional wellbeing</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="functional_impact.self_esteem_impact" value="{{ i }}"
+                 {% if functional_impact.selfEsteemImpact == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not At All{% elif i == 1 %}Mildly{% elif i == 2 %}Moderately{% elif i == 3 %}Severely{% else %}Very Severely{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

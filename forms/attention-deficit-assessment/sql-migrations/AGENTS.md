@@ -1,0 +1,1 @@
+@../../../AGENTS/sql-migrations.md

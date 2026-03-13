@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}ASRS Screener - Attention Deficit Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>ASRS Part A Screener</h2>
+    <p class="hint">The Adult ADHD Self-Report Scale (ASRS-v1.1) Part A screener. Rate each item from 0 (Never) to 4 (Very Often). Four or more positive responses are highly consistent with adult ADHD.</p>
+
+    <div class="likert-group">
+      <label>Q1. How often do you have trouble wrapping up the final details of a project, once the challenging parts have been done?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="asrs_screener.asrs_q1_wrapping_up" value="{{ i }}"
+                 {% if asrs_screener.asrsQ1WrappingUp == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Q2. How often do you have difficulty getting things in order when you have to do a task that requires organisation?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="asrs_screener.asrs_q2_difficulty_ordering" value="{{ i }}"
+                 {% if asrs_screener.asrsQ2DifficultyOrdering == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Q3. How often do you have problems remembering appointments or obligations?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="asrs_screener.asrs_q3_difficulty_remembering" value="{{ i }}"
+                 {% if asrs_screener.asrsQ3DifficultyRemembering == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Q4. When you have a task that requires a lot of thought, how often do you avoid or delay getting started?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="asrs_screener.asrs_q4_avoids_getting_started" value="{{ i }}"
+                 {% if asrs_screener.asrsQ4AvoidsGettingStarted == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Q5. How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="asrs_screener.asrs_q5_fidget_squirm" value="{{ i }}"
+                 {% if asrs_screener.asrsQ5FidgetSquirm == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Q6. How often do you feel overly active and compelled to do things, like you were driven by a motor?</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="asrs_screener.asrs_q6_overly_active" value="{{ i }}"
+                 {% if asrs_screener.asrsQ6OverlyActive == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Rarely{% elif i == 2 %}Sometimes{% elif i == 3 %}Often{% else %}Very Often{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
