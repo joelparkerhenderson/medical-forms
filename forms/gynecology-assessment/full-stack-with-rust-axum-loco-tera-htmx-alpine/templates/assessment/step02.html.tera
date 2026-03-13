@@ -1,0 +1,82 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Menstrual History - Gynecology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Menstrual History</h2>
+    <p class="hint">Please provide details about menstrual history and patterns.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="menarche_age">Age at Menarche (years)</label>
+        <input type="number" id="menarche_age" name="menstrual_history.menarche_age"
+               value="{% if menstrual_history.menarcheAge %}{{ menstrual_history.menarcheAge }}{% endif %}"
+               min="8" max="20" placeholder="e.g. 12">
+      </div>
+      <div class="form-group">
+        <label for="cycle_length">Cycle Length</label>
+        <select id="cycle_length" name="menstrual_history.cycle_length">
+          <option value="">-- Select --</option>
+          <option value="lessThan21" {% if menstrual_history.cycleLength == "lessThan21" %}selected{% endif %}>Less than 21 days</option>
+          <option value="21to35" {% if menstrual_history.cycleLength == "21to35" %}selected{% endif %}>21 - 35 days (normal)</option>
+          <option value="moreThan35" {% if menstrual_history.cycleLength == "moreThan35" %}selected{% endif %}>More than 35 days</option>
+          <option value="irregular" {% if menstrual_history.cycleLength == "irregular" %}selected{% endif %}>Irregular</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="duration">Period Duration</label>
+        <select id="duration" name="menstrual_history.duration">
+          <option value="">-- Select --</option>
+          <option value="1to3" {% if menstrual_history.duration == "1to3" %}selected{% endif %}>1 - 3 days</option>
+          <option value="4to7" {% if menstrual_history.duration == "4to7" %}selected{% endif %}>4 - 7 days (normal)</option>
+          <option value="moreThan7" {% if menstrual_history.duration == "moreThan7" %}selected{% endif %}>More than 7 days</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="regularity">Regularity</label>
+        <select id="regularity" name="menstrual_history.regularity">
+          <option value="">-- Select --</option>
+          <option value="regular" {% if menstrual_history.regularity == "regular" %}selected{% endif %}>Regular</option>
+          <option value="irregular" {% if menstrual_history.regularity == "irregular" %}selected{% endif %}>Irregular</option>
+          <option value="amenorrhoea" {% if menstrual_history.regularity == "amenorrhoea" %}selected{% endif %}>Amenorrhoea</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="last_period">Last Menstrual Period</label>
+        <input type="date" id="last_period" name="menstrual_history.last_period"
+               value="{{ menstrual_history.lastPeriod }}">
+      </div>
+      <div class="form-group">
+        <label for="flow_amount">Flow Amount</label>
+        <select id="flow_amount" name="menstrual_history.flow_amount">
+          <option value="">-- Select --</option>
+          <option value="light" {% if menstrual_history.flowAmount == "light" %}selected{% endif %}>Light</option>
+          <option value="moderate" {% if menstrual_history.flowAmount == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="heavy" {% if menstrual_history.flowAmount == "heavy" %}selected{% endif %}>Heavy</option>
+          <option value="veryHeavy" {% if menstrual_history.flowAmount == "veryHeavy" %}selected{% endif %}>Very Heavy (flooding/clots)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Intermenstrual Bleeding</label>
+      <div class="radio-group">
+        <label><input type="radio" name="menstrual_history.intermenstrual_bleeding" value="yes" {% if menstrual_history.intermenstrualBleeding == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="menstrual_history.intermenstrual_bleeding" value="no" {% if menstrual_history.intermenstrualBleeding == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Gynecology Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Gynecology Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, diagnosis, clinician...">
+    </div>
+    <div class="form-group">
+      <label for="severity_level">Severity Level</label>
+      <select id="severity_level" name="severity_level">
+        <option value="">All Levels</option>
+        <option value="urgent" {% if severity_level == "urgent" %}selected{% endif %}>Urgent</option>
+        <option value="severe" {% if severity_level == "severe" %}selected{% endif %}>Severe</option>
+        <option value="moderate" {% if severity_level == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="mild" {% if severity_level == "mild" %}selected{% endif %}>Mild</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="referral_needed">Referral</label>
+      <select id="referral_needed" name="referral_needed">
+        <option value="">All</option>
+        <option value="none" {% if referral_needed == "none" %}selected{% endif %}>None</option>
+        <option value="gynaecology" {% if referral_needed == "gynaecology" %}selected{% endif %}>Gynaecology</option>
+        <option value="breast" {% if referral_needed == "breast" %}selected{% endif %}>Breast Clinic</option>
+        <option value="fertility" {% if referral_needed == "fertility" %}selected{% endif %}>Fertility</option>
+        <option value="oncology" {% if referral_needed == "oncology" %}selected{% endif %}>Oncology</option>
+        <option value="safeguarding" {% if referral_needed == "safeguarding" %}selected{% endif %}>Safeguarding</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Review Date</th>
+      <th>Diagnosis</th>
+      <th>Clinician</th>
+      <th>Severity</th>
+      <th>Score</th>
+      <th>Referral</th>
+      <th>Follow-up</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.reviewDate }}</td>
+      <td>{{ patient.primaryDiagnosis }}</td>
+      <td>{{ patient.clinicianName }}</td>
+      <td><span class="satisfaction-badge satisfaction-{{ patient.severityLevel }}">{{ patient.severityLevel }}</span></td>
+      <td>{{ patient.severityScore }}%</td>
+      <td>{{ patient.referralNeeded }}</td>
+      <td>{{ patient.followUp }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="8" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

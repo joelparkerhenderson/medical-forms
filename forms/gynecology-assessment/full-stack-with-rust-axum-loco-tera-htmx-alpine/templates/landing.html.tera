@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Gynecology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Gynecology Assessment</h1>
+  <p>
+    This assessment collects comprehensive gynecological history and clinical information
+    to support patient evaluation and care planning. The form covers menstrual history,
+    gynecological symptoms, obstetric history, cervical screening, contraception,
+    menopause assessment, breast health, and sexual health.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive gynecological history and clinical review</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Grading</h3>
+      <p>Severity assessment with rule-based analysis</p>
+    </div>
+    <div class="feature-card">
+      <h3>Flagged Issues</h3>
+      <p>Actionable alerts for urgent clinical attention</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

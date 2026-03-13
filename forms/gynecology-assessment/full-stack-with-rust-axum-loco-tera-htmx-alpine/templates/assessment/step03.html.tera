@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Gynecological Symptoms - Gynecology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Gynecological Symptoms</h2>
+    <p class="hint">Please rate symptom severity and indicate any current symptoms.</p>
+
+    <div class="likert-group">
+      <label>Pelvic Pain Severity</label>
+      <div class="likert-options">
+        {% for val in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="gynecological_symptoms.pelvic_pain_severity" value="{{ val }}"
+                 {% if gynecological_symptoms.pelvicPainSeverity == val %}checked{% endif %}>
+          <span>{% if val == 1 %}None{% elif val == 2 %}Mild{% elif val == 3 %}Moderate{% elif val == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Dysmenorrhoea (Period Pain)</label>
+      <div class="likert-options">
+        {% for val in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="gynecological_symptoms.dysmenorrhoea" value="{{ val }}"
+                 {% if gynecological_symptoms.dysmenorrhoea == val %}checked{% endif %}>
+          <span>{% if val == 1 %}None{% elif val == 2 %}Mild{% elif val == 3 %}Moderate{% elif val == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Dyspareunia (Painful Intercourse)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gynecological_symptoms.dyspareunia" value="yes" {% if gynecological_symptoms.dyspareunia == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="gynecological_symptoms.dyspareunia" value="no" {% if gynecological_symptoms.dyspareunia == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Abnormal Discharge</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gynecological_symptoms.abnormal_discharge" value="yes" {% if gynecological_symptoms.abnormalDischarge == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="gynecological_symptoms.abnormal_discharge" value="no" {% if gynecological_symptoms.abnormalDischarge == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Urinary Symptoms</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gynecological_symptoms.urinary_symptoms" value="yes" {% if gynecological_symptoms.urinarySymptoms == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="gynecological_symptoms.urinary_symptoms" value="no" {% if gynecological_symptoms.urinarySymptoms == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Prolapse Symptoms</label>
+        <div class="radio-group">
+          <label><input type="radio" name="gynecological_symptoms.prolapse_symptoms" value="yes" {% if gynecological_symptoms.prolapseSymptoms == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="gynecological_symptoms.prolapse_symptoms" value="no" {% if gynecological_symptoms.prolapseSymptoms == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

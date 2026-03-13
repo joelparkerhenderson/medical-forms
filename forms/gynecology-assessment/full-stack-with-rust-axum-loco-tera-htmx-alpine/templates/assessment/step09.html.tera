@@ -1,0 +1,60 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Sexual Health - Gynecology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Sexual Health</h2>
+    <p class="hint">This section covers sensitive topics. All information is confidential and used to ensure appropriate care.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sti_screening">STI Screening</label>
+        <select id="sti_screening" name="sexual_health.sti_screening">
+          <option value="">-- Select --</option>
+          <option value="upToDate" {% if sexual_health.stiScreening == "upToDate" %}selected{% endif %}>Up to Date</option>
+          <option value="overdue" {% if sexual_health.stiScreening == "overdue" %}selected{% endif %}>Overdue</option>
+          <option value="never" {% if sexual_health.stiScreening == "never" %}selected{% endif %}>Never Screened</option>
+          <option value="notApplicable" {% if sexual_health.stiScreening == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="current_concerns">Current Sexual Health Concerns</label>
+        <select id="current_concerns" name="sexual_health.current_concerns">
+          <option value="">-- Select --</option>
+          <option value="none" {% if sexual_health.currentConcerns == "none" %}selected{% endif %}>None</option>
+          <option value="pain" {% if sexual_health.currentConcerns == "pain" %}selected{% endif %}>Pain</option>
+          <option value="discharge" {% if sexual_health.currentConcerns == "discharge" %}selected{% endif %}>Discharge</option>
+          <option value="infection" {% if sexual_health.currentConcerns == "infection" %}selected{% endif %}>Possible Infection</option>
+          <option value="other" {% if sexual_health.currentConcerns == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Domestic Violence Screening</label>
+        <p class="hint">Do you feel safe at home?</p>
+        <div class="radio-group">
+          <label><input type="radio" name="sexual_health.domestic_violence_screening" value="no" {% if sexual_health.domesticViolenceScreening == "no" %}checked{% endif %}> Yes, I feel safe</label>
+          <label><input type="radio" name="sexual_health.domestic_violence_screening" value="yes" {% if sexual_health.domesticViolenceScreening == "yes" %}checked{% endif %}> No, I have concerns</label>
+          <label><input type="radio" name="sexual_health.domestic_violence_screening" value="preferNotToSay" {% if sexual_health.domesticViolenceScreening == "preferNotToSay" %}checked{% endif %}> Prefer not to say</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>FGM Assessment</label>
+        <div class="radio-group">
+          <label><input type="radio" name="sexual_health.fgm_assessment" value="no" {% if sexual_health.fgmAssessment == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="sexual_health.fgm_assessment" value="yes" {% if sexual_health.fgmAssessment == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="sexual_health.fgm_assessment" value="notAssessed" {% if sexual_health.fgmAssessment == "notAssessed" %}checked{% endif %}> Not Assessed</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

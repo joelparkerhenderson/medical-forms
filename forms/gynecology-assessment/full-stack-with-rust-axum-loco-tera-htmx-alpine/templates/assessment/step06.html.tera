@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Contraception & Fertility - Gynecology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Contraception & Fertility</h2>
+    <p class="hint">Please provide details about contraception use and fertility wishes.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="current_method">Current Contraceptive Method</label>
+        <select id="current_method" name="contraception_fertility.current_method">
+          <option value="">-- Select --</option>
+          <option value="none" {% if contraception_fertility.currentMethod == "none" %}selected{% endif %}>None</option>
+          <option value="combinedPill" {% if contraception_fertility.currentMethod == "combinedPill" %}selected{% endif %}>Combined Pill</option>
+          <option value="progesteroneOnly" {% if contraception_fertility.currentMethod == "progesteroneOnly" %}selected{% endif %}>Progesterone-Only Pill</option>
+          <option value="implant" {% if contraception_fertility.currentMethod == "implant" %}selected{% endif %}>Implant</option>
+          <option value="injection" {% if contraception_fertility.currentMethod == "injection" %}selected{% endif %}>Injection</option>
+          <option value="iud" {% if contraception_fertility.currentMethod == "iud" %}selected{% endif %}>IUD (Copper Coil)</option>
+          <option value="ius" {% if contraception_fertility.currentMethod == "ius" %}selected{% endif %}>IUS (Hormonal Coil)</option>
+          <option value="barrier" {% if contraception_fertility.currentMethod == "barrier" %}selected{% endif %}>Barrier Methods</option>
+          <option value="sterilisation" {% if contraception_fertility.currentMethod == "sterilisation" %}selected{% endif %}>Sterilisation</option>
+          <option value="other" {% if contraception_fertility.currentMethod == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="satisfaction">Satisfaction with Current Method</label>
+        <select id="satisfaction" name="contraception_fertility.satisfaction">
+          <option value="">-- Select --</option>
+          <option value="satisfied" {% if contraception_fertility.satisfaction == "satisfied" %}selected{% endif %}>Satisfied</option>
+          <option value="neutral" {% if contraception_fertility.satisfaction == "neutral" %}selected{% endif %}>Neutral</option>
+          <option value="dissatisfied" {% if contraception_fertility.satisfaction == "dissatisfied" %}selected{% endif %}>Dissatisfied</option>
+          <option value="veryDissatisfied" {% if contraception_fertility.satisfaction == "veryDissatisfied" %}selected{% endif %}>Very Dissatisfied</option>
+          <option value="notApplicable" {% if contraception_fertility.satisfaction == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Future Fertility Wishes</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraception_fertility.future_fertility_wishes" value="yes" {% if contraception_fertility.futureFertilityWishes == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraception_fertility.future_fertility_wishes" value="no" {% if contraception_fertility.futureFertilityWishes == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="contraception_fertility.future_fertility_wishes" value="unsure" {% if contraception_fertility.futureFertilityWishes == "unsure" %}checked{% endif %}> Unsure</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Fertility Concerns</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraception_fertility.fertility_concerns" value="yes" {% if contraception_fertility.fertilityConcerns == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraception_fertility.fertility_concerns" value="no" {% if contraception_fertility.fertilityConcerns == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ivf_history">IVF History</label>
+      <select id="ivf_history" name="contraception_fertility.ivf_history">
+        <option value="">-- Select --</option>
+        <option value="none" {% if contraception_fertility.ivfHistory == "none" %}selected{% endif %}>None</option>
+        <option value="current" {% if contraception_fertility.ivfHistory == "current" %}selected{% endif %}>Currently Undergoing</option>
+        <option value="previous" {% if contraception_fertility.ivfHistory == "previous" %}selected{% endif %}>Previous IVF</option>
+        <option value="planned" {% if contraception_fertility.ivfHistory == "planned" %}selected{% endif %}>Planned</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

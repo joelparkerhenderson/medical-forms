@@ -1,0 +1,69 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Obstetric History - Gynecology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Obstetric History</h2>
+    <p class="hint">Please provide details of pregnancies and delivery history.</p>
+
+    <div class="form-row-4">
+      <div class="form-group">
+        <label for="gravida">Gravida (Total Pregnancies)</label>
+        <input type="number" id="gravida" name="obstetric_history.gravida"
+               value="{% if obstetric_history.gravida %}{{ obstetric_history.gravida }}{% endif %}"
+               min="0" max="20" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label for="para">Para (Births)</label>
+        <input type="number" id="para" name="obstetric_history.para"
+               value="{% if obstetric_history.para %}{{ obstetric_history.para }}{% endif %}"
+               min="0" max="20" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label for="miscarriages">Miscarriages</label>
+        <input type="number" id="miscarriages" name="obstetric_history.miscarriages"
+               value="{% if obstetric_history.miscarriages %}{{ obstetric_history.miscarriages }}{% endif %}"
+               min="0" max="20" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label for="terminations">Terminations</label>
+        <input type="number" id="terminations" name="obstetric_history.terminations"
+               value="{% if obstetric_history.terminations %}{{ obstetric_history.terminations }}{% endif %}"
+               min="0" max="20" placeholder="0">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ectopic">Ectopic Pregnancies</label>
+        <input type="number" id="ectopic" name="obstetric_history.ectopic"
+               value="{% if obstetric_history.ectopic %}{{ obstetric_history.ectopic }}{% endif %}"
+               min="0" max="10" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label for="delivery_modes">Delivery Modes</label>
+        <select id="delivery_modes" name="obstetric_history.delivery_modes">
+          <option value="">-- Select --</option>
+          <option value="vaginal" {% if obstetric_history.deliveryModes == "vaginal" %}selected{% endif %}>Vaginal</option>
+          <option value="caesarean" {% if obstetric_history.deliveryModes == "caesarean" %}selected{% endif %}>Caesarean</option>
+          <option value="both" {% if obstetric_history.deliveryModes == "both" %}selected{% endif %}>Both Vaginal & Caesarean</option>
+          <option value="instrumental" {% if obstetric_history.deliveryModes == "instrumental" %}selected{% endif %}>Instrumental</option>
+          <option value="notApplicable" {% if obstetric_history.deliveryModes == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="complications">Obstetric Complications</label>
+      <textarea id="complications" name="obstetric_history.complications"
+                placeholder="e.g. pre-eclampsia, gestational diabetes, postpartum haemorrhage">{{ obstetric_history.complications }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

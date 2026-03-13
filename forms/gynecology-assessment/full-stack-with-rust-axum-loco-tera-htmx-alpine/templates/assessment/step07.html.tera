@@ -1,0 +1,89 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Menopause Assessment - Gynecology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Menopause Assessment</h2>
+    <p class="hint">Please provide details about menopausal status and symptoms.</p>
+
+    <div class="form-group">
+      <label for="menopausal_status">Menopausal Status</label>
+      <select id="menopausal_status" name="menopause_assessment.menopausal_status">
+        <option value="">-- Select --</option>
+        <option value="premenopausal" {% if menopause_assessment.menopausalStatus == "premenopausal" %}selected{% endif %}>Premenopausal</option>
+        <option value="perimenopausal" {% if menopause_assessment.menopausalStatus == "perimenopausal" %}selected{% endif %}>Perimenopausal</option>
+        <option value="postmenopausal" {% if menopause_assessment.menopausalStatus == "postmenopausal" %}selected{% endif %}>Postmenopausal</option>
+        <option value="surgicalMenopause" {% if menopause_assessment.menopausalStatus == "surgicalMenopause" %}selected{% endif %}>Surgical Menopause</option>
+      </select>
+    </div>
+
+    <div class="likert-group">
+      <label>Vasomotor Symptoms (Hot Flushes / Night Sweats)</label>
+      <div class="likert-options">
+        {% for val in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="menopause_assessment.vasomotor_symptoms" value="{{ val }}"
+                 {% if menopause_assessment.vasomotorSymptoms == val %}checked{% endif %}>
+          <span>{% if val == 1 %}None{% elif val == 2 %}Mild{% elif val == 3 %}Moderate{% elif val == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Urogenital Symptoms (Vaginal Dryness / Urinary Issues)</label>
+      <div class="likert-options">
+        {% for val in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="menopause_assessment.urogenital_symptoms" value="{{ val }}"
+                 {% if menopause_assessment.urogenitalSymptoms == val %}checked{% endif %}>
+          <span>{% if val == 1 %}None{% elif val == 2 %}Mild{% elif val == 3 %}Moderate{% elif val == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Mood Changes (Anxiety / Depression / Irritability)</label>
+      <div class="likert-options">
+        {% for val in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="menopause_assessment.mood_changes" value="{{ val }}"
+                 {% if menopause_assessment.moodChanges == val %}checked{% endif %}>
+          <span>{% if val == 1 %}None{% elif val == 2 %}Mild{% elif val == 3 %}Moderate{% elif val == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hrt_use">HRT Use</label>
+        <select id="hrt_use" name="menopause_assessment.hrt_use">
+          <option value="">-- Select --</option>
+          <option value="none" {% if menopause_assessment.hrtUse == "none" %}selected{% endif %}>None</option>
+          <option value="current" {% if menopause_assessment.hrtUse == "current" %}selected{% endif %}>Currently Using</option>
+          <option value="previous" {% if menopause_assessment.hrtUse == "previous" %}selected{% endif %}>Previously Used</option>
+          <option value="considering" {% if menopause_assessment.hrtUse == "considering" %}selected{% endif %}>Considering</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="bone_health">Bone Health</label>
+        <select id="bone_health" name="menopause_assessment.bone_health">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if menopause_assessment.boneHealth == "normal" %}selected{% endif %}>Normal</option>
+          <option value="osteopenia" {% if menopause_assessment.boneHealth == "osteopenia" %}selected{% endif %}>Osteopenia</option>
+          <option value="osteoporosis" {% if menopause_assessment.boneHealth == "osteoporosis" %}selected{% endif %}>Osteoporosis</option>
+          <option value="unknown" {% if menopause_assessment.boneHealth == "unknown" %}selected{% endif %}>Unknown</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

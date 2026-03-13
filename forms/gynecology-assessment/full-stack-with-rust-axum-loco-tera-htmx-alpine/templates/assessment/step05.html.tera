@@ -1,0 +1,64 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cervical Screening - Gynecology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cervical Screening</h2>
+    <p class="hint">Please provide cervical screening history and results.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="last_smear_date">Last Smear Date</label>
+        <input type="date" id="last_smear_date" name="cervical_screening.last_smear_date"
+               value="{{ cervical_screening.lastSmearDate }}">
+      </div>
+      <div class="form-group">
+        <label for="smear_result">Smear Result</label>
+        <select id="smear_result" name="cervical_screening.smear_result">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if cervical_screening.smearResult == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if cervical_screening.smearResult == "abnormal" %}selected{% endif %}>Abnormal</option>
+          <option value="highGrade" {% if cervical_screening.smearResult == "highGrade" %}selected{% endif %}>High Grade</option>
+          <option value="inadequate" {% if cervical_screening.smearResult == "inadequate" %}selected{% endif %}>Inadequate</option>
+          <option value="neverScreened" {% if cervical_screening.smearResult == "neverScreened" %}selected{% endif %}>Never Screened</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hpv_status">HPV Status</label>
+        <select id="hpv_status" name="cervical_screening.hpv_status">
+          <option value="">-- Select --</option>
+          <option value="positive" {% if cervical_screening.hpvStatus == "positive" %}selected{% endif %}>Positive</option>
+          <option value="negative" {% if cervical_screening.hpvStatus == "negative" %}selected{% endif %}>Negative</option>
+          <option value="unknown" {% if cervical_screening.hpvStatus == "unknown" %}selected{% endif %}>Unknown</option>
+          <option value="notTested" {% if cervical_screening.hpvStatus == "notTested" %}selected{% endif %}>Not Tested</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="colposcopy_history">Colposcopy History</label>
+        <select id="colposcopy_history" name="cervical_screening.colposcopy_history">
+          <option value="">-- Select --</option>
+          <option value="none" {% if cervical_screening.colposcopyHistory == "none" %}selected{% endif %}>None</option>
+          <option value="normal" {% if cervical_screening.colposcopyHistory == "normal" %}selected{% endif %}>Normal</option>
+          <option value="abnormal" {% if cervical_screening.colposcopyHistory == "abnormal" %}selected{% endif %}>Abnormal</option>
+          <option value="biopsy" {% if cervical_screening.colposcopyHistory == "biopsy" %}selected{% endif %}>Biopsy Taken</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="treatment_history">Treatment History</label>
+      <textarea id="treatment_history" name="cervical_screening.treatment_history"
+                placeholder="e.g. LLETZ, cone biopsy, cryotherapy">{{ cervical_screening.treatmentHistory }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

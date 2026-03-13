@@ -1,0 +1,58 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Breast Health - Gynecology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Breast Health</h2>
+    <p class="hint">Please provide details about breast health and screening history.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="last_mammogram">Last Mammogram Date</label>
+        <input type="date" id="last_mammogram" name="breast_health.last_mammogram"
+               value="{{ breast_health.lastMammogram }}">
+      </div>
+      <div class="form-group">
+        <label for="breast_symptoms">Breast Symptoms</label>
+        <select id="breast_symptoms" name="breast_health.breast_symptoms">
+          <option value="">-- Select --</option>
+          <option value="none" {% if breast_health.breastSymptoms == "none" %}selected{% endif %}>None</option>
+          <option value="lump" {% if breast_health.breastSymptoms == "lump" %}selected{% endif %}>Lump</option>
+          <option value="pain" {% if breast_health.breastSymptoms == "pain" %}selected{% endif %}>Pain</option>
+          <option value="discharge" {% if breast_health.breastSymptoms == "discharge" %}selected{% endif %}>Nipple Discharge</option>
+          <option value="skinChanges" {% if breast_health.breastSymptoms == "skinChanges" %}selected{% endif %}>Skin Changes</option>
+          <option value="other" {% if breast_health.breastSymptoms == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Family History of Breast Cancer</label>
+        <div class="radio-group">
+          <label><input type="radio" name="breast_health.family_breast_cancer" value="yes" {% if breast_health.familyBreastCancer == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="breast_health.family_breast_cancer" value="no" {% if breast_health.familyBreastCancer == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="breast_health.family_breast_cancer" value="unknown" {% if breast_health.familyBreastCancer == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="brca_status">BRCA Status</label>
+        <select id="brca_status" name="breast_health.brca_status">
+          <option value="">-- Select --</option>
+          <option value="notTested" {% if breast_health.brcaStatus == "notTested" %}selected{% endif %}>Not Tested</option>
+          <option value="negative" {% if breast_health.brcaStatus == "negative" %}selected{% endif %}>Negative</option>
+          <option value="brca1" {% if breast_health.brcaStatus == "brca1" %}selected{% endif %}>BRCA1 Positive</option>
+          <option value="brca2" {% if breast_health.brcaStatus == "brca2" %}selected{% endif %}>BRCA2 Positive</option>
+          <option value="pending" {% if breast_health.brcaStatus == "pending" %}selected{% endif %}>Pending</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
