@@ -1,0 +1,83 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Periodontal Assessment - Dental Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Periodontal Assessment</h2>
+    <p class="hint">Record periodontal examination findings and diagnosis.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bpe_score">BPE Score (Basic Periodontal Examination)</label>
+        <select id="bpe_score" name="periodontal_assessment.bpe_score">
+          <option value="">-- Select --</option>
+          <option value="0" {% if periodontal_assessment.bpeScore == "0" %}selected{% endif %}>0 - Healthy</option>
+          <option value="1" {% if periodontal_assessment.bpeScore == "1" %}selected{% endif %}>1 - Bleeding on probing</option>
+          <option value="2" {% if periodontal_assessment.bpeScore == "2" %}selected{% endif %}>2 - Calculus/overhangs</option>
+          <option value="3" {% if periodontal_assessment.bpeScore == "3" %}selected{% endif %}>3 - Pockets 3.5-5.5mm</option>
+          <option value="4" {% if periodontal_assessment.bpeScore == "4" %}selected{% endif %}>4 - Pockets 6mm+</option>
+          <option value="*" {% if periodontal_assessment.bpeScore == "*" %}selected{% endif %}>* - Furcation involvement</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="pocket_depth_max">Maximum Pocket Depth (mm)</label>
+        <input type="number" id="pocket_depth_max" name="periodontal_assessment.pocket_depth_max"
+               value="{{ periodontal_assessment.pocketDepthMax }}"
+               min="0" max="15" placeholder="e.g. 4">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Gingival Bleeding on Probing?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="periodontal_assessment.gingival_bleeding" value="yes" {% if periodontal_assessment.gingivalBleeding == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="periodontal_assessment.gingival_bleeding" value="no" {% if periodontal_assessment.gingivalBleeding == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Clinical Attachment Loss?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="periodontal_assessment.clinical_attachment_loss" value="yes" {% if periodontal_assessment.clinicalAttachmentLoss == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="periodontal_assessment.clinical_attachment_loss" value="no" {% if periodontal_assessment.clinicalAttachmentLoss == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Tooth Mobility Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="periodontal_assessment.mobility_present" value="yes" {% if periodontal_assessment.mobilityPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="periodontal_assessment.mobility_present" value="no" {% if periodontal_assessment.mobilityPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Furcation Involvement?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="periodontal_assessment.furcation_involvement" value="yes" {% if periodontal_assessment.furcationInvolvement == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="periodontal_assessment.furcation_involvement" value="no" {% if periodontal_assessment.furcationInvolvement == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="periodontal_diagnosis">Periodontal Diagnosis</label>
+      <select id="periodontal_diagnosis" name="periodontal_assessment.periodontal_diagnosis">
+        <option value="">-- Select --</option>
+        <option value="healthy" {% if periodontal_assessment.periodontalDiagnosis == "healthy" %}selected{% endif %}>Healthy</option>
+        <option value="gingivitis" {% if periodontal_assessment.periodontalDiagnosis == "gingivitis" %}selected{% endif %}>Gingivitis</option>
+        <option value="mildPeriodontitis" {% if periodontal_assessment.periodontalDiagnosis == "mildPeriodontitis" %}selected{% endif %}>Mild Periodontitis</option>
+        <option value="moderatePeriodontitis" {% if periodontal_assessment.periodontalDiagnosis == "moderatePeriodontitis" %}selected{% endif %}>Moderate Periodontitis</option>
+        <option value="severePeriodontitis" {% if periodontal_assessment.periodontalDiagnosis == "severePeriodontitis" %}selected{% endif %}>Severe Periodontitis</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

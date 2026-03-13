@@ -1,0 +1,73 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Caries Assessment - Dental Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Caries Assessment</h2>
+    <p class="hint">Record the DMFT index components and caries risk assessment.</p>
+
+    <div class="form-row-3">
+      <div class="form-group">
+        <label for="decayed_teeth">Decayed Teeth (D)</label>
+        <input type="number" id="decayed_teeth" name="caries_assessment.decayed_teeth"
+               value="{{ caries_assessment.decayedTeeth }}"
+               min="0" max="32" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label for="missing_teeth">Missing Teeth (M)</label>
+        <input type="number" id="missing_teeth" name="caries_assessment.missing_teeth"
+               value="{{ caries_assessment.missingTeeth }}"
+               min="0" max="32" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label for="filled_teeth">Filled Teeth (F)</label>
+        <input type="number" id="filled_teeth" name="caries_assessment.filled_teeth"
+               value="{{ caries_assessment.filledTeeth }}"
+               min="0" max="32" placeholder="0">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Active Caries Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="caries_assessment.active_caries" value="yes" {% if caries_assessment.activeCaries == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="caries_assessment.active_caries" value="no" {% if caries_assessment.activeCaries == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="caries_risk">Caries Risk</label>
+        <select id="caries_risk" name="caries_assessment.caries_risk">
+          <option value="">-- Select --</option>
+          <option value="low" {% if caries_assessment.cariesRisk == "low" %}selected{% endif %}>Low</option>
+          <option value="moderate" {% if caries_assessment.cariesRisk == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="high" {% if caries_assessment.cariesRisk == "high" %}selected{% endif %}>High</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Root Caries Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="caries_assessment.root_caries" value="yes" {% if caries_assessment.rootCaries == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="caries_assessment.root_caries" value="no" {% if caries_assessment.rootCaries == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Secondary Caries Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="caries_assessment.secondary_caries" value="yes" {% if caries_assessment.secondaryCaries == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="caries_assessment.secondary_caries" value="no" {% if caries_assessment.secondaryCaries == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,142 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dental Assessment Report{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Dental Assessment Report</h1>
+    <span class="status-badge status-{{ oral_health_status }}">{{ oral_health_label }}</span>
+  </div>
+
+  {% if dmft_score %}
+  <div class="score-display">DMFT: {{ dmft_score }}</div>
+  <div class="score-label">Decayed + Missing + Filled Teeth</div>
+  {% else %}
+  <div class="score-display">DMFT: N/A</div>
+  <div class="score-label">Insufficient data for DMFT calculation</div>
+  {% endif %}
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient:</strong> {{ data.patientInformation.fullName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Date of Birth:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>NHS Number:</strong> {{ data.patientInformation.nhsNumber | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Dental Practice:</strong> {{ data.patientInformation.dentalPractice | default(value="Not provided") }}
+    </div>
+  </div>
+</div>
+
+<!-- Clinical Summary -->
+<div class="card">
+  <h2>Clinical Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Periodontal Diagnosis:</strong> {{ data.periodontalAssessment.periodontalDiagnosis | default(value="Not assessed") }}
+    </div>
+    <div>
+      <strong>Caries Risk:</strong> {{ data.cariesAssessment.cariesRisk | default(value="Not assessed") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Cancer Screening:</strong> {{ data.oralExamination.oralCancerScreening | default(value="Not assessed") }}
+    </div>
+    <div>
+      <strong>Urgent Treatment:</strong> {{ data.treatmentNeeds.urgentTreatment | default(value="Not assessed") }}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Dental Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Assessment Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinical Notes -->
+{% if data.clinicalReview.clinicalNotes or data.clinicalReview.treatmentPlan %}
+<div class="card">
+  <h2>Clinical Notes & Treatment Plan</h2>
+  {% if data.clinicalReview.clinicalNotes %}
+    <div class="form-group">
+      <strong>Clinical Notes:</strong>
+      <p>{{ data.clinicalReview.clinicalNotes }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.treatmentPlan %}
+    <div class="form-group">
+      <strong>Treatment Plan:</strong>
+      <p>{{ data.clinicalReview.treatmentPlan }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.nextReviewDate %}
+    <div class="form-group">
+      <strong>Next Review:</strong> {{ data.clinicalReview.nextReviewDate }}
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

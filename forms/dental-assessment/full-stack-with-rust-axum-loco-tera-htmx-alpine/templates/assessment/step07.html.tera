@@ -1,0 +1,102 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Oral Hygiene - Dental Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Oral Hygiene</h2>
+    <p class="hint">Assess the patient's oral hygiene habits and lifestyle factors.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="brushing_frequency">Brushing Frequency</label>
+        <select id="brushing_frequency" name="oral_hygiene.brushing_frequency">
+          <option value="">-- Select --</option>
+          <option value="never" {% if oral_hygiene.brushingFrequency == "never" %}selected{% endif %}>Never</option>
+          <option value="rarely" {% if oral_hygiene.brushingFrequency == "rarely" %}selected{% endif %}>Rarely</option>
+          <option value="onceDaily" {% if oral_hygiene.brushingFrequency == "onceDaily" %}selected{% endif %}>Once daily</option>
+          <option value="twiceDaily" {% if oral_hygiene.brushingFrequency == "twiceDaily" %}selected{% endif %}>Twice daily</option>
+          <option value="threeTimesDaily" {% if oral_hygiene.brushingFrequency == "threeTimesDaily" %}selected{% endif %}>Three times daily</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="brush_type">Brush Type</label>
+        <select id="brush_type" name="oral_hygiene.brush_type">
+          <option value="">-- Select --</option>
+          <option value="manual" {% if oral_hygiene.brushType == "manual" %}selected{% endif %}>Manual</option>
+          <option value="electric" {% if oral_hygiene.brushType == "electric" %}selected{% endif %}>Electric</option>
+          <option value="sonic" {% if oral_hygiene.brushType == "sonic" %}selected{% endif %}>Sonic</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Interdental Cleaning?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="oral_hygiene.interdental_cleaning" value="yes" {% if oral_hygiene.interdentalCleaning == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="oral_hygiene.interdental_cleaning" value="no" {% if oral_hygiene.interdentalCleaning == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mouthwash_use">Mouthwash Use</label>
+        <select id="mouthwash_use" name="oral_hygiene.mouthwash_use">
+          <option value="">-- Select --</option>
+          <option value="none" {% if oral_hygiene.mouthwashUse == "none" %}selected{% endif %}>None</option>
+          <option value="fluoride" {% if oral_hygiene.mouthwashUse == "fluoride" %}selected{% endif %}>Fluoride</option>
+          <option value="antibacterial" {% if oral_hygiene.mouthwashUse == "antibacterial" %}selected{% endif %}>Antibacterial</option>
+          <option value="cosmetic" {% if oral_hygiene.mouthwashUse == "cosmetic" %}selected{% endif %}>Cosmetic</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fluoride_use">Fluoride Use</label>
+        <select id="fluoride_use" name="oral_hygiene.fluoride_use">
+          <option value="">-- Select --</option>
+          <option value="standardToothpaste" {% if oral_hygiene.fluorideUse == "standardToothpaste" %}selected{% endif %}>Standard toothpaste (1350-1500ppm)</option>
+          <option value="highFluoride" {% if oral_hygiene.fluorideUse == "highFluoride" %}selected{% endif %}>High fluoride toothpaste (2800-5000ppm)</option>
+          <option value="fluorideRinse" {% if oral_hygiene.fluorideUse == "fluorideRinse" %}selected{% endif %}>Fluoride rinse</option>
+          <option value="noFluoride" {% if oral_hygiene.fluorideUse == "noFluoride" %}selected{% endif %}>No fluoride</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dietary_sugar">Dietary Sugar Intake</label>
+        <select id="dietary_sugar" name="oral_hygiene.dietary_sugar">
+          <option value="">-- Select --</option>
+          <option value="low" {% if oral_hygiene.dietarySugar == "low" %}selected{% endif %}>Low</option>
+          <option value="moderate" {% if oral_hygiene.dietarySugar == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="high" {% if oral_hygiene.dietarySugar == "high" %}selected{% endif %}>High</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="smoking_status">Smoking Status</label>
+        <select id="smoking_status" name="oral_hygiene.smoking_status">
+          <option value="">-- Select --</option>
+          <option value="never" {% if oral_hygiene.smokingStatus == "never" %}selected{% endif %}>Never smoked</option>
+          <option value="former" {% if oral_hygiene.smokingStatus == "former" %}selected{% endif %}>Former smoker</option>
+          <option value="current" {% if oral_hygiene.smokingStatus == "current" %}selected{% endif %}>Current smoker</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="alcohol_use">Alcohol Use</label>
+        <select id="alcohol_use" name="oral_hygiene.alcohol_use">
+          <option value="">-- Select --</option>
+          <option value="none" {% if oral_hygiene.alcoholUse == "none" %}selected{% endif %}>None</option>
+          <option value="withinLimits" {% if oral_hygiene.alcoholUse == "withinLimits" %}selected{% endif %}>Within recommended limits</option>
+          <option value="aboveLimits" {% if oral_hygiene.alcoholUse == "aboveLimits" %}selected{% endif %}>Above recommended limits</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dental Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Dental Assessment</h1>
+  <p>
+    Comprehensive dental assessment evaluating oral health status, periodontal condition,
+    dental caries risk, treatment needs, and oral hygiene habits. This assessment follows
+    UK dental standards and produces a composite oral health status report.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Steps</h3>
+      <p>Complete oral health evaluation from patient history to clinical review</p>
+    </div>
+    <div class="feature-card">
+      <h3>DMFT Scoring</h3>
+      <p>Decayed, Missing, and Filled Teeth index with periodontal grading</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated detection of urgent referrals and treatment priorities</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

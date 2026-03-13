@@ -1,0 +1,91 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dental History - Dental Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Dental History</h2>
+    <p class="hint">Record the patient's dental history and previous treatments.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="last_dental_visit">Last Dental Visit</label>
+        <select id="last_dental_visit" name="dental_history.last_dental_visit">
+          <option value="">-- Select --</option>
+          <option value="lessThan6Months" {% if dental_history.lastDentalVisit == "lessThan6Months" %}selected{% endif %}>Less than 6 months ago</option>
+          <option value="6to12Months" {% if dental_history.lastDentalVisit == "6to12Months" %}selected{% endif %}>6 - 12 months ago</option>
+          <option value="1to2Years" {% if dental_history.lastDentalVisit == "1to2Years" %}selected{% endif %}>1 - 2 years ago</option>
+          <option value="moreThan2Years" {% if dental_history.lastDentalVisit == "moreThan2Years" %}selected{% endif %}>More than 2 years ago</option>
+          <option value="never" {% if dental_history.lastDentalVisit == "never" %}selected{% endif %}>Never visited a dentist</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="visit_frequency">Visit Frequency</label>
+        <select id="visit_frequency" name="dental_history.visit_frequency">
+          <option value="">-- Select --</option>
+          <option value="every3Months" {% if dental_history.visitFrequency == "every3Months" %}selected{% endif %}>Every 3 months</option>
+          <option value="every6Months" {% if dental_history.visitFrequency == "every6Months" %}selected{% endif %}>Every 6 months</option>
+          <option value="annually" {% if dental_history.visitFrequency == "annually" %}selected{% endif %}>Annually</option>
+          <option value="occasionally" {% if dental_history.visitFrequency == "occasionally" %}selected{% endif %}>Occasionally</option>
+          <option value="onlyWhenInPain" {% if dental_history.visitFrequency == "onlyWhenInPain" %}selected{% endif %}>Only when in pain</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Dental Anxiety Level (1 = None, 5 = Severe)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="dental_history.dental_anxiety" value="{{ i }}"
+                 {% if dental_history.dentalAnxiety == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Extreme{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Previous Dental Surgery?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="dental_history.previous_surgery" value="yes" {% if dental_history.previousSurgery == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="dental_history.previous_surgery" value="no" {% if dental_history.previousSurgery == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>History of Dental Trauma?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="dental_history.dental_trauma" value="yes" {% if dental_history.dentalTrauma == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="dental_history.dental_trauma" value="no" {% if dental_history.dentalTrauma == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="orthodontic_history">Orthodontic History</label>
+        <select id="orthodontic_history" name="dental_history.orthodontic_history">
+          <option value="">-- Select --</option>
+          <option value="none" {% if dental_history.orthodonticHistory == "none" %}selected{% endif %}>None</option>
+          <option value="previous" {% if dental_history.orthodonticHistory == "previous" %}selected{% endif %}>Previously treated</option>
+          <option value="current" {% if dental_history.orthodonticHistory == "current" %}selected{% endif %}>Currently undergoing</option>
+          <option value="recommended" {% if dental_history.orthodonticHistory == "recommended" %}selected{% endif %}>Recommended</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Dental Phobia?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="dental_history.dental_phobia" value="yes" {% if dental_history.dentalPhobia == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="dental_history.dental_phobia" value="no" {% if dental_history.dentalPhobia == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

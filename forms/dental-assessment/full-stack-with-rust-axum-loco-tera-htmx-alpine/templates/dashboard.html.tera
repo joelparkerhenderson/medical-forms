@@ -1,0 +1,74 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Dental Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Dental Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, diagnosis...">
+    </div>
+    <div class="form-group">
+      <label for="oral_status">Oral Health Status</label>
+      <select id="oral_status" name="oral_status">
+        <option value="">All</option>
+        <option value="good" {% if oral_status == "good" %}selected{% endif %}>Good</option>
+        <option value="fair" {% if oral_status == "fair" %}selected{% endif %}>Fair</option>
+        <option value="poor" {% if oral_status == "poor" %}selected{% endif %}>Poor</option>
+        <option value="urgent" {% if oral_status == "urgent" %}selected{% endif %}>Urgent</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="caries_risk">Caries Risk</label>
+      <select id="caries_risk" name="caries_risk">
+        <option value="">All</option>
+        <option value="Low" {% if caries_risk == "Low" %}selected{% endif %}>Low</option>
+        <option value="Moderate" {% if caries_risk == "Moderate" %}selected{% endif %}>Moderate</option>
+        <option value="High" {% if caries_risk == "High" %}selected{% endif %}>High</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Last Visit</th>
+      <th>Oral Status</th>
+      <th>DMFT</th>
+      <th>Periodontal</th>
+      <th>Caries Risk</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.lastVisit }}</td>
+      <td><span class="status-badge status-{{ patient.oralStatus }}">{{ patient.oralStatus }}</span></td>
+      <td>{{ patient.dmftScore }}</td>
+      <td>{{ patient.periodontalDiagnosis }}</td>
+      <td>{{ patient.cariesRisk }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Radiographic Findings - Dental Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Radiographic Findings</h2>
+    <p class="hint">Record radiographic examination results and findings.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Radiographs Taken?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="radiographic_findings.radiographs_taken" value="yes" {% if radiographic_findings.radiographsTaken == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="radiographic_findings.radiographs_taken" value="no" {% if radiographic_findings.radiographsTaken == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="radiograph_type">Radiograph Type</label>
+        <select id="radiograph_type" name="radiographic_findings.radiograph_type">
+          <option value="">-- Select --</option>
+          <option value="periapical" {% if radiographic_findings.radiographType == "periapical" %}selected{% endif %}>Periapical</option>
+          <option value="bitewing" {% if radiographic_findings.radiographType == "bitewing" %}selected{% endif %}>Bitewing</option>
+          <option value="opg" {% if radiographic_findings.radiographType == "opg" %}selected{% endif %}>OPG (Panoramic)</option>
+          <option value="cbct" {% if radiographic_findings.radiographType == "cbct" %}selected{% endif %}>CBCT</option>
+          <option value="multiple" {% if radiographic_findings.radiographType == "multiple" %}selected{% endif %}>Multiple types</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Bone Loss Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="radiographic_findings.bone_loss" value="yes" {% if radiographic_findings.boneLoss == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="radiographic_findings.bone_loss" value="no" {% if radiographic_findings.boneLoss == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="bone_loss_percentage">Bone Loss Percentage (%)</label>
+        <input type="number" id="bone_loss_percentage" name="radiographic_findings.bone_loss_percentage"
+               value="{{ radiographic_findings.boneLossPercentage }}"
+               min="0" max="100" placeholder="e.g. 20">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Periapical Lesions?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="radiographic_findings.periapical_lesions" value="yes" {% if radiographic_findings.periapicalLesions == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="radiographic_findings.periapical_lesions" value="no" {% if radiographic_findings.periapicalLesions == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Impacted Teeth?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="radiographic_findings.impacted_teeth" value="yes" {% if radiographic_findings.impactedTeeth == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="radiographic_findings.impacted_teeth" value="no" {% if radiographic_findings.impactedTeeth == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="other_findings">Other Radiographic Findings</label>
+      <textarea id="other_findings" name="radiographic_findings.other_findings"
+                placeholder="Describe any additional radiographic findings">{{ radiographic_findings.otherFindings }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

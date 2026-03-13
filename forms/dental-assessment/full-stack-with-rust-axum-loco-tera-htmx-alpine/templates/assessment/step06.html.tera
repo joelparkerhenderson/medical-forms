@@ -1,0 +1,74 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Occlusion & TMJ - Dental Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Occlusion & TMJ</h2>
+    <p class="hint">Assess occlusal classification, TMJ function, and tooth wear.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="occlusion_class">Occlusion Classification</label>
+        <select id="occlusion_class" name="occlusion_tmj.occlusion_class">
+          <option value="">-- Select --</option>
+          <option value="classI" {% if occlusion_tmj.occlusionClass == "classI" %}selected{% endif %}>Class I (Normal)</option>
+          <option value="classII" {% if occlusion_tmj.occlusionClass == "classII" %}selected{% endif %}>Class II (Retrognathic)</option>
+          <option value="classIII" {% if occlusion_tmj.occlusionClass == "classIII" %}selected{% endif %}>Class III (Prognathic)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tooth_wear">Tooth Wear Score (0-4)</label>
+        <input type="number" id="tooth_wear" name="occlusion_tmj.tooth_wear"
+               value="{{ occlusion_tmj.toothWear }}"
+               min="0" max="4" placeholder="0 = None, 4 = Severe">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>TMJ Pain?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="occlusion_tmj.tmj_pain" value="yes" {% if occlusion_tmj.tmjPain == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="occlusion_tmj.tmj_pain" value="no" {% if occlusion_tmj.tmjPain == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>TMJ Clicking?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="occlusion_tmj.tmj_clicking" value="yes" {% if occlusion_tmj.tmjClicking == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="occlusion_tmj.tmj_clicking" value="no" {% if occlusion_tmj.tmjClicking == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Limited Opening?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="occlusion_tmj.limited_opening" value="yes" {% if occlusion_tmj.limitedOpening == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="occlusion_tmj.limited_opening" value="no" {% if occlusion_tmj.limitedOpening == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Bruxism?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="occlusion_tmj.bruxism" value="yes" {% if occlusion_tmj.bruxism == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="occlusion_tmj.bruxism" value="no" {% if occlusion_tmj.bruxism == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="prosthetic_needs">Prosthetic Needs</label>
+      <textarea id="prosthetic_needs" name="occlusion_tmj.prosthetic_needs"
+                placeholder="Describe any prosthetic requirements">{{ occlusion_tmj.prostheticNeeds }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

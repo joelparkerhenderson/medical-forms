@@ -1,0 +1,73 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Treatment Needs - Dental Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Treatment Needs</h2>
+    <p class="hint">Document the required treatments and their urgency.</p>
+
+    <div class="form-row-4">
+      <div class="form-group">
+        <label for="fillings">Fillings Needed</label>
+        <input type="number" id="fillings" name="treatment_needs.fillings"
+               value="{{ treatment_needs.fillings }}"
+               min="0" max="32" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label for="extractions">Extractions Needed</label>
+        <input type="number" id="extractions" name="treatment_needs.extractions"
+               value="{{ treatment_needs.extractions }}"
+               min="0" max="32" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label for="root_canals">Root Canals Needed</label>
+        <input type="number" id="root_canals" name="treatment_needs.root_canals"
+               value="{{ treatment_needs.rootCanals }}"
+               min="0" max="32" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label for="crowns">Crowns Needed</label>
+        <input type="number" id="crowns" name="treatment_needs.crowns"
+               value="{{ treatment_needs.crowns }}"
+               min="0" max="32" placeholder="0">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Periodontal Treatment Needed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="treatment_needs.periodontal_treatment" value="yes" {% if treatment_needs.periodontalTreatment == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="treatment_needs.periodontal_treatment" value="no" {% if treatment_needs.periodontalTreatment == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Urgent Treatment Required?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="treatment_needs.urgent_treatment" value="yes" {% if treatment_needs.urgentTreatment == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="treatment_needs.urgent_treatment" value="no" {% if treatment_needs.urgentTreatment == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="prosthodontic_needs">Prosthodontic Needs</label>
+        <textarea id="prosthodontic_needs" name="treatment_needs.prosthodontic_needs"
+                  placeholder="Dentures, bridges, implants, etc.">{{ treatment_needs.prosthodonticNeeds }}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="orthodontic_needs">Orthodontic Needs</label>
+        <textarea id="orthodontic_needs" name="treatment_needs.orthodontic_needs"
+                  placeholder="Alignment, crowding, spacing, etc.">{{ treatment_needs.orthodonticNeeds }}</textarea>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

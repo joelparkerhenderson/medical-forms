@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Dental Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Complete the clinical review, treatment plan, and sign-off.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_name">Clinician Name</label>
+        <input type="text" id="clinician_name" name="clinical_review.clinician_name"
+               value="{{ clinical_review.clinicianName }}"
+               placeholder="e.g. Dr Williams">
+      </div>
+      <div class="form-group">
+        <label for="review_date">Review Date</label>
+        <input type="date" id="review_date" name="clinical_review.review_date"
+               value="{{ clinical_review.reviewDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="overall_status">Overall Oral Health Status</label>
+        <select id="overall_status" name="clinical_review.overall_status">
+          <option value="">-- Select --</option>
+          <option value="good" {% if clinical_review.overallStatus == "good" %}selected{% endif %}>Good</option>
+          <option value="fair" {% if clinical_review.overallStatus == "fair" %}selected{% endif %}>Fair</option>
+          <option value="poor" {% if clinical_review.overallStatus == "poor" %}selected{% endif %}>Poor</option>
+          <option value="urgent" {% if clinical_review.overallStatus == "urgent" %}selected{% endif %}>Urgent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dmft_score">DMFT Score (Total)</label>
+        <input type="number" id="dmft_score" name="clinical_review.dmft_score"
+               value="{{ clinical_review.dmftScore }}"
+               min="0" max="32" placeholder="Calculated D+M+F total">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_notes">Clinical Notes</label>
+      <textarea id="clinical_notes" name="clinical_review.clinical_notes"
+                placeholder="Additional clinical observations and notes">{{ clinical_review.clinicalNotes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="treatment_plan">Treatment Plan</label>
+      <textarea id="treatment_plan" name="clinical_review.treatment_plan"
+                placeholder="Summarise the proposed treatment plan">{{ clinical_review.treatmentPlan }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="next_review_date">Next Review Date</label>
+        <input type="date" id="next_review_date" name="clinical_review.next_review_date"
+               value="{{ clinical_review.nextReviewDate }}">
+      </div>
+      <div class="form-group">
+        <label>Referral Needed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.referral_needed" value="yes" {% if clinical_review.referralNeeded == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.referral_needed" value="no" {% if clinical_review.referralNeeded == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

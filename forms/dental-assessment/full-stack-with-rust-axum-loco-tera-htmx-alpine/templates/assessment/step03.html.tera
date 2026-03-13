@@ -1,0 +1,85 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Oral Examination - Dental Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Oral Examination</h2>
+    <p class="hint">Record findings from the extra-oral and intra-oral examination.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Soft Tissue Normal?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="oral_examination.soft_tissue_normal" value="yes" {% if oral_examination.softTissueNormal == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="oral_examination.soft_tissue_normal" value="no" {% if oral_examination.softTissueNormal == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Mucosal Lesions Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="oral_examination.mucosal_lesions" value="yes" {% if oral_examination.mucosalLesions == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="oral_examination.mucosal_lesions" value="no" {% if oral_examination.mucosalLesions == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="soft_tissue_findings">Soft Tissue Findings (if abnormal)</label>
+      <textarea id="soft_tissue_findings" name="oral_examination.soft_tissue_findings"
+                placeholder="Describe any abnormal findings">{{ oral_examination.softTissueFindings }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tongue_condition">Tongue Condition</label>
+        <select id="tongue_condition" name="oral_examination.tongue_condition">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if oral_examination.tongueCondition == "normal" %}selected{% endif %}>Normal</option>
+          <option value="coated" {% if oral_examination.tongueCondition == "coated" %}selected{% endif %}>Coated</option>
+          <option value="fissured" {% if oral_examination.tongueCondition == "fissured" %}selected{% endif %}>Fissured</option>
+          <option value="geographic" {% if oral_examination.tongueCondition == "geographic" %}selected{% endif %}>Geographic</option>
+          <option value="ulcerated" {% if oral_examination.tongueCondition == "ulcerated" %}selected{% endif %}>Ulcerated</option>
+          <option value="other" {% if oral_examination.tongueCondition == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="oral_cancer_screening">Oral Cancer Screening</label>
+        <select id="oral_cancer_screening" name="oral_examination.oral_cancer_screening">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if oral_examination.oralCancerScreening == "normal" %}selected{% endif %}>Normal</option>
+          <option value="suspicious" {% if oral_examination.oralCancerScreening == "suspicious" %}selected{% endif %}>Suspicious</option>
+          <option value="referral" {% if oral_examination.oralCancerScreening == "referral" %}selected{% endif %}>Referral Required</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="lymph_nodes">Lymph Nodes</label>
+        <select id="lymph_nodes" name="oral_examination.lymph_nodes">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if oral_examination.lymphNodes == "normal" %}selected{% endif %}>Normal / Not palpable</option>
+          <option value="palpable" {% if oral_examination.lymphNodes == "palpable" %}selected{% endif %}>Palpable</option>
+          <option value="enlarged" {% if oral_examination.lymphNodes == "enlarged" %}selected{% endif %}>Enlarged</option>
+          <option value="tender" {% if oral_examination.lymphNodes == "tender" %}selected{% endif %}>Tender</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="salivary_flow">Salivary Flow</label>
+        <select id="salivary_flow" name="oral_examination.salivary_flow">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if oral_examination.salivaryFlow == "normal" %}selected{% endif %}>Normal</option>
+          <option value="reduced" {% if oral_examination.salivaryFlow == "reduced" %}selected{% endif %}>Reduced</option>
+          <option value="xerostomia" {% if oral_examination.salivaryFlow == "xerostomia" %}selected{% endif %}>Xerostomia (dry mouth)</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
