@@ -1,0 +1,95 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Expectations & Goals - Hearing Aid Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Expectations &amp; Goals</h2>
+    <p class="hint">Assess the patient's expectations and readiness for hearing aid use.</p>
+
+    <div class="likert-group">
+      <label>Realistic Expectations</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="expectations_goals.realistic_expectations" value="{{ i }}"
+                 {% if expectations_goals.realisticExpectations == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Unrealistic{% elif i == 2 %}Unrealistic{% elif i == 3 %}Somewhat{% elif i == 4 %}Realistic{% else %}Very Realistic{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="primary_goal">Primary Goal for Hearing Aids</label>
+      <select id="primary_goal" name="expectations_goals.primary_goal">
+        <option value="">-- Select --</option>
+        <option value="conversation" {% if expectations_goals.primaryGoal == "conversation" %}selected{% endif %}>Better conversation</option>
+        <option value="television" {% if expectations_goals.primaryGoal == "television" %}selected{% endif %}>Television listening</option>
+        <option value="telephone" {% if expectations_goals.primaryGoal == "telephone" %}selected{% endif %}>Telephone use</option>
+        <option value="workplace" {% if expectations_goals.primaryGoal == "workplace" %}selected{% endif %}>Workplace communication</option>
+        <option value="socialEvents" {% if expectations_goals.primaryGoal == "socialEvents" %}selected{% endif %}>Social events</option>
+        <option value="safety" {% if expectations_goals.primaryGoal == "safety" %}selected{% endif %}>Safety and awareness</option>
+        <option value="general" {% if expectations_goals.primaryGoal == "general" %}selected{% endif %}>General improvement</option>
+      </select>
+    </div>
+
+    <div class="likert-group">
+      <label>Willingness to Adapt</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="expectations_goals.willingness_to_adapt" value="{{ i }}"
+                 {% if expectations_goals.willingnessToAdapt == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Unwilling{% elif i == 2 %}Unwilling{% elif i == 3 %}Neutral{% elif i == 4 %}Willing{% else %}Very Willing{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Support System (family/carer involvement)</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="expectations_goals.support_system" value="{{ i }}"
+                 {% if expectations_goals.supportSystem == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Minimal{% elif i == 3 %}Some{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Follow-up Commitment</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="expectations_goals.follow_up_commitment" value="{{ i }}"
+                 {% if expectations_goals.followUpCommitment == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Low{% elif i == 2 %}Low{% elif i == 3 %}Moderate{% elif i == 4 %}High{% else %}Very High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Overall Readiness</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="expectations_goals.overall_readiness" value="{{ i }}"
+                 {% if expectations_goals.overallReadiness == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not Ready{% elif i == 2 %}Slightly{% elif i == 3 %}Moderately{% elif i == 4 %}Ready{% else %}Very Ready{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

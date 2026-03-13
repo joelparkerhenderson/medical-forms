@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Communication Needs - Hearing Aid Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Communication Needs</h2>
+    <p class="hint">Rate the patient's difficulty in each communication situation (1 = Great Difficulty, 5 = No Difficulty).</p>
+
+    <div class="likert-group">
+      <label>Quiet One-on-One Conversation</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="communication_needs.quiet_conversation" value="{{ i }}"
+                 {% if communication_needs.quietConversation == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Great Difficulty{% elif i == 2 %}Much Difficulty{% elif i == 3 %}Some Difficulty{% elif i == 4 %}Little Difficulty{% else %}No Difficulty{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Group Conversation</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="communication_needs.group_conversation" value="{{ i }}"
+                 {% if communication_needs.groupConversation == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Great Difficulty{% elif i == 2 %}Much Difficulty{% elif i == 3 %}Some Difficulty{% elif i == 4 %}Little Difficulty{% else %}No Difficulty{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Telephone Use</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="communication_needs.telephone_use" value="{{ i }}"
+                 {% if communication_needs.telephoneUse == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Great Difficulty{% elif i == 2 %}Much Difficulty{% elif i == 3 %}Some Difficulty{% elif i == 4 %}Little Difficulty{% else %}No Difficulty{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Television Listening</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="communication_needs.television_listening" value="{{ i }}"
+                 {% if communication_needs.televisionListening == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Great Difficulty{% elif i == 2 %}Much Difficulty{% elif i == 3 %}Some Difficulty{% elif i == 4 %}Little Difficulty{% else %}No Difficulty{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Public Settings (restaurants, meetings)</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="communication_needs.public_settings" value="{{ i }}"
+                 {% if communication_needs.publicSettings == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Great Difficulty{% elif i == 2 %}Much Difficulty{% elif i == 3 %}Some Difficulty{% elif i == 4 %}Little Difficulty{% else %}No Difficulty{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Workplace Communication</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="communication_needs.workplace_communication" value="{{ i }}"
+                 {% if communication_needs.workplaceCommunication == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Great Difficulty{% elif i == 2 %}Much Difficulty{% elif i == 3 %}Some Difficulty{% elif i == 4 %}Little Difficulty{% else %}No Difficulty{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

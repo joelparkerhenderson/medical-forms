@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Lifestyle Assessment - Hearing Aid Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Lifestyle Assessment</h2>
+    <p class="hint">Rate each lifestyle factor (1 = Very Low, 5 = Very High).</p>
+
+    <div class="likert-group">
+      <label>Social Activity Level</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="lifestyle_assessment.social_activity_level" value="{{ i }}"
+                 {% if lifestyle_assessment.socialActivityLevel == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Low{% elif i == 2 %}Low{% elif i == 3 %}Moderate{% elif i == 4 %}High{% else %}Very High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Outdoor Activity Level</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="lifestyle_assessment.outdoor_activity_level" value="{{ i }}"
+                 {% if lifestyle_assessment.outdoorActivityLevel == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Low{% elif i == 2 %}Low{% elif i == 3 %}Moderate{% elif i == 4 %}High{% else %}Very High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Technology Comfort</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="lifestyle_assessment.technology_comfort" value="{{ i }}"
+                 {% if lifestyle_assessment.technologyComfort == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Low{% elif i == 2 %}Low{% elif i == 3 %}Moderate{% elif i == 4 %}High{% else %}Very High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Manual Dexterity</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="lifestyle_assessment.manual_dexterity" value="{{ i }}"
+                 {% if lifestyle_assessment.manualDexterity == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Cosmetic Concern (1 = Very Concerned, 5 = Not Concerned)</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="lifestyle_assessment.cosmetic_concern" value="{{ i }}"
+                 {% if lifestyle_assessment.cosmeticConcern == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Concerned{% elif i == 2 %}Concerned{% elif i == 3 %}Somewhat{% elif i == 4 %}Slightly{% else %}Not Concerned{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Motivation Level</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="lifestyle_assessment.motivation_level" value="{{ i }}"
+                 {% if lifestyle_assessment.motivationLevel == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Low{% elif i == 2 %}Low{% elif i == 3 %}Moderate{% elif i == 4 %}High{% else %}Very High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

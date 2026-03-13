@@ -1,0 +1,83 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Hearing Aids - Hearing Aid Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Hearing Aids</h2>
+    <p class="hint">If the patient currently wears hearing aids, provide details about them.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Currently Wearing Hearing Aids?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_hearing_aids.currently_wearing" value="yes" {% if current_hearing_aids.currentlyWearing == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_hearing_aids.currently_wearing" value="no" {% if current_hearing_aids.currentlyWearing == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="current_aid_type">Current Aid Type</label>
+        <select id="current_aid_type" name="current_hearing_aids.current_aid_type">
+          <option value="">-- Select --</option>
+          <option value="bte" {% if current_hearing_aids.currentAidType == "bte" %}selected{% endif %}>Behind-the-Ear (BTE)</option>
+          <option value="rite" {% if current_hearing_aids.currentAidType == "rite" %}selected{% endif %}>Receiver-in-Canal (RIC/RITE)</option>
+          <option value="ite" {% if current_hearing_aids.currentAidType == "ite" %}selected{% endif %}>In-the-Ear (ITE)</option>
+          <option value="itc" {% if current_hearing_aids.currentAidType == "itc" %}selected{% endif %}>In-the-Canal (ITC)</option>
+          <option value="cic" {% if current_hearing_aids.currentAidType == "cic" %}selected{% endif %}>Completely-in-Canal (CIC)</option>
+          <option value="iic" {% if current_hearing_aids.currentAidType == "iic" %}selected{% endif %}>Invisible-in-Canal (IIC)</option>
+          <option value="none" {% if current_hearing_aids.currentAidType == "none" %}selected{% endif %}>None</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="current_aid_age">Age of Current Aids</label>
+        <select id="current_aid_age" name="current_hearing_aids.current_aid_age">
+          <option value="">-- Select --</option>
+          <option value="lessThan1Year" {% if current_hearing_aids.currentAidAge == "lessThan1Year" %}selected{% endif %}>Less than 1 year</option>
+          <option value="1to3Years" {% if current_hearing_aids.currentAidAge == "1to3Years" %}selected{% endif %}>1 - 3 years</option>
+          <option value="3to5Years" {% if current_hearing_aids.currentAidAge == "3to5Years" %}selected{% endif %}>3 - 5 years</option>
+          <option value="moreThan5Years" {% if current_hearing_aids.currentAidAge == "moreThan5Years" %}selected{% endif %}>More than 5 years</option>
+          <option value="notApplicable" {% if current_hearing_aids.currentAidAge == "notApplicable" %}selected{% endif %}>Not applicable</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="daily_usage_hours">Daily Usage Hours</label>
+        <select id="daily_usage_hours" name="current_hearing_aids.daily_usage_hours">
+          <option value="">-- Select --</option>
+          <option value="lessThan4" {% if current_hearing_aids.dailyUsageHours == "lessThan4" %}selected{% endif %}>Less than 4 hours</option>
+          <option value="4to8" {% if current_hearing_aids.dailyUsageHours == "4to8" %}selected{% endif %}>4 - 8 hours</option>
+          <option value="8to12" {% if current_hearing_aids.dailyUsageHours == "8to12" %}selected{% endif %}>8 - 12 hours</option>
+          <option value="moreThan12" {% if current_hearing_aids.dailyUsageHours == "moreThan12" %}selected{% endif %}>More than 12 hours</option>
+          <option value="notApplicable" {% if current_hearing_aids.dailyUsageHours == "notApplicable" %}selected{% endif %}>Not applicable</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Satisfaction with Current Aids</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="current_hearing_aids.satisfaction_with_current" value="{{ i }}"
+                 {% if current_hearing_aids.satisfactionWithCurrent == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Dissatisfied{% elif i == 2 %}Dissatisfied{% elif i == 3 %}Neutral{% elif i == 4 %}Satisfied{% else %}Very Satisfied{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="current_aid_issues">Issues with Current Aids</label>
+      <textarea id="current_aid_issues" name="current_hearing_aids.current_aid_issues"
+                placeholder="Describe any problems with current hearing aids...">{{ current_hearing_aids.currentAidIssues }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

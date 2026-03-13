@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Hearing Aid Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Hearing Aid Assessment</h1>
+  <p>
+    This assessment collects comprehensive information to determine hearing aid
+    candidacy, appropriate device selection, and fitting parameters. It covers
+    patient history, audiometric results, communication needs, lifestyle factors,
+    fitting requirements, and clinical review.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive evaluation from patient history to clinical review</p>
+    </div>
+    <div class="feature-card">
+      <h3>Needs-Based Scoring</h3>
+      <p>Composite score with hearing aid need level classification</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated alerts for conditions requiring special attention</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

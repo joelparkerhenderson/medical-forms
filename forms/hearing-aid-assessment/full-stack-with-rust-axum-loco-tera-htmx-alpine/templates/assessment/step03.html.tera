@@ -1,0 +1,72 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Audiometric Results - Hearing Aid Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Audiometric Results</h2>
+    <p class="hint">Enter audiometric test results for both ears.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="right_ear_pta">Right Ear PTA (dB HL)</label>
+        <input type="number" id="right_ear_pta" name="audiometric_results.right_ear_pta"
+               value="{{ audiometric_results.rightEarPta }}"
+               min="0" max="120" placeholder="e.g. 45">
+      </div>
+      <div class="form-group">
+        <label for="left_ear_pta">Left Ear PTA (dB HL)</label>
+        <input type="number" id="left_ear_pta" name="audiometric_results.left_ear_pta"
+               value="{{ audiometric_results.leftEarPta }}"
+               min="0" max="120" placeholder="e.g. 50">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="speech_recognition_right">Speech Recognition - Right (%)</label>
+        <input type="number" id="speech_recognition_right" name="audiometric_results.speech_recognition_right"
+               value="{{ audiometric_results.speechRecognitionRight }}"
+               min="0" max="100" placeholder="e.g. 80">
+      </div>
+      <div class="form-group">
+        <label for="speech_recognition_left">Speech Recognition - Left (%)</label>
+        <input type="number" id="speech_recognition_left" name="audiometric_results.speech_recognition_left"
+               value="{{ audiometric_results.speechRecognitionLeft }}"
+               min="0" max="100" placeholder="e.g. 75">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hearing_loss_severity">Hearing Loss Severity</label>
+        <select id="hearing_loss_severity" name="audiometric_results.hearing_loss_severity">
+          <option value="">-- Select --</option>
+          <option value="normal" {% if audiometric_results.hearingLossSeverity == "normal" %}selected{% endif %}>Normal (0-25 dB)</option>
+          <option value="mild" {% if audiometric_results.hearingLossSeverity == "mild" %}selected{% endif %}>Mild (26-40 dB)</option>
+          <option value="moderate" {% if audiometric_results.hearingLossSeverity == "moderate" %}selected{% endif %}>Moderate (41-55 dB)</option>
+          <option value="moderatelySevere" {% if audiometric_results.hearingLossSeverity == "moderatelySevere" %}selected{% endif %}>Moderately Severe (56-70 dB)</option>
+          <option value="severe" {% if audiometric_results.hearingLossSeverity == "severe" %}selected{% endif %}>Severe (71-90 dB)</option>
+          <option value="profound" {% if audiometric_results.hearingLossSeverity == "profound" %}selected{% endif %}>Profound (91+ dB)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="audiogram_configuration">Audiogram Configuration</label>
+        <select id="audiogram_configuration" name="audiometric_results.audiogram_configuration">
+          <option value="">-- Select --</option>
+          <option value="flat" {% if audiometric_results.audiogramConfiguration == "flat" %}selected{% endif %}>Flat</option>
+          <option value="sloping" {% if audiometric_results.audiogramConfiguration == "sloping" %}selected{% endif %}>Sloping</option>
+          <option value="reverseSlope" {% if audiometric_results.audiogramConfiguration == "reverseSlope" %}selected{% endif %}>Reverse slope</option>
+          <option value="notched" {% if audiometric_results.audiogramConfiguration == "notched" %}selected{% endif %}>Notched</option>
+          <option value="precipitous" {% if audiometric_results.audiogramConfiguration == "precipitous" %}selected{% endif %}>Precipitous</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

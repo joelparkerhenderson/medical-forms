@@ -1,0 +1,78 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Hearing Aid Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, date, severity...">
+    </div>
+    <div class="form-group">
+      <label for="hearing_aid_level">Need Level</label>
+      <select id="hearing_aid_level" name="hearing_aid_level">
+        <option value="">All Levels</option>
+        <option value="profound" {% if hearing_aid_level == "profound" %}selected{% endif %}>Profound Need</option>
+        <option value="significant" {% if hearing_aid_level == "significant" %}selected{% endif %}>Significant Need</option>
+        <option value="moderate" {% if hearing_aid_level == "moderate" %}selected{% endif %}>Moderate Need</option>
+        <option value="minimal" {% if hearing_aid_level == "minimal" %}selected{% endif %}>Minimal Need</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="hearing_loss_severity">Hearing Loss</label>
+      <select id="hearing_loss_severity" name="hearing_loss_severity">
+        <option value="">All</option>
+        <option value="mild" {% if hearing_loss_severity == "mild" %}selected{% endif %}>Mild</option>
+        <option value="moderate" {% if hearing_loss_severity == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="moderatelySevere" {% if hearing_loss_severity == "moderatelySevere" %}selected{% endif %}>Moderately Severe</option>
+        <option value="severe" {% if hearing_loss_severity == "severe" %}selected{% endif %}>Severe</option>
+        <option value="profound" {% if hearing_loss_severity == "profound" %}selected{% endif %}>Profound</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Assessment Date</th>
+      <th>Hearing Loss</th>
+      <th>Need Level</th>
+      <th>Score</th>
+      <th>Affected Ear</th>
+      <th>Currently Wearing</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.assessmentDate }}</td>
+      <td>{{ patient.hearingLossSeverity }}</td>
+      <td><span class="satisfaction-badge satisfaction-{{ patient.hearingAidLevel }}">{{ patient.hearingAidLevel }}</span></td>
+      <td>{{ patient.hearingAidScore }}%</td>
+      <td>{{ patient.affectedEar }}</td>
+      <td>{{ patient.currentlyWearing }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Trial Period - Hearing Aid Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Trial Period</h2>
+    <p class="hint">Record observations from the hearing aid trial period.</p>
+
+    <div class="form-group">
+      <label for="trial_duration">Trial Duration</label>
+      <select id="trial_duration" name="trial_period.trial_duration">
+        <option value="">-- Select --</option>
+        <option value="1week" {% if trial_period.trialDuration == "1week" %}selected{% endif %}>1 week</option>
+        <option value="2weeks" {% if trial_period.trialDuration == "2weeks" %}selected{% endif %}>2 weeks</option>
+        <option value="30days" {% if trial_period.trialDuration == "30days" %}selected{% endif %}>30 days</option>
+        <option value="60days" {% if trial_period.trialDuration == "60days" %}selected{% endif %}>60 days</option>
+        <option value="notStarted" {% if trial_period.trialDuration == "notStarted" %}selected{% endif %}>Not yet started</option>
+      </select>
+    </div>
+
+    <div class="likert-group">
+      <label>Initial Comfort</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="trial_period.initial_comfort" value="{{ i }}"
+                 {% if trial_period.initialComfort == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Sound Quality</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="trial_period.sound_quality" value="{{ i }}"
+                 {% if trial_period.soundQuality == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Feedback Management</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="trial_period.feedback_management" value="{{ i }}"
+                 {% if trial_period.feedbackManagement == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Daily Wear Compliance</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="trial_period.daily_wear_compliance" value="{{ i }}"
+                 {% if trial_period.dailyWearCompliance == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Reported Benefit</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="trial_period.reported_benefit" value="{{ i }}"
+                 {% if trial_period.reportedBenefit == i %}checked{% endif %}>
+          <span>{% if i == 1 %}No Benefit{% elif i == 2 %}Slight{% elif i == 3 %}Moderate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

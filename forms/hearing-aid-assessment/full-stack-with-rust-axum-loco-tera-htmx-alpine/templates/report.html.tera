@@ -1,0 +1,127 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Assessment Report - Hearing Aid Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Hearing Aid Assessment Report</h1>
+    <span class="satisfaction-badge satisfaction-{{ hearing_aid_level }}">{{ hearing_aid_label }}</span>
+  </div>
+
+  <div class="score-display">{{ hearing_aid_score }}%</div>
+  <div class="score-label">Composite Assessment Score</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Hearing Loss Summary -->
+<div class="card">
+  <h2>Hearing Loss Summary</h2>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <div style="font-size: 1.5rem; font-weight: 700;">{{ hearing_loss_category | capitalize }}</div>
+  </div>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient:</strong> {{ data.patientInformation.patientName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Assessment Date:</strong> {{ data.patientInformation.assessmentDate | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Audiologist:</strong> {{ data.patientInformation.audiologistName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Affected Ear:</strong> {{ data.hearingHistory.affectedEar | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Right Ear PTA:</strong> {% if data.audiometricResults.rightEarPta %}{{ data.audiometricResults.rightEarPta }} dB{% else %}Not provided{% endif %}
+    </div>
+    <div>
+      <strong>Left Ear PTA:</strong> {% if data.audiometricResults.leftEarPta %}{{ data.audiometricResults.leftEarPta }} dB{% else %}Not provided{% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Assessment Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Assessment Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinician Notes -->
+{% if data.clinicalReview.clinicianNotes or data.currentHearingAids.currentAidIssues %}
+<div class="card">
+  <h2>Clinical Notes</h2>
+  {% if data.clinicalReview.clinicianNotes %}
+    <div class="form-group">
+      <strong>Clinician Notes:</strong>
+      <p>{{ data.clinicalReview.clinicianNotes }}</p>
+    </div>
+  {% endif %}
+  {% if data.currentHearingAids.currentAidIssues %}
+    <div class="form-group">
+      <strong>Current Aid Issues:</strong>
+      <p>{{ data.currentHearingAids.currentAidIssues }}</p>
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

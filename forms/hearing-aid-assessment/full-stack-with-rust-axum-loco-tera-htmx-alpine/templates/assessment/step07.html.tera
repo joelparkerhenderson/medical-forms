@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Fitting Requirements - Hearing Aid Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Fitting Requirements</h2>
+    <p class="hint">Determine the appropriate hearing aid fitting parameters.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="preferred_style">Preferred Hearing Aid Style</label>
+        <select id="preferred_style" name="fitting_requirements.preferred_style">
+          <option value="">-- Select --</option>
+          <option value="bte" {% if fitting_requirements.preferredStyle == "bte" %}selected{% endif %}>Behind-the-Ear (BTE)</option>
+          <option value="rite" {% if fitting_requirements.preferredStyle == "rite" %}selected{% endif %}>Receiver-in-Canal (RIC/RITE)</option>
+          <option value="ite" {% if fitting_requirements.preferredStyle == "ite" %}selected{% endif %}>In-the-Ear (ITE)</option>
+          <option value="itc" {% if fitting_requirements.preferredStyle == "itc" %}selected{% endif %}>In-the-Canal (ITC)</option>
+          <option value="cic" {% if fitting_requirements.preferredStyle == "cic" %}selected{% endif %}>Completely-in-Canal (CIC)</option>
+          <option value="iic" {% if fitting_requirements.preferredStyle == "iic" %}selected{% endif %}>Invisible-in-Canal (IIC)</option>
+          <option value="noPreference" {% if fitting_requirements.preferredStyle == "noPreference" %}selected{% endif %}>No preference</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Bilateral Fitting</label>
+        <div class="radio-group">
+          <label><input type="radio" name="fitting_requirements.bilateral_fitting" value="bilateral" {% if fitting_requirements.bilateralFitting == "bilateral" %}checked{% endif %}> Bilateral</label>
+          <label><input type="radio" name="fitting_requirements.bilateral_fitting" value="unilateral" {% if fitting_requirements.bilateralFitting == "unilateral" %}checked{% endif %}> Unilateral</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Ear Canal Suitability (clinical assessment)</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="fitting_requirements.ear_canal_suitability" value="{{ i }}"
+                 {% if fitting_requirements.earCanalSuitability == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Connectivity Needs (Bluetooth, streaming, etc.)</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="fitting_requirements.connectivity_needs" value="{{ i }}"
+                 {% if fitting_requirements.connectivityNeeds == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not Needed{% elif i == 2 %}Slightly{% elif i == 3 %}Moderate{% elif i == 4 %}Important{% else %}Essential{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Rechargeable Preference</label>
+        <div class="radio-group">
+          <label><input type="radio" name="fitting_requirements.rechargeable_preference" value="rechargeable" {% if fitting_requirements.rechargeablePreference == "rechargeable" %}checked{% endif %}> Rechargeable</label>
+          <label><input type="radio" name="fitting_requirements.rechargeable_preference" value="disposable" {% if fitting_requirements.rechargeablePreference == "disposable" %}checked{% endif %}> Disposable batteries</label>
+          <label><input type="radio" name="fitting_requirements.rechargeable_preference" value="noPreference" {% if fitting_requirements.rechargeablePreference == "noPreference" %}checked{% endif %}> No preference</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="budget_range">Budget Range</label>
+        <select id="budget_range" name="fitting_requirements.budget_range">
+          <option value="">-- Select --</option>
+          <option value="basic" {% if fitting_requirements.budgetRange == "basic" %}selected{% endif %}>Basic</option>
+          <option value="mid" {% if fitting_requirements.budgetRange == "mid" %}selected{% endif %}>Mid-range</option>
+          <option value="premium" {% if fitting_requirements.budgetRange == "premium" %}selected{% endif %}>Premium</option>
+          <option value="nhsFunded" {% if fitting_requirements.budgetRange == "nhsFunded" %}selected{% endif %}>NHS funded</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

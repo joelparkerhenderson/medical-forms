@@ -1,0 +1,87 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Hearing Aid Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Clinician's final assessment and recommendations.</p>
+
+    <div class="likert-group">
+      <label>Aided Improvement</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="clinical_review.aided_improvement" value="{{ i }}"
+                 {% if clinical_review.aidedImprovement == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Slight{% elif i == 3 %}Moderate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Patient Satisfaction</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="clinical_review.patient_satisfaction" value="{{ i }}"
+                 {% if clinical_review.patientSatisfaction == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Dissatisfied{% elif i == 2 %}Dissatisfied{% elif i == 3 %}Neutral{% elif i == 4 %}Satisfied{% else %}Very Satisfied{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Recommendation Confidence</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="clinical_review.recommendation_confidence" value="{{ i }}"
+                 {% if clinical_review.recommendationConfidence == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Low{% elif i == 2 %}Low{% elif i == 3 %}Moderate{% elif i == 4 %}High{% else %}Very High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_services_needed">Additional Services Needed</label>
+      <select id="additional_services_needed" name="clinical_review.additional_services_needed">
+        <option value="">-- Select --</option>
+        <option value="none" {% if clinical_review.additionalServicesNeeded == "none" %}selected{% endif %}>None</option>
+        <option value="tinnitusManagement" {% if clinical_review.additionalServicesNeeded == "tinnitusManagement" %}selected{% endif %}>Tinnitus management</option>
+        <option value="auralRehabilitation" {% if clinical_review.additionalServicesNeeded == "auralRehabilitation" %}selected{% endif %}>Aural rehabilitation</option>
+        <option value="cochlearImplantReferral" {% if clinical_review.additionalServicesNeeded == "cochlearImplantReferral" %}selected{% endif %}>Cochlear implant referral</option>
+        <option value="entReferral" {% if clinical_review.additionalServicesNeeded == "entReferral" %}selected{% endif %}>ENT referral</option>
+        <option value="hearingAssistiveDevices" {% if clinical_review.additionalServicesNeeded == "hearingAssistiveDevices" %}selected{% endif %}>Hearing assistive devices</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="clinician_notes">Clinician Notes</label>
+      <textarea id="clinician_notes" name="clinical_review.clinician_notes"
+                placeholder="Enter clinical observations and notes...">{{ clinical_review.clinicianNotes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="follow_up_plan">Follow-up Plan</label>
+      <select id="follow_up_plan" name="clinical_review.follow_up_plan">
+        <option value="">-- Select --</option>
+        <option value="1week" {% if clinical_review.followUpPlan == "1week" %}selected{% endif %}>1 week follow-up</option>
+        <option value="2weeks" {% if clinical_review.followUpPlan == "2weeks" %}selected{% endif %}>2 week follow-up</option>
+        <option value="1month" {% if clinical_review.followUpPlan == "1month" %}selected{% endif %}>1 month follow-up</option>
+        <option value="3months" {% if clinical_review.followUpPlan == "3months" %}selected{% endif %}>3 month follow-up</option>
+        <option value="6months" {% if clinical_review.followUpPlan == "6months" %}selected{% endif %}>6 month follow-up</option>
+        <option value="annual" {% if clinical_review.followUpPlan == "annual" %}selected{% endif %}>Annual review</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
