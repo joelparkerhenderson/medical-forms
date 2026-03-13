@@ -1,0 +1,96 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Medications - Asthma Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Medications</h2>
+    <p class="hint">Record current asthma medications, doses, and adherence.</p>
+
+    <div class="form-group">
+      <label for="saba_use">SABA (Reliever) Use</label>
+      <select id="saba_use" name="current_medications.saba_use">
+        <option value="">-- Select --</option>
+        <option value="asNeeded" {% if current_medications.sabaUse == "asNeeded" %}selected{% endif %}>As Needed</option>
+        <option value="daily" {% if current_medications.sabaUse == "daily" %}selected{% endif %}>Daily</option>
+        <option value="multipleTimes" {% if current_medications.sabaUse == "multipleTimes" %}selected{% endif %}>Multiple Times Daily</option>
+        <option value="rarely" {% if current_medications.sabaUse == "rarely" %}selected{% endif %}>Rarely</option>
+        <option value="never" {% if current_medications.sabaUse == "never" %}selected{% endif %}>Never</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ics_dose">ICS (Preventer) Dose</label>
+        <select id="ics_dose" name="current_medications.ics_dose">
+          <option value="">-- Select --</option>
+          <option value="none" {% if current_medications.icsDose == "none" %}selected{% endif %}>None</option>
+          <option value="low" {% if current_medications.icsDose == "low" %}selected{% endif %}>Low</option>
+          <option value="medium" {% if current_medications.icsDose == "medium" %}selected{% endif %}>Medium</option>
+          <option value="high" {% if current_medications.icsDose == "high" %}selected{% endif %}>High</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="ics_name">ICS Name</label>
+        <input type="text" id="ics_name" name="current_medications.ics_name"
+               value="{{ current_medications.icsName }}"
+               placeholder="e.g. Beclometasone, Fluticasone">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>LABA Use</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.laba_use" value="yes" {% if current_medications.labaUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.laba_use" value="no" {% if current_medications.labaUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>LTRA Use</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.ltra_use" value="yes" {% if current_medications.ltraUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.ltra_use" value="no" {% if current_medications.ltraUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="biologic_therapy">Biologic Therapy</label>
+      <input type="text" id="biologic_therapy" name="current_medications.biologic_therapy"
+             value="{{ current_medications.biologicTherapy }}"
+             placeholder="e.g. Omalizumab, Mepolizumab, or None">
+    </div>
+
+    <div class="likert-group">
+      <label>Preventer Adherence (self-reported)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="current_medications.preventer_adherence" value="{{ i }}"
+                 {% if current_medications.preventerAdherence == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Moderate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="gina_step">Current GINA Treatment Step</label>
+      <select id="gina_step" name="current_medications.gina_step">
+        <option value="">-- Select --</option>
+        <option value="1" {% if current_medications.ginaStep == "1" %}selected{% endif %}>Step 1 - As-needed low dose ICS-formoterol</option>
+        <option value="2" {% if current_medications.ginaStep == "2" %}selected{% endif %}>Step 2 - Low dose ICS</option>
+        <option value="3" {% if current_medications.ginaStep == "3" %}selected{% endif %}>Step 3 - Low dose ICS-LABA</option>
+        <option value="4" {% if current_medications.ginaStep == "4" %}selected{% endif %}>Step 4 - Medium/high dose ICS-LABA</option>
+        <option value="5" {% if current_medications.ginaStep == "5" %}selected{% endif %}>Step 5 - High dose ICS-LABA + add-on</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

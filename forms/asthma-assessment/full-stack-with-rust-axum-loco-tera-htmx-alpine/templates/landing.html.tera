@@ -1,0 +1,33 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Asthma Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Asthma Assessment</h1>
+  <p>
+    Clinical asthma assessment based on GINA (Global Initiative for Asthma) guidelines.
+    This tool evaluates symptom control, lung function, exacerbation risk, and treatment step
+    to determine asthma control level and generate a management plan.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Steps</h3>
+      <p>Comprehensive evaluation from patient history to management plan</p>
+    </div>
+    <div class="feature-card">
+      <h3>GINA-Based Grading</h3>
+      <p>Well Controlled, Partly Controlled, or Uncontrolled</p>
+    </div>
+    <div class="feature-card">
+      <h3>Actionable Flags</h3>
+      <p>Risk factors and clinical alerts for the management team</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

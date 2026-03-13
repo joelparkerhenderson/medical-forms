@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Asthma Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Asthma Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient name...">
+    </div>
+    <div class="form-group">
+      <label for="control_level">Control Level</label>
+      <select id="control_level" name="control_level">
+        <option value="">All Levels</option>
+        <option value="wellControlled" {% if control_level == "wellControlled" %}selected{% endif %}>Well Controlled</option>
+        <option value="partlyControlled" {% if control_level == "partlyControlled" %}selected{% endif %}>Partly Controlled</option>
+        <option value="uncontrolled" {% if control_level == "uncontrolled" %}selected{% endif %}>Uncontrolled</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="gina_step">GINA Step</label>
+      <select id="gina_step" name="gina_step">
+        <option value="">All Steps</option>
+        <option value="1" {% if gina_step == "1" %}selected{% endif %}>Step 1</option>
+        <option value="2" {% if gina_step == "2" %}selected{% endif %}>Step 2</option>
+        <option value="3" {% if gina_step == "3" %}selected{% endif %}>Step 3</option>
+        <option value="4" {% if gina_step == "4" %}selected{% endif %}>Step 4</option>
+        <option value="5" {% if gina_step == "5" %}selected{% endif %}>Step 5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Control Level</th>
+      <th>GINA Step</th>
+      <th>FEV1 %</th>
+      <th>Exacerbations</th>
+      <th>Action Plan</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td><span class="control-badge control-{{ patient.controlLevel }}">{{ patient.controlLevel }}</span></td>
+      <td>{{ patient.ginaStep | default(value="N/A") }}</td>
+      <td>{{ patient.fev1Percent }}</td>
+      <td>{{ patient.exacerbations }}</td>
+      <td>{{ patient.hasActionPlan }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Review & Management Plan - Asthma Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Review & Management Plan</h2>
+    <p class="hint">Clinician review and management plan details.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_name">Clinician Name</label>
+        <input type="text" id="clinician_name" name="review_management_plan.clinician_name"
+               value="{{ review_management_plan.clinicianName }}"
+               placeholder="e.g. Dr Williams">
+      </div>
+      <div class="form-group">
+        <label for="review_date">Review Date</label>
+        <input type="date" id="review_date" name="review_management_plan.review_date"
+               value="{{ review_management_plan.reviewDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="control_level">Assessed Control Level</label>
+        <select id="control_level" name="review_management_plan.control_level">
+          <option value="">-- Select --</option>
+          <option value="wellControlled" {% if review_management_plan.controlLevel == "wellControlled" %}selected{% endif %}>Well Controlled</option>
+          <option value="partlyControlled" {% if review_management_plan.controlLevel == "partlyControlled" %}selected{% endif %}>Partly Controlled</option>
+          <option value="uncontrolled" {% if review_management_plan.controlLevel == "uncontrolled" %}selected{% endif %}>Uncontrolled</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="gina_step_recommended">Recommended GINA Step</label>
+        <select id="gina_step_recommended" name="review_management_plan.gina_step_recommended">
+          <option value="">-- Select --</option>
+          <option value="1" {% if review_management_plan.ginaStepRecommended == "1" %}selected{% endif %}>Step 1</option>
+          <option value="2" {% if review_management_plan.ginaStepRecommended == "2" %}selected{% endif %}>Step 2</option>
+          <option value="3" {% if review_management_plan.ginaStepRecommended == "3" %}selected{% endif %}>Step 3</option>
+          <option value="4" {% if review_management_plan.ginaStepRecommended == "4" %}selected{% endif %}>Step 4</option>
+          <option value="5" {% if review_management_plan.ginaStepRecommended == "5" %}selected{% endif %}>Step 5</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Written Action Plan Provided?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="review_management_plan.action_plan_provided" value="yes" {% if review_management_plan.actionPlanProvided == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="review_management_plan.action_plan_provided" value="no" {% if review_management_plan.actionPlanProvided == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_notes">Clinical Notes</label>
+      <textarea id="clinical_notes" name="review_management_plan.clinical_notes"
+                rows="4" placeholder="Additional clinical observations, recommendations, and management plan details">{{ review_management_plan.clinicalNotes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="next_review_date">Next Review Date</label>
+      <input type="date" id="next_review_date" name="review_management_plan.next_review_date"
+             value="{{ review_management_plan.nextReviewDate }}">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

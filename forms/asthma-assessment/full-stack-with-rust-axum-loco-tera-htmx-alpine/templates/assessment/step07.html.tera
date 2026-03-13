@@ -1,0 +1,73 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Inhaler Technique - Asthma Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Inhaler Technique</h2>
+    <p class="hint">Assess the patient's inhaler technique and provide education where needed.</p>
+
+    <div class="form-group">
+      <label for="inhaler_type">Inhaler Type</label>
+      <select id="inhaler_type" name="inhaler_technique.inhaler_type">
+        <option value="">-- Select --</option>
+        <option value="mdi" {% if inhaler_technique.inhalerType == "mdi" %}selected{% endif %}>MDI (Metered Dose Inhaler)</option>
+        <option value="dpi" {% if inhaler_technique.inhalerType == "dpi" %}selected{% endif %}>DPI (Dry Powder Inhaler)</option>
+        <option value="softMist" {% if inhaler_technique.inhalerType == "softMist" %}selected{% endif %}>Soft Mist Inhaler</option>
+        <option value="nebuliser" {% if inhaler_technique.inhalerType == "nebuliser" %}selected{% endif %}>Nebuliser</option>
+        <option value="multiple" {% if inhaler_technique.inhalerType == "multiple" %}selected{% endif %}>Multiple Types</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Has technique been assessed today?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="inhaler_technique.technique_assessed" value="yes" {% if inhaler_technique.techniqueAssessed == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="inhaler_technique.technique_assessed" value="no" {% if inhaler_technique.techniqueAssessed == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Technique Score</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="inhaler_technique.technique_score" value="{{ i }}"
+                 {% if inhaler_technique.techniqueScore == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Adequate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="spacer_used">Spacer Used</label>
+      <select id="spacer_used" name="inhaler_technique.spacer_used">
+        <option value="">-- Select --</option>
+        <option value="yes" {% if inhaler_technique.spacerUsed == "yes" %}selected{% endif %}>Yes</option>
+        <option value="no" {% if inhaler_technique.spacerUsed == "no" %}selected{% endif %}>No</option>
+        <option value="notApplicable" {% if inhaler_technique.spacerUsed == "notApplicable" %}selected{% endif %}>Not Applicable</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="common_errors">Common Errors Observed</label>
+      <textarea id="common_errors" name="inhaler_technique.common_errors"
+                rows="3" placeholder="e.g. Not shaking before use, poor coordination, not holding breath">{{ inhaler_technique.commonErrors }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Education provided?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="inhaler_technique.education_provided" value="yes" {% if inhaler_technique.educationProvided == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="inhaler_technique.education_provided" value="no" {% if inhaler_technique.educationProvided == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Comorbidities - Asthma Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Comorbidities</h2>
+    <p class="hint">Record comorbid conditions that may affect asthma control.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Allergic Rhinitis</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.rhinitis" value="yes" {% if comorbidities.rhinitis == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.rhinitis" value="no" {% if comorbidities.rhinitis == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Chronic Sinusitis</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.sinusitis" value="yes" {% if comorbidities.sinusitis == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.sinusitis" value="no" {% if comorbidities.sinusitis == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>GERD (Gastro-oesophageal Reflux)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.gerd" value="yes" {% if comorbidities.gerd == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.gerd" value="no" {% if comorbidities.gerd == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Obesity (BMI > 30)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.obesity" value="yes" {% if comorbidities.obesity == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.obesity" value="no" {% if comorbidities.obesity == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Obstructive Sleep Apnoea</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.obstructive_sleep_apnoea" value="yes" {% if comorbidities.obstructiveSleepApnoea == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.obstructive_sleep_apnoea" value="no" {% if comorbidities.obstructiveSleepApnoea == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Anxiety / Depression</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.anxiety_depression" value="yes" {% if comorbidities.anxietyDepression == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.anxiety_depression" value="no" {% if comorbidities.anxietyDepression == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="allergy_coexistence">Co-existing Allergic Conditions</label>
+      <select id="allergy_coexistence" name="comorbidities.allergy_coexistence">
+        <option value="">-- Select --</option>
+        <option value="none" {% if comorbidities.allergyCoexistence == "none" %}selected{% endif %}>None</option>
+        <option value="eczema" {% if comorbidities.allergyCoexistence == "eczema" %}selected{% endif %}>Eczema</option>
+        <option value="urticaria" {% if comorbidities.allergyCoexistence == "urticaria" %}selected{% endif %}>Urticaria</option>
+        <option value="foodAllergy" {% if comorbidities.allergyCoexistence == "foodAllergy" %}selected{% endif %}>Food Allergy</option>
+        <option value="multiple" {% if comorbidities.allergyCoexistence == "multiple" %}selected{% endif %}>Multiple</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

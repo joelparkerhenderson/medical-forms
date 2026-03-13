@@ -1,0 +1,114 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Symptom Assessment - Asthma Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Symptom Assessment</h2>
+    <p class="hint">Assess symptoms over the past 4 weeks using GINA criteria. These four questions determine asthma control level.</p>
+
+    <div class="likert-group">
+      <label>Daytime symptoms frequency (past 4 weeks)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="symptom_assessment.daytime_symptoms" value="{{ i }}"
+                 {% if symptom_assessment.daytimeSymptoms == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}1/week{% elif i == 2 %}2/week{% elif i == 3 %}3-4/week{% else %}Daily{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Night waking due to asthma (past 4 weeks)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="symptom_assessment.night_waking" value="{{ i }}"
+                 {% if symptom_assessment.nightWaking == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}1/month{% elif i == 2 %}1/week{% elif i == 3 %}2-3/week{% else %}Most nights{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Reliever inhaler use (past 4 weeks)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="symptom_assessment.reliever_use" value="{{ i }}"
+                 {% if symptom_assessment.relieverUse == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}1/week{% elif i == 2 %}2/week{% elif i == 3 %}3-4/week{% else %}Daily{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Activity limitation due to asthma</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3,4] %}
+        <label>
+          <input type="radio" name="symptom_assessment.activity_limitation" value="{{ i }}"
+                 {% if symptom_assessment.activityLimitation == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% elif i == 3 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="symptom_free_days">Symptom-free days per week (0-7)</label>
+      <input type="number" id="symptom_free_days" name="symptom_assessment.symptom_free_days"
+             value="{{ symptom_assessment.symptomFreeDays }}" min="0" max="7"
+             placeholder="e.g. 5">
+    </div>
+
+    <div class="likert-group">
+      <label>Cough severity</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptom_assessment.cough_severity" value="{{ i }}"
+                 {% if symptom_assessment.coughSeverity == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Wheeze severity</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptom_assessment.wheeze_severity" value="{{ i }}"
+                 {% if symptom_assessment.wheezeSeverity == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Breathlessness severity</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptom_assessment.breathlessness" value="{{ i }}"
+                 {% if symptom_assessment.breathlessness == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

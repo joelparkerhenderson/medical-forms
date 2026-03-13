@@ -1,0 +1,87 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Lifestyle & Environment - Asthma Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Lifestyle & Environment</h2>
+    <p class="hint">Record lifestyle factors and environmental exposures that may affect asthma control.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="smoking_status">Smoking Status</label>
+        <select id="smoking_status" name="lifestyle_environment.smoking_status">
+          <option value="">-- Select --</option>
+          <option value="never" {% if lifestyle_environment.smokingStatus == "never" %}selected{% endif %}>Never Smoked</option>
+          <option value="ex" {% if lifestyle_environment.smokingStatus == "ex" %}selected{% endif %}>Ex-Smoker</option>
+          <option value="current" {% if lifestyle_environment.smokingStatus == "current" %}selected{% endif %}>Current Smoker</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Second-hand Smoke Exposure</label>
+        <div class="radio-group">
+          <label><input type="radio" name="lifestyle_environment.second_hand_smoke" value="yes" {% if lifestyle_environment.secondHandSmoke == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="lifestyle_environment.second_hand_smoke" value="no" {% if lifestyle_environment.secondHandSmoke == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="occupation">Occupation</label>
+        <input type="text" id="occupation" name="lifestyle_environment.occupation"
+               value="{{ lifestyle_environment.occupation }}"
+               placeholder="e.g. Teacher, Builder">
+      </div>
+      <div class="form-group">
+        <label>Occupational Exposure</label>
+        <div class="radio-group">
+          <label><input type="radio" name="lifestyle_environment.occupational_exposure" value="yes" {% if lifestyle_environment.occupationalExposure == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="lifestyle_environment.occupational_exposure" value="no" {% if lifestyle_environment.occupationalExposure == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pet_exposure">Pet Exposure</label>
+        <select id="pet_exposure" name="lifestyle_environment.pet_exposure">
+          <option value="">-- Select --</option>
+          <option value="none" {% if lifestyle_environment.petExposure == "none" %}selected{% endif %}>None</option>
+          <option value="cat" {% if lifestyle_environment.petExposure == "cat" %}selected{% endif %}>Cat</option>
+          <option value="dog" {% if lifestyle_environment.petExposure == "dog" %}selected{% endif %}>Dog</option>
+          <option value="both" {% if lifestyle_environment.petExposure == "both" %}selected{% endif %}>Cat and Dog</option>
+          <option value="other" {% if lifestyle_environment.petExposure == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="home_environment">Home Environment</label>
+        <select id="home_environment" name="lifestyle_environment.home_environment">
+          <option value="">-- Select --</option>
+          <option value="dryWellVentilated" {% if lifestyle_environment.homeEnvironment == "dryWellVentilated" %}selected{% endif %}>Dry, Well Ventilated</option>
+          <option value="dampMould" {% if lifestyle_environment.homeEnvironment == "dampMould" %}selected{% endif %}>Damp / Mould Present</option>
+          <option value="dusty" {% if lifestyle_environment.homeEnvironment == "dusty" %}selected{% endif %}>Dusty</option>
+          <option value="smokyIndoors" {% if lifestyle_environment.homeEnvironment == "smokyIndoors" %}selected{% endif %}>Smoky Indoors</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exercise_frequency">Exercise Frequency</label>
+      <select id="exercise_frequency" name="lifestyle_environment.exercise_frequency">
+        <option value="">-- Select --</option>
+        <option value="daily" {% if lifestyle_environment.exerciseFrequency == "daily" %}selected{% endif %}>Daily</option>
+        <option value="3to5PerWeek" {% if lifestyle_environment.exerciseFrequency == "3to5PerWeek" %}selected{% endif %}>3-5 times per week</option>
+        <option value="1to2PerWeek" {% if lifestyle_environment.exerciseFrequency == "1to2PerWeek" %}selected{% endif %}>1-2 times per week</option>
+        <option value="rarely" {% if lifestyle_environment.exerciseFrequency == "rarely" %}selected{% endif %}>Rarely</option>
+        <option value="never" {% if lifestyle_environment.exerciseFrequency == "never" %}selected{% endif %}>Never</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

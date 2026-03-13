@@ -1,0 +1,84 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Triggers & Exacerbations - Asthma Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Triggers & Exacerbations</h2>
+    <p class="hint">Identify known triggers and record exacerbation history over the past 12 months.</p>
+
+    <h3>Known Triggers</h3>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Exercise trigger</label>
+        <div class="radio-group">
+          <label><input type="radio" name="triggers_exacerbations.exercise_trigger" value="yes" {% if triggers_exacerbations.exerciseTrigger == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="triggers_exacerbations.exercise_trigger" value="no" {% if triggers_exacerbations.exerciseTrigger == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Cold air trigger</label>
+        <div class="radio-group">
+          <label><input type="radio" name="triggers_exacerbations.cold_air_trigger" value="yes" {% if triggers_exacerbations.coldAirTrigger == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="triggers_exacerbations.cold_air_trigger" value="no" {% if triggers_exacerbations.coldAirTrigger == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Allergen trigger</label>
+        <div class="radio-group">
+          <label><input type="radio" name="triggers_exacerbations.allergen_trigger" value="yes" {% if triggers_exacerbations.allergenTrigger == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="triggers_exacerbations.allergen_trigger" value="no" {% if triggers_exacerbations.allergenTrigger == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Infection trigger</label>
+        <div class="radio-group">
+          <label><input type="radio" name="triggers_exacerbations.infection_trigger" value="yes" {% if triggers_exacerbations.infectionTrigger == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="triggers_exacerbations.infection_trigger" value="no" {% if triggers_exacerbations.infectionTrigger == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Emotional stress trigger</label>
+      <div class="radio-group">
+        <label><input type="radio" name="triggers_exacerbations.emotional_trigger" value="yes" {% if triggers_exacerbations.emotionalTrigger == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="triggers_exacerbations.emotional_trigger" value="no" {% if triggers_exacerbations.emotionalTrigger == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <h3>Exacerbation History (past 12 months)</h3>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="exacerbations_last12_months">Number of Exacerbations</label>
+        <input type="number" id="exacerbations_last12_months" name="triggers_exacerbations.exacerbations_last12_months"
+               value="{{ triggers_exacerbations.exacerbationsLast12Months }}" min="0"
+               placeholder="e.g. 2">
+      </div>
+      <div class="form-group">
+        <label for="oral_steroid_courses">Oral Steroid Courses</label>
+        <input type="number" id="oral_steroid_courses" name="triggers_exacerbations.oral_steroid_courses"
+               value="{{ triggers_exacerbations.oralSteroidCourses }}" min="0"
+               placeholder="e.g. 1">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="emergency_visits">Emergency Department Visits</label>
+      <input type="number" id="emergency_visits" name="triggers_exacerbations.emergency_visits"
+             value="{{ triggers_exacerbations.emergencyVisits }}" min="0"
+             placeholder="e.g. 0">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

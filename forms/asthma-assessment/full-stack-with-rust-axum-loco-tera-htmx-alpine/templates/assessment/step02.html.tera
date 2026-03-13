@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Asthma History - Asthma Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Asthma History</h2>
+    <p class="hint">Record the patient's asthma history including diagnosis age, hospitalisations, and baseline lung function.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="age_at_diagnosis">Age at Diagnosis (years)</label>
+        <input type="number" id="age_at_diagnosis" name="asthma_history.age_at_diagnosis"
+               value="{{ asthma_history.ageAtDiagnosis }}" min="0" max="120"
+               placeholder="e.g. 5">
+      </div>
+      <div class="form-group">
+        <label for="years_with_asthma">Years with Asthma</label>
+        <input type="number" id="years_with_asthma" name="asthma_history.years_with_asthma"
+               value="{{ asthma_history.yearsWithAsthma }}" min="0" max="120"
+               placeholder="e.g. 15">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="family_asthma_history">Family History of Asthma</label>
+        <select id="family_asthma_history" name="asthma_history.family_asthma_history">
+          <option value="">-- Select --</option>
+          <option value="yes" {% if asthma_history.familyAsthmaHistory == "yes" %}selected{% endif %}>Yes</option>
+          <option value="no" {% if asthma_history.familyAsthmaHistory == "no" %}selected{% endif %}>No</option>
+          <option value="unknown" {% if asthma_history.familyAsthmaHistory == "unknown" %}selected{% endif %}>Unknown</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="allergy_history">Allergy History</label>
+        <select id="allergy_history" name="asthma_history.allergy_history">
+          <option value="">-- Select --</option>
+          <option value="none" {% if asthma_history.allergyHistory == "none" %}selected{% endif %}>None</option>
+          <option value="hayfever" {% if asthma_history.allergyHistory == "hayfever" %}selected{% endif %}>Hay Fever</option>
+          <option value="eczema" {% if asthma_history.allergyHistory == "eczema" %}selected{% endif %}>Eczema</option>
+          <option value="foodAllergy" {% if asthma_history.allergyHistory == "foodAllergy" %}selected{% endif %}>Food Allergy</option>
+          <option value="multiple" {% if asthma_history.allergyHistory == "multiple" %}selected{% endif %}>Multiple Allergies</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="previous_hospitalisations">Previous Hospitalisations for Asthma</label>
+        <input type="number" id="previous_hospitalisations" name="asthma_history.previous_hospitalisations"
+               value="{{ asthma_history.previousHospitalisations }}" min="0"
+               placeholder="e.g. 0">
+      </div>
+      <div class="form-group">
+        <label for="previous_icu_admissions">Previous ICU Admissions</label>
+        <input type="number" id="previous_icu_admissions" name="asthma_history.previous_icu_admissions"
+               value="{{ asthma_history.previousIcuAdmissions }}" min="0"
+               placeholder="e.g. 0">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="best_peak_flow">Best Known Peak Flow (L/min)</label>
+      <input type="number" id="best_peak_flow" name="asthma_history.best_peak_flow"
+             value="{{ asthma_history.bestPeakFlow }}" min="0" step="1"
+             placeholder="e.g. 500">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

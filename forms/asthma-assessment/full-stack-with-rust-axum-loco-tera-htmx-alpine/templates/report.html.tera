@@ -1,0 +1,121 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Assessment Report - Asthma Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Asthma Assessment Report</h1>
+    <span class="control-badge control-{{ control_level }}">{{ control_label }}</span>
+  </div>
+
+  <div class="score-display">{{ gina_criteria_met }}/4</div>
+  <div class="score-label">GINA Criteria Met</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Lung Function Summary -->
+<div class="card">
+  <h2>Lung Function Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>FEV1 % Predicted:</strong>
+      {% if fev1_percent %}{{ fev1_percent }}%{% else %}Not available{% endif %}
+    </div>
+    <div>
+      <strong>Peak Flow % Best:</strong>
+      {% if peak_flow_percent %}{{ peak_flow_percent }}%{% else %}Not available{% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient:</strong> {{ data.patientInformation.fullName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>DOB:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>GP:</strong> {{ data.patientInformation.gpName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>GINA Step:</strong> {{ data.currentMedications.ginaStep | default(value="Not set") }}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Asthma Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Clinical Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinical Notes -->
+{% if data.reviewManagementPlan.clinicalNotes %}
+<div class="card">
+  <h2>Clinical Notes</h2>
+  <p>{{ data.reviewManagementPlan.clinicalNotes }}</p>
+  {% if data.reviewManagementPlan.clinicianName %}
+    <p style="color: var(--gray-500); font-size: 0.875rem; margin-top: 0.5rem;">
+      - {{ data.reviewManagementPlan.clinicianName }}
+      {% if data.reviewManagementPlan.reviewDate %}, {{ data.reviewManagementPlan.reviewDate }}{% endif %}
+    </p>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}
