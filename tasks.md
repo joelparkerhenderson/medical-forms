@@ -11,7 +11,7 @@
 - [x] Implement gerontology-assessment (CFS, 9 steps)
 - [x] Implement mental-health-assessment (PHQ-9 + GAD-7, 9 steps)
 - [x] Implement neurology-assessment (NIHSS, 10 steps)
-- [x] Implement opthamology-assessment (visual acuity, 10 steps)
+- [x] Implement ophthalmology-assessment (visual acuity, 10 steps)
 - [x] Implement patient-intake (risk level, 10 steps)
 - [x] Implement pediatric-assessment (developmental screen, 9 steps)
 - [x] Implement psychiatry-assessment (GAF scale, 11 steps)
@@ -44,16 +44,22 @@
 - [x] Implement ergonomic-assessment (REBA, 10 steps)
 - [x] Implement hormone-replacement-therapy-assessment (MRS, 10 steps)
 - [x] Implement oncology-assessment (ECOG, 10 steps)
-- [x] Create index.md, AGENTS.md, plan.md, tasks.md for all projects
+- [x] Implement encounter-satisfaction (ESS, 8 steps)
+- [x] Implement vaccinations-assessment (immunisation compliance)
+- [x] Implement casualty-card-form (NEWS2, 14 steps)
+- [x] Implement framingham-risk-score-for-hard-coronary-heart-disease (10-year CHD risk, 10 steps)
+- [x] Implement heart-health-check (QRISK3-based CVD risk, 10 steps)
+- [x] Implement systematic-coronary-risk-evaluation-2-diabetes (SCORE2-Diabetes)
+- [x] Create index.md, AGENTS.md, plan.md, tasks.md for all forms
 
 ## Pending
 
-- [ ] Implement encounter-satisfaction
+- [ ] Implement diabetes-assessment
 - [ ] Implement hematology-assessment
 - [ ] Implement nutrition-assessment
 - [ ] Implement otolaryngology-assessment
 - [ ] Implement psychology-assessment
-- [ ] Implement vaccinations-assessment
+- [ ] Implement predicting-risk-of-cardiovascular-disease-events
 - [ ] Remove `ergonomoic-assessment` misspelled duplicate directory
 - [ ] Add CI/CD pipeline (`npm run check && npm run build` per project)
 - [ ] Add Playwright end-to-end tests for patient form flows
@@ -66,6 +72,6 @@
 ## Known issues
 
 - `ergonomoic-assessment` is a misspelled duplicate of `ergonomic-assessment`
-- `orthopaedic-assessment` in CLAUDE.md maps to `orthopedic-assessment` directory (American spelling)
-- Some projects reference `nutrition-assessment`, `otolaryngology-assessment`, `psychology-assessment` in CLAUDE.md but directories may not exist
-- SVAR Svelte Core version unknown (listed as `?` in CLAUDE.md)
+- `ophthalmology-assessment` directory spelling corrected from `opthamology-assessment`
+- `casualty-card-form` directory uses non-standard spelling (standard: casualty)
+- `orthopedic-assessment` display name standardized to American spelling

@@ -1,43 +1,55 @@
-# Medical forms
+# Medical Forms
 
-Tools:
+Medical forms monorepo for structured clinical assessments, patient intake,
+cardiovascular risk calculators, and administrative healthcare documents.
+Each form collects patient data via a step-by-step questionnaire, applies a
+validated scoring or grading engine, and generates a clinical report with
+flagged issues.
 
-- $(bin/list-forms)
-- $(bin/test-forms)
-- $(bin/update)
+## Tools
 
-## Introduction
+- `bin/list-forms` — list all form directory names
+- `bin/test` — run all form validation tests
+- `bin/test-form <slug>` — test a single form by slug
+- `bin/create-form` — scaffold a new form directory
+- `bin/update` — update, upgrade, fix, harmonize, audit, test
 
-Medical forms serve various purposes, from reporting health conditions to
-government agencies to managing patient records in clinical settings.
+## Form directory structure
 
-## Form directory
+Each form lives in `forms/<slug>/` with a consistent layout:
 
-- forms
-  - index.md
-  - README.md
-  - AGENTS.md
-  - CLAUDE.md
-  - plan.md
-  - tasks.md
-  - doc/
-  - front-end-clinician-dashboard-with-html/
-  - front-end-clinician-dashboard-with-svelte/
-  - front-end-patient-form-with-html/
-  - front-end-patient-form-with-svelte/
-  - full-stack-with-rust-axum-loco-tera-htmx-alpine/
-  - sql-migrations/
+```
+forms/<slug>/
+  index.md                                         # Form description and scoring details
+  README.md -> index.md                            # Symlink for GitHub rendering
+  AGENTS.md                                        # Agent instructions for this form
+  CLAUDE.md                                        # Claude Code project instructions
+  plan.md                                          # Implementation plan and status
+  tasks.md                                         # Task tracking
+  doc/                                             # Documentation and references
+  sql-migrations/                                  # PostgreSQL schema migrations
+  front-end-patient-form-with-html/                # Patient questionnaire (HTML)
+  front-end-patient-form-with-svelte/              # Patient questionnaire (SvelteKit)
+  front-end-clinician-dashboard-with-html/         # Clinician dashboard (HTML + table)
+  front-end-clinician-dashboard-with-svelte/       # Clinician dashboard (SvelteKit + SVAR Grid)
+  full-stack-with-rust-axum-loco-tera-htmx-alpine/ # Full-stack Rust backend
+```
+
+## Technology stacks
+
+See AGENTS subdirectory files for per-stack details:
+
+- [Front-end with SvelteKit Tailwind SVAR](AGENTS/front-end-with-sveltekit-tailwind-svar.md)
+- [Full-stack with Rust axum Loco HTMX Alpine](AGENTS/full-stack-with-rust-axum-loco-htmx-alpine.md)
+- [SQL migrations](AGENTS/sql-migrations.md)
 
 ## Compliance
 
-- [MDCG 2019-11 Rev.1 Guidance on Qualification and Classification of Software in Regulation (EU) 2017/745 – MDR and Regulation (EU) 2017/746 – IVDR](https://health.ec.europa.eu/document/download/b45335c5-1679-4c71-a91c-fc7a4d37f12b_en)
-
-- [United Kingdom: The Medical Devices Regulations 2002](https://www.legislation.gov.uk/uksi/2002/618/contents)
-
-- [ISO/IEC/IEEE 26514:2022 Systems and software engineering — Design and development of information for users](https://www.iso.org/standard/77451.html)
-
-- [Software and artificial intelligence (AI) as a medical device](https://www.gov.uk/government/publications/software-and-artificial-intelligence-ai-as-a-medical-device/software-and-artificial-intelligence-ai-as-a-medical-device)
+- [MDCG 2019-11 Rev.1 — EU MDR/IVDR Software Classification](https://health.ec.europa.eu/document/download/b45335c5-1679-4c71-a91c-fc7a4d37f12b_en)
+- [UK Medical Devices Regulations 2002](https://www.legislation.gov.uk/uksi/2002/618/contents)
+- [ISO/IEC/IEEE 26514:2022 — Design and development of information for users](https://www.iso.org/standard/77451.html)
+- [UK MHRA — Software and AI as a medical device](https://www.gov.uk/government/publications/software-and-artificial-intelligence-ai-as-a-medical-device/software-and-artificial-intelligence-ai-as-a-medical-device)
 
 ## Verify
 
-Run $(bin/test-forms)
+Run `bin/test`
