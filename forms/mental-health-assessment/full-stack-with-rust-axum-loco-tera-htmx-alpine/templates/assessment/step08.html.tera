@@ -1,0 +1,67 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Mental Health History - Mental Health Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Mental Health History</h2>
+    <p class="hint">Document the patient's psychiatric history and relevant background.</p>
+
+    <div class="form-group">
+      <label for="previous_diagnoses">Previous Diagnoses</label>
+      <textarea id="previous_diagnoses" name="mental_health_history.previous_diagnoses"
+                rows="2" placeholder="e.g. Depression, Anxiety, PTSD">{{ mental_health_history.previousDiagnoses }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="previous_treatment">Previous Treatment</label>
+      <textarea id="previous_treatment" name="mental_health_history.previous_treatment"
+                rows="2" placeholder="e.g. CBT, counselling, medication">{{ mental_health_history.previousTreatment }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="hospitalisations">Number of Psychiatric Hospitalisations</label>
+      <input type="number" id="hospitalisations" name="mental_health_history.hospitalisations"
+             value="{{ mental_health_history.hospitalisations }}"
+             min="0" placeholder="0">
+    </div>
+
+    <div class="form-group">
+      <label for="family_mental_health">Family Mental Health History</label>
+      <textarea id="family_mental_health" name="mental_health_history.family_mental_health"
+                rows="2" placeholder="Any family history of mental health conditions">{{ mental_health_history.familyMentalHealth }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>History of Trauma</label>
+      <div class="radio-group">
+        <label><input type="radio" name="mental_health_history.trauma_history" value="yes"
+                      {% if mental_health_history.traumaHistory == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="mental_health_history.trauma_history" value="no"
+                      {% if mental_health_history.traumaHistory == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Childhood Adversity (ACEs)</label>
+      <div class="radio-group">
+        <label><input type="radio" name="mental_health_history.childhood_adversity" value="yes"
+                      {% if mental_health_history.childhoodAdversity == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="mental_health_history.childhood_adversity" value="no"
+                      {% if mental_health_history.childhoodAdversity == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="current_diagnosis">Current Working Diagnosis</label>
+      <textarea id="current_diagnosis" name="mental_health_history.current_diagnosis"
+                rows="2" placeholder="Current clinical diagnosis or impression">{{ mental_health_history.currentDiagnosis }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

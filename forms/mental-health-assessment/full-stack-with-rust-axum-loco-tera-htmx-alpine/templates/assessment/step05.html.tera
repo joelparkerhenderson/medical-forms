@@ -1,0 +1,81 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Risk Assessment - Mental Health Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Risk Assessment</h2>
+    <p class="hint">Assess current risk factors. This section requires careful clinical judgement.</p>
+
+    <div class="form-group">
+      <label>Suicidal Ideation</label>
+      <div class="radio-group">
+        <label><input type="radio" name="risk_assessment.suicidal_ideation" value="none"
+                      {% if risk_assessment.suicidalIdeation == "none" %}checked{% endif %}> None</label>
+        <label><input type="radio" name="risk_assessment.suicidal_ideation" value="passive"
+                      {% if risk_assessment.suicidalIdeation == "passive" %}checked{% endif %}> Passive</label>
+        <label><input type="radio" name="risk_assessment.suicidal_ideation" value="active"
+                      {% if risk_assessment.suicidalIdeation == "active" %}checked{% endif %}> Active</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>History of Self-Harm</label>
+      <div class="radio-group">
+        <label><input type="radio" name="risk_assessment.self_harm_history" value="yes"
+                      {% if risk_assessment.selfHarmHistory == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="risk_assessment.self_harm_history" value="no"
+                      {% if risk_assessment.selfHarmHistory == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="self_harm_recent">Recent Self-Harm (describe if applicable)</label>
+      <textarea id="self_harm_recent" name="risk_assessment.self_harm_recent"
+                rows="2" placeholder="Describe recent episodes, or 'none'">{{ risk_assessment.selfHarmRecent }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Suicide Plan or Means</label>
+      <div class="radio-group">
+        <label><input type="radio" name="risk_assessment.suicide_plan_or_means" value="yes"
+                      {% if risk_assessment.suicidePlanOrMeans == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="risk_assessment.suicide_plan_or_means" value="no"
+                      {% if risk_assessment.suicidePlanOrMeans == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="protective_factors">Protective Factors</label>
+      <textarea id="protective_factors" name="risk_assessment.protective_factors"
+                rows="2" placeholder="e.g. family support, future plans, religious beliefs">{{ risk_assessment.protectiveFactors }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="risk_level">Overall Risk Level</label>
+      <select id="risk_level" name="risk_assessment.risk_level">
+        <option value="">-- Select --</option>
+        <option value="low" {% if risk_assessment.riskLevel == "low" %}selected{% endif %}>Low</option>
+        <option value="medium" {% if risk_assessment.riskLevel == "medium" %}selected{% endif %}>Medium</option>
+        <option value="high" {% if risk_assessment.riskLevel == "high" %}selected{% endif %}>High</option>
+        <option value="imminent" {% if risk_assessment.riskLevel == "imminent" %}selected{% endif %}>Imminent</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Safeguarding Concerns</label>
+      <div class="radio-group">
+        <label><input type="radio" name="risk_assessment.safeguarding_concerns" value="yes"
+                      {% if risk_assessment.safeguardingConcerns == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="risk_assessment.safeguarding_concerns" value="no"
+                      {% if risk_assessment.safeguardingConcerns == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

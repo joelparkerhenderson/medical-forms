@@ -1,0 +1,73 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Mental Health Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Clinician summary, scoring, and follow-up plan.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_name">Clinician Name</label>
+        <input type="text" id="clinician_name" name="clinical_review.clinician_name"
+               value="{{ clinical_review.clinicianName }}"
+               placeholder="e.g. Dr A. Patel">
+      </div>
+      <div class="form-group">
+        <label for="review_date">Review Date</label>
+        <input type="date" id="review_date" name="clinical_review.review_date"
+               value="{{ clinical_review.reviewDate }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_impression">Clinical Impression</label>
+      <textarea id="clinical_impression" name="clinical_review.clinical_impression"
+                rows="3" placeholder="Overall clinical impression and formulation">{{ clinical_review.clinicalImpression }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phq9_total">PHQ-9 Total Score (0-27)</label>
+        <input type="number" id="phq9_total" name="clinical_review.phq9_total"
+               value="{{ clinical_review.phq9Total }}"
+               min="0" max="27" placeholder="Calculated from Step 3">
+      </div>
+      <div class="form-group">
+        <label for="gad7_total">GAD-7 Total Score (0-21)</label>
+        <input type="number" id="gad7_total" name="clinical_review.gad7_total"
+               value="{{ clinical_review.gad7Total }}"
+               min="0" max="21" placeholder="Calculated from Step 4">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_notes">Clinical Notes</label>
+      <textarea id="clinical_notes" name="clinical_review.clinical_notes"
+                rows="4" placeholder="Additional clinical observations and notes">{{ clinical_review.clinicalNotes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="follow_up_plan">Follow-Up Plan</label>
+      <textarea id="follow_up_plan" name="clinical_review.follow_up_plan"
+                rows="3" placeholder="Plan for follow-up appointments and actions">{{ clinical_review.followUpPlan }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Referral Needed</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clinical_review.referral_needed" value="yes"
+                      {% if clinical_review.referralNeeded == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="clinical_review.referral_needed" value="no"
+                      {% if clinical_review.referralNeeded == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Social & Functional Status - Mental Health Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Social & Functional Status</h2>
+    <p class="hint">Assess the patient's social circumstances and functional capacity.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="employment_status">Employment Status</label>
+        <select id="employment_status" name="social_functional_status.employment_status">
+          <option value="">-- Select --</option>
+          <option value="employed" {% if social_functional_status.employmentStatus == "employed" %}selected{% endif %}>Employed</option>
+          <option value="selfEmployed" {% if social_functional_status.employmentStatus == "selfEmployed" %}selected{% endif %}>Self-Employed</option>
+          <option value="unemployed" {% if social_functional_status.employmentStatus == "unemployed" %}selected{% endif %}>Unemployed</option>
+          <option value="student" {% if social_functional_status.employmentStatus == "student" %}selected{% endif %}>Student</option>
+          <option value="retired" {% if social_functional_status.employmentStatus == "retired" %}selected{% endif %}>Retired</option>
+          <option value="sickLeave" {% if social_functional_status.employmentStatus == "sickLeave" %}selected{% endif %}>Sick Leave</option>
+          <option value="carer" {% if social_functional_status.employmentStatus == "carer" %}selected{% endif %}>Carer</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="housing_status">Housing Status</label>
+        <select id="housing_status" name="social_functional_status.housing_status">
+          <option value="">-- Select --</option>
+          <option value="stable" {% if social_functional_status.housingStatus == "stable" %}selected{% endif %}>Stable Housing</option>
+          <option value="temporary" {% if social_functional_status.housingStatus == "temporary" %}selected{% endif %}>Temporary Accommodation</option>
+          <option value="homeless" {% if social_functional_status.housingStatus == "homeless" %}selected{% endif %}>Homeless</option>
+          <option value="supported" {% if social_functional_status.housingStatus == "supported" %}selected{% endif %}>Supported Housing</option>
+          <option value="atRisk" {% if social_functional_status.housingStatus == "atRisk" %}selected{% endif %}>At Risk of Homelessness</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Social Support (1 = Very Poor, 5 = Excellent)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="social_functional_status.social_support" value="{{ i }}"
+                 {% if social_functional_status.socialSupport == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Adequate{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="relationship_status">Relationship Status</label>
+        <select id="relationship_status" name="social_functional_status.relationship_status">
+          <option value="">-- Select --</option>
+          <option value="single" {% if social_functional_status.relationshipStatus == "single" %}selected{% endif %}>Single</option>
+          <option value="partnered" {% if social_functional_status.relationshipStatus == "partnered" %}selected{% endif %}>In Relationship / Partnered</option>
+          <option value="married" {% if social_functional_status.relationshipStatus == "married" %}selected{% endif %}>Married / Civil Partnership</option>
+          <option value="separated" {% if social_functional_status.relationshipStatus == "separated" %}selected{% endif %}>Separated / Divorced</option>
+          <option value="widowed" {% if social_functional_status.relationshipStatus == "widowed" %}selected{% endif %}>Widowed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Financial Concerns</label>
+        <div class="radio-group">
+          <label><input type="radio" name="social_functional_status.financial_concerns" value="yes"
+                        {% if social_functional_status.financialConcerns == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="social_functional_status.financial_concerns" value="no"
+                        {% if social_functional_status.financialConcerns == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Daily Functioning (1 = Severely Impaired, 5 = Fully Functional)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="social_functional_status.daily_functioning" value="{{ i }}"
+                 {% if social_functional_status.dailyFunctioning == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severely Impaired{% elif i == 2 %}Poor{% elif i == 3 %}Moderate{% elif i == 4 %}Good{% else %}Fully Functional{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Impact on Work / Study (1 = Severe Impact, 5 = No Impact)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="social_functional_status.work_impact" value="{{ i }}"
+                 {% if social_functional_status.workImpact == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severe{% elif i == 2 %}Significant{% elif i == 3 %}Moderate{% elif i == 4 %}Mild{% else %}None{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Impact on Social Activities (1 = Severe Impact, 5 = No Impact)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="social_functional_status.social_impact" value="{{ i }}"
+                 {% if social_functional_status.socialImpact == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severe{% elif i == 2 %}Significant{% elif i == 3 %}Moderate{% elif i == 4 %}Mild{% else %}None{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

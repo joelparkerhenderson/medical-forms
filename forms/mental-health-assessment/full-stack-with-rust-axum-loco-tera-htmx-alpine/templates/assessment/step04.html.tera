@@ -1,0 +1,107 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Anxiety Screening (GAD-7) - Mental Health Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Anxiety Screening (GAD-7)</h2>
+    <p class="hint">Over the last 2 weeks, how often have you been bothered by the following problems? (0 = Not at all, 1 = Several days, 2 = More than half the days, 3 = Nearly every day)</p>
+
+    <div class="likert-group">
+      <label>1. Feeling nervous, anxious, or on edge</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="anxiety_screening.gad1_nervous" value="{{ i }}"
+                 {% if anxiety_screening.gad1Nervous == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Several days{% elif i == 2 %}More than half{% else %}Nearly every day{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>2. Not being able to stop or control worrying</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="anxiety_screening.gad2_uncontrollable" value="{{ i }}"
+                 {% if anxiety_screening.gad2Uncontrollable == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Several days{% elif i == 2 %}More than half{% else %}Nearly every day{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>3. Worrying too much about different things</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="anxiety_screening.gad3_excessive_worry" value="{{ i }}"
+                 {% if anxiety_screening.gad3ExcessiveWorry == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Several days{% elif i == 2 %}More than half{% else %}Nearly every day{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>4. Trouble relaxing</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="anxiety_screening.gad4_trouble_relaxing" value="{{ i }}"
+                 {% if anxiety_screening.gad4TroubleRelaxing == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Several days{% elif i == 2 %}More than half{% else %}Nearly every day{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>5. Being so restless that it is hard to sit still</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="anxiety_screening.gad5_restless" value="{{ i }}"
+                 {% if anxiety_screening.gad5Restless == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Several days{% elif i == 2 %}More than half{% else %}Nearly every day{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>6. Becoming easily annoyed or irritable</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="anxiety_screening.gad6_irritable" value="{{ i }}"
+                 {% if anxiety_screening.gad6Irritable == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Several days{% elif i == 2 %}More than half{% else %}Nearly every day{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>7. Feeling afraid, as if something awful might happen</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="anxiety_screening.gad7_afraid" value="{{ i }}"
+                 {% if anxiety_screening.gad7Afraid == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Several days{% elif i == 2 %}More than half{% else %}Nearly every day{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Substance Use - Mental Health Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Substance Use</h2>
+    <p class="hint">Assess current substance use and its impact on mental health.</p>
+
+    <div class="form-group">
+      <label for="alcohol_use">Alcohol Use</label>
+      <select id="alcohol_use" name="substance_use.alcohol_use">
+        <option value="">-- Select --</option>
+        <option value="none" {% if substance_use.alcoholUse == "none" %}selected{% endif %}>None</option>
+        <option value="social" {% if substance_use.alcoholUse == "social" %}selected{% endif %}>Social / Occasional</option>
+        <option value="regular" {% if substance_use.alcoholUse == "regular" %}selected{% endif %}>Regular</option>
+        <option value="heavy" {% if substance_use.alcoholUse == "heavy" %}selected{% endif %}>Heavy</option>
+        <option value="dependent" {% if substance_use.alcoholUse == "dependent" %}selected{% endif %}>Dependent</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="alcohol_units_per_week">Alcohol Units Per Week</label>
+        <input type="number" id="alcohol_units_per_week" name="substance_use.alcohol_units_per_week"
+               value="{{ substance_use.alcoholUnitsPerWeek }}"
+               min="0" step="0.5" placeholder="e.g. 14">
+      </div>
+      <div class="form-group">
+        <label for="audit_score">AUDIT Score (if available)</label>
+        <input type="number" id="audit_score" name="substance_use.audit_score"
+               value="{{ substance_use.auditScore }}"
+               min="0" max="40" placeholder="0-40">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cannabis_use">Cannabis Use</label>
+      <select id="cannabis_use" name="substance_use.cannabis_use">
+        <option value="">-- Select --</option>
+        <option value="none" {% if substance_use.cannabisUse == "none" %}selected{% endif %}>None</option>
+        <option value="occasional" {% if substance_use.cannabisUse == "occasional" %}selected{% endif %}>Occasional</option>
+        <option value="regular" {% if substance_use.cannabisUse == "regular" %}selected{% endif %}>Regular</option>
+        <option value="daily" {% if substance_use.cannabisUse == "daily" %}selected{% endif %}>Daily</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="other_substances">Other Substances</label>
+      <textarea id="other_substances" name="substance_use.other_substances"
+                rows="2" placeholder="List any other substances used, or 'none'">{{ substance_use.otherSubstances }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Prescription Misuse</label>
+      <div class="radio-group">
+        <label><input type="radio" name="substance_use.prescription_misuse" value="yes"
+                      {% if substance_use.prescriptionMisuse == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="substance_use.prescription_misuse" value="no"
+                      {% if substance_use.prescriptionMisuse == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Impact of Substance Use on Daily Life (1 = No Impact, 5 = Severe Impact)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="substance_use.substance_impact" value="{{ i }}"
+                 {% if substance_use.substanceImpact == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Significant{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
