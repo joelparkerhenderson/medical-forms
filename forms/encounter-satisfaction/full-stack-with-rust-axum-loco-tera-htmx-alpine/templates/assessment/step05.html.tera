@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Staff Interaction - Encounter Satisfaction{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Staff Interaction</h2>
+    <p class="hint">Rate your experience with all staff you encountered during your visit.</p>
+
+    <div class="likert-group">
+      <label>Courtesy of reception/front desk staff</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="staff_interaction.reception_courtesy" value="{{ i }}"
+                 {% if staff_interaction.receptionCourtesy == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Responsiveness of nursing staff</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="staff_interaction.nursing_responsiveness" value="{{ i }}"
+                 {% if staff_interaction.nursingResponsiveness == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Overall staff professionalism</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="staff_interaction.staff_professionalism" value="{{ i }}"
+                 {% if staff_interaction.staffProfessionalism == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Helpfulness of staff</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="staff_interaction.staff_helpfulness" value="{{ i }}"
+                 {% if staff_interaction.staffHelpfulness == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Was your privacy respected by staff?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="staff_interaction.privacy_respected" value="{{ i }}"
+                 {% if staff_interaction.privacyRespected == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not At All{% elif i == 2 %}Rarely{% elif i == 3 %}Sometimes{% elif i == 4 %}Usually{% else %}Always{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Coordination and teamwork among staff</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="staff_interaction.team_coordination" value="{{ i }}"
+                 {% if staff_interaction.teamCoordination == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

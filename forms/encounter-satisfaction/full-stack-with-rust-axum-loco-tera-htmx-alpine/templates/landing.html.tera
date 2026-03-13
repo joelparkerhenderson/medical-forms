@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Encounter Satisfaction - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Encounter Satisfaction Survey</h1>
+  <p>
+    This survey collects your feedback on your recent healthcare experience.
+    Your responses help us improve the quality of care and services we provide.
+    The survey covers communication, care quality, staff interaction, environment,
+    and your overall experience.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Survey Sections</h3>
+      <p>Comprehensive feedback across all aspects of your visit</p>
+    </div>
+    <div class="feature-card">
+      <h3>Satisfaction Scoring</h3>
+      <p>Composite score with dimension-level analysis</p>
+    </div>
+    <div class="feature-card">
+      <h3>Actionable Insights</h3>
+      <p>Flagged areas for quality improvement</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Survey</button>
+  </form>
+</div>
+{% endblock %}

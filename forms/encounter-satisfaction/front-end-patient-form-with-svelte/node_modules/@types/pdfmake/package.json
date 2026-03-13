@@ -1,0 +1,59 @@
+{
+    "name": "@types/pdfmake",
+    "version": "0.3.2",
+    "description": "TypeScript definitions for pdfmake",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Milen Stefanov",
+            "githubUsername": "m1llen1um",
+            "url": "https://github.com/m1llen1um"
+        },
+        {
+            "name": "Rajab Shakirov",
+            "githubUsername": "radziksh",
+            "url": "https://github.com/radziksh"
+        },
+        {
+            "name": "Enzo Volkmann",
+            "githubUsername": "evolkmann",
+            "url": "https://github.com/evolkmann"
+        },
+        {
+            "name": "Andi Pätzold",
+            "githubUsername": "andipaetzold",
+            "url": "https://github.com/andipaetzold"
+        },
+        {
+            "name": "Neal Mummau",
+            "githubUsername": "nmummau",
+            "url": "https://github.com/nmummau"
+        },
+        {
+            "name": "Jean-Raphaël Matte",
+            "githubUsername": "jeralm",
+            "url": "https://github.com/jeralm"
+        },
+        {
+            "name": "Michael Manzinger",
+            "githubUsername": "kryops",
+            "url": "https://github.com/kryops"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/pdfmake"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/node": "*",
+        "@types/pdfkit": "*"
+    },
+    "peerDependencies": {},
+    "typesPublisherContentHash": "0892502b4ef3aa7eb2d21e15c9537be39687a8aa7432af049278d356a0aa22e1",
+    "typeScriptVersion": "5.2"
+}

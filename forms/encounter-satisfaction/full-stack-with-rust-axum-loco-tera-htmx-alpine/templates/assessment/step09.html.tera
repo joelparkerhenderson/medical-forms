@@ -1,0 +1,96 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Overall Experience - Encounter Satisfaction{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Overall Experience</h2>
+    <p class="hint">Rate your overall healthcare experience.</p>
+
+    <div class="likert-group">
+      <label>Overall satisfaction with your visit</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="overall_experience.overall_satisfaction" value="{{ i }}"
+                 {% if overall_experience.overallSatisfaction == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Dissatisfied{% elif i == 2 %}Dissatisfied{% elif i == 3 %}Neutral{% elif i == 4 %}Satisfied{% else %}Very Satisfied{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="nps-group">
+      <label>How likely are you to recommend this provider to a friend or family member? (0 = Not at all likely, 10 = Extremely likely)</label>
+      <div class="nps-options">
+        {% for i in [0,1,2,3,4,5,6,7,8,9,10] %}
+        <label>
+          <input type="radio" name="overall_experience.likelihood_to_recommend" value="{{ i }}"
+                 {% if overall_experience.likelihoodToRecommend == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <div class="nps-labels">
+        <span>Not at all likely</span>
+        <span>Extremely likely</span>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Did the visit meet your expectations?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="overall_experience.met_expectations" value="{{ i }}"
+                 {% if overall_experience.metExpectations == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Far Below{% elif i == 2 %}Below{% elif i == 3 %}Met{% elif i == 4 %}Exceeded{% else %}Far Exceeded{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Would you return to this provider for future care?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="overall_experience.would_return_for_care" value="{{ i }}"
+                 {% if overall_experience.wouldReturnForCare == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Definitely Not{% elif i == 2 %}Probably Not{% elif i == 3 %}Maybe{% elif i == 4 %}Probably{% else %}Definitely{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="emotional_experience">How would you describe your emotional experience?</label>
+      <select id="emotional_experience" name="overall_experience.emotional_experience">
+        <option value="">-- Select --</option>
+        <option value="veryPositive" {% if overall_experience.emotionalExperience == "veryPositive" %}selected{% endif %}>Very Positive</option>
+        <option value="positive" {% if overall_experience.emotionalExperience == "positive" %}selected{% endif %}>Positive</option>
+        <option value="neutral" {% if overall_experience.emotionalExperience == "neutral" %}selected{% endif %}>Neutral</option>
+        <option value="negative" {% if overall_experience.emotionalExperience == "negative" %}selected{% endif %}>Negative</option>
+        <option value="veryNegative" {% if overall_experience.emotionalExperience == "veryNegative" %}selected{% endif %}>Very Negative</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="best_aspect">What was the best aspect of your visit?</label>
+      <textarea id="best_aspect" name="overall_experience.best_aspect"
+                placeholder="What did you appreciate most?">{{ overall_experience.bestAspect }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="worst_aspect">What could be improved?</label>
+      <textarea id="worst_aspect" name="overall_experience.worst_aspect"
+                placeholder="What would you change about your experience?">{{ overall_experience.worstAspect }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

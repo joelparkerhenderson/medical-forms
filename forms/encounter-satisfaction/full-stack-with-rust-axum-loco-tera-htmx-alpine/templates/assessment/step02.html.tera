@@ -1,0 +1,93 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Wait Time & Access - Encounter Satisfaction{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Wait Time & Access</h2>
+    <p class="hint">Rate your experience with scheduling and access to care.</p>
+
+    <div class="likert-group">
+      <label>Ease of scheduling your appointment</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="wait_time_access.ease_of_scheduling" value="{{ i }}"
+                 {% if wait_time_access.easeOfScheduling == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Difficult{% elif i == 2 %}Difficult{% elif i == 3 %}Neutral{% elif i == 4 %}Easy{% else %}Very Easy{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="appointment_wait_days">How long did you wait for your appointment?</label>
+        <select id="appointment_wait_days" name="wait_time_access.appointment_wait_days">
+          <option value="">-- Select --</option>
+          <option value="sameDay" {% if wait_time_access.appointmentWaitDays == "sameDay" %}selected{% endif %}>Same day</option>
+          <option value="1to3" {% if wait_time_access.appointmentWaitDays == "1to3" %}selected{% endif %}>1 - 3 days</option>
+          <option value="4to7" {% if wait_time_access.appointmentWaitDays == "4to7" %}selected{% endif %}>4 - 7 days</option>
+          <option value="8to14" {% if wait_time_access.appointmentWaitDays == "8to14" %}selected{% endif %}>8 - 14 days</option>
+          <option value="15to30" {% if wait_time_access.appointmentWaitDays == "15to30" %}selected{% endif %}>15 - 30 days</option>
+          <option value="moreThan30" {% if wait_time_access.appointmentWaitDays == "moreThan30" %}selected{% endif %}>More than 30 days</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="waiting_room_time">How long did you wait in the waiting room?</label>
+        <select id="waiting_room_time" name="wait_time_access.waiting_room_time">
+          <option value="">-- Select --</option>
+          <option value="lessThan15" {% if wait_time_access.waitingRoomTime == "lessThan15" %}selected{% endif %}>Less than 15 minutes</option>
+          <option value="15to30" {% if wait_time_access.waitingRoomTime == "15to30" %}selected{% endif %}>15 - 30 minutes</option>
+          <option value="30to60" {% if wait_time_access.waitingRoomTime == "30to60" %}selected{% endif %}>30 - 60 minutes</option>
+          <option value="moreThan60" {% if wait_time_access.waitingRoomTime == "moreThan60" %}selected{% endif %}>More than 60 minutes</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Was the wait time acceptable?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="wait_time_access.wait_time_acceptability" value="{{ i }}"
+                 {% if wait_time_access.waitTimeAcceptability == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Unacceptable{% elif i == 2 %}Unacceptable{% elif i == 3 %}Neutral{% elif i == 4 %}Acceptable{% else %}Very Acceptable{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Location accessibility (parking, transport, signage)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="wait_time_access.location_accessibility" value="{{ i }}"
+                 {% if wait_time_access.locationAccessibility == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Signage and wayfinding within the facility</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="wait_time_access.signage_wayfinding" value="{{ i }}"
+                 {% if wait_time_access.signageWayfinding == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

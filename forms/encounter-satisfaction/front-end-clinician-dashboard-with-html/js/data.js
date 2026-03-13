@@ -1,0 +1,18 @@
+/** Sample patient satisfaction records for the clinician dashboard */
+export const patients = [
+  { id: '1', patientName: 'Smith, John', department: 'Primary Care', providerName: 'Dr. A. Patel', visitType: 'routine-checkup', compositeScore: 4.7, category: 'Excellent', visitDate: '2026-03-01', flagCount: 0 },
+  { id: '2', patientName: 'Patel, Priya', department: 'Cardiology', providerName: 'Dr. M. Khan', visitType: 'follow-up', compositeScore: 3.8, category: 'Good', visitDate: '2026-03-05', flagCount: 0 },
+  { id: '3', patientName: 'Jones, Margaret', department: 'Urgent Care', providerName: 'Dr. S. Williams', visitType: 'urgent-care', compositeScore: 2.1, category: 'Poor', visitDate: '2026-03-03', flagCount: 4 },
+  { id: '4', patientName: 'Williams, David', department: 'Dermatology', providerName: 'Dr. H. Singh', visitType: 'specialist-referral', compositeScore: 4.5, category: 'Excellent', visitDate: '2026-02-18', flagCount: 0 },
+  { id: '5', patientName: 'Brown, Sarah', department: 'Primary Care', providerName: 'Dr. L. Chen', visitType: 'routine-checkup', compositeScore: 3.2, category: 'Fair', visitDate: '2026-02-25', flagCount: 1 },
+  { id: '6', patientName: 'Taylor, James', department: 'Orthopaedics', providerName: 'Dr. R. Thompson', visitType: 'procedure', compositeScore: 1.8, category: 'Poor', visitDate: '2026-03-08', flagCount: 6 },
+  { id: '7', patientName: 'Davies, Helen', department: 'Primary Care', providerName: 'Dr. J. Murray', visitType: 'follow-up', compositeScore: 4.9, category: 'Excellent', visitDate: '2026-01-28', flagCount: 0 },
+  { id: '8', patientName: 'Wilson, Robert', department: 'Neurology', providerName: 'Dr. E. Baker', visitType: 'specialist-referral', compositeScore: 3.5, category: 'Good', visitDate: '2026-03-02', flagCount: 0 },
+  { id: '9', patientName: 'Evans, Catherine', department: 'Gynaecology', providerName: 'Dr. P. Gupta', visitType: 'routine-checkup', compositeScore: 1.2, category: 'Very Poor', visitDate: '2026-03-06', flagCount: 8 },
+  { id: '10', patientName: 'Thomas, Michael', department: 'Primary Care', providerName: 'Dr. N. Osei', visitType: 'follow-up', compositeScore: 4.2, category: 'Good', visitDate: '2026-03-10', flagCount: 0 },
+  { id: '11', patientName: 'Robinson, Emma', department: 'Paediatrics', providerName: 'Dr. C. Flores', visitType: 'routine-checkup', compositeScore: 4.6, category: 'Excellent', visitDate: '2026-02-25', flagCount: 0 },
+  { id: '12', patientName: 'Clark, George', department: 'Urgent Care', providerName: 'Dr. D. Ahmed', visitType: 'urgent-care', compositeScore: 2.8, category: 'Fair', visitDate: '2026-02-10', flagCount: 2 },
+  { id: '13', patientName: 'Walker, Susan', department: 'Oncology', providerName: "Dr. F. O'Brien", visitType: 'specialist-referral', compositeScore: 3.9, category: 'Good', visitDate: '2026-01-15', flagCount: 0 },
+  { id: '14', patientName: 'Hall, Richard', department: 'Primary Care', providerName: 'Dr. B. Nair', visitType: 'routine-checkup', compositeScore: 2.4, category: 'Poor', visitDate: '2026-03-11', flagCount: 3 },
+  { id: '15', patientName: 'Young, Elizabeth', department: 'Rheumatology', providerName: 'Dr. K. Ramirez', visitType: 'follow-up', compositeScore: 4.1, category: 'Good', visitDate: '2026-03-09', flagCount: 0 },
+];

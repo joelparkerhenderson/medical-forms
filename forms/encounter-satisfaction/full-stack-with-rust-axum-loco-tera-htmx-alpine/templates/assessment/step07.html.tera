@@ -1,0 +1,93 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Medication & Treatment - Encounter Satisfaction{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Medication & Treatment</h2>
+    <p class="hint">Rate your experience with medications and treatment during your visit.</p>
+
+    <div class="likert-group">
+      <label>How well were your medications explained?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="medication_treatment.medication_explanation" value="{{ i }}"
+                 {% if medication_treatment.medicationExplanation == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Were potential side effects explained?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="medication_treatment.side_effects_explained" value="{{ i }}"
+                 {% if medication_treatment.sideEffectsExplained == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not At All{% elif i == 2 %}Barely{% elif i == 3 %}Somewhat{% elif i == 4 %}Well{% else %}Very Well{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Pain management adequacy</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="medication_treatment.pain_management" value="{{ i }}"
+                 {% if medication_treatment.painManagement == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Perceived effectiveness of treatment</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="medication_treatment.treatment_effectiveness" value="{{ i }}"
+                 {% if medication_treatment.treatmentEffectiveness == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Ineffective{% elif i == 2 %}Ineffective{% elif i == 3 %}Neutral{% elif i == 4 %}Effective{% else %}Very Effective{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Were treatment alternatives discussed with you?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="medication_treatment.alternatives_discussed" value="{{ i }}"
+                 {% if medication_treatment.alternativesDiscussed == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not At All{% elif i == 2 %}Barely{% elif i == 3 %}Somewhat{% elif i == 4 %}Well{% else %}Very Well{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Were medications prescribed or provided?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medication_treatment.medications_provided" value="yes"
+                      {% if medication_treatment.medicationsProvided == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medication_treatment.medications_provided" value="no"
+                      {% if medication_treatment.medicationsProvided == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="medication_treatment.medications_provided" value="notApplicable"
+                      {% if medication_treatment.medicationsProvided == "notApplicable" %}checked{% endif %}> Not Applicable</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

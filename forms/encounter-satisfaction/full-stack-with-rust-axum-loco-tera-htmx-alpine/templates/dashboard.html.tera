@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Encounter Satisfaction{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Satisfaction Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Survey</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by date, department, provider...">
+    </div>
+    <div class="form-group">
+      <label for="satisfaction_level">Satisfaction Level</label>
+      <select id="satisfaction_level" name="satisfaction_level">
+        <option value="">All Levels</option>
+        <option value="verySatisfied" {% if satisfaction_level == "verySatisfied" %}selected{% endif %}>Very Satisfied</option>
+        <option value="satisfied" {% if satisfaction_level == "satisfied" %}selected{% endif %}>Satisfied</option>
+        <option value="neutral" {% if satisfaction_level == "neutral" %}selected{% endif %}>Neutral</option>
+        <option value="dissatisfied" {% if satisfaction_level == "dissatisfied" %}selected{% endif %}>Dissatisfied</option>
+        <option value="veryDissatisfied" {% if satisfaction_level == "veryDissatisfied" %}selected{% endif %}>Very Dissatisfied</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="nps_category">NPS Category</label>
+      <select id="nps_category" name="nps_category">
+        <option value="">All</option>
+        <option value="promoter" {% if nps_category == "promoter" %}selected{% endif %}>Promoter</option>
+        <option value="passive" {% if nps_category == "passive" %}selected{% endif %}>Passive</option>
+        <option value="detractor" {% if nps_category == "detractor" %}selected{% endif %}>Detractor</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed survey(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Visit Date</th>
+      <th>Department</th>
+      <th>Provider</th>
+      <th>Satisfaction</th>
+      <th>Score</th>
+      <th>NPS</th>
+      <th>Would Return</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.visitDate }}</a></td>
+      <td>{{ patient.department }}</td>
+      <td>{{ patient.providerName }}</td>
+      <td><span class="satisfaction-badge satisfaction-{{ patient.satisfactionLevel }}">{{ patient.satisfactionLevel }}</span></td>
+      <td>{{ patient.satisfactionScore }}%</td>
+      <td><span class="nps-badge nps-{{ patient.npsCategory }}">{{ patient.npsCategory }}</span></td>
+      <td>{{ patient.wouldReturn }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed surveys found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

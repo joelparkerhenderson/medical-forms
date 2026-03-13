@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinician Dashboard - Encounter Satisfaction</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <span class="header-title">Clinician Dashboard - Encounter Satisfaction</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="filter-bar">
+      <input type="text" id="search-input" placeholder="Search by patient name, provider, or department...">
+      <select id="category-filter">
+        <option value="">All Categories</option>
+        <option value="Excellent">Excellent</option>
+        <option value="Good">Good</option>
+        <option value="Fair">Fair</option>
+        <option value="Poor">Poor</option>
+        <option value="Very Poor">Very Poor</option>
+      </select>
+      <select id="department-filter">
+        <option value="">All Departments</option>
+        <option value="Primary Care">Primary Care</option>
+        <option value="Cardiology">Cardiology</option>
+        <option value="Urgent Care">Urgent Care</option>
+        <option value="Dermatology">Dermatology</option>
+        <option value="Orthopaedics">Orthopaedics</option>
+        <option value="Neurology">Neurology</option>
+        <option value="Gynaecology">Gynaecology</option>
+        <option value="Paediatrics">Paediatrics</option>
+        <option value="Oncology">Oncology</option>
+        <option value="Rheumatology">Rheumatology</option>
+      </select>
+      <button id="clear-filters">Clear Filters</button>
+    </div>
+
+    <table class="patient-table">
+      <thead>
+        <tr>
+          <th data-sort="patientName">Patient Name</th>
+          <th data-sort="department">Department</th>
+          <th data-sort="providerName">Provider</th>
+          <th data-sort="visitType">Visit Type</th>
+          <th data-sort="compositeScore">Score</th>
+          <th data-sort="visitDate">Visit Date</th>
+        </tr>
+      </thead>
+      <tbody id="patients-tbody">
+        <tr><td colspan="7" style="text-align:center;color:#6b7280;padding:2rem;">Loading...</td></tr>
+      </tbody>
+    </table>
+
+    <div class="patient-count" id="patient-count"></div>
+  </main>
+
+  <footer class="footer"><p>Encounter Satisfaction Survey &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

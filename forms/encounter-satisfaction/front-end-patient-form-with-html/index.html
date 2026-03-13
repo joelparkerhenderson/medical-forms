@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encounter Satisfaction Survey</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Encounter Satisfaction Survey</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- ─── Landing ────────────────────────────────────── -->
+    <div id="landing" class="hero">
+      <h1>Encounter Satisfaction Survey</h1>
+      <p>Share your feedback about your recent healthcare visit. This survey covers 8 areas including access, communication, staff professionalism, care quality, and environment.</p>
+      <div class="feature-grid">
+        <div class="feature-card"><h3>8 Steps</h3><p>Structured satisfaction questionnaire</p></div>
+        <div class="feature-card"><h3>19 Questions</h3><p>Across 6 satisfaction domains</p></div>
+        <div class="feature-card"><h3>Instant Results</h3><p>Composite score with domain breakdown</p></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Survey</button>
+    </div>
+
+    <!-- ─── Form ───────────────────────────────────────── -->
+    <div id="form-container" style="display:none;">
+      <div class="progress-container">
+        <div class="progress-header">
+          <span id="step-label">Step 1 of 8: Demographics</span>
+          <span id="step-percent">13%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:13%"></div></div>
+      </div>
+
+      <!-- ─── Step 1: Demographics ──────────────────────── -->
+      <section id="step-1" class="step-section card">
+        <h2>Demographics</h2>
+        <p>Basic patient information</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name <span class="required">*</span></label>
+            <input type="text" data-field="demographics.firstName" placeholder="First name">
+          </div>
+          <div class="form-group">
+            <label>Last Name <span class="required">*</span></label>
+            <input type="text" data-field="demographics.lastName" placeholder="Last name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Date of Birth <span class="required">*</span></label>
+          <input type="date" data-field="demographics.dateOfBirth">
+        </div>
+        <div class="form-group">
+          <label>Sex <span class="required">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="sex" value="male" data-field="demographics.sex"><span>Male</span></label>
+            <label><input type="radio" name="sex" value="female" data-field="demographics.sex"><span>Female</span></label>
+            <label><input type="radio" name="sex" value="other" data-field="demographics.sex"><span>Other</span></label>
+          </div>
+        </div>
+        <div class="step-nav">
+          <span></span>
+          <button class="btn btn-primary" onclick="goToStep(2)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 2: Visit Information ─────────────────── -->
+      <section id="step-2" class="step-section card">
+        <h2>Visit Information</h2>
+        <p>Details about your recent healthcare visit</p>
+        <div class="form-group">
+          <label>Visit Date <span class="required">*</span></label>
+          <input type="date" data-field="visitInformation.visitDate">
+        </div>
+        <div class="form-group">
+          <label>Department / Clinic <span class="required">*</span></label>
+          <input type="text" data-field="visitInformation.department" placeholder="e.g. Primary Care, Cardiology">
+        </div>
+        <div class="form-group">
+          <label>Provider Name <span class="required">*</span></label>
+          <input type="text" data-field="visitInformation.providerName" placeholder="e.g. Dr. Smith">
+        </div>
+        <div class="form-group">
+          <label>Visit Type <span class="required">*</span></label>
+          <select data-field="visitInformation.visitType">
+            <option value="">Select visit type</option>
+            <option value="routine-checkup">Routine Check-up</option>
+            <option value="follow-up">Follow-up Visit</option>
+            <option value="urgent-care">Urgent Care</option>
+            <option value="specialist-referral">Specialist Referral</option>
+            <option value="procedure">Procedure</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Reason for Visit</label>
+          <textarea data-field="visitInformation.reasonForVisit" rows="3" placeholder="Briefly describe the reason for your visit"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Was this your first visit to this provider? <span class="required">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="firstVisit" value="yes" data-field="visitInformation.firstVisit"><span>Yes</span></label>
+            <label><input type="radio" name="firstVisit" value="no" data-field="visitInformation.firstVisit"><span>No</span></label>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(1)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(3)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 3: Access & Scheduling ───────────────── -->
+      <section id="step-3" class="step-section card">
+        <h2>Access &amp; Scheduling</h2>
+        <p>Rate your satisfaction with appointment access and wait times</p>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">1.</span> How satisfied were you with the ease of scheduling your appointment?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-01" value="1" data-likert="accessScheduling.easeOfScheduling"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-01" value="2" data-likert="accessScheduling.easeOfScheduling"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-01" value="3" data-likert="accessScheduling.easeOfScheduling"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-01" value="4" data-likert="accessScheduling.easeOfScheduling"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-01" value="5" data-likert="accessScheduling.easeOfScheduling"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">2.</span> How satisfied were you with the time you waited to get an appointment?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-02" value="1" data-likert="accessScheduling.waitForAppointment"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-02" value="2" data-likert="accessScheduling.waitForAppointment"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-02" value="3" data-likert="accessScheduling.waitForAppointment"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-02" value="4" data-likert="accessScheduling.waitForAppointment"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-02" value="5" data-likert="accessScheduling.waitForAppointment"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">3.</span> How satisfied were you with the time you waited in the waiting room?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-03" value="1" data-likert="accessScheduling.waitInWaitingRoom"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-03" value="2" data-likert="accessScheduling.waitInWaitingRoom"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-03" value="3" data-likert="accessScheduling.waitInWaitingRoom"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-03" value="4" data-likert="accessScheduling.waitInWaitingRoom"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-03" value="5" data-likert="accessScheduling.waitInWaitingRoom"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(2)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(4)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 4: Communication ─────────────────────── -->
+      <section id="step-4" class="step-section card">
+        <h2>Communication</h2>
+        <p>Rate your satisfaction with provider communication</p>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">1.</span> How satisfied were you with how well the provider listened to you?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-04" value="1" data-likert="communication.listening"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-04" value="2" data-likert="communication.listening"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-04" value="3" data-likert="communication.listening"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-04" value="4" data-likert="communication.listening"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-04" value="5" data-likert="communication.listening"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">2.</span> How satisfied were you with how clearly your condition was explained?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-05" value="1" data-likert="communication.explainingCondition"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-05" value="2" data-likert="communication.explainingCondition"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-05" value="3" data-likert="communication.explainingCondition"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-05" value="4" data-likert="communication.explainingCondition"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-05" value="5" data-likert="communication.explainingCondition"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">3.</span> How satisfied were you with how thoroughly your questions were answered?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-06" value="1" data-likert="communication.answeringQuestions"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-06" value="2" data-likert="communication.answeringQuestions"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-06" value="3" data-likert="communication.answeringQuestions"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-06" value="4" data-likert="communication.answeringQuestions"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-06" value="5" data-likert="communication.answeringQuestions"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">4.</span> How satisfied were you with the amount of time the provider spent with you?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-07" value="1" data-likert="communication.timeSpent"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-07" value="2" data-likert="communication.timeSpent"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-07" value="3" data-likert="communication.timeSpent"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-07" value="4" data-likert="communication.timeSpent"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-07" value="5" data-likert="communication.timeSpent"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(3)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(5)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 5: Staff & Professionalism ───────────── -->
+      <section id="step-5" class="step-section card">
+        <h2>Staff &amp; Professionalism</h2>
+        <p>Rate your satisfaction with staff courtesy and professionalism</p>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">1.</span> How satisfied were you with the courtesy of the reception staff?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-08" value="1" data-likert="staffProfessionalism.receptionCourtesy"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-08" value="2" data-likert="staffProfessionalism.receptionCourtesy"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-08" value="3" data-likert="staffProfessionalism.receptionCourtesy"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-08" value="4" data-likert="staffProfessionalism.receptionCourtesy"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-08" value="5" data-likert="staffProfessionalism.receptionCourtesy"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">2.</span> How satisfied were you with the courtesy of the nursing staff?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-09" value="1" data-likert="staffProfessionalism.nursingCourtesy"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-09" value="2" data-likert="staffProfessionalism.nursingCourtesy"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-09" value="3" data-likert="staffProfessionalism.nursingCourtesy"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-09" value="4" data-likert="staffProfessionalism.nursingCourtesy"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-09" value="5" data-likert="staffProfessionalism.nursingCourtesy"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">3.</span> How satisfied were you with the respect shown to you during your visit?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-10" value="1" data-likert="staffProfessionalism.respectShown"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-10" value="2" data-likert="staffProfessionalism.respectShown"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-10" value="3" data-likert="staffProfessionalism.respectShown"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-10" value="4" data-likert="staffProfessionalism.respectShown"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-10" value="5" data-likert="staffProfessionalism.respectShown"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(4)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(6)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 6: Care Quality ──────────────────────── -->
+      <section id="step-6" class="step-section card">
+        <h2>Care Quality</h2>
+        <p>Rate your satisfaction with the quality of care received</p>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">1.</span> How satisfied were you with your involvement in decisions about your care?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-11" value="1" data-likert="careQuality.involvementInDecisions"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-11" value="2" data-likert="careQuality.involvementInDecisions"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-11" value="3" data-likert="careQuality.involvementInDecisions"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-11" value="4" data-likert="careQuality.involvementInDecisions"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-11" value="5" data-likert="careQuality.involvementInDecisions"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">2.</span> How satisfied were you with how well the treatment plan was explained?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-12" value="1" data-likert="careQuality.treatmentPlanExplanation"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-12" value="2" data-likert="careQuality.treatmentPlanExplanation"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-12" value="3" data-likert="careQuality.treatmentPlanExplanation"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-12" value="4" data-likert="careQuality.treatmentPlanExplanation"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-12" value="5" data-likert="careQuality.treatmentPlanExplanation"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">3.</span> How confident were you in the care you received?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-13" value="1" data-likert="careQuality.confidenceInCare"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-13" value="2" data-likert="careQuality.confidenceInCare"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-13" value="3" data-likert="careQuality.confidenceInCare"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-13" value="4" data-likert="careQuality.confidenceInCare"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-13" value="5" data-likert="careQuality.confidenceInCare"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(5)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(7)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 7: Environment ───────────────────────── -->
+      <section id="step-7" class="step-section card">
+        <h2>Environment</h2>
+        <p>Rate your satisfaction with the facility environment</p>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">1.</span> How satisfied were you with the cleanliness of the facility?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-14" value="1" data-likert="environment.cleanliness"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-14" value="2" data-likert="environment.cleanliness"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-14" value="3" data-likert="environment.cleanliness"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-14" value="4" data-likert="environment.cleanliness"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-14" value="5" data-likert="environment.cleanliness"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">2.</span> How satisfied were you with the comfort of the waiting area?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-15" value="1" data-likert="environment.waitingAreaComfort"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-15" value="2" data-likert="environment.waitingAreaComfort"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-15" value="3" data-likert="environment.waitingAreaComfort"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-15" value="4" data-likert="environment.waitingAreaComfort"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-15" value="5" data-likert="environment.waitingAreaComfort"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">3.</span> How satisfied were you with the privacy provided during your visit?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-16" value="1" data-likert="environment.privacy"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-16" value="2" data-likert="environment.privacy"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-16" value="3" data-likert="environment.privacy"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-16" value="4" data-likert="environment.privacy"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-16" value="5" data-likert="environment.privacy"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(6)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(8)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 8: Overall Satisfaction ──────────────── -->
+      <section id="step-8" class="step-section card">
+        <h2>Overall Satisfaction</h2>
+        <p>Rate your overall experience and provide any additional comments</p>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">1.</span> How would you rate your overall satisfaction with this visit?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-17" value="1" data-likert="overallSatisfaction.overallRating"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-17" value="2" data-likert="overallSatisfaction.overallRating"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-17" value="3" data-likert="overallSatisfaction.overallRating"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-17" value="4" data-likert="overallSatisfaction.overallRating"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-17" value="5" data-likert="overallSatisfaction.overallRating"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">2.</span> How likely are you to recommend this provider to others?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-18" value="1" data-likert="overallSatisfaction.likelyToRecommend"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-18" value="2" data-likert="overallSatisfaction.likelyToRecommend"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-18" value="3" data-likert="overallSatisfaction.likelyToRecommend"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-18" value="4" data-likert="overallSatisfaction.likelyToRecommend"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-18" value="5" data-likert="overallSatisfaction.likelyToRecommend"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="likert-question">
+          <p class="question-text"><span class="question-number">3.</span> How likely are you to return to this provider for future care?</p>
+          <div class="likert-options">
+            <label><input type="radio" name="ess-19" value="1" data-likert="overallSatisfaction.likelyToReturn"><span>Very Dissatisfied</span></label>
+            <label><input type="radio" name="ess-19" value="2" data-likert="overallSatisfaction.likelyToReturn"><span>Dissatisfied</span></label>
+            <label><input type="radio" name="ess-19" value="3" data-likert="overallSatisfaction.likelyToReturn"><span>Neutral</span></label>
+            <label><input type="radio" name="ess-19" value="4" data-likert="overallSatisfaction.likelyToReturn"><span>Satisfied</span></label>
+            <label><input type="radio" name="ess-19" value="5" data-likert="overallSatisfaction.likelyToReturn"><span>Very Satisfied</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Additional Comments</label>
+          <textarea data-field="overallSatisfaction.comments" rows="4" placeholder="Please share any additional feedback about your experience..."></textarea>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(7)">Previous</button>
+          <button class="btn btn-success" onclick="submitForm()">Submit &amp; View Report</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer"><p>Encounter Satisfaction Survey &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

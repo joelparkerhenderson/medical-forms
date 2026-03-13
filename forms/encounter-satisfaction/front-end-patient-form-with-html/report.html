@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encounter Satisfaction Report</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Encounter Satisfaction Survey</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content" id="report-content">
+    <p style="text-align:center;color:#6b7280;">Loading report...</p>
+  </main>
+
+  <footer class="footer"><p>Encounter Satisfaction Survey &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module">
+    import { satisfactionScoreLabel, satisfactionScoreColor, satisfactionCategory, formatDate } from './js/utils.js';
+
+    const dataStr = sessionStorage.getItem('satisfactionData');
+    const resultStr = sessionStorage.getItem('satisfactionResult');
+    const container = document.getElementById('report-content');
+
+    if (!dataStr || !resultStr) {
+      container.innerHTML = '<div class="card" style="text-align:center"><h2>No Assessment Data</h2><p>Please complete the satisfaction survey first.</p><a href="index.html" class="btn btn-primary">Go to Survey</a></div>';
+    } else {
+      const data = JSON.parse(dataStr);
+      const result = JSON.parse(resultStr);
+      renderReport(data, result);
+    }
+
+    function renderReport(data, result) {
+      const colorClass = satisfactionScoreColor(result.compositeScore);
+      let html = '';
+
+      // Score Banner
+      html += '<div class="score-banner ' + colorClass + '">';
+      html += '<h2>' + satisfactionScoreLabel(result.compositeScore) + '</h2>';
+      html += '<p>' + result.answeredCount + ' of 19 questions answered</p>';
+      html += '</div>';
+
+      // Domain Score Cards
+      if (result.domainScores && result.domainScores.length > 0) {
+        html += '<div class="card"><h2>Domain Scores</h2>';
+        html += '<div class="domain-grid">';
+        for (const domain of result.domainScores) {
+          const domainColor = satisfactionScoreColor(domain.mean);
+          html += '<div class="domain-card">';
+          html += '<h3>' + esc(domain.domain) + '</h3>';
+          html += '<span class="score-badge ' + domainColor + '">' + domain.mean.toFixed(1) + '/5.0 - ' + satisfactionCategory(domain.mean) + '</span>';
+          html += '<ul style="margin-top:.5rem;padding-left:1.25rem;font-size:.85rem;color:#6b7280">';
+          for (const q of domain.questions) {
+            html += '<li>' + esc(q.text) + ': <strong>' + q.score + '/5</strong></li>';
+          }
+          html += '</ul></div>';
+        }
+        html += '</div></div>';
+      }
+
+      // Flagged Issues
+      if (result.additionalFlags && result.additionalFlags.length > 0) {
+        html += '<div class="card"><h2>Flagged Issues for Clinician</h2>';
+        for (const flag of result.additionalFlags) {
+          const flagClass = 'flag-' + flag.priority;
+          html += '<div class="flag-item ' + flagClass + '">';
+          html += '<div class="flag-category">' + esc(flag.category) + ' (' + flag.priority + ')</div>';
+          html += '<div class="flag-message">' + esc(flag.message) + '</div>';
+          html += '</div>';
+        }
+        html += '</div>';
+      }
+
+      // Patient Summary
+      html += '<div class="card"><h2>Patient Summary</h2><dl class="summary-grid">';
+      html += '<dt>Patient Name</dt><dd>' + esc(data.demographics.firstName + ' ' + data.demographics.lastName) + '</dd>';
+      html += '<dt>Date of Birth</dt><dd>' + formatDate(data.demographics.dateOfBirth) + '</dd>';
+      html += '<dt>Sex</dt><dd>' + capitalize(esc(data.demographics.sex)) + '</dd>';
+      html += '<dt>Visit Date</dt><dd>' + formatDate(data.visitInformation.visitDate) + '</dd>';
+      html += '<dt>Department</dt><dd>' + esc(data.visitInformation.department) + '</dd>';
+      html += '<dt>Provider</dt><dd>' + esc(data.visitInformation.providerName) + '</dd>';
+      html += '<dt>Visit Type</dt><dd>' + capitalize(esc((data.visitInformation.visitType || '').replace(/-/g, ' '))) + '</dd>';
+      html += '<dt>First Visit</dt><dd>' + capitalize(esc(data.visitInformation.firstVisit)) + '</dd>';
+      html += '</dl></div>';
+
+      // Comments
+      if (data.overallSatisfaction.comments) {
+        html += '<div class="card"><h2>Patient Comments</h2>';
+        html += '<p style="white-space:pre-wrap">' + esc(data.overallSatisfaction.comments) + '</p>';
+        html += '</div>';
+      }
+
+      // Action Buttons
+      html += '<div class="action-buttons">';
+      html += '<a href="index.html" class="btn btn-primary">New Survey</a>';
+      html += '<button class="btn btn-secondary" onclick="window.print()">Print Report</button>';
+      html += '</div>';
+
+      container.innerHTML = html;
+    }
+
+    function esc(str) {
+      const div = document.createElement('div');
+      div.textContent = str || '';
+      return div.innerHTML;
+    }
+
+    function capitalize(s) {
+      return s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+    }
+  </script>
+</body>
+</html>

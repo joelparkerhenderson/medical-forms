@@ -1,0 +1,93 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Discharge & Follow-up - Encounter Satisfaction{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Discharge & Follow-up</h2>
+    <p class="hint">Rate the information and planning provided when you left.</p>
+
+    <div class="likert-group">
+      <label>Clarity of discharge instructions</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="discharge_follow_up.discharge_instruction_clarity" value="{{ i }}"
+                 {% if discharge_follow_up.dischargeInstructionClarity == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Unclear{% elif i == 2 %}Unclear{% elif i == 3 %}Neutral{% elif i == 4 %}Clear{% else %}Very Clear{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Was a follow-up plan explained?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="discharge_follow_up.follow_up_plan_explained" value="{{ i }}"
+                 {% if discharge_follow_up.followUpPlanExplained == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not At All{% elif i == 2 %}Barely{% elif i == 3 %}Somewhat{% elif i == 4 %}Well{% else %}Very Well{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Self-care instructions provided</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="discharge_follow_up.self_care_instructions" value="{{ i }}"
+                 {% if discharge_follow_up.selfCareInstructions == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Were warning signs to watch for explained?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="discharge_follow_up.warning_signs_explained" value="{{ i }}"
+                 {% if discharge_follow_up.warningSignsExplained == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not At All{% elif i == 2 %}Barely{% elif i == 3 %}Somewhat{% elif i == 4 %}Well{% else %}Very Well{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Was contact information provided for questions after discharge?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="discharge_follow_up.contact_information_provided" value="{{ i }}"
+                 {% if discharge_follow_up.contactInformationProvided == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not At All{% elif i == 2 %}Barely{% elif i == 3 %}Somewhat{% elif i == 4 %}Well{% else %}Very Well{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Was a follow-up appointment scheduled?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="discharge_follow_up.follow_up_appointment_scheduled" value="yes"
+                      {% if discharge_follow_up.followUpAppointmentScheduled == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="discharge_follow_up.follow_up_appointment_scheduled" value="no"
+                      {% if discharge_follow_up.followUpAppointmentScheduled == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="discharge_follow_up.follow_up_appointment_scheduled" value="notNeeded"
+                      {% if discharge_follow_up.followUpAppointmentScheduled == "notNeeded" %}checked{% endif %}> Not Needed</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

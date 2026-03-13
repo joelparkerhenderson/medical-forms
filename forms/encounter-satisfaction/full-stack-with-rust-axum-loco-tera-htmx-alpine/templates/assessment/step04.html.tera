@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Care Quality - Encounter Satisfaction{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Care Quality</h2>
+    <p class="hint">Rate the quality of clinical care you received.</p>
+
+    <div class="likert-group">
+      <label>Thoroughness of examination</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="care_quality.thoroughness_of_examination" value="{{ i }}"
+                 {% if care_quality.thoroughnessOfExamination == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>How well was your diagnosis explained?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="care_quality.diagnosis_explanation" value="{{ i }}"
+                 {% if care_quality.diagnosisExplanation == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Clarity of treatment plan</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="care_quality.treatment_plan_clarity" value="{{ i }}"
+                 {% if care_quality.treatmentPlanClarity == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Unclear{% elif i == 2 %}Unclear{% elif i == 3 %}Neutral{% elif i == 4 %}Clear{% else %}Very Clear{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Confidence in your healthcare provider</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="care_quality.confidence_in_provider" value="{{ i }}"
+                 {% if care_quality.confidenceInProvider == i %}checked{% endif %}>
+          <span>{% if i == 1 %}No Confidence{% elif i == 2 %}Low{% elif i == 3 %}Moderate{% elif i == 4 %}High{% else %}Very High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Coordination of care between different providers/departments</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="care_quality.coordination_of_care" value="{{ i }}"
+                 {% if care_quality.coordinationOfCare == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Were you involved in decisions about your treatment?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="care_quality.involvement_in_decisions" value="{{ i }}"
+                 {% if care_quality.involvementInDecisions == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not At All{% elif i == 2 %}Rarely{% elif i == 3 %}Sometimes{% elif i == 4 %}Usually{% else %}Always{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

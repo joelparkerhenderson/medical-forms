@@ -1,0 +1,96 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Demographics & Comments - Encounter Satisfaction{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Demographics & Comments</h2>
+    <p class="hint">Optional demographic information helps us analyse satisfaction across patient groups. All fields are voluntary.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_age">Age Range</label>
+        <select id="patient_age" name="demographics_comments.patient_age">
+          <option value="">-- Prefer not to say --</option>
+          <option value="under18" {% if demographics_comments.patientAge == "under18" %}selected{% endif %}>Under 18</option>
+          <option value="18to24" {% if demographics_comments.patientAge == "18to24" %}selected{% endif %}>18 - 24</option>
+          <option value="25to34" {% if demographics_comments.patientAge == "25to34" %}selected{% endif %}>25 - 34</option>
+          <option value="35to44" {% if demographics_comments.patientAge == "35to44" %}selected{% endif %}>35 - 44</option>
+          <option value="45to54" {% if demographics_comments.patientAge == "45to54" %}selected{% endif %}>45 - 54</option>
+          <option value="55to64" {% if demographics_comments.patientAge == "55to64" %}selected{% endif %}>55 - 64</option>
+          <option value="65to74" {% if demographics_comments.patientAge == "65to74" %}selected{% endif %}>65 - 74</option>
+          <option value="75plus" {% if demographics_comments.patientAge == "75plus" %}selected{% endif %}>75+</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="patient_sex">Sex</label>
+        <select id="patient_sex" name="demographics_comments.patient_sex">
+          <option value="">-- Prefer not to say --</option>
+          <option value="male" {% if demographics_comments.patientSex == "male" %}selected{% endif %}>Male</option>
+          <option value="female" {% if demographics_comments.patientSex == "female" %}selected{% endif %}>Female</option>
+          <option value="other" {% if demographics_comments.patientSex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ethnicity">Ethnicity</label>
+        <select id="ethnicity" name="demographics_comments.ethnicity">
+          <option value="">-- Prefer not to say --</option>
+          <option value="whitebritish" {% if demographics_comments.ethnicity == "whitebritish" %}selected{% endif %}>White - British</option>
+          <option value="whiteother" {% if demographics_comments.ethnicity == "whiteother" %}selected{% endif %}>White - Other</option>
+          <option value="asian" {% if demographics_comments.ethnicity == "asian" %}selected{% endif %}>Asian or Asian British</option>
+          <option value="black" {% if demographics_comments.ethnicity == "black" %}selected{% endif %}>Black or Black British</option>
+          <option value="mixed" {% if demographics_comments.ethnicity == "mixed" %}selected{% endif %}>Mixed / Multiple</option>
+          <option value="other" {% if demographics_comments.ethnicity == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Do you have a disability?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="demographics_comments.has_disability" value="yes"
+                        {% if demographics_comments.hasDisability == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="demographics_comments.has_disability" value="no"
+                        {% if demographics_comments.hasDisability == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="demographics_comments.has_disability" value="preferNotToSay"
+                        {% if demographics_comments.hasDisability == "preferNotToSay" %}checked{% endif %}> Prefer not to say</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Are you a returning patient?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="demographics_comments.is_return_patient" value="yes"
+                      {% if demographics_comments.isReturnPatient == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="demographics_comments.is_return_patient" value="no"
+                      {% if demographics_comments.isReturnPatient == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_comments">Additional Comments</label>
+      <textarea id="additional_comments" name="demographics_comments.additional_comments"
+                rows="4" placeholder="Any other feedback about your experience?">{{ demographics_comments.additionalComments }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="improvement_suggestions">Improvement Suggestions</label>
+      <textarea id="improvement_suggestions" name="demographics_comments.improvement_suggestions"
+                rows="4" placeholder="What specific improvements would you suggest?">{{ demographics_comments.improvementSuggestions }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="compliments">Compliments</label>
+      <textarea id="compliments" name="demographics_comments.compliments"
+                rows="4" placeholder="Is there anything or anyone you would like to commend?">{{ demographics_comments.compliments }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Communication - Encounter Satisfaction{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Communication</h2>
+    <p class="hint">Rate the quality of communication with your healthcare provider.</p>
+
+    <div class="likert-group">
+      <label>How well did the provider listen to you?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication.provider_listening" value="{{ i }}"
+                 {% if communication.providerListening == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>How well did the provider explain things?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication.provider_explaining" value="{{ i }}"
+                 {% if communication.providerExplaining == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Did the provider treat you with respect and dignity?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication.provider_respect" value="{{ i }}"
+                 {% if communication.providerRespect == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Did the provider spend enough time with you?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication.provider_time_adequacy" value="{{ i }}"
+                 {% if communication.providerTimeAdequacy == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Insufficient{% elif i == 2 %}Insufficient{% elif i == 3 %}Neutral{% elif i == 4 %}Sufficient{% else %}More Than Enough{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Were you encouraged to ask questions?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication.questions_encouraged" value="{{ i }}"
+                 {% if communication.questionsEncouraged == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not At All{% elif i == 2 %}Rarely{% elif i == 3 %}Sometimes{% elif i == 4 %}Usually{% else %}Always{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Was information provided clearly and understandably?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication.information_clarity" value="{{ i }}"
+                 {% if communication.informationClarity == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Unclear{% elif i == 2 %}Unclear{% elif i == 3 %}Neutral{% elif i == 4 %}Clear{% else %}Very Clear{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Were you involved in decisions about your care?</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="communication.shared_decision_making" value="{{ i }}"
+                 {% if communication.sharedDecisionMaking == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Not At All{% elif i == 2 %}Rarely{% elif i == 3 %}Sometimes{% elif i == 4 %}Usually{% else %}Always{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
