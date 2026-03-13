@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Medical History - AHA PREVENT{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Medical History</h2>
+    <p class="hint">PREVENT is for primary prevention. Known CVD will be flagged.</p>
+
+    <div class="form-group">
+      <label>Has known cardiovascular disease?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_history.has_known_cvd" value="yes"
+                      {% if medical_history.hasKnownCvd == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_history.has_known_cvd" value="no"
+                      {% if medical_history.hasKnownCvd == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Previous MI?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.previous_mi" value="yes"
+                        {% if medical_history.previousMi == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.previous_mi" value="no"
+                        {% if medical_history.previousMi == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Previous Stroke?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.previous_stroke" value="yes"
+                        {% if medical_history.previousStroke == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.previous_stroke" value="no"
+                        {% if medical_history.previousStroke == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Heart Failure?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.heart_failure" value="yes"
+                        {% if medical_history.heartFailure == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.heart_failure" value="no"
+                        {% if medical_history.heartFailure == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Atrial Fibrillation?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.atrial_fibrillation" value="yes"
+                        {% if medical_history.atrialFibrillation == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.atrial_fibrillation" value="no"
+                        {% if medical_history.atrialFibrillation == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Peripheral Arterial Disease?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_history.peripheral_arterial_disease" value="yes"
+                      {% if medical_history.peripheralArterialDisease == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_history.peripheral_arterial_disease" value="no"
+                      {% if medical_history.peripheralArterialDisease == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Family history of premature CVD?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_history.family_cvd_history" value="yes"
+                      {% if medical_history.familyCvdHistory == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_history.family_cvd_history" value="no"
+                      {% if medical_history.familyCvdHistory == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="family_cvd_details">Family CVD Details (if applicable)</label>
+      <textarea id="family_cvd_details" name="medical_history.family_cvd_details"
+                rows="3" placeholder="e.g. Father had MI at age 52">{{ medical_history.familyCvdDetails }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Metabolic Health - AHA PREVENT{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Metabolic Health</h2>
+    <p class="hint">Diabetes status and metabolic parameters used in PREVENT risk calculation.</p>
+
+    <div class="form-group">
+      <label>Does the patient have diabetes?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="metabolic_health.has_diabetes" value="yes"
+                      {% if metabolic_health.hasDiabetes == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="metabolic_health.has_diabetes" value="no"
+                      {% if metabolic_health.hasDiabetes == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="diabetes_type">Diabetes Type</label>
+      <select id="diabetes_type" name="metabolic_health.diabetes_type">
+        <option value="">-- Select --</option>
+        <option value="type1" {% if metabolic_health.diabetesType == "type1" %}selected{% endif %}>Type 1</option>
+        <option value="type2" {% if metabolic_health.diabetesType == "type2" %}selected{% endif %}>Type 2</option>
+        <option value="other" {% if metabolic_health.diabetesType == "other" %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hba1c_value">HbA1c Value</label>
+        <input type="number" id="hba1c_value" name="metabolic_health.hba1c_value"
+               value="{{ metabolic_health.hba1cValue }}"
+               min="3" max="200" step="0.1" placeholder="e.g. 7.2">
+      </div>
+      <div class="form-group">
+        <label for="hba1c_unit">HbA1c Unit</label>
+        <select id="hba1c_unit" name="metabolic_health.hba1c_unit">
+          <option value="">-- Select --</option>
+          <option value="percent" {% if metabolic_health.hba1cUnit == "percent" %}selected{% endif %}>% (NGSP)</option>
+          <option value="mmolMol" {% if metabolic_health.hba1cUnit == "mmolMol" %}selected{% endif %}>mmol/mol (IFCC)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fasting_glucose">Fasting Glucose (mg/dL)</label>
+      <input type="number" id="fasting_glucose" name="metabolic_health.fasting_glucose"
+             value="{{ metabolic_health.fastingGlucose }}"
+             min="40" max="500" step="0.1" placeholder="e.g. 100">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bmi">BMI (kg/m2)</label>
+        <input type="number" id="bmi" name="metabolic_health.bmi"
+               value="{{ metabolic_health.bmi }}"
+               min="10" max="70" step="0.1" placeholder="e.g. 27.5">
+      </div>
+      <div class="form-group">
+        <label for="waist_circumference_cm">Waist Circumference (cm)</label>
+        <input type="number" id="waist_circumference_cm" name="metabolic_health.waist_circumference_cm"
+               value="{{ metabolic_health.waistCircumferenceCm }}"
+               min="50" max="200" step="0.1" placeholder="e.g. 95">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

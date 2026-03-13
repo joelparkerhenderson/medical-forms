@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - AHA PREVENT{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>PREVENT Risk Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, sex...">
+    </div>
+    <div class="form-group">
+      <label for="risk_category">Risk Category</label>
+      <select id="risk_category" name="risk_category">
+        <option value="">All Categories</option>
+        <option value="high" {% if risk_category == "high" %}selected{% endif %}>High</option>
+        <option value="intermediate" {% if risk_category == "intermediate" %}selected{% endif %}>Intermediate</option>
+        <option value="borderline" {% if risk_category == "borderline" %}selected{% endif %}>Borderline</option>
+        <option value="low" {% if risk_category == "low" %}selected{% endif %}>Low</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="diabetes_status">Diabetes</label>
+      <select id="diabetes_status" name="diabetes_status">
+        <option value="">All</option>
+        <option value="Yes" {% if diabetes_status == "Yes" %}selected{% endif %}>Yes</option>
+        <option value="No" {% if diabetes_status == "No" %}selected{% endif %}>No</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>Risk Category</th>
+      <th>10-Year Risk</th>
+      <th>Diabetes</th>
+      <th>eGFR</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.age }}</td>
+      <td>{{ patient.sex }}</td>
+      <td><span class="risk-badge risk-{{ patient.riskCategory }}">{{ patient.riskCategory }}</span></td>
+      <td>{{ patient.tenYearRisk }}%</td>
+      <td>{{ patient.diabetesStatus }}</td>
+      <td>{{ patient.egfr }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

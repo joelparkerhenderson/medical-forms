@@ -1,0 +1,35 @@
+{% extends "base.html.tera" %}
+
+{% block title %}AHA PREVENT Calculator - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>AHA PREVENT CVD Risk Calculator</h1>
+  <p>
+    The AHA PREVENT (Predicting Risk of Cardiovascular Disease EVENTs) calculator
+    estimates 10-year and 30-year risk of cardiovascular disease and CVD subtypes
+    in patients aged 30-79 without known CVD. Developed by the American Heart
+    Association in 2023, this tool uses sex-specific logistic regression coefficients
+    to provide clinically meaningful risk assessments.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10-Step Assessment</h3>
+      <p>Comprehensive clinical data collection across 10 structured sections</p>
+    </div>
+    <div class="feature-card">
+      <h3>Risk Estimation</h3>
+      <p>10-year and 30-year CVD risk based on the PREVENT Base model</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Actionable alerts for critical findings requiring urgent attention</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

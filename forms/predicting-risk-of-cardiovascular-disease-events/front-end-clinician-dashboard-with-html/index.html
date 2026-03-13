@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinician Dashboard - PREVENT CVD Risk</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <span class="header-title">PREVENT CVD Risk — Clinician Dashboard</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="filter-bar">
+      <input type="text" id="search-input" placeholder="Search by NHS number or name...">
+      <select id="risk-filter">
+        <option value="">All Risk Categories</option>
+        <option value="low">Low</option>
+        <option value="borderline">Borderline</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="high">High</option>
+      </select>
+      <select id="diabetes-filter">
+        <option value="">Diabetes Status</option>
+        <option value="yes">Has Diabetes</option>
+        <option value="no">No Diabetes</option>
+      </select>
+      <button id="clear-filters">Clear Filters</button>
+    </div>
+
+    <table class="patient-table">
+      <thead>
+        <tr>
+          <th data-sort="nhsNumber">NHS Number</th>
+          <th data-sort="patientName">Patient Name</th>
+          <th data-sort="riskCategory">Risk Category</th>
+          <th data-sort="tenYearRisk">10-Year Risk (%)</th>
+          <th data-sort="diabetes">Diabetes</th>
+          <th data-sort="egfr">eGFR</th>
+        </tr>
+      </thead>
+      <tbody id="patients-tbody">
+        <tr><td colspan="6" style="text-align:center;color:#6b7280;padding:2rem;">Loading...</td></tr>
+      </tbody>
+    </table>
+
+    <div class="patient-count" id="patient-count"></div>
+  </main>
+
+  <footer class="footer"><p>PREVENT CVD Risk Calculator &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la /Users/jph/git/joelparkerhenderson/medical-forms/forms/*/front-end-patient-form-with-svelte/ 2>/dev/null | head -30)",
+      "WebSearch",
+      "Bash(find /Users/jph/git/joelparkerhenderson/medical-forms/forms/sleep-quality-assessment/front-end-patient-form-with-html/ -type f -name \"*.html\" 2>/dev/null | head -5 && echo \"---\" && find /Users/jph/git/joelparkerhenderson/medical-forms/forms/patient-intake/front-end-patient-form-with-html/ -type f -name \"*.html\" 2>/dev/null | head -5 && echo \"---\" && find /Users/jph/git/joelparkerhenderson/medical-forms/forms/ -path \"*/front-end-patient-form-with-html/*.html\" -type f 2>/dev/null | head -10)",
+      "Bash(find /Users/jph/git/joelparkerhenderson/medical-forms/forms -type d -name \"*patient-intake*\" -o -type d -name \"*pre-operative*\" 2>/dev/null | head -20)",
+      "Bash(find /Users/jph/git/joelparkerhenderson/medical-forms/forms/sleep-quality-assessment/front-end-patient-form-with-svelte -type f -not -path \"*/node_modules/*\" -not -path \"*/.git/*\" -not -path \"*/.svelte-kit/*\" -not -path \"*/dist/*\" 2>/dev/null | sort)",
+      "Bash(find /Users/jph/git/joelparkerhenderson/medical-forms/forms -type f -name \"*.html\" 2>/dev/null | head -20)",
+      "Bash(find /Users/jph/git/joelparkerhenderson/medical-forms/forms/sleep-quality-assessment/front-end-clinician-dashboard-with-svelte -type f -not -path \"*/node_modules/*\" -not -path \"*/.git/*\" -not -path \"*/.svelte-kit/*\" -not -path \"*/dist/*\" 2>/dev/null | sort)",
+      "Bash(find /Users/jph/git/joelparkerhenderson/medical-forms/forms -name \"*grader*\" -o -name \"*rules*\" -o -name \"*flags*\" 2>/dev/null | head -20)",
+      "mcp__svelte__svelte-autofixer",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/predicting-risk-of-cardiovascular-disease-events/front-end-patient-form-with-svelte && mkdir -p src/lib/components/ui && mkdir -p src/lib/components/steps && mkdir -p src/lib/config && mkdir -p src/lib/engine && mkdir -p src/lib/report && mkdir -p src/lib/stores && mkdir -p src/params && mkdir -p src/routes/assessment && mkdir -p 'src/routes/assessment/[step=step]' && mkdir -p src/routes/report/pdf)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/predicting-risk-of-cardiovascular-disease-events/front-end-patient-form-with-svelte && npm install 2>&1)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/predicting-risk-of-cardiovascular-disease-events/front-end-patient-form-with-svelte && npx vitest run 2>&1)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/predicting-risk-of-cardiovascular-disease-events/front-end-patient-form-with-svelte && npx svelte-kit sync 2>&1 && npx svelte-check --tsconfig ./tsconfig.json 2>&1)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/predicting-risk-of-cardiovascular-disease-events/front-end-patient-form-with-svelte && npx svelte-check --tsconfig ./tsconfig.json 2>&1)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms && bin/test-forms 2>&1 | head -80)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms && bin/test-forms 2>&1 | grep \"predicting-risk\")",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/predicting-risk-of-cardiovascular-disease-events/front-end-patient-form-with-svelte && npm run check 2>&1 | tail -10)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/predicting-risk-of-cardiovascular-disease-events/front-end-patient-form-with-svelte && npm test 2>&1 | tail -20)",
+      "Bash(cd /Users/jph/git/joelparkerhenderson/medical-forms/forms/predicting-risk-of-cardiovascular-disease-events/front-end-clinician-dashboard-with-svelte && npm install 2>&1 | tail -5)",
+      "Bash(npm run check 2>&1 | tail -10)",
+      "Bash(npm run check 2>&1 | tail -5)"
+    ]
+  }
+}

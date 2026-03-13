@@ -1,0 +1,70 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cholesterol & Lipids - AHA PREVENT{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cholesterol & Lipids</h2>
+    <p class="hint">Enter the most recent lipid panel results (mg/dL).</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="total_cholesterol">Total Cholesterol (mg/dL)</label>
+        <input type="number" id="total_cholesterol" name="cholesterol_lipids.total_cholesterol"
+               value="{{ cholesterol_lipids.totalCholesterol }}"
+               min="100" max="400" step="0.1" placeholder="e.g. 200">
+      </div>
+      <div class="form-group">
+        <label for="hdl_cholesterol">HDL Cholesterol (mg/dL)</label>
+        <input type="number" id="hdl_cholesterol" name="cholesterol_lipids.hdl_cholesterol"
+               value="{{ cholesterol_lipids.hdlCholesterol }}"
+               min="10" max="150" step="0.1" placeholder="e.g. 55">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ldl_cholesterol">LDL Cholesterol (mg/dL)</label>
+        <input type="number" id="ldl_cholesterol" name="cholesterol_lipids.ldl_cholesterol"
+               value="{{ cholesterol_lipids.ldlCholesterol }}"
+               min="30" max="300" step="0.1" placeholder="e.g. 120">
+      </div>
+      <div class="form-group">
+        <label for="triglycerides">Triglycerides (mg/dL)</label>
+        <input type="number" id="triglycerides" name="cholesterol_lipids.triglycerides"
+               value="{{ cholesterol_lipids.triglycerides }}"
+               min="30" max="1000" step="0.1" placeholder="e.g. 150">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="non_hdl_cholesterol">Non-HDL Cholesterol (mg/dL)</label>
+      <input type="number" id="non_hdl_cholesterol" name="cholesterol_lipids.non_hdl_cholesterol"
+             value="{{ cholesterol_lipids.nonHdlCholesterol }}"
+             min="50" max="350" step="0.1" placeholder="e.g. 145">
+    </div>
+
+    <div class="form-group">
+      <label>Currently on statin therapy?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="cholesterol_lipids.on_statin" value="yes"
+                      {% if cholesterol_lipids.onStatin == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="cholesterol_lipids.on_statin" value="no"
+                      {% if cholesterol_lipids.onStatin == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="statin_name">Statin Name (if applicable)</label>
+      <input type="text" id="statin_name" name="cholesterol_lipids.statin_name"
+             value="{{ cholesterol_lipids.statinName }}"
+             placeholder="e.g. Atorvastatin 40mg">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

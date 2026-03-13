@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PREVENT CVD Risk Report</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">PREVENT CVD Risk Calculator</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content" id="report-content">
+    <p style="text-align:center;color:#6b7280;">Loading report...</p>
+  </main>
+
+  <footer class="footer"><p>PREVENT CVD Risk Calculator &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module">
+    import { riskCategoryLabel, riskCategoryColor } from './js/utils.js';
+
+    const dataStr = sessionStorage.getItem('preventData');
+    const resultStr = sessionStorage.getItem('preventResult');
+    const container = document.getElementById('report-content');
+
+    if (!dataStr || !resultStr) {
+      container.innerHTML = '<div class="card" style="text-align:center"><h2>No Assessment Data</h2><p>Please complete the PREVENT risk assessment first.</p><a href="index.html" class="btn btn-primary">Go to Assessment</a></div>';
+    } else {
+      const data = JSON.parse(dataStr);
+      const result = JSON.parse(resultStr);
+      renderReport(data, result);
+    }
+
+    function renderReport(data, result) {
+      const colorClass = riskCategoryColor(result.riskCategory);
+      let html = '';
+
+      // Risk Category Banner
+      html += '<div class="risk-banner ' + colorClass + '">';
+      html += '<h2>Risk Category: ' + capitalize(result.riskCategory) + '</h2>';
+      html += '<p>' + riskCategoryLabel(result.riskCategory) + '</p>';
+      html += '<div class="risk-scores">';
+      html += '<div class="risk-score-box"><div class="score-value">' + result.tenYearRiskPercent + '%</div><div class="score-label">10-Year Risk</div></div>';
+      html += '<div class="risk-score-box"><div class="score-value">' + result.thirtyYearRiskPercent + '%</div><div class="score-label">30-Year Risk</div></div>';
+      html += '</div>';
+      html += '</div>';
+
+      // Flagged Issues
+      if (result.additionalFlags && result.additionalFlags.length > 0) {
+        html += '<div class="card"><h2>Flagged Issues for Clinician</h2>';
+        for (const flag of result.additionalFlags) {
+          const flagClass = 'flag-' + flag.priority;
+          html += '<div class="flag-item ' + flagClass + '">';
+          html += '<div class="flag-category">' + esc(flag.category) + ' (' + flag.priority + ')</div>';
+          html += '<div class="flag-message">' + esc(flag.message) + '</div>';
+          html += '</div>';
+        }
+        html += '</div>';
+      }
+
+      // Fired Rules
+      if (result.firedRules && result.firedRules.length > 0) {
+        html += '<div class="card"><h2>Risk Rules (' + result.firedRules.length + ')</h2>';
+        html += '<table class="rules-table"><thead><tr><th>ID</th><th>Category</th><th>Finding</th><th>Risk</th></tr></thead><tbody>';
+        for (const rule of result.firedRules) {
+          const rClass = riskCategoryColor(rule.riskLevel);
+          html += '<tr><td>' + esc(rule.id) + '</td><td>' + esc(rule.category) + '</td>';
+          html += '<td>' + esc(rule.description) + '</td>';
+          html += '<td><span class="risk-badge ' + rClass + '">' + capitalize(rule.riskLevel) + '</span></td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      // Patient Summary
+      html += '<div class="card"><h2>Patient Summary</h2><dl class="summary-grid">';
+      html += '<dt>Full Name</dt><dd>' + esc(data.patientInformation.fullName) + '</dd>';
+      html += '<dt>Date of Birth</dt><dd>' + esc(data.patientInformation.dateOfBirth) + '</dd>';
+      html += '<dt>NHS Number</dt><dd>' + esc(data.patientInformation.nhsNumber) + '</dd>';
+      html += '<dt>Age</dt><dd>' + (data.demographics.age || 'N/A') + '</dd>';
+      html += '<dt>Sex</dt><dd>' + capitalize(data.demographics.sex) + '</dd>';
+      html += '<dt>GP</dt><dd>' + esc(data.patientInformation.gpName) + '</dd>';
+      html += '</dl></div>';
+
+      // Clinical Data Summary
+      html += '<div class="card"><h2>Clinical Data</h2><dl class="summary-grid">';
+      html += '<dt>Systolic BP</dt><dd>' + (data.bloodPressure.systolicBp || 'N/A') + ' mmHg</dd>';
+      html += '<dt>Diastolic BP</dt><dd>' + (data.bloodPressure.diastolicBp || 'N/A') + ' mmHg</dd>';
+      html += '<dt>Total Cholesterol</dt><dd>' + (data.cholesterolLipids.totalCholesterol || 'N/A') + ' mg/dL</dd>';
+      html += '<dt>HDL Cholesterol</dt><dd>' + (data.cholesterolLipids.hdlCholesterol || 'N/A') + ' mg/dL</dd>';
+      html += '<dt>Diabetes</dt><dd>' + capitalize(data.metabolicHealth.hasDiabetes) + '</dd>';
+      html += '<dt>Smoking Status</dt><dd>' + capitalize(data.smokingHistory.smokingStatus) + '</dd>';
+      html += '<dt>eGFR</dt><dd>' + (data.renalFunction.egfr || 'N/A') + ' mL/min</dd>';
+      html += '<dt>BMI</dt><dd>' + (data.metabolicHealth.bmi || 'N/A') + ' kg/m²</dd>';
+      html += '</dl></div>';
+
+      // Clinical Notes
+      if (data.reviewCalculate.clinicalNotes) {
+        html += '<div class="card"><h2>Clinical Notes</h2><p>' + esc(data.reviewCalculate.clinicalNotes) + '</p></div>';
+      }
+
+      // Action Buttons
+      html += '<div class="action-buttons">';
+      html += '<a href="index.html" class="btn btn-primary">New Assessment</a>';
+      html += '<button class="btn btn-secondary" onclick="window.print()">Print Report</button>';
+      html += '</div>';
+
+      container.innerHTML = html;
+    }
+
+    function esc(str) {
+      const div = document.createElement('div');
+      div.textContent = str || '';
+      return div.innerHTML;
+    }
+
+    function capitalize(s) {
+      return s ? s.charAt(0).toUpperCase() + s.slice(1) : 'N/A';
+    }
+  </script>
+</body>
+</html>

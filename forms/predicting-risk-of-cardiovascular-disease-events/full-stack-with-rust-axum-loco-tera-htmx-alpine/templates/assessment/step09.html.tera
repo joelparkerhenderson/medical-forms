@@ -1,0 +1,67 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Medications - AHA PREVENT{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Medications</h2>
+    <p class="hint">Medication use helps contextualise the risk assessment and identify treatment gaps.</p>
+
+    <div class="form-group">
+      <label for="on_antihypertensive_detail">Antihypertensive Medications</label>
+      <input type="text" id="on_antihypertensive_detail" name="current_medications.on_antihypertensive_detail"
+             value="{{ current_medications.onAntihypertensiveDetail }}"
+             placeholder="e.g. Amlodipine 5mg, Ramipril 10mg">
+    </div>
+
+    <div class="form-group">
+      <label for="on_statin_detail">Statin / Lipid-Lowering Therapy</label>
+      <input type="text" id="on_statin_detail" name="current_medications.on_statin_detail"
+             value="{{ current_medications.onStatinDetail }}"
+             placeholder="e.g. Atorvastatin 40mg">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>On aspirin?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.on_aspirin" value="yes"
+                        {% if current_medications.onAspirin == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.on_aspirin" value="no"
+                        {% if current_medications.onAspirin == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>On anticoagulant?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.on_anticoagulant" value="yes"
+                        {% if current_medications.onAnticoagulant == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.on_anticoagulant" value="no"
+                        {% if current_medications.onAnticoagulant == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>On diabetes medication?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="current_medications.on_diabetes_medication" value="yes"
+                      {% if current_medications.onDiabetesMedication == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="current_medications.on_diabetes_medication" value="no"
+                      {% if current_medications.onDiabetesMedication == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="other_medications">Other Medications</label>
+      <textarea id="other_medications" name="current_medications.other_medications"
+                rows="3" placeholder="List any other current medications">{{ current_medications.otherMedications }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

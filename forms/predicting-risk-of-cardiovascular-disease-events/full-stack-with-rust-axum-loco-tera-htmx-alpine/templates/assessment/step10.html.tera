@@ -1,0 +1,46 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Review & Calculate - AHA PREVENT{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Review & Calculate</h2>
+    <p class="hint">Select the model type, add clinician details, then submit to calculate the PREVENT risk score.</p>
+
+    <div class="form-group">
+      <label for="model_type">PREVENT Model Type</label>
+      <select id="model_type" name="review_calculate.model_type">
+        <option value="base" {% if review_calculate.modelType == "base" %}selected{% endif %}>Base Model</option>
+        <option value="uacr" {% if review_calculate.modelType == "uacr" %}selected{% endif %}>With uACR Enhancement</option>
+        <option value="hba1c" {% if review_calculate.modelType == "hba1c" %}selected{% endif %}>With HbA1c Enhancement</option>
+        <option value="full" {% if review_calculate.modelType == "full" %}selected{% endif %}>Full Model (all enhancements)</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_name">Clinician Name</label>
+        <input type="text" id="clinician_name" name="review_calculate.clinician_name"
+               value="{{ review_calculate.clinicianName }}"
+               placeholder="e.g. Dr Johnson">
+      </div>
+      <div class="form-group">
+        <label for="review_date">Review Date</label>
+        <input type="date" id="review_date" name="review_calculate.review_date"
+               value="{{ review_calculate.reviewDate }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_notes">Clinical Notes</label>
+      <textarea id="clinical_notes" name="review_calculate.clinical_notes"
+                rows="4" placeholder="Any additional clinical observations or context">{{ review_calculate.clinicalNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PREVENT CVD Risk Calculator</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">PREVENT CVD Risk Calculator</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- ─── Landing ────────────────────────────────────── -->
+    <div id="landing" class="hero">
+      <h1>PREVENT CVD Risk Calculator</h1>
+      <p>Predicting Risk of Cardiovascular Disease EVENTs (PREVENT) estimates 10-year and 30-year CVD risk for patients aged 30-79 without known cardiovascular disease.</p>
+      <div class="feature-grid">
+        <div class="feature-card"><h3>10 Steps</h3><p>Comprehensive cardiovascular risk assessment</p></div>
+        <div class="feature-card"><h3>Risk Scoring</h3><p>10-year and 30-year risk estimates</p></div>
+        <div class="feature-card"><h3>Clinical Flags</h3><p>14 actionable safety alerts for clinicians</p></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Assessment</button>
+    </div>
+
+    <!-- ─── Form ───────────────────────────────────────── -->
+    <div id="form-container" style="display:none;">
+      <div class="progress-container">
+        <div class="progress-header">
+          <span id="step-label">Step 1 of 10: Patient Information</span>
+          <span id="step-percent">10%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
+      </div>
+
+      <!-- Step 1: Patient Information -->
+      <section id="step-1" class="step-section active">
+        <div class="card">
+          <h2>Patient Information</h2>
+          <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" data-field="patientInformation.fullName"></div>
+          <div class="form-row">
+            <div class="form-group"><label>Date of Birth</label><input type="date" data-field="patientInformation.dateOfBirth"></div>
+            <div class="form-group"><label>NHS Number</label><input type="text" data-field="patientInformation.nhsNumber"></div>
+          </div>
+          <div class="form-group"><label>Address</label><textarea rows="2" data-field="patientInformation.address"></textarea></div>
+          <div class="form-row">
+            <div class="form-group"><label>Telephone</label><input type="tel" data-field="patientInformation.telephone"></div>
+            <div class="form-group"><label>Email</label><input type="email" data-field="patientInformation.email"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>GP Name</label><input type="text" data-field="patientInformation.gpName"></div>
+            <div class="form-group"><label>GP Practice</label><input type="text" data-field="patientInformation.gpPractice"></div>
+          </div>
+        </div>
+        <div class="step-nav"><span></span><button class="btn btn-primary" onclick="goToStep(2)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 2: Demographics -->
+      <section id="step-2" class="step-section">
+        <div class="card">
+          <h2>Demographics</h2>
+          <div class="form-row">
+            <div class="form-group"><label>Age (30-79) <span class="required">*</span></label><input type="number" min="18" max="100" data-field="demographics.age" data-type="number"></div>
+            <div class="form-group"><label>Sex <span class="required">*</span></label>
+              <div class="radio-group">
+                <label><input type="radio" name="sex" value="male" data-field="demographics.sex"><span>Male</span></label>
+                <label><input type="radio" name="sex" value="female" data-field="demographics.sex"><span>Female</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group"><label>Ethnicity</label>
+            <select data-field="demographics.ethnicity">
+              <option value="">-- Select --</option>
+              <option value="white">White</option>
+              <option value="black">Black / African American</option>
+              <option value="hispanic">Hispanic / Latino</option>
+              <option value="asian">Asian</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Height (cm)</label><input type="number" min="100" max="250" step="0.1" data-field="demographics.heightCm" data-type="number"></div>
+            <div class="form-group"><label>Weight (kg)</label><input type="number" min="30" max="300" step="0.1" data-field="demographics.weightKg" data-type="number"></div>
+          </div>
+          <div class="form-group"><label>ZIP / Postal Code</label><input type="text" data-field="demographics.zipCode"></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(1)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(3)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 3: Blood Pressure -->
+      <section id="step-3" class="step-section">
+        <div class="card">
+          <h2>Blood Pressure</h2>
+          <div class="form-row">
+            <div class="form-group"><label>Systolic BP (mmHg)</label><input type="number" min="70" max="250" data-field="bloodPressure.systolicBp" data-type="number"></div>
+            <div class="form-group"><label>Diastolic BP (mmHg)</label><input type="number" min="40" max="150" data-field="bloodPressure.diastolicBp" data-type="number"></div>
+          </div>
+          <div class="form-group"><label>On Antihypertensive Medication?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="onAntihypertensive" value="yes" data-field="bloodPressure.onAntihypertensive"><span>Yes</span></label>
+              <label><input type="radio" name="onAntihypertensive" value="no" data-field="bloodPressure.onAntihypertensive"><span>No</span></label>
+            </div>
+          </div>
+          <div class="conditional-field" data-show-if="bloodPressure.onAntihypertensive=yes">
+            <div class="form-group"><label>Number of BP Medications</label><input type="number" min="0" max="10" data-field="bloodPressure.numberOfBpMedications" data-type="number"></div>
+          </div>
+          <div class="form-group"><label>BP at Target?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="bpAtTarget" value="yes" data-field="bloodPressure.bpAtTarget"><span>Yes</span></label>
+              <label><input type="radio" name="bpAtTarget" value="no" data-field="bloodPressure.bpAtTarget"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(2)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(4)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 4: Cholesterol & Lipids -->
+      <section id="step-4" class="step-section">
+        <div class="card">
+          <h2>Cholesterol &amp; Lipids</h2>
+          <div class="form-row">
+            <div class="form-group"><label>Total Cholesterol (mg/dL)</label><input type="number" min="100" max="400" data-field="cholesterolLipids.totalCholesterol" data-type="number"></div>
+            <div class="form-group"><label>HDL Cholesterol (mg/dL)</label><input type="number" min="10" max="150" data-field="cholesterolLipids.hdlCholesterol" data-type="number"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>LDL Cholesterol (mg/dL)</label><input type="number" min="30" max="300" data-field="cholesterolLipids.ldlCholesterol" data-type="number"></div>
+            <div class="form-group"><label>Triglycerides (mg/dL)</label><input type="number" min="30" max="1000" data-field="cholesterolLipids.triglycerides" data-type="number"></div>
+          </div>
+          <div class="form-group"><label>Non-HDL Cholesterol (mg/dL)</label><input type="number" min="50" max="350" data-field="cholesterolLipids.nonHdlCholesterol" data-type="number"></div>
+          <div class="form-group"><label>On Statin Therapy?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="onStatin" value="yes" data-field="cholesterolLipids.onStatin"><span>Yes</span></label>
+              <label><input type="radio" name="onStatin" value="no" data-field="cholesterolLipids.onStatin"><span>No</span></label>
+            </div>
+          </div>
+          <div class="conditional-field" data-show-if="cholesterolLipids.onStatin=yes">
+            <div class="form-group"><label>Statin Name</label><input type="text" data-field="cholesterolLipids.statinName"></div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(3)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(5)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 5: Metabolic Health -->
+      <section id="step-5" class="step-section">
+        <div class="card">
+          <h2>Metabolic Health</h2>
+          <div class="form-group"><label>Has Diabetes?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="hasDiabetes" value="yes" data-field="metabolicHealth.hasDiabetes"><span>Yes</span></label>
+              <label><input type="radio" name="hasDiabetes" value="no" data-field="metabolicHealth.hasDiabetes"><span>No</span></label>
+            </div>
+          </div>
+          <div class="conditional-field" data-show-if="metabolicHealth.hasDiabetes=yes">
+            <div class="form-group"><label>Diabetes Type</label>
+              <select data-field="metabolicHealth.diabetesType">
+                <option value="">-- Select --</option>
+                <option value="type1">Type 1</option>
+                <option value="type2">Type 2</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>HbA1c Value</label><input type="number" min="3" max="200" step="0.1" data-field="metabolicHealth.hba1cValue" data-type="number"></div>
+            <div class="form-group"><label>HbA1c Unit</label>
+              <select data-field="metabolicHealth.hba1cUnit">
+                <option value="">-- Select --</option>
+                <option value="percent">% (DCCT)</option>
+                <option value="mmolMol">mmol/mol (IFCC)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label>Fasting Glucose (mg/dL)</label><input type="number" min="40" max="500" data-field="metabolicHealth.fastingGlucose" data-type="number"></div>
+          <div class="form-row">
+            <div class="form-group"><label>BMI (kg/m²)</label><input type="number" min="10" max="70" step="0.1" data-field="metabolicHealth.bmi" data-type="number"></div>
+            <div class="form-group"><label>Waist Circumference (cm)</label><input type="number" min="40" max="200" step="0.1" data-field="metabolicHealth.waistCircumferenceCm" data-type="number"></div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(4)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(6)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 6: Renal Function -->
+      <section id="step-6" class="step-section">
+        <div class="card">
+          <h2>Renal Function</h2>
+          <div class="form-row">
+            <div class="form-group"><label>eGFR (mL/min/1.73m²)</label><input type="number" min="5" max="200" data-field="renalFunction.egfr" data-type="number"></div>
+            <div class="form-group"><label>Creatinine (mg/dL)</label><input type="number" min="0.1" max="15" step="0.1" data-field="renalFunction.creatinine" data-type="number"></div>
+          </div>
+          <div class="form-group"><label>Urine ACR (mg/g)</label><input type="number" min="0" max="5000" data-field="renalFunction.urineAcr" data-type="number"></div>
+          <div class="form-group"><label>CKD Stage</label>
+            <select data-field="renalFunction.ckdStage">
+              <option value="">-- Select --</option>
+              <option value="1">Stage 1 (eGFR >= 90)</option>
+              <option value="2">Stage 2 (eGFR 60-89)</option>
+              <option value="3a">Stage 3a (eGFR 45-59)</option>
+              <option value="3b">Stage 3b (eGFR 30-44)</option>
+              <option value="4">Stage 4 (eGFR 15-29)</option>
+              <option value="5">Stage 5 (eGFR < 15)</option>
+            </select>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(5)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(7)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 7: Smoking History -->
+      <section id="step-7" class="step-section">
+        <div class="card">
+          <h2>Smoking History</h2>
+          <div class="form-group"><label>Smoking Status</label>
+            <select data-field="smokingHistory.smokingStatus">
+              <option value="">-- Select --</option>
+              <option value="never">Never Smoked</option>
+              <option value="current">Current Smoker</option>
+              <option value="former">Former Smoker</option>
+            </select>
+          </div>
+          <div class="conditional-field" data-show-if="smokingHistory.smokingStatus=current">
+            <div class="form-group"><label>Cigarettes per Day</label><input type="number" min="0" max="100" data-field="smokingHistory.cigarettesPerDay" data-type="number"></div>
+            <div class="form-group"><label>Years Smoked</label><input type="number" min="0" max="80" data-field="smokingHistory.yearsSmoked" data-type="number"></div>
+          </div>
+          <div class="conditional-field" data-show-if="smokingHistory.smokingStatus=former">
+            <div class="form-group"><label>Cigarettes per Day (when smoking)</label><input type="number" min="0" max="100" data-field="smokingHistory.cigarettesPerDay" data-type="number"></div>
+            <div class="form-group"><label>Years Smoked</label><input type="number" min="0" max="80" data-field="smokingHistory.yearsSmoked" data-type="number"></div>
+            <div class="form-group"><label>Years Since Quit</label><input type="number" min="0" max="80" data-field="smokingHistory.yearsSinceQuit" data-type="number"></div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(6)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(8)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 8: Medical History -->
+      <section id="step-8" class="step-section">
+        <div class="card">
+          <h2>Medical History</h2>
+          <div class="form-group"><label>Known Cardiovascular Disease?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="hasKnownCvd" value="yes" data-field="medicalHistory.hasKnownCvd"><span>Yes</span></label>
+              <label><input type="radio" name="hasKnownCvd" value="no" data-field="medicalHistory.hasKnownCvd"><span>No</span></label>
+            </div>
+          </div>
+          <div class="conditional-field" data-show-if="medicalHistory.hasKnownCvd=yes">
+            <p style="color:var(--danger);font-weight:500;margin-bottom:1rem;">Note: PREVENT is designed for primary prevention only. Known CVD will be flagged.</p>
+            <div class="form-row">
+              <div class="form-group"><label>Previous MI</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="previousMi" value="yes" data-field="medicalHistory.previousMi"><span>Yes</span></label>
+                  <label><input type="radio" name="previousMi" value="no" data-field="medicalHistory.previousMi"><span>No</span></label>
+                </div>
+              </div>
+              <div class="form-group"><label>Previous Stroke</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="previousStroke" value="yes" data-field="medicalHistory.previousStroke"><span>Yes</span></label>
+                  <label><input type="radio" name="previousStroke" value="no" data-field="medicalHistory.previousStroke"><span>No</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Heart Failure</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="heartFailure" value="yes" data-field="medicalHistory.heartFailure"><span>Yes</span></label>
+                  <label><input type="radio" name="heartFailure" value="no" data-field="medicalHistory.heartFailure"><span>No</span></label>
+                </div>
+              </div>
+              <div class="form-group"><label>Peripheral Arterial Disease</label>
+                <div class="radio-group">
+                  <label><input type="radio" name="peripheralArterialDisease" value="yes" data-field="medicalHistory.peripheralArterialDisease"><span>Yes</span></label>
+                  <label><input type="radio" name="peripheralArterialDisease" value="no" data-field="medicalHistory.peripheralArterialDisease"><span>No</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group"><label>Atrial Fibrillation</label>
+            <div class="radio-group">
+              <label><input type="radio" name="atrialFibrillation" value="yes" data-field="medicalHistory.atrialFibrillation"><span>Yes</span></label>
+              <label><input type="radio" name="atrialFibrillation" value="no" data-field="medicalHistory.atrialFibrillation"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Family History of CVD</label>
+            <div class="radio-group">
+              <label><input type="radio" name="familyCvdHistory" value="yes" data-field="medicalHistory.familyCvdHistory"><span>Yes</span></label>
+              <label><input type="radio" name="familyCvdHistory" value="no" data-field="medicalHistory.familyCvdHistory"><span>No</span></label>
+            </div>
+          </div>
+          <div class="conditional-field" data-show-if="medicalHistory.familyCvdHistory=yes">
+            <div class="form-group"><label>Family CVD Details</label><textarea rows="2" data-field="medicalHistory.familyCvdDetails"></textarea></div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(7)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(9)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 9: Current Medications -->
+      <section id="step-9" class="step-section">
+        <div class="card">
+          <h2>Current Medications</h2>
+          <div class="form-group"><label>Antihypertensive Medication Details</label><input type="text" data-field="currentMedications.onAntihypertensiveDetail"></div>
+          <div class="form-group"><label>Statin Medication Details</label><input type="text" data-field="currentMedications.onStatinDetail"></div>
+          <div class="form-row">
+            <div class="form-group"><label>On Aspirin?</label>
+              <div class="radio-group">
+                <label><input type="radio" name="onAspirin" value="yes" data-field="currentMedications.onAspirin"><span>Yes</span></label>
+                <label><input type="radio" name="onAspirin" value="no" data-field="currentMedications.onAspirin"><span>No</span></label>
+              </div>
+            </div>
+            <div class="form-group"><label>On Anticoagulant?</label>
+              <div class="radio-group">
+                <label><input type="radio" name="onAnticoagulant" value="yes" data-field="currentMedications.onAnticoagulant"><span>Yes</span></label>
+                <label><input type="radio" name="onAnticoagulant" value="no" data-field="currentMedications.onAnticoagulant"><span>No</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group"><label>On Diabetes Medication?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="onDiabetesMedication" value="yes" data-field="currentMedications.onDiabetesMedication"><span>Yes</span></label>
+              <label><input type="radio" name="onDiabetesMedication" value="no" data-field="currentMedications.onDiabetesMedication"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Other Medications</label><textarea rows="3" data-field="currentMedications.otherMedications"></textarea></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(8)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(10)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 10: Review & Calculate -->
+      <section id="step-10" class="step-section">
+        <div class="card">
+          <h2>Review &amp; Calculate</h2>
+          <div class="form-group"><label>Model Type</label>
+            <select data-field="reviewCalculate.modelType">
+              <option value="">-- Select --</option>
+              <option value="base">Base Model</option>
+              <option value="uacr">With uACR Enhancement</option>
+              <option value="hba1c">With HbA1c Enhancement</option>
+              <option value="full">Full Model (All Enhancements)</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Clinician Name</label><input type="text" data-field="reviewCalculate.clinicianName"></div>
+            <div class="form-group"><label>Review Date</label><input type="date" data-field="reviewCalculate.reviewDate"></div>
+          </div>
+          <div class="form-group"><label>Clinical Notes</label><textarea rows="4" data-field="reviewCalculate.clinicalNotes"></textarea></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(9)">&larr; Previous</button><button class="btn btn-success" onclick="submitForm()">Calculate Risk</button></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer"><p>PREVENT CVD Risk Calculator &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

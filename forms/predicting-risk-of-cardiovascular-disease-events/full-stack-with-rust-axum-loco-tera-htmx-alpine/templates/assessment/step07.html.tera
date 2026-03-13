@@ -1,0 +1,48 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Smoking History - AHA PREVENT{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Smoking History</h2>
+    <p class="hint">Current smoking status is a key factor in CVD risk estimation.</p>
+
+    <div class="form-group">
+      <label for="smoking_status">Smoking Status</label>
+      <select id="smoking_status" name="smoking_history.smoking_status">
+        <option value="">-- Select --</option>
+        <option value="never" {% if smoking_history.smokingStatus == "never" %}selected{% endif %}>Never Smoked</option>
+        <option value="current" {% if smoking_history.smokingStatus == "current" %}selected{% endif %}>Current Smoker</option>
+        <option value="former" {% if smoking_history.smokingStatus == "former" %}selected{% endif %}>Former Smoker</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="cigarettes_per_day">Cigarettes per Day</label>
+        <input type="number" id="cigarettes_per_day" name="smoking_history.cigarettes_per_day"
+               value="{{ smoking_history.cigarettesPerDay }}"
+               min="0" max="100" placeholder="e.g. 10">
+      </div>
+      <div class="form-group">
+        <label for="years_smoked">Years Smoked</label>
+        <input type="number" id="years_smoked" name="smoking_history.years_smoked"
+               value="{{ smoking_history.yearsSmoked }}"
+               min="0" max="80" placeholder="e.g. 15">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="years_since_quit">Years Since Quitting (if former smoker)</label>
+      <input type="number" id="years_since_quit" name="smoking_history.years_since_quit"
+             value="{{ smoking_history.yearsSinceQuit }}"
+             min="0" max="80" placeholder="e.g. 5">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
