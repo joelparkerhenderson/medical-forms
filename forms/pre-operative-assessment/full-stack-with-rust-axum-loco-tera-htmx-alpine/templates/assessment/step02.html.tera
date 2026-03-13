@@ -1,0 +1,131 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        hypertension: '{{ cardiovascular.hypertension }}',
+        ischemicHeartDisease: '{{ cardiovascular.ischemicHeartDisease }}',
+        heartFailure: '{{ cardiovascular.heartFailure }}',
+        valvularDisease: '{{ cardiovascular.valvularDisease }}',
+        arrhythmia: '{{ cardiovascular.arrhythmia }}',
+        recentMI: '{{ cardiovascular.recentMI }}'
+    }">
+        <div class="form-group">
+            <label>Hypertension</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular.hypertension" value="yes" x-model="hypertension" {% if cardiovascular.hypertension == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular.hypertension" value="no" x-model="hypertension" {% if cardiovascular.hypertension == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="hypertension === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label>Hypertension Controlled</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="cardiovascular.hypertension_controlled" value="yes" {% if cardiovascular.hypertensionControlled == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="cardiovascular.hypertension_controlled" value="no" {% if cardiovascular.hypertensionControlled == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Ischaemic Heart Disease</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular.ischemic_heart_disease" value="yes" x-model="ischemicHeartDisease" {% if cardiovascular.ischemicHeartDisease == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular.ischemic_heart_disease" value="no" x-model="ischemicHeartDisease" {% if cardiovascular.ischemicHeartDisease == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="ischemicHeartDisease === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="ihd_details">IHD Details</label>
+                <textarea id="ihd_details" name="cardiovascular.ihd_details">{{ cardiovascular.ihdDetails }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Heart Failure</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular.heart_failure" value="yes" x-model="heartFailure" {% if cardiovascular.heartFailure == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular.heart_failure" value="no" x-model="heartFailure" {% if cardiovascular.heartFailure == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="heartFailure === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="hf_nyha">NYHA Classification</label>
+                <select id="hf_nyha" name="cardiovascular.heart_failure_nyha">
+                    <option value="" {% if cardiovascular.heartFailureNYHA == "" %}selected{% endif %}>Select...</option>
+                    <option value="I" {% if cardiovascular.heartFailureNYHA == "I" %}selected{% endif %}>I - No limitation</option>
+                    <option value="II" {% if cardiovascular.heartFailureNYHA == "II" %}selected{% endif %}>II - Slight limitation</option>
+                    <option value="III" {% if cardiovascular.heartFailureNYHA == "III" %}selected{% endif %}>III - Marked limitation</option>
+                    <option value="IV" {% if cardiovascular.heartFailureNYHA == "IV" %}selected{% endif %}>IV - Symptoms at rest</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Valvular Disease</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular.valvular_disease" value="yes" x-model="valvularDisease" {% if cardiovascular.valvularDisease == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular.valvular_disease" value="no" x-model="valvularDisease" {% if cardiovascular.valvularDisease == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="valvularDisease === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="valvular_details">Valvular Details</label>
+                <textarea id="valvular_details" name="cardiovascular.valvular_details">{{ cardiovascular.valvularDetails }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Arrhythmia</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular.arrhythmia" value="yes" x-model="arrhythmia" {% if cardiovascular.arrhythmia == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular.arrhythmia" value="no" x-model="arrhythmia" {% if cardiovascular.arrhythmia == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="arrhythmia === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="arrhythmia_type">Arrhythmia Type</label>
+                <input type="text" id="arrhythmia_type" name="cardiovascular.arrhythmia_type"
+                       value="{{ cardiovascular.arrhythmiaType }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Pacemaker / ICD</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular.pacemaker" value="yes" {% if cardiovascular.pacemaker == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular.pacemaker" value="no" {% if cardiovascular.pacemaker == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Recent MI (within 6 months)</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular.recent_mi" value="yes" x-model="recentMI" {% if cardiovascular.recentMI == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular.recent_mi" value="no" x-model="recentMI" {% if cardiovascular.recentMI == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="recentMI === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="recent_mi_weeks">Weeks Since MI</label>
+                <input type="number" id="recent_mi_weeks" name="cardiovascular.recent_mi_weeks"
+                       value="{{ cardiovascular.recentMIWeeks | default(value='') }}" min="0" step="1">
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

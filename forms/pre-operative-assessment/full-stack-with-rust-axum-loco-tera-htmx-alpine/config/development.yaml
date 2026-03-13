@@ -1,0 +1,42 @@
+logger:
+  enable: true
+  pretty_backtrace: true
+  level: debug
+  format: compact
+
+server:
+  port: 5160
+  binding: localhost
+  host: http://localhost
+  middlewares:
+    static:
+      enable: true
+      must_exist: true
+      precompressed: false
+      folder:
+        uri: /static
+        path: assets/static
+    cors:
+      enable: true
+      allow_origins:
+        - http://localhost:5160
+      allow_methods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - OPTIONS
+      allow_headers:
+        - Content-Type
+        - Authorization
+
+database:
+  uri: postgres://localhost:5432/pre_op_assessment_tera_development
+  enable_logging: false
+  connect_timeout: 500
+  idle_timeout: 500
+  min_connections: 1
+  max_connections: 5
+  auto_migrate: true
+  dangerously_truncate: false
+  dangerously_recreate: false

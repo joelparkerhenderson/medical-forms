@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pre-Operative Assessment — Patient Form</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<h1>Pre-Operative Assessment</h1>
+		<p>Patient health questionnaire</p>
+	</header>
+
+	<!-- Landing page -->
+	<div id="landing" class="container">
+		<div class="card landing">
+			<h2>Pre-Operative Assessment Questionnaire</h2>
+			<p>This questionnaire collects health information to help your anaesthetist plan your care. Please answer all questions as accurately as possible.</p>
+			<button class="btn btn-primary" id="btn-start">Begin Assessment</button>
+		</div>
+	</div>
+
+	<!-- Assessment wizard -->
+	<div id="assessment" class="container hidden">
+		<!-- Progress bar -->
+		<div class="progress-bar">
+			<div class="progress-track">
+				<div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+			</div>
+			<div class="progress-text">
+				<span id="progress-step">Step 1 of 16</span>
+				<span id="progress-title">Demographics</span>
+			</div>
+		</div>
+
+		<!-- Step container -->
+		<div id="step-container">
+
+			<!-- ═══ STEP 1: Demographics ═══ -->
+			<section id="step-1" class="card" data-step="1">
+				<h2>Step 1: Demographics</h2>
+				<div class="form-row">
+					<div class="form-group">
+						<label for="demographics-firstName">First name</label>
+						<input type="text" id="demographics-firstName" data-field="demographics.firstName" required>
+					</div>
+					<div class="form-group">
+						<label for="demographics-lastName">Last name</label>
+						<input type="text" id="demographics-lastName" data-field="demographics.lastName" required>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group">
+						<label for="demographics-dateOfBirth">Date of birth</label>
+						<input type="date" id="demographics-dateOfBirth" data-field="demographics.dateOfBirth" required>
+					</div>
+					<div class="form-group">
+						<label>Sex</label>
+						<div class="radio-group">
+							<label><input type="radio" name="demographics-sex" data-field="demographics.sex" value="male"> Male</label>
+							<label><input type="radio" name="demographics-sex" data-field="demographics.sex" value="female"> Female</label>
+							<label><input type="radio" name="demographics-sex" data-field="demographics.sex" value="other"> Other</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group">
+						<label for="demographics-weight">Weight (kg)</label>
+						<input type="number" id="demographics-weight" data-field="demographics.weight" data-type="number" min="1" max="400" required>
+					</div>
+					<div class="form-group">
+						<label for="demographics-height">Height (cm)</label>
+						<input type="number" id="demographics-height" data-field="demographics.height" data-type="number" min="50" max="250" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>BMI</label>
+					<span class="computed-value" id="bmi-display">—</span>
+				</div>
+				<div class="form-group">
+					<label for="demographics-plannedProcedure">Planned procedure</label>
+					<input type="text" id="demographics-plannedProcedure" data-field="demographics.plannedProcedure" required>
+				</div>
+				<div class="form-group">
+					<label for="demographics-procedureUrgency">Procedure urgency</label>
+					<select id="demographics-procedureUrgency" data-field="demographics.procedureUrgency" required>
+						<option value="">Select...</option>
+						<option value="elective">Elective</option>
+						<option value="urgent">Urgent</option>
+						<option value="emergency">Emergency</option>
+					</select>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 2: Cardiovascular ═══ -->
+			<section id="step-2" class="card hidden" data-step="2">
+				<h2>Step 2: Cardiovascular</h2>
+				<div class="form-group">
+					<label>Hypertension (high blood pressure)?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="cv-hypertension" data-field="cardiovascular.hypertension" value="yes"> Yes</label>
+						<label><input type="radio" name="cv-hypertension" data-field="cardiovascular.hypertension" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="cardiovascular.hypertension=yes">
+						<div class="form-group">
+							<label>Is it controlled with medication?</label>
+							<div class="radio-group">
+								<label><input type="radio" name="cv-hypertensionControlled" data-field="cardiovascular.hypertensionControlled" value="yes"> Yes</label>
+								<label><input type="radio" name="cv-hypertensionControlled" data-field="cardiovascular.hypertensionControlled" value="no"> No</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Ischaemic heart disease?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="cv-ihd" data-field="cardiovascular.ischemicHeartDisease" value="yes"> Yes</label>
+						<label><input type="radio" name="cv-ihd" data-field="cardiovascular.ischemicHeartDisease" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="cardiovascular.ischemicHeartDisease=yes">
+						<div class="form-group">
+							<label for="cv-ihdDetails">Details</label>
+							<input type="text" id="cv-ihdDetails" data-field="cardiovascular.ihdDetails">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Heart failure?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="cv-hf" data-field="cardiovascular.heartFailure" value="yes"> Yes</label>
+						<label><input type="radio" name="cv-hf" data-field="cardiovascular.heartFailure" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="cardiovascular.heartFailure=yes">
+						<div class="form-group">
+							<label for="cv-nyha">NYHA Class</label>
+							<select id="cv-nyha" data-field="cardiovascular.heartFailureNYHA" required>
+								<option value="">Select...</option>
+								<option value="1">Class I - No limitation</option>
+								<option value="2">Class II - Mild limitation</option>
+								<option value="3">Class III - Marked limitation</option>
+								<option value="4">Class IV - Severe limitation</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Valvular heart disease?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="cv-valvular" data-field="cardiovascular.valvularDisease" value="yes"> Yes</label>
+						<label><input type="radio" name="cv-valvular" data-field="cardiovascular.valvularDisease" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="cardiovascular.valvularDisease=yes">
+						<div class="form-group">
+							<label for="cv-valvularDetails">Details</label>
+							<input type="text" id="cv-valvularDetails" data-field="cardiovascular.valvularDetails">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Arrhythmia?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="cv-arrhythmia" data-field="cardiovascular.arrhythmia" value="yes"> Yes</label>
+						<label><input type="radio" name="cv-arrhythmia" data-field="cardiovascular.arrhythmia" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="cardiovascular.arrhythmia=yes">
+						<div class="form-group">
+							<label for="cv-arrhythmiaType">Type</label>
+							<input type="text" id="cv-arrhythmiaType" data-field="cardiovascular.arrhythmiaType">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Pacemaker or ICD?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="cv-pacemaker" data-field="cardiovascular.pacemaker" value="yes"> Yes</label>
+						<label><input type="radio" name="cv-pacemaker" data-field="cardiovascular.pacemaker" value="no"> No</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Recent myocardial infarction (heart attack)?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="cv-recentMI" data-field="cardiovascular.recentMI" value="yes"> Yes</label>
+						<label><input type="radio" name="cv-recentMI" data-field="cardiovascular.recentMI" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="cardiovascular.recentMI=yes">
+						<div class="form-group">
+							<label for="cv-recentMIWeeks">How many weeks ago?</label>
+							<input type="number" id="cv-recentMIWeeks" data-field="cardiovascular.recentMIWeeks" data-type="number" min="0" max="26" required>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 3: Respiratory ═══ -->
+			<section id="step-3" class="card hidden" data-step="3">
+				<h2>Step 3: Respiratory</h2>
+				<div class="form-group">
+					<label>Asthma?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="resp-asthma" data-field="respiratory.asthma" value="yes"> Yes</label>
+						<label><input type="radio" name="resp-asthma" data-field="respiratory.asthma" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="respiratory.asthma=yes">
+						<div class="form-group">
+							<label for="resp-asthmaFreq">Frequency</label>
+							<select id="resp-asthmaFreq" data-field="respiratory.asthmaFrequency" required>
+								<option value="">Select...</option>
+								<option value="intermittent">Intermittent</option>
+								<option value="mild-persistent">Mild persistent</option>
+								<option value="moderate-persistent">Moderate persistent</option>
+								<option value="severe-persistent">Severe persistent</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>COPD?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="resp-copd" data-field="respiratory.copd" value="yes"> Yes</label>
+						<label><input type="radio" name="resp-copd" data-field="respiratory.copd" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="respiratory.copd=yes">
+						<div class="form-group">
+							<label for="resp-copdSev">Severity</label>
+							<select id="resp-copdSev" data-field="respiratory.copdSeverity" required>
+								<option value="">Select...</option>
+								<option value="mild">Mild</option>
+								<option value="moderate">Moderate</option>
+								<option value="severe">Severe</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Obstructive sleep apnoea (OSA)?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="resp-osa" data-field="respiratory.osa" value="yes"> Yes</label>
+						<label><input type="radio" name="resp-osa" data-field="respiratory.osa" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="respiratory.osa=yes">
+						<div class="form-group">
+							<label>Do you use CPAP?</label>
+							<div class="radio-group">
+								<label><input type="radio" name="resp-cpap" data-field="respiratory.osaCPAP" value="yes"> Yes</label>
+								<label><input type="radio" name="resp-cpap" data-field="respiratory.osaCPAP" value="no"> No</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Smoking status</label>
+					<div class="radio-group">
+						<label><input type="radio" name="resp-smoking" data-field="respiratory.smoking" value="current"> Current smoker</label>
+						<label><input type="radio" name="resp-smoking" data-field="respiratory.smoking" value="ex"> Ex-smoker</label>
+						<label><input type="radio" name="resp-smoking" data-field="respiratory.smoking" value="never"> Never smoked</label>
+					</div>
+					<div class="conditional hidden" data-show-if="respiratory.smoking=current|ex">
+						<div class="form-group">
+							<label for="resp-packYears">Pack-years</label>
+							<input type="number" id="resp-packYears" data-field="respiratory.smokingPackYears" data-type="number" min="0" max="200">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Recent upper respiratory tract infection?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="resp-urti" data-field="respiratory.recentURTI" value="yes"> Yes</label>
+						<label><input type="radio" name="resp-urti" data-field="respiratory.recentURTI" value="no"> No</label>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 4: Renal ═══ -->
+			<section id="step-4" class="card hidden" data-step="4">
+				<h2>Step 4: Renal</h2>
+				<div class="form-group">
+					<label>Chronic kidney disease (CKD)?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="renal-ckd" data-field="renal.ckd" value="yes"> Yes</label>
+						<label><input type="radio" name="renal-ckd" data-field="renal.ckd" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="renal.ckd=yes">
+						<div class="form-group">
+							<label for="renal-ckdStage">CKD Stage</label>
+							<select id="renal-ckdStage" data-field="renal.ckdStage" required>
+								<option value="">Select...</option>
+								<option value="1">Stage 1</option>
+								<option value="2">Stage 2</option>
+								<option value="3">Stage 3</option>
+								<option value="4">Stage 4</option>
+								<option value="5">Stage 5</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>On dialysis?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="renal-dialysis" data-field="renal.dialysis" value="yes"> Yes</label>
+						<label><input type="radio" name="renal-dialysis" data-field="renal.dialysis" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="renal.dialysis=yes">
+						<div class="form-group">
+							<label for="renal-dialysisType">Dialysis type</label>
+							<select id="renal-dialysisType" data-field="renal.dialysisType" required>
+								<option value="">Select...</option>
+								<option value="haemodialysis">Haemodialysis</option>
+								<option value="peritoneal">Peritoneal dialysis</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 5: Hepatic ═══ -->
+			<section id="step-5" class="card hidden" data-step="5">
+				<h2>Step 5: Hepatic</h2>
+				<div class="form-group">
+					<label>Liver disease?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="hep-liver" data-field="hepatic.liverDisease" value="yes"> Yes</label>
+						<label><input type="radio" name="hep-liver" data-field="hepatic.liverDisease" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="hepatic.liverDisease=yes">
+						<div class="form-group">
+							<label>Cirrhosis?</label>
+							<div class="radio-group">
+								<label><input type="radio" name="hep-cirrhosis" data-field="hepatic.cirrhosis" value="yes"> Yes</label>
+								<label><input type="radio" name="hep-cirrhosis" data-field="hepatic.cirrhosis" value="no"> No</label>
+							</div>
+						</div>
+						<div class="conditional hidden" data-show-if="hepatic.cirrhosis=yes">
+							<div class="form-group">
+								<label for="hep-childPugh">Child-Pugh Score</label>
+								<select id="hep-childPugh" data-field="hepatic.childPughScore" required>
+									<option value="">Select...</option>
+									<option value="A">A - Well compensated</option>
+									<option value="B">B - Significant compromise</option>
+									<option value="C">C - Decompensated</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Hepatitis?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="hep-hepatitis" data-field="hepatic.hepatitis" value="yes"> Yes</label>
+						<label><input type="radio" name="hep-hepatitis" data-field="hepatic.hepatitis" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="hepatic.hepatitis=yes">
+						<div class="form-group">
+							<label for="hep-hepatitisType">Hepatitis type</label>
+							<input type="text" id="hep-hepatitisType" data-field="hepatic.hepatitisType">
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 6: Endocrine ═══ -->
+			<section id="step-6" class="card hidden" data-step="6">
+				<h2>Step 6: Endocrine</h2>
+				<div class="form-group">
+					<label for="endo-diabetes">Diabetes</label>
+					<select id="endo-diabetes" data-field="endocrine.diabetes">
+						<option value="">Select...</option>
+						<option value="none">No</option>
+						<option value="type1">Type 1</option>
+						<option value="type2">Type 2</option>
+						<option value="gestational">Gestational</option>
+					</select>
+					<div class="conditional hidden" data-show-if="endocrine.diabetes=type1|type2|gestational">
+						<div class="form-group">
+							<label for="endo-control">Diabetes control</label>
+							<select id="endo-control" data-field="endocrine.diabetesControl" required>
+								<option value="">Select...</option>
+								<option value="well-controlled">Well controlled</option>
+								<option value="poorly-controlled">Poorly controlled</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>On insulin?</label>
+							<div class="radio-group">
+								<label><input type="radio" name="endo-insulin" data-field="endocrine.diabetesOnInsulin" value="yes"> Yes</label>
+								<label><input type="radio" name="endo-insulin" data-field="endocrine.diabetesOnInsulin" value="no"> No</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Thyroid disease?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="endo-thyroid" data-field="endocrine.thyroidDisease" value="yes"> Yes</label>
+						<label><input type="radio" name="endo-thyroid" data-field="endocrine.thyroidDisease" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="endocrine.thyroidDisease=yes">
+						<div class="form-group">
+							<label for="endo-thyroidType">Type</label>
+							<select id="endo-thyroidType" data-field="endocrine.thyroidType" required>
+								<option value="">Select...</option>
+								<option value="hypothyroid">Underactive (hypothyroid)</option>
+								<option value="hyperthyroid">Overactive (hyperthyroid)</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Adrenal insufficiency?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="endo-adrenal" data-field="endocrine.adrenalInsufficiency" value="yes"> Yes</label>
+						<label><input type="radio" name="endo-adrenal" data-field="endocrine.adrenalInsufficiency" value="no"> No</label>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 7: Neurological ═══ -->
+			<section id="step-7" class="card hidden" data-step="7">
+				<h2>Step 7: Neurological</h2>
+				<div class="form-group">
+					<label>Previous stroke or TIA?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="neuro-stroke" data-field="neurological.strokeOrTIA" value="yes"> Yes</label>
+						<label><input type="radio" name="neuro-stroke" data-field="neurological.strokeOrTIA" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="neurological.strokeOrTIA=yes">
+						<div class="form-group">
+							<label for="neuro-strokeDetails">Details</label>
+							<input type="text" id="neuro-strokeDetails" data-field="neurological.strokeDetails">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Epilepsy?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="neuro-epilepsy" data-field="neurological.epilepsy" value="yes"> Yes</label>
+						<label><input type="radio" name="neuro-epilepsy" data-field="neurological.epilepsy" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="neurological.epilepsy=yes">
+						<div class="form-group">
+							<label>Is it well controlled?</label>
+							<div class="radio-group">
+								<label><input type="radio" name="neuro-epilepsyCtrl" data-field="neurological.epilepsyControlled" value="yes"> Yes</label>
+								<label><input type="radio" name="neuro-epilepsyCtrl" data-field="neurological.epilepsyControlled" value="no"> No</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Neuromuscular disease?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="neuro-nm" data-field="neurological.neuromuscularDisease" value="yes"> Yes</label>
+						<label><input type="radio" name="neuro-nm" data-field="neurological.neuromuscularDisease" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="neurological.neuromuscularDisease=yes">
+						<div class="form-group">
+							<label for="neuro-nmDetails">Details</label>
+							<input type="text" id="neuro-nmDetails" data-field="neurological.neuromuscularDetails">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Raised intracranial pressure?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="neuro-icp" data-field="neurological.raisedICP" value="yes"> Yes</label>
+						<label><input type="radio" name="neuro-icp" data-field="neurological.raisedICP" value="no"> No</label>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 8: Haematological ═══ -->
+			<section id="step-8" class="card hidden" data-step="8">
+				<h2>Step 8: Haematological</h2>
+				<div class="form-group">
+					<label>Bleeding disorder?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="haem-bleeding" data-field="haematological.bleedingDisorder" value="yes"> Yes</label>
+						<label><input type="radio" name="haem-bleeding" data-field="haematological.bleedingDisorder" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="haematological.bleedingDisorder=yes">
+						<div class="form-group">
+							<label for="haem-bleedingDetails">Details</label>
+							<input type="text" id="haem-bleedingDetails" data-field="haematological.bleedingDetails">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>On anticoagulants (blood thinners)?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="haem-anticoag" data-field="haematological.onAnticoagulants" value="yes"> Yes</label>
+						<label><input type="radio" name="haem-anticoag" data-field="haematological.onAnticoagulants" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="haematological.onAnticoagulants=yes">
+						<div class="form-group">
+							<label for="haem-anticoagType">Which anticoagulant?</label>
+							<input type="text" id="haem-anticoagType" data-field="haematological.anticoagulantType">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Sickle cell disease?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="haem-sickle" data-field="haematological.sickleCellDisease" value="yes"> Yes</label>
+						<label><input type="radio" name="haem-sickle" data-field="haematological.sickleCellDisease" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="haematological.sickleCellDisease=no">
+						<div class="form-group">
+							<label>Sickle cell trait?</label>
+							<div class="radio-group">
+								<label><input type="radio" name="haem-sickleTrait" data-field="haematological.sickleCellTrait" value="yes"> Yes</label>
+								<label><input type="radio" name="haem-sickleTrait" data-field="haematological.sickleCellTrait" value="no"> No</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Anaemia?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="haem-anaemia" data-field="haematological.anaemia" value="yes"> Yes</label>
+						<label><input type="radio" name="haem-anaemia" data-field="haematological.anaemia" value="no"> No</label>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 9: Musculoskeletal & Airway ═══ -->
+			<section id="step-9" class="card hidden" data-step="9">
+				<h2>Step 9: Musculoskeletal & Airway</h2>
+				<div class="form-group">
+					<label>Rheumatoid arthritis?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="msk-ra" data-field="musculoskeletalAirway.rheumatoidArthritis" value="yes"> Yes</label>
+						<label><input type="radio" name="msk-ra" data-field="musculoskeletalAirway.rheumatoidArthritis" value="no"> No</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Cervical spine issues?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="msk-cspine" data-field="musculoskeletalAirway.cervicalSpineIssues" value="yes"> Yes</label>
+						<label><input type="radio" name="msk-cspine" data-field="musculoskeletalAirway.cervicalSpineIssues" value="no"> No</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Limited neck movement?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="msk-neck" data-field="musculoskeletalAirway.limitedNeckMovement" value="yes"> Yes</label>
+						<label><input type="radio" name="msk-neck" data-field="musculoskeletalAirway.limitedNeckMovement" value="no"> No</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Limited mouth opening?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="msk-mouth" data-field="musculoskeletalAirway.limitedMouthOpening" value="yes"> Yes</label>
+						<label><input type="radio" name="msk-mouth" data-field="musculoskeletalAirway.limitedMouthOpening" value="no"> No</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Dental issues (loose teeth, crowns, bridges)?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="msk-dental" data-field="musculoskeletalAirway.dentalIssues" value="yes"> Yes</label>
+						<label><input type="radio" name="msk-dental" data-field="musculoskeletalAirway.dentalIssues" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="musculoskeletalAirway.dentalIssues=yes">
+						<div class="form-group">
+							<label for="msk-dentalDetails">Details</label>
+							<input type="text" id="msk-dentalDetails" data-field="musculoskeletalAirway.dentalDetails">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Previous difficult airway?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="msk-diffAirway" data-field="musculoskeletalAirway.previousDifficultAirway" value="yes"> Yes</label>
+						<label><input type="radio" name="msk-diffAirway" data-field="musculoskeletalAirway.previousDifficultAirway" value="no"> No</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="msk-mallampati">Mallampati score (if known)</label>
+					<select id="msk-mallampati" data-field="musculoskeletalAirway.mallampatiScore">
+						<option value="">Not assessed</option>
+						<option value="1">Class 1</option>
+						<option value="2">Class 2</option>
+						<option value="3">Class 3</option>
+						<option value="4">Class 4</option>
+					</select>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 10: Gastrointestinal ═══ -->
+			<section id="step-10" class="card hidden" data-step="10">
+				<h2>Step 10: Gastrointestinal</h2>
+				<div class="form-group">
+					<label>Gastro-oesophageal reflux (GORD)?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="gi-gord" data-field="gastrointestinal.gord" value="yes"> Yes</label>
+						<label><input type="radio" name="gi-gord" data-field="gastrointestinal.gord" value="no"> No</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Hiatus hernia?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="gi-hiatus" data-field="gastrointestinal.hiatusHernia" value="yes"> Yes</label>
+						<label><input type="radio" name="gi-hiatus" data-field="gastrointestinal.hiatusHernia" value="no"> No</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Nausea or vomiting tendency?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="gi-nausea" data-field="gastrointestinal.nausea" value="yes"> Yes</label>
+						<label><input type="radio" name="gi-nausea" data-field="gastrointestinal.nausea" value="no"> No</label>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 11: Medications ═══ -->
+			<section id="step-11" class="card hidden" data-step="11">
+				<h2>Step 11: Current Medications</h2>
+				<button class="btn btn-secondary btn-sm" id="btn-add-medication">+ Add Medication</button>
+				<div id="medications-list" style="margin-top: 1rem;">
+					<p class="empty-message" id="meds-empty">No medications added. Click the button above to add one, or proceed to next step if you take none.</p>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 12: Allergies ═══ -->
+			<section id="step-12" class="card hidden" data-step="12">
+				<h2>Step 12: Allergies</h2>
+				<button class="btn btn-secondary btn-sm" id="btn-add-allergy">+ Add Allergy</button>
+				<div id="allergies-list" style="margin-top: 1rem;">
+					<p class="empty-message" id="allergies-empty">No allergies added. Click the button above to add one, or proceed to next step if you have none.</p>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 13: Previous Anaesthesia ═══ -->
+			<section id="step-13" class="card hidden" data-step="13">
+				<h2>Step 13: Previous Anaesthesia</h2>
+				<div class="form-group">
+					<label>Have you had a general anaesthetic before?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="anaes-prev" data-field="previousAnaesthesia.previousAnaesthesia" value="yes"> Yes</label>
+						<label><input type="radio" name="anaes-prev" data-field="previousAnaesthesia.previousAnaesthesia" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="previousAnaesthesia.previousAnaesthesia=yes">
+						<div class="form-group">
+							<label>Any problems with anaesthesia?</label>
+							<div class="radio-group">
+								<label><input type="radio" name="anaes-problems" data-field="previousAnaesthesia.anaesthesiaProblems" value="yes"> Yes</label>
+								<label><input type="radio" name="anaes-problems" data-field="previousAnaesthesia.anaesthesiaProblems" value="no"> No</label>
+							</div>
+						</div>
+						<div class="conditional hidden" data-show-if="previousAnaesthesia.anaesthesiaProblems=yes">
+							<div class="form-group">
+								<label for="anaes-problemDetails">Details</label>
+								<input type="text" id="anaes-problemDetails" data-field="previousAnaesthesia.anaesthesiaProblemDetails">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Family history of malignant hyperthermia?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="anaes-mh" data-field="previousAnaesthesia.familyMHHistory" value="yes"> Yes</label>
+						<label><input type="radio" name="anaes-mh" data-field="previousAnaesthesia.familyMHHistory" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="previousAnaesthesia.familyMHHistory=yes">
+						<div class="form-group">
+							<label for="anaes-mhDetails">Details</label>
+							<input type="text" id="anaes-mhDetails" data-field="previousAnaesthesia.familyMHDetails">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>History of post-operative nausea and vomiting (PONV)?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="anaes-ponv" data-field="previousAnaesthesia.ponv" value="yes"> Yes</label>
+						<label><input type="radio" name="anaes-ponv" data-field="previousAnaesthesia.ponv" value="no"> No</label>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 14: Social History ═══ -->
+			<section id="step-14" class="card hidden" data-step="14">
+				<h2>Step 14: Social History</h2>
+				<div class="form-group">
+					<label for="social-alcohol">Alcohol consumption</label>
+					<select id="social-alcohol" data-field="socialHistory.alcohol">
+						<option value="">Select...</option>
+						<option value="none">None</option>
+						<option value="occasional">Occasional (1-7 units/week)</option>
+						<option value="moderate">Moderate (8-14 units/week)</option>
+						<option value="heavy">Heavy (>14 units/week)</option>
+					</select>
+					<div class="conditional hidden" data-show-if="socialHistory.alcohol=occasional|moderate|heavy">
+						<div class="form-group">
+							<label for="social-units">Units per week</label>
+							<input type="number" id="social-units" data-field="socialHistory.alcoholUnitsPerWeek" data-type="number" min="0" max="200">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Recreational drug use?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="social-drugs" data-field="socialHistory.recreationalDrugs" value="yes"> Yes</label>
+						<label><input type="radio" name="social-drugs" data-field="socialHistory.recreationalDrugs" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="socialHistory.recreationalDrugs=yes">
+						<div class="form-group">
+							<label for="social-drugDetails">Details</label>
+							<input type="text" id="social-drugDetails" data-field="socialHistory.drugDetails">
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 15: Functional Capacity ═══ -->
+			<section id="step-15" class="card hidden" data-step="15">
+				<h2>Step 15: Functional Capacity</h2>
+				<div class="form-group">
+					<label for="fc-exercise">Exercise tolerance</label>
+					<select id="fc-exercise" data-field="functionalCapacity.exerciseTolerance">
+						<option value="">Select...</option>
+						<option value="unable">Unable to perform daily activities</option>
+						<option value="light-housework">Light housework / walking around the house</option>
+						<option value="climb-stairs">Climb a flight of stairs / walk uphill</option>
+						<option value="moderate-exercise">Moderate exercise (jogging, cycling)</option>
+						<option value="vigorous-exercise">Vigorous exercise (running, swimming laps)</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Estimated METs</label>
+					<span class="computed-value" id="mets-display">—</span>
+				</div>
+				<div class="form-group">
+					<label>Do you use mobility aids?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="fc-mobility" data-field="functionalCapacity.mobilityAids" value="yes"> Yes</label>
+						<label><input type="radio" name="fc-mobility" data-field="functionalCapacity.mobilityAids" value="no"> No</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>Recent decline in functional capacity?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="fc-decline" data-field="functionalCapacity.recentDecline" value="yes"> Yes</label>
+						<label><input type="radio" name="fc-decline" data-field="functionalCapacity.recentDecline" value="no"> No</label>
+					</div>
+				</div>
+			</section>
+
+			<!-- ═══ STEP 16: Pregnancy ═══ -->
+			<section id="step-16" class="card hidden" data-step="16">
+				<h2>Step 16: Pregnancy</h2>
+				<div class="form-group">
+					<label>Could you be pregnant?</label>
+					<div class="radio-group">
+						<label><input type="radio" name="preg-possible" data-field="pregnancy.possiblyPregnant" value="yes"> Yes</label>
+						<label><input type="radio" name="preg-possible" data-field="pregnancy.possiblyPregnant" value="no"> No</label>
+					</div>
+					<div class="conditional hidden" data-show-if="pregnancy.possiblyPregnant=yes">
+						<div class="form-group">
+							<label>Has pregnancy been confirmed?</label>
+							<div class="radio-group">
+								<label><input type="radio" name="preg-confirmed" data-field="pregnancy.pregnancyConfirmed" value="yes"> Yes</label>
+								<label><input type="radio" name="preg-confirmed" data-field="pregnancy.pregnancyConfirmed" value="no"> No</label>
+							</div>
+						</div>
+						<div class="conditional hidden" data-show-if="pregnancy.pregnancyConfirmed=yes">
+							<div class="form-group">
+								<label for="preg-weeks">Gestation (weeks)</label>
+								<input type="number" id="preg-weeks" data-field="pregnancy.gestationWeeks" data-type="number" min="1" max="42">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</div><!-- /step-container -->
+
+		<!-- Navigation -->
+		<div class="step-nav">
+			<button class="btn btn-secondary" id="btn-prev">Previous</button>
+			<button class="btn btn-primary" id="btn-next">Next</button>
+			<button class="btn btn-success hidden" id="btn-submit">Submit Assessment</button>
+		</div>
+	</div><!-- /assessment -->
+
+	<script type="module" src="js/app.js"></script>
+</body>
+</html>

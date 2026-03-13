@@ -1,0 +1,51 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        alcohol: '{{ social_history.alcohol }}',
+        recreationalDrugs: '{{ social_history.recreationalDrugs }}'
+    }">
+        <div class="form-group">
+            <label>Alcohol Consumption</label>
+            <div class="radio-group">
+                <label><input type="radio" name="social_history.alcohol" value="none" x-model="alcohol" {% if social_history.alcohol == "none" %}checked{% endif %}> None</label>
+                <label><input type="radio" name="social_history.alcohol" value="occasional" x-model="alcohol" {% if social_history.alcohol == "occasional" %}checked{% endif %}> Occasional</label>
+                <label><input type="radio" name="social_history.alcohol" value="moderate" x-model="alcohol" {% if social_history.alcohol == "moderate" %}checked{% endif %}> Moderate</label>
+                <label><input type="radio" name="social_history.alcohol" value="heavy" x-model="alcohol" {% if social_history.alcohol == "heavy" %}checked{% endif %}> Heavy</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="alcohol === 'occasional' || alcohol === 'moderate' || alcohol === 'heavy'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="alcohol_units">Units Per Week</label>
+                <input type="number" id="alcohol_units" name="social_history.alcohol_units_per_week"
+                       value="{{ social_history.alcoholUnitsPerWeek | default(value='') }}" min="0" step="1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Recreational Drug Use</label>
+            <div class="radio-group">
+                <label><input type="radio" name="social_history.recreational_drugs" value="yes" x-model="recreationalDrugs" {% if social_history.recreationalDrugs == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="social_history.recreational_drugs" value="no" x-model="recreationalDrugs" {% if social_history.recreationalDrugs == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="recreationalDrugs === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="drug_details">Drug Details</label>
+                <textarea id="drug_details" name="social_history.drug_details">{{ social_history.drugDetails }}</textarea>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

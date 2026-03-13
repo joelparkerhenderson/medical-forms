@@ -1,0 +1,64 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        anaesthesiaProblems: '{{ previous_anaesthesia.anaesthesiaProblems }}',
+        familyMHHistory: '{{ previous_anaesthesia.familyMHHistory }}'
+    }">
+        <div class="form-group">
+            <label>Previous Anaesthesia</label>
+            <div class="radio-group">
+                <label><input type="radio" name="previous_anaesthesia.previous_anaesthesia" value="yes" {% if previous_anaesthesia.previousAnaesthesia == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="previous_anaesthesia.previous_anaesthesia" value="no" {% if previous_anaesthesia.previousAnaesthesia == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Problems with Previous Anaesthesia</label>
+            <div class="radio-group">
+                <label><input type="radio" name="previous_anaesthesia.anaesthesia_problems" value="yes" x-model="anaesthesiaProblems" {% if previous_anaesthesia.anaesthesiaProblems == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="previous_anaesthesia.anaesthesia_problems" value="no" x-model="anaesthesiaProblems" {% if previous_anaesthesia.anaesthesiaProblems == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="anaesthesiaProblems === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="anaesthesia_problem_details">Problem Details</label>
+                <textarea id="anaesthesia_problem_details" name="previous_anaesthesia.anaesthesia_problem_details">{{ previous_anaesthesia.anaesthesiaProblemDetails }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Family History of Malignant Hyperthermia</label>
+            <div class="radio-group">
+                <label><input type="radio" name="previous_anaesthesia.family_mh_history" value="yes" x-model="familyMHHistory" {% if previous_anaesthesia.familyMHHistory == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="previous_anaesthesia.family_mh_history" value="no" x-model="familyMHHistory" {% if previous_anaesthesia.familyMHHistory == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="familyMHHistory === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="family_mh_details">MH Details</label>
+                <textarea id="family_mh_details" name="previous_anaesthesia.family_mh_details">{{ previous_anaesthesia.familyMHDetails }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>History of PONV (Post-Operative Nausea and Vomiting)</label>
+            <div class="radio-group">
+                <label><input type="radio" name="previous_anaesthesia.ponv" value="yes" {% if previous_anaesthesia.ponv == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="previous_anaesthesia.ponv" value="no" {% if previous_anaesthesia.ponv == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

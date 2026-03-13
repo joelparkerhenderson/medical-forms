@@ -1,0 +1,55 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        items: [
+            {% for allergy in allergies %}
+            { allergen: '{{ allergy.allergen }}', reaction: '{{ allergy.reaction }}', severity: '{{ allergy.severity }}' }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ],
+        addItem() { this.items.push({ allergen: '', reaction: '', severity: '' }); },
+        removeItem(i) { this.items.splice(i, 1); }
+    }">
+        <p class="form-hint">List all known allergies including the allergen, reaction, and severity.</p>
+
+        <div id="allergies-list">
+            <template x-for="(item, i) in items" :key="i">
+                <div class="dynamic-list-item">
+                    <button type="button" class="btn-remove-item" @click="removeItem(i)">&times;</button>
+                    <div class="form-row-3">
+                        <div class="form-group">
+                            <label>Allergen</label>
+                            <input type="text" :name="'allergies[' + i + '].allergen'" x-model="item.allergen">
+                        </div>
+                        <div class="form-group">
+                            <label>Reaction</label>
+                            <input type="text" :name="'allergies[' + i + '].reaction'" x-model="item.reaction">
+                        </div>
+                        <div class="form-group">
+                            <label>Severity</label>
+                            <select :name="'allergies[' + i + '].severity'" x-model="item.severity">
+                                <option value="">Select...</option>
+                                <option value="mild">Mild</option>
+                                <option value="moderate">Moderate</option>
+                                <option value="severe">Severe</option>
+                                <option value="anaphylaxis">Anaphylaxis</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <button type="button" class="btn-add-item" @click="addItem()">+ Add Allergy</button>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

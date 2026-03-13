@@ -1,0 +1,59 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinician Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>Clinician Dashboard</h1>
+    <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard" class="filter-bar"
+      hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+    <div class="form-group">
+        <label for="search">Search</label>
+        <input type="text" id="search" name="search" value="{{ search }}"
+               placeholder="NHS number, name, procedure..."
+               hx-trigger="keyup changed delay:300ms"
+               hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+    </div>
+    <div class="form-group">
+        <label for="asa_grade">ASA Grade</label>
+        <select id="asa_grade" name="asa_grade"
+                hx-trigger="change" hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+            <option value="">All</option>
+            <option value="1" {% if asa_grade == "1" %}selected{% endif %}>I</option>
+            <option value="2" {% if asa_grade == "2" %}selected{% endif %}>II</option>
+            <option value="3" {% if asa_grade == "3" %}selected{% endif %}>III</option>
+            <option value="4" {% if asa_grade == "4" %}selected{% endif %}>IV</option>
+            <option value="5" {% if asa_grade == "5" %}selected{% endif %}>V</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="allergy">Allergy</label>
+        <select id="allergy" name="allergy"
+                hx-trigger="change" hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+            <option value="">All</option>
+            <option value="yes" {% if allergy == "yes" %}selected{% endif %}>Yes</option>
+            <option value="no" {% if allergy == "no" %}selected{% endif %}>No</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="adverse">Adverse Incident</label>
+        <select id="adverse" name="adverse_incident"
+                hx-trigger="change" hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+            <option value="">All</option>
+            <option value="yes" {% if adverse_incident == "yes" %}selected{% endif %}>Yes</option>
+            <option value="no" {% if adverse_incident == "no" %}selected{% endif %}>No</option>
+        </select>
+    </div>
+    <div class="form-group" style="display: flex; gap: 0.5rem; align-items: flex-end;">
+        <button type="submit" class="btn btn-primary">Filter</button>
+        <a href="/dashboard" class="btn btn-secondary">Clear</a>
+    </div>
+</form>
+
+<div id="results-container">
+    {% include "_dashboard_results.html.tera" %}
+</div>
+{% endblock %}

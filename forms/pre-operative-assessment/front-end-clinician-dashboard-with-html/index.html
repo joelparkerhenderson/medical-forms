@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pre-Op Assessment — Clinician Dashboard</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<div class="header-inner">
+			<h1>Pre-Op Assessment — Clinician Dashboard</h1>
+			<p>Patient list with pre-operative assessment status</p>
+		</div>
+	</header>
+
+	<main class="container">
+		<!-- Filters bar -->
+		<div class="filter-bar">
+			<div class="filter-group search">
+				<label for="search">Search</label>
+				<input id="search" type="text" placeholder="NHS number, name, or procedure...">
+			</div>
+			<div class="filter-group">
+				<label for="asa-filter">ASA Grade</label>
+				<select id="asa-filter">
+					<option value="">All ASA grades</option>
+					<option value="1">ASA I</option>
+					<option value="2">ASA II</option>
+					<option value="3">ASA III</option>
+					<option value="4">ASA IV</option>
+				</select>
+			</div>
+			<div class="filter-group">
+				<label for="allergy-filter">Allergy</label>
+				<select id="allergy-filter">
+					<option value="">All</option>
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
+			</div>
+			<div class="filter-group">
+				<label for="adverse-filter">Prev. Adverse</label>
+				<select id="adverse-filter">
+					<option value="">All</option>
+					<option value="yes">Yes</option>
+					<option value="no">No</option>
+				</select>
+			</div>
+			<button class="btn btn-clear hidden" id="btn-clear">Clear filters</button>
+		</div>
+
+		<!-- Data table -->
+		<div class="table-card">
+			<table>
+				<thead>
+					<tr>
+						<th data-sort="nhsNumber">NHS Number <span class="sort-arrow">&#9652;</span></th>
+						<th data-sort="patientName">Patient Name <span class="sort-arrow">&#9652;</span></th>
+						<th data-sort="asaGrade">ASA Grade <span class="sort-arrow">&#9652;</span></th>
+						<th data-sort="surgeryProcedure">Surgery Procedure <span class="sort-arrow">&#9652;</span></th>
+						<th data-sort="allergyFlag">Allergy <span class="sort-arrow">&#9652;</span></th>
+						<th data-sort="previousAdverseIncident">Prev. Adverse <span class="sort-arrow">&#9652;</span></th>
+					</tr>
+				</thead>
+				<tbody id="patient-tbody"></tbody>
+			</table>
+		</div>
+
+		<!-- Summary -->
+		<div class="summary">
+			<span id="summary">Loading...</span>
+		</div>
+	</main>
+
+	<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

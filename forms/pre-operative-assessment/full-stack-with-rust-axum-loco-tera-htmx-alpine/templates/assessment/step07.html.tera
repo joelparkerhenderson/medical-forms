@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        strokeOrTIA: '{{ neurological.strokeOrTIA }}',
+        epilepsy: '{{ neurological.epilepsy }}',
+        neuromuscularDisease: '{{ neurological.neuromuscularDisease }}'
+    }">
+        <div class="form-group">
+            <label>Stroke or TIA</label>
+            <div class="radio-group">
+                <label><input type="radio" name="neurological.stroke_or_tia" value="yes" x-model="strokeOrTIA" {% if neurological.strokeOrTIA == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="neurological.stroke_or_tia" value="no" x-model="strokeOrTIA" {% if neurological.strokeOrTIA == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="strokeOrTIA === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="stroke_details">Stroke / TIA Details</label>
+                <textarea id="stroke_details" name="neurological.stroke_details">{{ neurological.strokeDetails }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Epilepsy</label>
+            <div class="radio-group">
+                <label><input type="radio" name="neurological.epilepsy" value="yes" x-model="epilepsy" {% if neurological.epilepsy == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="neurological.epilepsy" value="no" x-model="epilepsy" {% if neurological.epilepsy == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="epilepsy === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label>Epilepsy Controlled</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="neurological.epilepsy_controlled" value="yes" {% if neurological.epilepsyControlled == "yes" %}checked{% endif %}> Yes</label>
+                    <label><input type="radio" name="neurological.epilepsy_controlled" value="no" {% if neurological.epilepsyControlled == "no" %}checked{% endif %}> No</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Neuromuscular Disease</label>
+            <div class="radio-group">
+                <label><input type="radio" name="neurological.neuromuscular_disease" value="yes" x-model="neuromuscularDisease" {% if neurological.neuromuscularDisease == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="neurological.neuromuscular_disease" value="no" x-model="neuromuscularDisease" {% if neurological.neuromuscularDisease == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="neuromuscularDisease === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="neuromuscular_details">Neuromuscular Details</label>
+                <textarea id="neuromuscular_details" name="neurological.neuromuscular_details">{{ neurological.neuromuscularDetails }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Raised Intracranial Pressure</label>
+            <div class="radio-group">
+                <label><input type="radio" name="neurological.raised_icp" value="yes" {% if neurological.raisedICP == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="neurological.raised_icp" value="no" {% if neurological.raisedICP == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}
