@@ -1,0 +1,65 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Disease Activity - Rheumatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Disease Activity</h2>
+    <p class="hint">Record disease activity measures including global assessments and pain scores.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_global_assessment">Patient Global Assessment (1-10)</label>
+        <input type="number" id="patient_global_assessment" name="disease_activity.patient_global_assessment"
+               value="{{ disease_activity.patientGlobalAssessment }}" min="1" max="10">
+        <small>1 = Very well, 10 = Very poor</small>
+      </div>
+      <div class="form-group">
+        <label for="physician_global_assessment">Physician Global Assessment (1-10)</label>
+        <input type="number" id="physician_global_assessment" name="disease_activity.physician_global_assessment"
+               value="{{ disease_activity.physicianGlobalAssessment }}" min="1" max="10">
+        <small>1 = No activity, 10 = Maximum activity</small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="pain_vas_score">Pain VAS Score (1-10)</label>
+        <input type="number" id="pain_vas_score" name="disease_activity.pain_vas_score"
+               value="{{ disease_activity.painVasScore }}" min="1" max="10">
+        <small>1 = No pain, 10 = Worst possible pain</small>
+      </div>
+      <div class="form-group">
+        <label for="fatigue_severity">Fatigue Severity (1-10)</label>
+        <input type="number" id="fatigue_severity" name="disease_activity.fatigue_severity"
+               value="{{ disease_activity.fatigueSeverity }}" min="1" max="10">
+        <small>1 = No fatigue, 10 = Extreme fatigue</small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="flare_frequency">Flare Frequency</label>
+        <select id="flare_frequency" name="disease_activity.flare_frequency">
+          <option value="">-- Select --</option>
+          <option value="none" {% if disease_activity.flareFrequency == "none" %}selected{% endif %}>None</option>
+          <option value="rare" {% if disease_activity.flareFrequency == "rare" %}selected{% endif %}>Rare (1-2 per year)</option>
+          <option value="occasional" {% if disease_activity.flareFrequency == "occasional" %}selected{% endif %}>Occasional (3-6 per year)</option>
+          <option value="frequent" {% if disease_activity.flareFrequency == "frequent" %}selected{% endif %}>Frequent (monthly or more)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="das28_score">DAS28 Score</label>
+        <input type="number" id="das28_score" name="disease_activity.das28_score"
+               value="{{ disease_activity.das28Score }}" min="0" max="10" step="0.01">
+        <small>Disease Activity Score (28 joints)</small>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

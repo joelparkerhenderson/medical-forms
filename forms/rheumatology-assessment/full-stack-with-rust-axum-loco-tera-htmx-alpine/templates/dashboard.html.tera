@@ -1,0 +1,78 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Rheumatology Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Rheumatology Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, diagnosis, date...">
+    </div>
+    <div class="form-group">
+      <label for="activity_level">Activity Level</label>
+      <select id="activity_level" name="activity_level">
+        <option value="">All Levels</option>
+        <option value="remission" {% if activity_level == "remission" %}selected{% endif %}>Remission</option>
+        <option value="lowActivity" {% if activity_level == "lowActivity" %}selected{% endif %}>Low Activity</option>
+        <option value="moderateActivity" {% if activity_level == "moderateActivity" %}selected{% endif %}>Moderate Activity</option>
+        <option value="highActivity" {% if activity_level == "highActivity" %}selected{% endif %}>High Activity</option>
+        <option value="severe" {% if activity_level == "severe" %}selected{% endif %}>Severe</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="das28_category">DAS28 Category</label>
+      <select id="das28_category" name="das28_category">
+        <option value="">All</option>
+        <option value="remission" {% if das28_category == "remission" %}selected{% endif %}>Remission</option>
+        <option value="lowActivity" {% if das28_category == "lowActivity" %}selected{% endif %}>Low Activity</option>
+        <option value="moderateActivity" {% if das28_category == "moderateActivity" %}selected{% endif %}>Moderate Activity</option>
+        <option value="highActivity" {% if das28_category == "highActivity" %}selected{% endif %}>High Activity</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient</th>
+      <th>Diagnosis</th>
+      <th>Date</th>
+      <th>Activity Level</th>
+      <th>Score</th>
+      <th>DAS28</th>
+      <th>Swollen Joints</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.diagnosis }}</td>
+      <td>{{ patient.assessmentDate }}</td>
+      <td><span class="activity-badge activity-{{ patient.activityLevel }}">{{ patient.activityLevel }}</span></td>
+      <td>{{ patient.activityScore }}%</td>
+      <td><span class="das28-badge das28-{{ patient.das28Category }}">{{ patient.das28Category }}</span></td>
+      <td>{{ patient.swollenJoints }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

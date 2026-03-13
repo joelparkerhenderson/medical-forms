@@ -1,0 +1,64 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Functional Status - Rheumatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Functional Status</h2>
+    <p class="hint">Assess the patient's functional abilities and disability level.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="haq_score">HAQ-DI Score (0-3)</label>
+        <input type="number" id="haq_score" name="functional_status.haq_score"
+               value="{{ functional_status.haqScore }}" min="0" max="3" step="0.125">
+        <small>Health Assessment Questionnaire Disability Index</small>
+      </div>
+      <div class="form-group">
+        <label for="grip_strength">Grip Strength (1-10)</label>
+        <input type="number" id="grip_strength" name="functional_status.grip_strength"
+               value="{{ functional_status.gripStrength }}" min="1" max="10">
+        <small>1 = Normal, 10 = No grip</small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="walking_ability">Walking Ability (1-10)</label>
+        <input type="number" id="walking_ability" name="functional_status.walking_ability"
+               value="{{ functional_status.walkingAbility }}" min="1" max="10">
+        <small>1 = Normal, 10 = Unable to walk</small>
+      </div>
+      <div class="form-group">
+        <label for="self_care_ability">Self-Care Ability (1-10)</label>
+        <input type="number" id="self_care_ability" name="functional_status.self_care_ability"
+               value="{{ functional_status.selfCareAbility }}" min="1" max="10">
+        <small>1 = Fully independent, 10 = Fully dependent</small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Work Disability?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="functional_status.work_disability" value="yes" {% if functional_status.workDisability == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="functional_status.work_disability" value="no" {% if functional_status.workDisability == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="functional_status.work_disability" value="retired" {% if functional_status.workDisability == "retired" %}checked{% endif %}> Retired</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Assistive Devices Needed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="functional_status.assistive_devices_needed" value="yes" {% if functional_status.assistiveDevicesNeeded == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="functional_status.assistive_devices_needed" value="no" {% if functional_status.assistiveDevicesNeeded == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

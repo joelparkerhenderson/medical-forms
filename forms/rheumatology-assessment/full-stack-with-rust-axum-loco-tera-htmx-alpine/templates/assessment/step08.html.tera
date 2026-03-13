@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Medication History - Rheumatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Medication History</h2>
+    <p class="hint">Document current and past medication use including DMARDs, biologics, and supportive therapy.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="current_dmard_therapy">Current DMARD Therapy</label>
+        <select id="current_dmard_therapy" name="medication_history.current_dmard_therapy">
+          <option value="">-- Select --</option>
+          <option value="none" {% if medication_history.currentDmardTherapy == "none" %}selected{% endif %}>None</option>
+          <option value="methotrexate" {% if medication_history.currentDmardTherapy == "methotrexate" %}selected{% endif %}>Methotrexate</option>
+          <option value="sulfasalazine" {% if medication_history.currentDmardTherapy == "sulfasalazine" %}selected{% endif %}>Sulfasalazine</option>
+          <option value="leflunomide" {% if medication_history.currentDmardTherapy == "leflunomide" %}selected{% endif %}>Leflunomide</option>
+          <option value="hydroxychloroquine" {% if medication_history.currentDmardTherapy == "hydroxychloroquine" %}selected{% endif %}>Hydroxychloroquine</option>
+          <option value="combination" {% if medication_history.currentDmardTherapy == "combination" %}selected{% endif %}>Combination Therapy</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="biologic_therapy">Biologic Therapy</label>
+        <select id="biologic_therapy" name="medication_history.biologic_therapy">
+          <option value="">-- Select --</option>
+          <option value="none" {% if medication_history.biologicTherapy == "none" %}selected{% endif %}>None</option>
+          <option value="antiTNF" {% if medication_history.biologicTherapy == "antiTNF" %}selected{% endif %}>Anti-TNF (e.g. Adalimumab, Etanercept)</option>
+          <option value="rituximab" {% if medication_history.biologicTherapy == "rituximab" %}selected{% endif %}>Rituximab</option>
+          <option value="tocilizumab" {% if medication_history.biologicTherapy == "tocilizumab" %}selected{% endif %}>Tocilizumab</option>
+          <option value="abatacept" {% if medication_history.biologicTherapy == "abatacept" %}selected{% endif %}>Abatacept</option>
+          <option value="jakInhibitor" {% if medication_history.biologicTherapy == "jakInhibitor" %}selected{% endif %}>JAK Inhibitor</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Current Corticosteroid Use?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medication_history.corticosteroid_use" value="yes" {% if medication_history.corticosteroidUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medication_history.corticosteroid_use" value="no" {% if medication_history.corticosteroidUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Current NSAID Use?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medication_history.nsaid_use" value="yes" {% if medication_history.nsaidUse == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medication_history.nsaid_use" value="no" {% if medication_history.nsaidUse == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="medication_adherence">Medication Adherence (1-10)</label>
+        <input type="number" id="medication_adherence" name="medication_history.medication_adherence"
+               value="{{ medication_history.medicationAdherence }}" min="1" max="10">
+        <small>1 = Never takes medication, 10 = Always takes as prescribed</small>
+      </div>
+      <div class="form-group">
+        <label>Adverse Effects Reported?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medication_history.adverse_effects_reported" value="yes" {% if medication_history.adverseEffectsReported == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medication_history.adverse_effects_reported" value="no" {% if medication_history.adverseEffectsReported == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

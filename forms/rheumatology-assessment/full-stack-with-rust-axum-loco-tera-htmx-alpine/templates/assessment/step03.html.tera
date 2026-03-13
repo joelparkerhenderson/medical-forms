@@ -1,0 +1,61 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Morning Stiffness - Rheumatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Morning Stiffness</h2>
+    <p class="hint">Assess the duration, severity, and impact of morning stiffness.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="stiffness_duration_minutes">Stiffness Duration (minutes)</label>
+        <input type="number" id="stiffness_duration_minutes" name="morning_stiffness.stiffness_duration_minutes"
+               value="{{ morning_stiffness.stiffnessDurationMinutes }}" min="0" max="720">
+      </div>
+      <div class="form-group">
+        <label for="stiffness_severity">Stiffness Severity (1-10)</label>
+        <input type="number" id="stiffness_severity" name="morning_stiffness.stiffness_severity"
+               value="{{ morning_stiffness.stiffnessSeverity }}" min="1" max="10">
+        <small>1 = Minimal, 10 = Severe</small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="stiffness_frequency">Stiffness Frequency</label>
+        <select id="stiffness_frequency" name="morning_stiffness.stiffness_frequency">
+          <option value="">-- Select --</option>
+          <option value="daily" {% if morning_stiffness.stiffnessFrequency == "daily" %}selected{% endif %}>Daily</option>
+          <option value="mostDays" {% if morning_stiffness.stiffnessFrequency == "mostDays" %}selected{% endif %}>Most Days</option>
+          <option value="sometimes" {% if morning_stiffness.stiffnessFrequency == "sometimes" %}selected{% endif %}>Sometimes</option>
+          <option value="rarely" {% if morning_stiffness.stiffnessFrequency == "rarely" %}selected{% endif %}>Rarely</option>
+          <option value="never" {% if morning_stiffness.stiffnessFrequency == "never" %}selected{% endif %}>Never</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="stiffness_impact_on_function">Impact on Function (1-10)</label>
+        <input type="number" id="stiffness_impact_on_function" name="morning_stiffness.stiffness_impact_on_function"
+               value="{{ morning_stiffness.stiffnessImpactOnFunction }}" min="1" max="10">
+        <small>1 = No impact, 10 = Unable to function</small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Does stiffness improve with activity?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="morning_stiffness.stiffness_improvement_with_activity" value="yes" {% if morning_stiffness.stiffnessImprovementWithActivity == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="morning_stiffness.stiffness_improvement_with_activity" value="no" {% if morning_stiffness.stiffnessImprovementWithActivity == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="morning_stiffness.stiffness_improvement_with_activity" value="partially" {% if morning_stiffness.stiffnessImprovementWithActivity == "partially" %}checked{% endif %}> Partially</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

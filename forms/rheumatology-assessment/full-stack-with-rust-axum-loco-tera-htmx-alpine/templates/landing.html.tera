@@ -1,0 +1,33 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Rheumatology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Rheumatology Assessment</h1>
+  <p>
+    This assessment collects comprehensive clinical data for rheumatology patients.
+    It covers joint status, disease activity markers, laboratory results, imaging findings,
+    functional status, medication history, and comorbidities to support clinical decision-making.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive evaluation across all rheumatology domains</p>
+    </div>
+    <div class="feature-card">
+      <h3>Disease Activity Scoring</h3>
+      <p>Composite score with DAS28-based activity classification</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Alerts</h3>
+      <p>Flagged issues for urgent clinical attention</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

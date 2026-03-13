@@ -1,0 +1,64 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Laboratory Markers - Rheumatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Laboratory Markers</h2>
+    <p class="hint">Record key laboratory values including inflammatory markers and serology.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="esr_value">ESR (mm/hr)</label>
+        <input type="number" id="esr_value" name="laboratory_markers.esr_value"
+               value="{{ laboratory_markers.esrValue }}" min="0" max="200" step="0.1">
+      </div>
+      <div class="form-group">
+        <label for="crp_value">CRP (mg/L)</label>
+        <input type="number" id="crp_value" name="laboratory_markers.crp_value"
+               value="{{ laboratory_markers.crpValue }}" min="0" max="500" step="0.1">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Rheumatoid Factor (RF) Positive?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="laboratory_markers.rheumatoid_factor_positive" value="yes" {% if laboratory_markers.rheumatoidFactorPositive == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="laboratory_markers.rheumatoid_factor_positive" value="no" {% if laboratory_markers.rheumatoidFactorPositive == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="laboratory_markers.rheumatoid_factor_positive" value="unknown" {% if laboratory_markers.rheumatoidFactorPositive == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Anti-CCP Positive?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="laboratory_markers.anti_ccp_positive" value="yes" {% if laboratory_markers.antiCcpPositive == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="laboratory_markers.anti_ccp_positive" value="no" {% if laboratory_markers.antiCcpPositive == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="laboratory_markers.anti_ccp_positive" value="unknown" {% if laboratory_markers.antiCcpPositive == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>ANA Positive?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="laboratory_markers.ana_positive" value="yes" {% if laboratory_markers.anaPositive == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="laboratory_markers.ana_positive" value="no" {% if laboratory_markers.anaPositive == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="laboratory_markers.ana_positive" value="unknown" {% if laboratory_markers.anaPositive == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="hemoglobin_value">Hemoglobin (g/dL)</label>
+        <input type="number" id="hemoglobin_value" name="laboratory_markers.hemoglobin_value"
+               value="{{ laboratory_markers.hemoglobinValue }}" min="0" max="25" step="0.1">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

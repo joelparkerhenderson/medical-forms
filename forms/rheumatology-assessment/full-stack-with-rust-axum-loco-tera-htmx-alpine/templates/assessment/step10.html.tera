@@ -1,0 +1,70 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Rheumatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Summarise the clinical review including treatment response and follow-up plan.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="treatment_response">Treatment Response (1-10)</label>
+        <input type="number" id="treatment_response" name="clinical_review.treatment_response"
+               value="{{ clinical_review.treatmentResponse }}" min="1" max="10">
+        <small>1 = No response, 10 = Excellent response</small>
+      </div>
+      <div class="form-group">
+        <label>Treatment Goal Met?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.treatment_goal_met" value="yes" {% if clinical_review.treatmentGoalMet == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.treatment_goal_met" value="no" {% if clinical_review.treatmentGoalMet == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="clinical_review.treatment_goal_met" value="partial" {% if clinical_review.treatmentGoalMet == "partial" %}checked{% endif %}> Partial</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Referral Needed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.referral_needed" value="yes" {% if clinical_review.referralNeeded == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.referral_needed" value="no" {% if clinical_review.referralNeeded == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Patient Education Provided?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.patient_education_provided" value="yes" {% if clinical_review.patientEducationProvided == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.patient_education_provided" value="no" {% if clinical_review.patientEducationProvided == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="follow_up_interval">Follow-up Interval</label>
+        <select id="follow_up_interval" name="clinical_review.follow_up_interval">
+          <option value="">-- Select --</option>
+          <option value="4weeks" {% if clinical_review.followUpInterval == "4weeks" %}selected{% endif %}>4 Weeks</option>
+          <option value="8weeks" {% if clinical_review.followUpInterval == "8weeks" %}selected{% endif %}>8 Weeks</option>
+          <option value="12weeks" {% if clinical_review.followUpInterval == "12weeks" %}selected{% endif %}>12 Weeks</option>
+          <option value="6months" {% if clinical_review.followUpInterval == "6months" %}selected{% endif %}>6 Months</option>
+          <option value="12months" {% if clinical_review.followUpInterval == "12months" %}selected{% endif %}>12 Months</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinician_notes">Clinician Notes</label>
+      <textarea id="clinician_notes" name="clinical_review.clinician_notes"
+                rows="4" placeholder="Additional clinical notes and observations...">{{ clinical_review.clinicianNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Rheumatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide patient demographic and referral details.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_name">Patient Name</label>
+        <input type="text" id="patient_name" name="patient_information.patient_name"
+               value="{{ patient_information.patientName }}"
+               placeholder="e.g. Jane Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_sex">Sex</label>
+        <select id="patient_sex" name="patient_information.patient_sex">
+          <option value="">-- Select --</option>
+          <option value="female" {% if patient_information.patientSex == "female" %}selected{% endif %}>Female</option>
+          <option value="male" {% if patient_information.patientSex == "male" %}selected{% endif %}>Male</option>
+          <option value="other" {% if patient_information.patientSex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="referral_source">Referral Source</label>
+        <select id="referral_source" name="patient_information.referral_source">
+          <option value="">-- Select --</option>
+          <option value="gp" {% if patient_information.referralSource == "gp" %}selected{% endif %}>GP Referral</option>
+          <option value="selfReferral" {% if patient_information.referralSource == "selfReferral" %}selected{% endif %}>Self-Referral</option>
+          <option value="specialist" {% if patient_information.referralSource == "specialist" %}selected{% endif %}>Specialist Referral</option>
+          <option value="emergency" {% if patient_information.referralSource == "emergency" %}selected{% endif %}>Emergency</option>
+          <option value="other" {% if patient_information.referralSource == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="diagnosis">Primary Diagnosis</label>
+        <select id="diagnosis" name="patient_information.diagnosis">
+          <option value="">-- Select --</option>
+          <option value="rheumatoidArthritis" {% if patient_information.diagnosis == "rheumatoidArthritis" %}selected{% endif %}>Rheumatoid Arthritis</option>
+          <option value="psoriaticArthritis" {% if patient_information.diagnosis == "psoriaticArthritis" %}selected{% endif %}>Psoriatic Arthritis</option>
+          <option value="ankylosingSpondylitis" {% if patient_information.diagnosis == "ankylosingSpondylitis" %}selected{% endif %}>Ankylosing Spondylitis</option>
+          <option value="sle" {% if patient_information.diagnosis == "sle" %}selected{% endif %}>Systemic Lupus Erythematosus</option>
+          <option value="gout" {% if patient_information.diagnosis == "gout" %}selected{% endif %}>Gout</option>
+          <option value="osteoarthritis" {% if patient_information.diagnosis == "osteoarthritis" %}selected{% endif %}>Osteoarthritis</option>
+          <option value="other" {% if patient_information.diagnosis == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="disease_duration_years">Disease Duration</label>
+        <select id="disease_duration_years" name="patient_information.disease_duration_years">
+          <option value="">-- Select --</option>
+          <option value="lessThan1" {% if patient_information.diseaseDurationYears == "lessThan1" %}selected{% endif %}>Less than 1 year</option>
+          <option value="1to5" {% if patient_information.diseaseDurationYears == "1to5" %}selected{% endif %}>1 - 5 years</option>
+          <option value="5to10" {% if patient_information.diseaseDurationYears == "5to10" %}selected{% endif %}>5 - 10 years</option>
+          <option value="moreThan10" {% if patient_information.diseaseDurationYears == "moreThan10" %}selected{% endif %}>More than 10 years</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="assessment_date">Assessment Date</label>
+        <input type="date" id="assessment_date" name="patient_information.assessment_date"
+               value="{{ patient_information.assessmentDate }}">
+      </div>
+      <div class="form-group">
+        <label for="rheumatologist_name">Rheumatologist Name</label>
+        <input type="text" id="rheumatologist_name" name="patient_information.rheumatologist_name"
+               value="{{ patient_information.rheumatologistName }}"
+               placeholder="e.g. Dr Johnson">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

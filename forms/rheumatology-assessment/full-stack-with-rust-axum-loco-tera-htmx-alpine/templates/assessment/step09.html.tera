@@ -1,0 +1,65 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Comorbidities - Rheumatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Comorbidities</h2>
+    <p class="hint">Document relevant comorbid conditions that may affect treatment decisions.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Cardiovascular Disease?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.cardiovascular_disease" value="yes" {% if comorbidities.cardiovascularDisease == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.cardiovascular_disease" value="no" {% if comorbidities.cardiovascularDisease == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Osteoporosis?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.osteoporosis" value="yes" {% if comorbidities.osteoporosis == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.osteoporosis" value="no" {% if comorbidities.osteoporosis == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Interstitial Lung Disease?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.interstitial_lung_disease" value="yes" {% if comorbidities.interstitialLungDisease == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.interstitial_lung_disease" value="no" {% if comorbidities.interstitialLungDisease == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Significant Infection History?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.infection_history" value="yes" {% if comorbidities.infectionHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.infection_history" value="no" {% if comorbidities.infectionHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Mental Health Concerns?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="comorbidities.mental_health_concerns" value="yes" {% if comorbidities.mentalHealthConcerns == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="comorbidities.mental_health_concerns" value="no" {% if comorbidities.mentalHealthConcerns == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="other_comorbidities">Other Comorbidities</label>
+        <textarea id="other_comorbidities" name="comorbidities.other_comorbidities"
+                  rows="3" placeholder="List any other relevant conditions...">{{ comorbidities.otherComorbidities }}</textarea>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

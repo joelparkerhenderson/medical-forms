@@ -1,0 +1,67 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Joint Assessment - Rheumatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Joint Assessment</h2>
+    <p class="hint">Evaluate the patient's joint status including swollen and tender joint counts.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="swollen_joint_count">Swollen Joint Count (0-28)</label>
+        <input type="number" id="swollen_joint_count" name="joint_assessment.swollen_joint_count"
+               value="{{ joint_assessment.swollenJointCount }}" min="0" max="28">
+      </div>
+      <div class="form-group">
+        <label for="tender_joint_count">Tender Joint Count (0-28)</label>
+        <input type="number" id="tender_joint_count" name="joint_assessment.tender_joint_count"
+               value="{{ joint_assessment.tenderJointCount }}" min="0" max="28">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Joint Deformity Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="joint_assessment.joint_deformity_present" value="yes" {% if joint_assessment.jointDeformityPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="joint_assessment.joint_deformity_present" value="no" {% if joint_assessment.jointDeformityPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Joint Erosion Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="joint_assessment.joint_erosion_present" value="yes" {% if joint_assessment.jointErosionPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="joint_assessment.joint_erosion_present" value="no" {% if joint_assessment.jointErosionPresent == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="affected_joint_regions">Affected Joint Regions</label>
+        <select id="affected_joint_regions" name="joint_assessment.affected_joint_regions">
+          <option value="">-- Select --</option>
+          <option value="hands" {% if joint_assessment.affectedJointRegions == "hands" %}selected{% endif %}>Hands/Wrists</option>
+          <option value="feet" {% if joint_assessment.affectedJointRegions == "feet" %}selected{% endif %}>Feet/Ankles</option>
+          <option value="knees" {% if joint_assessment.affectedJointRegions == "knees" %}selected{% endif %}>Knees</option>
+          <option value="shoulders" {% if joint_assessment.affectedJointRegions == "shoulders" %}selected{% endif %}>Shoulders</option>
+          <option value="hips" {% if joint_assessment.affectedJointRegions == "hips" %}selected{% endif %}>Hips</option>
+          <option value="multiple" {% if joint_assessment.affectedJointRegions == "multiple" %}selected{% endif %}>Multiple Regions</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="joint_range_of_motion">Joint Range of Motion (1-10)</label>
+        <input type="number" id="joint_range_of_motion" name="joint_assessment.joint_range_of_motion"
+               value="{{ joint_assessment.jointRangeOfMotion }}" min="1" max="10">
+        <small>1 = Full range, 10 = Severely restricted</small>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Imaging Findings - Rheumatology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Imaging Findings</h2>
+    <p class="hint">Document radiographic and imaging findings.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>X-ray Erosions Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="imaging_findings.xray_erosions_present" value="yes" {% if imaging_findings.xrayErosionsPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="imaging_findings.xray_erosions_present" value="no" {% if imaging_findings.xrayErosionsPresent == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="imaging_findings.xray_erosions_present" value="notDone" {% if imaging_findings.xrayErosionsPresent == "notDone" %}checked{% endif %}> Not Done</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>X-ray Joint Space Narrowing?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="imaging_findings.xray_joint_space_narrowing" value="yes" {% if imaging_findings.xrayJointSpaceNarrowing == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="imaging_findings.xray_joint_space_narrowing" value="no" {% if imaging_findings.xrayJointSpaceNarrowing == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="imaging_findings.xray_joint_space_narrowing" value="notDone" {% if imaging_findings.xrayJointSpaceNarrowing == "notDone" %}checked{% endif %}> Not Done</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Ultrasound Synovitis Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="imaging_findings.ultrasound_synovitis_present" value="yes" {% if imaging_findings.ultrasoundSynovitisPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="imaging_findings.ultrasound_synovitis_present" value="no" {% if imaging_findings.ultrasoundSynovitisPresent == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="imaging_findings.ultrasound_synovitis_present" value="notDone" {% if imaging_findings.ultrasoundSynovitisPresent == "notDone" %}checked{% endif %}> Not Done</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>MRI Bone Edema Present?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="imaging_findings.mri_bone_edema_present" value="yes" {% if imaging_findings.mriBoneEdemaPresent == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="imaging_findings.mri_bone_edema_present" value="no" {% if imaging_findings.mriBoneEdemaPresent == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="imaging_findings.mri_bone_edema_present" value="notDone" {% if imaging_findings.mriBoneEdemaPresent == "notDone" %}checked{% endif %}> Not Done</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Imaging Progression Since Last Assessment?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="imaging_findings.imaging_progression_since_last" value="yes" {% if imaging_findings.imagingProgressionSinceLast == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="imaging_findings.imaging_progression_since_last" value="no" {% if imaging_findings.imagingProgressionSinceLast == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="imaging_findings.imaging_progression_since_last" value="firstAssessment" {% if imaging_findings.imagingProgressionSinceLast == "firstAssessment" %}checked{% endif %}> First Assessment</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="overall_radiographic_stage">Overall Radiographic Stage</label>
+        <select id="overall_radiographic_stage" name="imaging_findings.overall_radiographic_stage">
+          <option value="">-- Select --</option>
+          <option value="stage1" {% if imaging_findings.overallRadiographicStage == "stage1" %}selected{% endif %}>Stage I - Early</option>
+          <option value="stage2" {% if imaging_findings.overallRadiographicStage == "stage2" %}selected{% endif %}>Stage II - Moderate</option>
+          <option value="stage3" {% if imaging_findings.overallRadiographicStage == "stage3" %}selected{% endif %}>Stage III - Severe</option>
+          <option value="stage4" {% if imaging_findings.overallRadiographicStage == "stage4" %}selected{% endif %}>Stage IV - Terminal</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
