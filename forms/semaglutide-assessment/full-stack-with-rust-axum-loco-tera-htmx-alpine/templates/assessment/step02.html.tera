@@ -1,0 +1,82 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Weight & BMI History - Semaglutide Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Weight & BMI History</h2>
+    <p class="hint">Record the patient's current weight, height, BMI, and weight history.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="current_weight_kg">Current Weight (kg)</label>
+        <input type="number" id="current_weight_kg" name="weight_bmi_history.current_weight_kg"
+               value="{{ weight_bmi_history.currentWeightKg }}" step="0.1" min="30" max="300">
+      </div>
+      <div class="form-group">
+        <label for="height_cm">Height (cm)</label>
+        <input type="number" id="height_cm" name="weight_bmi_history.height_cm"
+               value="{{ weight_bmi_history.heightCm }}" step="0.1" min="100" max="250">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="current_bmi">Current BMI (kg/m2)</label>
+        <input type="number" id="current_bmi" name="weight_bmi_history.current_bmi"
+               value="{{ weight_bmi_history.currentBmi }}" step="0.1" min="10" max="80">
+      </div>
+      <div class="form-group">
+        <label for="highest_bmi">Highest Recorded BMI</label>
+        <input type="number" id="highest_bmi" name="weight_bmi_history.highest_bmi"
+               value="{{ weight_bmi_history.highestBmi }}" step="0.1" min="10" max="80">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="weight_loss_attempts">Previous Weight Loss Attempts</label>
+        <select id="weight_loss_attempts" name="weight_bmi_history.weight_loss_attempts">
+          <option value="">-- Select --</option>
+          <option value="none" {% if weight_bmi_history.weightLossAttempts == "none" %}selected{% endif %}>None</option>
+          <option value="dietOnly" {% if weight_bmi_history.weightLossAttempts == "dietOnly" %}selected{% endif %}>Diet only</option>
+          <option value="dietAndExercise" {% if weight_bmi_history.weightLossAttempts == "dietAndExercise" %}selected{% endif %}>Diet and exercise</option>
+          <option value="medication" {% if weight_bmi_history.weightLossAttempts == "medication" %}selected{% endif %}>Medication</option>
+          <option value="multiple" {% if weight_bmi_history.weightLossAttempts == "multiple" %}selected{% endif %}>Multiple methods</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="previous_weight_loss_medications">Previous Weight Loss Medications</label>
+        <input type="text" id="previous_weight_loss_medications" name="weight_bmi_history.previous_weight_loss_medications"
+               value="{{ weight_bmi_history.previousWeightLossMedications }}"
+               placeholder="e.g. Orlistat, Liraglutide">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>History of Bariatric Surgery?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="weight_bmi_history.bariatric_surgery_history" value="yes" {% if weight_bmi_history.bariatricSurgeryHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="weight_bmi_history.bariatric_surgery_history" value="no" {% if weight_bmi_history.bariatricSurgeryHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="weight_gain_duration">Duration of Weight Gain</label>
+        <select id="weight_gain_duration" name="weight_bmi_history.weight_gain_duration">
+          <option value="">-- Select --</option>
+          <option value="lessThan1Year" {% if weight_bmi_history.weightGainDuration == "lessThan1Year" %}selected{% endif %}>Less than 1 year</option>
+          <option value="1to5Years" {% if weight_bmi_history.weightGainDuration == "1to5Years" %}selected{% endif %}>1-5 years</option>
+          <option value="5to10Years" {% if weight_bmi_history.weightGainDuration == "5to10Years" %}selected{% endif %}>5-10 years</option>
+          <option value="moreThan10Years" {% if weight_bmi_history.weightGainDuration == "moreThan10Years" %}selected{% endif %}>More than 10 years</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

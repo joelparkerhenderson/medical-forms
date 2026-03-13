@@ -1,0 +1,177 @@
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  --white: #ffffff;
+  --border-radius: 0.5rem;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--gray-900);
+  background: var(--gray-100);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 { font-size: 1.25rem; color: var(--primary); }
+header nav a { margin-left: 1rem; color: var(--gray-700); text-decoration: none; }
+header nav a:hover { color: var(--primary); }
+
+main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gray-500);
+  font-size: 0.875rem;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary { background: var(--primary); color: var(--white); }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-secondary { background: var(--gray-200); color: var(--gray-700); }
+.btn-success { background: var(--success); color: var(--white); }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 0.25rem; color: var(--gray-700); }
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+.radio-group { display: flex; gap: 1rem; margin-top: 0.25rem; }
+.radio-group label { font-weight: 400; display: flex; align-items: center; gap: 0.3rem; }
+
+.likert-group { display: flex; gap: 1.5rem; margin-top: 0.25rem; }
+.likert-group label { font-weight: 400; display: flex; align-items: center; gap: 0.3rem; }
+.likert-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--gray-500); }
+
+.hint { color: var(--gray-500); margin-bottom: 1.5rem; }
+
+.progress-info { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--gray-500); margin-bottom: 0.5rem; }
+.progress-bar { background: var(--gray-200); border-radius: 999px; height: 0.5rem; margin-bottom: 1.5rem; }
+.progress-fill { background: var(--primary); height: 100%; border-radius: 999px; transition: width 0.3s; }
+
+.step-nav { display: flex; justify-content: space-between; margin-top: 2rem; }
+
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; }
+.feature-card { background: var(--gray-100); padding: 1.5rem; border-radius: var(--border-radius); text-align: center; }
+.feature-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+.feature-card p { font-size: 0.875rem; color: var(--gray-500); }
+
+.report-header { display: flex; justify-content: space-between; align-items: center; }
+.score-display { text-align: center; font-size: 3rem; font-weight: 700; color: var(--primary); }
+.score-label { text-align: center; color: var(--gray-500); }
+
+.eligibility-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.eligibility-eligible { background: #dcfce7; color: #166534; }
+.eligibility-cautionRequired { background: #fef3c7; color: #92400e; }
+.eligibility-notEligible { background: #fee2e2; color: #991b1b; }
+.eligibility-contraindicated { background: #fecaca; color: #7f1d1d; }
+.eligibility-draft { background: var(--gray-200); color: var(--gray-700); }
+
+.bmi-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.bmi-morbidlyObese { background: #fecaca; color: #7f1d1d; }
+.bmi-severelyObese { background: #fee2e2; color: #991b1b; }
+.bmi-obese { background: #fed7aa; color: #9a3412; }
+.bmi-overweight { background: #fef3c7; color: #92400e; }
+.bmi-mildlyOverweight { background: #fef9c3; color: #854d0e; }
+.bmi-normal { background: #dcfce7; color: #166534; }
+
+.concern-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.concern-high { background: #fee2e2; color: #991b1b; }
+.concern-medium { background: #fef3c7; color: #92400e; }
+.concern-low { background: #dcfce7; color: #166534; }
+
+.flags-section { display: flex; flex-direction: column; gap: 0.75rem; }
+.flag-item { padding: 0.75rem 1rem; border-radius: var(--border-radius); border-left: 4px solid; }
+.flag-high { border-color: var(--danger); background: #fef2f2; }
+.flag-medium { border-color: var(--warning); background: #fffbeb; }
+.flag-low { border-color: var(--success); background: #f0fdf4; }
+.flag-meta { font-size: 0.75rem; margin-bottom: 0.25rem; }
+
+.rules-table { width: 100%; border-collapse: collapse; }
+.rules-table th, .rules-table td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid var(--gray-200); }
+.rules-table th { font-weight: 600; background: var(--gray-100); }
+
+.dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.filter-bar { display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap; margin-bottom: 1rem; }
+.filter-bar .form-group { flex: 1; min-width: 150px; }
+
+.patient-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.patient-table th, .patient-table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--gray-200); }
+.patient-table th { font-weight: 600; background: var(--gray-100); }
+.patient-table a { color: var(--primary); text-decoration: none; }
+.patient-table a:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: 1fr; }
+  .features { grid-template-columns: 1fr; }
+  .filter-bar { flex-direction: column; }
+}

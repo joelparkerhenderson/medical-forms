@@ -1,0 +1,89 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Treatment Goals - Semaglutide Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Treatment Goals</h2>
+    <p class="hint">Define the patient's treatment objectives and expectations.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="target_weight_loss_percent">Target Weight Loss (%)</label>
+        <input type="number" id="target_weight_loss_percent" name="treatment_goals.target_weight_loss_percent"
+               value="{{ treatment_goals.targetWeightLossPercent }}" step="0.5" min="0" max="30">
+      </div>
+      <div class="form-group">
+        <label for="primary_goal">Primary Treatment Goal</label>
+        <select id="primary_goal" name="treatment_goals.primary_goal">
+          <option value="">-- Select --</option>
+          <option value="weightLoss" {% if treatment_goals.primaryGoal == "weightLoss" %}selected{% endif %}>Weight Loss</option>
+          <option value="glycaemicControl" {% if treatment_goals.primaryGoal == "glycaemicControl" %}selected{% endif %}>Glycaemic Control</option>
+          <option value="cardiovascular" {% if treatment_goals.primaryGoal == "cardiovascular" %}selected{% endif %}>Cardiovascular Risk Reduction</option>
+          <option value="combined" {% if treatment_goals.primaryGoal == "combined" %}selected{% endif %}>Combined Goals</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Glycaemic Control Goal</label>
+        <div class="radio-group">
+          <label><input type="radio" name="treatment_goals.glycaemic_control_goal" value="yes" {% if treatment_goals.glycaemicControlGoal == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="treatment_goals.glycaemic_control_goal" value="no" {% if treatment_goals.glycaemicControlGoal == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="treatment_goals.glycaemic_control_goal" value="na" {% if treatment_goals.glycaemicControlGoal == "na" %}checked{% endif %}> N/A</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Cardiovascular Risk Reduction</label>
+        <div class="radio-group">
+          <label><input type="radio" name="treatment_goals.cardiovascular_risk_reduction" value="yes" {% if treatment_goals.cardiovascularRiskReduction == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="treatment_goals.cardiovascular_risk_reduction" value="no" {% if treatment_goals.cardiovascularRiskReduction == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Mobility Improvement</label>
+        <div class="radio-group">
+          <label><input type="radio" name="treatment_goals.mobility_improvement" value="yes" {% if treatment_goals.mobilityImprovement == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="treatment_goals.mobility_improvement" value="no" {% if treatment_goals.mobilityImprovement == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Quality of Life Improvement</label>
+        <div class="radio-group">
+          <label><input type="radio" name="treatment_goals.quality_of_life_improvement" value="yes" {% if treatment_goals.qualityOfLifeImprovement == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="treatment_goals.quality_of_life_improvement" value="no" {% if treatment_goals.qualityOfLifeImprovement == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Realistic Expectations</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="treatment_goals.realistic_expectations" value="{{ i }}" {% if treatment_goals.realisticExpectations == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Unrealistic</span><span>Very Realistic</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Commitment to Lifestyle Changes</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="treatment_goals.commitment_to_lifestyle_changes" value="{{ i }}" {% if treatment_goals.commitmentToLifestyleChanges == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Not Committed</span><span>Fully Committed</span></div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

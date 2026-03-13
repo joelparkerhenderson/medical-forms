@@ -1,0 +1,101 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Contraindications - Semaglutide Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Contraindications</h2>
+    <p class="hint">Screen for absolute and relative contraindications to semaglutide therapy.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Personal History of Medullary Thyroid Carcinoma</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications.personal_medullary_thyroid_cancer" value="yes" {% if contraindications.personalMedullaryThyroidCancer == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications.personal_medullary_thyroid_cancer" value="no" {% if contraindications.personalMedullaryThyroidCancer == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Family History of MEN2 Syndrome</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications.family_men2" value="yes" {% if contraindications.familyMen2 == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications.family_men2" value="no" {% if contraindications.familyMen2 == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>History of Pancreatitis</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications.pancreatitis_history" value="yes" {% if contraindications.pancreatitisHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications.pancreatitis_history" value="no" {% if contraindications.pancreatitisHistory == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Severe GI Disease</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications.severe_gi_disease" value="yes" {% if contraindications.severeGiDisease == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications.severe_gi_disease" value="no" {% if contraindications.severeGiDisease == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Pregnant or Planning Pregnancy</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications.pregnancy_or_planning" value="yes" {% if contraindications.pregnancyOrPlanning == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications.pregnancy_or_planning" value="no" {% if contraindications.pregnancyOrPlanning == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Breastfeeding</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications.breastfeeding" value="yes" {% if contraindications.breastfeeding == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications.breastfeeding" value="no" {% if contraindications.breastfeeding == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Type 1 Diabetes</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications.type1_diabetes" value="yes" {% if contraindications.type1Diabetes == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications.type1_diabetes" value="no" {% if contraindications.type1Diabetes == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Severe Renal Impairment (eGFR &lt; 30)</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications.severe_renal_impairment" value="yes" {% if contraindications.severeRenalImpairment == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications.severe_renal_impairment" value="no" {% if contraindications.severeRenalImpairment == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Known Hypersensitivity to Semaglutide</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications.known_hypersensitivity" value="yes" {% if contraindications.knownHypersensitivity == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications.known_hypersensitivity" value="no" {% if contraindications.knownHypersensitivity == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Active Eating Disorder</label>
+        <div class="radio-group">
+          <label><input type="radio" name="contraindications.eating_disorder" value="yes" {% if contraindications.eatingDisorder == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="contraindications.eating_disorder" value="no" {% if contraindications.eatingDisorder == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Semaglutide Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Semaglutide Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by name, date, clinician...">
+    </div>
+    <div class="form-group">
+      <label for="eligibility_level">Eligibility Level</label>
+      <select id="eligibility_level" name="eligibility_level">
+        <option value="">All Levels</option>
+        <option value="eligible" {% if eligibility_level == "eligible" %}selected{% endif %}>Eligible</option>
+        <option value="cautionRequired" {% if eligibility_level == "cautionRequired" %}selected{% endif %}>Caution Required</option>
+        <option value="notEligible" {% if eligibility_level == "notEligible" %}selected{% endif %}>Not Eligible</option>
+        <option value="contraindicated" {% if eligibility_level == "contraindicated" %}selected{% endif %}>Contraindicated</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="bmi_category">BMI Category</label>
+      <select id="bmi_category" name="bmi_category">
+        <option value="">All</option>
+        <option value="morbidlyObese" {% if bmi_category == "morbidlyObese" %}selected{% endif %}>Morbidly Obese</option>
+        <option value="severelyObese" {% if bmi_category == "severelyObese" %}selected{% endif %}>Severely Obese</option>
+        <option value="obese" {% if bmi_category == "obese" %}selected{% endif %}>Obese</option>
+        <option value="overweight" {% if bmi_category == "overweight" %}selected{% endif %}>Overweight</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Assessment Date</th>
+      <th>Referring Clinician</th>
+      <th>Eligibility</th>
+      <th>Score</th>
+      <th>BMI Category</th>
+      <th>BMI</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.assessmentDate }}</td>
+      <td>{{ patient.referringClinician }}</td>
+      <td><span class="eligibility-badge eligibility-{{ patient.eligibilityLevel }}">{{ patient.eligibilityLevel }}</span></td>
+      <td>{{ patient.eligibilityScore }}%</td>
+      <td><span class="bmi-badge bmi-{{ patient.bmiCategory }}">{{ patient.bmiCategory }}</span></td>
+      <td>{{ patient.bmi }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

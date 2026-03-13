@@ -1,0 +1,88 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Monitoring Plan - Semaglutide Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Monitoring Plan</h2>
+    <p class="hint">Define the monitoring and follow-up plan for semaglutide therapy.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Baseline Blood Tests Completed</label>
+        <div class="radio-group">
+          <label><input type="radio" name="monitoring_plan.baseline_bloods_completed" value="yes" {% if monitoring_plan.baselineBloodsCompleted == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="monitoring_plan.baseline_bloods_completed" value="no" {% if monitoring_plan.baselineBloodsCompleted == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="hba1c_baseline">HbA1c Baseline</label>
+        <input type="text" id="hba1c_baseline" name="monitoring_plan.hba1c_baseline"
+               value="{{ monitoring_plan.hba1cBaseline }}"
+               placeholder="e.g. 7.2% or 55 mmol/mol">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Renal Function Checked</label>
+        <div class="radio-group">
+          <label><input type="radio" name="monitoring_plan.renal_function_checked" value="yes" {% if monitoring_plan.renalFunctionChecked == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="monitoring_plan.renal_function_checked" value="no" {% if monitoring_plan.renalFunctionChecked == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Thyroid Function Checked</label>
+        <div class="radio-group">
+          <label><input type="radio" name="monitoring_plan.thyroid_function_checked" value="yes" {% if monitoring_plan.thyroidFunctionChecked == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="monitoring_plan.thyroid_function_checked" value="no" {% if monitoring_plan.thyroidFunctionChecked == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="follow_up_interval_weeks">Follow-up Interval (weeks)</label>
+        <input type="number" id="follow_up_interval_weeks" name="monitoring_plan.follow_up_interval_weeks"
+               value="{{ monitoring_plan.followUpIntervalWeeks }}" min="1" max="52">
+      </div>
+      <div class="form-group">
+        <label for="weight_monitoring_frequency">Weight Monitoring Frequency</label>
+        <select id="weight_monitoring_frequency" name="monitoring_plan.weight_monitoring_frequency">
+          <option value="">-- Select --</option>
+          <option value="weekly" {% if monitoring_plan.weightMonitoringFrequency == "weekly" %}selected{% endif %}>Weekly</option>
+          <option value="fortnightly" {% if monitoring_plan.weightMonitoringFrequency == "fortnightly" %}selected{% endif %}>Fortnightly</option>
+          <option value="monthly" {% if monitoring_plan.weightMonitoringFrequency == "monthly" %}selected{% endif %}>Monthly</option>
+          <option value="quarterly" {% if monitoring_plan.weightMonitoringFrequency == "quarterly" %}selected{% endif %}>Quarterly</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="side_effect_monitoring_plan">Side Effect Monitoring Plan</label>
+        <select id="side_effect_monitoring_plan" name="monitoring_plan.side_effect_monitoring_plan">
+          <option value="">-- Select --</option>
+          <option value="standard" {% if monitoring_plan.sideEffectMonitoringPlan == "standard" %}selected{% endif %}>Standard</option>
+          <option value="enhanced" {% if monitoring_plan.sideEffectMonitoringPlan == "enhanced" %}selected{% endif %}>Enhanced</option>
+          <option value="intensive" {% if monitoring_plan.sideEffectMonitoringPlan == "intensive" %}selected{% endif %}>Intensive</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dose_escalation_schedule">Dose Escalation Schedule</label>
+        <select id="dose_escalation_schedule" name="monitoring_plan.dose_escalation_schedule">
+          <option value="">-- Select --</option>
+          <option value="standard4Weeks" {% if monitoring_plan.doseEscalationSchedule == "standard4Weeks" %}selected{% endif %}>Standard (4-weekly)</option>
+          <option value="cautious8Weeks" {% if monitoring_plan.doseEscalationSchedule == "cautious8Weeks" %}selected{% endif %}>Cautious (8-weekly)</option>
+          <option value="individualised" {% if monitoring_plan.doseEscalationSchedule == "individualised" %}selected{% endif %}>Individualised</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

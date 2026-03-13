@@ -1,0 +1,99 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Semaglutide Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Provide your clinical assessment of the patient's suitability for semaglutide. Rate each on a scale of 1 (Very Poor) to 5 (Excellent).</p>
+
+    <div class="form-group">
+      <label>Overall Eligibility Assessment</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="clinical_review.overall_eligibility_assessment" value="{{ i }}" {% if clinical_review.overallEligibilityAssessment == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Not Eligible</span><span>Clearly Eligible</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Benefit-Risk Ratio</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="clinical_review.benefit_risk_ratio" value="{{ i }}" {% if clinical_review.benefitRiskRatio == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Unfavourable</span><span>Very Favourable</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Patient Suitability</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="clinical_review.patient_suitability" value="{{ i }}" {% if clinical_review.patientSuitability == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Unsuitable</span><span>Highly Suitable</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Clinical Confidence</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="clinical_review.clinical_confidence" value="{{ i }}" {% if clinical_review.clinicalConfidence == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Not Confident</span><span>Very Confident</span></div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="recommended_starting_dose">Recommended Starting Dose</label>
+        <select id="recommended_starting_dose" name="clinical_review.recommended_starting_dose">
+          <option value="">-- Select --</option>
+          <option value="0.25mg" {% if clinical_review.recommendedStartingDose == "0.25mg" %}selected{% endif %}>0.25 mg weekly</option>
+          <option value="0.5mg" {% if clinical_review.recommendedStartingDose == "0.5mg" %}selected{% endif %}>0.5 mg weekly</option>
+          <option value="notRecommended" {% if clinical_review.recommendedStartingDose == "notRecommended" %}selected{% endif %}>Not recommended</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="additional_investigations_needed">Additional Investigations Needed</label>
+        <select id="additional_investigations_needed" name="clinical_review.additional_investigations_needed">
+          <option value="">-- Select --</option>
+          <option value="none" {% if clinical_review.additionalInvestigationsNeeded == "none" %}selected{% endif %}>None</option>
+          <option value="bloodTests" {% if clinical_review.additionalInvestigationsNeeded == "bloodTests" %}selected{% endif %}>Blood tests</option>
+          <option value="imaging" {% if clinical_review.additionalInvestigationsNeeded == "imaging" %}selected{% endif %}>Imaging</option>
+          <option value="specialist" {% if clinical_review.additionalInvestigationsNeeded == "specialist" %}selected{% endif %}>Specialist review</option>
+          <option value="multiple" {% if clinical_review.additionalInvestigationsNeeded == "multiple" %}selected{% endif %}>Multiple</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="referrals_needed">Referrals Needed</label>
+        <select id="referrals_needed" name="clinical_review.referrals_needed">
+          <option value="">-- Select --</option>
+          <option value="none" {% if clinical_review.referralsNeeded == "none" %}selected{% endif %}>None</option>
+          <option value="dietitian" {% if clinical_review.referralsNeeded == "dietitian" %}selected{% endif %}>Dietitian</option>
+          <option value="endocrinologist" {% if clinical_review.referralsNeeded == "endocrinologist" %}selected{% endif %}>Endocrinologist</option>
+          <option value="psychologist" {% if clinical_review.referralsNeeded == "psychologist" %}selected{% endif %}>Psychologist</option>
+          <option value="multiple" {% if clinical_review.referralsNeeded == "multiple" %}selected{% endif %}>Multiple</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinician_notes">Clinician Notes</label>
+      <textarea id="clinician_notes" name="clinical_review.clinician_notes"
+                rows="4" placeholder="Any additional clinical observations or notes...">{{ clinical_review.clinicianNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

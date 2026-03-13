@@ -1,0 +1,83 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Medications - Semaglutide Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Medications</h2>
+    <p class="hint">Record medications that may interact with semaglutide therapy.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Insulin Therapy</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.insulin_therapy" value="yes" {% if current_medications.insulinTherapy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.insulin_therapy" value="no" {% if current_medications.insulinTherapy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Sulfonylureas</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.sulfonylureas" value="yes" {% if current_medications.sulfonylureas == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.sulfonylureas" value="no" {% if current_medications.sulfonylureas == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Other GLP-1 Receptor Agonist</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.other_glp1_agonist" value="yes" {% if current_medications.otherGlp1Agonist == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.other_glp1_agonist" value="no" {% if current_medications.otherGlp1Agonist == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Oral Contraceptives</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.oral_contraceptives" value="yes" {% if current_medications.oralContraceptives == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.oral_contraceptives" value="no" {% if current_medications.oralContraceptives == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Warfarin</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.warfarin" value="yes" {% if current_medications.warfarin == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.warfarin" value="no" {% if current_medications.warfarin == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Antihypertensives</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.antihypertensives" value="yes" {% if current_medications.antihypertensives == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.antihypertensives" value="no" {% if current_medications.antihypertensives == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Statins</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_medications.statins" value="yes" {% if current_medications.statins == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_medications.statins" value="no" {% if current_medications.statins == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="other_medications">Other Medications</label>
+        <input type="text" id="other_medications" name="current_medications.other_medications"
+               value="{{ current_medications.otherMedications }}"
+               placeholder="List any other medications">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

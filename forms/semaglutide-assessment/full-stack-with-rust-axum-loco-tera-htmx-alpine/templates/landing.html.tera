@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Semaglutide Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Semaglutide Pre-Prescribing Assessment</h1>
+  <p>
+    This assessment evaluates patient eligibility for semaglutide (GLP-1 receptor agonist)
+    therapy for weight management or glycaemic control. The assessment covers patient
+    information, BMI history, medical history, contraindications, current medications,
+    lifestyle factors, treatment goals, informed consent, and monitoring plans.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive clinical evaluation across all prescribing criteria</p>
+    </div>
+    <div class="feature-card">
+      <h3>Eligibility Scoring</h3>
+      <p>Automated eligibility determination with contraindication checks</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Actionable alerts for prescribing considerations and safety monitoring</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Lifestyle Assessment - Semaglutide Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Lifestyle Assessment</h2>
+    <p class="hint">Assess the patient's current lifestyle factors relevant to treatment success. Rate each on a scale of 1 (Very Poor) to 5 (Excellent).</p>
+
+    <div class="form-group">
+      <label>Diet Quality</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="lifestyle_assessment.diet_quality" value="{{ i }}" {% if lifestyle_assessment.dietQuality == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Very Poor</span><span>Excellent</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Physical Activity Level</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="lifestyle_assessment.physical_activity_level" value="{{ i }}" {% if lifestyle_assessment.physicalActivityLevel == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Sedentary</span><span>Very Active</span></div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="alcohol_consumption">Alcohol Consumption</label>
+        <select id="alcohol_consumption" name="lifestyle_assessment.alcohol_consumption">
+          <option value="">-- Select --</option>
+          <option value="none" {% if lifestyle_assessment.alcoholConsumption == "none" %}selected{% endif %}>None</option>
+          <option value="occasional" {% if lifestyle_assessment.alcoholConsumption == "occasional" %}selected{% endif %}>Occasional</option>
+          <option value="moderate" {% if lifestyle_assessment.alcoholConsumption == "moderate" %}selected{% endif %}>Moderate</option>
+          <option value="heavy" {% if lifestyle_assessment.alcoholConsumption == "heavy" %}selected{% endif %}>Heavy</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="smoking_status">Smoking Status</label>
+        <select id="smoking_status" name="lifestyle_assessment.smoking_status">
+          <option value="">-- Select --</option>
+          <option value="never" {% if lifestyle_assessment.smokingStatus == "never" %}selected{% endif %}>Never</option>
+          <option value="former" {% if lifestyle_assessment.smokingStatus == "former" %}selected{% endif %}>Former</option>
+          <option value="current" {% if lifestyle_assessment.smokingStatus == "current" %}selected{% endif %}>Current</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Sleep Quality</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="lifestyle_assessment.sleep_quality" value="{{ i }}" {% if lifestyle_assessment.sleepQuality == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Very Poor</span><span>Excellent</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Stress Level</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="lifestyle_assessment.stress_level" value="{{ i }}" {% if lifestyle_assessment.stressLevel == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Very High Stress</span><span>Very Low Stress</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Motivation to Change</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="lifestyle_assessment.motivation_to_change" value="{{ i }}" {% if lifestyle_assessment.motivationToChange == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>Not Motivated</span><span>Highly Motivated</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Social Support</label>
+      <div class="likert-group">
+        {% for i in [1,2,3,4,5] %}
+        <label><input type="radio" name="lifestyle_assessment.social_support" value="{{ i }}" {% if lifestyle_assessment.socialSupport == i %}checked{% endif %}> {{ i }}</label>
+        {% endfor %}
+      </div>
+      <div class="likert-labels"><span>No Support</span><span>Strong Support</span></div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

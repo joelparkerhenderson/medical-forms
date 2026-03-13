@@ -1,0 +1,100 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Medical History - Semaglutide Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Medical History</h2>
+    <p class="hint">Record the patient's relevant comorbidities and medical conditions.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Type 2 Diabetes</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.type2_diabetes" value="yes" {% if medical_history.type2Diabetes == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.type2_diabetes" value="no" {% if medical_history.type2Diabetes == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Hypertension</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.hypertension" value="yes" {% if medical_history.hypertension == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.hypertension" value="no" {% if medical_history.hypertension == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Dyslipidaemia</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.dyslipidaemia" value="yes" {% if medical_history.dyslipidaemia == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.dyslipidaemia" value="no" {% if medical_history.dyslipidaemia == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Obstructive Sleep Apnoea</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.obstructive_sleep_apnoea" value="yes" {% if medical_history.obstructiveSleepApnoea == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.obstructive_sleep_apnoea" value="no" {% if medical_history.obstructiveSleepApnoea == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Cardiovascular Disease</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.cardiovascular_disease" value="yes" {% if medical_history.cardiovascularDisease == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.cardiovascular_disease" value="no" {% if medical_history.cardiovascularDisease == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>PCOS</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.pcos" value="yes" {% if medical_history.pcos == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.pcos" value="no" {% if medical_history.pcos == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Non-Alcoholic Fatty Liver Disease</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.nafld" value="yes" {% if medical_history.nafld == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.nafld" value="no" {% if medical_history.nafld == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Osteoarthritis</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.osteoarthritis" value="yes" {% if medical_history.osteoarthritis == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.osteoarthritis" value="no" {% if medical_history.osteoarthritis == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Depression / Anxiety</label>
+        <div class="radio-group">
+          <label><input type="radio" name="medical_history.depression_anxiety" value="yes" {% if medical_history.depressionAnxiety == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="medical_history.depression_anxiety" value="no" {% if medical_history.depressionAnxiety == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="other_comorbidities">Other Comorbidities</label>
+        <input type="text" id="other_comorbidities" name="medical_history.other_comorbidities"
+               value="{{ medical_history.otherComorbidities }}"
+               placeholder="List any other relevant conditions">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
