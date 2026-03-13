@@ -1,0 +1,87 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Daily Living Skills - Autism Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Daily Living Skills</h2>
+    <p class="hint">Rate the level of difficulty in each area (0 = No difficulty, 3 = Severe difficulty).</p>
+
+    <div class="likert-group">
+      <label>Personal care (hygiene, dressing, self-care routines)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daily_living_skills.personal_care" value="{{ i }}"
+                 {% if daily_living_skills.personalCare == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Difficulty{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Meal preparation and nutrition</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daily_living_skills.meal_preparation" value="{{ i }}"
+                 {% if daily_living_skills.mealPreparation == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Difficulty{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Time management and organisation</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daily_living_skills.time_management" value="{{ i }}"
+                 {% if daily_living_skills.timeManagement == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Difficulty{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Financial management (budgeting, bills, shopping)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daily_living_skills.financial_management" value="{{ i }}"
+                 {% if daily_living_skills.financialManagement == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Difficulty{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Travel and transport independence</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daily_living_skills.travel_independence" value="{{ i }}"
+                 {% if daily_living_skills.travelIndependence == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Difficulty{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="executive_function_difficulties">Describe any executive function difficulties</label>
+      <textarea id="executive_function_difficulties" name="daily_living_skills.executive_function_difficulties"
+                rows="4" placeholder="Planning, prioritising, task initiation, working memory...">{{ daily_living_skills.executiveFunctionDifficulties }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

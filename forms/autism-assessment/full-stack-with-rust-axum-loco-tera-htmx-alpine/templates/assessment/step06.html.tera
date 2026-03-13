@@ -1,0 +1,146 @@
+{% extends "base.html.tera" %}
+
+{% block title %}AQ-10 Screening - Autism Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>AQ-10 Screening</h2>
+    <p class="hint">The Autism Spectrum Quotient (AQ-10) is a validated screening tool. For each statement, select how much you agree or disagree.</p>
+
+    <div class="likert-group">
+      <label>1. I often notice small sounds when others do not</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="aq10_screening.q1_notice_sounds" value="{{ i }}"
+                 {% if aq10_screening.q1NoticeSounds == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Definitely Disagree{% elif i == 1 %}Slightly Disagree{% elif i == 2 %}Slightly Agree{% else %}Definitely Agree{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>2. I usually concentrate more on the whole picture rather than the small details</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="aq10_screening.q2_whole_picture" value="{{ i }}"
+                 {% if aq10_screening.q2WholePicture == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Definitely Disagree{% elif i == 1 %}Slightly Disagree{% elif i == 2 %}Slightly Agree{% else %}Definitely Agree{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>3. I find it easy to do more than one thing at once</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="aq10_screening.q3_multitask" value="{{ i }}"
+                 {% if aq10_screening.q3Multitask == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Definitely Disagree{% elif i == 1 %}Slightly Disagree{% elif i == 2 %}Slightly Agree{% else %}Definitely Agree{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>4. If there is an interruption, I can switch back to what I was doing very quickly</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="aq10_screening.q4_switch_back" value="{{ i }}"
+                 {% if aq10_screening.q4SwitchBack == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Definitely Disagree{% elif i == 1 %}Slightly Disagree{% elif i == 2 %}Slightly Agree{% else %}Definitely Agree{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>5. I find it easy to "read between the lines" when someone is talking to me</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="aq10_screening.q5_read_between_lines" value="{{ i }}"
+                 {% if aq10_screening.q5ReadBetweenLines == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Definitely Disagree{% elif i == 1 %}Slightly Disagree{% elif i == 2 %}Slightly Agree{% else %}Definitely Agree{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>6. I know how to tell if someone listening to me is getting bored</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="aq10_screening.q6_detect_boredom" value="{{ i }}"
+                 {% if aq10_screening.q6DetectBoredom == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Definitely Disagree{% elif i == 1 %}Slightly Disagree{% elif i == 2 %}Slightly Agree{% else %}Definitely Agree{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>7. When I'm reading a story, I find it difficult to work out the characters' intentions</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="aq10_screening.q7_character_intentions" value="{{ i }}"
+                 {% if aq10_screening.q7CharacterIntentions == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Definitely Disagree{% elif i == 1 %}Slightly Disagree{% elif i == 2 %}Slightly Agree{% else %}Definitely Agree{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>8. I like to collect information about categories of things</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="aq10_screening.q8_collect_info" value="{{ i }}"
+                 {% if aq10_screening.q8CollectInfo == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Definitely Disagree{% elif i == 1 %}Slightly Disagree{% elif i == 2 %}Slightly Agree{% else %}Definitely Agree{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>9. I find it easy to work out what someone is thinking or feeling just by looking at their face</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="aq10_screening.q9_read_faces" value="{{ i }}"
+                 {% if aq10_screening.q9ReadFaces == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Definitely Disagree{% elif i == 1 %}Slightly Disagree{% elif i == 2 %}Slightly Agree{% else %}Definitely Agree{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>10. I find it difficult to work out people's intentions</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="aq10_screening.q10_work_out_intentions" value="{{ i }}"
+                 {% if aq10_screening.q10WorkOutIntentions == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Definitely Disagree{% elif i == 1 %}Slightly Disagree{% elif i == 2 %}Slightly Agree{% else %}Definitely Agree{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

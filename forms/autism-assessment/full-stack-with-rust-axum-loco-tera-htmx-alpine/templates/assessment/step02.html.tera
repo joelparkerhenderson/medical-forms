@@ -1,0 +1,80 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Developmental History - Autism Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Developmental History</h2>
+    <p class="hint">Record any early developmental differences or concerns.</p>
+
+    <div class="form-group">
+      <label>Was there a speech or language delay?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="developmental_history.speech_delay" value="yes" {% if developmental_history.speechDelay == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="developmental_history.speech_delay" value="no" {% if developmental_history.speechDelay == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="developmental_history.speech_delay" value="unknown" {% if developmental_history.speechDelay == "unknown" %}checked{% endif %}> Unknown</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Was there a motor development delay?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="developmental_history.motor_delay" value="yes" {% if developmental_history.motorDelay == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="developmental_history.motor_delay" value="no" {% if developmental_history.motorDelay == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="developmental_history.motor_delay" value="unknown" {% if developmental_history.motorDelay == "unknown" %}checked{% endif %}> Unknown</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Were there differences in social play as a child?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="developmental_history.social_play_differences" value="yes" {% if developmental_history.socialPlayDifferences == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="developmental_history.social_play_differences" value="no" {% if developmental_history.socialPlayDifferences == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="developmental_history.social_play_differences" value="unknown" {% if developmental_history.socialPlayDifferences == "unknown" %}checked{% endif %}> Unknown</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Were there early repetitive behaviours or restricted interests?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="developmental_history.early_repetitive_behaviours" value="yes" {% if developmental_history.earlyRepetitiveBehaviours == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="developmental_history.early_repetitive_behaviours" value="no" {% if developmental_history.earlyRepetitiveBehaviours == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="developmental_history.early_repetitive_behaviours" value="unknown" {% if developmental_history.earlyRepetitiveBehaviours == "unknown" %}checked{% endif %}> Unknown</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="age_first_concerns">At what age were concerns first raised?</label>
+      <select id="age_first_concerns" name="developmental_history.age_first_concerns">
+        <option value="">-- Select --</option>
+        <option value="under2" {% if developmental_history.ageFirstConcerns == "under2" %}selected{% endif %}>Under 2 years</option>
+        <option value="2to5" {% if developmental_history.ageFirstConcerns == "2to5" %}selected{% endif %}>2 - 5 years</option>
+        <option value="6to11" {% if developmental_history.ageFirstConcerns == "6to11" %}selected{% endif %}>6 - 11 years</option>
+        <option value="12to17" {% if developmental_history.ageFirstConcerns == "12to17" %}selected{% endif %}>12 - 17 years</option>
+        <option value="18plus" {% if developmental_history.ageFirstConcerns == "18plus" %}selected{% endif %}>18+ years</option>
+        <option value="noConcerns" {% if developmental_history.ageFirstConcerns == "noConcerns" %}selected{% endif %}>No concerns raised</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Have there been any previous autism assessments?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="developmental_history.previous_assessments" value="yes" {% if developmental_history.previousAssessments == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="developmental_history.previous_assessments" value="no" {% if developmental_history.previousAssessments == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="developmental_history.previous_assessments" value="unknown" {% if developmental_history.previousAssessments == "unknown" %}checked{% endif %}> Unknown</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="developmental_notes">Additional developmental notes</label>
+      <textarea id="developmental_notes" name="developmental_history.developmental_notes"
+                rows="4" placeholder="Any additional observations about early development...">{{ developmental_history.developmentalNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

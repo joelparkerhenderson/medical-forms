@@ -1,0 +1,75 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Support Needs - Autism Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Support Needs</h2>
+    <p class="hint">Identify areas where support is needed or currently provided.</p>
+
+    <div class="form-group">
+      <label>Is employment support needed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="support_needs.employment_support" value="yes" {% if support_needs.employmentSupport == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="support_needs.employment_support" value="no" {% if support_needs.employmentSupport == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="support_needs.employment_support" value="notApplicable" {% if support_needs.employmentSupport == "notApplicable" %}checked{% endif %}> Not applicable</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Is education support needed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="support_needs.education_support" value="yes" {% if support_needs.educationSupport == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="support_needs.education_support" value="no" {% if support_needs.educationSupport == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="support_needs.education_support" value="notApplicable" {% if support_needs.educationSupport == "notApplicable" %}checked{% endif %}> Not applicable</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Is relationship/social support needed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="support_needs.relationship_support" value="yes" {% if support_needs.relationshipSupport == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="support_needs.relationship_support" value="no" {% if support_needs.relationshipSupport == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Is housing support needed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="support_needs.housing_support" value="yes" {% if support_needs.housingSupport == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="support_needs.housing_support" value="no" {% if support_needs.housingSupport == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Is benefits/welfare support needed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="support_needs.benefits_support" value="yes" {% if support_needs.benefitsSupport == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="support_needs.benefits_support" value="no" {% if support_needs.benefitsSupport == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="current_support_services">Current support services</label>
+      <textarea id="current_support_services" name="support_needs.current_support_services"
+                rows="4" placeholder="List any support services currently in place...">{{ support_needs.currentSupportServices }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="support_level_needed">Overall support level needed (DSM-5 severity level)</label>
+      <select id="support_level_needed" name="support_needs.support_level_needed">
+        <option value="">-- Select --</option>
+        <option value="none" {% if support_needs.supportLevelNeeded == "none" %}selected{% endif %}>No support required</option>
+        <option value="level1" {% if support_needs.supportLevelNeeded == "level1" %}selected{% endif %}>Level 1 - Requiring support</option>
+        <option value="level2" {% if support_needs.supportLevelNeeded == "level2" %}selected{% endif %}>Level 2 - Requiring substantial support</option>
+        <option value="level3" {% if support_needs.supportLevelNeeded == "level3" %}selected{% endif %}>Level 3 - Requiring very substantial support</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

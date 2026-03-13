@@ -1,0 +1,93 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Social Communication - Autism Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Social Communication</h2>
+    <p class="hint">Rate the level of difficulty in each area (0 = No difficulty, 3 = Severe difficulty).</p>
+
+    <div class="likert-group">
+      <label>Eye contact and gaze</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="social_communication.eye_contact" value="{{ i }}"
+                 {% if social_communication.eyeContact == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Difficulty{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Conversational reciprocity (back-and-forth conversation)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="social_communication.conversational_reciprocity" value="{{ i }}"
+                 {% if social_communication.conversationalReciprocity == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Difficulty{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Use and understanding of nonverbal communication (gestures, body language)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="social_communication.nonverbal_communication" value="{{ i }}"
+                 {% if social_communication.nonverbalCommunication == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Difficulty{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Understanding social cues and unwritten rules</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="social_communication.understanding_social_cues" value="{{ i }}"
+                 {% if social_communication.understandingSocialCues == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Difficulty{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Developing and maintaining friendships</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="social_communication.friendship_maintenance" value="{{ i }}"
+                 {% if social_communication.friendshipMaintenance == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Difficulty{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="communication_preference">Preferred communication style</label>
+      <select id="communication_preference" name="social_communication.communication_preference">
+        <option value="">-- Select --</option>
+        <option value="verbal" {% if social_communication.communicationPreference == "verbal" %}selected{% endif %}>Verbal</option>
+        <option value="written" {% if social_communication.communicationPreference == "written" %}selected{% endif %}>Written</option>
+        <option value="visual" {% if social_communication.communicationPreference == "visual" %}selected{% endif %}>Visual aids</option>
+        <option value="aac" {% if social_communication.communicationPreference == "aac" %}selected{% endif %}>AAC device</option>
+        <option value="mixed" {% if social_communication.communicationPreference == "mixed" %}selected{% endif %}>Mixed</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

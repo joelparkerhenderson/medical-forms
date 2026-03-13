@@ -1,0 +1,84 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Mental Health Comorbidities - Autism Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Mental Health Comorbidities</h2>
+    <p class="hint">Assess co-occurring mental health conditions. Rate severity (0 = None, 3 = Severe).</p>
+
+    <div class="likert-group">
+      <label>Anxiety level</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="mental_health_comorbidities.anxiety_level" value="{{ i }}"
+                 {% if mental_health_comorbidities.anxietyLevel == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Depression level</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="mental_health_comorbidities.depression_level" value="{{ i }}"
+                 {% if mental_health_comorbidities.depressionLevel == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Sleep difficulties</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="mental_health_comorbidities.sleep_difficulties" value="{{ i }}"
+                 {% if mental_health_comorbidities.sleepDifficulties == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Is there a current risk of self-harm?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="mental_health_comorbidities.self_harm_risk" value="yes" {% if mental_health_comorbidities.selfHarmRisk == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="mental_health_comorbidities.self_harm_risk" value="no" {% if mental_health_comorbidities.selfHarmRisk == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="mental_health_comorbidities.self_harm_risk" value="unknown" {% if mental_health_comorbidities.selfHarmRisk == "unknown" %}checked{% endif %}> Unknown</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="current_medications">Current medications</label>
+      <textarea id="current_medications" name="mental_health_comorbidities.current_medications"
+                rows="3" placeholder="List current medications...">{{ mental_health_comorbidities.currentMedications }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="previous_mental_health_diagnoses">Previous mental health diagnoses</label>
+      <textarea id="previous_mental_health_diagnoses" name="mental_health_comorbidities.previous_mental_health_diagnoses"
+                rows="3" placeholder="List any previous diagnoses (e.g. ADHD, anxiety disorder, OCD)...">{{ mental_health_comorbidities.previousMentalHealthDiagnoses }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Are there any safeguarding concerns?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="mental_health_comorbidities.safeguarding_concerns" value="yes" {% if mental_health_comorbidities.safeguardingConcerns == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="mental_health_comorbidities.safeguarding_concerns" value="no" {% if mental_health_comorbidities.safeguardingConcerns == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

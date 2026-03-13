@@ -1,0 +1,36 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Autism Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Autism Spectrum Assessment</h1>
+  <p>
+    This assessment uses the AQ-10 (Autism Spectrum Quotient) screening tool
+    alongside clinical observation to evaluate social communication,
+    restricted/repetitive behaviours, sensory processing, developmental history,
+    and support needs. The AQ-10 is a validated 10-item screening instrument
+    where a score of 6 or above indicates that referral for diagnostic
+    assessment should be considered.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive evaluation across all ASD domains</p>
+    </div>
+    <div class="feature-card">
+      <h3>AQ-10 Screening</h3>
+      <p>Validated screening tool with clinical scoring</p>
+    </div>
+    <div class="feature-card">
+      <h3>Support Planning</h3>
+      <p>Identifies support needs and referral pathways</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

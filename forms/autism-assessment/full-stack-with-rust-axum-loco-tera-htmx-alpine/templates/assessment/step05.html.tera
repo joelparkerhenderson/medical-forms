@@ -1,0 +1,99 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Sensory Processing - Autism Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Sensory Processing</h2>
+    <p class="hint">Rate sensory sensitivity levels (0 = Typical, 3 = Extreme sensitivity/seeking).</p>
+
+    <div class="likert-group">
+      <label>Auditory sensitivity (sounds, noise)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sensory_processing.auditory_sensitivity" value="{{ i }}"
+                 {% if sensory_processing.auditorySensitivity == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Typical{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Extreme{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Visual sensitivity (lights, patterns, colours)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sensory_processing.visual_sensitivity" value="{{ i }}"
+                 {% if sensory_processing.visualSensitivity == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Typical{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Extreme{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Tactile sensitivity (textures, touch, clothing)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sensory_processing.tactile_sensitivity" value="{{ i }}"
+                 {% if sensory_processing.tactileSensitivity == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Typical{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Extreme{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Olfactory sensitivity (smells)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sensory_processing.olfactory_sensitivity" value="{{ i }}"
+                 {% if sensory_processing.olfactorySensitivity == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Typical{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Extreme{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Sensory seeking behaviours (e.g. spinning, pressure, movement)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sensory_processing.sensory_seeking" value="{{ i }}"
+                 {% if sensory_processing.sensorySeeking == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not Present{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Frequent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="sensory_overload_frequency">How often does sensory overload occur?</label>
+      <select id="sensory_overload_frequency" name="sensory_processing.sensory_overload_frequency">
+        <option value="">-- Select --</option>
+        <option value="never" {% if sensory_processing.sensoryOverloadFrequency == "never" %}selected{% endif %}>Never</option>
+        <option value="rarely" {% if sensory_processing.sensoryOverloadFrequency == "rarely" %}selected{% endif %}>Rarely</option>
+        <option value="monthly" {% if sensory_processing.sensoryOverloadFrequency == "monthly" %}selected{% endif %}>Monthly</option>
+        <option value="weekly" {% if sensory_processing.sensoryOverloadFrequency == "weekly" %}selected{% endif %}>Weekly</option>
+        <option value="daily" {% if sensory_processing.sensoryOverloadFrequency == "daily" %}selected{% endif %}>Daily</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="sensory_coping_strategies">Sensory coping strategies used</label>
+      <textarea id="sensory_coping_strategies" name="sensory_processing.sensory_coping_strategies"
+                rows="4" placeholder="Describe any strategies used to manage sensory input (e.g. ear defenders, sunglasses, fidget tools)...">{{ sensory_processing.sensoryCopingStrategies }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

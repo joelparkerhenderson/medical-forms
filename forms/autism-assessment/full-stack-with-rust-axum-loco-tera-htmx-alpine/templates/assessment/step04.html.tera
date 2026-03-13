@@ -1,0 +1,87 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Restricted & Repetitive Behaviours - Autism Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Restricted & Repetitive Behaviours</h2>
+    <p class="hint">Rate the intensity of each behaviour (0 = Not present, 3 = Very intense/frequent).</p>
+
+    <div class="likert-group">
+      <label>Intense or highly focused interests</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="restricted_repetitive_behaviours.intense_interests" value="{{ i }}"
+                 {% if restricted_repetitive_behaviours.intenseInterests == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not Present{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Very Intense{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Adherence to routines and rituals</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="restricted_repetitive_behaviours.routines_rituals" value="{{ i }}"
+                 {% if restricted_repetitive_behaviours.routinesRituals == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not Present{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Very Intense{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Resistance to change or transitions</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="restricted_repetitive_behaviours.resistance_to_change" value="{{ i }}"
+                 {% if restricted_repetitive_behaviours.resistanceToChange == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not Present{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Very Intense{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Repetitive motor movements (e.g. hand flapping, rocking, spinning)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="restricted_repetitive_behaviours.repetitive_movements" value="{{ i }}"
+                 {% if restricted_repetitive_behaviours.repetitiveMovements == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not Present{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Very Intense{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Need for sameness and predictability</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="restricted_repetitive_behaviours.need_for_sameness" value="{{ i }}"
+                 {% if restricted_repetitive_behaviours.needForSameness == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not Present{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Very Intense{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="special_interest_description">Describe any special interests</label>
+      <textarea id="special_interest_description" name="restricted_repetitive_behaviours.special_interest_description"
+                rows="4" placeholder="Describe the nature, intensity, and impact of any special interests...">{{ restricted_repetitive_behaviours.specialInterestDescription }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
