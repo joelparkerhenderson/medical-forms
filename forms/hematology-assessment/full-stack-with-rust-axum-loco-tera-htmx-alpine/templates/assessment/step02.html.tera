@@ -1,0 +1,76 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Blood Count Analysis - Hematology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Blood Count Analysis</h2>
+    <p class="hint">Enter complete blood count (CBC) results.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="hemoglobin">Hemoglobin (g/dL)</label>
+        <input type="number" step="0.1" id="hemoglobin" name="blood_count_analysis.hemoglobin"
+               value="{{ blood_count_analysis.hemoglobin }}"
+               placeholder="Normal: 12.0-17.0">
+      </div>
+      <div class="form-group">
+        <label for="hematocrit">Hematocrit (%)</label>
+        <input type="number" step="0.1" id="hematocrit" name="blood_count_analysis.hematocrit"
+               value="{{ blood_count_analysis.hematocrit }}"
+               placeholder="Normal: 36-52">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="red_blood_cell_count">Red Blood Cell Count (x10^12/L)</label>
+        <input type="number" step="0.01" id="red_blood_cell_count" name="blood_count_analysis.red_blood_cell_count"
+               value="{{ blood_count_analysis.redBloodCellCount }}"
+               placeholder="Normal: 4.0-6.0">
+      </div>
+      <div class="form-group">
+        <label for="white_blood_cell_count">White Blood Cell Count (x10^9/L)</label>
+        <input type="number" step="0.1" id="white_blood_cell_count" name="blood_count_analysis.white_blood_cell_count"
+               value="{{ blood_count_analysis.whiteBloodCellCount }}"
+               placeholder="Normal: 4.0-11.0">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="platelet_count">Platelet Count (x10^9/L)</label>
+        <input type="number" step="1" id="platelet_count" name="blood_count_analysis.platelet_count"
+               value="{{ blood_count_analysis.plateletCount }}"
+               placeholder="Normal: 150-400">
+      </div>
+      <div class="form-group">
+        <label for="mean_corpuscular_volume">Mean Corpuscular Volume (fL)</label>
+        <input type="number" step="0.1" id="mean_corpuscular_volume" name="blood_count_analysis.mean_corpuscular_volume"
+               value="{{ blood_count_analysis.meanCorpuscularVolume }}"
+               placeholder="Normal: 80-100">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mean_corpuscular_hemoglobin">Mean Corpuscular Hemoglobin (pg)</label>
+        <input type="number" step="0.1" id="mean_corpuscular_hemoglobin" name="blood_count_analysis.mean_corpuscular_hemoglobin"
+               value="{{ blood_count_analysis.meanCorpuscularHemoglobin }}"
+               placeholder="Normal: 27-33">
+      </div>
+      <div class="form-group">
+        <label for="red_cell_distribution_width">Red Cell Distribution Width (%)</label>
+        <input type="number" step="0.1" id="red_cell_distribution_width" name="blood_count_analysis.red_cell_distribution_width"
+               value="{{ blood_count_analysis.redCellDistributionWidth }}"
+               placeholder="Normal: 11.5-14.5">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Hematology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Provide the clinical summary, diagnosis, and follow-up plan.</p>
+
+    <div class="form-group">
+      <label for="clinical_summary">Clinical Summary</label>
+      <textarea id="clinical_summary" name="clinical_review.clinical_summary" rows="4"
+                placeholder="Summarise key clinical findings and their significance">{{ clinical_review.clinicalSummary }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="diagnosis">Diagnosis</label>
+      <textarea id="diagnosis" name="clinical_review.diagnosis" rows="2"
+                placeholder="e.g. Iron deficiency anemia, chronic disease">{{ clinical_review.diagnosis }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="follow_up_plan">Follow-up Plan</label>
+      <textarea id="follow_up_plan" name="clinical_review.follow_up_plan" rows="3"
+                placeholder="e.g. Repeat CBC in 4 weeks, iron studies in 3 months">{{ clinical_review.followUpPlan }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="urgency_level">Urgency Level (1-5)</label>
+        <select id="urgency_level" name="clinical_review.urgency_level">
+          <option value="">-- Select --</option>
+          <option value="1" {% if clinical_review.urgencyLevel == 1 %}selected{% endif %}>1 - Routine</option>
+          <option value="2" {% if clinical_review.urgencyLevel == 2 %}selected{% endif %}>2 - Non-Urgent Follow-up</option>
+          <option value="3" {% if clinical_review.urgencyLevel == 3 %}selected{% endif %}>3 - Semi-Urgent</option>
+          <option value="4" {% if clinical_review.urgencyLevel == 4 %}selected{% endif %}>4 - Urgent</option>
+          <option value="5" {% if clinical_review.urgencyLevel == 5 %}selected{% endif %}>5 - Critical/Emergency</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="reviewer_name">Reviewer Name</label>
+        <input type="text" id="reviewer_name" name="clinical_review.reviewer_name"
+               value="{{ clinical_review.reviewerName }}"
+               placeholder="e.g. Dr Patel">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="review_date">Review Date</label>
+        <input type="date" id="review_date" name="clinical_review.review_date"
+               value="{{ clinical_review.reviewDate }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_notes">Additional Notes</label>
+      <textarea id="additional_notes" name="clinical_review.additional_notes" rows="3"
+                placeholder="Any additional clinical notes or observations">{{ clinical_review.additionalNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

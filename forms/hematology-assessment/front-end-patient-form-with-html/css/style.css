@@ -1,0 +1,105 @@
+/* ─── Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --nhs-blue: #005eb8;
+  --danger: #dc2626;
+  --warning: #f59e0b;
+  --success: #16a34a;
+  --muted: #6b7280;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+}
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--gray-800); background: var(--gray-50); line-height: 1.6; }
+
+/* ─── Header ───────────────────────────────────────────── */
+.header { background: var(--nhs-blue); color: #fff; padding: 1rem 0; }
+.header-inner { max-width: 900px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
+.header-title { color: #fff; text-decoration: none; font-size: 1.25rem; font-weight: 700; }
+.header nav a { color: #fff; text-decoration: none; margin-left: 1.5rem; opacity: .85; }
+.header nav a:hover { opacity: 1; }
+
+/* ─── Container / Main ─────────────────────────────────── */
+.container { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem; }
+.main-content { min-height: calc(100vh - 160px); }
+
+/* ─── Footer ───────────────────────────────────────────── */
+.footer { text-align: center; padding: 1.5rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--gray-200); }
+
+/* ─── Cards ────────────────────────────────────────────── */
+.card { background: #fff; border: 1px solid var(--gray-200); border-radius: .5rem; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+.card h2 { font-size: 1.25rem; margin-bottom: .75rem; color: var(--gray-900); }
+.card p { color: var(--muted); margin-bottom: 1rem; }
+
+/* ─── Buttons ──────────────────────────────────────────── */
+.btn { display: inline-block; padding: .625rem 1.25rem; border-radius: .375rem; font-size: .95rem; font-weight: 500; cursor: pointer; border: none; text-decoration: none; transition: background .15s; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: var(--gray-200); color: var(--gray-700); }
+.btn-secondary:hover { background: var(--gray-300); }
+.btn-lg { padding: .75rem 2rem; font-size: 1.1rem; }
+
+/* ─── Hero / Landing ──────────────────────────────────── */
+.hero { text-align: center; padding: 3rem 0; }
+.hero h1 { font-size: 2rem; margin-bottom: 1rem; }
+.hero p { color: var(--muted); max-width: 600px; margin: 0 auto 2rem; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.feature-card { background: #fff; border: 1px solid var(--gray-200); border-radius: .5rem; padding: 1rem; }
+.feature-card h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: .25rem; }
+.feature-card p { font-size: .85rem; color: var(--muted); margin: 0; }
+
+/* ─── Progress Bar ─────────────────────────────────────── */
+.progress-container { margin-bottom: 1.5rem; }
+.progress-header { display: flex; justify-content: space-between; margin-bottom: .375rem; font-size: .9rem; color: var(--muted); }
+.progress-bar { background: var(--gray-200); border-radius: .5rem; height: .625rem; overflow: hidden; }
+.progress-fill { background: var(--primary); height: 100%; border-radius: .5rem; transition: width .3s ease; }
+
+/* ─── Forms ────────────────────────────────────────────── */
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-weight: 500; margin-bottom: .25rem; font-size: .9rem; }
+.form-group .required { color: var(--danger); }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: .5rem .75rem; border: 1px solid var(--gray-300); border-radius: .375rem; font-size: .95rem; transition: border-color .15s; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,.15); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* ─── Steps ────────────────────────────────────────────── */
+.step-section { display: none; }
+.step-section.active { display: block; }
+.step-nav { display: flex; justify-content: space-between; margin-top: 1.5rem; }
+
+/* ─── Report ───────────────────────────────────────────── */
+.score-banner { text-align: center; padding: 2rem; border-radius: .5rem; margin-bottom: 1.5rem; }
+.score-banner .score { font-size: 2.5rem; font-weight: 700; }
+.score-banner .label { font-size: 1.1rem; margin-top: .25rem; }
+.score-banner.critical { background: #fef2f2; color: #991b1b; border: 2px solid #fecaca; }
+.score-banner.severeAbnormality { background: #fff7ed; color: #9a3412; border: 2px solid #fed7aa; }
+.score-banner.moderateAbnormality { background: #fefce8; color: #854d0e; border: 2px solid #fef08a; }
+.score-banner.mildAbnormality { background: #eff6ff; color: #1e40af; border: 2px solid #bfdbfe; }
+.score-banner.normal { background: #f0fdf4; color: #166534; border: 2px solid #bbf7d0; }
+.score-banner.draft { background: var(--gray-100); color: var(--gray-700); border: 2px solid var(--gray-300); }
+
+/* ─── Concern badges ──────────────────────────────────── */
+.concern-badge { display: inline-block; padding: .125rem .5rem; border-radius: .25rem; font-size: .75rem; font-weight: 700; text-transform: uppercase; }
+.concern-high { background: #fef2f2; color: #991b1b; }
+.concern-medium { background: #fefce8; color: #854d0e; }
+.concern-low { background: #f0fdf4; color: #166534; }
+
+/* ─── Flag items ──────────────────────────────────────── */
+.flag-item { display: flex; align-items: flex-start; gap: .75rem; padding: .75rem; border-radius: .375rem; margin-bottom: .5rem; border: 1px solid; }
+.flag-item.flag-high { background: #fef2f2; border-color: #fecaca; }
+.flag-item.flag-medium { background: #fefce8; border-color: #fef08a; }
+.flag-item.flag-low { background: var(--gray-50); border-color: var(--gray-200); }
+
+/* ─── Rules table ──────────────────────────────────────── */
+.rules-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.rules-table th { text-align: left; padding: .5rem; border-bottom: 2px solid var(--gray-200); font-weight: 600; }
+.rules-table td { padding: .5rem; border-bottom: 1px solid var(--gray-100); }
+
+/* ─── Print ────────────────────────────────────────────── */
+@media print { .no-print { display: none !important; } }

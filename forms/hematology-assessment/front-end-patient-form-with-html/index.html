@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hematology Assessment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Hematology Assessment</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- ─── Landing ────────────────────────────────────── -->
+    <div id="landing" class="hero">
+      <h1>Hematology Assessment</h1>
+      <p>Haematological evaluation for blood disorders, anaemia screening, coagulation assessment, and complete blood count interpretation.</p>
+      <div class="feature-grid">
+        <div class="feature-card"><h3>10 Steps</h3><p>Comprehensive hematology workup</p></div>
+        <div class="feature-card"><h3>20 Rules</h3><p>Automated abnormality detection</p></div>
+        <div class="feature-card"><h3>Instant Report</h3><p>Abnormality score with flags</p></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Assessment</button>
+    </div>
+
+    <!-- ─── Form ───────────────────────────────────────── -->
+    <div id="form-container" style="display:none;">
+      <div class="progress-container">
+        <div class="progress-header">
+          <span id="step-label">Step 1 of 10: Patient Information</span>
+          <span id="step-percent">10%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
+      </div>
+
+      <!-- Step 1: Patient Information -->
+      <section id="step-1" class="step-section card">
+        <h2>Patient Information</h2>
+        <p>Patient demographic and specimen details</p>
+        <div class="form-row">
+          <div class="form-group"><label>Patient Name <span class="required">*</span></label><input type="text" data-field="patientInformation.patientName" placeholder="e.g. Jane Smith"></div>
+          <div class="form-group"><label>Date of Birth</label><input type="date" data-field="patientInformation.dateOfBirth"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Medical Record Number</label><input type="text" data-field="patientInformation.medicalRecordNumber" placeholder="e.g. MRN-123456"></div>
+          <div class="form-group"><label>Referring Physician</label><input type="text" data-field="patientInformation.referringPhysician" placeholder="e.g. Dr Johnson"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Clinical Indication</label><input type="text" data-field="patientInformation.clinicalIndication" placeholder="e.g. Suspected anemia"></div>
+          <div class="form-group"><label>Specimen Date</label><input type="date" data-field="patientInformation.specimenDate"></div>
+        </div>
+        <div class="form-group">
+          <label>Specimen Type</label>
+          <select data-field="patientInformation.specimenType">
+            <option value="">-- Select --</option>
+            <option value="edtaBlood">EDTA Blood</option>
+            <option value="citratedBlood">Citrated Blood</option>
+            <option value="serumSample">Serum Sample</option>
+            <option value="boneMarrow">Bone Marrow</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="step-nav"><span></span><button class="btn btn-primary" onclick="goToStep(2)">Next</button></div>
+      </section>
+
+      <!-- Step 2: Blood Count Analysis -->
+      <section id="step-2" class="step-section card">
+        <h2>Blood Count Analysis</h2>
+        <p>Enter complete blood count (CBC) results</p>
+        <div class="form-row">
+          <div class="form-group"><label>Hemoglobin (g/dL)</label><input type="number" step="0.1" data-field="bloodCountAnalysis.hemoglobin" placeholder="Normal: 12.0-17.0"></div>
+          <div class="form-group"><label>Hematocrit (%)</label><input type="number" step="0.1" data-field="bloodCountAnalysis.hematocrit" placeholder="Normal: 36-52"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>RBC Count (x10^12/L)</label><input type="number" step="0.01" data-field="bloodCountAnalysis.redBloodCellCount" placeholder="Normal: 4.0-6.0"></div>
+          <div class="form-group"><label>WBC Count (x10^9/L)</label><input type="number" step="0.1" data-field="bloodCountAnalysis.whiteBloodCellCount" placeholder="Normal: 4.0-11.0"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Platelet Count (x10^9/L)</label><input type="number" step="1" data-field="bloodCountAnalysis.plateletCount" placeholder="Normal: 150-400"></div>
+          <div class="form-group"><label>MCV (fL)</label><input type="number" step="0.1" data-field="bloodCountAnalysis.meanCorpuscularVolume" placeholder="Normal: 80-100"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>MCH (pg)</label><input type="number" step="0.1" data-field="bloodCountAnalysis.meanCorpuscularHemoglobin" placeholder="Normal: 27-33"></div>
+          <div class="form-group"><label>RDW (%)</label><input type="number" step="0.1" data-field="bloodCountAnalysis.redCellDistributionWidth" placeholder="Normal: 11.5-14.5"></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(1)">Previous</button><button class="btn btn-primary" onclick="goToStep(3)">Next</button></div>
+      </section>
+
+      <!-- Step 3: Coagulation Studies -->
+      <section id="step-3" class="step-section card">
+        <h2>Coagulation Studies</h2>
+        <p>Enter coagulation panel results</p>
+        <div class="form-row">
+          <div class="form-group"><label>Prothrombin Time (seconds)</label><input type="number" step="0.1" data-field="coagulationStudies.prothrombinTime" placeholder="Normal: 11.0-13.5"></div>
+          <div class="form-group"><label>INR</label><input type="number" step="0.1" data-field="coagulationStudies.inr" placeholder="Normal: 0.8-1.2"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>aPTT (seconds)</label><input type="number" step="0.1" data-field="coagulationStudies.activatedPartialThromboplastinTime" placeholder="Normal: 25-35"></div>
+          <div class="form-group"><label>Fibrinogen (mg/dL)</label><input type="number" step="1" data-field="coagulationStudies.fibrinogen" placeholder="Normal: 200-400"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>D-dimer (mg/L)</label><input type="number" step="0.01" data-field="coagulationStudies.dDimer" placeholder="Normal: &lt;0.5"></div>
+          <div class="form-group"><label>Bleeding Time (minutes)</label><input type="number" step="0.1" data-field="coagulationStudies.bleedingTime" placeholder="Normal: 2-7"></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(2)">Previous</button><button class="btn btn-primary" onclick="goToStep(4)">Next</button></div>
+      </section>
+
+      <!-- Step 4: Peripheral Blood Film -->
+      <section id="step-4" class="step-section card">
+        <h2>Peripheral Blood Film</h2>
+        <p>Describe peripheral blood smear findings</p>
+        <div class="form-group"><label>Red Cell Morphology</label><textarea rows="3" data-field="peripheralBloodFilm.redCellMorphology" placeholder="e.g. Normochromic normocytic"></textarea></div>
+        <div class="form-group"><label>WBC Differential</label><textarea rows="3" data-field="peripheralBloodFilm.whiteBloodCellDifferential" placeholder="e.g. Neutrophils 60%, Lymphocytes 30%"></textarea></div>
+        <div class="form-group"><label>Platelet Morphology</label><textarea rows="2" data-field="peripheralBloodFilm.plateletMorphology" placeholder="e.g. Adequate number, normal morphology"></textarea></div>
+        <div class="form-group"><label>Abnormal Cell Morphology</label><textarea rows="3" data-field="peripheralBloodFilm.abnormalCellMorphology" placeholder="e.g. Blast cells, schistocytes"></textarea></div>
+        <div class="form-group">
+          <label>Film Quality (1-5)</label>
+          <select data-field="peripheralBloodFilm.filmQuality">
+            <option value="">-- Select --</option>
+            <option value="1">1 - Poor</option><option value="2">2 - Below Average</option><option value="3">3 - Adequate</option><option value="4">4 - Good</option><option value="5">5 - Excellent</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Film Comments</label><textarea rows="2" data-field="peripheralBloodFilm.filmComments" placeholder="Additional observations"></textarea></div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(3)">Previous</button><button class="btn btn-primary" onclick="goToStep(5)">Next</button></div>
+      </section>
+
+      <!-- Step 5: Iron Studies -->
+      <section id="step-5" class="step-section card">
+        <h2>Iron Studies</h2>
+        <p>Enter iron panel and reticulocyte results</p>
+        <div class="form-row">
+          <div class="form-group"><label>Serum Iron (mcg/dL)</label><input type="number" step="1" data-field="ironStudies.serumIron" placeholder="Normal: 60-170"></div>
+          <div class="form-group"><label>TIBC (mcg/dL)</label><input type="number" step="1" data-field="ironStudies.totalIronBindingCapacity" placeholder="Normal: 250-370"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Transferrin Saturation (%)</label><input type="number" step="1" data-field="ironStudies.transferrinSaturation" placeholder="Normal: 20-50"></div>
+          <div class="form-group"><label>Serum Ferritin (ng/mL)</label><input type="number" step="1" data-field="ironStudies.serumFerritin" placeholder="Normal: 20-250"></div>
+        </div>
+        <div class="form-group"><label>Reticulocyte Count (%)</label><input type="number" step="0.1" data-field="ironStudies.reticulocyteCount" placeholder="Normal: 0.5-2.5"></div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(4)">Previous</button><button class="btn btn-primary" onclick="goToStep(6)">Next</button></div>
+      </section>
+
+      <!-- Step 6: Hemoglobinopathy Screening -->
+      <section id="step-6" class="step-section card">
+        <h2>Hemoglobinopathy Screening</h2>
+        <p>Enter hemoglobinopathy and genetic testing results</p>
+        <div class="form-group"><label>Hemoglobin Electrophoresis</label><textarea rows="3" data-field="hemoglobinopathyScreening.hemoglobinElectrophoresis" placeholder="e.g. HbA 97%, HbA2 2.5%"></textarea></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Sickle Cell Screen</label>
+            <select data-field="hemoglobinopathyScreening.sickleCellScreen"><option value="">-- Select --</option><option value="negative">Negative</option><option value="positive">Positive</option><option value="notPerformed">Not Performed</option></select>
+          </div>
+          <div class="form-group">
+            <label>Thalassemia Screen</label>
+            <select data-field="hemoglobinopathyScreening.thalassemiaScreen"><option value="">-- Select --</option><option value="negative">Negative</option><option value="positive">Positive</option><option value="notPerformed">Not Performed</option></select>
+          </div>
+        </div>
+        <div class="form-group"><label>HPLC Results</label><textarea rows="2" data-field="hemoglobinopathyScreening.hplcResults" placeholder="e.g. Normal pattern"></textarea></div>
+        <div class="form-group"><label>Genetic Testing Notes</label><textarea rows="2" data-field="hemoglobinopathyScreening.geneticTestingNotes" placeholder="Genetic findings"></textarea></div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(5)">Previous</button><button class="btn btn-primary" onclick="goToStep(7)">Next</button></div>
+      </section>
+
+      <!-- Step 7: Bone Marrow Assessment -->
+      <section id="step-7" class="step-section card">
+        <h2>Bone Marrow Assessment</h2>
+        <p>Enter bone marrow aspirate and biopsy findings</p>
+        <div class="form-group"><label>Aspirate Findings</label><textarea rows="3" data-field="boneMarrowAssessment.aspirateFindings" placeholder="e.g. Adequate cellularity"></textarea></div>
+        <div class="form-group"><label>Biopsy Findings</label><textarea rows="3" data-field="boneMarrowAssessment.biopsyFindings" placeholder="e.g. Normocellular marrow for age"></textarea></div>
+        <div class="form-group">
+          <label>Cellularity Rating (1-5)</label>
+          <select data-field="boneMarrowAssessment.cellularity"><option value="">-- Select --</option><option value="1">1 - Markedly Hypocellular</option><option value="2">2 - Hypocellular</option><option value="3">3 - Normocellular</option><option value="4">4 - Hypercellular</option><option value="5">5 - Markedly Hypercellular</option></select>
+        </div>
+        <div class="form-group"><label>Cytogenetics Results</label><textarea rows="2" data-field="boneMarrowAssessment.cytogeneticsResults" placeholder="e.g. Normal karyotype"></textarea></div>
+        <div class="form-group"><label>Flow Cytometry Results</label><textarea rows="2" data-field="boneMarrowAssessment.flowCytometryResults" placeholder="e.g. No aberrant immunophenotype"></textarea></div>
+        <div class="form-group"><label>Comments</label><textarea rows="2" data-field="boneMarrowAssessment.boneMarrowComments" placeholder="Additional findings"></textarea></div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(6)">Previous</button><button class="btn btn-primary" onclick="goToStep(8)">Next</button></div>
+      </section>
+
+      <!-- Step 8: Transfusion History -->
+      <section id="step-8" class="step-section card">
+        <h2>Transfusion History</h2>
+        <p>Document transfusion history and blood group</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Previous Transfusions</label>
+            <select data-field="transfusionHistory.previousTransfusions"><option value="">-- Select --</option><option value="none">None</option><option value="1to5">1-5</option><option value="6to20">6-20</option><option value="moreThan20">More than 20</option><option value="chronicDependent">Chronic dependent</option></select>
+          </div>
+          <div class="form-group">
+            <label>Transfusion Reactions</label>
+            <select data-field="transfusionHistory.transfusionReactions"><option value="">-- Select --</option><option value="none">None</option><option value="febrile">Febrile</option><option value="allergic">Allergic</option><option value="hemolytic">Hemolytic</option><option value="trali">TRALI</option><option value="other">Other</option></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Blood Group & Type</label>
+            <select data-field="transfusionHistory.bloodGroupType"><option value="">-- Select --</option><option value="aPositive">A+</option><option value="aNegative">A-</option><option value="bPositive">B+</option><option value="bNegative">B-</option><option value="abPositive">AB+</option><option value="abNegative">AB-</option><option value="oPositive">O+</option><option value="oNegative">O-</option></select>
+          </div>
+          <div class="form-group">
+            <label>Antibody Screen</label>
+            <select data-field="transfusionHistory.antibodyScreen"><option value="">-- Select --</option><option value="negative">Negative</option><option value="positive">Positive</option><option value="notPerformed">Not Performed</option></select>
+          </div>
+        </div>
+        <div class="form-group"><label>Crossmatch Results</label><textarea rows="2" data-field="transfusionHistory.crossmatchResults" placeholder="e.g. Compatible"></textarea></div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(7)">Previous</button><button class="btn btn-primary" onclick="goToStep(9)">Next</button></div>
+      </section>
+
+      <!-- Step 9: Treatment & Medications -->
+      <section id="step-9" class="step-section card">
+        <h2>Treatment & Medications</h2>
+        <p>Document current treatments and response</p>
+        <div class="form-group"><label>Current Medications</label><textarea rows="3" data-field="treatmentMedications.currentMedications" placeholder="List medications and dosages"></textarea></div>
+        <div class="form-group"><label>Chemotherapy Regimen</label><textarea rows="2" data-field="treatmentMedications.chemotherapyRegimen" placeholder="e.g. R-CHOP cycle 3 of 6"></textarea></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Anticoagulant Therapy</label>
+            <select data-field="treatmentMedications.anticoagulantTherapy"><option value="">-- Select --</option><option value="none">None</option><option value="warfarin">Warfarin</option><option value="heparin">Heparin</option><option value="lmwh">LMWH</option><option value="doac">DOAC</option><option value="other">Other</option></select>
+          </div>
+          <div class="form-group">
+            <label>Iron Therapy</label>
+            <select data-field="treatmentMedications.ironTherapy"><option value="">-- Select --</option><option value="none">None</option><option value="oralIron">Oral Iron</option><option value="ivIron">IV Iron</option><option value="both">Both</option></select>
+          </div>
+        </div>
+        <div class="form-group"><label>Treatment Response</label><textarea rows="2" data-field="treatmentMedications.treatmentResponse" placeholder="e.g. Partial response"></textarea></div>
+        <div class="form-group"><label>Adverse Effects</label><textarea rows="2" data-field="treatmentMedications.adverseEffects" placeholder="Treatment-related adverse effects"></textarea></div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(8)">Previous</button><button class="btn btn-primary" onclick="goToStep(10)">Next</button></div>
+      </section>
+
+      <!-- Step 10: Clinical Review -->
+      <section id="step-10" class="step-section card">
+        <h2>Clinical Review</h2>
+        <p>Clinical summary, diagnosis, and follow-up plan</p>
+        <div class="form-group"><label>Clinical Summary</label><textarea rows="4" data-field="clinicalReview.clinicalSummary" placeholder="Key clinical findings"></textarea></div>
+        <div class="form-group"><label>Diagnosis</label><textarea rows="2" data-field="clinicalReview.diagnosis" placeholder="e.g. Iron deficiency anemia"></textarea></div>
+        <div class="form-group"><label>Follow-up Plan</label><textarea rows="3" data-field="clinicalReview.followUpPlan" placeholder="e.g. Repeat CBC in 4 weeks"></textarea></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Urgency Level (1-5)</label>
+            <select data-field="clinicalReview.urgencyLevel"><option value="">-- Select --</option><option value="1">1 - Routine</option><option value="2">2 - Non-Urgent</option><option value="3">3 - Semi-Urgent</option><option value="4">4 - Urgent</option><option value="5">5 - Critical</option></select>
+          </div>
+          <div class="form-group"><label>Reviewer Name</label><input type="text" data-field="clinicalReview.reviewerName" placeholder="e.g. Dr Patel"></div>
+        </div>
+        <div class="form-group"><label>Review Date</label><input type="date" data-field="clinicalReview.reviewDate"></div>
+        <div class="form-group"><label>Additional Notes</label><textarea rows="3" data-field="clinicalReview.additionalNotes" placeholder="Additional notes"></textarea></div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(9)">Previous</button><button class="btn btn-primary" onclick="submitForm()">Submit Assessment</button></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">Hematology Assessment &mdash; Clinical Decision Support Tool</footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

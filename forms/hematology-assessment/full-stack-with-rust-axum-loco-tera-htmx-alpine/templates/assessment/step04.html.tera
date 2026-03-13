@@ -1,0 +1,60 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Peripheral Blood Film - Hematology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Peripheral Blood Film</h2>
+    <p class="hint">Describe findings from the peripheral blood smear examination.</p>
+
+    <div class="form-group">
+      <label for="red_cell_morphology">Red Cell Morphology</label>
+      <textarea id="red_cell_morphology" name="peripheral_blood_film.red_cell_morphology" rows="3"
+                placeholder="e.g. Normochromic normocytic, microcytic hypochromic, target cells present">{{ peripheral_blood_film.redCellMorphology }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="white_blood_cell_differential">White Blood Cell Differential</label>
+      <textarea id="white_blood_cell_differential" name="peripheral_blood_film.white_blood_cell_differential" rows="3"
+                placeholder="e.g. Neutrophils 60%, Lymphocytes 30%, Monocytes 5%, Eosinophils 3%, Basophils 2%">{{ peripheral_blood_film.whiteBloodCellDifferential }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="platelet_morphology">Platelet Morphology</label>
+      <textarea id="platelet_morphology" name="peripheral_blood_film.platelet_morphology" rows="2"
+                placeholder="e.g. Adequate number, normal morphology">{{ peripheral_blood_film.plateletMorphology }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="abnormal_cell_morphology">Abnormal Cell Morphology</label>
+      <textarea id="abnormal_cell_morphology" name="peripheral_blood_film.abnormal_cell_morphology" rows="3"
+                placeholder="e.g. Blast cells, atypical lymphocytes, schistocytes">{{ peripheral_blood_film.abnormalCellMorphology }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="film_quality">Film Quality (1-5)</label>
+        <select id="film_quality" name="peripheral_blood_film.film_quality">
+          <option value="">-- Select --</option>
+          <option value="1" {% if peripheral_blood_film.filmQuality == 1 %}selected{% endif %}>1 - Poor</option>
+          <option value="2" {% if peripheral_blood_film.filmQuality == 2 %}selected{% endif %}>2 - Below Average</option>
+          <option value="3" {% if peripheral_blood_film.filmQuality == 3 %}selected{% endif %}>3 - Adequate</option>
+          <option value="4" {% if peripheral_blood_film.filmQuality == 4 %}selected{% endif %}>4 - Good</option>
+          <option value="5" {% if peripheral_blood_film.filmQuality == 5 %}selected{% endif %}>5 - Excellent</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="film_comments">Additional Film Comments</label>
+      <textarea id="film_comments" name="peripheral_blood_film.film_comments" rows="2"
+                placeholder="Any additional observations">{{ peripheral_blood_film.filmComments }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

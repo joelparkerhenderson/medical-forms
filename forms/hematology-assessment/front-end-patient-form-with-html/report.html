@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Report - Hematology Assessment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header no-print">
+    <div class="header-inner">
+      <span class="header-title">Hematology Assessment Report</span>
+      <nav>
+        <a href="index.html">New Assessment</a>
+        <a href="javascript:window.print()">Print</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="report-container">
+    <p style="text-align:center;color:#6b7280;padding:2rem;">Loading report...</p>
+  </main>
+
+  <footer class="footer">Hematology Assessment &mdash; Clinical Decision Support Tool</footer>
+
+  <script type="module">
+    import { abnormalityLevelLabel } from './js/utils.js';
+
+    const data = JSON.parse(sessionStorage.getItem('hematologyData'));
+    const result = JSON.parse(sessionStorage.getItem('hematologyResult'));
+    const container = document.getElementById('report-container');
+
+    if (!data || !result) {
+      container.innerHTML = '<div class="card" style="text-align:center"><p>No assessment data found.</p><a href="index.html" class="btn btn-primary">Start New Assessment</a></div>';
+    } else {
+      let html = '';
+
+      // Score banner
+      html += '<div class="score-banner ' + result.abnormalityLevel + '">';
+      html += '<div class="score">' + result.abnormalityScore + '%</div>';
+      html += '<div class="label">' + abnormalityLevelLabel(result.abnormalityLevel) + '</div>';
+      html += '<div style="margin-top:.5rem;font-size:.85rem;opacity:.75">Composite Abnormality Score | Generated ' + new Date(result.timestamp).toLocaleString() + '</div>';
+      html += '</div>';
+
+      // Patient summary
+      html += '<div class="card"><h2>Patient Summary</h2>';
+      html += '<div class="form-row"><div><strong>Patient:</strong> ' + (data.patientInformation.patientName || 'Not provided') + '</div>';
+      html += '<div><strong>DOB:</strong> ' + (data.patientInformation.dateOfBirth || 'Not provided') + '</div></div>';
+      html += '<div class="form-row" style="margin-top:.5rem"><div><strong>MRN:</strong> ' + (data.patientInformation.medicalRecordNumber || 'Not provided') + '</div>';
+      html += '<div><strong>Specimen Date:</strong> ' + (data.patientInformation.specimenDate || 'Not provided') + '</div></div>';
+      html += '<div class="form-row" style="margin-top:.5rem"><div><strong>Physician:</strong> ' + (data.patientInformation.referringPhysician || 'Not provided') + '</div>';
+      html += '<div><strong>Indication:</strong> ' + (data.patientInformation.clinicalIndication || 'Not provided') + '</div></div></div>';
+
+      // Flagged Issues
+      if (result.additionalFlags && result.additionalFlags.length > 0) {
+        html += '<div class="card"><h2>Flagged Issues</h2>';
+        result.additionalFlags.forEach(function(flag) {
+          html += '<div class="flag-item flag-' + flag.priority + '">';
+          html += '<span class="concern-badge concern-' + flag.priority + '">' + flag.priority.toUpperCase() + '</span>';
+          html += '<div><strong>' + flag.category + ':</strong> ' + flag.message + '</div></div>';
+        });
+        html += '</div>';
+      }
+
+      // Fired Rules
+      if (result.firedRules && result.firedRules.length > 0) {
+        html += '<div class="card"><h2>Hematology Analysis</h2>';
+        html += '<table class="rules-table"><thead><tr><th>Rule</th><th>Category</th><th>Description</th><th>Concern</th></tr></thead><tbody>';
+        result.firedRules.forEach(function(rule) {
+          html += '<tr><td>' + rule.id + '</td><td>' + rule.category + '</td><td>' + rule.description + '</td>';
+          html += '<td><span class="concern-badge concern-' + rule.concernLevel + '">' + rule.concernLevel.toUpperCase() + '</span></td></tr>';
+        });
+        html += '</tbody></table></div>';
+      }
+
+      // Clinical Review
+      if (data.clinicalReview.diagnosis || data.clinicalReview.clinicalSummary || data.clinicalReview.followUpPlan) {
+        html += '<div class="card"><h2>Clinical Review</h2>';
+        if (data.clinicalReview.diagnosis) html += '<div style="margin-bottom:.75rem"><strong>Diagnosis:</strong><p>' + data.clinicalReview.diagnosis + '</p></div>';
+        if (data.clinicalReview.clinicalSummary) html += '<div style="margin-bottom:.75rem"><strong>Clinical Summary:</strong><p>' + data.clinicalReview.clinicalSummary + '</p></div>';
+        if (data.clinicalReview.followUpPlan) html += '<div style="margin-bottom:.75rem"><strong>Follow-up Plan:</strong><p>' + data.clinicalReview.followUpPlan + '</p></div>';
+        if (data.clinicalReview.additionalNotes) html += '<div><strong>Additional Notes:</strong><p>' + data.clinicalReview.additionalNotes + '</p></div>';
+        html += '</div>';
+      }
+
+      // Actions
+      html += '<div class="card no-print" style="text-align:center">';
+      html += '<a href="index.html" class="btn btn-primary">New Assessment</a> ';
+      html += '<button class="btn btn-secondary" onclick="window.print()">Print Report</button>';
+      html += '</div>';
+
+      container.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

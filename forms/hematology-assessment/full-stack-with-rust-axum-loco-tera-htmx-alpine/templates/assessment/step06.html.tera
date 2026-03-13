@@ -1,0 +1,55 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Hemoglobinopathy Screening - Hematology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Hemoglobinopathy Screening</h2>
+    <p class="hint">Enter hemoglobinopathy screening and genetic testing results.</p>
+
+    <div class="form-group">
+      <label for="hemoglobin_electrophoresis">Hemoglobin Electrophoresis</label>
+      <textarea id="hemoglobin_electrophoresis" name="hemoglobinopathy_screening.hemoglobin_electrophoresis" rows="3"
+                placeholder="e.g. HbA 97%, HbA2 2.5%, HbF 0.5%">{{ hemoglobinopathy_screening.hemoglobinElectrophoresis }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sickle_cell_screen">Sickle Cell Screen</label>
+        <select id="sickle_cell_screen" name="hemoglobinopathy_screening.sickle_cell_screen">
+          <option value="">-- Select --</option>
+          <option value="negative" {% if hemoglobinopathy_screening.sickleCellScreen == "negative" %}selected{% endif %}>Negative</option>
+          <option value="positive" {% if hemoglobinopathy_screening.sickleCellScreen == "positive" %}selected{% endif %}>Positive</option>
+          <option value="notPerformed" {% if hemoglobinopathy_screening.sickleCellScreen == "notPerformed" %}selected{% endif %}>Not Performed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="thalassemia_screen">Thalassemia Screen</label>
+        <select id="thalassemia_screen" name="hemoglobinopathy_screening.thalassemia_screen">
+          <option value="">-- Select --</option>
+          <option value="negative" {% if hemoglobinopathy_screening.thalassemiaScreen == "negative" %}selected{% endif %}>Negative</option>
+          <option value="positive" {% if hemoglobinopathy_screening.thalassemiaScreen == "positive" %}selected{% endif %}>Positive</option>
+          <option value="notPerformed" {% if hemoglobinopathy_screening.thalassemiaScreen == "notPerformed" %}selected{% endif %}>Not Performed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="hplc_results">HPLC Results</label>
+      <textarea id="hplc_results" name="hemoglobinopathy_screening.hplc_results" rows="2"
+                placeholder="e.g. Normal pattern, no variant hemoglobins detected">{{ hemoglobinopathy_screening.hplcResults }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="genetic_testing_notes">Genetic Testing Notes</label>
+      <textarea id="genetic_testing_notes" name="hemoglobinopathy_screening.genetic_testing_notes" rows="2"
+                placeholder="Any relevant genetic testing findings">{{ hemoglobinopathy_screening.geneticTestingNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

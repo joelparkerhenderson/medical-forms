@@ -1,0 +1,74 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Transfusion History - Hematology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Transfusion History</h2>
+    <p class="hint">Document the patient's transfusion history and blood group information.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="previous_transfusions">Previous Transfusions</label>
+        <select id="previous_transfusions" name="transfusion_history.previous_transfusions">
+          <option value="">-- Select --</option>
+          <option value="none" {% if transfusion_history.previousTransfusions == "none" %}selected{% endif %}>None</option>
+          <option value="1to5" {% if transfusion_history.previousTransfusions == "1to5" %}selected{% endif %}>1-5 transfusions</option>
+          <option value="6to20" {% if transfusion_history.previousTransfusions == "6to20" %}selected{% endif %}>6-20 transfusions</option>
+          <option value="moreThan20" {% if transfusion_history.previousTransfusions == "moreThan20" %}selected{% endif %}>More than 20 transfusions</option>
+          <option value="chronicDependent" {% if transfusion_history.previousTransfusions == "chronicDependent" %}selected{% endif %}>Chronic transfusion-dependent</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="transfusion_reactions">Transfusion Reactions</label>
+        <select id="transfusion_reactions" name="transfusion_history.transfusion_reactions">
+          <option value="">-- Select --</option>
+          <option value="none" {% if transfusion_history.transfusionReactions == "none" %}selected{% endif %}>None</option>
+          <option value="febrile" {% if transfusion_history.transfusionReactions == "febrile" %}selected{% endif %}>Febrile non-hemolytic</option>
+          <option value="allergic" {% if transfusion_history.transfusionReactions == "allergic" %}selected{% endif %}>Allergic</option>
+          <option value="hemolytic" {% if transfusion_history.transfusionReactions == "hemolytic" %}selected{% endif %}>Hemolytic</option>
+          <option value="trali" {% if transfusion_history.transfusionReactions == "trali" %}selected{% endif %}>TRALI</option>
+          <option value="other" {% if transfusion_history.transfusionReactions == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="blood_group_type">Blood Group & Type</label>
+        <select id="blood_group_type" name="transfusion_history.blood_group_type">
+          <option value="">-- Select --</option>
+          <option value="aPositive" {% if transfusion_history.bloodGroupType == "aPositive" %}selected{% endif %}>A Positive</option>
+          <option value="aNegative" {% if transfusion_history.bloodGroupType == "aNegative" %}selected{% endif %}>A Negative</option>
+          <option value="bPositive" {% if transfusion_history.bloodGroupType == "bPositive" %}selected{% endif %}>B Positive</option>
+          <option value="bNegative" {% if transfusion_history.bloodGroupType == "bNegative" %}selected{% endif %}>B Negative</option>
+          <option value="abPositive" {% if transfusion_history.bloodGroupType == "abPositive" %}selected{% endif %}>AB Positive</option>
+          <option value="abNegative" {% if transfusion_history.bloodGroupType == "abNegative" %}selected{% endif %}>AB Negative</option>
+          <option value="oPositive" {% if transfusion_history.bloodGroupType == "oPositive" %}selected{% endif %}>O Positive</option>
+          <option value="oNegative" {% if transfusion_history.bloodGroupType == "oNegative" %}selected{% endif %}>O Negative</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="antibody_screen">Antibody Screen</label>
+        <select id="antibody_screen" name="transfusion_history.antibody_screen">
+          <option value="">-- Select --</option>
+          <option value="negative" {% if transfusion_history.antibodyScreen == "negative" %}selected{% endif %}>Negative</option>
+          <option value="positive" {% if transfusion_history.antibodyScreen == "positive" %}selected{% endif %}>Positive</option>
+          <option value="notPerformed" {% if transfusion_history.antibodyScreen == "notPerformed" %}selected{% endif %}>Not Performed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="crossmatch_results">Crossmatch Results</label>
+      <textarea id="crossmatch_results" name="transfusion_history.crossmatch_results" rows="2"
+                placeholder="e.g. Compatible, no irregularities">{{ transfusion_history.crossmatchResults }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

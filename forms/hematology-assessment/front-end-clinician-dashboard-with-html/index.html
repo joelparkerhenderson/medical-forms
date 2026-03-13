@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinician Dashboard - Hematology Assessment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <span class="header-title">Clinician Dashboard - Hematology Assessment</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="filter-bar">
+      <input type="text" id="search-input" placeholder="Search by patient name, MRN, physician, or diagnosis...">
+      <select id="level-filter">
+        <option value="">All Levels</option>
+        <option value="normal">Normal</option>
+        <option value="mildAbnormality">Mild Abnormality</option>
+        <option value="moderateAbnormality">Moderate Abnormality</option>
+        <option value="severeAbnormality">Severe Abnormality</option>
+        <option value="critical">Critical</option>
+      </select>
+      <button id="clear-filters">Clear Filters</button>
+    </div>
+
+    <table class="patient-table">
+      <thead>
+        <tr>
+          <th data-sort="patientName">Patient Name</th>
+          <th data-sort="mrn">MRN</th>
+          <th data-sort="specimenDate">Specimen Date</th>
+          <th data-sort="referringPhysician">Physician</th>
+          <th data-sort="abnormalityLevel">Abnormality Level</th>
+          <th data-sort="abnormalityScore">Score</th>
+          <th data-sort="diagnosis">Diagnosis</th>
+        </tr>
+      </thead>
+      <tbody id="patients-tbody">
+        <tr><td colspan="7" style="text-align:center;color:#6b7280;padding:2rem;">Loading...</td></tr>
+      </tbody>
+    </table>
+
+    <div class="patient-count" id="patient-count"></div>
+  </main>
+
+  <footer class="footer"><p>Hematology Assessment &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

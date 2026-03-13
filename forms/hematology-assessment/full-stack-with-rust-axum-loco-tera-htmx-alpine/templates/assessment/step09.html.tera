@@ -1,0 +1,65 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Treatment & Medications - Hematology Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Treatment & Medications</h2>
+    <p class="hint">Document current treatments, medications, and response to therapy.</p>
+
+    <div class="form-group">
+      <label for="current_medications">Current Medications</label>
+      <textarea id="current_medications" name="treatment_medications.current_medications" rows="3"
+                placeholder="List all current medications and dosages">{{ treatment_medications.currentMedications }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="chemotherapy_regimen">Chemotherapy Regimen (if applicable)</label>
+      <textarea id="chemotherapy_regimen" name="treatment_medications.chemotherapy_regimen" rows="2"
+                placeholder="e.g. R-CHOP cycle 3 of 6, ABVD">{{ treatment_medications.chemotherapyRegimen }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="anticoagulant_therapy">Anticoagulant Therapy</label>
+        <select id="anticoagulant_therapy" name="treatment_medications.anticoagulant_therapy">
+          <option value="">-- Select --</option>
+          <option value="none" {% if treatment_medications.anticoagulantTherapy == "none" %}selected{% endif %}>None</option>
+          <option value="warfarin" {% if treatment_medications.anticoagulantTherapy == "warfarin" %}selected{% endif %}>Warfarin</option>
+          <option value="heparin" {% if treatment_medications.anticoagulantTherapy == "heparin" %}selected{% endif %}>Heparin</option>
+          <option value="lmwh" {% if treatment_medications.anticoagulantTherapy == "lmwh" %}selected{% endif %}>LMWH (Enoxaparin)</option>
+          <option value="doac" {% if treatment_medications.anticoagulantTherapy == "doac" %}selected{% endif %}>DOAC (Rivaroxaban/Apixaban)</option>
+          <option value="other" {% if treatment_medications.anticoagulantTherapy == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="iron_therapy">Iron Therapy</label>
+        <select id="iron_therapy" name="treatment_medications.iron_therapy">
+          <option value="">-- Select --</option>
+          <option value="none" {% if treatment_medications.ironTherapy == "none" %}selected{% endif %}>None</option>
+          <option value="oralIron" {% if treatment_medications.ironTherapy == "oralIron" %}selected{% endif %}>Oral Iron</option>
+          <option value="ivIron" {% if treatment_medications.ironTherapy == "ivIron" %}selected{% endif %}>IV Iron</option>
+          <option value="both" {% if treatment_medications.ironTherapy == "both" %}selected{% endif %}>Both Oral and IV</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="treatment_response">Treatment Response</label>
+      <textarea id="treatment_response" name="treatment_medications.treatment_response" rows="2"
+                placeholder="e.g. Partial response, stable disease, complete remission">{{ treatment_medications.treatmentResponse }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="adverse_effects">Adverse Effects</label>
+      <textarea id="adverse_effects" name="treatment_medications.adverse_effects" rows="2"
+                placeholder="Document any treatment-related adverse effects">{{ treatment_medications.adverseEffects }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Hematology Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Hematology Assessment</h1>
+  <p>
+    This assessment form collects and evaluates hematological laboratory data
+    including complete blood counts, coagulation studies, iron studies,
+    hemoglobinopathy screening, and bone marrow findings. Results are graded
+    against clinical reference ranges to identify abnormalities requiring review.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive hematological evaluation from CBC to clinical review</p>
+    </div>
+    <div class="feature-card">
+      <h3>Abnormality Scoring</h3>
+      <p>Composite scoring with reference range deviation analysis</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Actionable alerts for critical findings requiring urgent attention</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}
