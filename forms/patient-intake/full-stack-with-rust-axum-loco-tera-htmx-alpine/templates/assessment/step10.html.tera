@@ -1,0 +1,69 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}"
+          x-data="{ advanceDirectives: '{{ consent_and_preferences.advanceDirectives }}' }">
+        <div class="form-group">
+            <label>Consent to Treatment</label>
+            <p class="form-hint">I consent to receiving medical treatment and understand the information provided will be used for my care.</p>
+            <div class="radio-group">
+                <label><input type="radio" name="consent_and_preferences.consent_to_treatment" value="yes" {% if consent_and_preferences.consentToTreatment == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="consent_and_preferences.consent_to_treatment" value="no" {% if consent_and_preferences.consentToTreatment == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Privacy Acknowledgement</label>
+            <p class="form-hint">I acknowledge that my personal health information will be stored and processed in accordance with data protection regulations.</p>
+            <div class="radio-group">
+                <label><input type="radio" name="consent_and_preferences.privacy_acknowledgement" value="yes" {% if consent_and_preferences.privacyAcknowledgement == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="consent_and_preferences.privacy_acknowledgement" value="no" {% if consent_and_preferences.privacyAcknowledgement == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="communication_preference">Communication Preference</label>
+            <select id="communication_preference" name="consent_and_preferences.communication_preference">
+                <option value="" {% if consent_and_preferences.communicationPreference == "" %}selected{% endif %}>Select...</option>
+                <option value="email" {% if consent_and_preferences.communicationPreference == "email" %}selected{% endif %}>Email</option>
+                <option value="phone" {% if consent_and_preferences.communicationPreference == "phone" %}selected{% endif %}>Phone</option>
+                <option value="post" {% if consent_and_preferences.communicationPreference == "post" %}selected{% endif %}>Post</option>
+                <option value="text" {% if consent_and_preferences.communicationPreference == "text" %}selected{% endif %}>Text Message</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Advance Directives</label>
+            <p class="form-hint">Do you have any advance directives, living will, or lasting power of attorney for health?</p>
+            <div class="radio-group">
+                <label><input type="radio" name="consent_and_preferences.advance_directives" value="yes" x-model="advanceDirectives" {% if consent_and_preferences.advanceDirectives == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="consent_and_preferences.advance_directives" value="no" x-model="advanceDirectives" {% if consent_and_preferences.advanceDirectives == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="advanceDirectives === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="advance_directive_details">Advance Directive Details</label>
+                <textarea id="advance_directive_details" name="consent_and_preferences.advance_directive_details"
+                          placeholder="Describe your advance directives or provide document reference">{{ consent_and_preferences.advanceDirectiveDetails }}</textarea>
+            </div>
+        </div>
+
+        <div class="step-nav">
+            {% if prev_step %}
+                <a href="/assessment/{{ id }}/step/{{ prev_step }}" class="btn btn-secondary">&larr; Previous</a>
+            {% else %}
+                <span></span>
+            {% endif %}
+            <button type="submit" class="btn btn-success">Submit Assessment</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

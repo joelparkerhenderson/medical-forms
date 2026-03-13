@@ -1,0 +1,87 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <p class="form-hint">For each body system, describe any current symptoms or concerns. Leave blank if no symptoms.</p>
+
+        <div class="form-group">
+            <label for="constitutional">Constitutional</label>
+            <p class="form-hint">Fever, weight loss, fatigue, night sweats, general malaise</p>
+            <textarea id="constitutional" name="review_of_systems.constitutional"
+                      placeholder="Describe any constitutional symptoms">{{ review_of_systems.constitutional }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="heent">HEENT (Head, Eyes, Ears, Nose, Throat)</label>
+            <p class="form-hint">Headaches, vision changes, hearing loss, sinus problems, sore throat</p>
+            <textarea id="heent" name="review_of_systems.heent"
+                      placeholder="Describe any HEENT symptoms">{{ review_of_systems.heent }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="cardiovascular">Cardiovascular</label>
+            <p class="form-hint">Chest pain, palpitations, shortness of breath on exertion, oedema, claudication</p>
+            <textarea id="cardiovascular" name="review_of_systems.cardiovascular"
+                      placeholder="Describe any cardiovascular symptoms">{{ review_of_systems.cardiovascular }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="respiratory">Respiratory</label>
+            <p class="form-hint">Cough, wheezing, shortness of breath, haemoptysis, sleep apnoea</p>
+            <textarea id="respiratory" name="review_of_systems.respiratory"
+                      placeholder="Describe any respiratory symptoms">{{ review_of_systems.respiratory }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="gastrointestinal">Gastrointestinal</label>
+            <p class="form-hint">Nausea, vomiting, abdominal pain, diarrhoea, constipation, blood in stool</p>
+            <textarea id="gastrointestinal" name="review_of_systems.gastrointestinal"
+                      placeholder="Describe any gastrointestinal symptoms">{{ review_of_systems.gastrointestinal }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="genitourinary">Genitourinary</label>
+            <p class="form-hint">Dysuria, frequency, urgency, haematuria, incontinence</p>
+            <textarea id="genitourinary" name="review_of_systems.genitourinary"
+                      placeholder="Describe any genitourinary symptoms">{{ review_of_systems.genitourinary }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="musculoskeletal">Musculoskeletal</label>
+            <p class="form-hint">Joint pain, stiffness, swelling, muscle weakness, back pain</p>
+            <textarea id="musculoskeletal" name="review_of_systems.musculoskeletal"
+                      placeholder="Describe any musculoskeletal symptoms">{{ review_of_systems.musculoskeletal }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="neurological">Neurological</label>
+            <p class="form-hint">Numbness, tingling, weakness, dizziness, seizures, tremor</p>
+            <textarea id="neurological" name="review_of_systems.neurological"
+                      placeholder="Describe any neurological symptoms">{{ review_of_systems.neurological }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="psychiatric">Psychiatric</label>
+            <p class="form-hint">Anxiety, depression, insomnia, mood changes, suicidal ideation</p>
+            <textarea id="psychiatric" name="review_of_systems.psychiatric"
+                      placeholder="Describe any psychiatric symptoms">{{ review_of_systems.psychiatric }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="skin">Skin</label>
+            <p class="form-hint">Rashes, lesions, itching, changes in moles, wounds</p>
+            <textarea id="skin" name="review_of_systems.skin"
+                      placeholder="Describe any skin symptoms">{{ review_of_systems.skin }}</textarea>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

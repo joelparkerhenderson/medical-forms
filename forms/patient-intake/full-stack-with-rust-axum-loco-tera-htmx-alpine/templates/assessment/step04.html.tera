@@ -1,0 +1,100 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-group">
+            <label>Chronic Conditions</label>
+            <p class="form-hint">Select all that apply.</p>
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" name="medical_history.chronic_conditions[]" value="hypertension"
+                           {% if "hypertension" in medical_history.chronicConditions %}checked{% endif %}>
+                    Hypertension
+                </label>
+                <label>
+                    <input type="checkbox" name="medical_history.chronic_conditions[]" value="diabetes"
+                           {% if "diabetes" in medical_history.chronicConditions %}checked{% endif %}>
+                    Diabetes
+                </label>
+                <label>
+                    <input type="checkbox" name="medical_history.chronic_conditions[]" value="heart-disease"
+                           {% if "heart-disease" in medical_history.chronicConditions %}checked{% endif %}>
+                    Heart Disease
+                </label>
+                <label>
+                    <input type="checkbox" name="medical_history.chronic_conditions[]" value="asthma"
+                           {% if "asthma" in medical_history.chronicConditions %}checked{% endif %}>
+                    Asthma
+                </label>
+                <label>
+                    <input type="checkbox" name="medical_history.chronic_conditions[]" value="copd"
+                           {% if "copd" in medical_history.chronicConditions %}checked{% endif %}>
+                    COPD
+                </label>
+                <label>
+                    <input type="checkbox" name="medical_history.chronic_conditions[]" value="arthritis"
+                           {% if "arthritis" in medical_history.chronicConditions %}checked{% endif %}>
+                    Arthritis
+                </label>
+                <label>
+                    <input type="checkbox" name="medical_history.chronic_conditions[]" value="cancer"
+                           {% if "cancer" in medical_history.chronicConditions %}checked{% endif %}>
+                    Cancer
+                </label>
+                <label>
+                    <input type="checkbox" name="medical_history.chronic_conditions[]" value="stroke"
+                           {% if "stroke" in medical_history.chronicConditions %}checked{% endif %}>
+                    Stroke
+                </label>
+                <label>
+                    <input type="checkbox" name="medical_history.chronic_conditions[]" value="kidney-disease"
+                           {% if "kidney-disease" in medical_history.chronicConditions %}checked{% endif %}>
+                    Kidney Disease
+                </label>
+                <label>
+                    <input type="checkbox" name="medical_history.chronic_conditions[]" value="liver-disease"
+                           {% if "liver-disease" in medical_history.chronicConditions %}checked{% endif %}>
+                    Liver Disease
+                </label>
+                <label>
+                    <input type="checkbox" name="medical_history.chronic_conditions[]" value="thyroid-disease"
+                           {% if "thyroid-disease" in medical_history.chronicConditions %}checked{% endif %}>
+                    Thyroid Disease
+                </label>
+                <label>
+                    <input type="checkbox" name="medical_history.chronic_conditions[]" value="mental-health"
+                           {% if "mental-health" in medical_history.chronicConditions %}checked{% endif %}>
+                    Mental Health
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="previous_surgeries">Previous Surgeries</label>
+            <textarea id="previous_surgeries" name="medical_history.previous_surgeries"
+                      placeholder="List any previous surgeries with approximate dates">{{ medical_history.previousSurgeries }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="previous_hospitalizations">Previous Hospitalisations</label>
+            <textarea id="previous_hospitalizations" name="medical_history.previous_hospitalizations"
+                      placeholder="List any previous hospital admissions with reasons and dates">{{ medical_history.previousHospitalizations }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="ongoing_treatments">Ongoing Treatments</label>
+            <textarea id="ongoing_treatments" name="medical_history.ongoing_treatments"
+                      placeholder="Describe any ongoing treatments or therapies">{{ medical_history.ongoingTreatments }}</textarea>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

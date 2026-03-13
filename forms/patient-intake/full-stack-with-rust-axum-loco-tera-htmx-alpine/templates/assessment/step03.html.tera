@@ -1,0 +1,50 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-group">
+            <label for="primary_reason">Primary Reason for Visit</label>
+            <textarea id="primary_reason" name="reason_for_visit.primary_reason"
+                      placeholder="Describe the main reason for your visit">{{ reason_for_visit.primaryReason }}</textarea>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="urgency_level">Urgency Level</label>
+                <select id="urgency_level" name="reason_for_visit.urgency_level">
+                    <option value="" {% if reason_for_visit.urgencyLevel == "" %}selected{% endif %}>Select...</option>
+                    <option value="routine" {% if reason_for_visit.urgencyLevel == "routine" %}selected{% endif %}>Routine</option>
+                    <option value="urgent" {% if reason_for_visit.urgencyLevel == "urgent" %}selected{% endif %}>Urgent</option>
+                    <option value="emergency" {% if reason_for_visit.urgencyLevel == "emergency" %}selected{% endif %}>Emergency</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="symptom_duration">Symptom Duration</label>
+                <input type="text" id="symptom_duration" name="reason_for_visit.symptom_duration"
+                       value="{{ reason_for_visit.symptomDuration }}" placeholder="e.g. 3 days, 2 weeks">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="referring_provider">Referring Provider</label>
+            <input type="text" id="referring_provider" name="reason_for_visit.referring_provider"
+                   value="{{ reason_for_visit.referringProvider }}" placeholder="Name of referring clinician (if any)">
+        </div>
+
+        <div class="form-group">
+            <label for="additional_details">Additional Details</label>
+            <textarea id="additional_details" name="reason_for_visit.additional_details"
+                      placeholder="Any additional information about your visit">{{ reason_for_visit.additionalDetails }}</textarea>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

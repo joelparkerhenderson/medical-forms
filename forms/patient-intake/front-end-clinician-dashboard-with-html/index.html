@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinician Dashboard - Patient Intake</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <span class="header-title">Clinician Dashboard</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="filter-bar">
+      <input type="text" id="search-input" placeholder="Search by NHS number, name, or reason...">
+      <select id="risk-filter">
+        <option value="">All Risk Levels</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <select id="allergy-filter">
+        <option value="">All Allergies</option>
+        <option value="yes">Has Allergies</option>
+        <option value="no">No Allergies</option>
+      </select>
+      <button id="clear-filters">Clear Filters</button>
+    </div>
+
+    <table class="patient-table">
+      <thead>
+        <tr>
+          <th data-sort="nhsNumber">NHS Number</th>
+          <th data-sort="patientName">Patient Name</th>
+          <th data-sort="riskLevel">Risk Level</th>
+          <th data-sort="reasonForVisit">Reason for Visit</th>
+          <th data-sort="allergyFlag">Allergy</th>
+        </tr>
+      </thead>
+      <tbody id="patients-tbody">
+        <tr><td colspan="5" style="text-align:center;color:#6b7280;padding:2rem;">Loading...</td></tr>
+      </tbody>
+    </table>
+
+    <div class="patient-count" id="patient-count"></div>
+  </main>
+
+  <footer class="footer"><p>Patient Intake System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

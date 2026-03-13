@@ -1,0 +1,38 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Intake - Home{% endblock %}
+
+{% block content %}
+<div class="landing">
+    <div class="card landing-card">
+        <h1>Patient Intake</h1>
+        <p class="landing-description">
+            Complete a comprehensive patient intake assessment covering 10 areas
+            including personal information, medical history, medications, allergies,
+            family and social history, and review of systems. The system will calculate
+            a Risk Level (Low / Medium / High) and identify safety flags for clinical planning.
+        </p>
+
+        <div class="landing-features">
+            <div class="feature">
+                <h3>10 Assessment Steps</h3>
+                <p>Covering demographics, history, medications, and systems review</p>
+            </div>
+            <div class="feature">
+                <h3>Risk Level Grading</h3>
+                <p>Rules compute a Risk Level (Low / Medium / High)</p>
+            </div>
+            <div class="feature">
+                <h3>Safety Flags</h3>
+                <p>Safety and administrative alerts for clinical planning</p>
+            </div>
+        </div>
+
+        <form method="POST" action="/assessment/new">
+            <button type="submit" class="btn btn-primary btn-lg">
+                Begin New Assessment
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

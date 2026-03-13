@@ -1,0 +1,108 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}"
+          x-data="{
+              smokingStatus: '{{ social_history.smokingStatus }}',
+              alcoholFrequency: '{{ social_history.alcoholFrequency }}',
+              drugUse: '{{ social_history.drugUse }}'
+          }">
+        <!-- Smoking Status -->
+        <div class="form-group">
+            <label>Smoking Status</label>
+            <div class="radio-group">
+                <label><input type="radio" name="social_history.smoking_status" value="never" x-model="smokingStatus" {% if social_history.smokingStatus == "never" %}checked{% endif %}> Never</label>
+                <label><input type="radio" name="social_history.smoking_status" value="ex" x-model="smokingStatus" {% if social_history.smokingStatus == "ex" %}checked{% endif %}> Ex-Smoker</label>
+                <label><input type="radio" name="social_history.smoking_status" value="current" x-model="smokingStatus" {% if social_history.smokingStatus == "current" %}checked{% endif %}> Current Smoker</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="smokingStatus === 'ex' || smokingStatus === 'current'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="smoking_pack_years">Pack Years</label>
+                <input type="number" id="smoking_pack_years" name="social_history.smoking_pack_years"
+                       value="{{ social_history.smokingPackYears | default(value='') }}" min="0" step="0.5">
+            </div>
+        </div>
+
+        <!-- Alcohol Frequency -->
+        <div class="form-group">
+            <label>Alcohol Consumption</label>
+            <div class="radio-group">
+                <label><input type="radio" name="social_history.alcohol_frequency" value="none" x-model="alcoholFrequency" {% if social_history.alcoholFrequency == "none" %}checked{% endif %}> None</label>
+                <label><input type="radio" name="social_history.alcohol_frequency" value="occasional" x-model="alcoholFrequency" {% if social_history.alcoholFrequency == "occasional" %}checked{% endif %}> Occasional</label>
+                <label><input type="radio" name="social_history.alcohol_frequency" value="moderate" x-model="alcoholFrequency" {% if social_history.alcoholFrequency == "moderate" %}checked{% endif %}> Moderate</label>
+                <label><input type="radio" name="social_history.alcohol_frequency" value="heavy" x-model="alcoholFrequency" {% if social_history.alcoholFrequency == "heavy" %}checked{% endif %}> Heavy</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="alcoholFrequency === 'occasional' || alcoholFrequency === 'moderate' || alcoholFrequency === 'heavy'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="alcohol_units_per_week">Units Per Week</label>
+                <input type="number" id="alcohol_units_per_week" name="social_history.alcohol_units_per_week"
+                       value="{{ social_history.alcoholUnitsPerWeek | default(value='') }}" min="0" step="1">
+            </div>
+        </div>
+
+        <!-- Drug Use -->
+        <div class="form-group">
+            <label>Recreational Drug Use</label>
+            <div class="radio-group">
+                <label><input type="radio" name="social_history.drug_use" value="none" x-model="drugUse" {% if social_history.drugUse == "none" %}checked{% endif %}> None</label>
+                <label><input type="radio" name="social_history.drug_use" value="occasional" x-model="drugUse" {% if social_history.drugUse == "occasional" %}checked{% endif %}> Occasional</label>
+                <label><input type="radio" name="social_history.drug_use" value="regular" x-model="drugUse" {% if social_history.drugUse == "regular" %}checked{% endif %}> Regular</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="drugUse === 'occasional' || drugUse === 'regular'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="drug_details">Drug Details</label>
+                <textarea id="drug_details" name="social_history.drug_details"
+                          placeholder="Specify substances used">{{ social_history.drugDetails }}</textarea>
+            </div>
+        </div>
+
+        <!-- Occupation -->
+        <div class="form-group">
+            <label for="occupation">Occupation</label>
+            <input type="text" id="occupation" name="social_history.occupation"
+                   value="{{ social_history.occupation }}" placeholder="e.g. Teacher, Engineer, Retired">
+        </div>
+
+        <div class="form-row">
+            <!-- Exercise Frequency -->
+            <div class="form-group">
+                <label for="exercise_frequency">Exercise Frequency</label>
+                <select id="exercise_frequency" name="social_history.exercise_frequency">
+                    <option value="" {% if social_history.exerciseFrequency == "" %}selected{% endif %}>Select...</option>
+                    <option value="none" {% if social_history.exerciseFrequency == "none" %}selected{% endif %}>None</option>
+                    <option value="occasional" {% if social_history.exerciseFrequency == "occasional" %}selected{% endif %}>Occasional</option>
+                    <option value="regular" {% if social_history.exerciseFrequency == "regular" %}selected{% endif %}>Regular</option>
+                    <option value="daily" {% if social_history.exerciseFrequency == "daily" %}selected{% endif %}>Daily</option>
+                </select>
+            </div>
+
+            <!-- Diet Quality -->
+            <div class="form-group">
+                <label for="diet_quality">Diet Quality</label>
+                <select id="diet_quality" name="social_history.diet_quality">
+                    <option value="" {% if social_history.dietQuality == "" %}selected{% endif %}>Select...</option>
+                    <option value="poor" {% if social_history.dietQuality == "poor" %}selected{% endif %}>Poor</option>
+                    <option value="fair" {% if social_history.dietQuality == "fair" %}selected{% endif %}>Fair</option>
+                    <option value="good" {% if social_history.dietQuality == "good" %}selected{% endif %}>Good</option>
+                    <option value="excellent" {% if social_history.dietQuality == "excellent" %}selected{% endif %}>Excellent</option>
+                </select>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

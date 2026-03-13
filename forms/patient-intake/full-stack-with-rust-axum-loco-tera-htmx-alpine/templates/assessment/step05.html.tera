@@ -1,0 +1,54 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}"
+          x-data="{
+              meds: [
+                  {% for med in medications %}
+                  { name: '{{ med.name }}', dose: '{{ med.dose }}', frequency: '{{ med.frequency }}', prescriber: '{{ med.prescriber }}' }{% if not loop.last %},{% endif %}
+                  {% endfor %}
+              ],
+              addMed() { this.meds.push({ name: '', dose: '', frequency: '', prescriber: '' }); },
+              removeMed(i) { this.meds.splice(i, 1); }
+          }">
+        <p class="form-hint">List all current medications including dose, frequency, and prescriber.</p>
+
+        <div id="medications-list">
+            <template x-for="(med, i) in meds" :key="i">
+                <div class="dynamic-list-item">
+                    <button type="button" class="btn-remove-item" @click="removeMed(i)">&times;</button>
+                    <div class="form-row-4">
+                        <div class="form-group">
+                            <label x-bind:for="'med_name_' + i">Medication Name</label>
+                            <input type="text" x-model="med.name" :name="'medications[' + i + '].name'" :id="'med_name_' + i">
+                        </div>
+                        <div class="form-group">
+                            <label x-bind:for="'med_dose_' + i">Dose</label>
+                            <input type="text" x-model="med.dose" :name="'medications[' + i + '].dose'" :id="'med_dose_' + i">
+                        </div>
+                        <div class="form-group">
+                            <label x-bind:for="'med_freq_' + i">Frequency</label>
+                            <input type="text" x-model="med.frequency" :name="'medications[' + i + '].frequency'" :id="'med_freq_' + i">
+                        </div>
+                        <div class="form-group">
+                            <label x-bind:for="'med_prescriber_' + i">Prescriber</label>
+                            <input type="text" x-model="med.prescriber" :name="'medications[' + i + '].prescriber'" :id="'med_prescriber_' + i">
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <button type="button" class="btn-add-item" @click="addMed()">+ Add Medication</button>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

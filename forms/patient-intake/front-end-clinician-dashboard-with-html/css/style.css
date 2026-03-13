@@ -1,0 +1,69 @@
+/* ─── Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --nhs-blue: #005eb8;
+  --danger: #dc2626;
+  --warning: #f59e0b;
+  --success: #16a34a;
+  --muted: #6b7280;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+}
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--gray-800); background: var(--gray-50); line-height: 1.6; }
+
+/* ─── Header ───────────────────────────────────────────── */
+.header { background: var(--nhs-blue); color: #fff; padding: 1rem 0; }
+.header-inner { max-width: 1100px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
+.header-title { color: #fff; text-decoration: none; font-size: 1.25rem; font-weight: 700; }
+
+/* ─── Container ────────────────────────────────────────── */
+.container { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1rem; }
+
+/* ─── Footer ───────────────────────────────────────────── */
+.footer { text-align: center; padding: 1.5rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--gray-200); }
+
+/* ─── Filter Bar ───────────────────────────────────────── */
+.filter-bar { display: flex; gap: .75rem; flex-wrap: wrap; align-items: center; margin-bottom: 1.5rem; background: #fff; padding: 1rem; border: 1px solid var(--gray-200); border-radius: .5rem; }
+.filter-bar input, .filter-bar select { padding: .5rem .75rem; border: 1px solid var(--gray-300); border-radius: .375rem; font-size: .9rem; }
+.filter-bar input { flex: 1; min-width: 200px; }
+.filter-bar select { min-width: 140px; }
+.filter-bar button { padding: .5rem .75rem; border: 1px solid var(--gray-300); border-radius: .375rem; background: var(--gray-100); cursor: pointer; font-size: .9rem; }
+.filter-bar button:hover { background: var(--gray-200); }
+
+/* ─── Patient Table ────────────────────────────────────── */
+.patient-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--gray-200); border-radius: .5rem; overflow: hidden; }
+.patient-table th { text-align: left; padding: .75rem 1rem; background: var(--gray-50); border-bottom: 2px solid var(--gray-200); font-weight: 600; font-size: .85rem; text-transform: uppercase; color: var(--muted); cursor: pointer; user-select: none; position: relative; }
+.patient-table th:hover { background: var(--gray-100); }
+.patient-table th::after { content: ''; display: inline-block; margin-left: .375rem; }
+.patient-table th.sort-asc::after { content: '\25B2'; font-size: .65rem; }
+.patient-table th.sort-desc::after { content: '\25BC'; font-size: .65rem; }
+.patient-table td { padding: .625rem 1rem; border-bottom: 1px solid var(--gray-100); font-size: .9rem; }
+.patient-table tr:hover { background: var(--gray-50); }
+
+/* ─── Risk Badges ──────────────────────────────────────── */
+.risk-badge { display: inline-block; padding: .125rem .5rem; border-radius: .25rem; font-weight: 600; font-size: .8rem; }
+.risk-low { background: #dcfce7; color: #166534; }
+.risk-medium { background: #fef9c3; color: #854d0e; }
+.risk-high { background: #fee2e2; color: #991b1b; }
+
+/* ─── Allergy Badges ───────────────────────────────────── */
+.badge-yes { display: inline-block; padding: .125rem .5rem; border-radius: .25rem; font-weight: 600; font-size: .8rem; background: #fee2e2; color: #991b1b; }
+.badge-no { display: inline-block; padding: .125rem .5rem; border-radius: .25rem; font-weight: 600; font-size: .8rem; background: #dcfce7; color: #166534; }
+
+/* ─── Count ────────────────────────────────────────────── */
+.patient-count { margin-top: .75rem; color: var(--muted); font-size: .85rem; }
+
+/* ─── Responsive ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .filter-bar { flex-direction: column; }
+  .filter-bar input { min-width: 100%; }
+  .patient-table { font-size: .8rem; }
+  .patient-table th, .patient-table td { padding: .5rem; }
+}

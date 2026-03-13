@@ -1,0 +1,83 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Assessment Report - Risk Level: {{ risk_level_label }}{% endblock %}
+
+{% block content %}
+<div class="report-header">
+    <h1>Patient Intake Assessment Report</h1>
+    <div class="risk-badge risk-{{ risk_level }}">{{ risk_level_label }}</div>
+    <div class="risk-label">Risk Level: {{ risk_level_label }}</div>
+    <p style="color: var(--gray-500); font-size: 0.85rem;">
+        Assessment ID: {{ id }}<br>
+        Generated: {{ timestamp }}
+    </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+    <h2>Patient Summary</h2>
+    <div class="form-row">
+        <div>
+            <strong>Name:</strong> {{ data.personalInformation.fullName }}<br>
+            <strong>Date of Birth:</strong> {{ data.personalInformation.dateOfBirth }}<br>
+            <strong>Sex:</strong> {{ data.personalInformation.sex }}<br>
+            <strong>NHS Number:</strong> {{ data.insuranceAndId.nhsNumber }}
+        </div>
+        <div>
+            <strong>Reason for Visit:</strong> {{ data.reasonForVisit.primaryReason }}<br>
+            <strong>Urgency:</strong> {{ data.reasonForVisit.urgencyLevel }}<br>
+            {% if data.reasonForVisit.referringProvider %}<strong>Referring Provider:</strong> {{ data.reasonForVisit.referringProvider }}<br>{% endif %}
+            {% if data.reasonForVisit.symptomDuration %}<strong>Symptom Duration:</strong> {{ data.reasonForVisit.symptomDuration }}{% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Safety Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+    <h2>Safety Flags ({{ additional_flags | length }})</h2>
+    <div class="flags-section">
+        {% for flag in additional_flags %}
+        <div class="flag-item flag-{{ flag.priority }}">
+            <span class="flag-category">{{ flag.category }}</span>
+            <span class="flag-message">{{ flag.message }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Fired Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+    <h2>Risk Level Rules Triggered ({{ fired_rules | length }})</h2>
+    <table class="rules-table">
+        <thead>
+            <tr>
+                <th>Rule ID</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Risk Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rule in fired_rules %}
+            <tr>
+                <td><code>{{ rule.id }}</code></td>
+                <td>{{ rule.category }}</td>
+                <td>{{ rule.description }}</td>
+                <td><span class="risk-badge risk-{{ rule.riskLevel }}">{{ rule.riskLevel }}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+    <a href="/" class="btn btn-primary">New Assessment</a>
+    <a href="/dashboard" class="btn btn-secondary" style="margin-left: 1rem;">View Dashboard</a>
+    <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 1rem;">Print Report</button>
+</div>
+{% endblock %}

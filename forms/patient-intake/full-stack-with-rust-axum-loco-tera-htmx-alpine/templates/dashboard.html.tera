@@ -1,0 +1,48 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinician Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>Clinician Dashboard</h1>
+    <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard" class="filter-bar"
+      hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+    <div class="form-group">
+        <label for="search">Search</label>
+        <input type="text" id="search" name="search" value="{{ search }}"
+               placeholder="NHS number, name, reason..."
+               hx-trigger="keyup changed delay:300ms"
+               hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+    </div>
+    <div class="form-group">
+        <label for="risk_level">Risk Level</label>
+        <select id="risk_level" name="risk_level"
+                hx-trigger="change" hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+            <option value="">All</option>
+            <option value="low" {% if risk_level == "low" %}selected{% endif %}>Low</option>
+            <option value="medium" {% if risk_level == "medium" %}selected{% endif %}>Medium</option>
+            <option value="high" {% if risk_level == "high" %}selected{% endif %}>High</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="allergy">Allergy</label>
+        <select id="allergy" name="allergy"
+                hx-trigger="change" hx-get="/dashboard" hx-target="#results-container" hx-include="closest form">
+            <option value="">All</option>
+            <option value="yes" {% if allergy == "yes" %}selected{% endif %}>Yes</option>
+            <option value="no" {% if allergy == "no" %}selected{% endif %}>No</option>
+        </select>
+    </div>
+    <div class="form-group" style="display: flex; gap: 0.5rem; align-items: flex-end;">
+        <button type="submit" class="btn btn-primary">Filter</button>
+        <a href="/dashboard" class="btn btn-secondary">Clear</a>
+    </div>
+</form>
+
+<div id="results-container">
+    {% include "_dashboard_results.html.tera" %}
+</div>
+{% endblock %}

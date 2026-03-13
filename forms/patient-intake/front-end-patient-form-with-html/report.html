@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Intake Report</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Patient Intake Form</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content" id="report-content">
+    <p style="text-align:center;color:#6b7280;">Loading report...</p>
+  </main>
+
+  <footer class="footer"><p>Patient Intake System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module">
+    import { riskLevelLabel, riskLevelColor } from './js/utils.js';
+
+    const dataStr = sessionStorage.getItem('intakeData');
+    const resultStr = sessionStorage.getItem('intakeResult');
+    const container = document.getElementById('report-content');
+
+    if (!dataStr || !resultStr) {
+      container.innerHTML = '<div class="card" style="text-align:center"><h2>No Assessment Data</h2><p>Please complete the intake form first.</p><a href="index.html" class="btn btn-primary">Go to Intake Form</a></div>';
+    } else {
+      const data = JSON.parse(dataStr);
+      const result = JSON.parse(resultStr);
+      renderReport(data, result);
+    }
+
+    function renderReport(data, result) {
+      const colorClass = riskLevelColor(result.riskLevel);
+      let html = '';
+
+      // Risk Level Banner
+      html += '<div class="risk-banner ' + colorClass + '">';
+      html += '<h2>Risk Level: ' + result.riskLevel.charAt(0).toUpperCase() + result.riskLevel.slice(1) + '</h2>';
+      html += '<p>' + riskLevelLabel(result.riskLevel) + '</p>';
+      html += '</div>';
+
+      // Flagged Issues
+      if (result.additionalFlags && result.additionalFlags.length > 0) {
+        html += '<div class="card"><h2>Flagged Issues for Clinician</h2>';
+        for (const flag of result.additionalFlags) {
+          const flagClass = 'flag-' + flag.priority;
+          html += '<div class="flag-item ' + flagClass + '">';
+          html += '<div class="flag-category">' + esc(flag.category) + ' (' + flag.priority + ')</div>';
+          html += '<div class="flag-message">' + esc(flag.message) + '</div>';
+          html += '</div>';
+        }
+        html += '</div>';
+      }
+
+      // Fired Rules
+      if (result.firedRules && result.firedRules.length > 0) {
+        html += '<div class="card"><h2>Fired Rules</h2>';
+        html += '<table class="rules-table"><thead><tr><th>ID</th><th>Category</th><th>Finding</th><th>Risk</th></tr></thead><tbody>';
+        for (const rule of result.firedRules) {
+          const rClass = riskLevelColor(rule.riskLevel);
+          html += '<tr><td>' + esc(rule.id) + '</td><td>' + esc(rule.category) + '</td>';
+          html += '<td>' + esc(rule.description) + '</td>';
+          html += '<td><span class="risk-badge ' + rClass + '">' + rule.riskLevel + '</span></td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      // Patient Summary
+      html += '<div class="card"><h2>Patient Summary</h2><dl class="summary-grid">';
+      html += '<dt>Full Name</dt><dd>' + esc(data.personalInformation.fullName) + '</dd>';
+      html += '<dt>Date of Birth</dt><dd>' + esc(data.personalInformation.dateOfBirth) + '</dd>';
+      html += '<dt>Sex</dt><dd>' + esc(data.personalInformation.sex) + '</dd>';
+      html += '<dt>NHS Number</dt><dd>' + esc(data.insuranceAndId.nhsNumber) + '</dd>';
+      html += '<dt>Reason for Visit</dt><dd>' + esc(data.reasonForVisit.primaryReason) + '</dd>';
+      html += '<dt>Urgency</dt><dd>' + esc(data.reasonForVisit.urgencyLevel) + '</dd>';
+      html += '<dt>GP</dt><dd>' + esc(data.insuranceAndId.gpName) + '</dd>';
+      html += '<dt>Emergency Contact</dt><dd>' + esc(data.personalInformation.emergencyContactName) + ' (' + esc(data.personalInformation.emergencyContactPhone) + ')</dd>';
+      html += '</dl></div>';
+
+      // Medications
+      if (data.medications && data.medications.length > 0) {
+        html += '<div class="card"><h2>Current Medications (' + data.medications.length + ')</h2>';
+        html += '<table class="rules-table"><thead><tr><th>Name</th><th>Dose</th><th>Frequency</th><th>Prescriber</th></tr></thead><tbody>';
+        for (const med of data.medications) {
+          html += '<tr><td>' + esc(med.name) + '</td><td>' + esc(med.dose) + '</td><td>' + esc(med.frequency) + '</td><td>' + esc(med.prescriber) + '</td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      // Allergies
+      if (data.allergies && data.allergies.length > 0) {
+        html += '<div class="card"><h2>Allergies (' + data.allergies.length + ')</h2>';
+        html += '<table class="rules-table"><thead><tr><th>Allergen</th><th>Type</th><th>Reaction</th><th>Severity</th></tr></thead><tbody>';
+        for (const a of data.allergies) {
+          html += '<tr><td>' + esc(a.allergen) + '</td><td>' + esc(a.allergyType) + '</td><td>' + esc(a.reaction) + '</td><td>' + esc(a.severity) + '</td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      // Action Buttons
+      html += '<div class="action-buttons">';
+      html += '<a href="index.html" class="btn btn-primary">New Intake</a>';
+      html += '<button class="btn btn-secondary" onclick="window.print()">Print Report</button>';
+      html += '</div>';
+
+      container.innerHTML = html;
+    }
+
+    function esc(str) {
+      const div = document.createElement('div');
+      div.textContent = str || '';
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>

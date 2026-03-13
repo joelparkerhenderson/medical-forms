@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Intake Form</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Patient Intake Form</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- ─── Landing ────────────────────────────────────── -->
+    <div id="landing" class="hero">
+      <h1>Patient Intake Form</h1>
+      <p>Complete this form to provide your medical information. The form has 10 steps covering your personal details, medical history, and preferences.</p>
+      <div class="feature-grid">
+        <div class="feature-card"><h3>10 Steps</h3><p>Comprehensive patient information collection</p></div>
+        <div class="feature-card"><h3>Risk Assessment</h3><p>Automated risk level classification</p></div>
+        <div class="feature-card"><h3>Safety Flags</h3><p>Clinical safety alerts for your care team</p></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Intake Form</button>
+    </div>
+
+    <!-- ─── Form ───────────────────────────────────────── -->
+    <div id="form-container" style="display:none;">
+      <div class="progress-container">
+        <div class="progress-header">
+          <span id="step-label">Step 1 of 10: Personal Information</span>
+          <span id="step-percent">10%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
+      </div>
+
+      <!-- Step 1: Personal Information -->
+      <section id="step-1" class="step-section active">
+        <div class="card">
+          <h2>Personal Information</h2>
+          <div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" data-field="personalInformation.fullName"></div>
+          <div class="form-row">
+            <div class="form-group"><label>Date of Birth</label><input type="date" data-field="personalInformation.dateOfBirth"></div>
+            <div class="form-group"><label>Sex</label>
+              <div class="radio-group">
+                <label><input type="radio" name="sex" value="male" data-field="personalInformation.sex"><span>Male</span></label>
+                <label><input type="radio" name="sex" value="female" data-field="personalInformation.sex"><span>Female</span></label>
+                <label><input type="radio" name="sex" value="other" data-field="personalInformation.sex"><span>Other</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group"><label>Address Line 1</label><input type="text" data-field="personalInformation.addressLine1"></div>
+          <div class="form-group"><label>Address Line 2</label><input type="text" data-field="personalInformation.addressLine2"></div>
+          <div class="form-row">
+            <div class="form-group"><label>City</label><input type="text" data-field="personalInformation.city"></div>
+            <div class="form-group"><label>Postcode</label><input type="text" data-field="personalInformation.postcode"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Phone</label><input type="tel" data-field="personalInformation.phone"></div>
+            <div class="form-group"><label>Email</label><input type="email" data-field="personalInformation.email"></div>
+          </div>
+          <h3 style="margin-top:1.5rem;margin-bottom:.75rem">Emergency Contact</h3>
+          <div class="form-row-3">
+            <div class="form-group"><label>Name</label><input type="text" data-field="personalInformation.emergencyContactName"></div>
+            <div class="form-group"><label>Phone</label><input type="tel" data-field="personalInformation.emergencyContactPhone"></div>
+            <div class="form-group"><label>Relationship</label><input type="text" data-field="personalInformation.emergencyContactRelationship"></div>
+          </div>
+        </div>
+        <div class="step-nav"><span></span><button class="btn btn-primary" onclick="goToStep(2)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 2: Insurance & ID -->
+      <section id="step-2" class="step-section">
+        <div class="card">
+          <h2>Insurance &amp; ID</h2>
+          <div class="form-row">
+            <div class="form-group"><label>Insurance Provider</label><input type="text" data-field="insuranceAndId.insuranceProvider"></div>
+            <div class="form-group"><label>Policy Number</label><input type="text" data-field="insuranceAndId.policyNumber"></div>
+          </div>
+          <div class="form-group"><label>NHS Number</label><input type="text" data-field="insuranceAndId.nhsNumber"></div>
+          <div class="form-row-3">
+            <div class="form-group"><label>GP Name</label><input type="text" data-field="insuranceAndId.gpName"></div>
+            <div class="form-group"><label>GP Practice Name</label><input type="text" data-field="insuranceAndId.gpPracticeName"></div>
+            <div class="form-group"><label>GP Phone</label><input type="tel" data-field="insuranceAndId.gpPhone"></div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(1)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(3)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 3: Reason for Visit -->
+      <section id="step-3" class="step-section">
+        <div class="card">
+          <h2>Reason for Visit</h2>
+          <div class="form-group"><label>Primary Reason <span class="required">*</span></label><textarea rows="3" data-field="reasonForVisit.primaryReason"></textarea></div>
+          <div class="form-row">
+            <div class="form-group"><label>Urgency Level</label>
+              <select data-field="reasonForVisit.urgencyLevel">
+                <option value="">-- Select --</option>
+                <option value="routine">Routine</option>
+                <option value="urgent">Urgent</option>
+                <option value="emergency">Emergency</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Referring Provider</label><input type="text" data-field="reasonForVisit.referringProvider"></div>
+          </div>
+          <div class="form-group"><label>Symptom Duration</label><input type="text" data-field="reasonForVisit.symptomDuration"></div>
+          <div class="form-group"><label>Additional Details</label><textarea rows="2" data-field="reasonForVisit.additionalDetails"></textarea></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(2)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(4)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 4: Medical History -->
+      <section id="step-4" class="step-section">
+        <div class="card">
+          <h2>Medical History</h2>
+          <div class="form-group">
+            <label>Chronic Conditions (select all that apply)</label>
+            <div class="checkbox-group" id="chronic-conditions">
+              <label><input type="checkbox" value="hypertension"><span>Hypertension</span></label>
+              <label><input type="checkbox" value="type-1-diabetes"><span>Type 1 Diabetes</span></label>
+              <label><input type="checkbox" value="type-2-diabetes"><span>Type 2 Diabetes</span></label>
+              <label><input type="checkbox" value="heart-disease"><span>Heart Disease</span></label>
+              <label><input type="checkbox" value="heart-failure"><span>Heart Failure</span></label>
+              <label><input type="checkbox" value="asthma"><span>Asthma</span></label>
+              <label><input type="checkbox" value="copd"><span>COPD</span></label>
+              <label><input type="checkbox" value="chronic-kidney-disease"><span>Chronic Kidney Disease</span></label>
+              <label><input type="checkbox" value="liver-disease"><span>Liver Disease</span></label>
+              <label><input type="checkbox" value="stroke"><span>Stroke</span></label>
+              <label><input type="checkbox" value="epilepsy"><span>Epilepsy</span></label>
+              <label><input type="checkbox" value="cancer"><span>Cancer</span></label>
+              <label><input type="checkbox" value="arthritis"><span>Arthritis</span></label>
+              <label><input type="checkbox" value="depression"><span>Depression</span></label>
+              <label><input type="checkbox" value="anxiety"><span>Anxiety</span></label>
+              <label><input type="checkbox" value="thyroid-disease"><span>Thyroid Disease</span></label>
+              <label><input type="checkbox" value="other"><span>Other</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Previous Surgeries</label><textarea rows="2" data-field="medicalHistory.previousSurgeries"></textarea></div>
+          <div class="form-group"><label>Previous Hospitalizations</label><textarea rows="2" data-field="medicalHistory.previousHospitalizations"></textarea></div>
+          <div class="form-group"><label>Ongoing Treatments</label><textarea rows="2" data-field="medicalHistory.ongoingTreatments"></textarea></div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(3)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(5)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 5: Current Medications -->
+      <section id="step-5" class="step-section">
+        <div class="card">
+          <h2>Current Medications</h2>
+          <p>List all current medications including over-the-counter and supplements.</p>
+          <div id="medications-list"></div>
+          <button class="add-btn" onclick="addMedication()">+ Add Medication</button>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(4)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(6)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 6: Allergies -->
+      <section id="step-6" class="step-section">
+        <div class="card">
+          <h2>Allergies</h2>
+          <p>List all known allergies including drug, food, environmental, and latex.</p>
+          <div id="allergies-list"></div>
+          <button class="add-btn" onclick="addAllergy()">+ Add Allergy</button>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(5)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(7)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 7: Family History -->
+      <section id="step-7" class="step-section">
+        <div class="card">
+          <h2>Family History</h2>
+          <div id="family-history-fields">
+            <div class="form-group"><label>Heart Disease</label>
+              <div class="radio-group">
+                <label><input type="radio" name="fh-heartDisease" value="yes" data-field="familyHistory.heartDisease"><span>Yes</span></label>
+                <label><input type="radio" name="fh-heartDisease" value="no" data-field="familyHistory.heartDisease"><span>No</span></label>
+              </div>
+              <div class="conditional-field" data-show-if="familyHistory.heartDisease=yes"><div class="form-group"><label>Details</label><input type="text" data-field="familyHistory.heartDiseaseDetails"></div></div>
+            </div>
+            <div class="form-group"><label>Cancer</label>
+              <div class="radio-group">
+                <label><input type="radio" name="fh-cancer" value="yes" data-field="familyHistory.cancer"><span>Yes</span></label>
+                <label><input type="radio" name="fh-cancer" value="no" data-field="familyHistory.cancer"><span>No</span></label>
+              </div>
+              <div class="conditional-field" data-show-if="familyHistory.cancer=yes"><div class="form-group"><label>Details</label><input type="text" data-field="familyHistory.cancerDetails"></div></div>
+            </div>
+            <div class="form-group"><label>Diabetes</label>
+              <div class="radio-group">
+                <label><input type="radio" name="fh-diabetes" value="yes" data-field="familyHistory.diabetes"><span>Yes</span></label>
+                <label><input type="radio" name="fh-diabetes" value="no" data-field="familyHistory.diabetes"><span>No</span></label>
+              </div>
+              <div class="conditional-field" data-show-if="familyHistory.diabetes=yes"><div class="form-group"><label>Details</label><input type="text" data-field="familyHistory.diabetesDetails"></div></div>
+            </div>
+            <div class="form-group"><label>Stroke</label>
+              <div class="radio-group">
+                <label><input type="radio" name="fh-stroke" value="yes" data-field="familyHistory.stroke"><span>Yes</span></label>
+                <label><input type="radio" name="fh-stroke" value="no" data-field="familyHistory.stroke"><span>No</span></label>
+              </div>
+              <div class="conditional-field" data-show-if="familyHistory.stroke=yes"><div class="form-group"><label>Details</label><input type="text" data-field="familyHistory.strokeDetails"></div></div>
+            </div>
+            <div class="form-group"><label>Mental Illness</label>
+              <div class="radio-group">
+                <label><input type="radio" name="fh-mentalIllness" value="yes" data-field="familyHistory.mentalIllness"><span>Yes</span></label>
+                <label><input type="radio" name="fh-mentalIllness" value="no" data-field="familyHistory.mentalIllness"><span>No</span></label>
+              </div>
+              <div class="conditional-field" data-show-if="familyHistory.mentalIllness=yes"><div class="form-group"><label>Details</label><input type="text" data-field="familyHistory.mentalIllnessDetails"></div></div>
+            </div>
+            <div class="form-group"><label>Genetic Conditions</label>
+              <div class="radio-group">
+                <label><input type="radio" name="fh-geneticConditions" value="yes" data-field="familyHistory.geneticConditions"><span>Yes</span></label>
+                <label><input type="radio" name="fh-geneticConditions" value="no" data-field="familyHistory.geneticConditions"><span>No</span></label>
+              </div>
+              <div class="conditional-field" data-show-if="familyHistory.geneticConditions=yes"><div class="form-group"><label>Details</label><input type="text" data-field="familyHistory.geneticConditionsDetails"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(6)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(8)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 8: Social History -->
+      <section id="step-8" class="step-section">
+        <div class="card">
+          <h2>Social History</h2>
+          <div class="form-row">
+            <div class="form-group"><label>Smoking Status</label>
+              <select data-field="socialHistory.smokingStatus">
+                <option value="">-- Select --</option>
+                <option value="current">Current Smoker</option>
+                <option value="ex">Ex-Smoker</option>
+                <option value="never">Never Smoked</option>
+              </select>
+            </div>
+            <div class="form-group conditional-field" data-show-if="socialHistory.smokingStatus=current|ex"><label>Pack Years</label><input type="number" min="0" step="1" data-field="socialHistory.smokingPackYears" data-type="number"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Alcohol Frequency</label>
+              <select data-field="socialHistory.alcoholFrequency">
+                <option value="">-- Select --</option>
+                <option value="none">None</option>
+                <option value="occasional">Occasional</option>
+                <option value="moderate">Moderate</option>
+                <option value="heavy">Heavy</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Units per Week</label><input type="number" min="0" step="1" data-field="socialHistory.alcoholUnitsPerWeek" data-type="number"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Recreational Drug Use</label>
+              <select data-field="socialHistory.drugUse">
+                <option value="">-- Select --</option>
+                <option value="none">None</option>
+                <option value="occasional">Occasional</option>
+                <option value="regular">Regular</option>
+              </select>
+            </div>
+            <div class="form-group conditional-field" data-show-if="socialHistory.drugUse=occasional|regular"><label>Drug Details</label><input type="text" data-field="socialHistory.drugDetails"></div>
+          </div>
+          <div class="form-group"><label>Occupation</label><input type="text" data-field="socialHistory.occupation"></div>
+          <div class="form-row">
+            <div class="form-group"><label>Exercise Frequency</label>
+              <select data-field="socialHistory.exerciseFrequency">
+                <option value="">-- Select --</option>
+                <option value="sedentary">Sedentary</option>
+                <option value="light">Light</option>
+                <option value="moderate">Moderate</option>
+                <option value="regular">Regular</option>
+                <option value="intense">Intense</option>
+              </select>
+            </div>
+            <div class="form-group"><label>Diet Quality</label>
+              <select data-field="socialHistory.dietQuality">
+                <option value="">-- Select --</option>
+                <option value="poor">Poor</option>
+                <option value="fair">Fair</option>
+                <option value="good">Good</option>
+                <option value="excellent">Excellent</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(7)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(9)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 9: Review of Systems -->
+      <section id="step-9" class="step-section">
+        <div class="card">
+          <h2>Review of Systems</h2>
+          <p>Note any current symptoms or concerns for each body system. Leave blank if none.</p>
+          <div class="form-row">
+            <div class="form-group"><label>Constitutional (fever, weight loss, fatigue)</label><textarea rows="2" data-field="reviewOfSystems.constitutional"></textarea></div>
+            <div class="form-group"><label>HEENT (head, eyes, ears, nose, throat)</label><textarea rows="2" data-field="reviewOfSystems.heent"></textarea></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Cardiovascular</label><textarea rows="2" data-field="reviewOfSystems.cardiovascular"></textarea></div>
+            <div class="form-group"><label>Respiratory</label><textarea rows="2" data-field="reviewOfSystems.respiratory"></textarea></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Gastrointestinal</label><textarea rows="2" data-field="reviewOfSystems.gastrointestinal"></textarea></div>
+            <div class="form-group"><label>Genitourinary</label><textarea rows="2" data-field="reviewOfSystems.genitourinary"></textarea></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Musculoskeletal</label><textarea rows="2" data-field="reviewOfSystems.musculoskeletal"></textarea></div>
+            <div class="form-group"><label>Neurological</label><textarea rows="2" data-field="reviewOfSystems.neurological"></textarea></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Psychiatric</label><textarea rows="2" data-field="reviewOfSystems.psychiatric"></textarea></div>
+            <div class="form-group"><label>Skin</label><textarea rows="2" data-field="reviewOfSystems.skin"></textarea></div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(8)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(10)">Save &amp; Continue &rarr;</button></div>
+      </section>
+
+      <!-- Step 10: Consent & Preferences -->
+      <section id="step-10" class="step-section">
+        <div class="card">
+          <h2>Consent &amp; Preferences</h2>
+          <div class="form-group"><label>Consent to Treatment <span class="required">*</span></label>
+            <div class="radio-group">
+              <label><input type="radio" name="consentToTreatment" value="yes" data-field="consentAndPreferences.consentToTreatment"><span>Yes</span></label>
+              <label><input type="radio" name="consentToTreatment" value="no" data-field="consentAndPreferences.consentToTreatment"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Privacy Acknowledgement</label>
+            <div class="radio-group">
+              <label><input type="radio" name="privacyAcknowledgement" value="yes" data-field="consentAndPreferences.privacyAcknowledgement"><span>Yes</span></label>
+              <label><input type="radio" name="privacyAcknowledgement" value="no" data-field="consentAndPreferences.privacyAcknowledgement"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group"><label>Preferred Communication Method</label>
+            <select data-field="consentAndPreferences.communicationPreference">
+              <option value="">-- Select --</option>
+              <option value="phone">Phone</option>
+              <option value="email">Email</option>
+              <option value="text">Text Message</option>
+              <option value="post">Post</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Advance Directives</label>
+            <div class="radio-group">
+              <label><input type="radio" name="advanceDirectives" value="yes" data-field="consentAndPreferences.advanceDirectives"><span>Yes</span></label>
+              <label><input type="radio" name="advanceDirectives" value="no" data-field="consentAndPreferences.advanceDirectives"><span>No</span></label>
+            </div>
+            <div class="conditional-field" data-show-if="consentAndPreferences.advanceDirectives=yes"><div class="form-group"><label>Details</label><textarea rows="2" data-field="consentAndPreferences.advanceDirectiveDetails"></textarea></div></div>
+          </div>
+        </div>
+        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(9)">&larr; Previous</button><button class="btn btn-success" onclick="submitForm()">Submit Assessment</button></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer"><p>Patient Intake System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

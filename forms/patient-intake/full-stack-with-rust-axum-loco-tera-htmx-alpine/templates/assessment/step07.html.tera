@@ -1,0 +1,127 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}"
+          x-data="{
+              heartDisease: '{{ family_history.heartDisease }}',
+              cancer: '{{ family_history.cancer }}',
+              diabetes: '{{ family_history.diabetes }}',
+              stroke: '{{ family_history.stroke }}',
+              mentalIllness: '{{ family_history.mentalIllness }}',
+              geneticConditions: '{{ family_history.geneticConditions }}'
+          }">
+        <p class="form-hint">Indicate whether any immediate family members have been diagnosed with the following conditions.</p>
+
+        <!-- Heart Disease -->
+        <div class="form-group">
+            <label>Heart Disease</label>
+            <div class="radio-group">
+                <label><input type="radio" name="family_history.heart_disease" value="yes" x-model="heartDisease" {% if family_history.heartDisease == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="family_history.heart_disease" value="no" x-model="heartDisease" {% if family_history.heartDisease == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="heartDisease === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="heart_disease_details">Heart Disease Details</label>
+                <textarea id="heart_disease_details" name="family_history.heart_disease_details"
+                          placeholder="e.g. Father had MI at age 55">{{ family_history.heartDiseaseDetails }}</textarea>
+            </div>
+        </div>
+
+        <!-- Cancer -->
+        <div class="form-group">
+            <label>Cancer</label>
+            <div class="radio-group">
+                <label><input type="radio" name="family_history.cancer" value="yes" x-model="cancer" {% if family_history.cancer == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="family_history.cancer" value="no" x-model="cancer" {% if family_history.cancer == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="cancer === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="cancer_details">Cancer Details</label>
+                <textarea id="cancer_details" name="family_history.cancer_details"
+                          placeholder="e.g. Mother had breast cancer at age 60">{{ family_history.cancerDetails }}</textarea>
+            </div>
+        </div>
+
+        <!-- Diabetes -->
+        <div class="form-group">
+            <label>Diabetes</label>
+            <div class="radio-group">
+                <label><input type="radio" name="family_history.diabetes" value="yes" x-model="diabetes" {% if family_history.diabetes == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="family_history.diabetes" value="no" x-model="diabetes" {% if family_history.diabetes == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="diabetes === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="diabetes_details">Diabetes Details</label>
+                <textarea id="diabetes_details" name="family_history.diabetes_details"
+                          placeholder="e.g. Father has Type 2 diabetes">{{ family_history.diabetesDetails }}</textarea>
+            </div>
+        </div>
+
+        <!-- Stroke -->
+        <div class="form-group">
+            <label>Stroke</label>
+            <div class="radio-group">
+                <label><input type="radio" name="family_history.stroke" value="yes" x-model="stroke" {% if family_history.stroke == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="family_history.stroke" value="no" x-model="stroke" {% if family_history.stroke == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="stroke === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="stroke_details">Stroke Details</label>
+                <textarea id="stroke_details" name="family_history.stroke_details"
+                          placeholder="e.g. Grandmother had stroke at age 70">{{ family_history.strokeDetails }}</textarea>
+            </div>
+        </div>
+
+        <!-- Mental Illness -->
+        <div class="form-group">
+            <label>Mental Illness</label>
+            <div class="radio-group">
+                <label><input type="radio" name="family_history.mental_illness" value="yes" x-model="mentalIllness" {% if family_history.mentalIllness == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="family_history.mental_illness" value="no" x-model="mentalIllness" {% if family_history.mentalIllness == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="mentalIllness === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="mental_illness_details">Mental Illness Details</label>
+                <textarea id="mental_illness_details" name="family_history.mental_illness_details"
+                          placeholder="e.g. Sibling diagnosed with depression">{{ family_history.mentalIllnessDetails }}</textarea>
+            </div>
+        </div>
+
+        <!-- Genetic Conditions -->
+        <div class="form-group">
+            <label>Genetic Conditions</label>
+            <div class="radio-group">
+                <label><input type="radio" name="family_history.genetic_conditions" value="yes" x-model="geneticConditions" {% if family_history.geneticConditions == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="family_history.genetic_conditions" value="no" x-model="geneticConditions" {% if family_history.geneticConditions == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="geneticConditions === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="genetic_conditions_details">Genetic Conditions Details</label>
+                <textarea id="genetic_conditions_details" name="family_history.genetic_conditions_details"
+                          placeholder="e.g. Sickle cell trait in family">{{ family_history.geneticConditionsDetails }}</textarea>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}
