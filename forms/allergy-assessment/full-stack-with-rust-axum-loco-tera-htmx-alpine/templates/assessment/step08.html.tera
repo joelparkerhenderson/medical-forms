@@ -1,0 +1,72 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Treatment - Allergy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Treatment</h2>
+    <p class="hint">Detail current medications and treatment plans for allergy management.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="antihistamine_use">Antihistamine Use</label>
+        <select id="antihistamine_use" name="current_treatment.antihistamine_use">
+          <option value="">-- Select --</option>
+          <option value="regular" {% if current_treatment.antihistamineUse == "regular" %}selected{% endif %}>Regular (daily)</option>
+          <option value="asNeeded" {% if current_treatment.antihistamineUse == "asNeeded" %}selected{% endif %}>As Needed (PRN)</option>
+          <option value="seasonal" {% if current_treatment.antihistamineUse == "seasonal" %}selected{% endif %}>Seasonal Only</option>
+          <option value="none" {% if current_treatment.antihistamineUse == "none" %}selected{% endif %}>Not Taking</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="nasal_corticosteroid">Nasal Corticosteroid</label>
+        <select id="nasal_corticosteroid" name="current_treatment.nasal_corticosteroid">
+          <option value="">-- Select --</option>
+          <option value="regular" {% if current_treatment.nasalCorticosteroid == "regular" %}selected{% endif %}>Regular Use</option>
+          <option value="seasonal" {% if current_treatment.nasalCorticosteroid == "seasonal" %}selected{% endif %}>Seasonal Use</option>
+          <option value="none" {% if current_treatment.nasalCorticosteroid == "none" %}selected{% endif %}>Not Prescribed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Immunotherapy</label>
+        <div class="radio-group">
+          <label><input type="radio" name="current_treatment.immunotherapy" value="yes" {% if current_treatment.immunotherapy == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="current_treatment.immunotherapy" value="no" {% if current_treatment.immunotherapy == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="immunotherapy_duration">Immunotherapy Duration</label>
+        <select id="immunotherapy_duration" name="current_treatment.immunotherapy_duration">
+          <option value="">-- Select --</option>
+          <option value="lessThan1Year" {% if current_treatment.immunotherapyDuration == "lessThan1Year" %}selected{% endif %}>Less than 1 year</option>
+          <option value="1to3Years" {% if current_treatment.immunotherapyDuration == "1to3Years" %}selected{% endif %}>1-3 years</option>
+          <option value="moreThan3Years" {% if current_treatment.immunotherapyDuration == "moreThan3Years" %}selected{% endif %}>More than 3 years</option>
+          <option value="completed" {% if current_treatment.immunotherapyDuration == "completed" %}selected{% endif %}>Completed Course</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>EpiPen Carried</label>
+      <div class="radio-group">
+        <label><input type="radio" name="current_treatment.epi_pen_carried" value="yes" {% if current_treatment.epiPenCarried == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="current_treatment.epi_pen_carried" value="no" {% if current_treatment.epiPenCarried == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="other_medications">Other Medications</label>
+      <textarea id="other_medications" name="current_treatment.other_medications"
+                placeholder="List any other allergy-related medications">{{ current_treatment.otherMedications }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

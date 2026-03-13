@@ -1,0 +1,72 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Review & Assessment - Allergy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Review & Assessment</h2>
+    <p class="hint">Clinician review and overall assessment summary.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_name">Clinician Name</label>
+        <input type="text" id="clinician_name" name="review_assessment.clinician_name"
+               value="{{ review_assessment.clinicianName }}"
+               placeholder="e.g. Dr Williams">
+      </div>
+      <div class="form-group">
+        <label for="review_date">Review Date</label>
+        <input type="date" id="review_date" name="review_assessment.review_date"
+               value="{{ review_assessment.reviewDate }}">
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Overall Severity Assessment (1 = Mild, 5 = Life-threatening)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="review_assessment.overall_severity" value="{{ i }}"
+                 {% if review_assessment.overallSeverity == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Mild{% elif i == 2 %}Mild-Moderate{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Life-threatening{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_notes">Clinical Notes</label>
+      <textarea id="clinical_notes" name="review_assessment.clinical_notes"
+                placeholder="Additional clinical observations and notes" rows="4">{{ review_assessment.clinicalNotes }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="follow_up_interval">Follow-up Interval</label>
+        <select id="follow_up_interval" name="review_assessment.follow_up_interval">
+          <option value="">-- Select --</option>
+          <option value="2weeks" {% if review_assessment.followUpInterval == "2weeks" %}selected{% endif %}>2 Weeks</option>
+          <option value="1month" {% if review_assessment.followUpInterval == "1month" %}selected{% endif %}>1 Month</option>
+          <option value="3months" {% if review_assessment.followUpInterval == "3months" %}selected{% endif %}>3 Months</option>
+          <option value="6months" {% if review_assessment.followUpInterval == "6months" %}selected{% endif %}>6 Months</option>
+          <option value="12months" {% if review_assessment.followUpInterval == "12months" %}selected{% endif %}>12 Months</option>
+          <option value="asNeeded" {% if review_assessment.followUpInterval == "asNeeded" %}selected{% endif %}>As Needed</option>
+          <option value="none" {% if review_assessment.followUpInterval == "none" %}selected{% endif %}>No Follow-up Required</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Specialist Referral Needed</label>
+        <div class="radio-group">
+          <label><input type="radio" name="review_assessment.referral_needed" value="yes" {% if review_assessment.referralNeeded == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="review_assessment.referral_needed" value="no" {% if review_assessment.referralNeeded == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

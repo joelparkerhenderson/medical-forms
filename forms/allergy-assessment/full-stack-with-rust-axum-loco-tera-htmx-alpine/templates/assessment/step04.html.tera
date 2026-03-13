@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Symptoms & Reactions - Allergy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Symptoms & Reactions</h2>
+    <p class="hint">Rate the severity of symptoms in each body system (1 = None/Minimal, 5 = Severe/Life-threatening).</p>
+
+    <div class="likert-group">
+      <label>Skin Symptoms (urticaria, eczema, flushing)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptoms_reactions.skin_symptoms" value="{{ i }}"
+                 {% if symptoms_reactions.skinSymptoms == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Respiratory Symptoms (wheeze, cough, dyspnoea, stridor)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptoms_reactions.respiratory_symptoms" value="{{ i }}"
+                 {% if symptoms_reactions.respiratorySymptoms == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Gastrointestinal Symptoms (nausea, vomiting, abdominal pain, diarrhoea)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptoms_reactions.gastrointestinal_symptoms" value="{{ i }}"
+                 {% if symptoms_reactions.gastrointestinalSymptoms == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Cardiovascular Symptoms (hypotension, tachycardia, syncope)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptoms_reactions.cardiovascular_symptoms" value="{{ i }}"
+                 {% if symptoms_reactions.cardiovascularSymptoms == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Anaphylaxis Risk Assessment</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="symptoms_reactions.anaphylaxis_risk" value="{{ i }}"
+                 {% if symptoms_reactions.anaphylaxisRisk == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Low{% elif i == 2 %}Low{% elif i == 3 %}Moderate{% elif i == 4 %}High{% else %}Very High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="symptom_frequency">Symptom Frequency</label>
+      <select id="symptom_frequency" name="symptoms_reactions.symptom_frequency">
+        <option value="">-- Select --</option>
+        <option value="daily" {% if symptoms_reactions.symptomFrequency == "daily" %}selected{% endif %}>Daily</option>
+        <option value="weekly" {% if symptoms_reactions.symptomFrequency == "weekly" %}selected{% endif %}>Weekly</option>
+        <option value="monthly" {% if symptoms_reactions.symptomFrequency == "monthly" %}selected{% endif %}>Monthly</option>
+        <option value="seasonal" {% if symptoms_reactions.symptomFrequency == "seasonal" %}selected{% endif %}>Seasonal</option>
+        <option value="onExposure" {% if symptoms_reactions.symptomFrequency == "onExposure" %}selected{% endif %}>Only on Exposure</option>
+        <option value="rare" {% if symptoms_reactions.symptomFrequency == "rare" %}selected{% endif %}>Rare</option>
+      </select>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

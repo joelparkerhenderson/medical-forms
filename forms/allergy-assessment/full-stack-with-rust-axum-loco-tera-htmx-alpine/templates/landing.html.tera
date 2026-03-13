@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Allergy Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Allergy Assessment</h1>
+  <p>
+    This clinical assessment collects comprehensive allergy information including
+    patient allergy history, symptoms, triggers, severity, testing results, and
+    management plans. The assessment helps clinicians identify allergic conditions,
+    evaluate severity, and develop appropriate treatment strategies.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive allergy evaluation across all clinical dimensions</p>
+    </div>
+    <div class="feature-card">
+      <h3>Severity Grading</h3>
+      <p>Evidence-based severity classification with clinical rules</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated alerts for urgent allergy management concerns</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

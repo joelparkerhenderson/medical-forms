@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allergy Assessment</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Allergy Assessment</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- ─── Landing ────────────────────────────────────── -->
+    <div id="landing" class="hero">
+      <h1>Allergy Assessment</h1>
+      <p>Comprehensive allergy evaluation covering drug, food, and environmental allergies with anaphylaxis risk assessment. The form has 10 steps.</p>
+      <div class="feature-grid">
+        <div class="feature-card"><h3>10 Steps</h3><p>Comprehensive allergy evaluation</p></div>
+        <div class="feature-card"><h3>Severity Grading</h3><p>Mild, moderate, or severe classification</p></div>
+        <div class="feature-card"><h3>Safety Flags</h3><p>Critical alerts for clinician review</p></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Assessment</button>
+    </div>
+
+    <!-- ─── Form ───────────────────────────────────────── -->
+    <div id="form-container" style="display:none;">
+      <div class="progress-container">
+        <div class="progress-header">
+          <span id="step-label">Step 1 of 10: Demographics</span>
+          <span id="step-percent">10%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
+      </div>
+
+      <!-- ─── Step 1: Demographics ─────────────────────── -->
+      <section id="step-1" class="step-section card">
+        <h2>Demographics</h2>
+        <p>Basic patient information</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name <span class="required">*</span></label>
+            <input type="text" data-field="demographics.firstName" placeholder="First name">
+          </div>
+          <div class="form-group">
+            <label>Last Name <span class="required">*</span></label>
+            <input type="text" data-field="demographics.lastName" placeholder="Last name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date of Birth <span class="required">*</span></label>
+            <input type="date" data-field="demographics.dateOfBirth">
+          </div>
+          <div class="form-group">
+            <label>NHS Number</label>
+            <input type="text" data-field="demographics.nhsNumber" placeholder="000 000 0000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Sex <span class="required">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="sex" value="male" data-field="demographics.sex"><span>Male</span></label>
+            <label><input type="radio" name="sex" value="female" data-field="demographics.sex"><span>Female</span></label>
+            <label><input type="radio" name="sex" value="other" data-field="demographics.sex"><span>Other</span></label>
+          </div>
+        </div>
+        <div class="form-row-3">
+          <div class="form-group">
+            <label>Weight <span class="required">*</span></label>
+            <input type="number" data-field="demographics.weight" placeholder="kg" min="1" max="400" step="0.1">
+          </div>
+          <div class="form-group">
+            <label>Height <span class="required">*</span></label>
+            <input type="number" data-field="demographics.height" placeholder="cm" min="50" max="250" step="0.1">
+          </div>
+          <div class="form-group">
+            <label>BMI</label>
+            <div style="display:flex;align-items:center;height:38px;padding:0 .75rem;border:1px solid #e5e7eb;border-radius:.375rem;background:#f9fafb;font-size:.95rem;">
+              <span id="bmi-display" style="color:#6b7280;">Auto-calculated</span>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <span></span>
+          <button class="btn btn-primary" onclick="goToStep(2)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 2: Allergy History ──────────────────── -->
+      <section id="step-2" class="step-section card">
+        <h2>Allergy History</h2>
+        <p>Age of onset, known allergens, and family history</p>
+        <div class="form-group">
+          <label>Age of allergy onset</label>
+          <input type="number" data-field="allergyHistory.ageOfOnset" placeholder="Years" min="0" max="120">
+        </div>
+        <div class="form-group">
+          <label>Known allergens (list all)</label>
+          <textarea data-field="allergyHistory.knownAllergens" rows="3" placeholder="e.g. Penicillin, peanuts, pollen, dust mites..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Family history of atopy (asthma, eczema, hay fever)?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="familyAtopy" value="yes" data-field="allergyHistory.familyHistoryOfAtopy"><span>Yes</span></label>
+            <label><input type="radio" name="familyAtopy" value="no" data-field="allergyHistory.familyHistoryOfAtopy"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="allergyHistory.familyHistoryOfAtopy=yes">
+          <div class="form-group">
+            <label>Atopy details</label>
+            <textarea data-field="allergyHistory.familyAtopyDetails" rows="2" placeholder="Which family members and conditions?"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Family history of allergy?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="familyAllergy" value="yes" data-field="allergyHistory.familyHistoryOfAllergy"><span>Yes</span></label>
+            <label><input type="radio" name="familyAllergy" value="no" data-field="allergyHistory.familyHistoryOfAllergy"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="allergyHistory.familyHistoryOfAllergy=yes">
+          <div class="form-group">
+            <label>Allergy details</label>
+            <textarea data-field="allergyHistory.familyAllergyDetails" rows="2" placeholder="Which family members and allergens?"></textarea>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(1)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(3)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 3: Drug Allergies ───────────────────── -->
+      <section id="step-3" class="step-section card">
+        <h2>Drug Allergies</h2>
+        <p>Specific drug allergies, reaction types, severity, and cross-reactivity</p>
+        <div class="form-group">
+          <label>Do you have any drug allergies?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="hasDrugAllergies" value="yes" data-field="drugAllergies.hasDrugAllergies"><span>Yes</span></label>
+            <label><input type="radio" name="hasDrugAllergies" value="no" data-field="drugAllergies.hasDrugAllergies"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="drugAllergies.hasDrugAllergies=yes">
+          <div class="form-group">
+            <label>Drug allergy details</label>
+            <div class="dynamic-list" id="drug-allergy-list"></div>
+            <button type="button" class="btn-add" onclick="addDrugAllergy()">+ Add Drug Allergy</button>
+          </div>
+          <div class="form-group">
+            <label>Cross-reactivity concerns</label>
+            <textarea data-field="drugAllergies.crossReactivityConcerns" rows="2" placeholder="e.g. Penicillin/cephalosporin cross-reactivity, NSAID class effects..."></textarea>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(2)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(4)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 4: Food Allergies ───────────────────── -->
+      <section id="step-4" class="step-section card">
+        <h2>Food Allergies</h2>
+        <p>Specific food allergies, IgE type, and dietary restrictions</p>
+        <div class="form-group">
+          <label>Do you have any food allergies?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="hasFoodAllergies" value="yes" data-field="foodAllergies.hasFoodAllergies"><span>Yes</span></label>
+            <label><input type="radio" name="hasFoodAllergies" value="no" data-field="foodAllergies.hasFoodAllergies"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="foodAllergies.hasFoodAllergies=yes">
+          <div class="form-group">
+            <label>Food allergy details</label>
+            <div class="dynamic-list" id="food-allergy-list"></div>
+            <button type="button" class="btn-add" onclick="addFoodAllergy()">+ Add Food Allergy</button>
+          </div>
+          <div class="form-group">
+            <label>IgE classification</label>
+            <select data-field="foodAllergies.igeType">
+              <option value="">Select...</option>
+              <option value="IgE-mediated">IgE-mediated</option>
+              <option value="non-IgE-mediated">Non-IgE-mediated</option>
+              <option value="mixed">Mixed</option>
+              <option value="unknown">Unknown</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Oral allergy syndrome?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="oralAllergy" value="yes" data-field="foodAllergies.oralAllergySyndrome"><span>Yes</span></label>
+              <label><input type="radio" name="oralAllergy" value="no" data-field="foodAllergies.oralAllergySyndrome"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Dietary restrictions</label>
+            <textarea data-field="foodAllergies.dietaryRestrictions" rows="2" placeholder="Any foods avoided due to allergies..."></textarea>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(3)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(5)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 5: Environmental Allergies ──────────── -->
+      <section id="step-5" class="step-section card">
+        <h2>Environmental Allergies</h2>
+        <p>Pollen, dust mites, mould, animal dander, latex, and insect stings</p>
+        <div class="form-group">
+          <label>Pollen allergy?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="pollen" value="yes" data-field="environmentalAllergies.pollenAllergy"><span>Yes</span></label>
+            <label><input type="radio" name="pollen" value="no" data-field="environmentalAllergies.pollenAllergy"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Dust mite allergy?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="dustMite" value="yes" data-field="environmentalAllergies.dustMiteAllergy"><span>Yes</span></label>
+            <label><input type="radio" name="dustMite" value="no" data-field="environmentalAllergies.dustMiteAllergy"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Mould allergy?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="mould" value="yes" data-field="environmentalAllergies.mouldAllergy"><span>Yes</span></label>
+            <label><input type="radio" name="mould" value="no" data-field="environmentalAllergies.mouldAllergy"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Animal dander allergy?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="animalDander" value="yes" data-field="environmentalAllergies.animalDanderAllergy"><span>Yes</span></label>
+            <label><input type="radio" name="animalDander" value="no" data-field="environmentalAllergies.animalDanderAllergy"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Latex allergy?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="latex" value="yes" data-field="environmentalAllergies.latexAllergy"><span>Yes</span></label>
+            <label><input type="radio" name="latex" value="no" data-field="environmentalAllergies.latexAllergy"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Insect sting allergy?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="insectSting" value="yes" data-field="environmentalAllergies.insectStingAllergy"><span>Yes</span></label>
+            <label><input type="radio" name="insectSting" value="no" data-field="environmentalAllergies.insectStingAllergy"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="environmentalAllergies.insectStingAllergy=yes">
+          <div class="form-group">
+            <label>Insect sting reaction severity <span class="required">*</span></label>
+            <select data-field="environmentalAllergies.insectStingSeverity">
+              <option value="">Select severity...</option>
+              <option value="mild">Mild (local reaction)</option>
+              <option value="moderate">Moderate (large local or mild systemic)</option>
+              <option value="severe">Severe (systemic reaction)</option>
+              <option value="anaphylaxis">Anaphylaxis</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Seasonal pattern</label>
+          <select data-field="environmentalAllergies.seasonalPattern">
+            <option value="">Select...</option>
+            <option value="perennial">Perennial (year-round)</option>
+            <option value="spring">Spring</option>
+            <option value="summer">Summer</option>
+            <option value="autumn">Autumn</option>
+            <option value="winter">Winter</option>
+            <option value="multiple">Multiple seasons</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Other environmental allergens</label>
+          <textarea data-field="environmentalAllergies.otherEnvironmentalAllergens" rows="2" placeholder="Any other environmental triggers..."></textarea>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(4)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(6)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 6: Anaphylaxis History ──────────────── -->
+      <section id="step-6" class="step-section card">
+        <h2>Anaphylaxis History</h2>
+        <p>Previous anaphylaxis episodes, triggers, and emergency preparedness</p>
+        <div class="form-group">
+          <label>Do you have a history of anaphylaxis?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="hasAnaphylaxis" value="yes" data-field="anaphylaxisHistory.hasAnaphylaxisHistory"><span>Yes</span></label>
+            <label><input type="radio" name="hasAnaphylaxis" value="no" data-field="anaphylaxisHistory.hasAnaphylaxisHistory"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="anaphylaxisHistory.hasAnaphylaxisHistory=yes">
+          <div class="form-group">
+            <label>Number of episodes <span class="required">*</span></label>
+            <input type="number" data-field="anaphylaxisHistory.numberOfEpisodes" min="1" max="100" placeholder="Number of episodes">
+          </div>
+          <div class="form-group">
+            <label>Episode details</label>
+            <div class="dynamic-list" id="episode-list"></div>
+            <button type="button" class="btn-add" onclick="addEpisode()">+ Add Episode</button>
+          </div>
+          <div class="form-group">
+            <label>Has an adrenaline auto-injector been prescribed?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="autoInjector" value="yes" data-field="anaphylaxisHistory.adrenalineAutoInjectorPrescribed"><span>Yes</span></label>
+              <label><input type="radio" name="autoInjector" value="no" data-field="anaphylaxisHistory.adrenalineAutoInjectorPrescribed"><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Is an action plan in place?</label>
+            <div class="radio-group">
+              <label><input type="radio" name="actionPlan" value="yes" data-field="anaphylaxisHistory.actionPlanInPlace"><span>Yes</span></label>
+              <label><input type="radio" name="actionPlan" value="no" data-field="anaphylaxisHistory.actionPlanInPlace"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(5)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(7)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 7: Testing Results ──────────────────── -->
+      <section id="step-7" class="step-section card">
+        <h2>Testing Results</h2>
+        <p>Skin prick tests, IgE levels, challenge tests, and patch tests</p>
+        <div class="form-group">
+          <label>Skin prick tests done?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="skinPrick" value="yes" data-field="testingResults.skinPrickTestsDone"><span>Yes</span></label>
+            <label><input type="radio" name="skinPrick" value="no" data-field="testingResults.skinPrickTestsDone"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Specific IgE levels done?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="specificIgE" value="yes" data-field="testingResults.specificIgEDone"><span>Yes</span></label>
+            <label><input type="radio" name="specificIgE" value="no" data-field="testingResults.specificIgEDone"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Component-resolved diagnostics done?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="crd" value="yes" data-field="testingResults.componentResolvedDiagnosticsDone"><span>Yes</span></label>
+            <label><input type="radio" name="crd" value="no" data-field="testingResults.componentResolvedDiagnosticsDone"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Challenge tests done?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="challenge" value="yes" data-field="testingResults.challengeTestsDone"><span>Yes</span></label>
+            <label><input type="radio" name="challenge" value="no" data-field="testingResults.challengeTestsDone"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Patch tests done?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="patch" value="yes" data-field="testingResults.patchTestsDone"><span>Yes</span></label>
+            <label><input type="radio" name="patch" value="no" data-field="testingResults.patchTestsDone"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Test results</label>
+          <div class="dynamic-list" id="test-result-list"></div>
+          <button type="button" class="btn-add" onclick="addTestResult()">+ Add Test Result</button>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(6)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(8)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 8: Current Management ───────────────── -->
+      <section id="step-8" class="step-section card">
+        <h2>Current Management</h2>
+        <p>Medications, immunotherapy, biologics, and avoidance strategies</p>
+        <div class="form-group">
+          <label>Taking antihistamines?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="antihistamines" value="yes" data-field="currentManagement.antihistamines"><span>Yes</span></label>
+            <label><input type="radio" name="antihistamines" value="no" data-field="currentManagement.antihistamines"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="currentManagement.antihistamines=yes">
+          <div class="form-group">
+            <label>Antihistamine details</label>
+            <input type="text" data-field="currentManagement.antihistamineDetails" placeholder="e.g. Cetirizine 10mg daily">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Using nasal steroids?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="nasalSteroids" value="yes" data-field="currentManagement.nasalSteroids"><span>Yes</span></label>
+            <label><input type="radio" name="nasalSteroids" value="no" data-field="currentManagement.nasalSteroids"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Carry adrenaline auto-injector?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="mgmtAutoInjector" value="yes" data-field="currentManagement.adrenalineAutoInjector"><span>Yes</span></label>
+            <label><input type="radio" name="mgmtAutoInjector" value="no" data-field="currentManagement.adrenalineAutoInjector"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Receiving immunotherapy?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="immunotherapy" value="yes" data-field="currentManagement.immunotherapy"><span>Yes</span></label>
+            <label><input type="radio" name="immunotherapy" value="no" data-field="currentManagement.immunotherapy"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="currentManagement.immunotherapy=yes">
+          <div class="form-group">
+            <label>Immunotherapy details</label>
+            <input type="text" data-field="currentManagement.immunotherapyDetails" placeholder="e.g. Grass pollen SCIT, started 2024">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>On biologic therapy?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="biologics" value="yes" data-field="currentManagement.biologics"><span>Yes</span></label>
+            <label><input type="radio" name="biologics" value="no" data-field="currentManagement.biologics"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="currentManagement.biologics=yes">
+          <div class="form-group">
+            <label>Biologic details</label>
+            <input type="text" data-field="currentManagement.biologicDetails" placeholder="e.g. Omalizumab 300mg monthly">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Allergen avoidance strategies</label>
+          <textarea data-field="currentManagement.allergenAvoidanceStrategies" rows="2" placeholder="Describe any allergen avoidance measures in place..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Other medications</label>
+          <div class="dynamic-list" id="medication-list"></div>
+          <button type="button" class="btn-add" onclick="addMedication()">+ Add Medication</button>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(7)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(9)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 9: Comorbidities ────────────────────── -->
+      <section id="step-9" class="step-section card">
+        <h2>Comorbidities</h2>
+        <p>Associated conditions: asthma, eczema, rhinitis, and other relevant conditions</p>
+        <div class="form-group">
+          <label>Do you have asthma?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="asthma" value="yes" data-field="comorbidities.asthma"><span>Yes</span></label>
+            <label><input type="radio" name="asthma" value="no" data-field="comorbidities.asthma"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="comorbidities.asthma=yes">
+          <div class="form-group">
+            <label>Asthma severity <span class="required">*</span></label>
+            <select data-field="comorbidities.asthmaSeverity">
+              <option value="">Select...</option>
+              <option value="mild">Mild</option>
+              <option value="moderate">Moderate</option>
+              <option value="severe">Severe</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have eczema (atopic dermatitis)?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="eczema" value="yes" data-field="comorbidities.eczema"><span>Yes</span></label>
+            <label><input type="radio" name="eczema" value="no" data-field="comorbidities.eczema"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="comorbidities.eczema=yes">
+          <div class="form-group">
+            <label>Eczema severity <span class="required">*</span></label>
+            <select data-field="comorbidities.eczemaSeverity">
+              <option value="">Select...</option>
+              <option value="mild">Mild</option>
+              <option value="moderate">Moderate</option>
+              <option value="severe">Severe</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have rhinitis (allergic or non-allergic)?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="rhinitis" value="yes" data-field="comorbidities.rhinitis"><span>Yes</span></label>
+            <label><input type="radio" name="rhinitis" value="no" data-field="comorbidities.rhinitis"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="comorbidities.rhinitis=yes">
+          <div class="form-group">
+            <label>Rhinitis severity <span class="required">*</span></label>
+            <select data-field="comorbidities.rhinitisSeverity">
+              <option value="">Select...</option>
+              <option value="mild">Mild</option>
+              <option value="moderate">Moderate</option>
+              <option value="severe">Severe</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have eosinophilic oesophagitis?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="eoe" value="yes" data-field="comorbidities.eosinophilicOesophagitis"><span>Yes</span></label>
+            <label><input type="radio" name="eoe" value="no" data-field="comorbidities.eosinophilicOesophagitis"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Do you have a mast cell disorder?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="mastCell" value="yes" data-field="comorbidities.mastCellDisorders"><span>Yes</span></label>
+            <label><input type="radio" name="mastCell" value="no" data-field="comorbidities.mastCellDisorders"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="comorbidities.mastCellDisorders=yes">
+          <div class="form-group">
+            <label>Mast cell disorder details</label>
+            <textarea data-field="comorbidities.mastCellDetails" rows="2" placeholder="Diagnosis, treatment, triggers..."></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Has your allergy affected your mental health?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="mentalHealth" value="yes" data-field="comorbidities.mentalHealthImpact"><span>Yes</span></label>
+            <label><input type="radio" name="mentalHealth" value="no" data-field="comorbidities.mentalHealthImpact"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="comorbidities.mentalHealthImpact=yes">
+          <div class="form-group">
+            <label>Mental health impact details</label>
+            <textarea data-field="comorbidities.mentalHealthDetails" rows="2" placeholder="Anxiety, avoidance behaviours, social impact..."></textarea>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(8)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(10)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 10: Impact & Action Plan ────────────── -->
+      <section id="step-10" class="step-section card">
+        <h2>Impact &amp; Action Plan</h2>
+        <p>Quality of life, school/work impact, emergency action plan, and follow-up</p>
+        <div class="form-group">
+          <label>Quality of life score (1 = very poor, 10 = excellent)</label>
+          <input type="number" data-field="impactActionPlan.qualityOfLifeScore" min="1" max="10" step="1" placeholder="1-10">
+        </div>
+        <div class="form-group">
+          <label>Does your allergy impact school or work?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="schoolWorkImpact" value="yes" data-field="impactActionPlan.schoolWorkImpact"><span>Yes</span></label>
+            <label><input type="radio" name="schoolWorkImpact" value="no" data-field="impactActionPlan.schoolWorkImpact"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="impactActionPlan.schoolWorkImpact=yes">
+          <div class="form-group">
+            <label>School/work impact details</label>
+            <textarea data-field="impactActionPlan.schoolWorkImpactDetails" rows="2" placeholder="Missed days, activity limitations, accommodations needed..."></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Emergency action plan status</label>
+          <select data-field="impactActionPlan.emergencyActionPlanStatus">
+            <option value="">Select...</option>
+            <option value="in-place">In place</option>
+            <option value="not-in-place">Not in place</option>
+            <option value="needs-update">Needs update</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Has training been provided on allergy management?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="trainingProvided" value="yes" data-field="impactActionPlan.trainingProvided"><span>Yes</span></label>
+            <label><input type="radio" name="trainingProvided" value="no" data-field="impactActionPlan.trainingProvided"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="impactActionPlan.trainingProvided=yes">
+          <div class="form-group">
+            <label>Training details</label>
+            <input type="text" data-field="impactActionPlan.trainingDetails" placeholder="e.g. EpiPen training, first aid course">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Follow-up schedule</label>
+          <input type="text" data-field="impactActionPlan.followUpSchedule" placeholder="e.g. Annual allergy review, 6-monthly IgE monitoring">
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(9)">Previous</button>
+          <button class="btn btn-success" onclick="submitForm()">Submit &amp; View Report</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer"><p>Allergy Assessment System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

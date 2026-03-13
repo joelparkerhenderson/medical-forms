@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Allergy Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Allergy Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient, allergen, date...">
+    </div>
+    <div class="form-group">
+      <label for="severity_level">Severity Level</label>
+      <select id="severity_level" name="severity_level">
+        <option value="">All Levels</option>
+        <option value="mild" {% if severity_level == "mild" %}selected{% endif %}>Mild</option>
+        <option value="moderate" {% if severity_level == "moderate" %}selected{% endif %}>Moderate</option>
+        <option value="severe" {% if severity_level == "severe" %}selected{% endif %}>Severe</option>
+        <option value="lifeThreatening" {% if severity_level == "lifeThreatening" %}selected{% endif %}>Life-Threatening</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="allergen_category">Allergen Category</label>
+      <select id="allergen_category" name="allergen_category">
+        <option value="">All Categories</option>
+        <option value="food" {% if allergen_category == "food" %}selected{% endif %}>Food</option>
+        <option value="drug" {% if allergen_category == "drug" %}selected{% endif %}>Drug</option>
+        <option value="environmental" {% if allergen_category == "environmental" %}selected{% endif %}>Environmental</option>
+        <option value="insect" {% if allergen_category == "insect" %}selected{% endif %}>Insect</option>
+        <option value="latex" {% if allergen_category == "latex" %}selected{% endif %}>Latex</option>
+        <option value="other" {% if allergen_category == "other" %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Primary Allergen</th>
+      <th>Severity</th>
+      <th>Anaphylaxis Risk</th>
+      <th>EpiPen</th>
+      <th>Last Review</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.primaryAllergen }}</td>
+      <td><span class="severity-badge severity-{{ patient.severityLevel }}">{{ patient.severityLevel }}</span></td>
+      <td>{{ patient.anaphylaxisRisk }}</td>
+      <td>{{ patient.hasEpiPen }}</td>
+      <td>{{ patient.lastReview }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

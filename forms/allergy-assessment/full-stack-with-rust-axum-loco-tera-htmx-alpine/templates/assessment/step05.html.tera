@@ -1,0 +1,92 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Environmental Triggers - Allergy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Environmental Triggers</h2>
+    <p class="hint">Rate sensitivity to environmental allergens (1 = No sensitivity, 5 = Severe sensitivity).</p>
+
+    <div class="likert-group">
+      <label>Pollen Sensitivity</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="environmental_triggers.pollen_sensitivity" value="{{ i }}"
+                 {% if environmental_triggers.pollenSensitivity == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Dust Mite Sensitivity</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="environmental_triggers.dust_mite_sensitivity" value="{{ i }}"
+                 {% if environmental_triggers.dustMiteSensitivity == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Pet Dander Sensitivity</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="environmental_triggers.pet_dander_sensitivity" value="{{ i }}"
+                 {% if environmental_triggers.petDanderSensitivity == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Mould Sensitivity</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="environmental_triggers.mold_sensitivity" value="{{ i }}"
+                 {% if environmental_triggers.moldSensitivity == i %}checked{% endif %}>
+          <span>{% if i == 1 %}None{% elif i == 2 %}Mild{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Very Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="seasonal_pattern">Seasonal Pattern</label>
+        <select id="seasonal_pattern" name="environmental_triggers.seasonal_pattern">
+          <option value="">-- Select --</option>
+          <option value="spring" {% if environmental_triggers.seasonalPattern == "spring" %}selected{% endif %}>Spring</option>
+          <option value="summer" {% if environmental_triggers.seasonalPattern == "summer" %}selected{% endif %}>Summer</option>
+          <option value="autumn" {% if environmental_triggers.seasonalPattern == "autumn" %}selected{% endif %}>Autumn</option>
+          <option value="winter" {% if environmental_triggers.seasonalPattern == "winter" %}selected{% endif %}>Winter</option>
+          <option value="perennial" {% if environmental_triggers.seasonalPattern == "perennial" %}selected{% endif %}>Perennial (Year-round)</option>
+          <option value="both" {% if environmental_triggers.seasonalPattern == "both" %}selected{% endif %}>Both Seasonal and Perennial</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="indoor_outdoor_triggers">Indoor/Outdoor Triggers</label>
+        <select id="indoor_outdoor_triggers" name="environmental_triggers.indoor_outdoor_triggers">
+          <option value="">-- Select --</option>
+          <option value="indoor" {% if environmental_triggers.indoorOutdoorTriggers == "indoor" %}selected{% endif %}>Indoor Only</option>
+          <option value="outdoor" {% if environmental_triggers.indoorOutdoorTriggers == "outdoor" %}selected{% endif %}>Outdoor Only</option>
+          <option value="both" {% if environmental_triggers.indoorOutdoorTriggers == "both" %}selected{% endif %}>Both Indoor and Outdoor</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Current Allergies - Allergy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Current Allergies</h2>
+    <p class="hint">Detail the primary allergen and current allergic reactions.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="primary_allergen">Primary Allergen</label>
+        <input type="text" id="primary_allergen" name="current_allergies.primary_allergen"
+               value="{{ current_allergies.primaryAllergen }}"
+               placeholder="e.g. Peanuts, Penicillin, Pollen">
+      </div>
+      <div class="form-group">
+        <label for="allergen_category">Allergen Category</label>
+        <select id="allergen_category" name="current_allergies.allergen_category">
+          <option value="">-- Select --</option>
+          <option value="food" {% if current_allergies.allergenCategory == "food" %}selected{% endif %}>Food</option>
+          <option value="drug" {% if current_allergies.allergenCategory == "drug" %}selected{% endif %}>Drug</option>
+          <option value="environmental" {% if current_allergies.allergenCategory == "environmental" %}selected{% endif %}>Environmental</option>
+          <option value="insect" {% if current_allergies.allergenCategory == "insect" %}selected{% endif %}>Insect</option>
+          <option value="latex" {% if current_allergies.allergenCategory == "latex" %}selected{% endif %}>Latex</option>
+          <option value="other" {% if current_allergies.allergenCategory == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="reaction_type">Reaction Type</label>
+        <select id="reaction_type" name="current_allergies.reaction_type">
+          <option value="">-- Select --</option>
+          <option value="urticaria" {% if current_allergies.reactionType == "urticaria" %}selected{% endif %}>Urticaria (Hives)</option>
+          <option value="angioedema" {% if current_allergies.reactionType == "angioedema" %}selected{% endif %}>Angioedema</option>
+          <option value="anaphylaxis" {% if current_allergies.reactionType == "anaphylaxis" %}selected{% endif %}>Anaphylaxis</option>
+          <option value="rhinitis" {% if current_allergies.reactionType == "rhinitis" %}selected{% endif %}>Rhinitis</option>
+          <option value="dermatitis" {% if current_allergies.reactionType == "dermatitis" %}selected{% endif %}>Contact Dermatitis</option>
+          <option value="respiratory" {% if current_allergies.reactionType == "respiratory" %}selected{% endif %}>Respiratory</option>
+          <option value="gastrointestinal" {% if current_allergies.reactionType == "gastrointestinal" %}selected{% endif %}>Gastrointestinal</option>
+          <option value="other" {% if current_allergies.reactionType == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="onset_timing">Onset Timing</label>
+        <select id="onset_timing" name="current_allergies.onset_timing">
+          <option value="">-- Select --</option>
+          <option value="immediate" {% if current_allergies.onsetTiming == "immediate" %}selected{% endif %}>Immediate (within minutes)</option>
+          <option value="rapid" {% if current_allergies.onsetTiming == "rapid" %}selected{% endif %}>Rapid (within 1 hour)</option>
+          <option value="delayed" {% if current_allergies.onsetTiming == "delayed" %}selected{% endif %}>Delayed (hours to days)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Severity Rating (1 = Mild, 5 = Life-threatening)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="current_allergies.severity_rating" value="{{ i }}"
+                 {% if current_allergies.severityRating == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Mild{% elif i == 2 %}Mild-Moderate{% elif i == 3 %}Moderate{% elif i == 4 %}Severe{% else %}Life-threatening{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="last_reaction">Date of Last Reaction</label>
+      <input type="date" id="last_reaction" name="current_allergies.last_reaction"
+             value="{{ current_allergies.lastReaction }}">
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

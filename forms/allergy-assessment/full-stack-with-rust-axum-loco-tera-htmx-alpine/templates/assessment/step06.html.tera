@@ -1,0 +1,66 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Food & Drug Allergies - Allergy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Food & Drug Allergies</h2>
+    <p class="hint">Detail any food and medication allergies or intolerances.</p>
+
+    <div class="form-group">
+      <label for="food_allergies">Food Allergies</label>
+      <textarea id="food_allergies" name="food_drug_allergies.food_allergies"
+                placeholder="List food allergies, e.g. peanuts, tree nuts, shellfish, milk, eggs, wheat">{{ food_drug_allergies.foodAllergies }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="food_allergy_type">Food Allergy Classification</label>
+      <select id="food_allergy_type" name="food_drug_allergies.food_allergy_type">
+        <option value="">-- Select --</option>
+        <option value="single" {% if food_drug_allergies.foodAllergyType == "single" %}selected{% endif %}>Single Food Allergy</option>
+        <option value="multiple" {% if food_drug_allergies.foodAllergyType == "multiple" %}selected{% endif %}>Multiple Food Allergies</option>
+        <option value="none" {% if food_drug_allergies.foodAllergyType == "none" %}selected{% endif %}>No Food Allergies</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="drug_allergies">Drug Allergies</label>
+      <textarea id="drug_allergies" name="food_drug_allergies.drug_allergies"
+                placeholder="List drug allergies, e.g. penicillin, aspirin, NSAIDs, sulfonamides">{{ food_drug_allergies.drugAllergies }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="drug_allergy_type">Drug Allergy Classification</label>
+      <select id="drug_allergy_type" name="food_drug_allergies.drug_allergy_type">
+        <option value="">-- Select --</option>
+        <option value="single" {% if food_drug_allergies.drugAllergyType == "single" %}selected{% endif %}>Single Drug Allergy</option>
+        <option value="multiple" {% if food_drug_allergies.drugAllergyType == "multiple" %}selected{% endif %}>Multiple Drug Allergies</option>
+        <option value="none" {% if food_drug_allergies.drugAllergyType == "none" %}selected{% endif %}>No Drug Allergies</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Cross-Reactivity Identified</label>
+        <div class="radio-group">
+          <label><input type="radio" name="food_drug_allergies.cross_reactivity" value="yes" {% if food_drug_allergies.crossReactivity == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="food_drug_allergies.cross_reactivity" value="no" {% if food_drug_allergies.crossReactivity == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="food_drug_allergies.cross_reactivity" value="unknown" {% if food_drug_allergies.crossReactivity == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Allergy Verified by Testing</label>
+        <div class="radio-group">
+          <label><input type="radio" name="food_drug_allergies.allergy_verified" value="yes" {% if food_drug_allergies.allergyVerified == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="food_drug_allergies.allergy_verified" value="no" {% if food_drug_allergies.allergyVerified == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allergy Assessment Report</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Allergy Assessment</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content" id="report-content">
+    <p style="text-align:center;color:#6b7280;">Loading report...</p>
+  </main>
+
+  <footer class="footer"><p>Allergy Assessment System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module">
+    import { severityLabel, severityColorClass, formatDate, formatNhsNumber, bmiCategory } from './js/utils.js';
+
+    const dataStr = sessionStorage.getItem('allergyData');
+    const resultStr = sessionStorage.getItem('allergyResult');
+    const container = document.getElementById('report-content');
+
+    if (!dataStr || !resultStr) {
+      container.innerHTML = '<div class="card" style="text-align:center"><h2>No Assessment Data</h2><p>Please complete the allergy assessment first.</p><a href="index.html" class="btn btn-primary">Go to Assessment</a></div>';
+    } else {
+      const data = JSON.parse(dataStr);
+      const result = JSON.parse(resultStr);
+      renderReport(data, result);
+    }
+
+    function renderReport(data, result) {
+      const colorClass = severityColorClass(result.severityLevel);
+      let html = '';
+
+      // Severity Banner
+      html += '<div class="status-banner ' + colorClass + '">';
+      html += '<h2>' + esc(severityLabel(result.severityLevel)) + '</h2>';
+      html += '<p>Allergy Burden Score: ' + result.allergyBurdenScore + ' &mdash; ' + result.firedRules.length + ' rule(s) fired</p>';
+      html += '</div>';
+
+      // Flagged Issues
+      if (result.additionalFlags && result.additionalFlags.length > 0) {
+        html += '<div class="card"><h2>Flagged Issues for Clinician (' + result.additionalFlags.length + ')</h2>';
+        for (const flag of result.additionalFlags) {
+          const flagClass = 'flag-' + flag.priority;
+          html += '<div class="flag-item ' + flagClass + '">';
+          html += '<div class="flag-category">' + esc(flag.category) + ' (' + flag.priority + ')</div>';
+          html += '<div class="flag-message">' + esc(flag.message) + '</div>';
+          html += '</div>';
+        }
+        html += '</div>';
+      }
+
+      // Fired Rules
+      if (result.firedRules && result.firedRules.length > 0) {
+        html += '<div class="card"><h2>Severity Classification Rules (' + result.firedRules.length + ')</h2>';
+        html += '<table class="rules-table"><thead><tr><th>ID</th><th>Category</th><th>Level</th><th>Description</th></tr></thead><tbody>';
+        for (const rule of result.firedRules) {
+          html += '<tr><td>' + esc(rule.id) + '</td><td>' + esc(rule.category) + '</td>';
+          html += '<td><span class="status-badge ' + severityColorClass(rule.severityLevel) + '">' + esc(rule.severityLevel) + '</span></td>';
+          html += '<td>' + esc(rule.description) + '</td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      // Patient Summary
+      html += '<div class="card"><h2>Patient Summary</h2><dl class="summary-grid">';
+      html += '<dt>Patient Name</dt><dd>' + esc(data.demographics.firstName + ' ' + data.demographics.lastName) + '</dd>';
+      html += '<dt>Date of Birth</dt><dd>' + formatDate(data.demographics.dateOfBirth) + '</dd>';
+      html += '<dt>NHS Number</dt><dd>' + esc(formatNhsNumber(data.demographics.nhsNumber)) + '</dd>';
+      html += '<dt>Sex</dt><dd>' + esc(data.demographics.sex || 'Not specified') + '</dd>';
+      if (data.demographics.bmi) {
+        html += '<dt>BMI</dt><dd>' + data.demographics.bmi + ' (' + bmiCategory(data.demographics.bmi) + ')</dd>';
+      }
+      html += '</dl></div>';
+
+      // Allergy History
+      html += '<div class="card"><h2>Allergy History</h2><dl class="summary-grid">';
+      if (data.allergyHistory.ageOfOnset !== null) {
+        html += '<dt>Age of Onset</dt><dd>' + data.allergyHistory.ageOfOnset + ' years</dd>';
+      }
+      html += '<dt>Known Allergens</dt><dd>' + esc(data.allergyHistory.knownAllergens || 'None listed') + '</dd>';
+      html += '<dt>Family Atopy</dt><dd>' + esc(data.allergyHistory.familyHistoryOfAtopy || 'Not specified') + '</dd>';
+      html += '<dt>Family Allergy</dt><dd>' + esc(data.allergyHistory.familyHistoryOfAllergy || 'Not specified') + '</dd>';
+      html += '</dl></div>';
+
+      // Drug Allergies
+      if (data.drugAllergies.hasDrugAllergies === 'yes' && data.drugAllergies.drugAllergies.length > 0) {
+        html += '<div class="card"><h2>Drug Allergies</h2>';
+        html += '<table class="rules-table"><thead><tr><th>Drug</th><th>Reaction</th><th>Severity</th><th>Timing</th></tr></thead><tbody>';
+        for (const a of data.drugAllergies.drugAllergies) {
+          if (a.allergen) {
+            html += '<tr><td>' + esc(a.allergen) + '</td><td>' + esc(a.reactionType) + '</td>';
+            html += '<td><span class="status-badge ' + severityColorClass(a.severity) + '">' + esc(a.severity || 'N/A') + '</span></td>';
+            html += '<td>' + esc(a.timing) + '</td></tr>';
+          }
+        }
+        html += '</tbody></table>';
+        if (data.drugAllergies.crossReactivityConcerns) {
+          html += '<p style="margin-top:.75rem"><strong>Cross-reactivity:</strong> ' + esc(data.drugAllergies.crossReactivityConcerns) + '</p>';
+        }
+        html += '</div>';
+      }
+
+      // Food Allergies
+      if (data.foodAllergies.hasFoodAllergies === 'yes' && data.foodAllergies.foodAllergies.length > 0) {
+        html += '<div class="card"><h2>Food Allergies</h2>';
+        html += '<table class="rules-table"><thead><tr><th>Food</th><th>Reaction</th><th>Severity</th><th>Timing</th></tr></thead><tbody>';
+        for (const a of data.foodAllergies.foodAllergies) {
+          if (a.allergen) {
+            html += '<tr><td>' + esc(a.allergen) + '</td><td>' + esc(a.reactionType) + '</td>';
+            html += '<td><span class="status-badge ' + severityColorClass(a.severity) + '">' + esc(a.severity || 'N/A') + '</span></td>';
+            html += '<td>' + esc(a.timing) + '</td></tr>';
+          }
+        }
+        html += '</tbody></table>';
+        html += '<dl class="summary-grid" style="margin-top:.75rem">';
+        html += '<dt>IgE Type</dt><dd>' + esc(data.foodAllergies.igeType || 'Not specified') + '</dd>';
+        html += '<dt>Oral Allergy Syndrome</dt><dd>' + esc(data.foodAllergies.oralAllergySyndrome || 'Not specified') + '</dd>';
+        html += '</dl></div>';
+      }
+
+      // Environmental Allergies
+      html += '<div class="card"><h2>Environmental Allergies</h2><dl class="summary-grid">';
+      html += '<dt>Pollen</dt><dd>' + esc(data.environmentalAllergies.pollenAllergy || 'Not specified') + '</dd>';
+      html += '<dt>Dust Mite</dt><dd>' + esc(data.environmentalAllergies.dustMiteAllergy || 'Not specified') + '</dd>';
+      html += '<dt>Mould</dt><dd>' + esc(data.environmentalAllergies.mouldAllergy || 'Not specified') + '</dd>';
+      html += '<dt>Animal Dander</dt><dd>' + esc(data.environmentalAllergies.animalDanderAllergy || 'Not specified') + '</dd>';
+      html += '<dt>Latex</dt><dd>' + esc(data.environmentalAllergies.latexAllergy || 'Not specified') + '</dd>';
+      html += '<dt>Insect Sting</dt><dd>' + esc(data.environmentalAllergies.insectStingAllergy || 'Not specified') + '</dd>';
+      if (data.environmentalAllergies.insectStingAllergy === 'yes') {
+        html += '<dt>Insect Sting Severity</dt><dd>' + esc(data.environmentalAllergies.insectStingSeverity || 'Not specified') + '</dd>';
+      }
+      html += '<dt>Seasonal Pattern</dt><dd>' + esc(data.environmentalAllergies.seasonalPattern || 'Not specified') + '</dd>';
+      html += '</dl></div>';
+
+      // Anaphylaxis History
+      if (data.anaphylaxisHistory.hasAnaphylaxisHistory === 'yes') {
+        html += '<div class="card"><h2>Anaphylaxis History</h2><dl class="summary-grid">';
+        html += '<dt>Episodes</dt><dd>' + (data.anaphylaxisHistory.numberOfEpisodes || 0) + '</dd>';
+        html += '<dt>Auto-injector Prescribed</dt><dd>' + esc(data.anaphylaxisHistory.adrenalineAutoInjectorPrescribed || 'Not specified') + '</dd>';
+        html += '<dt>Action Plan</dt><dd>' + esc(data.anaphylaxisHistory.actionPlanInPlace || 'Not specified') + '</dd>';
+        html += '</dl></div>';
+      }
+
+      // Comorbidities
+      html += '<div class="card"><h2>Comorbidities</h2><dl class="summary-grid">';
+      html += '<dt>Asthma</dt><dd>' + esc(data.comorbidities.asthma || 'Not specified');
+      if (data.comorbidities.asthma === 'yes' && data.comorbidities.asthmaSeverity) {
+        html += ' (' + esc(data.comorbidities.asthmaSeverity) + ')';
+      }
+      html += '</dd>';
+      html += '<dt>Eczema</dt><dd>' + esc(data.comorbidities.eczema || 'Not specified');
+      if (data.comorbidities.eczema === 'yes' && data.comorbidities.eczemaSeverity) {
+        html += ' (' + esc(data.comorbidities.eczemaSeverity) + ')';
+      }
+      html += '</dd>';
+      html += '<dt>Rhinitis</dt><dd>' + esc(data.comorbidities.rhinitis || 'Not specified');
+      if (data.comorbidities.rhinitis === 'yes' && data.comorbidities.rhinitisSeverity) {
+        html += ' (' + esc(data.comorbidities.rhinitisSeverity) + ')';
+      }
+      html += '</dd>';
+      html += '<dt>Eosinophilic Oesophagitis</dt><dd>' + esc(data.comorbidities.eosinophilicOesophagitis || 'Not specified') + '</dd>';
+      html += '<dt>Mast Cell Disorder</dt><dd>' + esc(data.comorbidities.mastCellDisorders || 'Not specified') + '</dd>';
+      html += '<dt>Mental Health Impact</dt><dd>' + esc(data.comorbidities.mentalHealthImpact || 'Not specified') + '</dd>';
+      html += '</dl></div>';
+
+      // Impact & Action Plan
+      html += '<div class="card"><h2>Impact &amp; Action Plan</h2><dl class="summary-grid">';
+      html += '<dt>Quality of Life Score</dt><dd>' + (data.impactActionPlan.qualityOfLifeScore !== null ? data.impactActionPlan.qualityOfLifeScore + '/10' : 'Not specified') + '</dd>';
+      html += '<dt>School/Work Impact</dt><dd>' + esc(data.impactActionPlan.schoolWorkImpact || 'Not specified') + '</dd>';
+      html += '<dt>Emergency Action Plan</dt><dd>' + esc(data.impactActionPlan.emergencyActionPlanStatus || 'Not specified') + '</dd>';
+      html += '<dt>Follow-up Schedule</dt><dd>' + esc(data.impactActionPlan.followUpSchedule || 'Not specified') + '</dd>';
+      html += '</dl></div>';
+
+      // Action Buttons
+      html += '<div class="action-buttons">';
+      html += '<a href="index.html" class="btn btn-primary">New Assessment</a>';
+      html += '<button class="btn btn-secondary" onclick="window.print()">Print Report</button>';
+      html += '</div>';
+
+      container.innerHTML = html;
+    }
+
+    function esc(str) {
+      const div = document.createElement('div');
+      div.textContent = str || '';
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>

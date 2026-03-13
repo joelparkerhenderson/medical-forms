@@ -1,0 +1,70 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Allergy History - Allergy Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Allergy History</h2>
+    <p class="hint">Provide information about the patient's allergy history and background.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="age_of_onset">Age of Allergy Onset (years)</label>
+        <input type="number" id="age_of_onset" name="allergy_history.age_of_onset"
+               value="{{ allergy_history.ageOfOnset }}"
+               min="0" max="120" placeholder="e.g. 5">
+      </div>
+      <div class="form-group">
+        <label for="number_of_known_allergies">Number of Known Allergies</label>
+        <input type="number" id="number_of_known_allergies" name="allergy_history.number_of_known_allergies"
+               value="{{ allergy_history.numberOfKnownAllergies }}"
+               min="0" max="50" placeholder="e.g. 3">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Family History of Allergies</label>
+        <div class="radio-group">
+          <label><input type="radio" name="allergy_history.family_allergy_history" value="yes" {% if allergy_history.familyAllergyHistory == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="allergy_history.family_allergy_history" value="no" {% if allergy_history.familyAllergyHistory == "no" %}checked{% endif %}> No</label>
+          <label><input type="radio" name="allergy_history.family_allergy_history" value="unknown" {% if allergy_history.familyAllergyHistory == "unknown" %}checked{% endif %}> Unknown</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="atopic_history">Atopic History</label>
+        <select id="atopic_history" name="allergy_history.atopic_history">
+          <option value="">-- Select --</option>
+          <option value="eczema" {% if allergy_history.atopicHistory == "eczema" %}selected{% endif %}>Eczema</option>
+          <option value="asthma" {% if allergy_history.atopicHistory == "asthma" %}selected{% endif %}>Asthma</option>
+          <option value="rhinitis" {% if allergy_history.atopicHistory == "rhinitis" %}selected{% endif %}>Allergic Rhinitis</option>
+          <option value="multiple" {% if allergy_history.atopicHistory == "multiple" %}selected{% endif %}>Multiple Atopic Conditions</option>
+          <option value="none" {% if allergy_history.atopicHistory == "none" %}selected{% endif %}>None</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Previous Anaphylaxis</label>
+        <div class="radio-group">
+          <label><input type="radio" name="allergy_history.previous_anaphylaxis" value="yes" {% if allergy_history.previousAnaphylaxis == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="allergy_history.previous_anaphylaxis" value="no" {% if allergy_history.previousAnaphylaxis == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>EpiPen Prescribed</label>
+        <div class="radio-group">
+          <label><input type="radio" name="allergy_history.epi_pen_prescribed" value="yes" {% if allergy_history.epiPenPrescribed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="allergy_history.epi_pen_prescribed" value="no" {% if allergy_history.epiPenPrescribed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
