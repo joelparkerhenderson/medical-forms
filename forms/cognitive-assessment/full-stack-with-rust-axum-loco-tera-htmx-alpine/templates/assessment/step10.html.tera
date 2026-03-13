@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Cognitive Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">Assessor observations and clinical summary.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="assessor_name">Assessor Name</label>
+        <input type="text" id="assessor_name" name="clinical_review.assessor_name"
+               value="{{ clinical_review.assessorName }}"
+               placeholder="e.g. Dr Jones">
+      </div>
+      <div class="form-group">
+        <label for="assessor_role">Assessor Role</label>
+        <select id="assessor_role" name="clinical_review.assessor_role">
+          <option value="">-- Select --</option>
+          <option value="consultant" {% if clinical_review.assessorRole == "consultant" %}selected{% endif %}>Consultant</option>
+          <option value="registrar" {% if clinical_review.assessorRole == "registrar" %}selected{% endif %}>Registrar</option>
+          <option value="gp" {% if clinical_review.assessorRole == "gp" %}selected{% endif %}>GP</option>
+          <option value="nurse" {% if clinical_review.assessorRole == "nurse" %}selected{% endif %}>Nurse Specialist</option>
+          <option value="psychologist" {% if clinical_review.assessorRole == "psychologist" %}selected{% endif %}>Psychologist</option>
+          <option value="other" {% if clinical_review.assessorRole == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="assessment_environment">Assessment Environment</label>
+        <select id="assessment_environment" name="clinical_review.assessment_environment">
+          <option value="">-- Select --</option>
+          <option value="clinic" {% if clinical_review.assessmentEnvironment == "clinic" %}selected{% endif %}>Clinic / outpatient</option>
+          <option value="inpatient" {% if clinical_review.assessmentEnvironment == "inpatient" %}selected{% endif %}>Inpatient ward</option>
+          <option value="home" {% if clinical_review.assessmentEnvironment == "home" %}selected{% endif %}>Patient's home</option>
+          <option value="careHome" {% if clinical_review.assessmentEnvironment == "careHome" %}selected{% endif %}>Care home</option>
+          <option value="remote" {% if clinical_review.assessmentEnvironment == "remote" %}selected{% endif %}>Remote / telehealth</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="patient_cooperation">Patient Cooperation</label>
+        <select id="patient_cooperation" name="clinical_review.patient_cooperation">
+          <option value="">-- Select --</option>
+          <option value="excellent" {% if clinical_review.patientCooperation == "excellent" %}selected{% endif %}>Excellent</option>
+          <option value="good" {% if clinical_review.patientCooperation == "good" %}selected{% endif %}>Good</option>
+          <option value="fair" {% if clinical_review.patientCooperation == "fair" %}selected{% endif %}>Fair</option>
+          <option value="poor" {% if clinical_review.patientCooperation == "poor" %}selected{% endif %}>Poor</option>
+          <option value="uncooperative" {% if clinical_review.patientCooperation == "uncooperative" %}selected{% endif %}>Uncooperative</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="sensory_impairments">Sensory Impairments</label>
+      <textarea id="sensory_impairments" name="clinical_review.sensory_impairments"
+                rows="2" placeholder="e.g. Hearing loss, visual impairment, uses glasses/hearing aids">{{ clinical_review.sensoryImpairments }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_impression">Clinical Impression</label>
+      <textarea id="clinical_impression" name="clinical_review.clinical_impression"
+                rows="4" placeholder="Overall clinical impression and observations during testing">{{ clinical_review.clinicalImpression }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="recommended_follow_up">Recommended Follow-up</label>
+      <textarea id="recommended_follow_up" name="clinical_review.recommended_follow_up"
+                rows="3" placeholder="e.g. Repeat assessment in 6 months, refer to memory clinic, neuroimaging">{{ clinical_review.recommendedFollowUp }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="additional_notes">Additional Notes</label>
+      <textarea id="additional_notes" name="clinical_review.additional_notes"
+                rows="4" placeholder="Any other relevant observations or notes">{{ clinical_review.additionalNotes }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

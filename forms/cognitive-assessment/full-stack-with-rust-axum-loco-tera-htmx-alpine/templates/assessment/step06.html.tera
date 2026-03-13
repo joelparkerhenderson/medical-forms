@@ -1,0 +1,112 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Language - Cognitive Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Language (6 points)</h2>
+    <p class="hint">Assess naming, repetition, comprehension, reading, and writing abilities.</p>
+
+    <div class="score-group">
+      <label>Naming: Show a pencil. "What is this?"</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="language.naming_pencil" value="0"
+                 {% if language.namingPencil == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="language.naming_pencil" value="1"
+                 {% if language.namingPencil == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Naming: Show a watch. "What is this?"</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="language.naming_watch" value="0"
+                 {% if language.namingWatch == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="language.naming_watch" value="1"
+                 {% if language.namingWatch == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Repetition: "No ifs, ands, or buts"</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="language.repetition" value="0"
+                 {% if language.repetition == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="language.repetition" value="1"
+                 {% if language.repetition == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Three-stage command: "Take this paper in your right hand, fold it in half, and put it on the floor" (score 1 if all 3 stages completed)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="language.three_stage_command" value="0"
+                 {% if language.threeStageCommand == 0 %}checked{% endif %}>
+          <span>0 - Failed</span>
+        </label>
+        <label>
+          <input type="radio" name="language.three_stage_command" value="1"
+                 {% if language.threeStageCommand == 1 %}checked{% endif %}>
+          <span>1 - All stages completed</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Reading: Show "CLOSE YOUR EYES" - does patient read and obey?</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="language.reading_command" value="0"
+                 {% if language.readingCommand == 0 %}checked{% endif %}>
+          <span>0 - Failed</span>
+        </label>
+        <label>
+          <input type="radio" name="language.reading_command" value="1"
+                 {% if language.readingCommand == 1 %}checked{% endif %}>
+          <span>1 - Read and obeyed</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Writing: Ask patient to write a complete sentence</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="language.writing_sentence" value="0"
+                 {% if language.writingSentence == 0 %}checked{% endif %}>
+          <span>0 - Failed</span>
+        </label>
+        <label>
+          <input type="radio" name="language.writing_sentence" value="1"
+                 {% if language.writingSentence == 1 %}checked{% endif %}>
+          <span>1 - Complete sentence written</span>
+        </label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

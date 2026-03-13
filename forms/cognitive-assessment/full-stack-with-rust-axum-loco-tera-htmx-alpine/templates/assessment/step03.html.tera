@@ -1,0 +1,180 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Orientation - Cognitive Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Orientation (10 points)</h2>
+    <p class="hint">Ask the patient each question. Score 1 for correct, 0 for incorrect.</p>
+
+    <h3>Orientation to Time (5 points)</h3>
+
+    <div class="score-group">
+      <label>What year is it?</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="orientation.orientation_year" value="0"
+                 {% if orientation.orientationYear == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="orientation.orientation_year" value="1"
+                 {% if orientation.orientationYear == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>What season is it?</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="orientation.orientation_season" value="0"
+                 {% if orientation.orientationSeason == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="orientation.orientation_season" value="1"
+                 {% if orientation.orientationSeason == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>What is the date?</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="orientation.orientation_date" value="0"
+                 {% if orientation.orientationDate == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="orientation.orientation_date" value="1"
+                 {% if orientation.orientationDate == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>What day of the week is it?</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="orientation.orientation_day" value="0"
+                 {% if orientation.orientationDay == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="orientation.orientation_day" value="1"
+                 {% if orientation.orientationDay == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>What month is it?</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="orientation.orientation_month" value="0"
+                 {% if orientation.orientationMonth == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="orientation.orientation_month" value="1"
+                 {% if orientation.orientationMonth == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <h3>Orientation to Place (5 points)</h3>
+
+    <div class="score-group">
+      <label>What country are we in?</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="orientation.orientation_country" value="0"
+                 {% if orientation.orientationCountry == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="orientation.orientation_country" value="1"
+                 {% if orientation.orientationCountry == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>What county/region are we in?</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="orientation.orientation_county" value="0"
+                 {% if orientation.orientationCounty == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="orientation.orientation_county" value="1"
+                 {% if orientation.orientationCounty == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>What city/town are we in?</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="orientation.orientation_city" value="0"
+                 {% if orientation.orientationCity == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="orientation.orientation_city" value="1"
+                 {% if orientation.orientationCity == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>What building are we in?</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="orientation.orientation_building" value="0"
+                 {% if orientation.orientationBuilding == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="orientation.orientation_building" value="1"
+                 {% if orientation.orientationBuilding == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>What floor are we on?</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="orientation.orientation_floor" value="0"
+                 {% if orientation.orientationFloor == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="orientation.orientation_floor" value="1"
+                 {% if orientation.orientationFloor == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

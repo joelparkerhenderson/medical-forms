@@ -1,0 +1,112 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Executive Function - Cognitive Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Executive Function (6 points)</h2>
+    <p class="hint">Assess planning, abstract thinking, working memory, and inhibitory control.</p>
+
+    <div class="score-group">
+      <label>Verbal fluency: Name as many animals as possible in 60 seconds (score 1 if 11 or more)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="executive_function.verbal_fluency_score" value="0"
+                 {% if executive_function.verbalFluencyScore == 0 %}checked{% endif %}>
+          <span>0 - Fewer than 11</span>
+        </label>
+        <label>
+          <input type="radio" name="executive_function.verbal_fluency_score" value="1"
+                 {% if executive_function.verbalFluencyScore == 1 %}checked{% endif %}>
+          <span>1 - 11 or more</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Abstraction 1: "In what way are a train and a bicycle alike?"</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="executive_function.abstraction_1" value="0"
+                 {% if executive_function.abstraction1 == 0 %}checked{% endif %}>
+          <span>0 - Concrete/incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="executive_function.abstraction_1" value="1"
+                 {% if executive_function.abstraction1 == 1 %}checked{% endif %}>
+          <span>1 - Abstract (transport)</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Abstraction 2: "In what way are a watch and a ruler alike?"</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="executive_function.abstraction_2" value="0"
+                 {% if executive_function.abstraction2 == 0 %}checked{% endif %}>
+          <span>0 - Concrete/incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="executive_function.abstraction_2" value="1"
+                 {% if executive_function.abstraction2 == 1 %}checked{% endif %}>
+          <span>1 - Abstract (measurement)</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Digit span forward: Repeat 2-1-8-5-4</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="executive_function.digit_span_forward" value="0"
+                 {% if executive_function.digitSpanForward == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="executive_function.digit_span_forward" value="1"
+                 {% if executive_function.digitSpanForward == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Digit span backward: Repeat 7-4-2 backwards (2-4-7)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="executive_function.digit_span_backward" value="0"
+                 {% if executive_function.digitSpanBackward == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="executive_function.digit_span_backward" value="1"
+                 {% if executive_function.digitSpanBackward == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Inhibition task: Tap once when examiner taps twice, and vice versa (score 1 if fewer than 2 errors)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="executive_function.inhibition_task" value="0"
+                 {% if executive_function.inhibitionTask == 0 %}checked{% endif %}>
+          <span>0 - 2+ errors</span>
+        </label>
+        <label>
+          <input type="radio" name="executive_function.inhibition_task" value="1"
+                 {% if executive_function.inhibitionTask == 1 %}checked{% endif %}>
+          <span>1 - 0-1 errors</span>
+        </label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cognitive Report - Cognitive Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Cognitive Assessment Report</h1>
+    <span class="impairment-badge impairment-{{ impairment_level }}">{{ impairment_label }}</span>
+  </div>
+
+  <div class="score-pair">
+    <div class="score-item">
+      <div class="score-value">{{ mmse_score }}</div>
+      <div class="score-max">/30 MMSE</div>
+    </div>
+    <div class="score-item">
+      <div class="score-value">{{ moca_score }}</div>
+      <div class="score-max">/30 MoCA</div>
+    </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient:</strong> {{ data.patientInformation.patientName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Date of Birth:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Age:</strong> {{ data.patientInformation.patientAge | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Assessment Date:</strong> {{ data.patientInformation.assessmentDate | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Decline Rate:</strong> {{ decline_rate }}
+    </div>
+    <div>
+      <strong>Education:</strong> {{ data.patientInformation.educationLevel | default(value="Not provided") }}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Cognitive Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Cognitive Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinical Notes -->
+{% if data.clinicalReview.clinicalImpression or data.clinicalReview.recommendedFollowUp or data.clinicalReview.additionalNotes %}
+<div class="card">
+  <h2>Clinical Notes</h2>
+  {% if data.clinicalReview.clinicalImpression %}
+    <div class="form-group">
+      <strong>Clinical Impression:</strong>
+      <p>{{ data.clinicalReview.clinicalImpression }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.recommendedFollowUp %}
+    <div class="form-group">
+      <strong>Recommended Follow-up:</strong>
+      <p>{{ data.clinicalReview.recommendedFollowUp }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.additionalNotes %}
+    <div class="form-group">
+      <strong>Additional Notes:</strong>
+      <p>{{ data.clinicalReview.additionalNotes }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.assessorName %}
+    <div class="form-group">
+      <strong>Assessor:</strong> {{ data.clinicalReview.assessorName }}
+      {% if data.clinicalReview.assessorRole %} ({{ data.clinicalReview.assessorRole }}){% endif %}
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

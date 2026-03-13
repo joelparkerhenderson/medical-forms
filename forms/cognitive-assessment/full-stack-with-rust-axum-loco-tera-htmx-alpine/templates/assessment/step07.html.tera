@@ -1,0 +1,115 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Visuospatial - Cognitive Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Visuospatial Skills (6 points)</h2>
+    <p class="hint">Assess constructional ability and visuospatial processing.</p>
+
+    <div class="score-group">
+      <label>Copy intersecting pentagons (MMSE item)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="visuospatial.copy_pentagons" value="0"
+                 {% if visuospatial.copyPentagons == 0 %}checked{% endif %}>
+          <span>0 - Failed</span>
+        </label>
+        <label>
+          <input type="radio" name="visuospatial.copy_pentagons" value="1"
+                 {% if visuospatial.copyPentagons == 1 %}checked{% endif %}>
+          <span>1 - Correct copy</span>
+        </label>
+      </div>
+    </div>
+
+    <h3>Clock Drawing Test (3 points)</h3>
+    <p class="hint">Ask the patient to draw a clock showing 10 past 11. Score each component.</p>
+
+    <div class="score-group">
+      <label>Clock contour (circular shape)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="visuospatial.clock_drawing_contour" value="0"
+                 {% if visuospatial.clockDrawingContour == 0 %}checked{% endif %}>
+          <span>0 - Distorted/absent</span>
+        </label>
+        <label>
+          <input type="radio" name="visuospatial.clock_drawing_contour" value="1"
+                 {% if visuospatial.clockDrawingContour == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Numbers correctly placed</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="visuospatial.clock_drawing_numbers" value="0"
+                 {% if visuospatial.clockDrawingNumbers == 0 %}checked{% endif %}>
+          <span>0 - Incorrect/missing</span>
+        </label>
+        <label>
+          <input type="radio" name="visuospatial.clock_drawing_numbers" value="1"
+                 {% if visuospatial.clockDrawingNumbers == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Hands showing correct time (10 past 11)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="visuospatial.clock_drawing_hands" value="0"
+                 {% if visuospatial.clockDrawingHands == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="visuospatial.clock_drawing_hands" value="1"
+                 {% if visuospatial.clockDrawingHands == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Copy a three-dimensional cube</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="visuospatial.cube_copy" value="0"
+                 {% if visuospatial.cubeCopy == 0 %}checked{% endif %}>
+          <span>0 - Failed</span>
+        </label>
+        <label>
+          <input type="radio" name="visuospatial.cube_copy" value="1"
+                 {% if visuospatial.cubeCopy == 1 %}checked{% endif %}>
+          <span>1 - Correct copy</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Trail Making: Connect numbers and letters alternately (1-A-2-B-3-C...)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="visuospatial.trail_making" value="0"
+                 {% if visuospatial.trailMaking == 0 %}checked{% endif %}>
+          <span>0 - Failed/errors</span>
+        </label>
+        <label>
+          <input type="radio" name="visuospatial.trail_making" value="1"
+                 {% if visuospatial.trailMaking == 1 %}checked{% endif %}>
+          <span>1 - Completed correctly</span>
+        </label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

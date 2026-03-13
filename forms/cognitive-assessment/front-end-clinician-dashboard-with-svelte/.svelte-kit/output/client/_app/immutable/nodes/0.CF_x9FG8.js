@@ -1,0 +1,1 @@
+import{c as n,a as s}from"../chunks/CwWE4Tdg.js";import{g as i,i as r,$ as m}from"../chunks/WG0FHagD.js";import{h as c,s as f}from"../chunks/heqr2Y0_.js";function $(o,t){var a=n();c("12qhfyh",p=>{r(()=>{m.title="Cognitive Assessment — Clinician Dashboard"})});var e=i(a);f(e,()=>t.children),s(o,a)}export{$ as component};

@@ -1,0 +1,150 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Registration & Attention - Cognitive Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Registration & Attention (8 points)</h2>
+    <p class="hint">Test immediate recall and sustained attention.</p>
+
+    <h3>Registration (3 points)</h3>
+    <p class="hint">Name three objects (e.g. apple, table, penny). Ask the patient to repeat them. Score 1 for each correct on first attempt.</p>
+
+    <div class="score-group">
+      <label>Word 1 (e.g. apple)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="registration_attention.registration_word1" value="0"
+                 {% if registration_attention.registrationWord1 == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="registration_attention.registration_word1" value="1"
+                 {% if registration_attention.registrationWord1 == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Word 2 (e.g. table)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="registration_attention.registration_word2" value="0"
+                 {% if registration_attention.registrationWord2 == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="registration_attention.registration_word2" value="1"
+                 {% if registration_attention.registrationWord2 == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Word 3 (e.g. penny)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="registration_attention.registration_word3" value="0"
+                 {% if registration_attention.registrationWord3 == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="registration_attention.registration_word3" value="1"
+                 {% if registration_attention.registrationWord3 == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <h3>Attention - Serial Sevens (5 points)</h3>
+    <p class="hint">Ask the patient to subtract 7 from 100 repeatedly (93, 86, 79, 72, 65). Score 1 for each correct subtraction.</p>
+
+    <div class="score-group">
+      <label>100 - 7 = 93</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="registration_attention.serial_sevens_1" value="0"
+                 {% if registration_attention.serialSevens1 == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="registration_attention.serial_sevens_1" value="1"
+                 {% if registration_attention.serialSevens1 == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>93 - 7 = 86</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="registration_attention.serial_sevens_2" value="0"
+                 {% if registration_attention.serialSevens2 == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="registration_attention.serial_sevens_2" value="1"
+                 {% if registration_attention.serialSevens2 == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>86 - 7 = 79</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="registration_attention.serial_sevens_3" value="0"
+                 {% if registration_attention.serialSevens3 == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="registration_attention.serial_sevens_3" value="1"
+                 {% if registration_attention.serialSevens3 == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>79 - 7 = 72</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="registration_attention.serial_sevens_4" value="0"
+                 {% if registration_attention.serialSevens4 == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="registration_attention.serial_sevens_4" value="1"
+                 {% if registration_attention.serialSevens4 == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>72 - 7 = 65</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="registration_attention.serial_sevens_5" value="0"
+                 {% if registration_attention.serialSevens5 == 0 %}checked{% endif %}>
+          <span>0 - Incorrect</span>
+        </label>
+        <label>
+          <input type="radio" name="registration_attention.serial_sevens_5" value="1"
+                 {% if registration_attention.serialSevens5 == 1 %}checked{% endif %}>
+          <span>1 - Correct</span>
+        </label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Recall - Cognitive Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Recall (3 points)</h2>
+    <p class="hint">Ask the patient to recall the three words from Registration. Score 1 for each correct word.</p>
+
+    <div class="score-group">
+      <label>Recall Word 1</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="recall.recall_word1" value="0"
+                 {% if recall.recallWord1 == 0 %}checked{% endif %}>
+          <span>0 - Not recalled</span>
+        </label>
+        <label>
+          <input type="radio" name="recall.recall_word1" value="1"
+                 {% if recall.recallWord1 == 1 %}checked{% endif %}>
+          <span>1 - Recalled</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Recall Word 2</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="recall.recall_word2" value="0"
+                 {% if recall.recallWord2 == 0 %}checked{% endif %}>
+          <span>0 - Not recalled</span>
+        </label>
+        <label>
+          <input type="radio" name="recall.recall_word2" value="1"
+                 {% if recall.recallWord2 == 1 %}checked{% endif %}>
+          <span>1 - Recalled</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Recall Word 3</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="recall.recall_word3" value="0"
+                 {% if recall.recallWord3 == 0 %}checked{% endif %}>
+          <span>0 - Not recalled</span>
+        </label>
+        <label>
+          <input type="radio" name="recall.recall_word3" value="1"
+                 {% if recall.recallWord3 == 1 %}checked{% endif %}>
+          <span>1 - Recalled</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="recall_strategy">Recall Strategy Used</label>
+        <select id="recall_strategy" name="recall.recall_strategy">
+          <option value="">-- Select --</option>
+          <option value="spontaneous" {% if recall.recallStrategy == "spontaneous" %}selected{% endif %}>Spontaneous recall</option>
+          <option value="categoryPrompt" {% if recall.recallStrategy == "categoryPrompt" %}selected{% endif %}>Category prompt needed</option>
+          <option value="multipleChoice" {% if recall.recallStrategy == "multipleChoice" %}selected{% endif %}>Multiple choice needed</option>
+          <option value="noRecall" {% if recall.recallStrategy == "noRecall" %}selected{% endif %}>No recall even with prompts</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="recall_delay_minutes">Delay Before Recall (minutes)</label>
+        <select id="recall_delay_minutes" name="recall.recall_delay_minutes">
+          <option value="">-- Select --</option>
+          <option value="3" {% if recall.recallDelayMinutes == "3" %}selected{% endif %}>3 minutes</option>
+          <option value="5" {% if recall.recallDelayMinutes == "5" %}selected{% endif %}>5 minutes</option>
+          <option value="10" {% if recall.recallDelayMinutes == "10" %}selected{% endif %}>10 minutes</option>
+          <option value="other" {% if recall.recallDelayMinutes == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

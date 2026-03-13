@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cognitive History - Cognitive Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Cognitive History</h2>
+    <p class="hint">Gather information about the patient's cognitive symptoms and history.</p>
+
+    <div class="form-group">
+      <label for="reason_for_referral">Reason for Referral</label>
+      <textarea id="reason_for_referral" name="cognitive_history.reason_for_referral"
+                rows="3" placeholder="e.g. Memory concerns raised by family">{{ cognitive_history.reasonForReferral }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="onset_of_symptoms">Onset of Symptoms</label>
+        <select id="onset_of_symptoms" name="cognitive_history.onset_of_symptoms">
+          <option value="">-- Select --</option>
+          <option value="sudden" {% if cognitive_history.onsetOfSymptoms == "sudden" %}selected{% endif %}>Sudden (days)</option>
+          <option value="subacute" {% if cognitive_history.onsetOfSymptoms == "subacute" %}selected{% endif %}>Subacute (weeks)</option>
+          <option value="gradual" {% if cognitive_history.onsetOfSymptoms == "gradual" %}selected{% endif %}>Gradual (months)</option>
+          <option value="insidious" {% if cognitive_history.onsetOfSymptoms == "insidious" %}selected{% endif %}>Insidious (years)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="symptom_duration">Duration of Symptoms</label>
+        <select id="symptom_duration" name="cognitive_history.symptom_duration">
+          <option value="">-- Select --</option>
+          <option value="lessThan6Months" {% if cognitive_history.symptomDuration == "lessThan6Months" %}selected{% endif %}>Less than 6 months</option>
+          <option value="6to12Months" {% if cognitive_history.symptomDuration == "6to12Months" %}selected{% endif %}>6 - 12 months</option>
+          <option value="1to2Years" {% if cognitive_history.symptomDuration == "1to2Years" %}selected{% endif %}>1 - 2 years</option>
+          <option value="2to5Years" {% if cognitive_history.symptomDuration == "2to5Years" %}selected{% endif %}>2 - 5 years</option>
+          <option value="moreThan5Years" {% if cognitive_history.symptomDuration == "moreThan5Years" %}selected{% endif %}>More than 5 years</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="rate_of_decline">Rate of Decline</label>
+        <select id="rate_of_decline" name="cognitive_history.rate_of_decline">
+          <option value="">-- Select --</option>
+          <option value="rapid" {% if cognitive_history.rateOfDecline == "rapid" %}selected{% endif %}>Rapid (weeks to months)</option>
+          <option value="gradual" {% if cognitive_history.rateOfDecline == "gradual" %}selected{% endif %}>Gradual (months to years)</option>
+          <option value="stable" {% if cognitive_history.rateOfDecline == "stable" %}selected{% endif %}>Stable / no change</option>
+          <option value="improving" {% if cognitive_history.rateOfDecline == "improving" %}selected{% endif %}>Improving</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="family_history_dementia">Family History of Dementia</label>
+        <select id="family_history_dementia" name="cognitive_history.family_history_dementia">
+          <option value="">-- Select --</option>
+          <option value="yes" {% if cognitive_history.familyHistoryDementia == "yes" %}selected{% endif %}>Yes</option>
+          <option value="no" {% if cognitive_history.familyHistoryDementia == "no" %}selected{% endif %}>No</option>
+          <option value="unknown" {% if cognitive_history.familyHistoryDementia == "unknown" %}selected{% endif %}>Unknown</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="previous_cognitive_testing">Previous Cognitive Testing</label>
+      <textarea id="previous_cognitive_testing" name="cognitive_history.previous_cognitive_testing"
+                rows="2" placeholder="Details of any previous MMSE, MoCA, or other cognitive tests">{{ cognitive_history.previousCognitiveTesting }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="relevant_medical_conditions">Relevant Medical Conditions</label>
+      <textarea id="relevant_medical_conditions" name="cognitive_history.relevant_medical_conditions"
+                rows="3" placeholder="e.g. Hypertension, diabetes, stroke, depression">{{ cognitive_history.relevantMedicalConditions }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="current_medications">Current Medications</label>
+      <textarea id="current_medications" name="cognitive_history.current_medications"
+                rows="3" placeholder="List current medications, especially psychotropics and anticholinergics">{{ cognitive_history.currentMedications }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Cognitive Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Cognitive Assessment</h1>
+  <p>
+    This assessment uses the Mini-Mental State Examination (MMSE) and Montreal
+    Cognitive Assessment (MoCA) to screen for cognitive impairment and dementia.
+    It evaluates orientation, memory, attention, language, visuospatial skills,
+    and executive function to provide a comprehensive cognitive profile.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive cognitive evaluation across multiple domains</p>
+    </div>
+    <div class="feature-card">
+      <h3>MMSE & MoCA Scoring</h3>
+      <p>Dual scoring instruments for dementia screening</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Safety, driving, medication, and capacity alerts</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

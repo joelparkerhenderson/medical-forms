@@ -1,0 +1,128 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Functional Assessment - Cognitive Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Functional Assessment</h2>
+    <p class="hint">Assess the patient's ability to perform instrumental activities of daily living (IADLs). Score 1 for independent, 0 for dependent/unable.</p>
+
+    <div class="score-group">
+      <label>Medication management (takes correct medications at correct times)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="functional_assessment.medication_management" value="0"
+                 {% if functional_assessment.medicationManagement == 0 %}checked{% endif %}>
+          <span>0 - Dependent</span>
+        </label>
+        <label>
+          <input type="radio" name="functional_assessment.medication_management" value="1"
+                 {% if functional_assessment.medicationManagement == 1 %}checked{% endif %}>
+          <span>1 - Independent</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Financial management (handles bills, banking, budgeting)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="functional_assessment.financial_management" value="0"
+                 {% if functional_assessment.financialManagement == 0 %}checked{% endif %}>
+          <span>0 - Dependent</span>
+        </label>
+        <label>
+          <input type="radio" name="functional_assessment.financial_management" value="1"
+                 {% if functional_assessment.financialManagement == 1 %}checked{% endif %}>
+          <span>1 - Independent</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Meal preparation (plans and prepares meals safely)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="functional_assessment.meal_preparation" value="0"
+                 {% if functional_assessment.mealPreparation == 0 %}checked{% endif %}>
+          <span>0 - Dependent</span>
+        </label>
+        <label>
+          <input type="radio" name="functional_assessment.meal_preparation" value="1"
+                 {% if functional_assessment.mealPreparation == 1 %}checked{% endif %}>
+          <span>1 - Independent</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Transport ability (drives or uses public transport independently)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="functional_assessment.transport_ability" value="0"
+                 {% if functional_assessment.transportAbility == 0 %}checked{% endif %}>
+          <span>0 - Dependent</span>
+        </label>
+        <label>
+          <input type="radio" name="functional_assessment.transport_ability" value="1"
+                 {% if functional_assessment.transportAbility == 1 %}checked{% endif %}>
+          <span>1 - Independent</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Housekeeping (maintains living environment)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="functional_assessment.housekeeping" value="0"
+                 {% if functional_assessment.housekeeping == 0 %}checked{% endif %}>
+          <span>0 - Dependent</span>
+        </label>
+        <label>
+          <input type="radio" name="functional_assessment.housekeeping" value="1"
+                 {% if functional_assessment.housekeeping == 1 %}checked{% endif %}>
+          <span>1 - Independent</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Personal hygiene (washing, dressing, grooming)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="functional_assessment.personal_hygiene" value="0"
+                 {% if functional_assessment.personalHygiene == 0 %}checked{% endif %}>
+          <span>0 - Dependent</span>
+        </label>
+        <label>
+          <input type="radio" name="functional_assessment.personal_hygiene" value="1"
+                 {% if functional_assessment.personalHygiene == 1 %}checked{% endif %}>
+          <span>1 - Independent</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="score-group">
+      <label>Safety awareness (recognises dangers, responds to emergencies)</label>
+      <div class="score-options">
+        <label>
+          <input type="radio" name="functional_assessment.safety_awareness" value="0"
+                 {% if functional_assessment.safetyAwareness == 0 %}checked{% endif %}>
+          <span>0 - Impaired</span>
+        </label>
+        <label>
+          <input type="radio" name="functional_assessment.safety_awareness" value="1"
+                 {% if functional_assessment.safetyAwareness == 1 %}checked{% endif %}>
+          <span>1 - Intact</span>
+        </label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Cognitive Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Cognitive Assessment Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient name...">
+    </div>
+    <div class="form-group">
+      <label for="severity_level">Severity Level</label>
+      <select id="severity_level" name="severity_level">
+        <option value="">All Levels</option>
+        <option value="normal" {% if severity_level == "normal" %}selected{% endif %}>Normal</option>
+        <option value="mildImpairment" {% if severity_level == "mildImpairment" %}selected{% endif %}>Mild Impairment</option>
+        <option value="moderateImpairment" {% if severity_level == "moderateImpairment" %}selected{% endif %}>Moderate Impairment</option>
+        <option value="severeImpairment" {% if severity_level == "severeImpairment" %}selected{% endif %}>Severe Impairment</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="decline_rate">Decline Rate</label>
+      <select id="decline_rate" name="decline_rate">
+        <option value="">All</option>
+        <option value="rapid" {% if decline_rate == "rapid" %}selected{% endif %}>Rapid</option>
+        <option value="gradual" {% if decline_rate == "gradual" %}selected{% endif %}>Gradual</option>
+        <option value="stable" {% if decline_rate == "stable" %}selected{% endif %}>Stable</option>
+        <option value="improving" {% if decline_rate == "improving" %}selected{% endif %}>Improving</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>MMSE Score</th>
+      <th>MoCA Score</th>
+      <th>Severity Level</th>
+      <th>Decline Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td>{{ patient.mmseScore }}/30</td>
+      <td>{{ patient.mocaScore }}/30</td>
+      <td><span class="impairment-badge impairment-{{ patient.severityLevel }}">{{ patient.severityLevel }}</span></td>
+      <td>{{ patient.declineRate }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="5" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}
