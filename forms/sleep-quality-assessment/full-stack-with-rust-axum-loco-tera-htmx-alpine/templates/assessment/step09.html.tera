@@ -1,0 +1,102 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Impact Assessment - Sleep Quality Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Impact Assessment</h2>
+    <p class="hint">Rate how your sleep problems affect the following areas of your life (1 = severely affected, 5 = not affected).</p>
+
+    <div class="likert-group">
+      <label>Work performance</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="impact_assessment.work_performance" value="{{ i }}"
+                 {% if impact_assessment.workPerformance == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severely Affected{% elif i == 2 %}Significantly{% elif i == 3 %}Moderately{% elif i == 4 %}Slightly{% else %}Not Affected{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Driving safety</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="impact_assessment.driving_safety" value="{{ i }}"
+                 {% if impact_assessment.drivingSafety == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severely Affected{% elif i == 2 %}Significantly{% elif i == 3 %}Moderately{% elif i == 4 %}Slightly{% else %}Not Affected{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Social functioning</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="impact_assessment.social_functioning" value="{{ i }}"
+                 {% if impact_assessment.socialFunctioning == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severely Affected{% elif i == 2 %}Significantly{% elif i == 3 %}Moderately{% elif i == 4 %}Slightly{% else %}Not Affected{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Mood and emotional wellbeing</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="impact_assessment.mood_impact" value="{{ i }}"
+                 {% if impact_assessment.moodImpact == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severely Affected{% elif i == 2 %}Significantly{% elif i == 3 %}Moderately{% elif i == 4 %}Slightly{% else %}Not Affected{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Concentration and memory</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="impact_assessment.concentration_impact" value="{{ i }}"
+                 {% if impact_assessment.concentrationImpact == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Severely Affected{% elif i == 2 %}Significantly{% elif i == 3 %}Moderately{% elif i == 4 %}Slightly{% else %}Not Affected{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Have you had any accidents or near-misses due to sleepiness?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="impact_assessment.accident_risk" value="yes" {% if impact_assessment.accidentRisk == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="impact_assessment.accident_risk" value="no" {% if impact_assessment.accidentRisk == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Overall quality of life</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="impact_assessment.quality_of_life" value="{{ i }}"
+                 {% if impact_assessment.qualityOfLife == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Fair{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

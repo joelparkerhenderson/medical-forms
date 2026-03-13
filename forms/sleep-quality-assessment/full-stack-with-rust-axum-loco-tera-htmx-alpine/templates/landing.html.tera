@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Sleep Quality Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Sleep Quality Assessment</h1>
+  <p>
+    This assessment evaluates sleep quality using validated clinical instruments
+    including the Pittsburgh Sleep Quality Index (PSQI), Epworth Sleepiness Scale (ESS),
+    and STOP-BANG screening for obstructive sleep apnoea. It covers sleep habits,
+    disturbances, daytime functioning, and sleep disorder risk factors.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Assessment Sections</h3>
+      <p>Comprehensive evaluation of sleep habits, quality, and daytime impact</p>
+    </div>
+    <div class="feature-card">
+      <h3>PSQI / ESS / STOP-BANG</h3>
+      <p>Validated clinical scoring instruments for sleep assessment</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Flags</h3>
+      <p>Automated detection of urgent sleep concerns and referral triggers</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Assessment</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Medical & Medications - Sleep Quality Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}"
+        x-data="{
+          sleepMedications: '{{ medical_medications.sleepMedications }}',
+          mentalHealthCondition: '{{ medical_medications.mentalHealthCondition }}',
+          chronicPainCondition: '{{ medical_medications.chronicPainCondition }}',
+          respiratoryCondition: '{{ medical_medications.respiratoryCondition }}',
+          shiftWork: '{{ medical_medications.shiftWork }}'
+        }">
+    <h2>Medical & Medications</h2>
+    <p class="hint">Tell us about any medications and medical conditions that may affect your sleep.</p>
+
+    <div class="form-group">
+      <label for="sleep_medications">Current sleep medications (if any)</label>
+      <input type="text" id="sleep_medications" name="medical_medications.sleep_medications"
+             x-model="sleepMedications"
+             value="{{ medical_medications.sleepMedications }}"
+             placeholder="e.g. zopiclone, melatonin, or 'none'">
+    </div>
+
+    <div class="conditional-field" x-show="sleepMedications.length > 0 && sleepMedications.toLowerCase() !== 'none'" x-transition x-cloak>
+      <div class="form-group">
+        <label for="medication_duration">How long have you been taking sleep medication?</label>
+        <select id="medication_duration" name="medical_medications.medication_duration">
+          <option value="">-- Select --</option>
+          <option value="notApplicable" {% if medical_medications.medicationDuration == "notApplicable" %}selected{% endif %}>Not applicable</option>
+          <option value="lessThan1Month" {% if medical_medications.medicationDuration == "lessThan1Month" %}selected{% endif %}>Less than 1 month</option>
+          <option value="1to3Months" {% if medical_medications.medicationDuration == "1to3Months" %}selected{% endif %}>1-3 months</option>
+          <option value="3to6Months" {% if medical_medications.medicationDuration == "3to6Months" %}selected{% endif %}>3-6 months</option>
+          <option value="moreThan6Months" {% if medical_medications.medicationDuration == "moreThan6Months" %}selected{% endif %}>More than 6 months</option>
+          <option value="moreThan12Months" {% if medical_medications.medicationDuration == "moreThan12Months" %}selected{% endif %}>More than 12 months</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Do you have a mental health condition (e.g. anxiety, depression)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_medications.mental_health_condition" value="yes" x-model="mentalHealthCondition" {% if medical_medications.mentalHealthCondition == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_medications.mental_health_condition" value="no" x-model="mentalHealthCondition" {% if medical_medications.mentalHealthCondition == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Do you have a chronic pain condition?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_medications.chronic_pain_condition" value="yes" x-model="chronicPainCondition" {% if medical_medications.chronicPainCondition == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_medications.chronic_pain_condition" value="no" x-model="chronicPainCondition" {% if medical_medications.chronicPainCondition == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Do you have a respiratory condition (e.g. asthma, COPD)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_medications.respiratory_condition" value="yes" x-model="respiratoryCondition" {% if medical_medications.respiratoryCondition == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_medications.respiratory_condition" value="no" x-model="respiratoryCondition" {% if medical_medications.respiratoryCondition == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="neurological_condition">Neurological condition (if any)</label>
+      <input type="text" id="neurological_condition" name="medical_medications.neurological_condition"
+             value="{{ medical_medications.neurologicalCondition }}"
+             placeholder="e.g. Parkinson's, epilepsy, or 'none'">
+    </div>
+
+    <div class="form-group">
+      <label for="menopausal">Menopausal status (if applicable)</label>
+      <select id="menopausal" name="medical_medications.menopausal">
+        <option value="">-- Select --</option>
+        <option value="notApplicable" {% if medical_medications.menopausal == "notApplicable" %}selected{% endif %}>Not applicable</option>
+        <option value="preMenopausal" {% if medical_medications.menopausal == "preMenopausal" %}selected{% endif %}>Pre-menopausal</option>
+        <option value="periMenopausal" {% if medical_medications.menopausal == "periMenopausal" %}selected{% endif %}>Peri-menopausal</option>
+        <option value="postMenopausal" {% if medical_medications.menopausal == "postMenopausal" %}selected{% endif %}>Post-menopausal</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Do you do shift work?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_medications.shift_work" value="yes" x-model="shiftWork" {% if medical_medications.shiftWork == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_medications.shift_work" value="no" x-model="shiftWork" {% if medical_medications.shiftWork == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

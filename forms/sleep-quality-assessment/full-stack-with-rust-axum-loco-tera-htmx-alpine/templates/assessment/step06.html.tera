@@ -1,0 +1,80 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Sleep Apnoea Screening - Sleep Quality Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Sleep Apnoea Screening (STOP-BANG)</h2>
+    <p class="hint">Answer the following questions about risk factors for obstructive sleep apnoea.</p>
+
+    <div class="form-group">
+      <label>Do you snore loudly (louder than talking or loud enough to be heard through closed doors)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_apnoea_screening.loud_snoring" value="yes" {% if sleep_apnoea_screening.loudSnoring == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_apnoea_screening.loud_snoring" value="no" {% if sleep_apnoea_screening.loudSnoring == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Has anyone observed you stop breathing during sleep?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_apnoea_screening.witnessed_apnoeas" value="yes" {% if sleep_apnoea_screening.witnessedApnoeas == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_apnoea_screening.witnessed_apnoeas" value="no" {% if sleep_apnoea_screening.witnessedApnoeas == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Do you often feel tired, fatigued, or sleepy during the daytime?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_apnoea_screening.tiredness" value="yes" {% if sleep_apnoea_screening.tiredness == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_apnoea_screening.tiredness" value="no" {% if sleep_apnoea_screening.tiredness == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Are you being treated for high blood pressure?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_apnoea_screening.treated_hypertension" value="yes" {% if sleep_apnoea_screening.treatedHypertension == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_apnoea_screening.treated_hypertension" value="no" {% if sleep_apnoea_screening.treatedHypertension == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Is your BMI greater than 35 kg/m2?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_apnoea_screening.bmi_over35" value="yes" {% if sleep_apnoea_screening.bmiOver35 == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_apnoea_screening.bmi_over35" value="no" {% if sleep_apnoea_screening.bmiOver35 == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Are you over 50 years of age?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_apnoea_screening.age_over50" value="yes" {% if sleep_apnoea_screening.ageOver50 == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_apnoea_screening.age_over50" value="no" {% if sleep_apnoea_screening.ageOver50 == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Is your neck circumference greater than 40 cm (16 inches)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_apnoea_screening.neck_circumference_over40" value="yes" {% if sleep_apnoea_screening.neckCircumferenceOver40 == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_apnoea_screening.neck_circumference_over40" value="no" {% if sleep_apnoea_screening.neckCircumferenceOver40 == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Are you male?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_apnoea_screening.male" value="yes" {% if sleep_apnoea_screening.male == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_apnoea_screening.male" value="no" {% if sleep_apnoea_screening.male == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

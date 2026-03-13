@@ -1,0 +1,107 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Sleep Quality (PSQI) - Sleep Quality Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Sleep Quality (PSQI)</h2>
+    <p class="hint">Rate each component of the Pittsburgh Sleep Quality Index (0 = no difficulty, 3 = severe difficulty).</p>
+
+    <div class="likert-group">
+      <label>Subjective sleep quality</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_quality_psqi.subjective_quality" value="{{ i }}"
+                 {% if sleep_quality_psqi.subjectiveQuality == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Very Good{% elif i == 1 %}Fairly Good{% elif i == 2 %}Fairly Bad{% else %}Very Bad{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Sleep latency (difficulty falling asleep)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_quality_psqi.sleep_latency" value="{{ i }}"
+                 {% if sleep_quality_psqi.sleepLatency == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Problem{% elif i == 1 %}Slight{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Sleep duration</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_quality_psqi.sleep_duration" value="{{ i }}"
+                 {% if sleep_quality_psqi.sleepDuration == i %}checked{% endif %}>
+          <span>{% if i == 0 %}>7 hours{% elif i == 1 %}6-7 hours{% elif i == 2 %}5-6 hours{% else %}<5 hours{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Sleep efficiency</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_quality_psqi.sleep_efficiency_score" value="{{ i }}"
+                 {% if sleep_quality_psqi.sleepEfficiencyScore == i %}checked{% endif %}>
+          <span>{% if i == 0 %}>85%{% elif i == 1 %}75-84%{% elif i == 2 %}65-74%{% else %}<65%{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Sleep disturbances</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_quality_psqi.sleep_disturbances" value="{{ i }}"
+                 {% if sleep_quality_psqi.sleepDisturbances == i %}checked{% endif %}>
+          <span>{% if i == 0 %}None{% elif i == 1 %}Mild{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Use of sleep medication</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_quality_psqi.sleep_medication" value="{{ i }}"
+                 {% if sleep_quality_psqi.sleepMedication == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not in past month{% elif i == 1 %}Less than weekly{% elif i == 2 %}Once or twice/week{% else %}3+ times/week{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Daytime dysfunction</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_quality_psqi.daytime_dysfunction" value="{{ i }}"
+                 {% if sleep_quality_psqi.daytimeDysfunction == i %}checked{% endif %}>
+          <span>{% if i == 0 %}No Problem{% elif i == 1 %}Slight{% elif i == 2 %}Moderate{% else %}Severe{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

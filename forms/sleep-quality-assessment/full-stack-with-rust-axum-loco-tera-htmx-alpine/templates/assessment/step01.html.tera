@@ -1,0 +1,73 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Sleep Quality Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide your personal and contact details.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="full_name">Full Name</label>
+        <input type="text" id="full_name" name="patient_information.full_name"
+               value="{{ patient_information.fullName }}"
+               placeholder="e.g. Jane Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nhs_number">NHS Number</label>
+        <input type="text" id="nhs_number" name="patient_information.nhs_number"
+               value="{{ patient_information.nhsNumber }}"
+               placeholder="e.g. 943 476 5919">
+      </div>
+      <div class="form-group">
+        <label for="telephone">Telephone</label>
+        <input type="tel" id="telephone" name="patient_information.telephone"
+               value="{{ patient_information.telephone }}"
+               placeholder="e.g. 07700 900000">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <textarea id="address" name="patient_information.address"
+                placeholder="Full postal address">{{ patient_information.address }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="patient_information.email"
+             value="{{ patient_information.email }}"
+             placeholder="e.g. jane.smith@example.com">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="gp_name">GP Name</label>
+        <input type="text" id="gp_name" name="patient_information.gp_name"
+               value="{{ patient_information.gpName }}"
+               placeholder="e.g. Dr Jones">
+      </div>
+      <div class="form-group">
+        <label for="gp_practice">GP Practice</label>
+        <input type="text" id="gp_practice" name="patient_information.gp_practice"
+               value="{{ patient_information.gpPractice }}"
+               placeholder="e.g. Riverside Medical Centre">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

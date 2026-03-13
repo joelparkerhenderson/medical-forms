@@ -1,0 +1,79 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Sleep Habits - Sleep Quality Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Sleep Habits</h2>
+    <p class="hint">Tell us about your typical sleep patterns over the past month.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="bedtime">Usual Bedtime</label>
+        <input type="time" id="bedtime" name="sleep_habits.bedtime"
+               value="{{ sleep_habits.bedtime }}">
+      </div>
+      <div class="form-group">
+        <label for="wake_time">Usual Wake Time</label>
+        <input type="time" id="wake_time" name="sleep_habits.wake_time"
+               value="{{ sleep_habits.wakeTime }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sleep_latency_minutes">Time to fall asleep (minutes)</label>
+        <input type="number" id="sleep_latency_minutes" name="sleep_habits.sleep_latency_minutes"
+               value="{{ sleep_habits.sleepLatencyMinutes }}" min="0" max="255"
+               placeholder="e.g. 20">
+      </div>
+      <div class="form-group">
+        <label for="total_sleep_hours">Total hours of sleep per night</label>
+        <input type="number" id="total_sleep_hours" name="sleep_habits.total_sleep_hours"
+               value="{{ sleep_habits.totalSleepHours }}" min="0" max="24" step="0.5"
+               placeholder="e.g. 7.5">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="sleep_efficiency">Sleep efficiency (%)</label>
+        <input type="number" id="sleep_efficiency" name="sleep_habits.sleep_efficiency"
+               value="{{ sleep_habits.sleepEfficiency }}" min="0" max="100"
+               placeholder="e.g. 85">
+        <span class="hint">Time asleep / time in bed x 100</span>
+      </div>
+      <div class="form-group">
+        <label for="naps_per_day">Naps per day</label>
+        <input type="number" id="naps_per_day" name="sleep_habits.naps_per_day"
+               value="{{ sleep_habits.napsPerDay }}" min="0" max="10"
+               placeholder="e.g. 0">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nap_duration_minutes">Average nap duration (minutes)</label>
+        <input type="number" id="nap_duration_minutes" name="sleep_habits.nap_duration_minutes"
+               value="{{ sleep_habits.napDurationMinutes }}" min="0" max="255"
+               placeholder="e.g. 30">
+      </div>
+      <div class="form-group">
+        <label for="weekend_sleep_difference">Weekend sleep pattern difference</label>
+        <select id="weekend_sleep_difference" name="sleep_habits.weekend_sleep_difference">
+          <option value="">-- Select --</option>
+          <option value="none" {% if sleep_habits.weekendSleepDifference == "none" %}selected{% endif %}>No difference</option>
+          <option value="slight" {% if sleep_habits.weekendSleepDifference == "slight" %}selected{% endif %}>Slightly different (< 1 hour)</option>
+          <option value="moderate" {% if sleep_habits.weekendSleepDifference == "moderate" %}selected{% endif %}>Moderately different (1-2 hours)</option>
+          <option value="significant" {% if sleep_habits.weekendSleepDifference == "significant" %}selected{% endif %}>Significantly different (> 2 hours)</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

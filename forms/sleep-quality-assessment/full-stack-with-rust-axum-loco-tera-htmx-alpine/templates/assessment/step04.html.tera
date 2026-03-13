@@ -1,0 +1,120 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Daytime Sleepiness (ESS) - Sleep Quality Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Daytime Sleepiness (Epworth Sleepiness Scale)</h2>
+    <p class="hint">How likely are you to doze off or fall asleep in the following situations? (0 = would never doze, 3 = high chance of dozing)</p>
+
+    <div class="likert-group">
+      <label>Sitting and reading</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daytime_sleepiness.ess_sitting" value="{{ i }}"
+                 {% if daytime_sleepiness.essSitting == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Slight{% elif i == 2 %}Moderate{% else %}High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Watching TV</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daytime_sleepiness.ess_watching" value="{{ i }}"
+                 {% if daytime_sleepiness.essWatching == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Slight{% elif i == 2 %}Moderate{% else %}High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Sitting inactive in a public place (e.g. theatre, meeting)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daytime_sleepiness.ess_sitting_inactive" value="{{ i }}"
+                 {% if daytime_sleepiness.essSittingInactive == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Slight{% elif i == 2 %}Moderate{% else %}High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>As a passenger in a car for an hour without a break</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daytime_sleepiness.ess_passenger" value="{{ i }}"
+                 {% if daytime_sleepiness.essPassenger == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Slight{% elif i == 2 %}Moderate{% else %}High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Lying down to rest in the afternoon</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daytime_sleepiness.ess_lying_down" value="{{ i }}"
+                 {% if daytime_sleepiness.essLyingDown == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Slight{% elif i == 2 %}Moderate{% else %}High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Sitting and talking to someone</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daytime_sleepiness.ess_talking" value="{{ i }}"
+                 {% if daytime_sleepiness.essTalking == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Slight{% elif i == 2 %}Moderate{% else %}High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Sitting quietly after lunch (without alcohol)</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daytime_sleepiness.ess_after_lunch" value="{{ i }}"
+                 {% if daytime_sleepiness.essAfterLunch == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Slight{% elif i == 2 %}Moderate{% else %}High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>In a car, while stopped in traffic for a few minutes</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="daytime_sleepiness.ess_traffic" value="{{ i }}"
+                 {% if daytime_sleepiness.essTraffic == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Never{% elif i == 1 %}Slight{% elif i == 2 %}Moderate{% else %}High{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

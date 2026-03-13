@@ -1,0 +1,161 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Sleep Quality Report - Sleep Quality Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Sleep Quality Report</h1>
+    <span class="quality-badge quality-{{ sleep_quality }}">{{ sleep_quality_label }}</span>
+  </div>
+
+  <div class="score-row">
+    <div class="score-item">
+      <div class="value">{{ psqi_score }}/21</div>
+      <div class="label">PSQI Score</div>
+    </div>
+    <div class="score-item">
+      <div class="value">{{ ess_score }}/24</div>
+      <div class="label">ESS Score ({{ ess_category }})</div>
+    </div>
+    <div class="score-item">
+      <div class="value">{{ stop_bang_score }}/8</div>
+      <div class="label">STOP-BANG ({{ stop_bang_category }})</div>
+    </div>
+  </div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+  <h2>Patient Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient:</strong> {{ data.patientInformation.fullName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Date of Birth:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>NHS Number:</strong> {{ data.patientInformation.nhsNumber | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>GP:</strong> {{ data.patientInformation.gpName | default(value="Not provided") }}
+    </div>
+  </div>
+</div>
+
+<!-- Sleep Habits Summary -->
+<div class="card">
+  <h2>Sleep Habits</h2>
+  <div class="form-row">
+    <div>
+      <strong>Bedtime:</strong> {{ data.sleepHabits.bedtime | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Wake Time:</strong> {{ data.sleepHabits.wakeTime | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Sleep Latency:</strong> {% if data.sleepHabits.sleepLatencyMinutes %}{{ data.sleepHabits.sleepLatencyMinutes }} minutes{% else %}Not provided{% endif %}
+    </div>
+    <div>
+      <strong>Total Sleep:</strong> {% if data.sleepHabits.totalSleepHours %}{{ data.sleepHabits.totalSleepHours }} hours{% else %}Not provided{% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Sleep Quality Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Sleep Quality Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Clinical Review -->
+{% if data.clinicalReview.clinicianName or data.clinicalReview.diagnosis or data.clinicalReview.treatmentPlan %}
+<div class="card">
+  <h2>Clinical Review</h2>
+  {% if data.clinicalReview.clinicianName %}
+    <div class="form-group">
+      <strong>Clinician:</strong> {{ data.clinicalReview.clinicianName }}
+      {% if data.clinicalReview.reviewDate %} | <strong>Date:</strong> {{ data.clinicalReview.reviewDate }}{% endif %}
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.diagnosis %}
+    <div class="form-group">
+      <strong>Diagnosis:</strong>
+      <p>{{ data.clinicalReview.diagnosis }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.treatmentPlan %}
+    <div class="form-group">
+      <strong>Treatment Plan:</strong>
+      <p>{{ data.clinicalReview.treatmentPlan }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.clinicalNotes %}
+    <div class="form-group">
+      <strong>Clinical Notes:</strong>
+      <p>{{ data.clinicalReview.clinicalNotes }}</p>
+    </div>
+  {% endif %}
+  {% if data.clinicalReview.referralNeeded == "yes" %}
+    <div class="form-group">
+      <span class="concern-badge concern-medium">REFERRAL NEEDED</span>
+    </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Assessment</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

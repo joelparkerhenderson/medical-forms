@@ -1,0 +1,91 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Sleep Hygiene - Sleep Quality Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Sleep Hygiene</h2>
+    <p class="hint">Tell us about your sleep-related habits and bedroom environment.</p>
+
+    <div class="form-group">
+      <label>Do you keep a regular sleep schedule (same bedtime and wake time)?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_hygiene.regular_schedule" value="yes" {% if sleep_hygiene.regularSchedule == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_hygiene.regular_schedule" value="no" {% if sleep_hygiene.regularSchedule == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="screen_time_before_bed">Screen time before bed</label>
+      <select id="screen_time_before_bed" name="sleep_hygiene.screen_time_before_bed">
+        <option value="">-- Select --</option>
+        <option value="none" {% if sleep_hygiene.screenTimeBeforeBed == "none" %}selected{% endif %}>No screen time before bed</option>
+        <option value="lessThan30" {% if sleep_hygiene.screenTimeBeforeBed == "lessThan30" %}selected{% endif %}>Less than 30 minutes</option>
+        <option value="30to60" {% if sleep_hygiene.screenTimeBeforeBed == "30to60" %}selected{% endif %}>30-60 minutes</option>
+        <option value="moreThan60" {% if sleep_hygiene.screenTimeBeforeBed == "moreThan60" %}selected{% endif %}>More than 60 minutes</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Do you consume caffeine after 2pm?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_hygiene.caffeine_late_use" value="yes" {% if sleep_hygiene.caffeineLateUse == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_hygiene.caffeine_late_use" value="no" {% if sleep_hygiene.caffeineLateUse == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Do you drink alcohol within 3 hours of bedtime?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_hygiene.alcohol_before_bed" value="yes" {% if sleep_hygiene.alcoholBeforeBed == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_hygiene.alcohol_before_bed" value="no" {% if sleep_hygiene.alcoholBeforeBed == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exercise_timing">When do you typically exercise?</label>
+      <select id="exercise_timing" name="sleep_hygiene.exercise_timing">
+        <option value="">-- Select --</option>
+        <option value="morning" {% if sleep_hygiene.exerciseTiming == "morning" %}selected{% endif %}>Morning</option>
+        <option value="afternoon" {% if sleep_hygiene.exerciseTiming == "afternoon" %}selected{% endif %}>Afternoon</option>
+        <option value="evening" {% if sleep_hygiene.exerciseTiming == "evening" %}selected{% endif %}>Evening (within 3 hours of bed)</option>
+        <option value="noExercise" {% if sleep_hygiene.exerciseTiming == "noExercise" %}selected{% endif %}>No regular exercise</option>
+      </select>
+    </div>
+
+    <div class="likert-group">
+      <label>Bedroom environment quality (darkness, temperature, noise)</label>
+      <div class="likert-options">
+        {% for i in [1,2,3,4,5] %}
+        <label>
+          <input type="radio" name="sleep_hygiene.bedroom_environment" value="{{ i }}"
+                 {% if sleep_hygiene.bedroomEnvironment == i %}checked{% endif %}>
+          <span>{% if i == 1 %}Very Poor{% elif i == 2 %}Poor{% elif i == 3 %}Neutral{% elif i == 4 %}Good{% else %}Excellent{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Is your bed used only for sleep and intimacy?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_hygiene.bed_used_for_sleep_only" value="yes" {% if sleep_hygiene.bedUsedForSleepOnly == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_hygiene.bed_used_for_sleep_only" value="no" {% if sleep_hygiene.bedUsedForSleepOnly == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Do you practice a relaxation technique before bed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sleep_hygiene.relaxation_technique" value="yes" {% if sleep_hygiene.relaxationTechnique == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="sleep_hygiene.relaxation_technique" value="no" {% if sleep_hygiene.relaxationTechnique == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

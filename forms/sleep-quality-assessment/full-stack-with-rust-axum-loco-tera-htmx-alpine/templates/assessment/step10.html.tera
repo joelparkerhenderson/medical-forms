@@ -1,0 +1,85 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Sleep Quality Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}"
+        x-data="{ referralNeeded: '{{ clinical_review.referralNeeded }}' }">
+    <h2>Clinical Review</h2>
+    <p class="hint">To be completed by the reviewing clinician.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="clinician_name">Clinician Name</label>
+        <input type="text" id="clinician_name" name="clinical_review.clinician_name"
+               value="{{ clinical_review.clinicianName }}"
+               placeholder="e.g. Dr Williams">
+      </div>
+      <div class="form-group">
+        <label for="review_date">Review Date</label>
+        <input type="date" id="review_date" name="clinical_review.review_date"
+               value="{{ clinical_review.reviewDate }}">
+      </div>
+    </div>
+
+    <div class="form-row-3">
+      <div class="form-group">
+        <label for="psqi_total">PSQI Total Score (0-21)</label>
+        <input type="number" id="psqi_total" name="clinical_review.psqi_total"
+               value="{{ clinical_review.psqiTotal }}" min="0" max="21">
+      </div>
+      <div class="form-group">
+        <label for="ess_total">ESS Total Score (0-24)</label>
+        <input type="number" id="ess_total" name="clinical_review.ess_total"
+               value="{{ clinical_review.essTotal }}" min="0" max="24">
+      </div>
+      <div class="form-group">
+        <label for="stop_bang_total">STOP-BANG Score (0-8)</label>
+        <input type="number" id="stop_bang_total" name="clinical_review.stop_bang_total"
+               value="{{ clinical_review.stopBangTotal }}" min="0" max="8">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="clinical_notes">Clinical Notes</label>
+      <textarea id="clinical_notes" name="clinical_review.clinical_notes"
+                rows="4" placeholder="Clinical observations and assessment summary">{{ clinical_review.clinicalNotes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="diagnosis">Diagnosis</label>
+      <input type="text" id="diagnosis" name="clinical_review.diagnosis"
+             value="{{ clinical_review.diagnosis }}"
+             placeholder="e.g. Obstructive sleep apnoea, Chronic insomnia">
+    </div>
+
+    <div class="form-group">
+      <label for="treatment_plan">Treatment Plan</label>
+      <textarea id="treatment_plan" name="clinical_review.treatment_plan"
+                rows="4" placeholder="Recommended interventions and follow-up plan">{{ clinical_review.treatmentPlan }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Is a referral needed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="clinical_review.referral_needed" value="yes" x-model="referralNeeded" {% if clinical_review.referralNeeded == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="clinical_review.referral_needed" value="no" x-model="referralNeeded" {% if clinical_review.referralNeeded == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="conditional-field" x-show="referralNeeded === 'yes'" x-transition x-cloak>
+      <div class="form-group">
+        <label for="referral_destination">Referral destination</label>
+        <input type="text" id="referral_destination" name="clinical_review.referral_destination"
+               value="{{ clinical_review.referralDestination }}"
+               placeholder="e.g. Sleep clinic, Respiratory medicine, ENT">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Sleep Disturbances - Sleep Quality Assessment{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Sleep Disturbances</h2>
+    <p class="hint">How often have you experienced the following in the past month? (0 = not at all, 3 = three or more times per week)</p>
+
+    <div class="likert-group">
+      <label>Difficulty falling asleep</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_disturbances.difficulty_falling_asleep" value="{{ i }}"
+                 {% if sleep_disturbances.difficultyFallingAsleep == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Less than weekly{% elif i == 2 %}Once or twice/week{% else %}3+ times/week{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Waking during the night</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_disturbances.night_wakings" value="{{ i }}"
+                 {% if sleep_disturbances.nightWakings == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Less than weekly{% elif i == 2 %}Once or twice/week{% else %}3+ times/week{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Early morning waking</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_disturbances.early_morning_waking" value="{{ i }}"
+                 {% if sleep_disturbances.earlyMorningWaking == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Less than weekly{% elif i == 2 %}Once or twice/week{% else %}3+ times/week{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Nightmares or bad dreams</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_disturbances.nightmares" value="{{ i }}"
+                 {% if sleep_disturbances.nightmares == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Less than weekly{% elif i == 2 %}Once or twice/week{% else %}3+ times/week{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Restless legs or leg discomfort</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_disturbances.leg_restlessness" value="{{ i }}"
+                 {% if sleep_disturbances.legRestlessness == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Less than weekly{% elif i == 2 %}Once or twice/week{% else %}3+ times/week{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Snoring</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_disturbances.snoring" value="{{ i }}"
+                 {% if sleep_disturbances.snoring == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Less than weekly{% elif i == 2 %}Once or twice/week{% else %}3+ times/week{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Pauses in breathing during sleep</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_disturbances.breathing_pauses" value="{{ i }}"
+                 {% if sleep_disturbances.breathingPauses == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Less than weekly{% elif i == 2 %}Once or twice/week{% else %}3+ times/week{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="likert-group">
+      <label>Pain disturbing sleep</label>
+      <div class="likert-options">
+        {% for i in [0,1,2,3] %}
+        <label>
+          <input type="radio" name="sleep_disturbances.pain_disturbance" value="{{ i }}"
+                 {% if sleep_disturbances.painDisturbance == i %}checked{% endif %}>
+          <span>{% if i == 0 %}Not at all{% elif i == 1 %}Less than weekly{% elif i == 2 %}Once or twice/week{% else %}3+ times/week{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

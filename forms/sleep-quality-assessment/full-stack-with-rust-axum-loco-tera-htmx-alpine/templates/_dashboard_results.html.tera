@@ -1,0 +1,31 @@
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed assessment(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Sleep Quality</th>
+      <th>PSQI</th>
+      <th>ESS</th>
+      <th>STOP-BANG</th>
+      <th>Apnoea Risk</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td><span class="quality-badge quality-{{ patient.sleepQuality }}">{{ patient.sleepQuality }}</span></td>
+      <td>{{ patient.psqiScore }}/21</td>
+      <td>{{ patient.essScore }}/24</td>
+      <td>{{ patient.stopBang }}/8</td>
+      <td><span class="risk-badge risk-{{ patient.hasApnoeaRisk | lower }}">{{ patient.hasApnoeaRisk }}</span></td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="6" style="text-align: center; color: var(--gray-500);">No completed assessments found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>

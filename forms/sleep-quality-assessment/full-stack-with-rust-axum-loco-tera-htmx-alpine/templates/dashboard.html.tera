@@ -1,0 +1,52 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Sleep Quality Assessment{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Sleep Quality Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard" hx-boost="false">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient name..."
+             hx-get="/dashboard" hx-target="#results-container" hx-include="closest form"
+             hx-trigger="keyup changed delay:300ms">
+    </div>
+    <div class="form-group">
+      <label for="sleep_quality">Sleep Quality</label>
+      <select id="sleep_quality" name="sleep_quality"
+              hx-get="/dashboard" hx-target="#results-container" hx-include="closest form"
+              hx-trigger="change">
+        <option value="">All Levels</option>
+        <option value="good" {% if sleep_quality == "good" %}selected{% endif %}>Good</option>
+        <option value="fair" {% if sleep_quality == "fair" %}selected{% endif %}>Fair</option>
+        <option value="poor" {% if sleep_quality == "poor" %}selected{% endif %}>Poor</option>
+        <option value="veryPoor" {% if sleep_quality == "veryPoor" %}selected{% endif %}>Very Poor</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="apnoea_risk">Apnoea Risk</label>
+      <select id="apnoea_risk" name="apnoea_risk"
+              hx-get="/dashboard" hx-target="#results-container" hx-include="closest form"
+              hx-trigger="change">
+        <option value="">All</option>
+        <option value="High" {% if apnoea_risk == "High" %}selected{% endif %}>High</option>
+        <option value="Intermediate" {% if apnoea_risk == "Intermediate" %}selected{% endif %}>Intermediate</option>
+        <option value="Low" {% if apnoea_risk == "Low" %}selected{% endif %}>Low</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<div id="results-container">
+  {% include "_dashboard_results.html.tera" %}
+</div>
+{% endblock %}
