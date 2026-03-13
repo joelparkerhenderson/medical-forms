@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCORE2-Diabetes Report</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+      <h1>SCORE2-Diabetes Report</h1>
+      <nav><a href="index.html" style="color:var(--gray-500);text-decoration:none;font-size:.875rem;">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container" id="report-content" style="padding-top:2rem;padding-bottom:2rem;">
+    <p style="text-align:center;color:var(--gray-500);">Loading report...</p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>SCORE2-Diabetes Assessment System &copy; 2026. For clinical use only.</p>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { riskCategoryLabel, hasEstablishedCvd, hba1cMmolMol, calculateBmi } from './js/utils.js';
+
+    const dataStr = sessionStorage.getItem('score2Data');
+    const resultStr = sessionStorage.getItem('score2Result');
+    const container = document.getElementById('report-content');
+
+    if (!dataStr || !resultStr) {
+      container.innerHTML = '<div class="card" style="text-align:center"><h2>No Assessment Data</h2><p>Please complete the SCORE2-Diabetes assessment first.</p><a href="index.html" class="btn btn-primary">Go to Assessment</a></div>';
+    } else {
+      const data = JSON.parse(dataStr);
+      const result = JSON.parse(resultStr);
+      renderReport(data, result);
+    }
+
+    function renderReport(data, result) {
+      const riskClass = 'risk-' + result.riskCategory;
+      let html = '';
+
+      // Risk Category Banner
+      html += '<div class="report-header">';
+      html += '<h1>SCORE2-Diabetes Risk Assessment Report</h1>';
+      html += '<span class="risk-badge ' + riskClass + '" style="font-size:1rem;padding:.5rem 1.5rem;">' + esc(riskCategoryLabel(result.riskCategory)) + '</span>';
+      html += '<p style="margin-top:.5rem;color:var(--gray-500);">' + result.firedRules.length + ' rule(s) fired &mdash; ' + result.additionalFlags.length + ' flag(s) detected</p>';
+      html += '</div>';
+
+      // Flagged Issues
+      if (result.additionalFlags && result.additionalFlags.length > 0) {
+        html += '<div class="card"><h2>Flagged Issues for Clinician (' + result.additionalFlags.length + ')</h2>';
+        for (const flag of result.additionalFlags) {
+          const flagClass = 'flag-' + flag.priority;
+          html += '<div class="flag-item ' + flagClass + '">';
+          html += '<div class="flag-category">' + esc(flag.category) + ' (' + flag.priority + ')</div>';
+          html += '<div>' + esc(flag.message) + '</div>';
+          html += '</div>';
+        }
+        html += '</div>';
+      }
+
+      // Fired Rules
+      if (result.firedRules && result.firedRules.length > 0) {
+        html += '<div class="card"><h2>Risk Classification Rules (' + result.firedRules.length + ')</h2>';
+        html += '<table class="rules-table"><thead><tr><th>ID</th><th>Category</th><th>Level</th><th>Description</th></tr></thead><tbody>';
+        for (const rule of result.firedRules) {
+          html += '<tr><td><code>' + esc(rule.id) + '</code></td><td>' + esc(rule.category) + '</td>';
+          html += '<td><span class="risk-badge risk-' + riskLevelToCategory(rule.riskLevel) + '">' + esc(rule.riskLevel) + '</span></td>';
+          html += '<td>' + esc(rule.description) + '</td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      // Patient Summary
+      html += '<div class="card"><h2>Patient Summary</h2><dl class="summary-grid">';
+      html += '<dt>Full Name</dt><dd>' + esc(data.patientDemographics.fullName || 'Not specified') + '</dd>';
+      html += '<dt>Date of Birth</dt><dd>' + esc(data.patientDemographics.dateOfBirth || 'Not specified') + '</dd>';
+      html += '<dt>NHS Number</dt><dd>' + esc(data.patientDemographics.nhsNumber || 'Not specified') + '</dd>';
+      html += '<dt>Sex</dt><dd>' + capitalize(data.patientDemographics.sex || 'Not specified') + '</dd>';
+      const bmi = data.lifestyleFactors.bmi || calculateBmi(data.patientDemographics.heightCm, data.patientDemographics.weightKg);
+      if (bmi) html += '<dt>BMI</dt><dd>' + bmi + ' kg/m&sup2;</dd>';
+      html += '<dt>Ethnicity</dt><dd>' + capitalize(data.patientDemographics.ethnicity || 'Not specified') + '</dd>';
+      html += '</dl></div>';
+
+      // Diabetes History
+      html += '<div class="card"><h2>Diabetes History</h2><dl class="summary-grid">';
+      html += '<dt>Diabetes Type</dt><dd>' + esc(data.diabetesHistory.diabetesType || 'Not specified') + '</dd>';
+      if (data.diabetesHistory.ageAtDiagnosis != null) html += '<dt>Age at Diagnosis</dt><dd>' + data.diabetesHistory.ageAtDiagnosis + ' years</dd>';
+      if (data.diabetesHistory.diabetesDurationYears != null) html += '<dt>Duration</dt><dd>' + data.diabetesHistory.diabetesDurationYears + ' years</dd>';
+      if (data.diabetesHistory.hba1cValue != null) {
+        const unit = data.diabetesHistory.hba1cUnit || 'mmol/mol';
+        html += '<dt>HbA1c</dt><dd>' + data.diabetesHistory.hba1cValue + ' ' + esc(unit) + '</dd>';
+      }
+      html += '<dt>Treatment</dt><dd>' + capitalize(data.diabetesHistory.diabetesTreatment || 'Not specified') + '</dd>';
+      html += '</dl></div>';
+
+      // Cardiovascular History
+      html += '<div class="card"><h2>Cardiovascular History</h2><dl class="summary-grid">';
+      html += '<dt>Established CVD</dt><dd>' + (hasEstablishedCvd(data) ? '<strong style="color:var(--danger)">Yes</strong>' : 'No') + '</dd>';
+      html += '<dt>Previous MI</dt><dd>' + yesNo(data.cardiovascularHistory.previousMi) + '</dd>';
+      html += '<dt>Previous Stroke</dt><dd>' + yesNo(data.cardiovascularHistory.previousStroke) + '</dd>';
+      html += '<dt>Previous TIA</dt><dd>' + yesNo(data.cardiovascularHistory.previousTia) + '</dd>';
+      html += '<dt>Peripheral Arterial Disease</dt><dd>' + yesNo(data.cardiovascularHistory.peripheralArterialDisease) + '</dd>';
+      html += '<dt>Heart Failure</dt><dd>' + yesNo(data.cardiovascularHistory.heartFailure) + '</dd>';
+      html += '<dt>Atrial Fibrillation</dt><dd>' + yesNo(data.cardiovascularHistory.atrialFibrillation) + '</dd>';
+      html += '<dt>Family CVD History</dt><dd>' + yesNo(data.cardiovascularHistory.familyCvdHistory) + '</dd>';
+      html += '</dl></div>';
+
+      // Blood Pressure & Lipids
+      html += '<div class="card"><h2>Blood Pressure &amp; Lipid Profile</h2><dl class="summary-grid">';
+      if (data.bloodPressure.systolicBp != null) html += '<dt>Systolic BP</dt><dd>' + data.bloodPressure.systolicBp + ' mmHg</dd>';
+      if (data.bloodPressure.diastolicBp != null) html += '<dt>Diastolic BP</dt><dd>' + data.bloodPressure.diastolicBp + ' mmHg</dd>';
+      html += '<dt>On Antihypertensive</dt><dd>' + yesNo(data.bloodPressure.onAntihypertensive) + '</dd>';
+      if (data.lipidProfile.totalCholesterol != null) html += '<dt>Total Cholesterol</dt><dd>' + data.lipidProfile.totalCholesterol + ' mmol/L</dd>';
+      if (data.lipidProfile.hdlCholesterol != null) html += '<dt>HDL Cholesterol</dt><dd>' + data.lipidProfile.hdlCholesterol + ' mmol/L</dd>';
+      if (data.lipidProfile.ldlCholesterol != null) html += '<dt>LDL Cholesterol</dt><dd>' + data.lipidProfile.ldlCholesterol + ' mmol/L</dd>';
+      html += '<dt>On Statin</dt><dd>' + yesNo(data.lipidProfile.onStatin) + '</dd>';
+      html += '</dl></div>';
+
+      // Renal & Lifestyle
+      html += '<div class="card"><h2>Renal Function &amp; Lifestyle</h2><dl class="summary-grid">';
+      if (data.renalFunction.egfr != null) html += '<dt>eGFR</dt><dd>' + data.renalFunction.egfr + ' mL/min/1.73m&sup2;</dd>';
+      if (data.renalFunction.urineAcr != null) html += '<dt>Urine ACR</dt><dd>' + data.renalFunction.urineAcr + ' mg/mmol</dd>';
+      html += '<dt>CKD Stage</dt><dd>' + esc(data.renalFunction.ckdStage || 'Not specified') + '</dd>';
+      html += '<dt>Smoking</dt><dd>' + capitalize(data.lifestyleFactors.smokingStatus || 'Not specified') + '</dd>';
+      html += '<dt>Physical Activity</dt><dd>' + capitalize(data.lifestyleFactors.physicalActivity || 'Not specified') + '</dd>';
+      html += '</dl></div>';
+
+      // Current Medications
+      html += '<div class="card"><h2>Current Medications</h2><dl class="summary-grid">';
+      html += '<dt>Metformin</dt><dd>' + yesNo(data.currentMedications.metformin) + '</dd>';
+      html += '<dt>SGLT2 Inhibitor</dt><dd>' + yesNo(data.currentMedications.sglt2Inhibitor) + '</dd>';
+      html += '<dt>GLP-1 Agonist</dt><dd>' + yesNo(data.currentMedications.glp1Agonist) + '</dd>';
+      html += '<dt>Insulin</dt><dd>' + yesNo(data.currentMedications.insulin) + '</dd>';
+      html += '<dt>ACE Inhibitor / ARB</dt><dd>' + yesNo(data.currentMedications.aceInhibitorOrArb) + '</dd>';
+      html += '<dt>Antiplatelet</dt><dd>' + yesNo(data.currentMedications.antiplatelet) + '</dd>';
+      html += '</dl></div>';
+
+      // Complications
+      html += '<div class="card"><h2>Complications Screening</h2><dl class="summary-grid">';
+      html += '<dt>Retinopathy</dt><dd>' + capitalize(data.complicationsScreening.retinopathyStatus || 'Not specified') + '</dd>';
+      html += '<dt>Neuropathy Symptoms</dt><dd>' + yesNo(data.complicationsScreening.neuropathySymptoms) + '</dd>';
+      html += '<dt>Monofilament Test</dt><dd>' + capitalize(data.complicationsScreening.monofilamentTest || 'Not specified') + '</dd>';
+      html += '<dt>Foot Pulses</dt><dd>' + capitalize(data.complicationsScreening.footPulses || 'Not specified') + '</dd>';
+      html += '<dt>Foot Ulcer History</dt><dd>' + yesNo(data.complicationsScreening.footUlcerHistory) + '</dd>';
+      html += '</dl></div>';
+
+      // Risk Summary / Clinical Plan
+      if (data.riskAssessmentSummary.clinicalNotes || data.riskAssessmentSummary.agreedTreatmentTargets) {
+        html += '<div class="card"><h2>Clinical Plan</h2><dl class="summary-grid">';
+        if (data.riskAssessmentSummary.riskRegion) html += '<dt>Risk Region</dt><dd>' + capitalize(data.riskAssessmentSummary.riskRegion) + '</dd>';
+        if (data.riskAssessmentSummary.clinicalNotes) html += '<dt>Clinical Notes</dt><dd>' + esc(data.riskAssessmentSummary.clinicalNotes) + '</dd>';
+        if (data.riskAssessmentSummary.agreedTreatmentTargets) html += '<dt>Treatment Targets</dt><dd>' + esc(data.riskAssessmentSummary.agreedTreatmentTargets) + '</dd>';
+        if (data.riskAssessmentSummary.followUpInterval) html += '<dt>Follow-up</dt><dd>' + esc(data.riskAssessmentSummary.followUpInterval) + '</dd>';
+        html += '</dl></div>';
+      }
+
+      // Action Buttons
+      html += '<div style="display:flex;gap:1rem;justify-content:center;margin-top:1.5rem;">';
+      html += '<a href="index.html" class="btn btn-primary">New Assessment</a>';
+      html += '<button class="btn btn-secondary" onclick="window.print()">Print Report</button>';
+      html += '</div>';
+
+      container.innerHTML = html;
+    }
+
+    function esc(str) {
+      const div = document.createElement('div');
+      div.textContent = str || '';
+      return div.innerHTML;
+    }
+
+    function capitalize(s) {
+      return s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+    }
+
+    function yesNo(val) {
+      if (val === 'yes') return '<strong>Yes</strong>';
+      if (val === 'no') return 'No';
+      return 'Not specified';
+    }
+
+    function riskLevelToCategory(level) {
+      if (level === 'high') return 'veryHigh';
+      if (level === 'medium') return 'high';
+      if (level === 'low') return 'moderate';
+      return 'low';
+    }
+  </script>
+</body>
+</html>

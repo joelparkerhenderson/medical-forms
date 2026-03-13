@@ -1,0 +1,64 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-group">
+            <label for="risk_region">Risk Region</label>
+            <p class="form-hint">Select the ESC cardiovascular risk region for the patient's country of origin</p>
+            <select id="risk_region" name="risk_assessment_summary.risk_region">
+                <option value="" {% if risk_assessment_summary.riskRegion == "" %}selected{% endif %}>Select...</option>
+                <option value="low" {% if risk_assessment_summary.riskRegion == "low" %}selected{% endif %}>Low risk (e.g. France, Spain, Greece)</option>
+                <option value="moderate" {% if risk_assessment_summary.riskRegion == "moderate" %}selected{% endif %}>Moderate risk (e.g. Germany, UK, Netherlands)</option>
+                <option value="high" {% if risk_assessment_summary.riskRegion == "high" %}selected{% endif %}>High risk (e.g. Poland, Czech Republic)</option>
+                <option value="veryHigh" {% if risk_assessment_summary.riskRegion == "veryHigh" %}selected{% endif %}>Very high risk (e.g. Lithuania, Latvia, Russia)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="additional_risk_factors">Additional Risk Factors</label>
+            <p class="form-hint">Note any risk factors not captured in previous steps</p>
+            <textarea id="additional_risk_factors" name="risk_assessment_summary.additional_risk_factors"
+                      placeholder="e.g. Obstructive sleep apnoea, PCOS, chronic inflammatory conditions">{{ risk_assessment_summary.additionalRiskFactors }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="clinical_notes">Clinical Notes</label>
+            <textarea id="clinical_notes" name="risk_assessment_summary.clinical_notes"
+                      placeholder="Free text clinical notes, observations, and reasoning">{{ risk_assessment_summary.clinicalNotes }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="agreed_treatment_targets">Agreed Treatment Targets</label>
+            <p class="form-hint">Document shared decision-making treatment targets with the patient</p>
+            <textarea id="agreed_treatment_targets" name="risk_assessment_summary.agreed_treatment_targets"
+                      placeholder="e.g. HbA1c target &lt;53 mmol/mol, BP &lt;130/80, LDL &lt;1.8 mmol/L">{{ risk_assessment_summary.agreedTreatmentTargets }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="follow_up_interval">Follow-up Interval</label>
+            <select id="follow_up_interval" name="risk_assessment_summary.follow_up_interval">
+                <option value="" {% if risk_assessment_summary.followUpInterval == "" %}selected{% endif %}>Select...</option>
+                <option value="3months" {% if risk_assessment_summary.followUpInterval == "3months" %}selected{% endif %}>3 months</option>
+                <option value="6months" {% if risk_assessment_summary.followUpInterval == "6months" %}selected{% endif %}>6 months</option>
+                <option value="12months" {% if risk_assessment_summary.followUpInterval == "12months" %}selected{% endif %}>12 months</option>
+            </select>
+        </div>
+
+        <div class="step-nav">
+            {% if prev_step %}
+                <a href="/assessment/{{ id }}/step/{{ prev_step }}" class="btn btn-secondary">&larr; Previous</a>
+            {% else %}
+                <span></span>
+            {% endif %}
+            <button type="submit" class="btn btn-success">Submit Assessment</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-group">
+            <label for="full_name">Full Name</label>
+            <input type="text" id="full_name" name="patient_demographics.full_name"
+                   value="{{ patient_demographics.fullName }}">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="date_of_birth">Date of Birth</label>
+                <input type="date" id="date_of_birth" name="patient_demographics.date_of_birth"
+                       value="{{ patient_demographics.dateOfBirth }}">
+            </div>
+            <div class="form-group">
+                <label>Sex</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="patient_demographics.sex" value="male" {% if patient_demographics.sex == "male" %}checked{% endif %}> Male</label>
+                    <label><input type="radio" name="patient_demographics.sex" value="female" {% if patient_demographics.sex == "female" %}checked{% endif %}> Female</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="nhs_number">NHS Number</label>
+            <input type="text" id="nhs_number" name="patient_demographics.nhs_number"
+                   value="{{ patient_demographics.nhsNumber }}" placeholder="e.g. 123 456 7890">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="height_cm">Height (cm)</label>
+                <input type="number" id="height_cm" name="patient_demographics.height_cm"
+                       value="{{ patient_demographics.heightCm | default(value='') }}" min="50" max="250" step="0.1">
+            </div>
+            <div class="form-group">
+                <label for="weight_kg">Weight (kg)</label>
+                <input type="number" id="weight_kg" name="patient_demographics.weight_kg"
+                       value="{{ patient_demographics.weightKg | default(value='') }}" min="20" max="300" step="0.1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="ethnicity">Ethnicity</label>
+            <select id="ethnicity" name="patient_demographics.ethnicity">
+                <option value="" {% if patient_demographics.ethnicity == "" %}selected{% endif %}>Select...</option>
+                <option value="white" {% if patient_demographics.ethnicity == "white" %}selected{% endif %}>White</option>
+                <option value="mixedOrMultiple" {% if patient_demographics.ethnicity == "mixedOrMultiple" %}selected{% endif %}>Mixed or Multiple ethnic groups</option>
+                <option value="asian" {% if patient_demographics.ethnicity == "asian" %}selected{% endif %}>Asian or Asian British</option>
+                <option value="black" {% if patient_demographics.ethnicity == "black" %}selected{% endif %}>Black, African, Caribbean or Black British</option>
+                <option value="arab" {% if patient_demographics.ethnicity == "arab" %}selected{% endif %}>Arab</option>
+                <option value="other" {% if patient_demographics.ethnicity == "other" %}selected{% endif %}>Other ethnic group</option>
+                <option value="preferNotToSay" {% if patient_demographics.ethnicity == "preferNotToSay" %}selected{% endif %}>Prefer not to say</option>
+            </select>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

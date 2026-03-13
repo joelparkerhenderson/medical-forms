@@ -1,0 +1,89 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Assessment Report - Risk Category: {{ risk_category_label }}{% endblock %}
+
+{% block content %}
+<div class="report-header">
+    <h1>SCORE2-Diabetes Risk Assessment Report</h1>
+    <div class="risk-badge risk-{{ risk_category }}">{{ risk_category_label }}</div>
+    <div class="risk-label">CVD Risk Category: {{ risk_category_label }}</div>
+    <p style="color: var(--gray-500); font-size: 0.85rem;">
+        Assessment ID: {{ id }}<br>
+        Generated: {{ timestamp }}
+    </p>
+</div>
+
+<!-- Patient Summary -->
+<div class="card">
+    <h2>Patient Summary</h2>
+    <div class="form-row">
+        <div>
+            <strong>Name:</strong> {{ data.patientDemographics.fullName }}<br>
+            <strong>Date of Birth:</strong> {{ data.patientDemographics.dateOfBirth }}<br>
+            <strong>Sex:</strong> {{ data.patientDemographics.sex }}<br>
+            <strong>NHS Number:</strong> {{ data.patientDemographics.nhsNumber }}
+        </div>
+        <div>
+            <strong>Diabetes Type:</strong> {{ data.diabetesHistory.diabetesType }}<br>
+            <strong>HbA1c:</strong> {{ data.diabetesHistory.hba1cValue }} {{ data.diabetesHistory.hba1cUnit }}<br>
+            <strong>BP:</strong> {{ data.bloodPressure.systolicBp }}/{{ data.bloodPressure.diastolicBp }} mmHg<br>
+            <strong>eGFR:</strong> {{ data.renalFunction.egfr }} mL/min/1.73m&sup2;
+        </div>
+        <div>
+            <strong>BMI:</strong> {{ data.lifestyleFactors.bmi }} kg/m&sup2;<br>
+            <strong>Total Cholesterol:</strong> {{ data.lipidProfile.totalCholesterol }} mmol/L<br>
+            <strong>LDL Cholesterol:</strong> {{ data.lipidProfile.ldlCholesterol }} mmol/L<br>
+            <strong>Smoking:</strong> {{ data.lifestyleFactors.smokingStatus }}
+        </div>
+    </div>
+</div>
+
+<!-- Safety Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+    <h2>Clinical Safety Flags ({{ additional_flags | length }})</h2>
+    <div class="flags-section">
+        {% for flag in additional_flags %}
+        <div class="flag-item flag-{{ flag.priority }}">
+            <span class="flag-category">{{ flag.category }}</span>
+            <span class="flag-message">{{ flag.message }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Fired Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+    <h2>Risk Classification Rules Triggered ({{ fired_rules | length }})</h2>
+    <table class="rules-table">
+        <thead>
+            <tr>
+                <th>Rule ID</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Risk Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rule in fired_rules %}
+            <tr>
+                <td><code>{{ rule.id }}</code></td>
+                <td>{{ rule.category }}</td>
+                <td>{{ rule.description }}</td>
+                <td><span class="risk-badge risk-{{ rule.riskLevel }}">{{ rule.riskLevel }}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+    <a href="/" class="btn btn-primary">New Assessment</a>
+    <a href="/dashboard" class="btn btn-secondary" style="margin-left: 1rem;">View Dashboard</a>
+    <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 1rem;">Print Report</button>
+</div>
+{% endblock %}

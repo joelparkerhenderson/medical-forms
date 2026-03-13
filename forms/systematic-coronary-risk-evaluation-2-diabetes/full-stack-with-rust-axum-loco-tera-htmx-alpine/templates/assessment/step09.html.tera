@@ -1,0 +1,96 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <h3>Retinopathy</h3>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="retinopathy_status">Retinopathy Status</label>
+                <select id="retinopathy_status" name="complications_screening.retinopathy_status">
+                    <option value="" {% if complications_screening.retinopathyStatus == "" %}selected{% endif %}>Select...</option>
+                    <option value="none" {% if complications_screening.retinopathyStatus == "none" %}selected{% endif %}>None</option>
+                    <option value="background" {% if complications_screening.retinopathyStatus == "background" %}selected{% endif %}>Background (R1)</option>
+                    <option value="preProliferative" {% if complications_screening.retinopathyStatus == "preProliferative" %}selected{% endif %}>Pre-proliferative (R2)</option>
+                    <option value="proliferative" {% if complications_screening.retinopathyStatus == "proliferative" %}selected{% endif %}>Proliferative (R3)</option>
+                    <option value="maculopathy" {% if complications_screening.retinopathyStatus == "maculopathy" %}selected{% endif %}>Maculopathy (M1)</option>
+                    <option value="notScreened" {% if complications_screening.retinopathyStatus == "notScreened" %}selected{% endif %}>Not yet screened</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="last_eye_screening_date">Last Eye Screening Date</label>
+                <input type="date" id="last_eye_screening_date" name="complications_screening.last_eye_screening_date"
+                       value="{{ complications_screening.lastEyeScreeningDate }}">
+            </div>
+        </div>
+
+        <h3>Neuropathy</h3>
+
+        <div class="form-group">
+            <label>Neuropathy Symptoms</label>
+            <p class="form-hint">e.g. numbness, tingling, burning sensation in feet</p>
+            <div class="radio-group">
+                <label><input type="radio" name="complications_screening.neuropathy_symptoms" value="yes" {% if complications_screening.neuropathySymptoms == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="complications_screening.neuropathy_symptoms" value="no" {% if complications_screening.neuropathySymptoms == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="monofilament_test">10g Monofilament Test</label>
+            <select id="monofilament_test" name="complications_screening.monofilament_test">
+                <option value="" {% if complications_screening.monofilamentTest == "" %}selected{% endif %}>Select...</option>
+                <option value="normal" {% if complications_screening.monofilamentTest == "normal" %}selected{% endif %}>Normal</option>
+                <option value="abnormal" {% if complications_screening.monofilamentTest == "abnormal" %}selected{% endif %}>Abnormal</option>
+                <option value="notDone" {% if complications_screening.monofilamentTest == "notDone" %}selected{% endif %}>Not done</option>
+            </select>
+        </div>
+
+        <h3>Peripheral Vascular Assessment</h3>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="foot_pulses">Foot Pulses</label>
+                <select id="foot_pulses" name="complications_screening.foot_pulses">
+                    <option value="" {% if complications_screening.footPulses == "" %}selected{% endif %}>Select...</option>
+                    <option value="normal" {% if complications_screening.footPulses == "normal" %}selected{% endif %}>Normal (palpable bilaterally)</option>
+                    <option value="absent" {% if complications_screening.footPulses == "absent" %}selected{% endif %}>Absent or diminished</option>
+                    <option value="notChecked" {% if complications_screening.footPulses == "notChecked" %}selected{% endif %}>Not checked</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ankle_brachial_index">Ankle-Brachial Index (ABI)</label>
+                <input type="number" id="ankle_brachial_index" name="complications_screening.ankle_brachial_index"
+                       value="{{ complications_screening.ankleBrachialIndex | default(value='') }}" min="0" max="2" step="0.01">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>History of Foot Ulcer</label>
+            <div class="radio-group">
+                <label><input type="radio" name="complications_screening.foot_ulcer_history" value="yes" {% if complications_screening.footUlcerHistory == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="complications_screening.foot_ulcer_history" value="no" {% if complications_screening.footUlcerHistory == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <h3>Other Complications</h3>
+
+        <div class="form-group">
+            <label>Erectile Dysfunction</label>
+            <div class="radio-group">
+                <label><input type="radio" name="complications_screening.erectile_dysfunction" value="yes" {% if complications_screening.erectileDysfunction == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="complications_screening.erectile_dysfunction" value="no" {% if complications_screening.erectileDysfunction == "no" %}checked{% endif %}> No</label>
+                <label><input type="radio" name="complications_screening.erectile_dysfunction" value="notApplicable" {% if complications_screening.erectileDysfunction == "notApplicable" %}checked{% endif %}> Not applicable</label>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

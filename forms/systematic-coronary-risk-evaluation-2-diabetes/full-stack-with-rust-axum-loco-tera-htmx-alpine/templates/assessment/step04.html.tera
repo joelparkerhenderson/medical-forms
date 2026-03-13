@@ -1,0 +1,63 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="systolic_bp">Systolic Blood Pressure (mmHg)</label>
+                <input type="number" id="systolic_bp" name="blood_pressure.systolic_bp"
+                       value="{{ blood_pressure.systolicBp | default(value='') }}" min="60" max="300" step="1">
+            </div>
+            <div class="form-group">
+                <label for="diastolic_bp">Diastolic Blood Pressure (mmHg)</label>
+                <input type="number" id="diastolic_bp" name="blood_pressure.diastolic_bp"
+                       value="{{ blood_pressure.diastolicBp | default(value='') }}" min="30" max="200" step="1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>On Antihypertensive Medication</label>
+            <div class="radio-group">
+                <label><input type="radio" name="blood_pressure.on_antihypertensive" value="yes" {% if blood_pressure.onAntihypertensive == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="blood_pressure.on_antihypertensive" value="no" {% if blood_pressure.onAntihypertensive == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% if blood_pressure.onAntihypertensive == "yes" %}
+        <div class="conditional-field">
+            <div class="form-group">
+                <label for="number_of_bp_medications">Number of BP Medications</label>
+                <input type="number" id="number_of_bp_medications" name="blood_pressure.number_of_bp_medications"
+                       value="{{ blood_pressure.numberOfBpMedications | default(value='') }}" min="1" max="10" step="1">
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label>Blood Pressure at Target</label>
+            <p class="form-hint">Target: &lt;130/80 mmHg for most diabetes patients (ESC 2023)</p>
+            <div class="radio-group">
+                <label><input type="radio" name="blood_pressure.bp_at_target" value="yes" {% if blood_pressure.bpAtTarget == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="blood_pressure.bp_at_target" value="no" {% if blood_pressure.bpAtTarget == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Home Blood Pressure Monitoring</label>
+            <div class="radio-group">
+                <label><input type="radio" name="blood_pressure.home_bp_monitoring" value="yes" {% if blood_pressure.homeBpMonitoring == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="blood_pressure.home_bp_monitoring" value="no" {% if blood_pressure.homeBpMonitoring == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

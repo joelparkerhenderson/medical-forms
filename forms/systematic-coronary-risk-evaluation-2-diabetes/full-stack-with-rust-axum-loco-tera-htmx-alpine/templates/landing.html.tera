@@ -1,0 +1,39 @@
+{% extends "base.html.tera" %}
+
+{% block title %}SCORE2-Diabetes Risk Assessment - Home{% endblock %}
+
+{% block content %}
+<div class="landing">
+    <div class="card landing-card">
+        <h1>SCORE2-Diabetes Risk Assessment</h1>
+        <p class="landing-description">
+            A comprehensive cardiovascular risk calculator for patients with type 2 diabetes,
+            based on the ESC 2023 guidelines. This tool estimates 10-year risk of fatal and
+            non-fatal cardiovascular events, incorporating diabetes-specific factors such as
+            HbA1c, diabetes duration, renal function, and microvascular complications to
+            provide tailored risk stratification and treatment recommendations.
+        </p>
+
+        <div class="landing-features">
+            <div class="feature">
+                <h3>10 Assessment Steps</h3>
+                <p>Covering demographics, diabetes history, cardiovascular risk factors, and complications screening</p>
+            </div>
+            <div class="feature">
+                <h3>CVD Risk Classification</h3>
+                <p>Categorises risk as Very High, High, Moderate, or Low based on ESC 2023 criteria</p>
+            </div>
+            <div class="feature">
+                <h3>Clinical Safety Flags</h3>
+                <p>Identifies critical findings requiring urgent clinical attention or specialist referral</p>
+            </div>
+        </div>
+
+        <form method="POST" action="/assessment/new">
+            <button type="submit" class="btn btn-primary btn-lg">
+                Begin Assessment
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

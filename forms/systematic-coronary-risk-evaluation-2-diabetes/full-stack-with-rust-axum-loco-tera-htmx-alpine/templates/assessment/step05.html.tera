@@ -1,0 +1,79 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <p class="form-hint">Enter the most recent fasting lipid profile results.</p>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="total_cholesterol">Total Cholesterol (mmol/L)</label>
+                <input type="number" id="total_cholesterol" name="lipid_profile.total_cholesterol"
+                       value="{{ lipid_profile.totalCholesterol | default(value='') }}" min="0" max="20" step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="hdl_cholesterol">HDL Cholesterol (mmol/L)</label>
+                <input type="number" id="hdl_cholesterol" name="lipid_profile.hdl_cholesterol"
+                       value="{{ lipid_profile.hdlCholesterol | default(value='') }}" min="0" max="10" step="0.01">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="ldl_cholesterol">LDL Cholesterol (mmol/L)</label>
+                <input type="number" id="ldl_cholesterol" name="lipid_profile.ldl_cholesterol"
+                       value="{{ lipid_profile.ldlCholesterol | default(value='') }}" min="0" max="15" step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="triglycerides">Triglycerides (mmol/L)</label>
+                <input type="number" id="triglycerides" name="lipid_profile.triglycerides"
+                       value="{{ lipid_profile.triglycerides | default(value='') }}" min="0" max="30" step="0.01">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="non_hdl_cholesterol">Non-HDL Cholesterol (mmol/L)</label>
+            <p class="form-hint">Calculated as Total Cholesterol minus HDL Cholesterol</p>
+            <input type="number" id="non_hdl_cholesterol" name="lipid_profile.non_hdl_cholesterol"
+                   value="{{ lipid_profile.nonHdlCholesterol | default(value='') }}" min="0" max="20" step="0.01">
+        </div>
+
+        <h3>Lipid-Lowering Therapy</h3>
+
+        <div class="form-group">
+            <label>On Statin Therapy</label>
+            <div class="radio-group">
+                <label><input type="radio" name="lipid_profile.on_statin" value="yes" {% if lipid_profile.onStatin == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="lipid_profile.on_statin" value="no" {% if lipid_profile.onStatin == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% if lipid_profile.onStatin == "yes" %}
+        <div class="conditional-field">
+            <div class="form-group">
+                <label for="statin_name">Statin Name and Dose</label>
+                <input type="text" id="statin_name" name="lipid_profile.statin_name"
+                       value="{{ lipid_profile.statinName }}" placeholder="e.g. Atorvastatin 40mg">
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label>On Other Lipid-Lowering Therapy</label>
+            <p class="form-hint">e.g. Ezetimibe, PCSK9 inhibitor, fibrate</p>
+            <div class="radio-group">
+                <label><input type="radio" name="lipid_profile.on_other_lipid_therapy" value="yes" {% if lipid_profile.onOtherLipidTherapy == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="lipid_profile.on_other_lipid_therapy" value="no" {% if lipid_profile.onOtherLipidTherapy == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

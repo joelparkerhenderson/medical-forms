@@ -1,0 +1,94 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <!-- Smoking Status -->
+        <div class="form-group">
+            <label>Smoking Status</label>
+            <div class="radio-group">
+                <label><input type="radio" name="lifestyle_factors.smoking_status" value="never" {% if lifestyle_factors.smokingStatus == "never" %}checked{% endif %}> Never</label>
+                <label><input type="radio" name="lifestyle_factors.smoking_status" value="former" {% if lifestyle_factors.smokingStatus == "former" %}checked{% endif %}> Former</label>
+                <label><input type="radio" name="lifestyle_factors.smoking_status" value="current" {% if lifestyle_factors.smokingStatus == "current" %}checked{% endif %}> Current</label>
+            </div>
+        </div>
+
+        {% if lifestyle_factors.smokingStatus == "current" %}
+        <div class="conditional-field">
+            <div class="form-group">
+                <label for="cigarettes_per_day">Cigarettes Per Day</label>
+                <input type="number" id="cigarettes_per_day" name="lifestyle_factors.cigarettes_per_day"
+                       value="{{ lifestyle_factors.cigarettesPerDay | default(value='') }}" min="0" max="100" step="1">
+            </div>
+        </div>
+        {% endif %}
+
+        {% if lifestyle_factors.smokingStatus == "former" %}
+        <div class="conditional-field">
+            <div class="form-group">
+                <label for="years_since_quit">Years Since Quitting</label>
+                <input type="number" id="years_since_quit" name="lifestyle_factors.years_since_quit"
+                       value="{{ lifestyle_factors.yearsSinceQuit | default(value='') }}" min="0" max="80" step="0.5">
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Alcohol -->
+        <div class="form-group">
+            <label for="alcohol_units_per_week">Alcohol (units per week)</label>
+            <p class="form-hint">1 unit = 10ml pure alcohol (e.g. half pint of beer, small glass of wine)</p>
+            <input type="number" id="alcohol_units_per_week" name="lifestyle_factors.alcohol_units_per_week"
+                   value="{{ lifestyle_factors.alcoholUnitsPerWeek | default(value='') }}" min="0" max="200" step="0.5">
+        </div>
+
+        <!-- Physical Activity -->
+        <div class="form-group">
+            <label for="physical_activity">Physical Activity Level</label>
+            <select id="physical_activity" name="lifestyle_factors.physical_activity">
+                <option value="" {% if lifestyle_factors.physicalActivity == "" %}selected{% endif %}>Select...</option>
+                <option value="sedentary" {% if lifestyle_factors.physicalActivity == "sedentary" %}selected{% endif %}>Sedentary (&lt;30 min/week)</option>
+                <option value="lightlyActive" {% if lifestyle_factors.physicalActivity == "lightlyActive" %}selected{% endif %}>Lightly Active (30-149 min/week)</option>
+                <option value="moderatelyActive" {% if lifestyle_factors.physicalActivity == "moderatelyActive" %}selected{% endif %}>Moderately Active (150-300 min/week)</option>
+                <option value="veryActive" {% if lifestyle_factors.physicalActivity == "veryActive" %}selected{% endif %}>Very Active (&gt;300 min/week)</option>
+            </select>
+        </div>
+
+        <!-- Diet Quality -->
+        <div class="form-group">
+            <label for="diet_quality">Diet Quality</label>
+            <select id="diet_quality" name="lifestyle_factors.diet_quality">
+                <option value="" {% if lifestyle_factors.dietQuality == "" %}selected{% endif %}>Select...</option>
+                <option value="poor" {% if lifestyle_factors.dietQuality == "poor" %}selected{% endif %}>Poor</option>
+                <option value="fair" {% if lifestyle_factors.dietQuality == "fair" %}selected{% endif %}>Fair</option>
+                <option value="good" {% if lifestyle_factors.dietQuality == "good" %}selected{% endif %}>Good</option>
+                <option value="excellent" {% if lifestyle_factors.dietQuality == "excellent" %}selected{% endif %}>Excellent</option>
+            </select>
+        </div>
+
+        <h3>Anthropometric Measurements</h3>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="bmi">BMI (kg/m&sup2;)</label>
+                <p class="form-hint">Calculated from height and weight if available</p>
+                <input type="number" id="bmi" name="lifestyle_factors.bmi"
+                       value="{{ lifestyle_factors.bmi | default(value='') }}" min="10" max="80" step="0.1">
+            </div>
+            <div class="form-group">
+                <label for="waist_circumference_cm">Waist Circumference (cm)</label>
+                <p class="form-hint">Measured at the level of the umbilicus</p>
+                <input type="number" id="waist_circumference_cm" name="lifestyle_factors.waist_circumference_cm"
+                       value="{{ lifestyle_factors.waistCircumferenceCm | default(value='') }}" min="40" max="200" step="0.5">
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

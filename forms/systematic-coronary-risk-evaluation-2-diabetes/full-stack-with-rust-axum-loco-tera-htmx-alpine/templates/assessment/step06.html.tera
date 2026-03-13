@@ -1,0 +1,60 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <p class="form-hint">Enter the most recent renal function test results.</p>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="egfr">eGFR (mL/min/1.73m&sup2;)</label>
+                <input type="number" id="egfr" name="renal_function.egfr"
+                       value="{{ renal_function.egfr | default(value='') }}" min="0" max="200" step="1">
+            </div>
+            <div class="form-group">
+                <label for="creatinine">Creatinine (&micro;mol/L)</label>
+                <input type="number" id="creatinine" name="renal_function.creatinine"
+                       value="{{ renal_function.creatinine | default(value='') }}" min="0" max="2000" step="1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="urine_acr">Urine Albumin-to-Creatinine Ratio (mg/mmol)</label>
+            <input type="number" id="urine_acr" name="renal_function.urine_acr"
+                   value="{{ renal_function.urineAcr | default(value='') }}" min="0" step="0.1">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="proteinuria">Proteinuria Status</label>
+                <select id="proteinuria" name="renal_function.proteinuria">
+                    <option value="" {% if renal_function.proteinuria == "" %}selected{% endif %}>Select...</option>
+                    <option value="none" {% if renal_function.proteinuria == "none" %}selected{% endif %}>None</option>
+                    <option value="microalbuminuria" {% if renal_function.proteinuria == "microalbuminuria" %}selected{% endif %}>Microalbuminuria (ACR 3-30 mg/mmol)</option>
+                    <option value="macroalbuminuria" {% if renal_function.proteinuria == "macroalbuminuria" %}selected{% endif %}>Macroalbuminuria (ACR &gt;30 mg/mmol)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ckd_stage">CKD Stage</label>
+                <select id="ckd_stage" name="renal_function.ckd_stage">
+                    <option value="" {% if renal_function.ckdStage == "" %}selected{% endif %}>Select...</option>
+                    <option value="G1" {% if renal_function.ckdStage == "G1" %}selected{% endif %}>G1 (eGFR &ge;90)</option>
+                    <option value="G2" {% if renal_function.ckdStage == "G2" %}selected{% endif %}>G2 (eGFR 60-89)</option>
+                    <option value="G3a" {% if renal_function.ckdStage == "G3a" %}selected{% endif %}>G3a (eGFR 45-59)</option>
+                    <option value="G3b" {% if renal_function.ckdStage == "G3b" %}selected{% endif %}>G3b (eGFR 30-44)</option>
+                    <option value="G4" {% if renal_function.ckdStage == "G4" %}selected{% endif %}>G4 (eGFR 15-29)</option>
+                    <option value="G5" {% if renal_function.ckdStage == "G5" %}selected{% endif %}>G5 (eGFR &lt;15)</option>
+                </select>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

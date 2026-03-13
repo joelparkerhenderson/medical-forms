@@ -1,0 +1,117 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <p class="form-hint">Indicate whether the patient is currently taking any of the following medications.</p>
+
+        <h3>Diabetes Medications</h3>
+
+        <!-- Metformin -->
+        <div class="form-group">
+            <label>Metformin</label>
+            <div class="radio-group">
+                <label><input type="radio" name="current_medications.metformin" value="yes" {% if current_medications.metformin == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="current_medications.metformin" value="no" {% if current_medications.metformin == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- SGLT2 Inhibitor -->
+        <div class="form-group">
+            <label>SGLT2 Inhibitor</label>
+            <p class="form-hint">e.g. Dapagliflozin, Empagliflozin, Canagliflozin</p>
+            <div class="radio-group">
+                <label><input type="radio" name="current_medications.sglt2_inhibitor" value="yes" {% if current_medications.sglt2Inhibitor == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="current_medications.sglt2_inhibitor" value="no" {% if current_medications.sglt2Inhibitor == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- GLP-1 Agonist -->
+        <div class="form-group">
+            <label>GLP-1 Receptor Agonist</label>
+            <p class="form-hint">e.g. Liraglutide, Semaglutide, Dulaglutide</p>
+            <div class="radio-group">
+                <label><input type="radio" name="current_medications.glp1_agonist" value="yes" {% if current_medications.glp1Agonist == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="current_medications.glp1_agonist" value="no" {% if current_medications.glp1Agonist == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- Sulfonylurea -->
+        <div class="form-group">
+            <label>Sulfonylurea</label>
+            <p class="form-hint">e.g. Gliclazide, Glimepiride</p>
+            <div class="radio-group">
+                <label><input type="radio" name="current_medications.sulfonylurea" value="yes" {% if current_medications.sulfonylurea == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="current_medications.sulfonylurea" value="no" {% if current_medications.sulfonylurea == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- DPP-4 Inhibitor -->
+        <div class="form-group">
+            <label>DPP-4 Inhibitor</label>
+            <p class="form-hint">e.g. Sitagliptin, Linagliptin, Saxagliptin</p>
+            <div class="radio-group">
+                <label><input type="radio" name="current_medications.dpp4_inhibitor" value="yes" {% if current_medications.dpp4Inhibitor == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="current_medications.dpp4_inhibitor" value="no" {% if current_medications.dpp4Inhibitor == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- Insulin -->
+        <div class="form-group">
+            <label>Insulin</label>
+            <div class="radio-group">
+                <label><input type="radio" name="current_medications.insulin" value="yes" {% if current_medications.insulin == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="current_medications.insulin" value="no" {% if current_medications.insulin == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <h3>Cardiovascular Medications</h3>
+
+        <!-- ACE Inhibitor or ARB -->
+        <div class="form-group">
+            <label>ACE Inhibitor or ARB</label>
+            <p class="form-hint">e.g. Ramipril, Lisinopril, Losartan, Candesartan</p>
+            <div class="radio-group">
+                <label><input type="radio" name="current_medications.ace_inhibitor_or_arb" value="yes" {% if current_medications.aceInhibitorOrArb == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="current_medications.ace_inhibitor_or_arb" value="no" {% if current_medications.aceInhibitorOrArb == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- Antiplatelet -->
+        <div class="form-group">
+            <label>Antiplatelet Agent</label>
+            <p class="form-hint">e.g. Aspirin, Clopidogrel</p>
+            <div class="radio-group">
+                <label><input type="radio" name="current_medications.antiplatelet" value="yes" {% if current_medications.antiplatelet == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="current_medications.antiplatelet" value="no" {% if current_medications.antiplatelet == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- Anticoagulant -->
+        <div class="form-group">
+            <label>Anticoagulant</label>
+            <p class="form-hint">e.g. Warfarin, Apixaban, Rivaroxaban, Edoxaban</p>
+            <div class="radio-group">
+                <label><input type="radio" name="current_medications.anticoagulant" value="yes" {% if current_medications.anticoagulant == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="current_medications.anticoagulant" value="no" {% if current_medications.anticoagulant == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <h3>Other Medications</h3>
+
+        <div class="form-group">
+            <label for="other_medications">Other Medications</label>
+            <textarea id="other_medications" name="current_medications.other_medications"
+                      placeholder="List any other medications not covered above, including dose and frequency">{{ current_medications.otherMedications }}</textarea>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

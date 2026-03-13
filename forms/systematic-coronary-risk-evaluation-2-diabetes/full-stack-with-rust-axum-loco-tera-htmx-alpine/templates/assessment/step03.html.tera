@@ -1,0 +1,109 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <p class="form-hint">Indicate whether the patient has a history of any of the following cardiovascular conditions.</p>
+
+        <!-- Previous MI -->
+        <div class="form-group">
+            <label>Previous Myocardial Infarction (MI)</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular_history.previous_mi" value="yes" {% if cardiovascular_history.previousMi == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular_history.previous_mi" value="no" {% if cardiovascular_history.previousMi == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- Previous Stroke -->
+        <div class="form-group">
+            <label>Previous Stroke</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular_history.previous_stroke" value="yes" {% if cardiovascular_history.previousStroke == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular_history.previous_stroke" value="no" {% if cardiovascular_history.previousStroke == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- Previous TIA -->
+        <div class="form-group">
+            <label>Previous Transient Ischaemic Attack (TIA)</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular_history.previous_tia" value="yes" {% if cardiovascular_history.previousTia == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular_history.previous_tia" value="no" {% if cardiovascular_history.previousTia == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- Peripheral Arterial Disease -->
+        <div class="form-group">
+            <label>Peripheral Arterial Disease</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular_history.peripheral_arterial_disease" value="yes" {% if cardiovascular_history.peripheralArterialDisease == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular_history.peripheral_arterial_disease" value="no" {% if cardiovascular_history.peripheralArterialDisease == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- Heart Failure -->
+        <div class="form-group">
+            <label>Heart Failure</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular_history.heart_failure" value="yes" {% if cardiovascular_history.heartFailure == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular_history.heart_failure" value="no" {% if cardiovascular_history.heartFailure == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- Atrial Fibrillation -->
+        <div class="form-group">
+            <label>Atrial Fibrillation</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular_history.atrial_fibrillation" value="yes" {% if cardiovascular_history.atrialFibrillation == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular_history.atrial_fibrillation" value="no" {% if cardiovascular_history.atrialFibrillation == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- Family CVD History -->
+        <div class="form-group">
+            <label>Family History of Premature CVD</label>
+            <p class="form-hint">First-degree relative with CVD before age 55 (male) or 65 (female)</p>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular_history.family_cvd_history" value="yes" {% if cardiovascular_history.familyCvdHistory == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular_history.family_cvd_history" value="no" {% if cardiovascular_history.familyCvdHistory == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% if cardiovascular_history.familyCvdHistory == "yes" %}
+        <div class="conditional-field">
+            <div class="form-group">
+                <label for="family_cvd_details">Family CVD Details</label>
+                <textarea id="family_cvd_details" name="cardiovascular_history.family_cvd_details"
+                          placeholder="e.g. Father had MI at age 52">{{ cardiovascular_history.familyCvdDetails }}</textarea>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Current Chest Pain -->
+        <div class="form-group">
+            <label>Current Chest Pain</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular_history.current_chest_pain" value="yes" {% if cardiovascular_history.currentChestPain == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular_history.current_chest_pain" value="no" {% if cardiovascular_history.currentChestPain == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <!-- Current Dyspnoea -->
+        <div class="form-group">
+            <label>Current Dyspnoea (Breathlessness)</label>
+            <div class="radio-group">
+                <label><input type="radio" name="cardiovascular_history.current_dyspnoea" value="yes" {% if cardiovascular_history.currentDyspnoea == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="cardiovascular_history.current_dyspnoea" value="no" {% if cardiovascular_history.currentDyspnoea == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

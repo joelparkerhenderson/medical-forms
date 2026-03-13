@@ -1,0 +1,85 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="diabetes_type">Diabetes Type</label>
+                <select id="diabetes_type" name="diabetes_history.diabetes_type">
+                    <option value="" {% if diabetes_history.diabetesType == "" %}selected{% endif %}>Select...</option>
+                    <option value="type1" {% if diabetes_history.diabetesType == "type1" %}selected{% endif %}>Type 1</option>
+                    <option value="type2" {% if diabetes_history.diabetesType == "type2" %}selected{% endif %}>Type 2</option>
+                    <option value="gestational" {% if diabetes_history.diabetesType == "gestational" %}selected{% endif %}>Gestational</option>
+                    <option value="other" {% if diabetes_history.diabetesType == "other" %}selected{% endif %}>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="age_at_diagnosis">Age at Diagnosis (years)</label>
+                <input type="number" id="age_at_diagnosis" name="diabetes_history.age_at_diagnosis"
+                       value="{{ diabetes_history.ageAtDiagnosis | default(value='') }}" min="0" max="120" step="1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="diabetes_duration_years">Diabetes Duration (years)</label>
+            <input type="number" id="diabetes_duration_years" name="diabetes_history.diabetes_duration_years"
+                   value="{{ diabetes_history.diabetesDurationYears | default(value='') }}" min="0" max="100" step="0.5">
+        </div>
+
+        <h3>Glycaemic Control</h3>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="hba1c_value">HbA1c Value</label>
+                <input type="number" id="hba1c_value" name="diabetes_history.hba1c_value"
+                       value="{{ diabetes_history.hba1cValue | default(value='') }}" min="0" step="0.1">
+            </div>
+            <div class="form-group">
+                <label>HbA1c Unit</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="diabetes_history.hba1c_unit" value="mmolMol" {% if diabetes_history.hba1cUnit == "mmolMol" %}checked{% endif %}> mmol/mol</label>
+                    <label><input type="radio" name="diabetes_history.hba1c_unit" value="percent" {% if diabetes_history.hba1cUnit == "percent" %}checked{% endif %}> %</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="fasting_glucose">Fasting Glucose (mmol/L)</label>
+            <input type="number" id="fasting_glucose" name="diabetes_history.fasting_glucose"
+                   value="{{ diabetes_history.fastingGlucose | default(value='') }}" min="0" step="0.1">
+        </div>
+
+        <h3>Diabetes Treatment</h3>
+
+        <div class="form-group">
+            <label for="diabetes_treatment">Current Treatment</label>
+            <select id="diabetes_treatment" name="diabetes_history.diabetes_treatment">
+                <option value="" {% if diabetes_history.diabetesTreatment == "" %}selected{% endif %}>Select...</option>
+                <option value="diet" {% if diabetes_history.diabetesTreatment == "diet" %}selected{% endif %}>Diet only</option>
+                <option value="oral" {% if diabetes_history.diabetesTreatment == "oral" %}selected{% endif %}>Oral medication only</option>
+                <option value="insulin" {% if diabetes_history.diabetesTreatment == "insulin" %}selected{% endif %}>Insulin only</option>
+                <option value="combined" {% if diabetes_history.diabetesTreatment == "combined" %}selected{% endif %}>Combined (oral + insulin)</option>
+            </select>
+        </div>
+
+        {% if diabetes_history.diabetesTreatment == "insulin" or diabetes_history.diabetesTreatment == "combined" %}
+        <div class="conditional-field">
+            <div class="form-group">
+                <label for="insulin_duration_years">Duration on Insulin (years)</label>
+                <input type="number" id="insulin_duration_years" name="diabetes_history.insulin_duration_years"
+                       value="{{ diabetes_history.insulinDurationYears | default(value='') }}" min="0" max="100" step="0.5">
+            </div>
+        </div>
+        {% endif %}
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

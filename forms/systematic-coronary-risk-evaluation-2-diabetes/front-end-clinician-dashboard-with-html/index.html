@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinician Dashboard - SCORE2-Diabetes</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <span class="header-title">Clinician Dashboard - SCORE2-Diabetes</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="filter-bar">
+      <input type="text" id="search-input" placeholder="Search by NHS number or name...">
+      <select id="risk-filter">
+        <option value="">All Risk Levels</option>
+        <option value="low">Low</option>
+        <option value="moderate">Moderate</option>
+        <option value="high">High</option>
+        <option value="veryHigh">Very High</option>
+      </select>
+      <select id="status-filter">
+        <option value="">All Statuses</option>
+        <option value="pending">Pending</option>
+        <option value="reviewed">Reviewed</option>
+        <option value="urgent">Urgent</option>
+      </select>
+      <select id="cvd-filter">
+        <option value="">All CVD Status</option>
+        <option value="true">Has CVD</option>
+        <option value="false">No CVD</option>
+      </select>
+      <button id="clear-filters">Clear Filters</button>
+    </div>
+
+    <table class="patient-table">
+      <thead>
+        <tr>
+          <th data-sort="nhsNumber">NHS Number</th>
+          <th data-sort="patientName">Patient Name</th>
+          <th data-sort="riskCategory">Risk Category</th>
+          <th data-sort="hba1cMmolMol">HbA1c (mmol/mol)</th>
+          <th data-sort="systolicBp">Systolic BP</th>
+          <th data-sort="hasEstablishedCvd">Has CVD</th>
+          <th data-sort="flagCount">Flags</th>
+          <th data-sort="status">Status</th>
+        </tr>
+      </thead>
+      <tbody id="patients-tbody">
+        <tr><td colspan="8" style="text-align:center;color:#6b7280;padding:2rem;">Loading...</td></tr>
+      </tbody>
+    </table>
+
+    <div class="patient-count" id="patient-count"></div>
+  </main>
+
+  <footer class="footer"><p>SCORE2-Diabetes Assessment System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

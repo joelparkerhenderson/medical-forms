@@ -1,0 +1,81 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinician Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>Clinician Dashboard</h1>
+    <a href="/" class="btn btn-primary">New Assessment</a>
+</div>
+
+<form method="GET" action="/dashboard" class="filter-bar">
+    <div class="form-group">
+        <label for="search">Search</label>
+        <input type="text" id="search" name="search" value="{{ search }}"
+               placeholder="NHS number, name...">
+    </div>
+    <div class="form-group">
+        <label for="risk_category">Risk Category</label>
+        <select id="risk_category" name="risk_category">
+            <option value="">All</option>
+            <option value="veryHigh" {% if risk_category == "veryHigh" %}selected{% endif %}>Very High</option>
+            <option value="high" {% if risk_category == "high" %}selected{% endif %}>High</option>
+            <option value="moderate" {% if risk_category == "moderate" %}selected{% endif %}>Moderate</option>
+            <option value="low" {% if risk_category == "low" %}selected{% endif %}>Low</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="diabetes_type">Diabetes Type</label>
+        <select id="diabetes_type" name="diabetes_type">
+            <option value="">All</option>
+            <option value="type1" {% if diabetes_type == "type1" %}selected{% endif %}>Type 1</option>
+            <option value="type2" {% if diabetes_type == "type2" %}selected{% endif %}>Type 2</option>
+            <option value="gestational" {% if diabetes_type == "gestational" %}selected{% endif %}>Gestational</option>
+            <option value="other" {% if diabetes_type == "other" %}selected{% endif %}>Other</option>
+        </select>
+    </div>
+    <div class="form-group" style="display: flex; gap: 0.5rem; align-items: flex-end;">
+        <button type="submit" class="btn btn-primary">Filter</button>
+        <a href="/dashboard" class="btn btn-secondary">Clear</a>
+    </div>
+</form>
+
+<p class="total-count">Showing {{ total }} completed assessment{% if total != 1 %}s{% endif %}.</p>
+
+{% if total > 0 %}
+<table class="patient-table">
+    <thead>
+        <tr>
+            <th>NHS Number</th>
+            <th>Patient Name</th>
+            <th>Risk Category</th>
+            <th>Diabetes Type</th>
+            <th>HbA1c</th>
+            <th>Established CVD</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for patient in patients %}
+        <tr>
+            <td><a href="/assessment/{{ patient.id }}/report">{{ patient.nhsNumber }}</a></td>
+            <td>{{ patient.patientName }}</td>
+            <td><span class="risk-badge risk-{{ patient.riskCategory }}">{{ patient.riskCategory }}</span></td>
+            <td>{{ patient.diabetesType }}</td>
+            <td>{{ patient.hba1c }}</td>
+            <td>
+                {% if patient.establishedCvd %}
+                    <span class="badge badge-yes">Yes</span>
+                {% else %}
+                    <span class="badge badge-no">No</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="card" style="text-align: center; color: var(--gray-500);">
+    <p>No completed assessments found matching your filters.</p>
+</div>
+{% endif %}
+{% endblock %}
