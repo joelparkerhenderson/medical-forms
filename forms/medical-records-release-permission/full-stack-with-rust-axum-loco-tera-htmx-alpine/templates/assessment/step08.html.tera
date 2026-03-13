@@ -1,0 +1,70 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Verification & Identity - Medical Records Release{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Verification & Identity</h2>
+    <p class="hint">Verify the patient's identity before authorizing record release.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Identity Verified? *</label>
+        <div class="radio-group">
+          <label><input type="radio" name="verification_identity.identity_verified" value="yes" {% if verification_identity.identityVerified == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="verification_identity.identity_verified" value="no" {% if verification_identity.identityVerified == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="verification_method">Verification Method *</label>
+        <select id="verification_method" name="verification_identity.verification_method">
+          <option value="">-- Select --</option>
+          <option value="inPerson" {% if verification_identity.verificationMethod == "inPerson" %}selected{% endif %}>In Person</option>
+          <option value="phone" {% if verification_identity.verificationMethod == "phone" %}selected{% endif %}>Phone Verification</option>
+          <option value="electronic" {% if verification_identity.verificationMethod == "electronic" %}selected{% endif %}>Electronic (Portal)</option>
+          <option value="notarized" {% if verification_identity.verificationMethod == "notarized" %}selected{% endif %}>Notarized Document</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="verification_document_type">Document Type</label>
+        <select id="verification_document_type" name="verification_identity.verification_document_type">
+          <option value="">-- Select --</option>
+          <option value="governmentId" {% if verification_identity.verificationDocumentType == "governmentId" %}selected{% endif %}>Government-Issued ID</option>
+          <option value="passport" {% if verification_identity.verificationDocumentType == "passport" %}selected{% endif %}>Passport</option>
+          <option value="driversLicense" {% if verification_identity.verificationDocumentType == "driversLicense" %}selected{% endif %}>Driver's License</option>
+          <option value="militaryId" {% if verification_identity.verificationDocumentType == "militaryId" %}selected{% endif %}>Military ID</option>
+          <option value="other" {% if verification_identity.verificationDocumentType == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="verification_document_number">Document Number</label>
+        <input type="text" id="verification_document_number" name="verification_identity.verification_document_number"
+               value="{{ verification_identity.verificationDocumentNumber }}"
+               placeholder="e.g. ID-12345678">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="verified_by_name">Verified By</label>
+        <input type="text" id="verified_by_name" name="verification_identity.verified_by_name"
+               value="{{ verification_identity.verifiedByName }}"
+               placeholder="Name of staff who verified identity">
+      </div>
+      <div class="form-group">
+        <label for="verification_date">Verification Date *</label>
+        <input type="date" id="verification_date" name="verification_identity.verification_date"
+               value="{{ verification_identity.verificationDate }}">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

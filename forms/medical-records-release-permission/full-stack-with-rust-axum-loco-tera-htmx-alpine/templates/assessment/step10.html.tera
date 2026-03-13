@@ -1,0 +1,78 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Clinical Review - Medical Records Release{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Clinical Review</h2>
+    <p class="hint">For staff use: review and approve the records release request.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="reviewer_name">Reviewer Name *</label>
+        <input type="text" id="reviewer_name" name="clinical_review.reviewer_name"
+               value="{{ clinical_review.reviewerName }}"
+               placeholder="e.g. Dr Sarah Adams">
+      </div>
+      <div class="form-group">
+        <label for="reviewer_title">Reviewer Title</label>
+        <input type="text" id="reviewer_title" name="clinical_review.reviewer_title"
+               value="{{ clinical_review.reviewerTitle }}"
+               placeholder="e.g. Health Information Manager">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="review_date">Review Date *</label>
+        <input type="date" id="review_date" name="clinical_review.review_date"
+               value="{{ clinical_review.reviewDate }}">
+      </div>
+      <div class="form-group">
+        <label for="review_decision">Review Decision *</label>
+        <select id="review_decision" name="clinical_review.review_decision">
+          <option value="">-- Select --</option>
+          <option value="approved" {% if clinical_review.reviewDecision == "approved" %}selected{% endif %}>Approved</option>
+          <option value="denied" {% if clinical_review.reviewDecision == "denied" %}selected{% endif %}>Denied</option>
+          <option value="partialApproval" {% if clinical_review.reviewDecision == "partialApproval" %}selected{% endif %}>Partial Approval</option>
+          <option value="pendingReview" {% if clinical_review.reviewDecision == "pendingReview" %}selected{% endif %}>Pending Review</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="review_notes">Review Notes</label>
+      <textarea id="review_notes" name="clinical_review.review_notes"
+                rows="3" placeholder="Any notes regarding this review...">{{ clinical_review.reviewNotes }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Redactions Required?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.redactions_required" value="yes" {% if clinical_review.redactionsRequired == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.redactions_required" value="no" {% if clinical_review.redactionsRequired == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Compliance Confirmed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="clinical_review.compliance_confirmed" value="yes" {% if clinical_review.complianceConfirmed == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="clinical_review.compliance_confirmed" value="no" {% if clinical_review.complianceConfirmed == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="redaction_details">Redaction Details</label>
+      <textarea id="redaction_details" name="clinical_review.redaction_details"
+                rows="3" placeholder="Specify what needs to be redacted if applicable...">{{ clinical_review.redactionDetails }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Records Release Permission</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Medical Records Release Permission</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <!-- ─── Landing ────────────────────────────────────── -->
+    <div id="landing" class="hero">
+      <h1>Medical Records Release Permission</h1>
+      <p>Complete this form to authorise the release of your medical records to a specified recipient. The form has 8 steps covering patient details, recipient, records scope, and consent.</p>
+      <div class="feature-grid">
+        <div class="feature-card"><h3>8 Steps</h3><p>Structured consent and authorisation process</p></div>
+        <div class="feature-card"><h3>Completeness Check</h3><p>Automated validation of all required fields</p></div>
+        <div class="feature-card"><h3>Safety Flags</h3><p>Alerts for sensitive records and compliance</p></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Release Form</button>
+    </div>
+
+    <!-- ─── Form ───────────────────────────────────────── -->
+    <div id="form-container" style="display:none;">
+      <div class="progress-container">
+        <div class="progress-header">
+          <span id="step-label">Step 1 of 8: Patient Information</span>
+          <span id="step-percent">13%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:13%"></div></div>
+      </div>
+
+      <!-- ─── Step 1: Patient Information ──────────────── -->
+      <section id="step-1" class="step-section card">
+        <h2>Patient Information</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name <span class="required">*</span></label>
+            <input type="text" data-field="patientInformation.firstName" placeholder="First name">
+          </div>
+          <div class="form-group">
+            <label>Last Name <span class="required">*</span></label>
+            <input type="text" data-field="patientInformation.lastName" placeholder="Last name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date of Birth <span class="required">*</span></label>
+            <input type="date" data-field="patientInformation.dateOfBirth">
+          </div>
+          <div class="form-group">
+            <label>Sex</label>
+            <div class="radio-group">
+              <label><input type="radio" name="sex" value="male" data-field="patientInformation.sex"><span>Male</span></label>
+              <label><input type="radio" name="sex" value="female" data-field="patientInformation.sex"><span>Female</span></label>
+              <label><input type="radio" name="sex" value="other" data-field="patientInformation.sex"><span>Other</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Address <span class="required">*</span></label>
+          <textarea data-field="patientInformation.address" rows="2" placeholder="Full address"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" data-field="patientInformation.phone" placeholder="Phone number">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" data-field="patientInformation.email" placeholder="Email address">
+          </div>
+        </div>
+        <div class="form-row-3">
+          <div class="form-group">
+            <label>NHS Number <span class="required">*</span></label>
+            <input type="text" data-field="patientInformation.nhsNumber" placeholder="XXX XXX XXXX">
+          </div>
+          <div class="form-group">
+            <label>GP Name</label>
+            <input type="text" data-field="patientInformation.gpName" placeholder="GP name">
+          </div>
+          <div class="form-group">
+            <label>GP Practice</label>
+            <input type="text" data-field="patientInformation.gpPractice" placeholder="Practice name">
+          </div>
+        </div>
+        <div class="step-nav">
+          <span></span>
+          <button class="btn btn-primary" onclick="goToStep(2)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 2: Authorized Recipient ─────────────── -->
+      <section id="step-2" class="step-section card">
+        <h2>Authorized Recipient</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Recipient Name <span class="required">*</span></label>
+            <input type="text" data-field="authorizedRecipient.recipientName" placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label>Organization <span class="required">*</span></label>
+            <input type="text" data-field="authorizedRecipient.recipientOrganization" placeholder="Organization name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Address <span class="required">*</span></label>
+          <textarea data-field="authorizedRecipient.recipientAddress" rows="2" placeholder="Full address"></textarea>
+        </div>
+        <div class="form-row-3">
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" data-field="authorizedRecipient.recipientPhone" placeholder="Phone number">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" data-field="authorizedRecipient.recipientEmail" placeholder="Email address">
+          </div>
+          <div class="form-group">
+            <label>Role</label>
+            <input type="text" data-field="authorizedRecipient.recipientRole" placeholder="e.g. Consultant">
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(1)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(3)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 3: Records to Release ───────────────── -->
+      <section id="step-3" class="step-section card">
+        <h2>Records to Release</h2>
+        <div class="form-group">
+          <label>Record Types <span class="required">*</span></label>
+          <div id="record-types" class="checkbox-group">
+            <label><input type="checkbox" value="complete-medical-record"><span>Complete Medical Record</span></label>
+            <label><input type="checkbox" value="lab-results"><span>Laboratory Results</span></label>
+            <label><input type="checkbox" value="imaging"><span>Imaging / Radiology</span></label>
+            <label><input type="checkbox" value="prescriptions"><span>Prescriptions</span></label>
+            <label><input type="checkbox" value="discharge-summaries"><span>Discharge Summaries</span></label>
+            <label><input type="checkbox" value="mental-health"><span>Mental Health Records</span></label>
+            <label><input type="checkbox" value="surgical-records"><span>Surgical Records</span></label>
+            <label><input type="checkbox" value="allergy-records"><span>Allergy Records</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Specific Date Range?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="specificDateRange" value="yes" data-field="recordsToRelease.specificDateRange"><span>Yes</span></label>
+            <label><input type="radio" name="specificDateRange" value="no" data-field="recordsToRelease.specificDateRange"><span>No</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="recordsToRelease.specificDateRange=yes">
+          <div class="form-row">
+            <div class="form-group">
+              <label>From Date</label>
+              <input type="date" data-field="recordsToRelease.dateFrom">
+            </div>
+            <div class="form-group">
+              <label>To Date</label>
+              <input type="date" data-field="recordsToRelease.dateTo">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Specific Record Details</label>
+          <textarea data-field="recordsToRelease.specificRecordDetails" rows="3" placeholder="Describe any specific records you wish to release (optional)"></textarea>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(2)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(4)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 4: Purpose of Release ───────────────── -->
+      <section id="step-4" class="step-section card">
+        <h2>Purpose of Release</h2>
+        <div class="form-group">
+          <label>Purpose <span class="required">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="purpose" value="continuing-care" data-field="purposeOfRelease.purpose"><span>Continuing Care</span></label>
+            <label><input type="radio" name="purpose" value="second-opinion" data-field="purposeOfRelease.purpose"><span>Second Opinion</span></label>
+            <label><input type="radio" name="purpose" value="insurance" data-field="purposeOfRelease.purpose"><span>Insurance</span></label>
+            <label><input type="radio" name="purpose" value="legal" data-field="purposeOfRelease.purpose"><span>Legal Proceedings</span></label>
+            <label><input type="radio" name="purpose" value="personal" data-field="purposeOfRelease.purpose"><span>Personal Use</span></label>
+            <label><input type="radio" name="purpose" value="research" data-field="purposeOfRelease.purpose"><span>Research</span></label>
+            <label><input type="radio" name="purpose" value="employment" data-field="purposeOfRelease.purpose"><span>Employment</span></label>
+            <label><input type="radio" name="purpose" value="other" data-field="purposeOfRelease.purpose"><span>Other</span></label>
+          </div>
+        </div>
+        <div class="conditional-field" data-show-if="purposeOfRelease.purpose=other">
+          <div class="form-group">
+            <label>Please specify the purpose</label>
+            <textarea data-field="purposeOfRelease.otherDetails" rows="3" placeholder="Describe the purpose of this records release"></textarea>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(3)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(5)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 5: Authorization Period ──────────────── -->
+      <section id="step-5" class="step-section card">
+        <h2>Authorization Period</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Start Date <span class="required">*</span></label>
+            <input type="date" data-field="authorizationPeriod.startDate">
+          </div>
+          <div class="form-group">
+            <label>End Date <span class="required">*</span></label>
+            <input type="date" data-field="authorizationPeriod.endDate">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Single Use Authorization?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="singleUse" value="yes" data-field="authorizationPeriod.singleUse"><span>Yes</span></label>
+            <label><input type="radio" name="singleUse" value="no" data-field="authorizationPeriod.singleUse"><span>No</span></label>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(4)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(6)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 6: Restrictions & Limitations ────────── -->
+      <section id="step-6" class="step-section card">
+        <h2>Restrictions &amp; Limitations</h2>
+        <p>Indicate whether the following categories should be excluded from the release:</p>
+        <div class="form-group">
+          <label>Exclude HIV-related records?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="excludeHIV" value="yes" data-field="restrictionsLimitations.excludeHIV"><span>Yes</span></label>
+            <label><input type="radio" name="excludeHIV" value="no" data-field="restrictionsLimitations.excludeHIV"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Exclude substance abuse treatment records?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="excludeSubstanceAbuse" value="yes" data-field="restrictionsLimitations.excludeSubstanceAbuse"><span>Yes</span></label>
+            <label><input type="radio" name="excludeSubstanceAbuse" value="no" data-field="restrictionsLimitations.excludeSubstanceAbuse"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Exclude mental health records?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="excludeMentalHealth" value="yes" data-field="restrictionsLimitations.excludeMentalHealth"><span>Yes</span></label>
+            <label><input type="radio" name="excludeMentalHealth" value="no" data-field="restrictionsLimitations.excludeMentalHealth"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Exclude genetic information?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="excludeGeneticInfo" value="yes" data-field="restrictionsLimitations.excludeGeneticInfo"><span>Yes</span></label>
+            <label><input type="radio" name="excludeGeneticInfo" value="no" data-field="restrictionsLimitations.excludeGeneticInfo"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Exclude STI-related records?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="excludeSTI" value="yes" data-field="restrictionsLimitations.excludeSTI"><span>Yes</span></label>
+            <label><input type="radio" name="excludeSTI" value="no" data-field="restrictionsLimitations.excludeSTI"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Additional Restrictions</label>
+          <textarea data-field="restrictionsLimitations.additionalRestrictions" rows="3" placeholder="Any other restrictions or limitations (optional)"></textarea>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(5)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(7)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 7: Patient Rights ───────────────────── -->
+      <section id="step-7" class="step-section card">
+        <h2>Patient Rights</h2>
+        <p>Please acknowledge the following rights:</p>
+        <div class="form-group">
+          <label>I acknowledge my right to revoke this authorization at any time <span class="required">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="acknowledgedRightToRevoke" value="yes" data-field="patientRights.acknowledgedRightToRevoke"><span>Yes, I acknowledge</span></label>
+            <label><input type="radio" name="acknowledgedRightToRevoke" value="no" data-field="patientRights.acknowledgedRightToRevoke"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>I acknowledge there is no charge for accessing my records</label>
+          <div class="radio-group">
+            <label><input type="radio" name="acknowledgedNoChargeForAccess" value="yes" data-field="patientRights.acknowledgedNoChargeForAccess"><span>Yes, I acknowledge</span></label>
+            <label><input type="radio" name="acknowledgedNoChargeForAccess" value="no" data-field="patientRights.acknowledgedNoChargeForAccess"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>I acknowledge my data protection rights under applicable law <span class="required">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="acknowledgedDataProtection" value="yes" data-field="patientRights.acknowledgedDataProtection"><span>Yes, I acknowledge</span></label>
+            <label><input type="radio" name="acknowledgedDataProtection" value="no" data-field="patientRights.acknowledgedDataProtection"><span>No</span></label>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(6)">Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(8)">Next</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 8: Signature & Consent ──────────────── -->
+      <section id="step-8" class="step-section card">
+        <h2>Signature &amp; Consent</h2>
+        <div class="form-group">
+          <label>I confirm my signature and consent to release my records <span class="required">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="patientSignatureConfirmed" value="yes" data-field="signatureConsent.patientSignatureConfirmed"><span>Yes, I confirm</span></label>
+            <label><input type="radio" name="patientSignatureConfirmed" value="no" data-field="signatureConsent.patientSignatureConfirmed"><span>No</span></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Signature Date <span class="required">*</span></label>
+          <input type="date" data-field="signatureConsent.signatureDate">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Witness Name</label>
+            <input type="text" data-field="signatureConsent.witnessName" placeholder="Witness full name">
+          </div>
+          <div class="form-group">
+            <label>Witness Signature Confirmed</label>
+            <div class="radio-group">
+              <label><input type="radio" name="witnessSignatureConfirmed" value="yes" data-field="signatureConsent.witnessSignatureConfirmed"><span>Yes</span></label>
+              <label><input type="radio" name="witnessSignatureConfirmed" value="no" data-field="signatureConsent.witnessSignatureConfirmed"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Witness Date</label>
+            <input type="date" data-field="signatureConsent.witnessDate">
+          </div>
+          <div class="form-group">
+            <label>Parent/Guardian Name</label>
+            <input type="text" data-field="signatureConsent.parentGuardianName" placeholder="If applicable">
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(7)">Previous</button>
+          <button class="btn btn-success" onclick="submitForm()">Submit &amp; View Report</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer"><p>Medical Records Release System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

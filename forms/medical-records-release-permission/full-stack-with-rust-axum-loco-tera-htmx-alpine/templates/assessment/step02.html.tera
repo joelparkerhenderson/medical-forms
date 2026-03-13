@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Requesting Party - Medical Records Release{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Requesting Party</h2>
+    <p class="hint">Identify the individual or organization requesting the records.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="requester_name">Requester Name *</label>
+        <input type="text" id="requester_name" name="requesting_party.requester_name"
+               value="{{ requesting_party.requesterName }}"
+               placeholder="e.g. Dr John Doe">
+      </div>
+      <div class="form-group">
+        <label for="requester_relationship">Relationship to Patient *</label>
+        <select id="requester_relationship" name="requesting_party.requester_relationship">
+          <option value="">-- Select --</option>
+          <option value="self" {% if requesting_party.requesterRelationship == "self" %}selected{% endif %}>Self (Patient)</option>
+          <option value="physician" {% if requesting_party.requesterRelationship == "physician" %}selected{% endif %}>Physician</option>
+          <option value="attorney" {% if requesting_party.requesterRelationship == "attorney" %}selected{% endif %}>Attorney</option>
+          <option value="insurance" {% if requesting_party.requesterRelationship == "insurance" %}selected{% endif %}>Insurance Company</option>
+          <option value="familyMember" {% if requesting_party.requesterRelationship == "familyMember" %}selected{% endif %}>Family Member</option>
+          <option value="employer" {% if requesting_party.requesterRelationship == "employer" %}selected{% endif %}>Employer</option>
+          <option value="other" {% if requesting_party.requesterRelationship == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="requester_organization">Organization</label>
+        <input type="text" id="requester_organization" name="requesting_party.requester_organization"
+               value="{{ requesting_party.requesterOrganization }}"
+               placeholder="e.g. City Hospital">
+      </div>
+      <div class="form-group">
+        <label for="requester_address">Requester Address *</label>
+        <input type="text" id="requester_address" name="requesting_party.requester_address"
+               value="{{ requesting_party.requesterAddress }}"
+               placeholder="Full mailing address">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="requester_phone">Requester Phone *</label>
+        <input type="tel" id="requester_phone" name="requesting_party.requester_phone"
+               value="{{ requesting_party.requesterPhone }}"
+               placeholder="e.g. (555) 987-6543">
+      </div>
+      <div class="form-group">
+        <label for="requester_email">Requester Email</label>
+        <input type="email" id="requester_email" name="requesting_party.requester_email"
+               value="{{ requesting_party.requesterEmail }}"
+               placeholder="e.g. requester@example.com">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="requester_fax">Requester Fax</label>
+        <input type="tel" id="requester_fax" name="requesting_party.requester_fax"
+               value="{{ requesting_party.requesterFax }}"
+               placeholder="e.g. (555) 987-6544">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

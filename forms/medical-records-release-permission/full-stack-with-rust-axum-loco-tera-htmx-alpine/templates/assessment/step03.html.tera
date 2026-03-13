@@ -1,0 +1,86 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Records Specification - Medical Records Release{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Records Specification</h2>
+    <p class="hint">Specify which records are to be released.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="record_type">Record Type *</label>
+        <select id="record_type" name="records_specification.record_type">
+          <option value="">-- Select --</option>
+          <option value="completeRecord" {% if records_specification.recordType == "completeRecord" %}selected{% endif %}>Complete Medical Record</option>
+          <option value="labResults" {% if records_specification.recordType == "labResults" %}selected{% endif %}>Lab Results</option>
+          <option value="imagingStudies" {% if records_specification.recordType == "imagingStudies" %}selected{% endif %}>Imaging Studies</option>
+          <option value="operativeReports" {% if records_specification.recordType == "operativeReports" %}selected{% endif %}>Operative Reports</option>
+          <option value="dischargeSummary" {% if records_specification.recordType == "dischargeSummary" %}selected{% endif %}>Discharge Summary</option>
+          <option value="progressNotes" {% if records_specification.recordType == "progressNotes" %}selected{% endif %}>Progress Notes</option>
+          <option value="medicationList" {% if records_specification.recordType == "medicationList" %}selected{% endif %}>Medication List</option>
+          <option value="immunizationRecords" {% if records_specification.recordType == "immunizationRecords" %}selected{% endif %}>Immunization Records</option>
+          <option value="specificRecords" {% if records_specification.recordType == "specificRecords" %}selected{% endif %}>Specific Records (describe below)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="urgency_level">Urgency Level</label>
+        <select id="urgency_level" name="records_specification.urgency_level">
+          <option value="">-- Select --</option>
+          <option value="routine" {% if records_specification.urgencyLevel == "routine" %}selected{% endif %}>Routine</option>
+          <option value="urgent" {% if records_specification.urgencyLevel == "urgent" %}selected{% endif %}>Urgent</option>
+          <option value="stat" {% if records_specification.urgencyLevel == "stat" %}selected{% endif %}>STAT</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="date_range_start">Date Range Start *</label>
+        <input type="date" id="date_range_start" name="records_specification.date_range_start"
+               value="{{ records_specification.dateRangeStart }}">
+      </div>
+      <div class="form-group">
+        <label for="date_range_end">Date Range End *</label>
+        <input type="date" id="date_range_end" name="records_specification.date_range_end"
+               value="{{ records_specification.dateRangeEnd }}">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="specific_records">Specific Records Description</label>
+      <textarea id="specific_records" name="records_specification.specific_records"
+                rows="3" placeholder="Describe specific records if applicable...">{{ records_specification.specificRecords }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="delivery_format">Delivery Format *</label>
+        <select id="delivery_format" name="records_specification.delivery_format">
+          <option value="">-- Select --</option>
+          <option value="paper" {% if records_specification.deliveryFormat == "paper" %}selected{% endif %}>Paper Copy</option>
+          <option value="electronic" {% if records_specification.deliveryFormat == "electronic" %}selected{% endif %}>Electronic (PDF)</option>
+          <option value="cd" {% if records_specification.deliveryFormat == "cd" %}selected{% endif %}>CD/DVD</option>
+          <option value="fax" {% if records_specification.deliveryFormat == "fax" %}selected{% endif %}>Fax</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="delivery_method">Delivery Method</label>
+        <select id="delivery_method" name="records_specification.delivery_method">
+          <option value="">-- Select --</option>
+          <option value="mail" {% if records_specification.deliveryMethod == "mail" %}selected{% endif %}>Mail</option>
+          <option value="pickup" {% if records_specification.deliveryMethod == "pickup" %}selected{% endif %}>In-Person Pickup</option>
+          <option value="secureEmail" {% if records_specification.deliveryMethod == "secureEmail" %}selected{% endif %}>Secure Email</option>
+          <option value="fax" {% if records_specification.deliveryMethod == "fax" %}selected{% endif %}>Fax</option>
+          <option value="portal" {% if records_specification.deliveryMethod == "portal" %}selected{% endif %}>Patient Portal</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

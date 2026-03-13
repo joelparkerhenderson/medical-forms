@@ -1,0 +1,77 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Medical Records Release{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Release Authorization Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Authorization</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient, requester, purpose...">
+    </div>
+    <div class="form-group">
+      <label for="completion_level">Completion Level</label>
+      <select id="completion_level" name="completion_level">
+        <option value="">All Levels</option>
+        <option value="valid" {% if completion_level == "valid" %}selected{% endif %}>Valid</option>
+        <option value="complete" {% if completion_level == "complete" %}selected{% endif %}>Complete</option>
+        <option value="incomplete" {% if completion_level == "incomplete" %}selected{% endif %}>Incomplete</option>
+        <option value="invalid" {% if completion_level == "invalid" %}selected{% endif %}>Invalid</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="review_decision">Review Decision</label>
+      <select id="review_decision" name="review_decision">
+        <option value="">All</option>
+        <option value="Approved" {% if review_decision == "Approved" %}selected{% endif %}>Approved</option>
+        <option value="Denied" {% if review_decision == "Denied" %}selected{% endif %}>Denied</option>
+        <option value="Partial Approval" {% if review_decision == "Partial Approval" %}selected{% endif %}>Partial Approval</option>
+        <option value="Pending Review" {% if review_decision == "Pending Review" %}selected{% endif %}>Pending Review</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed authorization(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Submission Date</th>
+      <th>Patient</th>
+      <th>Requester</th>
+      <th>Purpose</th>
+      <th>Completion</th>
+      <th>Score</th>
+      <th>Decision</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.submissionDate }}</a></td>
+      <td>{{ patient.patientName }}</td>
+      <td>{{ patient.requesterName }}</td>
+      <td>{{ patient.purpose }}</td>
+      <td><span class="completion-badge completion-{{ patient.completionLevel }}">{{ patient.completionLevel }}</span></td>
+      <td>{{ patient.completionScore }}%</td>
+      <td>{{ patient.reviewDecision }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="7" style="text-align: center; color: var(--gray-500);">No completed authorizations found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

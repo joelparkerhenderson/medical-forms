@@ -1,0 +1,65 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Duration & Expiry - Medical Records Release{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Duration & Expiry</h2>
+    <p class="hint">Specify the time period for which this authorization is valid.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="authorization_start_date">Authorization Start Date *</label>
+        <input type="date" id="authorization_start_date" name="duration_expiry.authorization_start_date"
+               value="{{ duration_expiry.authorizationStartDate }}">
+      </div>
+      <div class="form-group">
+        <label for="authorization_expiry_date">Authorization Expiry Date *</label>
+        <input type="date" id="authorization_expiry_date" name="duration_expiry.authorization_expiry_date"
+               value="{{ duration_expiry.authorizationExpiryDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="expiry_event">Expiry Event</label>
+        <input type="text" id="expiry_event" name="duration_expiry.expiry_event"
+               value="{{ duration_expiry.expiryEvent }}"
+               placeholder="e.g. Upon completion of treatment">
+      </div>
+      <div class="form-group">
+        <label>Auto-Renew Authorization?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="duration_expiry.auto_renew" value="yes" {% if duration_expiry.autoRenew == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="duration_expiry.auto_renew" value="no" {% if duration_expiry.autoRenew == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Patient understands right to revoke? *</label>
+        <div class="radio-group">
+          <label><input type="radio" name="duration_expiry.revocation_understood" value="yes" {% if duration_expiry.revocationUnderstood == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="duration_expiry.revocation_understood" value="no" {% if duration_expiry.revocationUnderstood == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="revocation_method">Revocation Method</label>
+        <select id="revocation_method" name="duration_expiry.revocation_method">
+          <option value="">-- Select --</option>
+          <option value="written" {% if duration_expiry.revocationMethod == "written" %}selected{% endif %}>Written Notice</option>
+          <option value="inPerson" {% if duration_expiry.revocationMethod == "inPerson" %}selected{% endif %}>In Person</option>
+          <option value="phone" {% if duration_expiry.revocationMethod == "phone" %}selected{% endif %}>Phone Call</option>
+          <option value="portal" {% if duration_expiry.revocationMethod == "portal" %}selected{% endif %}>Patient Portal</option>
+        </select>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

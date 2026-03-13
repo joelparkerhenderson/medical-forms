@@ -1,0 +1,30 @@
+logger:
+  enable: true
+  pretty_backtrace: true
+  level: debug
+  format: compact
+
+server:
+  port: 5460
+  host: http://localhost
+  middlewares:
+    static:
+      enable: true
+      must_exist: true
+      precompressed: false
+      folder:
+        uri: "/static"
+        path: "assets/static"
+    cors:
+      enable: true
+      allow_origins:
+        - http://localhost:5460
+
+database:
+  uri: postgres://localhost:5432/medical_records_release_tera_development
+  enable_logging: false
+  connect_timeout: 500
+  idle_timeout: 500
+  min_connections: 1
+  max_connections: 1
+  auto_migrate: true

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Records Release Report</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Medical Records Release Permission</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content" id="report-content">
+    <p style="text-align:center;color:#6b7280;">Loading report...</p>
+  </main>
+
+  <footer class="footer"><p>Medical Records Release System &copy; 2026. For clinical use only.</p></footer>
+
+  <script type="module">
+    import { completenessLabel, completenessColor, formatDate, formatNhsNumber } from './js/utils.js';
+
+    const dataStr = sessionStorage.getItem('releaseData');
+    const resultStr = sessionStorage.getItem('releaseResult');
+    const container = document.getElementById('report-content');
+
+    if (!dataStr || !resultStr) {
+      container.innerHTML = '<div class="card" style="text-align:center"><h2>No Assessment Data</h2><p>Please complete the release form first.</p><a href="index.html" class="btn btn-primary">Go to Release Form</a></div>';
+    } else {
+      const data = JSON.parse(dataStr);
+      const result = JSON.parse(resultStr);
+      renderReport(data, result);
+    }
+
+    function renderReport(data, result) {
+      const colorClass = completenessColor(result.completenessScore);
+      let html = '';
+
+      // Completeness Banner
+      html += '<div class="status-banner ' + colorClass + '">';
+      html += '<h2>' + completenessLabel(result.completenessScore) + '</h2>';
+      html += '<p>' + result.completenessStatus + ' &mdash; ' + result.validationStatusLabel + '</p>';
+      html += '</div>';
+
+      // Flagged Issues
+      if (result.additionalFlags && result.additionalFlags.length > 0) {
+        html += '<div class="card"><h2>Flagged Issues for Clinician</h2>';
+        for (const flag of result.additionalFlags) {
+          const flagClass = 'flag-' + flag.priority;
+          html += '<div class="flag-item ' + flagClass + '">';
+          html += '<div class="flag-category">' + esc(flag.category) + ' (' + flag.priority + ')</div>';
+          html += '<div class="flag-message">' + esc(flag.message) + '</div>';
+          html += '</div>';
+        }
+        html += '</div>';
+      }
+
+      // Fired Rules
+      if (result.firedRules && result.firedRules.length > 0) {
+        html += '<div class="card"><h2>Incomplete Fields (' + result.firedRules.length + ')</h2>';
+        html += '<table class="rules-table"><thead><tr><th>ID</th><th>Section</th><th>Description</th></tr></thead><tbody>';
+        for (const rule of result.firedRules) {
+          html += '<tr><td>' + esc(rule.id) + '</td><td>' + esc(rule.domain) + '</td>';
+          html += '<td>' + esc(rule.description) + '</td></tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+
+      // Patient Summary
+      html += '<div class="card"><h2>Patient Summary</h2><dl class="summary-grid">';
+      html += '<dt>Patient Name</dt><dd>' + esc(data.patientInformation.firstName + ' ' + data.patientInformation.lastName) + '</dd>';
+      html += '<dt>Date of Birth</dt><dd>' + formatDate(data.patientInformation.dateOfBirth) + '</dd>';
+      html += '<dt>NHS Number</dt><dd>' + esc(formatNhsNumber(data.patientInformation.nhsNumber)) + '</dd>';
+      html += '<dt>Address</dt><dd>' + esc(data.patientInformation.address) + '</dd>';
+      html += '<dt>GP</dt><dd>' + esc(data.patientInformation.gpName) + '</dd>';
+      html += '<dt>GP Practice</dt><dd>' + esc(data.patientInformation.gpPractice) + '</dd>';
+      html += '</dl></div>';
+
+      // Recipient Summary
+      html += '<div class="card"><h2>Authorized Recipient</h2><dl class="summary-grid">';
+      html += '<dt>Recipient</dt><dd>' + esc(data.authorizedRecipient.recipientName) + '</dd>';
+      html += '<dt>Organization</dt><dd>' + esc(data.authorizedRecipient.recipientOrganization) + '</dd>';
+      html += '<dt>Role</dt><dd>' + esc(data.authorizedRecipient.recipientRole) + '</dd>';
+      html += '<dt>Address</dt><dd>' + esc(data.authorizedRecipient.recipientAddress) + '</dd>';
+      html += '</dl></div>';
+
+      // Records & Purpose
+      html += '<div class="card"><h2>Release Details</h2><dl class="summary-grid">';
+      html += '<dt>Record Types</dt><dd>' + esc(data.recordsToRelease.recordTypes.join(', ') || 'None selected') + '</dd>';
+      html += '<dt>Purpose</dt><dd>' + esc(data.purposeOfRelease.purpose || 'Not specified') + '</dd>';
+      if (data.purposeOfRelease.otherDetails) {
+        html += '<dt>Purpose Details</dt><dd>' + esc(data.purposeOfRelease.otherDetails) + '</dd>';
+      }
+      html += '<dt>Authorization Period</dt><dd>' + formatDate(data.authorizationPeriod.startDate) + ' to ' + formatDate(data.authorizationPeriod.endDate) + '</dd>';
+      html += '<dt>Single Use</dt><dd>' + esc(data.authorizationPeriod.singleUse || 'Not specified') + '</dd>';
+      html += '</dl></div>';
+
+      // Action Buttons
+      html += '<div class="action-buttons">';
+      html += '<a href="index.html" class="btn btn-primary">New Release Form</a>';
+      html += '<button class="btn btn-secondary" onclick="window.print()">Print Report</button>';
+      html += '</div>';
+
+      container.innerHTML = html;
+    }
+
+    function esc(str) {
+      const div = document.createElement('div');
+      div.textContent = str || '';
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>

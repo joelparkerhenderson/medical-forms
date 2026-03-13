@@ -1,0 +1,140 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Release Report - Medical Records Release{% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="report-header">
+    <h1>Medical Records Release Report</h1>
+    <span class="completion-badge completion-{{ completion_level }}">{{ completion_label }}</span>
+  </div>
+
+  <div class="score-display">{{ completion_score }}%</div>
+  <div class="score-label">Completion Score</div>
+
+  <p style="text-align: center; margin-top: 0.5rem; color: var(--gray-500); font-size: 0.875rem;">
+    Assessment ID: {{ id }} | Generated: {{ timestamp }}
+  </p>
+</div>
+
+<!-- Review Decision -->
+<div class="card">
+  <h2>Clinical Review Decision</h2>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <div style="font-size: 1.5rem; font-weight: 700;">{{ review_decision }}</div>
+  </div>
+  {% if data.clinicalReview.reviewNotes %}
+    <p style="margin-top: 0.5rem;"><strong>Notes:</strong> {{ data.clinicalReview.reviewNotes }}</p>
+  {% endif %}
+</div>
+
+<!-- Patient & Request Summary -->
+<div class="card">
+  <h2>Request Summary</h2>
+  <div class="form-row">
+    <div>
+      <strong>Patient:</strong> {{ data.patientInformation.patientFullName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Date of Birth:</strong> {{ data.patientInformation.dateOfBirth | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Requester:</strong> {{ data.requestingParty.requesterName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Relationship:</strong> {{ data.requestingParty.requesterRelationship | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Purpose:</strong> {{ data.purposeOfRelease.primaryPurpose | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Record Type:</strong> {{ data.recordsSpecification.recordType | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Releasing Facility:</strong> {{ data.authorizationScope.releasingFacilityName | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Receiving Facility:</strong> {{ data.authorizationScope.receivingFacilityName | default(value="Not provided") }}
+    </div>
+  </div>
+</div>
+
+<!-- Additional Flags -->
+{% if additional_flags | length > 0 %}
+<div class="card">
+  <h2>Flagged Issues</h2>
+  <div class="flags-section">
+    {% for flag in additional_flags %}
+    <div class="flag-item flag-{{ flag.priority }}">
+      <div class="flag-meta">
+        <span class="concern-badge concern-{{ flag.priority }}">{{ flag.priority | upper }}</span>
+        &nbsp; {{ flag.category }}
+      </div>
+      <div>{{ flag.message }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- Validation Rules -->
+{% if fired_rules | length > 0 %}
+<div class="card">
+  <h2>Validation Analysis</h2>
+  <table class="rules-table">
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Concern</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for rule in fired_rules %}
+      <tr>
+        <td>{{ rule.id }}</td>
+        <td>{{ rule.category }}</td>
+        <td>{{ rule.description }}</td>
+        <td><span class="concern-badge concern-{{ rule.concernLevel }}">{{ rule.concernLevel | upper }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+
+<!-- Authorization Details -->
+<div class="card">
+  <h2>Authorization Details</h2>
+  <div class="form-row">
+    <div>
+      <strong>Start Date:</strong> {{ data.durationExpiry.authorizationStartDate | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Expiry Date:</strong> {{ data.durationExpiry.authorizationExpiryDate | default(value="Not provided") }}
+    </div>
+  </div>
+  <div class="form-row" style="margin-top: 0.5rem;">
+    <div>
+      <strong>Identity Verified:</strong> {{ data.verificationIdentity.identityVerified | default(value="Not provided") }}
+    </div>
+    <div>
+      <strong>Consent Given:</strong> {{ data.signaturesConsent.informedConsentGiven | default(value="Not provided") }}
+    </div>
+  </div>
+</div>
+
+<!-- Actions -->
+<div class="card" style="text-align: center;">
+  <a href="/" class="btn btn-primary">New Authorization</a>
+  <a href="/dashboard" class="btn btn-secondary" style="margin-left: 0.5rem;">View Dashboard</a>
+  <button onclick="window.print()" class="btn btn-secondary" style="margin-left: 0.5rem;">Print Report</button>
+</div>
+{% endblock %}

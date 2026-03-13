@@ -1,0 +1,69 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Patient Information - Medical Records Release{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Patient Information</h2>
+    <p class="hint">Please provide the patient's identifying information.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_full_name">Patient Full Name *</label>
+        <input type="text" id="patient_full_name" name="patient_information.patient_full_name"
+               value="{{ patient_information.patientFullName }}"
+               placeholder="e.g. Jane Smith">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth *</label>
+        <input type="date" id="date_of_birth" name="patient_information.date_of_birth"
+               value="{{ patient_information.dateOfBirth }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_address">Patient Address *</label>
+        <input type="text" id="patient_address" name="patient_information.patient_address"
+               value="{{ patient_information.patientAddress }}"
+               placeholder="Full mailing address">
+      </div>
+      <div class="form-group">
+        <label for="patient_phone">Patient Phone *</label>
+        <input type="tel" id="patient_phone" name="patient_information.patient_phone"
+               value="{{ patient_information.patientPhone }}"
+               placeholder="e.g. (555) 123-4567">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_email">Patient Email</label>
+        <input type="email" id="patient_email" name="patient_information.patient_email"
+               value="{{ patient_information.patientEmail }}"
+               placeholder="e.g. patient@example.com">
+      </div>
+      <div class="form-group">
+        <label for="medical_record_number">Medical Record Number *</label>
+        <input type="text" id="medical_record_number" name="patient_information.medical_record_number"
+               value="{{ patient_information.medicalRecordNumber }}"
+               placeholder="e.g. MRN-12345">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="social_security_last_four">Last 4 Digits of SSN *</label>
+        <input type="text" id="social_security_last_four" name="patient_information.social_security_last_four"
+               value="{{ patient_information.socialSecurityLastFour }}"
+               maxlength="4" placeholder="e.g. 1234">
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

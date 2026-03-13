@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Medical Records Release Permission - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Medical Records Release Permission</h1>
+  <p>
+    This form authorizes the release of medical records to a specified party.
+    It ensures compliance with HIPAA and applicable regulations by collecting
+    patient consent, verifying identity, specifying records scope, and
+    documenting clinical review before any information is released.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Form Sections</h3>
+      <p>Comprehensive authorization covering patient details, records scope, and consent</p>
+    </div>
+    <div class="feature-card">
+      <h3>Compliance Validation</h3>
+      <p>20 rules verify completeness, consent, and regulatory requirements</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Review</h3>
+      <p>Flagged issues and redaction tracking for safe record release</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Authorization</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Purpose of Release - Medical Records Release{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Purpose of Release</h2>
+    <p class="hint">Specify why the medical records are being released.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="primary_purpose">Primary Purpose *</label>
+        <select id="primary_purpose" name="purpose_of_release.primary_purpose">
+          <option value="">-- Select --</option>
+          <option value="continuityOfCare" {% if purpose_of_release.primaryPurpose == "continuityOfCare" %}selected{% endif %}>Continuity of Care</option>
+          <option value="secondOpinion" {% if purpose_of_release.primaryPurpose == "secondOpinion" %}selected{% endif %}>Second Opinion</option>
+          <option value="insurance" {% if purpose_of_release.primaryPurpose == "insurance" %}selected{% endif %}>Insurance</option>
+          <option value="legal" {% if purpose_of_release.primaryPurpose == "legal" %}selected{% endif %}>Legal Proceedings</option>
+          <option value="disability" {% if purpose_of_release.primaryPurpose == "disability" %}selected{% endif %}>Disability Determination</option>
+          <option value="research" {% if purpose_of_release.primaryPurpose == "research" %}selected{% endif %}>Research</option>
+          <option value="personalUse" {% if purpose_of_release.primaryPurpose == "personalUse" %}selected{% endif %}>Personal Use</option>
+          <option value="other" {% if purpose_of_release.primaryPurpose == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="secondary_purpose">Secondary Purpose</label>
+        <input type="text" id="secondary_purpose" name="purpose_of_release.secondary_purpose"
+               value="{{ purpose_of_release.secondaryPurpose }}"
+               placeholder="If applicable">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="purpose_details">Purpose Details *</label>
+      <textarea id="purpose_details" name="purpose_of_release.purpose_details"
+                rows="3" placeholder="Provide additional details about the purpose of this release...">{{ purpose_of_release.purposeDetails }}</textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="legal_case_number">Legal Case Number</label>
+        <input type="text" id="legal_case_number" name="purpose_of_release.legal_case_number"
+               value="{{ purpose_of_release.legalCaseNumber }}"
+               placeholder="If applicable">
+      </div>
+      <div class="form-group">
+        <label for="insurance_claim_number">Insurance Claim Number</label>
+        <input type="text" id="insurance_claim_number" name="purpose_of_release.insurance_claim_number"
+               value="{{ purpose_of_release.insuranceClaimNumber }}"
+               placeholder="If applicable">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Is this court-ordered?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="purpose_of_release.is_court_ordered" value="yes" {% if purpose_of_release.isCourtOrdered == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="purpose_of_release.is_court_ordered" value="no" {% if purpose_of_release.isCourtOrdered == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

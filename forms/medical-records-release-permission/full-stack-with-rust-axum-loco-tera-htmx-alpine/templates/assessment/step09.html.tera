@@ -1,0 +1,91 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Signatures & Consent - Medical Records Release{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Signatures & Consent</h2>
+    <p class="hint">Provide signatures and confirm consent for the release of records.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="patient_signature">Patient Signature (type full name) *</label>
+        <input type="text" id="patient_signature" name="signatures_consent.patient_signature"
+               value="{{ signatures_consent.patientSignature }}"
+               placeholder="Type full legal name as signature">
+      </div>
+      <div class="form-group">
+        <label for="patient_signature_date">Signature Date *</label>
+        <input type="date" id="patient_signature_date" name="signatures_consent.patient_signature_date"
+               value="{{ signatures_consent.patientSignatureDate }}">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="witness_name">Witness Name</label>
+        <input type="text" id="witness_name" name="signatures_consent.witness_name"
+               value="{{ signatures_consent.witnessName }}"
+               placeholder="e.g. Mary Johnson">
+      </div>
+      <div class="form-group">
+        <label for="witness_signature">Witness Signature (type full name)</label>
+        <input type="text" id="witness_signature" name="signatures_consent.witness_signature"
+               value="{{ signatures_consent.witnessSignature }}"
+               placeholder="Type full name as signature">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="witness_signature_date">Witness Signature Date</label>
+        <input type="date" id="witness_signature_date" name="signatures_consent.witness_signature_date"
+               value="{{ signatures_consent.witnessSignatureDate }}">
+      </div>
+    </div>
+
+    <h3>Guardian / Legal Representative (if applicable)</h3>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="guardian_name">Guardian Name</label>
+        <input type="text" id="guardian_name" name="signatures_consent.guardian_name"
+               value="{{ signatures_consent.guardianName }}"
+               placeholder="If patient is a minor or incapacitated">
+      </div>
+      <div class="form-group">
+        <label for="guardian_relationship">Guardian Relationship</label>
+        <select id="guardian_relationship" name="signatures_consent.guardian_relationship">
+          <option value="">-- Select --</option>
+          <option value="parent" {% if signatures_consent.guardianRelationship == "parent" %}selected{% endif %}>Parent</option>
+          <option value="legalGuardian" {% if signatures_consent.guardianRelationship == "legalGuardian" %}selected{% endif %}>Legal Guardian</option>
+          <option value="powerOfAttorney" {% if signatures_consent.guardianRelationship == "powerOfAttorney" %}selected{% endif %}>Power of Attorney</option>
+          <option value="executor" {% if signatures_consent.guardianRelationship == "executor" %}selected{% endif %}>Executor of Estate</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="guardian_signature">Guardian Signature (type full name)</label>
+        <input type="text" id="guardian_signature" name="signatures_consent.guardian_signature"
+               value="{{ signatures_consent.guardianSignature }}"
+               placeholder="Type full name as signature">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Informed Consent Given? *</label>
+      <div class="radio-group">
+        <label><input type="radio" name="signatures_consent.informed_consent_given" value="yes" {% if signatures_consent.informedConsentGiven == "yes" %}checked{% endif %}> Yes, I voluntarily authorize the release of my medical records as described</label>
+        <label><input type="radio" name="signatures_consent.informed_consent_given" value="no" {% if signatures_consent.informedConsentGiven == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
