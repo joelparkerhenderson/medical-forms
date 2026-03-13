@@ -1,0 +1,34 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Advance Statement About Care - Home{% endblock %}
+
+{% block content %}
+<div class="card">
+  <h1>Advance Statement About Care</h1>
+  <p>
+    This form documents your wishes, preferences, and values for future care
+    in situations where you may lack capacity to make decisions. An advance
+    statement is distinct from an Advance Decision to Refuse Treatment (ADRT)
+    — this records your preferences, not legally binding refusals.
+  </p>
+
+  <div class="features">
+    <div class="feature-card">
+      <h3>10 Sections</h3>
+      <p>Comprehensive documentation of your care preferences</p>
+    </div>
+    <div class="feature-card">
+      <h3>Completeness Tracking</h3>
+      <p>Status monitoring from draft to clinician-reviewed</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clinical Review</h3>
+      <p>Healthcare professional verification and capacity confirmation</p>
+    </div>
+  </div>
+
+  <form method="POST" action="/assessment/new">
+    <button type="submit" class="btn btn-primary">Begin Statement</button>
+  </form>
+</div>
+{% endblock %}

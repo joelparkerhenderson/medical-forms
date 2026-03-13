@@ -1,0 +1,52 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Personal Values & Beliefs - Advance Statement{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Personal Values & Beliefs</h2>
+    <p class="hint">Describe what matters most to you in your life and care.</p>
+
+    <div class="form-group">
+      <label for="important_to_me">What is most important to me</label>
+      <textarea id="important_to_me" name="personal_values.important_to_me"
+                placeholder="Describe the things that matter most to you in life...">{{ personal_values.importantToMe }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="quality_of_life_factors">Quality of life factors</label>
+      <textarea id="quality_of_life_factors" name="personal_values.quality_of_life_factors"
+                placeholder="What does a good quality of life mean to you?">{{ personal_values.qualityOfLifeFactors }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="unacceptable_outcomes">Unacceptable outcomes</label>
+      <textarea id="unacceptable_outcomes" name="personal_values.unacceptable_outcomes"
+                placeholder="Are there any outcomes you would find unacceptable?">{{ personal_values.unacceptableOutcomes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="religious_belief">Religious beliefs</label>
+      <textarea id="religious_belief" name="personal_values.religious_belief"
+                placeholder="Any religious beliefs that should inform your care...">{{ personal_values.religiousBelief }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="cultural_considerations">Cultural considerations</label>
+      <textarea id="cultural_considerations" name="personal_values.cultural_considerations"
+                placeholder="Cultural factors that are important to you...">{{ personal_values.culturalConsiderations }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="personal_philosophy">Personal philosophy</label>
+      <textarea id="personal_philosophy" name="personal_values.personal_philosophy"
+                placeholder="Any personal philosophy or worldview that guides your decisions...">{{ personal_values.personalPhilosophy }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

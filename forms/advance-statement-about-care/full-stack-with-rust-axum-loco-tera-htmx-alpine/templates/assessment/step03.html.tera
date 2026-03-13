@@ -1,0 +1,57 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Care Preferences - Advance Statement{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Care Preferences</h2>
+    <p class="hint">Document your preferences for medical care and treatment.</p>
+
+    <div class="form-group">
+      <label for="preferred_care_location">Preferred place of care</label>
+      <select id="preferred_care_location" name="care_preferences.preferred_care_location">
+        <option value="">-- Select --</option>
+        <option value="home" {% if care_preferences.preferredCareLocation == "home" %}selected{% endif %}>Home</option>
+        <option value="hospice" {% if care_preferences.preferredCareLocation == "hospice" %}selected{% endif %}>Hospice</option>
+        <option value="hospital" {% if care_preferences.preferredCareLocation == "hospital" %}selected{% endif %}>Hospital</option>
+        <option value="careHome" {% if care_preferences.preferredCareLocation == "careHome" %}selected{% endif %}>Care Home</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="pain_management_preference">Pain management preferences</label>
+      <textarea id="pain_management_preference" name="care_preferences.pain_management_preference"
+                placeholder="How would you like pain to be managed? Any preferences or concerns...">{{ care_preferences.painManagementPreference }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="treatment_goals">Treatment goals</label>
+      <textarea id="treatment_goals" name="care_preferences.treatment_goals"
+                placeholder="What are your goals for treatment? e.g. comfort, independence, prolonging life...">{{ care_preferences.treatmentGoals }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="resuscitation_wishes">Resuscitation wishes</label>
+      <textarea id="resuscitation_wishes" name="care_preferences.resuscitation_wishes"
+                placeholder="Your wishes regarding cardiopulmonary resuscitation (CPR)...">{{ care_preferences.resuscitationWishes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="artificial_nutrition_view">Views on artificial nutrition and hydration</label>
+      <textarea id="artificial_nutrition_view" name="care_preferences.artificial_nutrition_view"
+                placeholder="Your views on tube feeding and artificial hydration...">{{ care_preferences.artificialNutritionView }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="ventilation_view">Views on mechanical ventilation</label>
+      <textarea id="ventilation_view" name="care_preferences.ventilation_view"
+                placeholder="Your views on being placed on a ventilator...">{{ care_preferences.ventilationView }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

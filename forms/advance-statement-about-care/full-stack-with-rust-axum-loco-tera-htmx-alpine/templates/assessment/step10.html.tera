@@ -1,0 +1,62 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Signatures & Verification - Advance Statement{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Signatures & Verification</h2>
+    <p class="hint">Confirm and sign the advance statement.</p>
+
+    <h3>Patient Signature</h3>
+    <div class="form-group">
+      <label>I confirm this statement reflects my wishes</label>
+      <div class="radio-group">
+        <label><input type="radio" name="signatures_verification.patient_signature" value="yes" {% if signatures_verification.patientSignature == "yes" %}checked{% endif %}> Yes, I sign this statement</label>
+        <label><input type="radio" name="signatures_verification.patient_signature" value="no" {% if signatures_verification.patientSignature == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="patient_signature_date">Date of patient signature</label>
+      <input type="date" id="patient_signature_date" name="signatures_verification.patient_signature_date"
+             value="{{ signatures_verification.patientSignatureDate }}">
+    </div>
+
+    <h3>Witness</h3>
+    <div class="form-group">
+      <label for="witness_name">Witness name</label>
+      <input type="text" id="witness_name" name="signatures_verification.witness_name"
+             value="{{ signatures_verification.witnessName }}"
+             placeholder="e.g. Robert Brown">
+    </div>
+
+    <div class="form-group">
+      <label>Witness signature</label>
+      <div class="radio-group">
+        <label><input type="radio" name="signatures_verification.witness_signature" value="yes" {% if signatures_verification.witnessSignature == "yes" %}checked{% endif %}> Yes, witnessed</label>
+        <label><input type="radio" name="signatures_verification.witness_signature" value="no" {% if signatures_verification.witnessSignature == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="witness_signature_date">Date of witness signature</label>
+      <input type="date" id="witness_signature_date" name="signatures_verification.witness_signature_date"
+             value="{{ signatures_verification.witnessSignatureDate }}">
+    </div>
+
+    <h3>Review Confirmation</h3>
+    <div class="form-group">
+      <label>Has this statement been reviewed with the patient?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="signatures_verification.reviewed_with_patient" value="yes" {% if signatures_verification.reviewedWithPatient == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="signatures_verification.reviewed_with_patient" value="no" {% if signatures_verification.reviewedWithPatient == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Daily Living Preferences - Advance Statement{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Daily Living Preferences</h2>
+    <p class="hint">Your preferences for day-to-day care and routines.</p>
+
+    <div class="form-group">
+      <label>How important is maintaining your daily routine? (1 = not important, 5 = very important)</label>
+      <div class="likert-options">
+        {% for i in [1, 2, 3, 4, 5] %}
+        <label>
+          <input type="radio" name="daily_living_preferences.routine_importance" value="{{ i }}"
+                 {% if daily_living_preferences.routineImportance == i %}checked{% endif %}>
+          <span>{{ i }}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="food_preferences">Food preferences and dietary needs</label>
+      <textarea id="food_preferences" name="daily_living_preferences.food_preferences"
+                placeholder="Favourite foods, dietary requirements, eating preferences...">{{ daily_living_preferences.foodPreferences }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="personal_care_wishes">Personal care wishes</label>
+      <textarea id="personal_care_wishes" name="daily_living_preferences.personal_care_wishes"
+                placeholder="Bathing, grooming, hygiene preferences...">{{ daily_living_preferences.personalCareWishes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="clothing_preferences">Clothing preferences</label>
+      <textarea id="clothing_preferences" name="daily_living_preferences.clothing_preferences"
+                placeholder="Preferred clothing, comfort items...">{{ daily_living_preferences.clothingPreferences }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="social_activities">Social activities</label>
+      <textarea id="social_activities" name="daily_living_preferences.social_activities"
+                placeholder="Activities you enjoy, hobbies, social preferences...">{{ daily_living_preferences.socialActivities }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="pet_considerations">Pet considerations</label>
+      <textarea id="pet_considerations" name="daily_living_preferences.pet_considerations"
+                placeholder="Do you have pets? Any arrangements needed?">{{ daily_living_preferences.petConsiderations }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

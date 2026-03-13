@@ -1,0 +1,56 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Spiritual & Cultural Wishes - Advance Statement{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Spiritual & Cultural Wishes</h2>
+    <p class="hint">Your spiritual, religious, and cultural needs and preferences.</p>
+
+    <div class="form-group">
+      <label for="religious_practices">Religious practices</label>
+      <textarea id="religious_practices" name="spiritual_cultural.religious_practices"
+                placeholder="Any religious practices important to you...">{{ spiritual_cultural.religiousPractices }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Would you like spiritual support?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="spiritual_cultural.spiritual_support" value="yes" {% if spiritual_cultural.spiritualSupport == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="spiritual_cultural.spiritual_support" value="no" {% if spiritual_cultural.spiritualSupport == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="specific_rituals">Specific rituals or customs</label>
+      <textarea id="specific_rituals" name="spiritual_cultural.specific_rituals"
+                placeholder="Any specific rituals or customs that should be observed...">{{ spiritual_cultural.specificRituals }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="dietary_restrictions">Dietary restrictions</label>
+      <textarea id="dietary_restrictions" name="spiritual_cultural.dietary_restrictions"
+                placeholder="Any dietary restrictions based on religious or cultural beliefs...">{{ spiritual_cultural.dietaryRestrictions }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="cultural_practices">Cultural practices</label>
+      <textarea id="cultural_practices" name="spiritual_cultural.cultural_practices"
+                placeholder="Any cultural practices that are important to you...">{{ spiritual_cultural.culturalPractices }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Would you like chaplain visits?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="spiritual_cultural.chaplain_visit" value="yes" {% if spiritual_cultural.chaplainVisit == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="spiritual_cultural.chaplain_visit" value="no" {% if spiritual_cultural.chaplainVisit == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

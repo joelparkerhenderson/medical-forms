@@ -1,0 +1,56 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Communication Preferences - Advance Statement{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Communication Preferences</h2>
+    <p class="hint">How you prefer to receive information and communicate.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="preferred_language">Preferred language</label>
+        <input type="text" id="preferred_language" name="communication_preferences.preferred_language"
+               value="{{ communication_preferences.preferredLanguage }}"
+               placeholder="e.g. English, Welsh, Urdu">
+      </div>
+      <div class="form-group">
+        <label>Interpreter needed?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="communication_preferences.interpreter_needed" value="yes" {% if communication_preferences.interpreterNeeded == "yes" %}checked{% endif %}> Yes</label>
+          <label><input type="radio" name="communication_preferences.interpreter_needed" value="no" {% if communication_preferences.interpreterNeeded == "no" %}checked{% endif %}> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="communication_aids">Communication aids required</label>
+      <textarea id="communication_aids" name="communication_preferences.communication_aids"
+                placeholder="e.g. hearing aid, large print, Makaton, picture boards...">{{ communication_preferences.communicationAids }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="information_sharing_wishes">Information sharing wishes</label>
+      <textarea id="information_sharing_wishes" name="communication_preferences.information_sharing_wishes"
+                placeholder="How much information do you want to receive about your condition?">{{ communication_preferences.informationSharingWishes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="who_to_inform">Who should be informed about your care?</label>
+      <textarea id="who_to_inform" name="communication_preferences.who_to_inform"
+                placeholder="Names and relationships of people who should be kept informed...">{{ communication_preferences.whoToInform }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="how_to_break_bad_news">How to break bad news</label>
+      <textarea id="how_to_break_bad_news" name="communication_preferences.how_to_break_bad_news"
+                placeholder="How would you prefer to receive difficult news?">{{ communication_preferences.howToBreakBadNews }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

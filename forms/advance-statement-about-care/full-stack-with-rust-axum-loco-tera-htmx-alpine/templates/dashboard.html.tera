@@ -1,0 +1,70 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Dashboard - Advance Statement{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+  <h1>Advance Statement Dashboard</h1>
+  <a href="/" class="btn btn-primary">New Statement</a>
+</div>
+
+<form method="GET" action="/dashboard">
+  <div class="filter-bar">
+    <div class="form-group">
+      <label for="search">Search</label>
+      <input type="text" id="search" name="search" value="{{ search }}"
+             placeholder="Search by patient name, review date...">
+    </div>
+    <div class="form-group">
+      <label for="completeness_status">Completeness Status</label>
+      <select id="completeness_status" name="completeness_status">
+        <option value="">All Statuses</option>
+        <option value="draft" {% if completeness_status == "draft" %}selected{% endif %}>Draft</option>
+        <option value="incomplete" {% if completeness_status == "incomplete" %}selected{% endif %}>Incomplete</option>
+        <option value="complete" {% if completeness_status == "complete" %}selected{% endif %}>Complete</option>
+        <option value="reviewed" {% if completeness_status == "reviewed" %}selected{% endif %}>Reviewed</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="review_due">Review Due</label>
+      <select id="review_due" name="review_due">
+        <option value="">All</option>
+        <option value="yes" {% if review_due == "yes" %}selected{% endif %}>Review Due</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+  </div>
+</form>
+
+<p style="color: var(--gray-500); margin-bottom: 1rem;">Showing {{ total }} completed statement(s)</p>
+
+<table class="patient-table">
+  <thead>
+    <tr>
+      <th>Patient Name</th>
+      <th>Status</th>
+      <th>Nominated Person</th>
+      <th>Last Review Date</th>
+      <th>Capacity Confirmed</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td><a href="/assessment/{{ patient.id }}/report">{{ patient.patientName }}</a></td>
+      <td><span class="status-badge status-{{ patient.completenessStatus }}">{{ patient.completenessStatus }}</span></td>
+      <td>{{ patient.hasNominatedPerson }}</td>
+      <td>{{ patient.lastReviewDate | default(value="Not reviewed") }}</td>
+      <td>{{ patient.capacityConfirmed }}</td>
+    </tr>
+    {% endfor %}
+    {% if patients | length == 0 %}
+    <tr>
+      <td colspan="5" style="text-align: center; color: var(--gray-500);">No completed statements found.</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}

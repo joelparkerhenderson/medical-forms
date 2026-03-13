@@ -1,0 +1,59 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Healthcare Professional Review - Advance Statement{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>Healthcare Professional Review</h2>
+    <p class="hint">To be completed by the reviewing healthcare professional.</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="reviewer_name">Reviewer name</label>
+        <input type="text" id="reviewer_name" name="healthcare_professional_review.reviewer_name"
+               value="{{ healthcare_professional_review.reviewerName }}"
+               placeholder="e.g. Dr Sarah Williams">
+      </div>
+      <div class="form-group">
+        <label for="reviewer_role">Reviewer role</label>
+        <input type="text" id="reviewer_role" name="healthcare_professional_review.reviewer_role"
+               value="{{ healthcare_professional_review.reviewerRole }}"
+               placeholder="e.g. Consultant, GP, Specialist Nurse">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="review_date">Review date</label>
+      <input type="date" id="review_date" name="healthcare_professional_review.review_date"
+             value="{{ healthcare_professional_review.reviewDate }}">
+    </div>
+
+    <div class="form-group">
+      <label>Has the patient's capacity been confirmed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="healthcare_professional_review.capacity_confirmed" value="yes" {% if healthcare_professional_review.capacityConfirmed == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="healthcare_professional_review.capacity_confirmed" value="no" {% if healthcare_professional_review.capacityConfirmed == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="discussion_notes">Discussion notes</label>
+      <textarea id="discussion_notes" name="healthcare_professional_review.discussion_notes"
+                placeholder="Notes from the discussion with the patient...">{{ healthcare_professional_review.discussionNotes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Is the statement an accurate reflection of the patient's wishes?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="healthcare_professional_review.statement_accurate" value="yes" {% if healthcare_professional_review.statementAccurate == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="healthcare_professional_review.statement_accurate" value="no" {% if healthcare_professional_review.statementAccurate == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html.tera" %}
+
+{% block title %}End of Life Preferences - Advance Statement{% endblock %}
+
+{% block content %}
+<div class="card">
+  {% include "assessment/_progress.html.tera" %}
+
+  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+    <h2>End of Life Preferences</h2>
+    <p class="hint">Your wishes for end of life care and after death.</p>
+
+    <div class="form-group">
+      <label for="preferred_place_of_death">Preferred place of death</label>
+      <input type="text" id="preferred_place_of_death" name="end_of_life_preferences.preferred_place_of_death"
+             value="{{ end_of_life_preferences.preferredPlaceOfDeath }}"
+             placeholder="e.g. Home, Hospice, Hospital">
+    </div>
+
+    <div class="form-group">
+      <label>Organ donation</label>
+      <div class="radio-group">
+        <label><input type="radio" name="end_of_life_preferences.organ_donation" value="yes" {% if end_of_life_preferences.organDonation == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="end_of_life_preferences.organ_donation" value="no" {% if end_of_life_preferences.organDonation == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="funeral_wishes">Funeral wishes</label>
+      <textarea id="funeral_wishes" name="end_of_life_preferences.funeral_wishes"
+                placeholder="Any preferences for your funeral arrangements...">{{ end_of_life_preferences.funeralWishes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="after_death_wishes">After death wishes</label>
+      <textarea id="after_death_wishes" name="end_of_life_preferences.after_death_wishes"
+                placeholder="Any wishes for after your death...">{{ end_of_life_preferences.afterDeathWishes }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="music_or_comfort">Music or comfort items</label>
+      <textarea id="music_or_comfort" name="end_of_life_preferences.music_or_comfort"
+                placeholder="Music, readings, or comfort items you would like present...">{{ end_of_life_preferences.musicOrComfort }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="who_should_be_present">Who should be present</label>
+      <textarea id="who_should_be_present" name="end_of_life_preferences.who_should_be_present"
+                placeholder="Who would you like to be with you?">{{ end_of_life_preferences.whoShouldBePresent }}</textarea>
+    </div>
+
+    {% include "assessment/_nav.html.tera" %}
+  </form>
+</div>
+{% endblock %}
