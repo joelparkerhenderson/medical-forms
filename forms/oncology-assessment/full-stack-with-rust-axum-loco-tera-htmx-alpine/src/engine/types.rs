@@ -25,6 +25,7 @@ pub struct CancerDiagnosis {
     pub cancer_type: String,
     pub cancer_site: String,
     pub histology: String,
+    pub histology_other: String,
     pub date_of_diagnosis: String,
     pub diagnosis_method: String,
     pub biomarkers_tested: String,

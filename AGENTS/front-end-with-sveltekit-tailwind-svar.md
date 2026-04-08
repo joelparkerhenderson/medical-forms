@@ -4,17 +4,17 @@ Slug: front-end-with-sveltekit-tailwind-svar
 
 ## Technology stack
 
-| Component | Version | Purpose |
-| --- | --- | --- |
-| [SvelteKit](https://svelte.dev/docs/kit/introduction) | 2.x | Full-stack web framework |
-| [Svelte](https://svelte.dev/) | 5.x | UI reactivity with runes |
-| [TypeScript](https://www.typescriptlang.org/) | 5.x | Type-safe development |
-| [Tailwind CSS](https://tailwindcss.com/) | 4.x | Utility-first styling with `@import 'tailwindcss'` and `@theme` |
-| [SVAR Svelte Core](https://svar.dev/svelte/core/) | 2.x | Base UI components and Willow theme |
-| [SVAR Svelte DataGrid](https://svar.dev/svelte/datagrid/) | 2.x | Data table with sort/filter |
-| [Vite](https://vite.dev/) | 7.x | Build tool and dev server |
-| [pdfmake](https://pdfmake.github.io/docs/) | 0.2.x | Server-side PDF report generation |
-| [Vitest](https://vitest.dev/) | 3.x | Unit testing for grading logic |
+| Component                                                 | Version | Purpose                                                         |
+| --------------------------------------------------------- | ------- | --------------------------------------------------------------- |
+| [SvelteKit](https://svelte.dev/docs/kit/introduction)     | 2.x     | Full-stack web framework                                        |
+| [Svelte](https://svelte.dev/)                             | 5.x     | UI reactivity with runes                                        |
+| [TypeScript](https://www.typescriptlang.org/)             | 5.x     | Type-safe development                                           |
+| [Tailwind CSS](https://tailwindcss.com/)                  | 4.x     | Utility-first styling with `@import 'tailwindcss'` and `@theme` |
+| [SVAR Svelte Core](https://svar.dev/svelte/core/)         | 2.x     | Base UI components and Willow theme                             |
+| [SVAR Svelte DataGrid](https://svar.dev/svelte/datagrid/) | 2.x     | Data table with sort/filter                                     |
+| [Vite](https://vite.dev/)                                 | 7.x     | Build tool and dev server                                       |
+| [pdfmake](https://pdfmake.github.io/docs/)                | 0.2.x   | Server-side PDF report generation                               |
+| [Vitest](https://vitest.dev/)                             | 3.x     | Unit testing for grading logic                                  |
 
 ## Svelte 5 runes
 

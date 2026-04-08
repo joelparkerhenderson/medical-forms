@@ -10,6 +10,7 @@ CREATE TABLE assessment_cancer_diagnosis (
     cancer_type VARCHAR(255) NOT NULL DEFAULT '',
     cancer_site VARCHAR(255) NOT NULL DEFAULT '',
     histology VARCHAR(255) NOT NULL DEFAULT '',
+    histology_other VARCHAR(255) NOT NULL DEFAULT '',
     date_of_diagnosis DATE,
     stage VARCHAR(20) NOT NULL DEFAULT ''
         CHECK (stage IN ('0', 'I', 'IA', 'IB', 'II', 'IIA', 'IIB', 'III', 'IIIA', 'IIIB', 'IIIC', 'IV', 'IVA', 'IVB', 'unknown', '')),
@@ -43,7 +44,9 @@ COMMENT ON COLUMN assessment_cancer_diagnosis.cancer_type IS
 COMMENT ON COLUMN assessment_cancer_diagnosis.cancer_site IS
     'Primary anatomical site of the cancer.';
 COMMENT ON COLUMN assessment_cancer_diagnosis.histology IS
-    'Histological subtype of the tumour.';
+    'Histological subtype of the tumour (select value).';
+COMMENT ON COLUMN assessment_cancer_diagnosis.histology_other IS
+    'Free-text histology when histology is other.';
 COMMENT ON COLUMN assessment_cancer_diagnosis.date_of_diagnosis IS
     'Date when the cancer was first diagnosed.';
 COMMENT ON COLUMN assessment_cancer_diagnosis.stage IS

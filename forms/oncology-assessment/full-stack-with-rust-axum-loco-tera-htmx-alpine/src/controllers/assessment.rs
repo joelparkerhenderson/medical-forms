@@ -127,6 +127,7 @@ fn is_string_field(field: &str) -> bool {
             | "cancerType"
             | "cancerSite"
             | "histology"
+            | "histologyOther"
             | "dateOfDiagnosis"
             | "diagnosisMethod"
             | "biomarkersTested"

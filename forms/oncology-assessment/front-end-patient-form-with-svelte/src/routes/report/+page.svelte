@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { assessment } from '$lib/stores/assessment.svelte';
-	import { ecogGradeLabel, ecogGradeColor, bmiCategory, calculateAge, cancerTypeLabel, formatTNM, stageLabel } from '$lib/engine/utils';
+	import { ecogGradeLabel, ecogGradeColor, bmiCategory, calculateAge, cancerTypeLabel, histologyLabel, formatTNM, stageLabel } from '$lib/engine/utils';
 	import Badge from '$lib/components/ui/Badge.svelte';
 
 	const data = $derived(assessment.data);
@@ -192,7 +192,7 @@
 					</div>
 					<div>
 						<span class="font-medium text-gray-600">Histology:</span>
-						{data.cancerDiagnosis.histology || 'N/A'}
+						{data.cancerDiagnosis.histology === 'other' ? data.cancerDiagnosis.histologyOther || 'Other' : histologyLabel(data.cancerDiagnosis.histology)}
 					</div>
 					<div>
 						<span class="font-medium text-gray-600">Date of Diagnosis:</span>

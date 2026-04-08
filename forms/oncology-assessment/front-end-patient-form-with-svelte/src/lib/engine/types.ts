@@ -45,6 +45,7 @@ export interface CancerDiagnosis {
 	cancerTypeOther: string;
 	primarySite: string;
 	histology: string;
+	histologyOther: string;
 	stageT: '0' | '1' | '2' | '3' | '4' | 'X' | '';
 	stageN: '0' | '1' | '2' | '3' | 'X' | '';
 	stageM: '0' | '1' | 'X' | '';

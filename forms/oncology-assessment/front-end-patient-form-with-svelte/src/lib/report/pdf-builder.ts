@@ -1,6 +1,6 @@
 import type { TDocumentDefinitions } from 'pdfmake/interfaces';
 import type { AssessmentData, GradingResult } from '$lib/engine/types';
-import { ecogGradeLabel, bmiCategory, calculateAge, cancerTypeLabel, formatTNM, stageLabel } from '$lib/engine/utils';
+import { ecogGradeLabel, bmiCategory, calculateAge, cancerTypeLabel, histologyLabel, formatTNM, stageLabel } from '$lib/engine/utils';
 
 export function buildPdfDocument(
 	data: AssessmentData,
@@ -79,7 +79,7 @@ export function buildPdfDocument(
 							field('Overall Stage', stageLabel(data.cancerDiagnosis.overallStage))
 						],
 						[
-							field('Histology', data.cancerDiagnosis.histology || 'N/A'),
+							field('Histology', data.cancerDiagnosis.histology === 'other' ? data.cancerDiagnosis.histologyOther || 'Other' : histologyLabel(data.cancerDiagnosis.histology)),
 							field('Date of Diagnosis', data.cancerDiagnosis.dateOfDiagnosis || 'N/A')
 						]
 					]

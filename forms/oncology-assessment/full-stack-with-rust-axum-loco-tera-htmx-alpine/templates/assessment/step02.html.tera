@@ -38,9 +38,102 @@
     <div class="form-row">
       <div class="form-group">
         <label for="histology">Histology</label>
-        <input type="text" id="histology" name="cancer_diagnosis.histology"
-               value="{{ cancer_diagnosis.histology }}"
-               placeholder="e.g. Invasive ductal carcinoma">
+        <select id="histology" name="cancer_diagnosis.histology">
+          <option value="">-- Select --</option>
+          <optgroup label="Carcinoma — Adenocarcinoma">
+            <option value="adenocarcinoma" {% if cancer_diagnosis.histology == "adenocarcinoma" %}selected{% endif %}>Adenocarcinoma</option>
+            <option value="invasive-ductal-carcinoma" {% if cancer_diagnosis.histology == "invasive-ductal-carcinoma" %}selected{% endif %}>Invasive ductal carcinoma</option>
+            <option value="invasive-lobular-carcinoma" {% if cancer_diagnosis.histology == "invasive-lobular-carcinoma" %}selected{% endif %}>Invasive lobular carcinoma</option>
+            <option value="mucinous-adenocarcinoma" {% if cancer_diagnosis.histology == "mucinous-adenocarcinoma" %}selected{% endif %}>Mucinous adenocarcinoma</option>
+            <option value="papillary-adenocarcinoma" {% if cancer_diagnosis.histology == "papillary-adenocarcinoma" %}selected{% endif %}>Papillary adenocarcinoma</option>
+            <option value="signet-ring-cell-carcinoma" {% if cancer_diagnosis.histology == "signet-ring-cell-carcinoma" %}selected{% endif %}>Signet ring cell carcinoma</option>
+            <option value="clear-cell-carcinoma" {% if cancer_diagnosis.histology == "clear-cell-carcinoma" %}selected{% endif %}>Clear cell carcinoma</option>
+            <option value="cholangiocarcinoma" {% if cancer_diagnosis.histology == "cholangiocarcinoma" %}selected{% endif %}>Cholangiocarcinoma</option>
+          </optgroup>
+          <optgroup label="Carcinoma — Squamous &amp; Transitional">
+            <option value="squamous-cell-carcinoma" {% if cancer_diagnosis.histology == "squamous-cell-carcinoma" %}selected{% endif %}>Squamous cell carcinoma</option>
+            <option value="basal-cell-carcinoma" {% if cancer_diagnosis.histology == "basal-cell-carcinoma" %}selected{% endif %}>Basal cell carcinoma</option>
+            <option value="transitional-cell-carcinoma" {% if cancer_diagnosis.histology == "transitional-cell-carcinoma" %}selected{% endif %}>Transitional cell (urothelial) carcinoma</option>
+            <option value="nasopharyngeal-carcinoma" {% if cancer_diagnosis.histology == "nasopharyngeal-carcinoma" %}selected{% endif %}>Nasopharyngeal carcinoma</option>
+          </optgroup>
+          <optgroup label="Carcinoma — Small Cell &amp; Neuroendocrine">
+            <option value="small-cell-carcinoma" {% if cancer_diagnosis.histology == "small-cell-carcinoma" %}selected{% endif %}>Small cell carcinoma</option>
+            <option value="large-cell-carcinoma" {% if cancer_diagnosis.histology == "large-cell-carcinoma" %}selected{% endif %}>Large cell carcinoma</option>
+            <option value="large-cell-neuroendocrine-carcinoma" {% if cancer_diagnosis.histology == "large-cell-neuroendocrine-carcinoma" %}selected{% endif %}>Large cell neuroendocrine carcinoma</option>
+            <option value="neuroendocrine-tumour" {% if cancer_diagnosis.histology == "neuroendocrine-tumour" %}selected{% endif %}>Neuroendocrine tumour</option>
+            <option value="carcinoid-tumour" {% if cancer_diagnosis.histology == "carcinoid-tumour" %}selected{% endif %}>Carcinoid tumour</option>
+            <option value="merkel-cell-carcinoma" {% if cancer_diagnosis.histology == "merkel-cell-carcinoma" %}selected{% endif %}>Merkel cell carcinoma</option>
+          </optgroup>
+          <optgroup label="Carcinoma — Renal &amp; Hepatic">
+            <option value="renal-cell-carcinoma" {% if cancer_diagnosis.histology == "renal-cell-carcinoma" %}selected{% endif %}>Renal cell carcinoma</option>
+            <option value="hepatocellular-carcinoma" {% if cancer_diagnosis.histology == "hepatocellular-carcinoma" %}selected{% endif %}>Hepatocellular carcinoma</option>
+          </optgroup>
+          <optgroup label="Carcinoma — Other">
+            <option value="serous-carcinoma" {% if cancer_diagnosis.histology == "serous-carcinoma" %}selected{% endif %}>Serous carcinoma</option>
+            <option value="endometrioid-carcinoma" {% if cancer_diagnosis.histology == "endometrioid-carcinoma" %}selected{% endif %}>Endometrioid carcinoma</option>
+            <option value="medullary-carcinoma" {% if cancer_diagnosis.histology == "medullary-carcinoma" %}selected{% endif %}>Medullary carcinoma</option>
+            <option value="anaplastic-carcinoma" {% if cancer_diagnosis.histology == "anaplastic-carcinoma" %}selected{% endif %}>Anaplastic carcinoma</option>
+            <option value="undifferentiated-carcinoma" {% if cancer_diagnosis.histology == "undifferentiated-carcinoma" %}selected{% endif %}>Undifferentiated carcinoma</option>
+          </optgroup>
+          <optgroup label="Sarcoma">
+            <option value="osteosarcoma" {% if cancer_diagnosis.histology == "osteosarcoma" %}selected{% endif %}>Osteosarcoma</option>
+            <option value="chondrosarcoma" {% if cancer_diagnosis.histology == "chondrosarcoma" %}selected{% endif %}>Chondrosarcoma</option>
+            <option value="leiomyosarcoma" {% if cancer_diagnosis.histology == "leiomyosarcoma" %}selected{% endif %}>Leiomyosarcoma</option>
+            <option value="rhabdomyosarcoma" {% if cancer_diagnosis.histology == "rhabdomyosarcoma" %}selected{% endif %}>Rhabdomyosarcoma</option>
+            <option value="liposarcoma" {% if cancer_diagnosis.histology == "liposarcoma" %}selected{% endif %}>Liposarcoma</option>
+            <option value="fibrosarcoma" {% if cancer_diagnosis.histology == "fibrosarcoma" %}selected{% endif %}>Fibrosarcoma</option>
+            <option value="angiosarcoma" {% if cancer_diagnosis.histology == "angiosarcoma" %}selected{% endif %}>Angiosarcoma</option>
+            <option value="ewing-sarcoma" {% if cancer_diagnosis.histology == "ewing-sarcoma" %}selected{% endif %}>Ewing sarcoma</option>
+            <option value="gastrointestinal-stromal-tumour" {% if cancer_diagnosis.histology == "gastrointestinal-stromal-tumour" %}selected{% endif %}>Gastrointestinal stromal tumour (GIST)</option>
+            <option value="kaposi-sarcoma" {% if cancer_diagnosis.histology == "kaposi-sarcoma" %}selected{% endif %}>Kaposi sarcoma</option>
+          </optgroup>
+          <optgroup label="Lymphoma">
+            <option value="hodgkin-lymphoma" {% if cancer_diagnosis.histology == "hodgkin-lymphoma" %}selected{% endif %}>Hodgkin lymphoma</option>
+            <option value="diffuse-large-b-cell-lymphoma" {% if cancer_diagnosis.histology == "diffuse-large-b-cell-lymphoma" %}selected{% endif %}>Diffuse large B-cell lymphoma</option>
+            <option value="follicular-lymphoma" {% if cancer_diagnosis.histology == "follicular-lymphoma" %}selected{% endif %}>Follicular lymphoma</option>
+            <option value="mantle-cell-lymphoma" {% if cancer_diagnosis.histology == "mantle-cell-lymphoma" %}selected{% endif %}>Mantle cell lymphoma</option>
+            <option value="marginal-zone-lymphoma" {% if cancer_diagnosis.histology == "marginal-zone-lymphoma" %}selected{% endif %}>Marginal zone lymphoma</option>
+            <option value="burkitt-lymphoma" {% if cancer_diagnosis.histology == "burkitt-lymphoma" %}selected{% endif %}>Burkitt lymphoma</option>
+            <option value="t-cell-lymphoma" {% if cancer_diagnosis.histology == "t-cell-lymphoma" %}selected{% endif %}>T-cell lymphoma</option>
+          </optgroup>
+          <optgroup label="Leukaemia &amp; Myeloma">
+            <option value="acute-myeloid-leukaemia" {% if cancer_diagnosis.histology == "acute-myeloid-leukaemia" %}selected{% endif %}>Acute myeloid leukaemia (AML)</option>
+            <option value="acute-lymphoblastic-leukaemia" {% if cancer_diagnosis.histology == "acute-lymphoblastic-leukaemia" %}selected{% endif %}>Acute lymphoblastic leukaemia (ALL)</option>
+            <option value="chronic-lymphocytic-leukaemia" {% if cancer_diagnosis.histology == "chronic-lymphocytic-leukaemia" %}selected{% endif %}>Chronic lymphocytic leukaemia (CLL)</option>
+            <option value="chronic-myeloid-leukaemia" {% if cancer_diagnosis.histology == "chronic-myeloid-leukaemia" %}selected{% endif %}>Chronic myeloid leukaemia (CML)</option>
+            <option value="multiple-myeloma" {% if cancer_diagnosis.histology == "multiple-myeloma" %}selected{% endif %}>Multiple myeloma</option>
+            <option value="myelodysplastic-syndrome" {% if cancer_diagnosis.histology == "myelodysplastic-syndrome" %}selected{% endif %}>Myelodysplastic syndrome</option>
+          </optgroup>
+          <optgroup label="Melanoma">
+            <option value="superficial-spreading-melanoma" {% if cancer_diagnosis.histology == "superficial-spreading-melanoma" %}selected{% endif %}>Superficial spreading melanoma</option>
+            <option value="nodular-melanoma" {% if cancer_diagnosis.histology == "nodular-melanoma" %}selected{% endif %}>Nodular melanoma</option>
+            <option value="lentigo-maligna-melanoma" {% if cancer_diagnosis.histology == "lentigo-maligna-melanoma" %}selected{% endif %}>Lentigo maligna melanoma</option>
+            <option value="acral-lentiginous-melanoma" {% if cancer_diagnosis.histology == "acral-lentiginous-melanoma" %}selected{% endif %}>Acral lentiginous melanoma</option>
+            <option value="uveal-melanoma" {% if cancer_diagnosis.histology == "uveal-melanoma" %}selected{% endif %}>Uveal melanoma</option>
+            <option value="mucosal-melanoma" {% if cancer_diagnosis.histology == "mucosal-melanoma" %}selected{% endif %}>Mucosal melanoma</option>
+          </optgroup>
+          <optgroup label="CNS Tumours">
+            <option value="glioblastoma" {% if cancer_diagnosis.histology == "glioblastoma" %}selected{% endif %}>Glioblastoma (GBM)</option>
+            <option value="astrocytoma" {% if cancer_diagnosis.histology == "astrocytoma" %}selected{% endif %}>Astrocytoma</option>
+            <option value="oligodendroglioma" {% if cancer_diagnosis.histology == "oligodendroglioma" %}selected{% endif %}>Oligodendroglioma</option>
+            <option value="meningioma" {% if cancer_diagnosis.histology == "meningioma" %}selected{% endif %}>Meningioma</option>
+            <option value="medulloblastoma" {% if cancer_diagnosis.histology == "medulloblastoma" %}selected{% endif %}>Medulloblastoma</option>
+            <option value="ependymoma" {% if cancer_diagnosis.histology == "ependymoma" %}selected{% endif %}>Ependymoma</option>
+          </optgroup>
+          <optgroup label="Germ Cell Tumours">
+            <option value="seminoma" {% if cancer_diagnosis.histology == "seminoma" %}selected{% endif %}>Seminoma</option>
+            <option value="non-seminomatous-germ-cell" {% if cancer_diagnosis.histology == "non-seminomatous-germ-cell" %}selected{% endif %}>Non-seminomatous germ cell tumour</option>
+            <option value="teratoma" {% if cancer_diagnosis.histology == "teratoma" %}selected{% endif %}>Teratoma</option>
+            <option value="choriocarcinoma" {% if cancer_diagnosis.histology == "choriocarcinoma" %}selected{% endif %}>Choriocarcinoma</option>
+            <option value="yolk-sac-tumour" {% if cancer_diagnosis.histology == "yolk-sac-tumour" %}selected{% endif %}>Yolk sac tumour</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="mesothelioma" {% if cancer_diagnosis.histology == "mesothelioma" %}selected{% endif %}>Mesothelioma</option>
+            <option value="thymoma" {% if cancer_diagnosis.histology == "thymoma" %}selected{% endif %}>Thymoma</option>
+            <option value="phaeochromocytoma" {% if cancer_diagnosis.histology == "phaeochromocytoma" %}selected{% endif %}>Phaeochromocytoma</option>
+            <option value="other" {% if cancer_diagnosis.histology == "other" %}selected{% endif %}>Other</option>
+          </optgroup>
+        </select>
       </div>
       <div class="form-group">
         <label for="date_of_diagnosis">Date of Diagnosis</label>

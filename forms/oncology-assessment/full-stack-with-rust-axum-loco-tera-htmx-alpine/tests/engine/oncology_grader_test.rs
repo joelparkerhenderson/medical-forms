@@ -22,7 +22,8 @@ fn create_stable_assessment() -> AssessmentData {
     // Cancer Diagnosis (non-scored)
     data.cancer_diagnosis.cancer_type = "breast".to_string();
     data.cancer_diagnosis.cancer_site = "Left breast".to_string();
-    data.cancer_diagnosis.histology = "Invasive ductal carcinoma".to_string();
+    data.cancer_diagnosis.histology = "invasive-ductal-carcinoma".to_string();
+    data.cancer_diagnosis.histology_other = "".to_string();
     data.cancer_diagnosis.date_of_diagnosis = "2025-12-01".to_string();
     data.cancer_diagnosis.diagnosis_method = "biopsy".to_string();
     data.cancer_diagnosis.biomarkers_tested = "ER, PR, HER2".to_string();

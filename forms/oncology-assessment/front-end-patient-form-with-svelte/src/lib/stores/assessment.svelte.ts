@@ -17,6 +17,7 @@ function createDefaultAssessment(): AssessmentData {
 			cancerTypeOther: '',
 			primarySite: '',
 			histology: '',
+			histologyOther: '',
 			stageT: '',
 			stageN: '',
 			stageM: '',

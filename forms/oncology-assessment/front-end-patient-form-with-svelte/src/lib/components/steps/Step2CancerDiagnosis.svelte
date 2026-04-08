@@ -3,6 +3,7 @@
 	import SectionCard from '$lib/components/ui/SectionCard.svelte';
 	import TextInput from '$lib/components/ui/TextInput.svelte';
 	import SelectInput from '$lib/components/ui/SelectInput.svelte';
+	import HistologySelect from '$lib/components/ui/HistologySelect.svelte';
 
 	const c = assessment.data.cancerDiagnosis;
 </script>
@@ -43,7 +44,11 @@
 	{/if}
 
 	<TextInput label="Primary Site" name="primarySite" bind:value={c.primarySite} placeholder="e.g., Left breast, Right upper lobe" />
-	<TextInput label="Histology" name="histology" bind:value={c.histology} placeholder="e.g., Invasive ductal carcinoma, Adenocarcinoma" />
+	<HistologySelect bind:value={c.histology} />
+
+	{#if c.histology === 'other'}
+		<TextInput label="Specify Histology" name="histologyOther" bind:value={c.histologyOther} required />
+	{/if}
 
 	<h3 class="mt-4 mb-2 text-sm font-semibold text-gray-700">TNM Staging</h3>
 	<div class="grid grid-cols-1 gap-x-4 sm:grid-cols-3">
