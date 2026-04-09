@@ -1,0 +1,296 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:cardiology-assessment",
+        "code": "assessment_arrhythmia_conduction",
+        "display": "Arrhythmia Conduction"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "has_palpitations",
+            "display": "Has Palpitations"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment:has_palpitations",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "palpitation_character",
+            "display": "Palpitation Character"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment:palpitation_character",
+            "code": "regular",
+            "display": "Regular"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "palpitation_frequency",
+            "display": "Palpitation Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment:palpitation_frequency",
+            "code": "daily",
+            "display": "Daily"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "known_atrial_fibrillation",
+            "display": "Known Atrial Fibrillation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment:known_atrial_fibrillation",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "af_type",
+            "display": "Af Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment:af_type",
+            "code": "paroxysmal",
+            "display": "Paroxysmal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "history_of_syncope",
+            "display": "History Of Syncope"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment:history_of_syncope",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "syncope_details",
+            "display": "Syncope Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "history_of_presyncope",
+            "display": "History Of Presyncope"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment:history_of_presyncope",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "known_conduction_disorder",
+            "display": "Known Conduction Disorder"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment:known_conduction_disorder",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "conduction_disorder_type",
+            "display": "Conduction Disorder Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment:conduction_disorder_type",
+            "code": "lbbb",
+            "display": "Lbbb"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "has_pacemaker",
+            "display": "Has Pacemaker"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment:has_pacemaker",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "has_icd",
+            "display": "Has Icd"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment:has_icd",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "device_details",
+            "display": "Device Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cardiology-assessment",
+            "code": "arrhythmia_notes",
+            "display": "Arrhythmia Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

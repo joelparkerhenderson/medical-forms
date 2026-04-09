@@ -1,0 +1,228 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:rheumatology-assessment",
+        "code": "assessment_functional_assessment",
+        "display": "Functional Assessment"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "haq_dressing_grooming",
+            "display": "Haq Dressing Grooming"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "haq_arising",
+            "display": "Haq Arising"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "haq_eating",
+            "display": "Haq Eating"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "haq_walking",
+            "display": "Haq Walking"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "haq_hygiene",
+            "display": "Haq Hygiene"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "haq_reach",
+            "display": "Haq Reach"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "haq_grip",
+            "display": "Haq Grip"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "haq_activities",
+            "display": "Haq Activities"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "work_impact",
+            "display": "Work Impact"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:work_impact",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "mobility_aid_use",
+            "display": "Mobility Aid Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:mobility_aid_use",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "mobility_aid_details",
+            "display": "Mobility Aid Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "physiotherapy_current",
+            "display": "Physiotherapy Current"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:physiotherapy_current",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "occupational_therapy_current",
+            "display": "Occupational Therapy Current"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:occupational_therapy_current",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    }
+  ]
+}

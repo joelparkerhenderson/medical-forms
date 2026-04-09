@@ -1,0 +1,352 @@
+{
+  "resourceType": "Observation",
+  "id": "cc0e8400-e29b-41d4-a716-446655440007",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+        "code": "assessment_cardiovascular_risk",
+        "display": "Cardiovascular Risk"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "has_hypertension",
+            "display": "Has Hypertension"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:has_hypertension",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "systolic_bp_mmhg",
+            "display": "Systolic Bp Mmhg"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "diastolic_bp_mmhg",
+            "display": "Diastolic Bp Mmhg"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "on_antihypertensive",
+            "display": "On Antihypertensive"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:on_antihypertensive",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "has_diabetes",
+            "display": "Has Diabetes"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:has_diabetes",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "diabetes_type",
+            "display": "Diabetes Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:diabetes_type",
+            "code": "type-1",
+            "display": "Type-1"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "hba1c",
+            "display": "Hba1C"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "total_cholesterol",
+            "display": "Total Cholesterol"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "hdl_cholesterol",
+            "display": "Hdl Cholesterol"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "ldl_cholesterol",
+            "display": "Ldl Cholesterol"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "triglycerides",
+            "display": "Triglycerides"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "on_statin",
+            "display": "On Statin"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:on_statin",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "history_of_vte",
+            "display": "History Of Vte"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:history_of_vte",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "vte_details",
+            "display": "Vte Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "history_of_stroke_tia",
+            "display": "History Of Stroke Tia"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:history_of_stroke_tia",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "history_of_mi",
+            "display": "History Of Mi"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:history_of_mi",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "family_history_cvd",
+            "display": "Family History Cvd"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:family_history_cvd",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "qrisk3_score",
+            "display": "Qrisk3 Score"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 5.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "cardiovascular_notes",
+            "display": "Cardiovascular Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

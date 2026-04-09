@@ -6,18 +6,21 @@ Research the SQL in the folder `sql-migrations`.
 
 Slug: fhir-r5
 
+- Search pattern: "forms/\*/sql-migrations/\*.sql"
+- Search pattern: "forms/\*/fhir-r5/\*.json"
+
 ## FHIR R5 resource mapping
 
 Each SQL table maps to a FHIR R5 resource type:
 
-| SQL table               | FHIR R5 resource      | Purpose                              |
-|-------------------------|-----------------------|--------------------------------------|
-| patient                 | Patient               | Patient demographics and identifiers |
-| assessment              | Encounter             | Clinical encounter for the form      |
-| assessment_*            | Observation           | Clinical data sections (components)  |
-| grading_result          | ClinicalImpression    | Computed scoring/grading result      |
-| grading_fired_rule      | DetectedIssue         | Rules that fired during grading      |
-| grading_additional_flag | DetectedIssue         | Safety-critical flags                |
+| SQL table               | FHIR R5 resource   | Purpose                              |
+|-------------------------|--------------------|--------------------------------------|
+| patient                 | Patient            | Patient demographics and identifiers |
+| assessment              | Encounter          | Clinical encounter for the form      |
+| assessment_*            | Observation        | Clinical data sections (components)  |
+| grading_result          | ClinicalImpression | Computed scoring/grading result      |
+| grading_fired_rule      | DetectedIssue      | Rules that fired during grading      |
+| grading_additional_flag | DetectedIssue      | Safety-critical flags                |
 
 ## Directory structure
 
@@ -37,6 +40,7 @@ fhir-r5/
 - All resources include `meta.profile` referencing the base StructureDefinition
 - Patient NHS numbers use system `https://fhir.nhs.uk/Id/nhs-number`
 - Encounter class coded as AMB (ambulatory) from v3-ActCode
+- Encounter type coded with SNOMED CT
 - Observation category coded as `survey` for form-based data
 - Observation components map SQL columns to typed FHIR values
 - ClinicalImpression summarises grading results as free text
@@ -52,4 +56,10 @@ python3 bin/generate-fhir-r5-representations.py
 
 ## Verify
 
-Verify that each JSON file is valid JSON and contains a valid `resourceType`.
+Validate all JSON files are well-formed and contain valid FHIR resource types:
+
+```sh
+for f in forms/*/fhir-r5/*.json; do
+  python3 -c "import json; json.load(open('$f'))"
+done
+```

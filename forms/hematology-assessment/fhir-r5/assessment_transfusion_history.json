@@ -1,0 +1,100 @@
+{
+  "resourceType": "Observation",
+  "id": "ee0e8400-e29b-41d4-a716-446655440009",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:hematology-assessment",
+        "code": "assessment_transfusion_history",
+        "display": "Transfusion History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hematology-assessment",
+            "code": "previous_transfusions",
+            "display": "Previous Transfusions"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hematology-assessment",
+            "code": "transfusion_reactions",
+            "display": "Transfusion Reactions"
+          }
+        ]
+      },
+      "valueString": "Urticaria"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hematology-assessment",
+            "code": "blood_group_type",
+            "display": "Blood Group Type"
+          }
+        ]
+      },
+      "valueString": "standard"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hematology-assessment",
+            "code": "antibody_screen",
+            "display": "Antibody Screen"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hematology-assessment",
+            "code": "crossmatch_results",
+            "display": "Crossmatch Results"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:sleep-quality-assessment",
+        "code": "assessment_medical_lifestyle_factors",
+        "display": "Medical Lifestyle Factors"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "obstructive_sleep_apnoea",
+            "display": "Obstructive Sleep Apnoea"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:obstructive_sleep_apnoea",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "cpap_use",
+            "display": "Cpap Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:cpap_use",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "chronic_pain",
+            "display": "Chronic Pain"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:chronic_pain",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "chronic_pain_details",
+            "display": "Chronic Pain Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "depression",
+            "display": "Depression"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:depression",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "anxiety",
+            "display": "Anxiety"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:anxiety",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "ptsd",
+            "display": "Ptsd"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:ptsd",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "thyroid_disorder",
+            "display": "Thyroid Disorder"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:thyroid_disorder",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "respiratory_disease",
+            "display": "Respiratory Disease"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:respiratory_disease",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "cardiac_disease",
+            "display": "Cardiac Disease"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:cardiac_disease",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "neurological_condition",
+            "display": "Neurological Condition"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:neurological_condition",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "neurological_details",
+            "display": "Neurological Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "exercise_frequency",
+            "display": "Exercise Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:exercise_frequency",
+            "code": "daily",
+            "display": "Daily"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "exercise_timing",
+            "display": "Exercise Timing"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:exercise_timing",
+            "code": "morning",
+            "display": "Morning"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "smoking_status",
+            "display": "Smoking Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:smoking_status",
+            "code": "current",
+            "display": "Current"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "alcohol_frequency",
+            "display": "Alcohol Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:alcohol_frequency",
+            "code": "daily",
+            "display": "Daily"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "stress_level",
+            "display": "Stress Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:stress_level",
+            "code": "low",
+            "display": "Low"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "additional_notes",
+            "display": "Additional Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "resourceType": "Observation",
+  "id": "ee0e8400-e29b-41d4-a716-446655440009",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:sleep-quality-assessment",
+        "code": "assessment_sleep_medication_use",
+        "display": "Sleep Medication Use"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "sleep_medication_frequency",
+            "display": "Sleep Medication Frequency"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "prescribed_sleep_medication",
+            "display": "Prescribed Sleep Medication"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:prescribed_sleep_medication",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "prescribed_medication_names",
+            "display": "Prescribed Medication Names"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "prescribed_medication_dose",
+            "display": "Prescribed Medication Dose"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "prescribed_medication_duration_months",
+            "display": "Prescribed Medication Duration Months"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "over_the_counter_sleep_aids",
+            "display": "Over The Counter Sleep Aids"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:over_the_counter_sleep_aids",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "otc_sleep_aid_details",
+            "display": "Otc Sleep Aid Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "melatonin_use",
+            "display": "Melatonin Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:melatonin_use",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "melatonin_dose_mg",
+            "display": "Melatonin Dose Mg"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "herbal_supplements",
+            "display": "Herbal Supplements"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:herbal_supplements",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "herbal_supplement_details",
+            "display": "Herbal Supplement Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "caffeine_daily_intake",
+            "display": "Caffeine Daily Intake"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:caffeine_daily_intake",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "caffeine_last_intake_time",
+            "display": "Caffeine Last Intake Time"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment",
+            "code": "alcohol_as_sleep_aid",
+            "display": "Alcohol As Sleep Aid"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sleep-quality-assessment:alcohol_as_sleep_aid",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    }
+  ]
+}

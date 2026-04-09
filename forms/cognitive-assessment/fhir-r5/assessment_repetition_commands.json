@@ -1,0 +1,188 @@
+{
+  "resourceType": "Observation",
+  "id": "ee0e8400-e29b-41d4-a716-446655440009",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:cognitive-assessment",
+        "code": "assessment_repetition_commands",
+        "display": "Repetition Commands"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "command_take_paper",
+            "display": "Command Take Paper"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:command_take_paper",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "command_fold_paper",
+            "display": "Command Fold Paper"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:command_fold_paper",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "command_put_on_floor",
+            "display": "Command Put On Floor"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:command_put_on_floor",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "three_stage_command_score",
+            "display": "Three Stage Command Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "reading_instruction_followed",
+            "display": "Reading Instruction Followed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:reading_instruction_followed",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "reading_score",
+            "display": "Reading Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "writing_sentence_produced",
+            "display": "Writing Sentence Produced"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:writing_sentence_produced",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "writing_score",
+            "display": "Writing Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "commands_notes",
+            "display": "Commands Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

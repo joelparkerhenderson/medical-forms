@@ -1,0 +1,212 @@
+{
+  "resourceType": "Observation",
+  "id": "aa0e8400-e29b-41d4-a716-446655440005",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:autism-assessment",
+        "code": "assessment_social_communication",
+        "display": "Social Communication"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment",
+            "code": "eye_contact_difficulty",
+            "display": "Eye Contact Difficulty"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment:eye_contact_difficulty",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment",
+            "code": "understanding_sarcasm",
+            "display": "Understanding Sarcasm"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment:understanding_sarcasm",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment",
+            "code": "difficulty_starting_conversations",
+            "display": "Difficulty Starting Conversations"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment:difficulty_starting_conversations",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment",
+            "code": "difficulty_maintaining_conversations",
+            "display": "Difficulty Maintaining Conversations"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment:difficulty_maintaining_conversations",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment",
+            "code": "literal_interpretation",
+            "display": "Literal Interpretation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment:literal_interpretation",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment",
+            "code": "difficulty_reading_body_language",
+            "display": "Difficulty Reading Body Language"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment:difficulty_reading_body_language",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment",
+            "code": "difficulty_making_friends",
+            "display": "Difficulty Making Friends"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment:difficulty_making_friends",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment",
+            "code": "preference_for_solitary_activities",
+            "display": "Preference For Solitary Activities"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment:preference_for_solitary_activities",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:autism-assessment",
+            "code": "social_communication_notes",
+            "display": "Social Communication Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

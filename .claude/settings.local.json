@@ -127,7 +127,10 @@
       "Bash(for d:*)",
       "Bash(do echo:*)",
       "Read(//Users/jph/git/joelparkerhenderson/medical-forms/$d/**)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(do)",
+      "Bash(echo \"=== $d ===\")",
+      "Read(//Users/jph/git/joelparkerhenderson/medical-forms/forms/$d/**)"
     ]
   }
 }

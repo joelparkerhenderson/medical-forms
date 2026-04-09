@@ -1,0 +1,360 @@
+{
+  "resourceType": "Observation",
+  "id": "ee0e8400-e29b-41d4-a716-446655440009",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+        "code": "assessment_triggers_and_patterns",
+        "display": "Triggers And Patterns"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "heat_trigger",
+            "display": "Heat Trigger"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:heat_trigger",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "cold_trigger",
+            "display": "Cold Trigger"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:cold_trigger",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "stress_trigger",
+            "display": "Stress Trigger"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:stress_trigger",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "exercise_trigger",
+            "display": "Exercise Trigger"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:exercise_trigger",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "food_trigger",
+            "display": "Food Trigger"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:food_trigger",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "food_trigger_details",
+            "display": "Food Trigger Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "alcohol_trigger",
+            "display": "Alcohol Trigger"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:alcohol_trigger",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "medication_trigger",
+            "display": "Medication Trigger"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:medication_trigger",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "medication_trigger_details",
+            "display": "Medication Trigger Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "fragrance_chemical_trigger",
+            "display": "Fragrance Chemical Trigger"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:fragrance_chemical_trigger",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "insect_sting_trigger",
+            "display": "Insect Sting Trigger"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:insect_sting_trigger",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "hormonal_trigger",
+            "display": "Hormonal Trigger"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:hormonal_trigger",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "hormonal_trigger_details",
+            "display": "Hormonal Trigger Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "infection_trigger",
+            "display": "Infection Trigger"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:infection_trigger",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "other_triggers",
+            "display": "Other Triggers"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "diurnal_pattern",
+            "display": "Diurnal Pattern"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:diurnal_pattern",
+            "code": "morning",
+            "display": "Morning"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "seasonal_pattern",
+            "display": "Seasonal Pattern"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:seasonal_pattern",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "seasonal_pattern_details",
+            "display": "Seasonal Pattern Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

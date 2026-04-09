@@ -1,0 +1,260 @@
+{
+  "resourceType": "Observation",
+  "id": "cc0e8400-e29b-41d4-a716-446655440007",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:audiology-assessment",
+        "code": "assessment_vestibular_symptoms",
+        "display": "Vestibular Symptoms"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "has_dizziness",
+            "display": "Has Dizziness"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment:has_dizziness",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "has_vertigo",
+            "display": "Has Vertigo"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment:has_vertigo",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "vertigo_type",
+            "display": "Vertigo Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment:vertigo_type",
+            "code": "spinning",
+            "display": "Spinning"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "vertigo_duration",
+            "display": "Vertigo Duration"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "vertigo_frequency",
+            "display": "Vertigo Frequency"
+          }
+        ]
+      },
+      "valueString": "twice daily"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "vertigo_triggers",
+            "display": "Vertigo Triggers"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "has_balance_problems",
+            "display": "Has Balance Problems"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment:has_balance_problems",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "has_falls",
+            "display": "Has Falls"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment:has_falls",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "falls_frequency",
+            "display": "Falls Frequency"
+          }
+        ]
+      },
+      "valueString": "twice daily"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "has_nausea_with_dizziness",
+            "display": "Has Nausea With Dizziness"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment:has_nausea_with_dizziness",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "has_aural_fullness",
+            "display": "Has Aural Fullness"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment:has_aural_fullness",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "suspected_meniere_disease",
+            "display": "Suspected Meniere Disease"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment:suspected_meniere_disease",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:audiology-assessment",
+            "code": "vestibular_notes",
+            "display": "Vestibular Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

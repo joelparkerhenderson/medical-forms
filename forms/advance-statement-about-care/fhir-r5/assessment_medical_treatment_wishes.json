@@ -1,0 +1,136 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:advance-statement-about-care",
+        "code": "assessment_medical_treatment_wishes",
+        "display": "Medical Treatment Wishes"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "pain_management_preferences",
+            "display": "Pain Management Preferences"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "attitude_to_hospital_admission",
+            "display": "Attitude To Hospital Admission"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "attitude_to_intensive_care",
+            "display": "Attitude To Intensive Care"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "attitude_to_artificial_nutrition",
+            "display": "Attitude To Artificial Nutrition"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "attitude_to_artificial_hydration",
+            "display": "Attitude To Artificial Hydration"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "medication_preferences",
+            "display": "Medication Preferences"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "complementary_therapy_preferences",
+            "display": "Complementary Therapy Preferences"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "other_treatment_wishes",
+            "display": "Other Treatment Wishes"
+          }
+        ]
+      },
+      "valueString": ""
+    }
+  ]
+}

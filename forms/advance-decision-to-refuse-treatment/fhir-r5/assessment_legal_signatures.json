@@ -1,0 +1,192 @@
+{
+  "resourceType": "Observation",
+  "id": "110e8400-e29b-41d4-a716-44665544000b",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+        "code": "assessment_legal_signatures",
+        "display": "Legal Signatures"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "maker_signature_obtained",
+            "display": "Maker Signature Obtained"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment:maker_signature_obtained",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "maker_signature_date",
+            "display": "Maker Signature Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "witness_name",
+            "display": "Witness Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "witness_address",
+            "display": "Witness Address"
+          }
+        ]
+      },
+      "valueString": "123 Example Street"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "witness_signature_obtained",
+            "display": "Witness Signature Obtained"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment:witness_signature_obtained",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "witness_signature_date",
+            "display": "Witness Signature Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "second_witness_name",
+            "display": "Second Witness Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "second_witness_signature_obtained",
+            "display": "Second Witness Signature Obtained"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment:second_witness_signature_obtained",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "declaration_statement_agreed",
+            "display": "Declaration Statement Agreed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment:declaration_statement_agreed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "legal_notes",
+            "display": "Legal Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

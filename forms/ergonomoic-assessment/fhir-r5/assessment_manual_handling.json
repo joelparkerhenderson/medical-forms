@@ -1,0 +1,336 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:ergonomoic-assessment",
+        "code": "assessment_manual_handling",
+        "display": "Manual Handling"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "involves_lifting",
+            "display": "Involves Lifting"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:involves_lifting",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "max_lift_weight_kg",
+            "display": "Max Lift Weight Kg"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 70.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "lifting_frequency",
+            "display": "Lifting Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:lifting_frequency",
+            "code": "rarely",
+            "display": "Rarely"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "lifting_height",
+            "display": "Lifting Height"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:lifting_height",
+            "code": "floor_to_waist",
+            "display": "Floor To Waist"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "involves_carrying",
+            "display": "Involves Carrying"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:involves_carrying",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "carry_distance_metres",
+            "display": "Carry Distance Metres"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "involves_pushing_pulling",
+            "display": "Involves Pushing Pulling"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:involves_pushing_pulling",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "push_pull_force",
+            "display": "Push Pull Force"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:push_pull_force",
+            "code": "light",
+            "display": "Light"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "two_person_lift_available",
+            "display": "Two Person Lift Available"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:two_person_lift_available",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "mechanical_aids_available",
+            "display": "Mechanical Aids Available"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:mechanical_aids_available",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "mechanical_aids_details",
+            "display": "Mechanical Aids Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "load_characteristics",
+            "display": "Load Characteristics"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "floor_conditions",
+            "display": "Floor Conditions"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:floor_conditions",
+            "code": "even",
+            "display": "Even"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "space_constraints",
+            "display": "Space Constraints"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:space_constraints",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "manual_handling_training",
+            "display": "Manual Handling Training"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:manual_handling_training",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "training_date",
+            "display": "Training Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "additional_notes",
+            "display": "Additional Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "resourceType": "Observation",
+  "id": "cc0e8400-e29b-41d4-a716-446655440007",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+        "code": "assessment_respiratory_symptoms",
+        "display": "Respiratory Symptoms"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "wheezing",
+            "display": "Wheezing"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:wheezing",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "dyspnoea",
+            "display": "Dyspnoea"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:dyspnoea",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "dyspnoea_severity",
+            "display": "Dyspnoea Severity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "nasal_congestion",
+            "display": "Nasal Congestion"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:nasal_congestion",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "rhinorrhoea",
+            "display": "Rhinorrhoea"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:rhinorrhoea",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "throat_tightness",
+            "display": "Throat Tightness"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:throat_tightness",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "stridor",
+            "display": "Stridor"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:stridor",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "cough",
+            "display": "Cough"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:cough",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "cough_type",
+            "display": "Cough Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:cough_type",
+            "code": "dry",
+            "display": "Dry"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "asthma_diagnosis",
+            "display": "Asthma Diagnosis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:asthma_diagnosis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "peak_flow_lpm",
+            "display": "Peak Flow Lpm"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "respiratory_notes",
+            "display": "Respiratory Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

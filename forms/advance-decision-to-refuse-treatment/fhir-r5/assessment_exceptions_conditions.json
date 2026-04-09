@@ -1,0 +1,120 @@
+{
+  "resourceType": "Observation",
+  "id": "cc0e8400-e29b-41d4-a716-446655440007",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+        "code": "assessment_exceptions_conditions",
+        "display": "Exceptions Conditions"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "has_exceptions",
+            "display": "Has Exceptions"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment:has_exceptions",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "exception_details",
+            "display": "Exception Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "pain_management_wishes",
+            "display": "Pain Management Wishes"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "comfort_care_wishes",
+            "display": "Comfort Care Wishes"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "emergency_exception_details",
+            "display": "Emergency Exception Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "condition_specific_exceptions",
+            "display": "Condition Specific Exceptions"
+          }
+        ]
+      },
+      "valueString": ""
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:casualty-card-form",
+        "code": "casualty_card_medical_history",
+        "display": "Casualty Card Medical History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/bb1e8400-e29b-41d4-a716-446655440015"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "past_medical_history",
+            "display": "Past Medical History"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "past_surgical_history",
+            "display": "Past Surgical History"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "tetanus_status",
+            "display": "Tetanus Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form:tetanus_status",
+            "code": "up-to-date",
+            "display": "Up-To-Date"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "smoking_status",
+            "display": "Smoking Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form:smoking_status",
+            "code": "current",
+            "display": "Current"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "alcohol_consumption",
+            "display": "Alcohol Consumption"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "recreational_drug_use",
+            "display": "Recreational Drug Use"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "last_oral_intake",
+            "display": "Last Oral Intake"
+          }
+        ]
+      },
+      "valueString": ""
+    }
+  ]
+}

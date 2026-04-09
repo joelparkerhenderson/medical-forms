@@ -1,0 +1,120 @@
+{
+  "resourceType": "Observation",
+  "id": "440e8400-e29b-41d4-a716-44665544000e",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:casualty-card-form",
+        "code": "casualty_card_investigations",
+        "display": "Casualty Card Investigations"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/bb1e8400-e29b-41d4-a716-446655440015"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "blood_tests",
+            "display": "Blood Tests"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "urinalysis",
+            "display": "Urinalysis"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "pregnancy_test",
+            "display": "Pregnancy Test"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "ecg_performed",
+            "display": "Ecg Performed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form:ecg_performed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "ecg_findings",
+            "display": "Ecg Findings"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "other_investigations",
+            "display": "Other Investigations"
+          }
+        ]
+      },
+      "valueString": ""
+    }
+  ]
+}

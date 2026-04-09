@@ -1,0 +1,164 @@
+{
+  "resourceType": "Observation",
+  "id": "770e8400-e29b-41d4-a716-446655440002",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+        "code": "assessment_diabetes_history",
+        "display": "Diabetes History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "diabetes_type",
+            "display": "Diabetes Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes:diabetes_type",
+            "code": "type1",
+            "display": "Type1"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "age_at_diagnosis",
+            "display": "Age At Diagnosis"
+          }
+        ]
+      },
+      "valueInteger": 45
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "diabetes_duration_years",
+            "display": "Diabetes Duration Years"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "hba1c_value",
+            "display": "Hba1C Value"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "hba1c_unit",
+            "display": "Hba1C Unit"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes:hba1c_unit",
+            "code": "mmol/mol",
+            "display": "Mmol/Mol"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "fasting_glucose",
+            "display": "Fasting Glucose"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "diabetes_treatment",
+            "display": "Diabetes Treatment"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes:diabetes_treatment",
+            "code": "diet",
+            "display": "Diet"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "insulin_duration_years",
+            "display": "Insulin Duration Years"
+          }
+        ]
+      },
+      "valueInteger": 1
+    }
+  ]
+}

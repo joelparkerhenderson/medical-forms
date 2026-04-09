@@ -1,0 +1,264 @@
+{
+  "resourceType": "Observation",
+  "id": "aa0e8400-e29b-41d4-a716-446655440005",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:hearing-aid-assessment",
+        "code": "assessment_communication_difficulties",
+        "display": "Communication Difficulties"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "difficulty_quiet_conversation",
+            "display": "Difficulty Quiet Conversation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:difficulty_quiet_conversation",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "difficulty_noisy_environment",
+            "display": "Difficulty Noisy Environment"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:difficulty_noisy_environment",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "difficulty_group_settings",
+            "display": "Difficulty Group Settings"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:difficulty_group_settings",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "difficulty_on_telephone",
+            "display": "Difficulty On Telephone"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:difficulty_on_telephone",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "difficulty_television",
+            "display": "Difficulty Television"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:difficulty_television",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "difficulty_understanding_speech",
+            "display": "Difficulty Understanding Speech"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:difficulty_understanding_speech",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "asks_people_to_repeat",
+            "display": "Asks People To Repeat"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:asks_people_to_repeat",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "lip_reading_reliance",
+            "display": "Lip Reading Reliance"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:lip_reading_reliance",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "social_withdrawal",
+            "display": "Social Withdrawal"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:social_withdrawal",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "communication_partner_concerns",
+            "display": "Communication Partner Concerns"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:communication_partner_concerns",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "communication_partner_details",
+            "display": "Communication Partner Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "communication_notes",
+            "display": "Communication Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

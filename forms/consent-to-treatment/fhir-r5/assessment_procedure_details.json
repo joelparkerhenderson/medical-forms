@@ -1,0 +1,212 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:consent-to-treatment",
+        "code": "assessment_procedure_details",
+        "display": "Procedure Details"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "procedure_name",
+            "display": "Procedure Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "procedure_description",
+            "display": "Procedure Description"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "procedure_site",
+            "display": "Procedure Site"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment:procedure_site",
+            "code": "left",
+            "display": "Left"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "procedure_site_details",
+            "display": "Procedure Site Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "intended_benefit",
+            "display": "Intended Benefit"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "urgency",
+            "display": "Urgency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment:urgency",
+            "code": "elective",
+            "display": "Elective"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "planned_date",
+            "display": "Planned Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "estimated_duration_minutes",
+            "display": "Estimated Duration Minutes"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "performing_clinician",
+            "display": "Performing Clinician"
+          }
+        ]
+      },
+      "valueString": "Dr Smith"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "performing_clinician_role",
+            "display": "Performing Clinician Role"
+          }
+        ]
+      },
+      "valueString": "Dr Smith"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "supervised_by",
+            "display": "Supervised By"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "additional_procedures",
+            "display": "Additional Procedures"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "procedure_notes",
+            "display": "Procedure Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+{
+  "resourceType": "Observation",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:oncology-assessment",
+        "code": "assessment_treatment_history",
+        "display": "Treatment History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "has_prior_surgery",
+            "display": "Has Prior Surgery"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:has_prior_surgery",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "surgery_details",
+            "display": "Surgery Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "has_prior_radiation",
+            "display": "Has Prior Radiation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:has_prior_radiation",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "radiation_details",
+            "display": "Radiation Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "has_prior_chemotherapy",
+            "display": "Has Prior Chemotherapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:has_prior_chemotherapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "chemotherapy_details",
+            "display": "Chemotherapy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "has_prior_immunotherapy",
+            "display": "Has Prior Immunotherapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:has_prior_immunotherapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "immunotherapy_details",
+            "display": "Immunotherapy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "has_prior_hormone_therapy",
+            "display": "Has Prior Hormone Therapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:has_prior_hormone_therapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "hormone_therapy_details",
+            "display": "Hormone Therapy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "has_prior_targeted_therapy",
+            "display": "Has Prior Targeted Therapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:has_prior_targeted_therapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "targeted_therapy_details",
+            "display": "Targeted Therapy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "has_clinical_trial_participation",
+            "display": "Has Clinical Trial Participation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:has_clinical_trial_participation",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "clinical_trial_details",
+            "display": "Clinical Trial Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "best_response",
+            "display": "Best Response"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:best_response",
+            "code": "complete-response",
+            "display": "Complete-Response"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "treatment_history_notes",
+            "display": "Treatment History Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

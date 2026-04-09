@@ -1,0 +1,368 @@
+{
+  "resourceType": "Observation",
+  "id": "110e8400-e29b-41d4-a716-44665544000b",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:respirology-assessment",
+        "code": "assessment_sleep_functional",
+        "display": "Sleep Functional"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "sleep_quality",
+            "display": "Sleep Quality"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:sleep_quality",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "snoring",
+            "display": "Snoring"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:snoring",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "witnessed_apnoeas",
+            "display": "Witnessed Apnoeas"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:witnessed_apnoeas",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "daytime_sleepiness",
+            "display": "Daytime Sleepiness"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:daytime_sleepiness",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "epworth_sleepiness_score",
+            "display": "Epworth Sleepiness Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "sleep_study_performed",
+            "display": "Sleep Study Performed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:sleep_study_performed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "osa_diagnosed",
+            "display": "Osa Diagnosed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:osa_diagnosed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "cpap_use",
+            "display": "Cpap Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:cpap_use",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "cpap_compliance",
+            "display": "Cpap Compliance"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:cpap_compliance",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "adl_independence",
+            "display": "Adl Independence"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:adl_independence",
+            "code": "independent",
+            "display": "Independent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "mobility_level",
+            "display": "Mobility Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:mobility_level",
+            "code": "unrestricted",
+            "display": "Unrestricted"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "employment_impact",
+            "display": "Employment Impact"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:employment_impact",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "exercise_tolerance",
+            "display": "Exercise Tolerance"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "quality_of_life_impact",
+            "display": "Quality Of Life Impact"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:quality_of_life_impact",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "pulmonary_rehabilitation",
+            "display": "Pulmonary Rehabilitation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:pulmonary_rehabilitation",
+            "code": "completed",
+            "display": "Completed"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "advance_care_planning",
+            "display": "Advance Care Planning"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment:advance_care_planning",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "advance_care_details",
+            "display": "Advance Care Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:respirology-assessment",
+            "code": "additional_notes",
+            "display": "Additional Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

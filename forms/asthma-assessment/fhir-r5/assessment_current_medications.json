@@ -1,0 +1,308 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:asthma-assessment",
+        "code": "assessment_current_medications",
+        "display": "Current Medications"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "uses_saba_reliever",
+            "display": "Uses Saba Reliever"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:uses_saba_reliever",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "saba_name",
+            "display": "Saba Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "saba_frequency",
+            "display": "Saba Frequency"
+          }
+        ]
+      },
+      "valueString": "twice daily"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "uses_ics_preventer",
+            "display": "Uses Ics Preventer"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:uses_ics_preventer",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "ics_name",
+            "display": "Ics Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "ics_dose",
+            "display": "Ics Dose"
+          }
+        ]
+      },
+      "valueString": "500mg"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "uses_laba",
+            "display": "Uses Laba"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:uses_laba",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "laba_name",
+            "display": "Laba Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "uses_ltra",
+            "display": "Uses Ltra"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:uses_ltra",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "ltra_name",
+            "display": "Ltra Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "uses_biologic",
+            "display": "Uses Biologic"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:uses_biologic",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "biologic_name",
+            "display": "Biologic Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "uses_oral_corticosteroid",
+            "display": "Uses Oral Corticosteroid"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:uses_oral_corticosteroid",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "oral_corticosteroid_details",
+            "display": "Oral Corticosteroid Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "inhaler_technique_checked",
+            "display": "Inhaler Technique Checked"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:inhaler_technique_checked",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "adherence_self_rating",
+            "display": "Adherence Self Rating"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:adherence_self_rating",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "other_medications",
+            "display": "Other Medications"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    }
+  ]
+}

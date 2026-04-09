@@ -1,0 +1,270 @@
+{
+  "resourceType": "Observation",
+  "id": "110e8400-e29b-41d4-a716-44665544000b",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:casualty-card-form",
+        "code": "casualty_card_vital_signs",
+        "display": "Casualty Card Vital Signs"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/bb1e8400-e29b-41d4-a716-446655440015"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "heart_rate",
+            "display": "Heart Rate"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "systolic_bp",
+            "display": "Systolic Bp"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "diastolic_bp",
+            "display": "Diastolic Bp"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "respiratory_rate",
+            "display": "Respiratory Rate"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "oxygen_saturation",
+            "display": "Oxygen Saturation"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "supplemental_oxygen",
+            "display": "Supplemental Oxygen"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form:supplemental_oxygen",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "oxygen_flow_rate",
+            "display": "Oxygen Flow Rate"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "temperature",
+            "display": "Temperature"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "blood_glucose",
+            "display": "Blood Glucose"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "consciousness_level",
+            "display": "Consciousness Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form:consciousness_level",
+            "code": "alert",
+            "display": "Alert"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "pupil_left_size",
+            "display": "Pupil Left Size"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "pupil_left_reactive",
+            "display": "Pupil Left Reactive"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form:pupil_left_reactive",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "pupil_right_size",
+            "display": "Pupil Right Size"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "pupil_right_reactive",
+            "display": "Pupil Right Reactive"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form:pupil_right_reactive",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "capillary_refill_time",
+            "display": "Capillary Refill Time"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "weight",
+            "display": "Weight"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 70.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,438 @@
+{
+  "resourceType": "Observation",
+  "id": "aa0e8400-e29b-41d4-a716-446655440005",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:orthopedic-assessment",
+        "code": "assessment_dash_questionnaire",
+        "display": "Dash Questionnaire"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q01_open_jar",
+            "display": "Q01 Open Jar"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q02_write",
+            "display": "Q02 Write"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q03_turn_key",
+            "display": "Q03 Turn Key"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q04_prepare_meal",
+            "display": "Q04 Prepare Meal"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q05_push_door",
+            "display": "Q05 Push Door"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q06_place_object_shelf",
+            "display": "Q06 Place Object Shelf"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q07_heavy_household",
+            "display": "Q07 Heavy Household"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q08_garden_yard",
+            "display": "Q08 Garden Yard"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q09_make_bed",
+            "display": "Q09 Make Bed"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q10_carry_bag",
+            "display": "Q10 Carry Bag"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q11_carry_heavy",
+            "display": "Q11 Carry Heavy"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q12_overhead",
+            "display": "Q12 Overhead"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q13_wash_back",
+            "display": "Q13 Wash Back"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q14_use_knife",
+            "display": "Q14 Use Knife"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q15_recreational_force",
+            "display": "Q15 Recreational Force"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q16_recreational_arm",
+            "display": "Q16 Recreational Arm"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q17_transportation",
+            "display": "Q17 Transportation"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q18_sexual_activity",
+            "display": "Q18 Sexual Activity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q19_family_care",
+            "display": "Q19 Family Care"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q20_social_activity",
+            "display": "Q20 Social Activity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q21_limited_work",
+            "display": "Q21 Limited Work"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q22_usual_work",
+            "display": "Q22 Usual Work"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q23_arm_pain",
+            "display": "Q23 Arm Pain"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q24_arm_pain_activity",
+            "display": "Q24 Arm Pain Activity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q25_tingling",
+            "display": "Q25 Tingling"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q26_weakness",
+            "display": "Q26 Weakness"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q27_stiffness",
+            "display": "Q27 Stiffness"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q28_sleep_difficulty",
+            "display": "Q28 Sleep Difficulty"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q29_less_capable",
+            "display": "Q29 Less Capable"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "q30_less_confident",
+            "display": "Q30 Less Confident"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "items_answered",
+            "display": "Items Answered"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "dash_score",
+            "display": "Dash Score"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 5.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "dash_notes",
+            "display": "Dash Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

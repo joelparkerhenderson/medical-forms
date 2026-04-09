@@ -1,0 +1,172 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:genetic-assessment",
+        "code": "assessment_referral_information",
+        "display": "Referral Information"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:genetic-assessment",
+            "code": "referring_clinician_name",
+            "display": "Referring Clinician Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:genetic-assessment",
+            "code": "referring_clinician_role",
+            "display": "Referring Clinician Role"
+          }
+        ]
+      },
+      "valueString": "Dr Smith"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:genetic-assessment",
+            "code": "referring_organisation",
+            "display": "Referring Organisation"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:genetic-assessment",
+            "code": "referral_date",
+            "display": "Referral Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:genetic-assessment",
+            "code": "referral_reason",
+            "display": "Referral Reason"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:genetic-assessment",
+            "code": "referral_urgency",
+            "display": "Referral Urgency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:genetic-assessment:referral_urgency",
+            "code": "routine",
+            "display": "Routine"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:genetic-assessment",
+            "code": "specialty_referred_to",
+            "display": "Specialty Referred To"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:genetic-assessment:specialty_referred_to",
+            "code": "cancer-genetics",
+            "display": "Cancer-Genetics"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:genetic-assessment",
+            "code": "previous_genetic_referral",
+            "display": "Previous Genetic Referral"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:genetic-assessment:previous_genetic_referral",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:genetic-assessment",
+            "code": "previous_referral_details",
+            "display": "Previous Referral Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

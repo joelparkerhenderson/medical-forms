@@ -1,0 +1,254 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:rheumatology-assessment",
+        "code": "assessment_current_medications",
+        "display": "Current Medications"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "currently_on_dmard",
+            "display": "Currently On Dmard"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:currently_on_dmard",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "dmard_names",
+            "display": "Dmard Names"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "currently_on_biologic",
+            "display": "Currently On Biologic"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:currently_on_biologic",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "biologic_name",
+            "display": "Biologic Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "currently_on_corticosteroid",
+            "display": "Currently On Corticosteroid"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:currently_on_corticosteroid",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "corticosteroid_dose_mg",
+            "display": "Corticosteroid Dose Mg"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "nsaid_use",
+            "display": "Nsaid Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:nsaid_use",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "nsaid_name",
+            "display": "Nsaid Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "analgesic_use",
+            "display": "Analgesic Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:analgesic_use",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "analgesic_details",
+            "display": "Analgesic Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "folic_acid_supplementation",
+            "display": "Folic Acid Supplementation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:folic_acid_supplementation",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "other_medications",
+            "display": "Other Medications"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "medication_adherence",
+            "display": "Medication Adherence"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:medication_adherence",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    }
+  ]
+}

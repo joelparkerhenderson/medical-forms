@@ -1,0 +1,186 @@
+{
+  "resourceType": "Observation",
+  "id": "ee0e8400-e29b-41d4-a716-446655440009",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+        "code": "assessment_complications_screening",
+        "display": "Complications Screening"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "retinopathy_status",
+            "display": "Retinopathy Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes:retinopathy_status",
+            "code": "notScreened",
+            "display": "Notscreened"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "last_eye_screening_date",
+            "display": "Last Eye Screening Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "neuropathy_symptoms",
+            "display": "Neuropathy Symptoms"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes:neuropathy_symptoms",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "monofilament_test",
+            "display": "Monofilament Test"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes:monofilament_test",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "foot_pulses",
+            "display": "Foot Pulses"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes:foot_pulses",
+            "code": "present",
+            "display": "Present"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "foot_ulcer_history",
+            "display": "Foot Ulcer History"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes:foot_ulcer_history",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "ankle_brachial_index",
+            "display": "Ankle Brachial Index"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "erectile_dysfunction",
+            "display": "Erectile Dysfunction"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes:erectile_dysfunction",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    }
+  ]
+}

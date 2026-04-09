@@ -1,0 +1,256 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:attention-deficit-assessment",
+        "code": "assessment_medical_history",
+        "display": "Medical History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "has_head_injury_history",
+            "display": "Has Head Injury History"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:has_head_injury_history",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "head_injury_details",
+            "display": "Head Injury Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "has_seizure_history",
+            "display": "Has Seizure History"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:has_seizure_history",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "seizure_details",
+            "display": "Seizure Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "has_thyroid_disorder",
+            "display": "Has Thyroid Disorder"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:has_thyroid_disorder",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "thyroid_details",
+            "display": "Thyroid Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "has_cardiac_conditions",
+            "display": "Has Cardiac Conditions"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:has_cardiac_conditions",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "cardiac_details",
+            "display": "Cardiac Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "birth_complications",
+            "display": "Birth Complications"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:birth_complications",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "birth_complication_details",
+            "display": "Birth Complication Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "family_history_of_adhd",
+            "display": "Family History Of Adhd"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:family_history_of_adhd",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "family_adhd_details",
+            "display": "Family Adhd Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "family_psychiatric_history",
+            "display": "Family Psychiatric History"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "other_medical_history",
+            "display": "Other Medical History"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

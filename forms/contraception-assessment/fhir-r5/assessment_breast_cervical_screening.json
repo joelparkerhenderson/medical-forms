@@ -1,0 +1,212 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:contraception-assessment",
+        "code": "assessment_breast_cervical_screening",
+        "display": "Breast Cervical Screening"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "last_cervical_smear_date",
+            "display": "Last Cervical Smear Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "cervical_smear_result",
+            "display": "Cervical Smear Result"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:cervical_smear_result",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "cervical_smear_abnormality_details",
+            "display": "Cervical Smear Abnormality Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "hpv_vaccination_status",
+            "display": "Hpv Vaccination Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:hpv_vaccination_status",
+            "code": "fully-vaccinated",
+            "display": "Fully-Vaccinated"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "breast_self_examination",
+            "display": "Breast Self Examination"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:breast_self_examination",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "last_mammogram_date",
+            "display": "Last Mammogram Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "mammogram_result",
+            "display": "Mammogram Result"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:mammogram_result",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "mammogram_abnormality_details",
+            "display": "Mammogram Abnormality Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "breast_lumps_or_changes",
+            "display": "Breast Lumps Or Changes"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:breast_lumps_or_changes",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "breast_change_details",
+            "display": "Breast Change Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "screening_notes",
+            "display": "Screening Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:gastroenterology-assessment",
+        "code": "assessment_abdominal_pain",
+        "display": "Abdominal Pain"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "has_abdominal_pain",
+            "display": "Has Abdominal Pain"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:has_abdominal_pain",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "pain_location",
+            "display": "Pain Location"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:pain_location",
+            "code": "epigastric",
+            "display": "Epigastric"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "pain_character",
+            "display": "Pain Character"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:pain_character",
+            "code": "cramping",
+            "display": "Cramping"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "pain_severity",
+            "display": "Pain Severity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "pain_radiation",
+            "display": "Pain Radiation"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "pain_onset",
+            "display": "Pain Onset"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:pain_onset",
+            "code": "sudden",
+            "display": "Sudden"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "pain_duration",
+            "display": "Pain Duration"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "pain_aggravating_factors",
+            "display": "Pain Aggravating Factors"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "pain_relieving_factors",
+            "display": "Pain Relieving Factors"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "relation_to_meals",
+            "display": "Relation To Meals"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:relation_to_meals",
+            "code": "worse_with_food",
+            "display": "Worse With Food"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "relation_to_defecation",
+            "display": "Relation To Defecation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:relation_to_defecation",
+            "code": "better_after",
+            "display": "Better After"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "nocturnal_pain",
+            "display": "Nocturnal Pain"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:nocturnal_pain",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "associated_weight_loss",
+            "display": "Associated Weight Loss"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:associated_weight_loss",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "weight_loss_amount_kg",
+            "display": "Weight Loss Amount Kg"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 70.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "weight_loss_duration",
+            "display": "Weight Loss Duration"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "additional_notes",
+            "display": "Additional Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

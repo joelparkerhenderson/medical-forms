@@ -1,0 +1,292 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:neurology-assessment",
+        "code": "assessment_seizure_history",
+        "display": "Seizure History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "seizure_history",
+            "display": "Seizure History"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:seizure_history",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "epilepsy_diagnosis",
+            "display": "Epilepsy Diagnosis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:epilepsy_diagnosis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "seizure_type",
+            "display": "Seizure Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:seizure_type",
+            "code": "focal-aware",
+            "display": "Focal-Aware"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "seizure_frequency",
+            "display": "Seizure Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:seizure_frequency",
+            "code": "daily",
+            "display": "Daily"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "last_seizure_date",
+            "display": "Last Seizure Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "seizure_duration_typical",
+            "display": "Seizure Duration Typical"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "seizure_triggers",
+            "display": "Seizure Triggers"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "aura_before_seizure",
+            "display": "Aura Before Seizure"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:aura_before_seizure",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "aura_description",
+            "display": "Aura Description"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "postictal_symptoms",
+            "display": "Postictal Symptoms"
+          }
+        ]
+      },
+      "valueString": "Fatigue"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "status_epilepticus_history",
+            "display": "Status Epilepticus History"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:status_epilepticus_history",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "febrile_seizures_childhood",
+            "display": "Febrile Seizures Childhood"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:febrile_seizures_childhood",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "family_history_epilepsy",
+            "display": "Family History Epilepsy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:family_history_epilepsy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "driving_status",
+            "display": "Driving Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:driving_status",
+            "code": "driving",
+            "display": "Driving"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "seizure_notes",
+            "display": "Seizure Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

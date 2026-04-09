@@ -1,0 +1,300 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:dermatology-assessment",
+        "code": "assessment_social_history",
+        "display": "Social History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "occupation",
+            "display": "Occupation"
+          }
+        ]
+      },
+      "valueString": "Teacher"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "occupational_skin_exposure",
+            "display": "Occupational Skin Exposure"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:occupational_skin_exposure",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "occupational_exposure_details",
+            "display": "Occupational Exposure Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "sun_exposure_level",
+            "display": "Sun Exposure Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:sun_exposure_level",
+            "code": "minimal",
+            "display": "Minimal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "sunscreen_use",
+            "display": "Sunscreen Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:sunscreen_use",
+            "code": "always",
+            "display": "Always"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "history_of_sunburn",
+            "display": "History Of Sunburn"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:history_of_sunburn",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "sunburn_frequency",
+            "display": "Sunburn Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:sunburn_frequency",
+            "code": "rare",
+            "display": "Rare"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "sunbed_use",
+            "display": "Sunbed Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:sunbed_use",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "skin_type",
+            "display": "Skin Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:skin_type",
+            "code": "i",
+            "display": "I"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "tobacco_use",
+            "display": "Tobacco Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:tobacco_use",
+            "code": "current",
+            "display": "Current"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "alcohol_use",
+            "display": "Alcohol Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:alcohol_use",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "stress_level",
+            "display": "Stress Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:stress_level",
+            "code": "low",
+            "display": "Low"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "psychological_impact",
+            "display": "Psychological Impact"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "hobbies_affecting_skin",
+            "display": "Hobbies Affecting Skin"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "additional_notes",
+            "display": "Additional Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

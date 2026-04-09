@@ -1,0 +1,162 @@
+{
+  "resourceType": "Observation",
+  "id": "aa0e8400-e29b-41d4-a716-446655440005",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+        "code": "assessment_lipid_profile",
+        "display": "Lipid Profile"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "total_cholesterol",
+            "display": "Total Cholesterol"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "hdl_cholesterol",
+            "display": "Hdl Cholesterol"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "ldl_cholesterol",
+            "display": "Ldl Cholesterol"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "triglycerides",
+            "display": "Triglycerides"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "non_hdl_cholesterol",
+            "display": "Non Hdl Cholesterol"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "on_statin",
+            "display": "On Statin"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes:on_statin",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "statin_name",
+            "display": "Statin Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes",
+            "code": "on_other_lipid_therapy",
+            "display": "On Other Lipid Therapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:systematic-coronary-risk-evaluation-2-diabetes:on_other_lipid_therapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    }
+  ]
+}

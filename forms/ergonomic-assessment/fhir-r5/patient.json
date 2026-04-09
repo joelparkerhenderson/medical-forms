@@ -1,0 +1,27 @@
+{
+  "resourceType": "Patient",
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Patient"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "name": [
+    {
+      "use": "official",
+      "family": "Doe",
+      "given": [
+        "Jane"
+      ]
+    }
+  ],
+  "birthDate": "1965-06-15",
+  "gender": "male",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-occupation",
+      "valueString": "Teacher"
+    }
+  ]
+}

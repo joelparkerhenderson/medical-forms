@@ -1,0 +1,268 @@
+{
+  "resourceType": "Observation",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:cognitive-assessment",
+        "code": "assessment_orientation",
+        "display": "Orientation"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_year",
+            "display": "Orientation Year"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:orientation_year",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_season",
+            "display": "Orientation Season"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:orientation_season",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_month",
+            "display": "Orientation Month"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:orientation_month",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_date",
+            "display": "Orientation Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_day",
+            "display": "Orientation Day"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:orientation_day",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_time_score",
+            "display": "Orientation Time Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_country",
+            "display": "Orientation Country"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:orientation_country",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_county",
+            "display": "Orientation County"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:orientation_county",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_city",
+            "display": "Orientation City"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:orientation_city",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_building",
+            "display": "Orientation Building"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:orientation_building",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_floor",
+            "display": "Orientation Floor"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:orientation_floor",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_place_score",
+            "display": "Orientation Place Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "orientation_notes",
+            "display": "Orientation Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

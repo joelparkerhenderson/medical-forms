@@ -1,0 +1,228 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:contraception-assessment",
+        "code": "assessment_reproductive_history",
+        "display": "Reproductive History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "gravida",
+            "display": "Gravida"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "para",
+            "display": "Para"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "miscarriages",
+            "display": "Miscarriages"
+          }
+        ]
+      },
+      "valueInteger": 45
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "terminations",
+            "display": "Terminations"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "ectopic_pregnancies",
+            "display": "Ectopic Pregnancies"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "last_delivery_date",
+            "display": "Last Delivery Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "last_delivery_method",
+            "display": "Last Delivery Method"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:last_delivery_method",
+            "code": "vaginal",
+            "display": "Vaginal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "breastfeeding",
+            "display": "Breastfeeding"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:breastfeeding",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "weeks_postpartum",
+            "display": "Weeks Postpartum"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "currently_pregnant",
+            "display": "Currently Pregnant"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:currently_pregnant",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "pregnancy_test_date",
+            "display": "Pregnancy Test Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "pregnancy_test_result",
+            "display": "Pregnancy Test Result"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:pregnancy_test_result",
+            "code": "positive",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "reproductive_history_notes",
+            "display": "Reproductive History Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

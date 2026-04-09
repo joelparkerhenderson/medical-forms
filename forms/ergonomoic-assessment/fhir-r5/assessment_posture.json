@@ -1,0 +1,424 @@
+{
+  "resourceType": "Observation",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:ergonomoic-assessment",
+        "code": "assessment_posture",
+        "display": "Posture"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "trunk_position",
+            "display": "Trunk Position"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:trunk_position",
+            "code": "neutral",
+            "display": "Neutral"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "trunk_score",
+            "display": "Trunk Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "trunk_side_bent",
+            "display": "Trunk Side Bent"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:trunk_side_bent",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "trunk_twisted",
+            "display": "Trunk Twisted"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:trunk_twisted",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "neck_position",
+            "display": "Neck Position"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:neck_position",
+            "code": "flexed_0_20",
+            "display": "Flexed 0 20"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "neck_score",
+            "display": "Neck Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "neck_side_bent",
+            "display": "Neck Side Bent"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:neck_side_bent",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "neck_twisted",
+            "display": "Neck Twisted"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:neck_twisted",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "leg_position",
+            "display": "Leg Position"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:leg_position",
+            "code": "bilateral_weight_bearing",
+            "display": "Bilateral Weight Bearing"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "leg_score",
+            "display": "Leg Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "knee_flexion",
+            "display": "Knee Flexion"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:knee_flexion",
+            "code": "flexed_30_60",
+            "display": "Flexed 30 60"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "upper_arm_position",
+            "display": "Upper Arm Position"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:upper_arm_position",
+            "code": "flexed_0_20",
+            "display": "Flexed 0 20"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "upper_arm_score",
+            "display": "Upper Arm Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "shoulder_raised",
+            "display": "Shoulder Raised"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:shoulder_raised",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "upper_arm_abducted",
+            "display": "Upper Arm Abducted"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:upper_arm_abducted",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "lower_arm_position",
+            "display": "Lower Arm Position"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:lower_arm_position",
+            "code": "flexed_60_100",
+            "display": "Flexed 60 100"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "lower_arm_score",
+            "display": "Lower Arm Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "wrist_position",
+            "display": "Wrist Position"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:wrist_position",
+            "code": "neutral",
+            "display": "Neutral"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "wrist_score",
+            "display": "Wrist Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "wrist_deviated",
+            "display": "Wrist Deviated"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:wrist_deviated",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "wrist_twisted",
+            "display": "Wrist Twisted"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:wrist_twisted",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "posture_notes",
+            "display": "Posture Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

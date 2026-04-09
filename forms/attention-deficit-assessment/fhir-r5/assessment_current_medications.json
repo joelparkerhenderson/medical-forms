@@ -1,0 +1,216 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:attention-deficit-assessment",
+        "code": "assessment_current_medications",
+        "display": "Current Medications"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "currently_on_adhd_medication",
+            "display": "Currently On Adhd Medication"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:currently_on_adhd_medication",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "adhd_medication_name",
+            "display": "Adhd Medication Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "adhd_medication_dose",
+            "display": "Adhd Medication Dose"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "adhd_medication_duration",
+            "display": "Adhd Medication Duration"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "adhd_medication_response",
+            "display": "Adhd Medication Response"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:adhd_medication_response",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "previous_adhd_medications",
+            "display": "Previous Adhd Medications"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "previous_medication_side_effects",
+            "display": "Previous Medication Side Effects"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "other_psychiatric_medications",
+            "display": "Other Psychiatric Medications"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "other_regular_medications",
+            "display": "Other Regular Medications"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "cardiovascular_history",
+            "display": "Cardiovascular History"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:cardiovascular_history",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "cardiovascular_details",
+            "display": "Cardiovascular Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "blood_pressure_checked",
+            "display": "Blood Pressure Checked"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:blood_pressure_checked",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    }
+  ]
+}

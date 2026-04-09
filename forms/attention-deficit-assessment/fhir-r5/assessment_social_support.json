@@ -1,0 +1,228 @@
+{
+  "resourceType": "Observation",
+  "id": "110e8400-e29b-41d4-a716-44665544000b",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:attention-deficit-assessment",
+        "code": "assessment_social_support",
+        "display": "Social Support"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "living_situation",
+            "display": "Living Situation"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "employment_status",
+            "display": "Employment Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:employment_status",
+            "code": "employed",
+            "display": "Employed"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "has_support_network",
+            "display": "Has Support Network"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:has_support_network",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "support_network_details",
+            "display": "Support Network Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "coping_strategies",
+            "display": "Coping Strategies"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "risk_taking_behaviour",
+            "display": "Risk Taking Behaviour"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:risk_taking_behaviour",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "risk_behaviour_details",
+            "display": "Risk Behaviour Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "legal_issues",
+            "display": "Legal Issues"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment:legal_issues",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "legal_details",
+            "display": "Legal Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "caffeine_use",
+            "display": "Caffeine Use"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "alcohol_use",
+            "display": "Alcohol Use"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "recreational_drug_use",
+            "display": "Recreational Drug Use"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "goals_for_treatment",
+            "display": "Goals For Treatment"
+          }
+        ]
+      },
+      "valueString": ""
+    }
+  ]
+}

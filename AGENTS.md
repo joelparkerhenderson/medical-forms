@@ -13,6 +13,8 @@ flagged issues.
 - `bin/test-form <slug>` — test a single form by slug
 - `bin/create-form` — scaffold a new form directory
 - `bin/update` — update, upgrade, fix, harmonize, audit, test
+- `bin/generate-xml-representations.py` — generate XML and DTD from SQL migrations
+- `bin/generate-fhir-r5-representations.py` — generate FHIR HL7 R5 JSON from SQL migrations
 
 ## Form directory structure
 
@@ -28,6 +30,8 @@ forms/<slug>/
   tasks.md                                         # Task tracking
   doc/                                             # Documentation and references
   sql-migrations/                                  # PostgreSQL schema migrations
+  xml-representations/                             # XML and DTD per SQL table entity
+  fhir-r5/                                         # FHIR HL7 R5 JSON per SQL table entity
   front-end-patient-form-with-html/                # Patient questionnaire (HTML)
   front-end-patient-form-with-svelte/              # Patient questionnaire (SvelteKit)
   front-end-clinician-dashboard-with-html/         # Clinician dashboard (HTML + table)
@@ -42,6 +46,8 @@ See AGENTS subdirectory files for per-stack details:
 - [Front-end with SvelteKit Tailwind SVAR](AGENTS/front-end-with-sveltekit-tailwind-svar.md)
 - [Full-stack with Rust axum Loco HTMX Alpine](AGENTS/full-stack-with-rust-axum-loco-htmx-alpine.md)
 - [SQL migrations](AGENTS/sql-migrations.md)
+- [XML representations](AGENTS/xml-representations.md)
+- [FHIR HL7 R5 representations](AGENTS/fhir-api.md)
 
 ## Compliance
 

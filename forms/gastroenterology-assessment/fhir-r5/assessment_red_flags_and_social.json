@@ -1,0 +1,380 @@
+{
+  "resourceType": "Observation",
+  "id": "110e8400-e29b-41d4-a716-44665544000b",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:gastroenterology-assessment",
+        "code": "assessment_red_flags_and_social",
+        "display": "Red Flags And Social"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "unintentional_weight_loss",
+            "display": "Unintentional Weight Loss"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:unintentional_weight_loss",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "progressive_dysphagia",
+            "display": "Progressive Dysphagia"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:progressive_dysphagia",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "gi_bleeding",
+            "display": "Gi Bleeding"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:gi_bleeding",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "iron_deficiency_anaemia",
+            "display": "Iron Deficiency Anaemia"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:iron_deficiency_anaemia",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "persistent_vomiting",
+            "display": "Persistent Vomiting"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:persistent_vomiting",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "palpable_abdominal_mass",
+            "display": "Palpable Abdominal Mass"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:palpable_abdominal_mass",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "new_onset_symptoms_over_50",
+            "display": "New Onset Symptoms Over 50"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:new_onset_symptoms_over_50",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "family_history_gi_cancer",
+            "display": "Family History Gi Cancer"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:family_history_gi_cancer",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "family_gi_cancer_details",
+            "display": "Family Gi Cancer Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "night_sweats",
+            "display": "Night Sweats"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:night_sweats",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "fever",
+            "display": "Fever"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:fever",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "tobacco_use",
+            "display": "Tobacco Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:tobacco_use",
+            "code": "current",
+            "display": "Current"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "alcohol_use",
+            "display": "Alcohol Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:alcohol_use",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "recreational_drug_use",
+            "display": "Recreational Drug Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:recreational_drug_use",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "occupation",
+            "display": "Occupation"
+          }
+        ]
+      },
+      "valueString": "Teacher"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "travel_history",
+            "display": "Travel History"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "stress_level",
+            "display": "Stress Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:stress_level",
+            "code": "low",
+            "display": "Low"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "psychological_impact",
+            "display": "Psychological Impact"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "additional_notes",
+            "display": "Additional Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

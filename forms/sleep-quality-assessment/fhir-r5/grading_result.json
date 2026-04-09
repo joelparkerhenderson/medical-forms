@@ -1,0 +1,21 @@
+{
+  "resourceType": "ClinicalImpression",
+  "id": "110e8400-e29b-41d4-a716-44665544000b",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/ClinicalImpression"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "date": "2026-04-09T10:00:00+00:00",
+  "description": "Sleep Quality Assessment grading result",
+  "summary": "Psqi Global Score: 5; Psqi Component1 Subjective Quality: 1; Psqi Component2 Sleep Latency: 1; Psqi Component3 Sleep Duration: 1; Psqi Component4 Sleep Efficiency: 1; Psqi Component5 Sleep Disturbances: 1; Psqi Component6 Sleep Medication: 1; Psqi Component7 Daytime Dysfunction: 1; Sleep Quality Category: good"
+}

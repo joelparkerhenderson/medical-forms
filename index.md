@@ -1,9 +1,10 @@
 # Medical Forms
 
-Medical forms monorepo for structured clinical assessments, patient intake, and
-administrative healthcare documents. Each project collects patient data via a
-step-by-step questionnaire, applies a validated scoring or grading engine, and
-generates a clinical report with flagged issues.
+Medical forms monorepo for structured clinical assessments, patient intake,
+cardiovascular risk calculators, and administrative healthcare documents.
+Each project collects patient data via a step-by-step questionnaire, applies a
+validated scoring or grading engine, and generates a clinical report with
+flagged issues.
 
 ## Projects
 
@@ -41,19 +42,16 @@ generates a clinical report with flagged issues.
 | [Mental health assessment](forms/mental-health-assessment) | PHQ-9 (0-27) + GAD-7 (0-21) | 9 |
 | [Mobility assessment](forms/mobility-assessment) | Tinetti Score (0-28) | 10 |
 | [Neurology assessment](forms/neurology-assessment) | NIHSS Score (0-42) | 10 |
-| [Nutrition assessment](forms/nutrition-assessment) | Nutritional Risk Screening | |
 | [Occupational therapy assessment](forms/occupational-therapy-assessment) | COPM Performance/Satisfaction (1-10) | 10 |
 | [Oncology assessment](forms/oncology-assessment) | ECOG Performance Status (0-5) | 10 |
 | [Ophthalmology assessment](forms/ophthalmology-assessment) | Visual Acuity Grade | 10 |
 | [Orthopaedic assessment](forms/orthopedic-assessment) | DASH Score (0-100) | 10 |
-| [Otolaryngology assessment](forms/otolaryngology-assessment) | ENT Symptom Severity | |
 | [Patient intake](forms/patient-intake) | Risk Level (Low/Medium/High) | 10 |
 | [Pediatric assessment](forms/pediatric-assessment) | Developmental Screen | 9 |
 | [Pre-operative assessment](forms/pre-operative-assessment) | ASA Grade (I-VI) | 16 |
 | [PREVENT cardiovascular risk](forms/predicting-risk-of-cardiovascular-disease-events) | 10-Year CVD Risk | |
 | [Prenatal assessment](forms/prenatal-assessment) | Risk Stratification (Low/Moderate/High) | 10 |
 | [Psychiatry assessment](forms/psychiatry-assessment) | GAF Scale (1-100) | 11 |
-| [Psychology assessment](forms/psychology-assessment) | Psychological Assessment Battery | |
 | [Pulmonology assessment](forms/pulmonology-assessment) | GOLD Stage (I-IV) | 10 |
 | [Respirology assessment](forms/respirology-assessment) | MRC Dyspnoea Scale (1-5) | 10 |
 | [Rheumatology assessment](forms/rheumatology-assessment) | DAS28 Score | 10 |
@@ -61,8 +59,18 @@ generates a clinical report with flagged issues.
 | [Semaglutide assessment](forms/semaglutide-assessment) | Eligibility (Eligible/Conditional/Ineligible) | 10 |
 | [Sleep quality assessment](forms/sleep-quality-assessment) | PSQI Score (0-21) | 9 |
 | [Stroke assessment](forms/stroke-assessment) | NIHSS Score (0-42) | 10 |
+| [UK DVLA B1 form](forms/united-kingdom-driver-and-vehicle-licensing-agency-b1-form) | Neurological Fitness to Drive | 13 |
+| [UK DVLA M1 form](forms/united-kingdom-driver-and-vehicle-licensing-agency-m1-form) | Mental Health Fitness to Drive | |
+| [UK DVLA V1 form](forms/united-kingdom-driver-and-vehicle-licensing-agency-v1-form) | Vision Self-Declaration | |
+| [UK Maternity Certificate MAT B1](forms/united-kingdom-maternity-certificate-mat-b1) | Maternity Benefit Eligibility | |
 | [Urology assessment](forms/urology-assessment) | IPSS Score (0-35) | 10 |
 | [Vaccinations assessment](forms/vaccinations-assessment) | Immunisation Schedule Compliance | |
+| [WHO Acute Referral Form](forms/who-acute-referral-form) | Referral Documentation | |
+| [WHO Counter-Referral Form](forms/who-counter-referral-form) | Counter-Referral Documentation | |
+| [WHO Emergency First Aid Form](forms/who-emergency-first-aid-form) | First Aid Documentation | |
+| [WHO Emergency Unit General Form](forms/who-emergency-unit-general-form) | Emergency Documentation | 16 |
+| [WHO Emergency Unit Trauma Form](forms/who-emergency-unit-trauma-form) | Trauma Documentation | |
+| [WHO Prehospital Form](forms/who-prehospital-form) | Prehospital Documentation | |
 
 ## Architecture
 
@@ -71,6 +79,8 @@ Each project follows a consistent structure:
 ```
   doc/                                               # Documentation
   sql-migrations/                                    # SQL migrations for PostgreSQL database
+  xml-representations/                               # XML and DTD per SQL table entity
+  fhir-r5/                                           # FHIR HL7 R5 JSON per SQL table entity
   front-end-patient-form-with-html/                  # Patient questionnaire (HTML)
   front-end-patient-form-with-svelte/                # Patient questionnaire (SvelteKit)
   front-end-clinician-dashboard-with-html/           # Clinician dashboard (HTML + table)
@@ -100,7 +110,7 @@ Each project follows a consistent structure:
 
 ## Technology stacks
 
-See [CLAUDE.md](CLAUDE.md) for full technology stack details.
+See [AGENTS.md](AGENTS.md) for full technology stack details.
 
 ## Compliance
 

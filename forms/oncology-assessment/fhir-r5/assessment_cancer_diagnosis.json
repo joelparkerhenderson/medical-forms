@@ -1,0 +1,244 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:oncology-assessment",
+        "code": "assessment_cancer_diagnosis",
+        "display": "Cancer Diagnosis"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "cancer_type",
+            "display": "Cancer Type"
+          }
+        ]
+      },
+      "valueString": "standard"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "cancer_site",
+            "display": "Cancer Site"
+          }
+        ]
+      },
+      "valueString": "Example location"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "histology",
+            "display": "Histology"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "histology_other",
+            "display": "Histology Other"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "date_of_diagnosis",
+            "display": "Date Of Diagnosis"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "stage",
+            "display": "Stage"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:stage",
+            "code": "0",
+            "display": "0"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "tnm_t",
+            "display": "Tnm T"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "tnm_n",
+            "display": "Tnm N"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "tnm_m",
+            "display": "Tnm M"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "grade",
+            "display": "Grade"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:grade",
+            "code": "well-differentiated",
+            "display": "Well-Differentiated"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "laterality",
+            "display": "Laterality"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:laterality",
+            "code": "left",
+            "display": "Left"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "metastatic_sites",
+            "display": "Metastatic Sites"
+          }
+        ]
+      },
+      "valueString": "Example location"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "biomarkers",
+            "display": "Biomarkers"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "genetic_mutations",
+            "display": "Genetic Mutations"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "diagnosis_notes",
+            "display": "Diagnosis Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

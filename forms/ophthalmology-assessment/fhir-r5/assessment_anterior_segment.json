@@ -1,0 +1,496 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:ophthalmology-assessment",
+        "code": "assessment_anterior_segment",
+        "display": "Anterior Segment"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "lids_right",
+            "display": "Lids Right"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:lids_right",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "lids_right_details",
+            "display": "Lids Right Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "lids_left",
+            "display": "Lids Left"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:lids_left",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "lids_left_details",
+            "display": "Lids Left Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "conjunctiva_right",
+            "display": "Conjunctiva Right"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:conjunctiva_right",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "conjunctiva_right_details",
+            "display": "Conjunctiva Right Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "conjunctiva_left",
+            "display": "Conjunctiva Left"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:conjunctiva_left",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "conjunctiva_left_details",
+            "display": "Conjunctiva Left Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "cornea_right",
+            "display": "Cornea Right"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:cornea_right",
+            "code": "clear",
+            "display": "Clear"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "cornea_right_details",
+            "display": "Cornea Right Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "cornea_left",
+            "display": "Cornea Left"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:cornea_left",
+            "code": "clear",
+            "display": "Clear"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "cornea_left_details",
+            "display": "Cornea Left Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "anterior_chamber_right",
+            "display": "Anterior Chamber Right"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:anterior_chamber_right",
+            "code": "deep-quiet",
+            "display": "Deep-Quiet"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "anterior_chamber_right_details",
+            "display": "Anterior Chamber Right Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "anterior_chamber_left",
+            "display": "Anterior Chamber Left"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:anterior_chamber_left",
+            "code": "deep-quiet",
+            "display": "Deep-Quiet"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "anterior_chamber_left_details",
+            "display": "Anterior Chamber Left Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "iris_right",
+            "display": "Iris Right"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:iris_right",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "iris_right_details",
+            "display": "Iris Right Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "iris_left",
+            "display": "Iris Left"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:iris_left",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "iris_left_details",
+            "display": "Iris Left Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "lens_right",
+            "display": "Lens Right"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:lens_right",
+            "code": "clear",
+            "display": "Clear"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "lens_right_details",
+            "display": "Lens Right Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "lens_left",
+            "display": "Lens Left"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:lens_left",
+            "code": "clear",
+            "display": "Clear"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "lens_left_details",
+            "display": "Lens Left Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "iop_right_mmhg",
+            "display": "Iop Right Mmhg"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "iop_left_mmhg",
+            "display": "Iop Left Mmhg"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "iop_method",
+            "display": "Iop Method"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:iop_method",
+            "code": "goldmann",
+            "display": "Goldmann"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "iop_time",
+            "display": "Iop Time"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "anterior_segment_notes",
+            "display": "Anterior Segment Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

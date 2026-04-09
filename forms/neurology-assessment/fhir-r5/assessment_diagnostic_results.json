@@ -1,0 +1,356 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:neurology-assessment",
+        "code": "assessment_diagnostic_results",
+        "display": "Diagnostic Results"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "ct_head",
+            "display": "Ct Head"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:ct_head",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "ct_head_date",
+            "display": "Ct Head Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "ct_head_result",
+            "display": "Ct Head Result"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "mri_brain",
+            "display": "Mri Brain"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:mri_brain",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "mri_brain_date",
+            "display": "Mri Brain Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "mri_brain_result",
+            "display": "Mri Brain Result"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "ct_angiography",
+            "display": "Ct Angiography"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:ct_angiography",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "ct_angiography_result",
+            "display": "Ct Angiography Result"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "mr_angiography",
+            "display": "Mr Angiography"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:mr_angiography",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "mr_angiography_result",
+            "display": "Mr Angiography Result"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "eeg",
+            "display": "Eeg"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:eeg",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "eeg_date",
+            "display": "Eeg Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "eeg_result",
+            "display": "Eeg Result"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "emg_nerve_conduction",
+            "display": "Emg Nerve Conduction"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:emg_nerve_conduction",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "emg_result",
+            "display": "Emg Result"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "lumbar_puncture",
+            "display": "Lumbar Puncture"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:lumbar_puncture",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "lumbar_puncture_result",
+            "display": "Lumbar Puncture Result"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "carotid_doppler",
+            "display": "Carotid Doppler"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment:carotid_doppler",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "carotid_doppler_result",
+            "display": "Carotid Doppler Result"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "blood_tests_relevant",
+            "display": "Blood Tests Relevant"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:neurology-assessment",
+            "code": "diagnostic_notes",
+            "display": "Diagnostic Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

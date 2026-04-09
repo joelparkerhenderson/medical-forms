@@ -1,0 +1,240 @@
+{
+  "resourceType": "Observation",
+  "id": "aa0e8400-e29b-41d4-a716-446655440005",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:oncology-assessment",
+        "code": "assessment_current_treatment",
+        "display": "Current Treatment"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "treatment_intent",
+            "display": "Treatment Intent"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:treatment_intent",
+            "code": "curative",
+            "display": "Curative"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "current_regimen",
+            "display": "Current Regimen"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "cycle_number",
+            "display": "Cycle Number"
+          }
+        ]
+      },
+      "valueInteger": 2
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "total_planned_cycles",
+            "display": "Total Planned Cycles"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "last_treatment_date",
+            "display": "Last Treatment Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "next_treatment_date",
+            "display": "Next Treatment Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "treatment_modifications",
+            "display": "Treatment Modifications"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "dose_reductions",
+            "display": "Dose Reductions"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:dose_reductions",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "dose_reduction_details",
+            "display": "Dose Reduction Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "treatment_delays",
+            "display": "Treatment Delays"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:treatment_delays",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "treatment_delay_details",
+            "display": "Treatment Delay Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "current_response",
+            "display": "Current Response"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment:current_response",
+            "code": "complete-response",
+            "display": "Complete-Response"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "supportive_care",
+            "display": "Supportive Care"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:oncology-assessment",
+            "code": "current_treatment_notes",
+            "display": "Current Treatment Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

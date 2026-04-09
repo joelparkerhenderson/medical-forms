@@ -1,0 +1,296 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:semaglutide-assessment",
+        "code": "assessment_gi_history",
+        "display": "Gi History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "history_of_nausea",
+            "display": "History Of Nausea"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment:history_of_nausea",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "history_of_vomiting",
+            "display": "History Of Vomiting"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment:history_of_vomiting",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "chronic_diarrhoea",
+            "display": "Chronic Diarrhoea"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment:chronic_diarrhoea",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "chronic_constipation",
+            "display": "Chronic Constipation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment:chronic_constipation",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "gastroesophageal_reflux",
+            "display": "Gastroesophageal Reflux"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment:gastroesophageal_reflux",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "gastroparesis",
+            "display": "Gastroparesis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment:gastroparesis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "inflammatory_bowel_disease",
+            "display": "Inflammatory Bowel Disease"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment:inflammatory_bowel_disease",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "ibd_type",
+            "display": "Ibd Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment:ibd_type",
+            "code": "crohns",
+            "display": "Crohns"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "irritable_bowel_syndrome",
+            "display": "Irritable Bowel Syndrome"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment:irritable_bowel_syndrome",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "previous_gi_surgery",
+            "display": "Previous Gi Surgery"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment:previous_gi_surgery",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "gi_surgery_details",
+            "display": "Gi Surgery Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "previous_bariatric_surgery",
+            "display": "Previous Bariatric Surgery"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment:previous_bariatric_surgery",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "bariatric_surgery_type",
+            "display": "Bariatric Surgery Type"
+          }
+        ]
+      },
+      "valueString": "standard"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:semaglutide-assessment",
+            "code": "current_gi_symptoms",
+            "display": "Current Gi Symptoms"
+          }
+        ]
+      },
+      "valueString": "Fatigue"
+    }
+  ]
+}

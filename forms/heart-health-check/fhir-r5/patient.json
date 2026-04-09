@@ -1,0 +1,45 @@
+{
+  "resourceType": "Patient",
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Patient"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "identifier": [
+    {
+      "system": "https://fhir.nhs.uk/Id/nhs-number",
+      "value": "9434765919"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Doe",
+      "given": [
+        "Jane"
+      ]
+    }
+  ],
+  "birthDate": "1965-06-15",
+  "gender": "unknown",
+  "telecom": [
+    {
+      "system": "email",
+      "value": "jane.doe@example.com"
+    },
+    {
+      "system": "phone",
+      "value": "07700900000"
+    }
+  ],
+  "address": [
+    {
+      "line": [
+        "123 Example Street"
+      ],
+      "postalCode": "SW1A 1AA"
+    }
+  ]
+}

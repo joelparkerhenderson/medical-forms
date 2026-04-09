@@ -1,0 +1,236 @@
+{
+  "resourceType": "Observation",
+  "id": "cc0e8400-e29b-41d4-a716-446655440007",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:stroke-assessment",
+        "code": "assessment_limb_ataxia_sensory",
+        "display": "Limb Ataxia Sensory"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "nihss_7_limb_ataxia",
+            "display": "Nihss 7 Limb Ataxia"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "nihss_8_sensory",
+            "display": "Nihss 8 Sensory"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "ataxia_present_left_arm",
+            "display": "Ataxia Present Left Arm"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:ataxia_present_left_arm",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "ataxia_present_right_arm",
+            "display": "Ataxia Present Right Arm"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:ataxia_present_right_arm",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "ataxia_present_left_leg",
+            "display": "Ataxia Present Left Leg"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:ataxia_present_left_leg",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "ataxia_present_right_leg",
+            "display": "Ataxia Present Right Leg"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:ataxia_present_right_leg",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "finger_to_nose_test",
+            "display": "Finger To Nose Test"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:finger_to_nose_test",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "heel_to_shin_test",
+            "display": "Heel To Shin Test"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:heel_to_shin_test",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "sensory_loss_pattern",
+            "display": "Sensory Loss Pattern"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:sensory_loss_pattern",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "sensory_loss_side",
+            "display": "Sensory Loss Side"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:sensory_loss_side",
+            "code": "left",
+            "display": "Left"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "sensory_modalities_affected",
+            "display": "Sensory Modalities Affected"
+          }
+        ]
+      },
+      "valueString": ""
+    }
+  ]
+}

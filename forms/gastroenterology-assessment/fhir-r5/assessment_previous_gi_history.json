@@ -1,0 +1,416 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:gastroenterology-assessment",
+        "code": "assessment_previous_gi_history",
+        "display": "Previous Gi History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "has_ibs",
+            "display": "Has Ibs"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:has_ibs",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "ibs_subtype",
+            "display": "Ibs Subtype"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:ibs_subtype",
+            "code": "ibs_c",
+            "display": "Ibs C"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "has_ibd",
+            "display": "Has Ibd"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:has_ibd",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "ibd_type",
+            "display": "Ibd Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:ibd_type",
+            "code": "crohns",
+            "display": "Crohns"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "has_coeliac_disease",
+            "display": "Has Coeliac Disease"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:has_coeliac_disease",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "has_peptic_ulcer",
+            "display": "Has Peptic Ulcer"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:has_peptic_ulcer",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "helicobacter_pylori_status",
+            "display": "Helicobacter Pylori Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:helicobacter_pylori_status",
+            "code": "positive",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "has_gord",
+            "display": "Has Gord"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:has_gord",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "has_barretts_oesophagus",
+            "display": "Has Barretts Oesophagus"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:has_barretts_oesophagus",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "has_gi_malignancy",
+            "display": "Has Gi Malignancy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:has_gi_malignancy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "gi_malignancy_details",
+            "display": "Gi Malignancy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "has_polyps",
+            "display": "Has Polyps"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:has_polyps",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "polyp_details",
+            "display": "Polyp Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "previous_endoscopy",
+            "display": "Previous Endoscopy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:previous_endoscopy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "endoscopy_date",
+            "display": "Endoscopy Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "endoscopy_findings",
+            "display": "Endoscopy Findings"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "previous_colonoscopy",
+            "display": "Previous Colonoscopy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:previous_colonoscopy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "colonoscopy_date",
+            "display": "Colonoscopy Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "colonoscopy_findings",
+            "display": "Colonoscopy Findings"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "previous_gi_surgery",
+            "display": "Previous Gi Surgery"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment:previous_gi_surgery",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "gi_surgery_details",
+            "display": "Gi Surgery Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gastroenterology-assessment",
+            "code": "additional_notes",
+            "display": "Additional Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

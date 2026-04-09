@@ -1,0 +1,292 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:dermatology-assessment",
+        "code": "assessment_allergies",
+        "display": "Allergies"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "has_drug_allergies",
+            "display": "Has Drug Allergies"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:has_drug_allergies",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "drug_allergy_details",
+            "display": "Drug Allergy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "has_contact_allergies",
+            "display": "Has Contact Allergies"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:has_contact_allergies",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "contact_allergy_details",
+            "display": "Contact Allergy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "patch_testing_performed",
+            "display": "Patch Testing Performed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:patch_testing_performed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "patch_testing_results",
+            "display": "Patch Testing Results"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "has_latex_allergy",
+            "display": "Has Latex Allergy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:has_latex_allergy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "has_nickel_allergy",
+            "display": "Has Nickel Allergy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:has_nickel_allergy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "has_fragrance_allergy",
+            "display": "Has Fragrance Allergy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:has_fragrance_allergy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "has_preservative_allergy",
+            "display": "Has Preservative Allergy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:has_preservative_allergy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "has_cosmetic_sensitivities",
+            "display": "Has Cosmetic Sensitivities"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:has_cosmetic_sensitivities",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "cosmetic_sensitivity_details",
+            "display": "Cosmetic Sensitivity Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "has_food_allergies",
+            "display": "Has Food Allergies"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment:has_food_allergies",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "food_allergy_details",
+            "display": "Food Allergy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dermatology-assessment",
+            "code": "other_allergies",
+            "display": "Other Allergies"
+          }
+        ]
+      },
+      "valueString": ""
+    }
+  ]
+}

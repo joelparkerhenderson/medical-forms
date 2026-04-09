@@ -66,3 +66,13 @@ CREATE TRIGGER trigger_set_updated_at
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();
 ```
+
+## Verify
+
+Check SQL syntax with PostgreSQL:
+
+```sh
+for f in forms/*/sql-migrations/*.sql; do
+  psql -f "$f" --set ON_ERROR_STOP=1
+done
+```

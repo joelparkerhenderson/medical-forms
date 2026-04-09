@@ -1,0 +1,190 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:diabetes-assessment",
+        "code": "assessment_glycaemic_control",
+        "display": "Glycaemic Control"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment",
+            "code": "hba1c_value",
+            "display": "Hba1C Value"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment",
+            "code": "hba1c_unit",
+            "display": "Hba1C Unit"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment:hba1c_unit",
+            "code": "mmolMol",
+            "display": "Mmolmol"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment",
+            "code": "hba1c_target",
+            "display": "Hba1C Target"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment",
+            "code": "fasting_glucose",
+            "display": "Fasting Glucose"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment",
+            "code": "postprandial_glucose",
+            "display": "Postprandial Glucose"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment",
+            "code": "glucose_monitoring_type",
+            "display": "Glucose Monitoring Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment:glucose_monitoring_type",
+            "code": "smbg",
+            "display": "Smbg"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment",
+            "code": "hypoglycaemia_frequency",
+            "display": "Hypoglycaemia Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment:hypoglycaemia_frequency",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment",
+            "code": "severe_hypoglycaemia",
+            "display": "Severe Hypoglycaemia"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment:severe_hypoglycaemia",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:diabetes-assessment",
+            "code": "time_in_range",
+            "display": "Time In Range"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    }
+  ]
+}

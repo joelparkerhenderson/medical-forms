@@ -1,0 +1,242 @@
+{
+  "resourceType": "Observation",
+  "id": "cc0e8400-e29b-41d4-a716-446655440007",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:asthma-assessment",
+        "code": "assessment_allergies",
+        "display": "Allergies"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "has_atopic_history",
+            "display": "Has Atopic History"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:has_atopic_history",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "has_eczema",
+            "display": "Has Eczema"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:has_eczema",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "has_allergic_rhinitis",
+            "display": "Has Allergic Rhinitis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:has_allergic_rhinitis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "has_food_allergies",
+            "display": "Has Food Allergies"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:has_food_allergies",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "food_allergy_details",
+            "display": "Food Allergy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "has_drug_allergies",
+            "display": "Has Drug Allergies"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:has_drug_allergies",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "drug_allergy_details",
+            "display": "Drug Allergy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "has_anaphylaxis_history",
+            "display": "Has Anaphylaxis History"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:has_anaphylaxis_history",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "anaphylaxis_details",
+            "display": "Anaphylaxis Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "allergy_testing_done",
+            "display": "Allergy Testing Done"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment:allergy_testing_done",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "allergy_testing_results",
+            "display": "Allergy Testing Results"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:asthma-assessment",
+            "code": "total_ige_level",
+            "display": "Total Ige Level"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    }
+  ]
+}

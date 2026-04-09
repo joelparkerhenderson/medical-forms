@@ -1,0 +1,128 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:advance-statement-about-care",
+        "code": "assessment_statement_context",
+        "display": "Statement Context"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "reason_for_statement",
+            "display": "Reason For Statement"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "current_health_status",
+            "display": "Current Health Status"
+          }
+        ]
+      },
+      "valueString": "active"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "current_diagnoses",
+            "display": "Current Diagnoses"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "has_discussed_with_family",
+            "display": "Has Discussed With Family"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care:has_discussed_with_family",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "has_discussed_with_clinician",
+            "display": "Has Discussed With Clinician"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care:has_discussed_with_clinician",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-statement-about-care",
+            "code": "discussion_details",
+            "display": "Discussion Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

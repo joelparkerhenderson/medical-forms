@@ -1,0 +1,216 @@
+{
+  "resourceType": "Observation",
+  "id": "770e8400-e29b-41d4-a716-446655440002",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+        "code": "assessment_demographics",
+        "display": "Demographics"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "ethnicity",
+            "display": "Ethnicity"
+          }
+        ]
+      },
+      "valueString": "White British"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "primary_language",
+            "display": "Primary Language"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "interpreter_required",
+            "display": "Interpreter Required"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:interpreter_required",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "marital_status",
+            "display": "Marital Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:marital_status",
+            "code": "single",
+            "display": "Single"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "occupation",
+            "display": "Occupation"
+          }
+        ]
+      },
+      "valueString": "Teacher"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "smoking_status",
+            "display": "Smoking Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:smoking_status",
+            "code": "never",
+            "display": "Never"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "alcohol_units_per_week",
+            "display": "Alcohol Units Per Week"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "exercise_frequency",
+            "display": "Exercise Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment:exercise_frequency",
+            "code": "daily",
+            "display": "Daily"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "emergency_contact_name",
+            "display": "Emergency Contact Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "emergency_contact_phone",
+            "display": "Emergency Contact Phone"
+          }
+        ]
+      },
+      "valueString": "07700900000"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "gp_name",
+            "display": "Gp Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hormone-replacement-therapy-assessment",
+            "code": "gp_practice",
+            "display": "Gp Practice"
+          }
+        ]
+      },
+      "valueString": ""
+    }
+  ]
+}

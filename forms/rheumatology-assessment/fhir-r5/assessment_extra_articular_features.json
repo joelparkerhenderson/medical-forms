@@ -1,0 +1,256 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:rheumatology-assessment",
+        "code": "assessment_extra_articular_features",
+        "display": "Extra Articular Features"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "rheumatoid_nodules",
+            "display": "Rheumatoid Nodules"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:rheumatoid_nodules",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "rheumatoid_nodules_location",
+            "display": "Rheumatoid Nodules Location"
+          }
+        ]
+      },
+      "valueString": "Example location"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "dry_eyes_or_mouth",
+            "display": "Dry Eyes Or Mouth"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:dry_eyes_or_mouth",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "skin_rash",
+            "display": "Skin Rash"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:skin_rash",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "skin_rash_details",
+            "display": "Skin Rash Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "raynauds_phenomenon",
+            "display": "Raynauds Phenomenon"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:raynauds_phenomenon",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "interstitial_lung_disease",
+            "display": "Interstitial Lung Disease"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:interstitial_lung_disease",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "vasculitis",
+            "display": "Vasculitis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:vasculitis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "scleritis_episcleritis",
+            "display": "Scleritis Episcleritis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:scleritis_episcleritis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "peripheral_neuropathy",
+            "display": "Peripheral Neuropathy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:peripheral_neuropathy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "pleuritis_pericarditis",
+            "display": "Pleuritis Pericarditis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment:pleuritis_pericarditis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:rheumatology-assessment",
+            "code": "constitutional_symptoms",
+            "display": "Constitutional Symptoms"
+          }
+        ]
+      },
+      "valueString": "Fatigue"
+    }
+  ]
+}

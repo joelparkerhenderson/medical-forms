@@ -1,0 +1,168 @@
+{
+  "resourceType": "Observation",
+  "id": "770e8400-e29b-41d4-a716-446655440002",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:ophthalmology-assessment",
+        "code": "assessment_demographics",
+        "display": "Demographics"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "first_name",
+            "display": "First Name"
+          }
+        ]
+      },
+      "valueString": "Jane"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "last_name",
+            "display": "Last Name"
+          }
+        ]
+      },
+      "valueString": "Doe"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "date_of_birth",
+            "display": "Date Of Birth"
+          }
+        ]
+      },
+      "valueDateTime": "1965-06-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "sex",
+            "display": "Sex"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment:sex",
+            "code": "male",
+            "display": "Male"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "phone",
+            "display": "Phone"
+          }
+        ]
+      },
+      "valueString": "07700900000"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "email",
+            "display": "Email"
+          }
+        ]
+      },
+      "valueString": "jane.doe@example.com"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "address",
+            "display": "Address"
+          }
+        ]
+      },
+      "valueString": "123 Example Street"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "gp_name",
+            "display": "Gp Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "gp_practice",
+            "display": "Gp Practice"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ophthalmology-assessment",
+            "code": "optometrist_name",
+            "display": "Optometrist Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    }
+  ]
+}

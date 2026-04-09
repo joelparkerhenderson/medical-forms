@@ -1,0 +1,124 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:attention-deficit-assessment",
+        "code": "assessment_asrs_part_a",
+        "display": "Asrs Part A"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "q1_wrapping_up_details",
+            "display": "Q1 Wrapping Up Details"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "q2_difficulty_ordering",
+            "display": "Q2 Difficulty Ordering"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "q3_remembering_appointments",
+            "display": "Q3 Remembering Appointments"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "q4_avoiding_starting",
+            "display": "Q4 Avoiding Starting"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "q5_fidgeting",
+            "display": "Q5 Fidgeting"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "q6_feeling_overly_active",
+            "display": "Q6 Feeling Overly Active"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:attention-deficit-assessment",
+            "code": "darkly_shaded_count",
+            "display": "Darkly Shaded Count"
+          }
+        ]
+      },
+      "valueInteger": 2
+    }
+  ]
+}

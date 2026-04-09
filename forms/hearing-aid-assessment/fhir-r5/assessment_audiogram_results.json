@@ -1,0 +1,292 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:hearing-aid-assessment",
+        "code": "assessment_audiogram_results",
+        "display": "Audiogram Results"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "audiogram_date",
+            "display": "Audiogram Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "left_pta_db",
+            "display": "Left Pta Db"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "right_pta_db",
+            "display": "Right Pta Db"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "left_hearing_loss_degree",
+            "display": "Left Hearing Loss Degree"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:left_hearing_loss_degree",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "right_hearing_loss_degree",
+            "display": "Right Hearing Loss Degree"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:right_hearing_loss_degree",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "left_hearing_loss_type",
+            "display": "Left Hearing Loss Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:left_hearing_loss_type",
+            "code": "sensorineural",
+            "display": "Sensorineural"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "right_hearing_loss_type",
+            "display": "Right Hearing Loss Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:right_hearing_loss_type",
+            "code": "sensorineural",
+            "display": "Sensorineural"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "left_hearing_loss_configuration",
+            "display": "Left Hearing Loss Configuration"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:left_hearing_loss_configuration",
+            "code": "flat",
+            "display": "Flat"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "right_hearing_loss_configuration",
+            "display": "Right Hearing Loss Configuration"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:right_hearing_loss_configuration",
+            "code": "flat",
+            "display": "Flat"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "speech_recognition_left_pct",
+            "display": "Speech Recognition Left Pct"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "speech_recognition_right_pct",
+            "display": "Speech Recognition Right Pct"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "tympanometry_left",
+            "display": "Tympanometry Left"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:tympanometry_left",
+            "code": "type-a",
+            "display": "Type-A"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "tympanometry_right",
+            "display": "Tympanometry Right"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:tympanometry_right",
+            "code": "type-a",
+            "display": "Type-A"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "asymmetric_hearing_loss",
+            "display": "Asymmetric Hearing Loss"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:asymmetric_hearing_loss",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "audiogram_notes",
+            "display": "Audiogram Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

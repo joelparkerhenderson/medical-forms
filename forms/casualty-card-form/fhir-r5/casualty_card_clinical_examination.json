@@ -1,0 +1,184 @@
+{
+  "resourceType": "Observation",
+  "id": "330e8400-e29b-41d4-a716-44665544000d",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:casualty-card-form",
+        "code": "casualty_card_clinical_examination",
+        "display": "Casualty Card Clinical Examination"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/bb1e8400-e29b-41d4-a716-446655440015"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "general_appearance",
+            "display": "General Appearance"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "head_and_face",
+            "display": "Head And Face"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "neck",
+            "display": "Neck"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "chest_cardiovascular",
+            "display": "Chest Cardiovascular"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "chest_respiratory",
+            "display": "Chest Respiratory"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "abdomen",
+            "display": "Abdomen"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "pelvis",
+            "display": "Pelvis"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "musculoskeletal_limbs",
+            "display": "Musculoskeletal Limbs"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "neurological",
+            "display": "Neurological"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "skin",
+            "display": "Skin"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "mental_state",
+            "display": "Mental State"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:casualty-card-form",
+            "code": "body_diagram_notes",
+            "display": "Body Diagram Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

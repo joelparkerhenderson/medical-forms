@@ -1,0 +1,244 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:consent-to-treatment",
+        "code": "assessment_anesthesia_information",
+        "display": "Anesthesia Information"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "anesthesia_required",
+            "display": "Anesthesia Required"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment:anesthesia_required",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "anesthesia_type",
+            "display": "Anesthesia Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment:anesthesia_type",
+            "code": "general",
+            "display": "General"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "anesthesia_details",
+            "display": "Anesthesia Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "anesthesia_risks_explained",
+            "display": "Anesthesia Risks Explained"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment:anesthesia_risks_explained",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "anesthesia_specific_risks",
+            "display": "Anesthesia Specific Risks"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "fasting_instructions_given",
+            "display": "Fasting Instructions Given"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment:fasting_instructions_given",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "fasting_from_time",
+            "display": "Fasting From Time"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "previous_anesthesia_problems",
+            "display": "Previous Anesthesia Problems"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment:previous_anesthesia_problems",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "previous_anesthesia_problem_details",
+            "display": "Previous Anesthesia Problem Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "family_anesthesia_problems",
+            "display": "Family Anesthesia Problems"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment:family_anesthesia_problems",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "family_anesthesia_problem_details",
+            "display": "Family Anesthesia Problem Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "anesthetist_name",
+            "display": "Anesthetist Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "anesthesia_notes",
+            "display": "Anesthesia Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

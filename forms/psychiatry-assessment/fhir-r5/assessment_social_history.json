@@ -1,0 +1,352 @@
+{
+  "resourceType": "Observation",
+  "id": "110e8400-e29b-41d4-a716-44665544000b",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:psychiatry-assessment",
+        "code": "assessment_social_history",
+        "display": "Social History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "living_arrangement",
+            "display": "Living Arrangement"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment:living_arrangement",
+            "code": "alone",
+            "display": "Alone"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "living_arrangement_details",
+            "display": "Living Arrangement Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "relationship_status",
+            "display": "Relationship Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment:relationship_status",
+            "code": "single",
+            "display": "Single"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "dependants",
+            "display": "Dependants"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment:dependants",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "dependant_details",
+            "display": "Dependant Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "employment_status",
+            "display": "Employment Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment:employment_status",
+            "code": "employed",
+            "display": "Employed"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "occupation",
+            "display": "Occupation"
+          }
+        ]
+      },
+      "valueString": "Teacher"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "financial_difficulties",
+            "display": "Financial Difficulties"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment:financial_difficulties",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "benefits_received",
+            "display": "Benefits Received"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "forensic_history",
+            "display": "Forensic History"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment:forensic_history",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "forensic_details",
+            "display": "Forensic Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "current_legal_issues",
+            "display": "Current Legal Issues"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment:current_legal_issues",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "legal_details",
+            "display": "Legal Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "immigration_status",
+            "display": "Immigration Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment:immigration_status",
+            "code": "citizen",
+            "display": "Citizen"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "social_support",
+            "display": "Social Support"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "hobbies_interests",
+            "display": "Hobbies Interests"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "spiritual_beliefs",
+            "display": "Spiritual Beliefs"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "childhood_adversity",
+            "display": "Childhood Adversity"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment:childhood_adversity",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "childhood_adversity_details",
+            "display": "Childhood Adversity Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:psychiatry-assessment",
+            "code": "additional_notes",
+            "display": "Additional Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

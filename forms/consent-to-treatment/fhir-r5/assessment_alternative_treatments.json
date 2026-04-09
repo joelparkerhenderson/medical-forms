@@ -1,0 +1,192 @@
+{
+  "resourceType": "Observation",
+  "id": "aa0e8400-e29b-41d4-a716-446655440005",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:consent-to-treatment",
+        "code": "assessment_alternative_treatments",
+        "display": "Alternative Treatments"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "alternatives_discussed",
+            "display": "Alternatives Discussed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment:alternatives_discussed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "conservative_management_discussed",
+            "display": "Conservative Management Discussed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment:conservative_management_discussed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "conservative_management_details",
+            "display": "Conservative Management Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "alternative_procedures_discussed",
+            "display": "Alternative Procedures Discussed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment:alternative_procedures_discussed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "alternative_procedures_details",
+            "display": "Alternative Procedures Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "no_treatment_option_discussed",
+            "display": "No Treatment Option Discussed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment:no_treatment_option_discussed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "no_treatment_consequences",
+            "display": "No Treatment Consequences"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "patient_preference",
+            "display": "Patient Preference"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "reason_for_chosen_treatment",
+            "display": "Reason For Chosen Treatment"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:consent-to-treatment",
+            "code": "alternative_treatments_notes",
+            "display": "Alternative Treatments Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

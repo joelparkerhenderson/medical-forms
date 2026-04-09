@@ -1,0 +1,172 @@
+{
+  "resourceType": "Observation",
+  "id": "aa0e8400-e29b-41d4-a716-446655440005",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:cognitive-assessment",
+        "code": "assessment_registration",
+        "display": "Registration"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "word_1",
+            "display": "Word 1"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "word_1_recalled",
+            "display": "Word 1 Recalled"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:word_1_recalled",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "word_2",
+            "display": "Word 2"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "word_2_recalled",
+            "display": "Word 2 Recalled"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:word_2_recalled",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "word_3",
+            "display": "Word 3"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "word_3_recalled",
+            "display": "Word 3 Recalled"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment:word_3_recalled",
+            "code": "correct",
+            "display": "Correct"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "registration_score",
+            "display": "Registration Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "number_of_trials",
+            "display": "Number Of Trials"
+          }
+        ]
+      },
+      "valueInteger": 2
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:cognitive-assessment",
+            "code": "registration_notes",
+            "display": "Registration Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

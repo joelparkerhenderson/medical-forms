@@ -1,0 +1,112 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:hematology-assessment",
+        "code": "assessment_bone_marrow_assessment",
+        "display": "Bone Marrow Assessment"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hematology-assessment",
+            "code": "aspirate_findings",
+            "display": "Aspirate Findings"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hematology-assessment",
+            "code": "biopsy_findings",
+            "display": "Biopsy Findings"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hematology-assessment",
+            "code": "cellularity",
+            "display": "Cellularity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hematology-assessment",
+            "code": "cytogenetics_results",
+            "display": "Cytogenetics Results"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hematology-assessment",
+            "code": "flow_cytometry_results",
+            "display": "Flow Cytometry Results"
+          }
+        ]
+      },
+      "valueString": "Normal"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hematology-assessment",
+            "code": "bone_marrow_comments",
+            "display": "Bone Marrow Comments"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

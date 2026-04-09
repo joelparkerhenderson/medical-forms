@@ -1,0 +1,270 @@
+{
+  "resourceType": "Observation",
+  "id": "aa0e8400-e29b-41d4-a716-446655440005",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+        "code": "assessment_gastrointestinal_symptoms",
+        "display": "Gastrointestinal Symptoms"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "abdominal_pain",
+            "display": "Abdominal Pain"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:abdominal_pain",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "abdominal_pain_severity",
+            "display": "Abdominal Pain Severity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "nausea",
+            "display": "Nausea"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:nausea",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "vomiting",
+            "display": "Vomiting"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:vomiting",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "diarrhoea",
+            "display": "Diarrhoea"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:diarrhoea",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "diarrhoea_frequency",
+            "display": "Diarrhoea Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:diarrhoea_frequency",
+            "code": "daily",
+            "display": "Daily"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "bloating",
+            "display": "Bloating"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:bloating",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "gastro_oesophageal_reflux",
+            "display": "Gastro Oesophageal Reflux"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:gastro_oesophageal_reflux",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "dysphagia",
+            "display": "Dysphagia"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:dysphagia",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "food_intolerances",
+            "display": "Food Intolerances"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "weight_change",
+            "display": "Weight Change"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:weight_change",
+            "code": "gain",
+            "display": "Gain"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "weight_change_amount_kg",
+            "display": "Weight Change Amount Kg"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 70.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "gastrointestinal_notes",
+            "display": "Gastrointestinal Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

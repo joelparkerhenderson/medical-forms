@@ -1,0 +1,172 @@
+{
+  "resourceType": "Observation",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:hearing-aid-assessment",
+        "code": "assessment_hhies_questionnaire",
+        "display": "Hhies Questionnaire"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "s1_telephone_difficulty",
+            "display": "S1 Telephone Difficulty"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "s2_embarrassment",
+            "display": "S2 Embarrassment"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "s3_difficulty_group_conversation",
+            "display": "S3 Difficulty Group Conversation"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "s4_handicapped_feeling",
+            "display": "S4 Handicapped Feeling"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "s5_difficulty_visiting",
+            "display": "S5 Difficulty Visiting"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "s6_difficulty_religious_services",
+            "display": "S6 Difficulty Religious Services"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "s7_arguments_due_to_hearing",
+            "display": "S7 Arguments Due To Hearing"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "s8_difficulty_tv_radio",
+            "display": "S8 Difficulty Tv Radio"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "s9_personal_social_life_affected",
+            "display": "S9 Personal Social Life Affected"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "s10_difficulty_restaurant",
+            "display": "S10 Difficulty Restaurant"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "hhies_total_score",
+            "display": "Hhies Total Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    }
+  ]
+}

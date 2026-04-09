@@ -1,0 +1,156 @@
+{
+  "resourceType": "Observation",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:mental-health-assessment",
+        "code": "assessment_gad7_anxiety_screen",
+        "display": "Gad7 Anxiety Screen"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mental-health-assessment",
+            "code": "q1_feeling_nervous",
+            "display": "Q1 Feeling Nervous"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mental-health-assessment",
+            "code": "q2_uncontrollable_worrying",
+            "display": "Q2 Uncontrollable Worrying"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mental-health-assessment",
+            "code": "q3_worrying_too_much",
+            "display": "Q3 Worrying Too Much"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mental-health-assessment",
+            "code": "q4_trouble_relaxing",
+            "display": "Q4 Trouble Relaxing"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mental-health-assessment",
+            "code": "q5_restlessness",
+            "display": "Q5 Restlessness"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mental-health-assessment",
+            "code": "q6_easily_annoyed",
+            "display": "Q6 Easily Annoyed"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mental-health-assessment",
+            "code": "q7_feeling_afraid",
+            "display": "Q7 Feeling Afraid"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mental-health-assessment",
+            "code": "gad7_total_score",
+            "display": "Gad7 Total Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mental-health-assessment",
+            "code": "difficulty_level",
+            "display": "Difficulty Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mental-health-assessment:difficulty_level",
+            "code": "not-difficult",
+            "display": "Not-Difficult"
+          }
+        ]
+      }
+    }
+  ]
+}

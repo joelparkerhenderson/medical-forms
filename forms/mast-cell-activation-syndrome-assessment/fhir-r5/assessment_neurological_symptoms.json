@@ -1,0 +1,280 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+        "code": "assessment_neurological_symptoms",
+        "display": "Neurological Symptoms"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "headaches",
+            "display": "Headaches"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:headaches",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "headache_severity",
+            "display": "Headache Severity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "headache_frequency",
+            "display": "Headache Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:headache_frequency",
+            "code": "daily",
+            "display": "Daily"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "brain_fog",
+            "display": "Brain Fog"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:brain_fog",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "brain_fog_severity",
+            "display": "Brain Fog Severity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "dizziness",
+            "display": "Dizziness"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:dizziness",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "paraesthesia",
+            "display": "Paraesthesia"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:paraesthesia",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "paraesthesia_location",
+            "display": "Paraesthesia Location"
+          }
+        ]
+      },
+      "valueString": "Example location"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "insomnia",
+            "display": "Insomnia"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:insomnia",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "fatigue",
+            "display": "Fatigue"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:fatigue",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "fatigue_severity",
+            "display": "Fatigue Severity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "anxiety",
+            "display": "Anxiety"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:anxiety",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "depression",
+            "display": "Depression"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment:depression",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:mast-cell-activation-syndrome-assessment",
+            "code": "neurological_notes",
+            "display": "Neurological Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "resourceType": "Observation",
+  "id": "330e8400-e29b-41d4-a716-44665544000d",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:orthopedic-assessment",
+        "code": "assessment_current_treatment",
+        "display": "Current Treatment"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "has_physiotherapy",
+            "display": "Has Physiotherapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment:has_physiotherapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "physiotherapy_details",
+            "display": "Physiotherapy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "has_occupational_therapy",
+            "display": "Has Occupational Therapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment:has_occupational_therapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "occupational_therapy_details",
+            "display": "Occupational Therapy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "has_injection_therapy",
+            "display": "Has Injection Therapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment:has_injection_therapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "injection_details",
+            "display": "Injection Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "has_splinting_bracing",
+            "display": "Has Splinting Bracing"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment:has_splinting_bracing",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "splinting_bracing_details",
+            "display": "Splinting Bracing Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "current_medications",
+            "display": "Current Medications"
+          }
+        ]
+      },
+      "valueString": "Paracetamol"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "has_alternative_therapy",
+            "display": "Has Alternative Therapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment:has_alternative_therapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "alternative_therapy_details",
+            "display": "Alternative Therapy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "treatment_effectiveness",
+            "display": "Treatment Effectiveness"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment:treatment_effectiveness",
+            "code": "effective",
+            "display": "Effective"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:orthopedic-assessment",
+            "code": "current_treatment_notes",
+            "display": "Current Treatment Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

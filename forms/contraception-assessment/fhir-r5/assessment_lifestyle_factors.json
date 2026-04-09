@@ -1,0 +1,248 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:contraception-assessment",
+        "code": "assessment_lifestyle_factors",
+        "display": "Lifestyle Factors"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "alcohol_consumption",
+            "display": "Alcohol Consumption"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:alcohol_consumption",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "alcohol_units_per_week",
+            "display": "Alcohol Units Per Week"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "recreational_drug_use",
+            "display": "Recreational Drug Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:recreational_drug_use",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "recreational_drug_details",
+            "display": "Recreational Drug Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "exercise_frequency",
+            "display": "Exercise Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:exercise_frequency",
+            "code": "daily",
+            "display": "Daily"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "occupation",
+            "display": "Occupation"
+          }
+        ]
+      },
+      "valueString": "Teacher"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "shift_work",
+            "display": "Shift Work"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:shift_work",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "travel_frequency",
+            "display": "Travel Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:travel_frequency",
+            "code": "frequent",
+            "display": "Frequent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "sexual_activity_frequency",
+            "display": "Sexual Activity Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:sexual_activity_frequency",
+            "code": "daily",
+            "display": "Daily"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "number_of_partners",
+            "display": "Number Of Partners"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:number_of_partners",
+            "code": "one",
+            "display": "One"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "condom_use_for_sti_prevention",
+            "display": "Condom Use For Sti Prevention"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment:condom_use_for_sti_prevention",
+            "code": "always",
+            "display": "Always"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:contraception-assessment",
+            "code": "lifestyle_notes",
+            "display": "Lifestyle Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

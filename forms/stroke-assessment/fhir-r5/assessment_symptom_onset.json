@@ -1,0 +1,260 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:stroke-assessment",
+        "code": "assessment_symptom_onset",
+        "display": "Symptom Onset"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "symptom_onset_time",
+            "display": "Symptom Onset Time"
+          }
+        ]
+      },
+      "valueDateTime": "2026-04-09T10:00:00+00:00"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "last_known_well_time",
+            "display": "Last Known Well Time"
+          }
+        ]
+      },
+      "valueDateTime": "2026-04-09T10:00:00+00:00"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "onset_witnessed",
+            "display": "Onset Witnessed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:onset_witnessed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "wake_up_stroke",
+            "display": "Wake Up Stroke"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:wake_up_stroke",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "onset_setting",
+            "display": "Onset Setting"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:onset_setting",
+            "code": "home",
+            "display": "Home"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "onset_activity",
+            "display": "Onset Activity"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "symptom_progression",
+            "display": "Symptom Progression"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:symptom_progression",
+            "code": "sudden",
+            "display": "Sudden"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "initial_symptoms",
+            "display": "Initial Symptoms"
+          }
+        ]
+      },
+      "valueString": "Fatigue"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "headache_at_onset",
+            "display": "Headache At Onset"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:headache_at_onset",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "seizure_at_onset",
+            "display": "Seizure At Onset"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:seizure_at_onset",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "vomiting_at_onset",
+            "display": "Vomiting At Onset"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:vomiting_at_onset",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "loss_of_consciousness",
+            "display": "Loss Of Consciousness"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment:loss_of_consciousness",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:stroke-assessment",
+            "code": "time_from_onset_to_arrival_minutes",
+            "display": "Time From Onset To Arrival Minutes"
+          }
+        ]
+      },
+      "valueInteger": 1
+    }
+  ]
+}

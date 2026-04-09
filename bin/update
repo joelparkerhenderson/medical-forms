@@ -1,11 +1,13 @@
 claude "
-update, upgrade, fix, harmonize, audit, test. 
-improve every file: 
+update, upgrade, fix, harmonize, audit, test.
+improve every file:
 - index.md
 - AGENTS.md
 - AGENTS/front-end-with-sveltekit-tailwind-svar.md
 - AGENTS/full-stack-with-rust-axum-loco-htmx-alpine.md
 - AGENTS/sql-migrations.md
+- AGENTS/xml-representations.md
+- AGENTS/fhir-api.md
 - plan.md
 - tasks.md
 "

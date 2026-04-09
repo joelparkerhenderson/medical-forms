@@ -1,0 +1,192 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+        "code": "assessment_healthcare_professional_review",
+        "display": "Healthcare Professional Review"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "reviewed_by_healthcare_professional",
+            "display": "Reviewed By Healthcare Professional"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment:reviewed_by_healthcare_professional",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "reviewer_name",
+            "display": "Reviewer Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "reviewer_role",
+            "display": "Reviewer Role"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "reviewer_registration_number",
+            "display": "Reviewer Registration Number"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "review_date",
+            "display": "Review Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "reviewer_confirms_capacity",
+            "display": "Reviewer Confirms Capacity"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment:reviewer_confirms_capacity",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "reviewer_confirms_informed",
+            "display": "Reviewer Confirms Informed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment:reviewer_confirms_informed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "clinical_notes",
+            "display": "Clinical Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "concerns_raised",
+            "display": "Concerns Raised"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment",
+            "code": "reviewer_signature_obtained",
+            "display": "Reviewer Signature Obtained"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:advance-decision-to-refuse-treatment:reviewer_signature_obtained",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    }
+  ]
+}

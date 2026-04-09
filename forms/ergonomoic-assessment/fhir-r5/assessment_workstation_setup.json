@@ -1,0 +1,336 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:ergonomoic-assessment",
+        "code": "assessment_workstation_setup",
+        "display": "Workstation Setup"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "workstation_type",
+            "display": "Workstation Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:workstation_type",
+            "code": "office_desk",
+            "display": "Office Desk"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "workstation_type_other",
+            "display": "Workstation Type Other"
+          }
+        ]
+      },
+      "valueString": "standard"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "chair_type",
+            "display": "Chair Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:chair_type",
+            "code": "ergonomic",
+            "display": "Ergonomic"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "chair_adjustable",
+            "display": "Chair Adjustable"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:chair_adjustable",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "monitor_count",
+            "display": "Monitor Count"
+          }
+        ]
+      },
+      "valueInteger": 2
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "monitor_position",
+            "display": "Monitor Position"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:monitor_position",
+            "code": "eye_level",
+            "display": "Eye Level"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "monitor_distance_cm",
+            "display": "Monitor Distance Cm"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "keyboard_type",
+            "display": "Keyboard Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:keyboard_type",
+            "code": "standard",
+            "display": "Standard"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "mouse_type",
+            "display": "Mouse Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:mouse_type",
+            "code": "standard",
+            "display": "Standard"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "desk_height_adjustable",
+            "display": "Desk Height Adjustable"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:desk_height_adjustable",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "footrest_available",
+            "display": "Footrest Available"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:footrest_available",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "wrist_rest_available",
+            "display": "Wrist Rest Available"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:wrist_rest_available",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "lighting_adequate",
+            "display": "Lighting Adequate"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:lighting_adequate",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "lighting_notes",
+            "display": "Lighting Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "hours_at_workstation_per_day",
+            "display": "Hours At Workstation Per Day"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "break_frequency",
+            "display": "Break Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment:break_frequency",
+            "code": "every_30_min",
+            "display": "Every 30 Min"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:ergonomoic-assessment",
+            "code": "additional_notes",
+            "display": "Additional Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

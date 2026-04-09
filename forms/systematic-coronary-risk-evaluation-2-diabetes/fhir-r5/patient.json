@@ -1,0 +1,51 @@
+{
+  "resourceType": "Patient",
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Patient"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "identifier": [
+    {
+      "system": "https://fhir.nhs.uk/Id/nhs-number",
+      "value": "9434765919"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Doe",
+      "given": [
+        "Jane"
+      ]
+    }
+  ],
+  "birthDate": "1965-06-15",
+  "gender": "male",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-bodyWeight",
+      "valueQuantity": {
+        "value": 70.0,
+        "unit": "kg",
+        "system": "http://unitsofmeasure.org",
+        "code": "kg"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-bodyHeight",
+      "valueQuantity": {
+        "value": 170.0,
+        "unit": "cm",
+        "system": "http://unitsofmeasure.org",
+        "code": "cm"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-ethnicity",
+      "valueString": "white"
+    }
+  ]
+}

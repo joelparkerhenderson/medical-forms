@@ -1,0 +1,276 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:hearing-aid-assessment",
+        "code": "assessment_current_hearing_aids",
+        "display": "Current Hearing Aids"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "currently_uses_hearing_aids",
+            "display": "Currently Uses Hearing Aids"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:currently_uses_hearing_aids",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "hearing_aid_side",
+            "display": "Hearing Aid Side"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:hearing_aid_side",
+            "code": "left",
+            "display": "Left"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "hearing_aid_type",
+            "display": "Hearing Aid Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:hearing_aid_type",
+            "code": "bte",
+            "display": "Bte"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "hearing_aid_make",
+            "display": "Hearing Aid Make"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "hearing_aid_model",
+            "display": "Hearing Aid Model"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "hearing_aid_age_years",
+            "display": "Hearing Aid Age Years"
+          }
+        ]
+      },
+      "valueInteger": 45
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "daily_usage_hours",
+            "display": "Daily Usage Hours"
+          }
+        ]
+      },
+      "valueInteger": 45
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "satisfaction_with_current_aid",
+            "display": "Satisfaction With Current Aid"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:satisfaction_with_current_aid",
+            "code": "very-satisfied",
+            "display": "Very-Satisfied"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "problems_with_current_aid",
+            "display": "Problems With Current Aid"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:problems_with_current_aid",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "problem_details",
+            "display": "Problem Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "previous_hearing_aids",
+            "display": "Previous Hearing Aids"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:previous_hearing_aids",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "previous_aid_details",
+            "display": "Previous Aid Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "uses_assistive_listening_devices",
+            "display": "Uses Assistive Listening Devices"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment:uses_assistive_listening_devices",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "assistive_device_details",
+            "display": "Assistive Device Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:hearing-aid-assessment",
+            "code": "hearing_aid_notes",
+            "display": "Hearing Aid Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

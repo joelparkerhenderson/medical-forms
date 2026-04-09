@@ -1,0 +1,216 @@
+{
+  "resourceType": "Observation",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:occupational-therapy-assessment",
+        "code": "assessment_self_care_activities",
+        "display": "Self Care Activities"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment",
+            "code": "personal_care_independence",
+            "display": "Personal Care Independence"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment:personal_care_independence",
+            "code": "independent",
+            "display": "Independent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment",
+            "code": "dressing_ability",
+            "display": "Dressing Ability"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment:dressing_ability",
+            "code": "independent",
+            "display": "Independent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment",
+            "code": "bathing_ability",
+            "display": "Bathing Ability"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment:bathing_ability",
+            "code": "independent",
+            "display": "Independent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment",
+            "code": "feeding_ability",
+            "display": "Feeding Ability"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment:feeding_ability",
+            "code": "independent",
+            "display": "Independent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment",
+            "code": "toileting_ability",
+            "display": "Toileting Ability"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment:toileting_ability",
+            "code": "independent",
+            "display": "Independent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment",
+            "code": "mobility_indoors",
+            "display": "Mobility Indoors"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment:mobility_indoors",
+            "code": "independent",
+            "display": "Independent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment",
+            "code": "medication_management",
+            "display": "Medication Management"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment:medication_management",
+            "code": "independent",
+            "display": "Independent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment",
+            "code": "self_care_concerns",
+            "display": "Self Care Concerns"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment",
+            "code": "assistive_devices_used",
+            "display": "Assistive Devices Used"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:occupational-therapy-assessment",
+            "code": "self_care_notes",
+            "display": "Self Care Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

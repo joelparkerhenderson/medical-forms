@@ -1,0 +1,264 @@
+{
+  "resourceType": "Observation",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:gynecology-assessment",
+        "code": "assessment_menstrual_history",
+        "display": "Menstrual History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "menarche_age",
+            "display": "Menarche Age"
+          }
+        ]
+      },
+      "valueInteger": 45
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "menstrual_status",
+            "display": "Menstrual Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment:menstrual_status",
+            "code": "regular",
+            "display": "Regular"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "cycle_length_days",
+            "display": "Cycle Length Days"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "period_duration_days",
+            "display": "Period Duration Days"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "flow_volume",
+            "display": "Flow Volume"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment:flow_volume",
+            "code": "light",
+            "display": "Light"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "menorrhagia",
+            "display": "Menorrhagia"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment:menorrhagia",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "dysmenorrhoea",
+            "display": "Dysmenorrhoea"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment:dysmenorrhoea",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "dysmenorrhoea_severity",
+            "display": "Dysmenorrhoea Severity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "intermenstrual_bleeding",
+            "display": "Intermenstrual Bleeding"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment:intermenstrual_bleeding",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "postcoital_bleeding",
+            "display": "Postcoital Bleeding"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment:postcoital_bleeding",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "post_menopausal_bleeding",
+            "display": "Post Menopausal Bleeding"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment:post_menopausal_bleeding",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "last_menstrual_period_date",
+            "display": "Last Menstrual Period Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "menopause_age",
+            "display": "Menopause Age"
+          }
+        ]
+      },
+      "valueInteger": 45
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:gynecology-assessment",
+            "code": "menstrual_notes",
+            "display": "Menstrual Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}
