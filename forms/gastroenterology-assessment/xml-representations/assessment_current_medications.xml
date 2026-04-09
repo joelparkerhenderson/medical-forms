@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_medications SYSTEM "assessment_current_medications.dtd">
+<assessment_current_medications>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<takes_ppi>yes</takes_ppi>
+<ppi_name>Example</ppi_name>
+<takes_h2_blocker>yes</takes_h2_blocker>
+<h2_blocker_name>Example</h2_blocker_name>
+<takes_antacids>yes</takes_antacids>
+<takes_laxatives>yes</takes_laxatives>
+<laxative_type>osmotic</laxative_type>
+<takes_antidiarrhoeals>yes</takes_antidiarrhoeals>
+<takes_nsaids>yes</takes_nsaids>
+<nsaid_name>Example</nsaid_name>
+<takes_anticoagulants>yes</takes_anticoagulants>
+<anticoagulant_name>Example</anticoagulant_name>
+<takes_immunosuppressants>yes</takes_immunosuppressants>
+<immunosuppressant_name>Example</immunosuppressant_name>
+<takes_biologics>yes</takes_biologics>
+<biologic_name>Example</biologic_name>
+<takes_antibiotics>yes</takes_antibiotics>
+<antibiotic_name>Example</antibiotic_name>
+<takes_probiotics>yes</takes_probiotics>
+<other_medications>Paracetamol</other_medications>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_medications>

@@ -1,0 +1,17 @@
+<!ELEMENT assessment_respiratory_symptoms (id,assessment_id,wheezing,dyspnoea,dyspnoea_severity,nasal_congestion,rhinorrhoea,throat_tightness,stridor,cough,cough_type,asthma_diagnosis,peak_flow_lpm,respiratory_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT wheezing (#PCDATA)>
+<!ELEMENT dyspnoea (#PCDATA)>
+<!ELEMENT dyspnoea_severity (#PCDATA)>
+<!ELEMENT nasal_congestion (#PCDATA)>
+<!ELEMENT rhinorrhoea (#PCDATA)>
+<!ELEMENT throat_tightness (#PCDATA)>
+<!ELEMENT stridor (#PCDATA)>
+<!ELEMENT cough (#PCDATA)>
+<!ELEMENT cough_type (#PCDATA)>
+<!ELEMENT asthma_diagnosis (#PCDATA)>
+<!ELEMENT peak_flow_lpm (#PCDATA)>
+<!ELEMENT respiratory_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

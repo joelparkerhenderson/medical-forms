@@ -1,0 +1,15 @@
+<!ELEMENT grading_result (id,assessment_id,total_symptom_score,dermatological_score,gastrointestinal_score,cardiovascular_score,respiratory_score,neurological_score,organ_system_count,severity_level,trigger_count,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT total_symptom_score (#PCDATA)>
+<!ELEMENT dermatological_score (#PCDATA)>
+<!ELEMENT gastrointestinal_score (#PCDATA)>
+<!ELEMENT cardiovascular_score (#PCDATA)>
+<!ELEMENT respiratory_score (#PCDATA)>
+<!ELEMENT neurological_score (#PCDATA)>
+<!ELEMENT organ_system_count (#PCDATA)>
+<!ELEMENT severity_level (#PCDATA)>
+<!ELEMENT trigger_count (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

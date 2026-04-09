@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_daytime_dysfunction SYSTEM "assessment_daytime_dysfunction.dtd">
+<assessment_daytime_dysfunction>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<trouble_staying_awake>1</trouble_staying_awake>
+<lack_of_enthusiasm>1</lack_of_enthusiasm>
+<daytime_sleepiness_severity>1</daytime_sleepiness_severity>
+<epworth_sleepiness_score>5</epworth_sleepiness_score>
+<concentration_difficulty>yes</concentration_difficulty>
+<memory_problems>yes</memory_problems>
+<irritability>yes</irritability>
+<morning_headaches>yes</morning_headaches>
+<drowsy_driving>yes</drowsy_driving>
+<work_performance_impact>none</work_performance_impact>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_daytime_dysfunction>

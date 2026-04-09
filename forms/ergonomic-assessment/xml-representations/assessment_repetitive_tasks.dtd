@@ -1,0 +1,11 @@
+<!ELEMENT assessment_repetitive_tasks (id,assessment_id,task_description,frequency,duration_per_session,force_required,vibration_exposure,cycle_time_seconds,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT task_description (#PCDATA)>
+<!ELEMENT frequency (#PCDATA)>
+<!ELEMENT duration_per_session (#PCDATA)>
+<!ELEMENT force_required (#PCDATA)>
+<!ELEMENT vibration_exposure (#PCDATA)>
+<!ELEMENT cycle_time_seconds (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

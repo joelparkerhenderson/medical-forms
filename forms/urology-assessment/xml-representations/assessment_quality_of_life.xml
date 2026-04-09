@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_quality_of_life SYSTEM "assessment_quality_of_life.dtd">
+<assessment_quality_of_life>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<ipss_qol_score>5</ipss_qol_score>
+<sleep_disruption_from_nocturia>none</sleep_disruption_from_nocturia>
+<social_activity_limitation>none</social_activity_limitation>
+<anxiety_about_symptoms>yes</anxiety_about_symptoms>
+<embarrassment_from_symptoms>yes</embarrassment_from_symptoms>
+<travel_restriction>yes</travel_restriction>
+<fluid_intake_restriction>yes</fluid_intake_restriction>
+<overall_wellbeing>excellent</overall_wellbeing>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_quality_of_life>

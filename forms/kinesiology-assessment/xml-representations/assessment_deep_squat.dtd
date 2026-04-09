@@ -1,0 +1,15 @@
+<!ELEMENT assessment_deep_squat (id,assessment_id,raw_score,pain_noted,clearing_test_pain,final_score,upper_torso_alignment,femur_below_horizontal,knees_over_feet,heels_on_floor,dowel_overhead,clinician_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT raw_score (#PCDATA)>
+<!ELEMENT pain_noted (#PCDATA)>
+<!ELEMENT clearing_test_pain (#PCDATA)>
+<!ELEMENT final_score (#PCDATA)>
+<!ELEMENT upper_torso_alignment (#PCDATA)>
+<!ELEMENT femur_below_horizontal (#PCDATA)>
+<!ELEMENT knees_over_feet (#PCDATA)>
+<!ELEMENT heels_on_floor (#PCDATA)>
+<!ELEMENT dowel_overhead (#PCDATA)>
+<!ELEMENT clinician_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

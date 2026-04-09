@@ -1,0 +1,16 @@
+<!ELEMENT assessment_balance_assessment (id,assessment_id,sitting_balance,arising_from_chair,attempts_to_arise,immediate_standing_balance,standing_balance,nudge_test,eyes_closed,turning_360,sitting_down,balance_total_score,balance_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT sitting_balance (#PCDATA)>
+<!ELEMENT arising_from_chair (#PCDATA)>
+<!ELEMENT attempts_to_arise (#PCDATA)>
+<!ELEMENT immediate_standing_balance (#PCDATA)>
+<!ELEMENT standing_balance (#PCDATA)>
+<!ELEMENT nudge_test (#PCDATA)>
+<!ELEMENT eyes_closed (#PCDATA)>
+<!ELEMENT turning_360 (#PCDATA)>
+<!ELEMENT sitting_down (#PCDATA)>
+<!ELEMENT balance_total_score (#PCDATA)>
+<!ELEMENT balance_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

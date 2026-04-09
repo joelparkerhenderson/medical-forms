@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_triggers SYSTEM "assessment_triggers.dtd">
+<assessment_triggers>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<trigger_dust_mites>yes</trigger_dust_mites>
+<trigger_pollen>yes</trigger_pollen>
+<trigger_animal_dander>yes</trigger_animal_dander>
+<trigger_mould>yes</trigger_mould>
+<trigger_cold_air>yes</trigger_cold_air>
+<trigger_exercise>yes</trigger_exercise>
+<trigger_infections>yes</trigger_infections>
+<trigger_tobacco_smoke>yes</trigger_tobacco_smoke>
+<trigger_occupational>yes</trigger_occupational>
+<occupational_trigger_details>Example text.</occupational_trigger_details>
+<trigger_stress>yes</trigger_stress>
+<trigger_nsaids>yes</trigger_nsaids>
+<other_triggers></other_triggers>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_triggers>

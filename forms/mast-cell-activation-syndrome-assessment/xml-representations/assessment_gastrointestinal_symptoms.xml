@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_gastrointestinal_symptoms SYSTEM "assessment_gastrointestinal_symptoms.dtd">
+<assessment_gastrointestinal_symptoms>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<abdominal_pain>yes</abdominal_pain>
+<abdominal_pain_severity>1</abdominal_pain_severity>
+<nausea>yes</nausea>
+<vomiting>yes</vomiting>
+<diarrhoea>yes</diarrhoea>
+<diarrhoea_frequency>daily</diarrhoea_frequency>
+<bloating>yes</bloating>
+<gastro_oesophageal_reflux>yes</gastro_oesophageal_reflux>
+<dysphagia>yes</dysphagia>
+<food_intolerances></food_intolerances>
+<weight_change>gain</weight_change>
+<weight_change_amount_kg>70.0</weight_change_amount_kg>
+<gastrointestinal_notes>Example text.</gastrointestinal_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_gastrointestinal_symptoms>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_neurogenetics SYSTEM "assessment_neurogenetics.dtd">
+<assessment_neurogenetics>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<family_history_huntington>yes</family_history_huntington>
+<huntington_details>Example text.</huntington_details>
+<family_history_early_onset_dementia>yes</family_history_early_onset_dementia>
+<dementia_type>standard</dementia_type>
+<dementia_age_at_onset>45</dementia_age_at_onset>
+<family_history_motor_neurone_disease>yes</family_history_motor_neurone_disease>
+<motor_neurone_details>Example text.</motor_neurone_details>
+<family_history_hereditary_neuropathy>yes</family_history_hereditary_neuropathy>
+<hereditary_neuropathy_details>Example text.</hereditary_neuropathy_details>
+<family_history_epilepsy>yes</family_history_epilepsy>
+<epilepsy_details>Example text.</epilepsy_details>
+<family_history_ataxia>yes</family_history_ataxia>
+<ataxia_details>Example text.</ataxia_details>
+<neurogenetics_risk_score>5</neurogenetics_risk_score>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_neurogenetics>

@@ -1,0 +1,13 @@
+<!ELEMENT assessment_medical_history (id,assessment_id,has_known_cvd,previous_mi,previous_stroke,heart_failure,peripheral_arterial_disease,atrial_fibrillation,family_cvd_history,family_cvd_details,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT has_known_cvd (#PCDATA)>
+<!ELEMENT previous_mi (#PCDATA)>
+<!ELEMENT previous_stroke (#PCDATA)>
+<!ELEMENT heart_failure (#PCDATA)>
+<!ELEMENT peripheral_arterial_disease (#PCDATA)>
+<!ELEMENT atrial_fibrillation (#PCDATA)>
+<!ELEMENT family_cvd_history (#PCDATA)>
+<!ELEMENT family_cvd_details (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

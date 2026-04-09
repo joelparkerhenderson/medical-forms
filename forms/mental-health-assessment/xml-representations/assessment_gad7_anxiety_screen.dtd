@@ -1,0 +1,14 @@
+<!ELEMENT assessment_gad7_anxiety_screen (id,assessment_id,q1_feeling_nervous,q2_uncontrollable_worrying,q3_worrying_too_much,q4_trouble_relaxing,q5_restlessness,q6_easily_annoyed,q7_feeling_afraid,gad7_total_score,difficulty_level,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT q1_feeling_nervous (#PCDATA)>
+<!ELEMENT q2_uncontrollable_worrying (#PCDATA)>
+<!ELEMENT q3_worrying_too_much (#PCDATA)>
+<!ELEMENT q4_trouble_relaxing (#PCDATA)>
+<!ELEMENT q5_restlessness (#PCDATA)>
+<!ELEMENT q6_easily_annoyed (#PCDATA)>
+<!ELEMENT q7_feeling_afraid (#PCDATA)>
+<!ELEMENT gad7_total_score (#PCDATA)>
+<!ELEMENT difficulty_level (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

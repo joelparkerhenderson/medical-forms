@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grading_result SYSTEM "grading_result.dtd">
+<grading_result>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<right_pta_db>0.0</right_pta_db>
+<left_pta_db>0.0</left_pta_db>
+<better_ear_pta_db>0.0</better_ear_pta_db>
+<right_hearing_grade>normal</right_hearing_grade>
+<left_hearing_grade>normal</left_hearing_grade>
+<overall_hearing_grade>normal</overall_hearing_grade>
+<graded_at>2026-04-09T10:00:00Z</graded_at>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</grading_result>

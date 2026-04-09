@@ -1,0 +1,11 @@
+<!ELEMENT casualty_card_investigations (id,casualty_card_id,blood_tests,urinalysis,pregnancy_test,ecg_performed,ecg_findings,other_investigations,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT casualty_card_id (#PCDATA)>
+<!ELEMENT blood_tests (#PCDATA)>
+<!ELEMENT urinalysis (#PCDATA)>
+<!ELEMENT pregnancy_test (#PCDATA)>
+<!ELEMENT ecg_performed (#PCDATA)>
+<!ELEMENT ecg_findings (#PCDATA)>
+<!ELEMENT other_investigations (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

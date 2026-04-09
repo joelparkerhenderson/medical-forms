@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_functional_impact SYSTEM "assessment_functional_impact.dtd">
+<assessment_functional_impact>
+<id>220e8400-e29b-41d4-a716-44665544000c</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<reading_difficulty>none</reading_difficulty>
+<driving_ability>drives</driving_ability>
+<dvla_notification_required>yes</dvla_notification_required>
+<screen_use_difficulty>none</screen_use_difficulty>
+<mobility_impact>none</mobility_impact>
+<falls_risk>yes</falls_risk>
+<work_impact>no-impact</work_impact>
+<daily_living_impact>none</daily_living_impact>
+<social_impact>none</social_impact>
+<low_vision_aids_used></low_vision_aids_used>
+<low_vision_referral>yes</low_vision_referral>
+<certificate_of_visual_impairment>not-applicable</certificate_of_visual_impairment>
+<functional_impact_notes>Example text.</functional_impact_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_functional_impact>

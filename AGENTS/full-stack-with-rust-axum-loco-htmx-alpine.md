@@ -1,8 +1,12 @@
 # Full-stack with Rust axum Loco HTMX Alpine.js
 
+Ultrathink.
+
 Server-rendered Rust web application using Loco framework with Tera templates, HTMX for dynamic page updates, and Alpine.js for client-side interactivity.
 
 Slug: full-stack-with-rust-axum-loco-tera-htmx-alpine
+
+- Search pattern: "forms/\*/full-stack-with-rust-axum-loco-tera-htmx-alpine"
 
 ## Technology stack
 

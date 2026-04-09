@@ -1,0 +1,10 @@
+<!ELEMENT satisfaction_result (id,encounter_satisfaction_id,composite_score,category,answered_count,domain_scores,scored_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT encounter_satisfaction_id (#PCDATA)>
+<!ELEMENT composite_score (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT answered_count (#PCDATA)>
+<!ELEMENT domain_scores (#PCDATA)>
+<!ELEMENT scored_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

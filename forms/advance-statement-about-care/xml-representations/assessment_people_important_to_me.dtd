@@ -1,0 +1,15 @@
+<!ELEMENT assessment_people_important_to_me (id,assessment_id,primary_contact_name,primary_contact_relationship,primary_contact_phone,primary_contact_email,secondary_contact_name,secondary_contact_relationship,secondary_contact_phone,people_who_should_visit,people_who_should_not_visit,support_network_details,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT primary_contact_name (#PCDATA)>
+<!ELEMENT primary_contact_relationship (#PCDATA)>
+<!ELEMENT primary_contact_phone (#PCDATA)>
+<!ELEMENT primary_contact_email (#PCDATA)>
+<!ELEMENT secondary_contact_name (#PCDATA)>
+<!ELEMENT secondary_contact_relationship (#PCDATA)>
+<!ELEMENT secondary_contact_phone (#PCDATA)>
+<!ELEMENT people_who_should_visit (#PCDATA)>
+<!ELEMENT people_who_should_not_visit (#PCDATA)>
+<!ELEMENT support_network_details (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

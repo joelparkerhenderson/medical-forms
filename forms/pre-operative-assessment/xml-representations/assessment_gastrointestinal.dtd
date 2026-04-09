@@ -1,0 +1,8 @@
+<!ELEMENT assessment_gastrointestinal (id,assessment_id,gord,hiatus_hernia,nausea,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT gord (#PCDATA)>
+<!ELEMENT hiatus_hernia (#PCDATA)>
+<!ELEMENT nausea (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

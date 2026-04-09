@@ -1,0 +1,10 @@
+<!ELEMENT assessment_family_history (id,assessment_id,family_chd_history,family_chd_age_onset,family_chd_relationship,family_stroke_history,family_diabetes_history,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT family_chd_history (#PCDATA)>
+<!ELEMENT family_chd_age_onset (#PCDATA)>
+<!ELEMENT family_chd_relationship (#PCDATA)>
+<!ELEMENT family_stroke_history (#PCDATA)>
+<!ELEMENT family_diabetes_history (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

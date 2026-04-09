@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_interventions SYSTEM "assessment_current_interventions.dtd">
+<assessment_current_interventions>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<ergonomic_equipment></ergonomic_equipment>
+<physiotherapy>yes</physiotherapy>
+<occupational_therapy>yes</occupational_therapy>
+<workplace_adjustments></workplace_adjustments>
+<medications>Paracetamol</medications>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_interventions>

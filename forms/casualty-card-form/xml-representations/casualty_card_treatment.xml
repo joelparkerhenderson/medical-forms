@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE casualty_card_treatment SYSTEM "casualty_card_treatment.dtd">
+<casualty_card_treatment>
+<id>551e8400-e29b-41d4-a716-44665544000f</id>
+<casualty_card_id>660e8400-e29b-41d4-a716-446655440001</casualty_card_id>
+<oxygen_therapy_device>Example treatment</oxygen_therapy_device>
+<oxygen_therapy_flow_rate>Example treatment</oxygen_therapy_flow_rate>
+<tetanus_prophylaxis>given</tetanus_prophylaxis>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</casualty_card_treatment>

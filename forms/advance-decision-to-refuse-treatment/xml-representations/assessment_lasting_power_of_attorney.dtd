@@ -1,0 +1,15 @@
+<!ELEMENT assessment_lasting_power_of_attorney (id,assessment_id,has_health_welfare_lpa,lpa_registered_with_opg,lpa_registration_date,attorney_name,attorney_address,attorney_phone,replacement_attorney_name,lpa_authority_scope,lpa_conflicts_with_adrt,lpa_conflict_details,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT has_health_welfare_lpa (#PCDATA)>
+<!ELEMENT lpa_registered_with_opg (#PCDATA)>
+<!ELEMENT lpa_registration_date (#PCDATA)>
+<!ELEMENT attorney_name (#PCDATA)>
+<!ELEMENT attorney_address (#PCDATA)>
+<!ELEMENT attorney_phone (#PCDATA)>
+<!ELEMENT replacement_attorney_name (#PCDATA)>
+<!ELEMENT lpa_authority_scope (#PCDATA)>
+<!ELEMENT lpa_conflicts_with_adrt (#PCDATA)>
+<!ELEMENT lpa_conflict_details (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

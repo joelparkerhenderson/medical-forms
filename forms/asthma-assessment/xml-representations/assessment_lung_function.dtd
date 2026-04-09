@@ -1,0 +1,16 @@
+<!ELEMENT assessment_lung_function (id,assessment_id,fev1_litres,fev1_percent_predicted,fvc_litres,fev1_fvc_ratio,pef_litres_per_min,pef_percent_predicted,pef_variability_percent,reversibility_test_done,reversibility_percent,spirometry_date,spirometry_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT fev1_litres (#PCDATA)>
+<!ELEMENT fev1_percent_predicted (#PCDATA)>
+<!ELEMENT fvc_litres (#PCDATA)>
+<!ELEMENT fev1_fvc_ratio (#PCDATA)>
+<!ELEMENT pef_litres_per_min (#PCDATA)>
+<!ELEMENT pef_percent_predicted (#PCDATA)>
+<!ELEMENT pef_variability_percent (#PCDATA)>
+<!ELEMENT reversibility_test_done (#PCDATA)>
+<!ELEMENT reversibility_percent (#PCDATA)>
+<!ELEMENT spirometry_date (#PCDATA)>
+<!ELEMENT spirometry_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

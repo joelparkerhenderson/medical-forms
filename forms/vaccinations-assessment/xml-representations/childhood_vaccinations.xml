@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE childhood_vaccinations SYSTEM "childhood_vaccinations.dtd">
+<childhood_vaccinations>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<dtap_ipv_hib_hepb>1</dtap_ipv_hib_hepb>
+<pneumococcal>1</pneumococcal>
+<rotavirus>1</rotavirus>
+<meningitis_b>1</meningitis_b>
+<mmr>1</mmr>
+<hib_menc>1</hib_menc>
+<preschool_booster>1</preschool_booster>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</childhood_vaccinations>

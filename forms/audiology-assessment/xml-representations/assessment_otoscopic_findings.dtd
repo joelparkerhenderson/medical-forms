@@ -1,0 +1,16 @@
+<!ELEMENT assessment_otoscopic_findings (id,assessment_id,right_ear_canal,right_ear_canal_notes,right_tympanic_membrane,right_tympanic_membrane_notes,right_cerumen,left_ear_canal,left_ear_canal_notes,left_tympanic_membrane,left_tympanic_membrane_notes,left_cerumen,otoscopy_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT right_ear_canal (#PCDATA)>
+<!ELEMENT right_ear_canal_notes (#PCDATA)>
+<!ELEMENT right_tympanic_membrane (#PCDATA)>
+<!ELEMENT right_tympanic_membrane_notes (#PCDATA)>
+<!ELEMENT right_cerumen (#PCDATA)>
+<!ELEMENT left_ear_canal (#PCDATA)>
+<!ELEMENT left_ear_canal_notes (#PCDATA)>
+<!ELEMENT left_tympanic_membrane (#PCDATA)>
+<!ELEMENT left_tympanic_membrane_notes (#PCDATA)>
+<!ELEMENT left_cerumen (#PCDATA)>
+<!ELEMENT otoscopy_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_functional_status SYSTEM "assessment_functional_status.dtd">
+<assessment_functional_status>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<adl_independence>independent</adl_independence>
+<mobility_level>unrestricted</mobility_level>
+<aids_used></aids_used>
+<pulmonary_rehabilitation>completed</pulmonary_rehabilitation>
+<rehab_benefit>significant</rehab_benefit>
+<home_oxygen_assessment>yes</home_oxygen_assessment>
+<ambulatory_oxygen>yes</ambulatory_oxygen>
+<driving_status>drives</driving_status>
+<employment_impact>none</employment_impact>
+<social_isolation>yes</social_isolation>
+<carer_support>yes</carer_support>
+<advance_care_planning>yes</advance_care_planning>
+<advance_care_details>Example text.</advance_care_details>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_functional_status>

@@ -1,0 +1,12 @@
+<!ELEMENT grading_result (id,assessment_id,dmft_score,decayed_count,missing_count,filled_count,severity_level,periodontal_risk,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT dmft_score (#PCDATA)>
+<!ELEMENT decayed_count (#PCDATA)>
+<!ELEMENT missing_count (#PCDATA)>
+<!ELEMENT filled_count (#PCDATA)>
+<!ELEMENT severity_level (#PCDATA)>
+<!ELEMENT periodontal_risk (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

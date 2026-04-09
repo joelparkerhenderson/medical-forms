@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_laboratory_results SYSTEM "assessment_laboratory_results.dtd">
+<assessment_laboratory_results>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<lab_date>2026-01-15</lab_date>
+<haemoglobin>0.0</haemoglobin>
+<white_cell_count>0.0</white_cell_count>
+<neutrophil_count>0.0</neutrophil_count>
+<platelet_count>2</platelet_count>
+<creatinine>0.0</creatinine>
+<egfr>0.0</egfr>
+<bilirubin>0.0</bilirubin>
+<alt>0.0</alt>
+<ast>0.0</ast>
+<alkaline_phosphatase>0.0</alkaline_phosphatase>
+<albumin>0.0</albumin>
+<ldh>0.0</ldh>
+<tumour_markers></tumour_markers>
+<other_results>Normal</other_results>
+<laboratory_notes>Example text.</laboratory_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_laboratory_results>

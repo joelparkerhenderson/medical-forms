@@ -1,0 +1,12 @@
+<!ELEMENT assessment_circumstances (id,assessment_id,circumstances_description,specific_conditions,applies_if_terminally_ill,applies_if_permanently_unconscious,applies_if_severely_brain_damaged,applies_if_advanced_dementia,other_circumstances,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT circumstances_description (#PCDATA)>
+<!ELEMENT specific_conditions (#PCDATA)>
+<!ELEMENT applies_if_terminally_ill (#PCDATA)>
+<!ELEMENT applies_if_permanently_unconscious (#PCDATA)>
+<!ELEMENT applies_if_severely_brain_damaged (#PCDATA)>
+<!ELEMENT applies_if_advanced_dementia (#PCDATA)>
+<!ELEMENT other_circumstances (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

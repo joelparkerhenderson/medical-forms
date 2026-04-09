@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE visit_information SYSTEM "visit_information.dtd">
+<visit_information>
+<id>770e8400-e29b-41d4-a716-446655440002</id>
+<encounter_satisfaction_id>660e8400-e29b-41d4-a716-446655440001</encounter_satisfaction_id>
+<visit_date>2026-01-15</visit_date>
+<department></department>
+<provider_name>Example</provider_name>
+<visit_type>routine-checkup</visit_type>
+<reason_for_visit>Example text.</reason_for_visit>
+<first_visit>yes</first_visit>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</visit_information>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_gynecological_symptoms SYSTEM "assessment_gynecological_symptoms.dtd">
+<assessment_gynecological_symptoms>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<pelvic_pain>yes</pelvic_pain>
+<pelvic_pain_severity>1</pelvic_pain_severity>
+<pelvic_pain_location>central</pelvic_pain_location>
+<dyspareunia>yes</dyspareunia>
+<dyspareunia_type>superficial</dyspareunia_type>
+<vaginal_discharge>yes</vaginal_discharge>
+<discharge_characteristics></discharge_characteristics>
+<vulval_symptoms>yes</vulval_symptoms>
+<vulval_symptom_details>Example text.</vulval_symptom_details>
+<urinary_symptoms>yes</urinary_symptoms>
+<urinary_symptom_type>frequency</urinary_symptom_type>
+<pelvic_organ_prolapse_symptoms>yes</pelvic_organ_prolapse_symptoms>
+<prolapse_details>Example text.</prolapse_details>
+<bloating>yes</bloating>
+<bowel_symptoms>yes</bowel_symptoms>
+<bowel_symptom_details>Example text.</bowel_symptom_details>
+<symptom_notes>Example text.</symptom_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_gynecological_symptoms>

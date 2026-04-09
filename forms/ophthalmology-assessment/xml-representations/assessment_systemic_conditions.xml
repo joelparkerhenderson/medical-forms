@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_systemic_conditions SYSTEM "assessment_systemic_conditions.dtd">
+<assessment_systemic_conditions>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_diabetes>yes</has_diabetes>
+<diabetes_type>type-1</diabetes_type>
+<diabetes_duration_years>2026</diabetes_duration_years>
+<hba1c>0.0</hba1c>
+<has_hypertension>yes</has_hypertension>
+<hypertension_controlled>yes</hypertension_controlled>
+<has_thyroid_disease>yes</has_thyroid_disease>
+<thyroid_disease_details>Example text.</thyroid_disease_details>
+<has_autoimmune_disease>yes</has_autoimmune_disease>
+<autoimmune_disease_details>Example text.</autoimmune_disease_details>
+<has_cardiovascular_disease>yes</has_cardiovascular_disease>
+<cardiovascular_disease_details>Example text.</cardiovascular_disease_details>
+<has_neurological_disease>yes</has_neurological_disease>
+<neurological_disease_details>Example text.</neurological_disease_details>
+<smoking_status>never</smoking_status>
+<other_systemic_conditions></other_systemic_conditions>
+<systemic_conditions_notes>Example text.</systemic_conditions_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_systemic_conditions>

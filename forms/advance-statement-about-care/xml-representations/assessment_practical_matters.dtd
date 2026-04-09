@@ -1,0 +1,14 @@
+<!ELEMENT assessment_practical_matters (id,assessment_id,financial_arrangements,property_arrangements,insurance_details,will_location,has_lasting_power_of_attorney,lpa_details,funeral_wishes,burial_or_cremation,other_practical_matters,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT financial_arrangements (#PCDATA)>
+<!ELEMENT property_arrangements (#PCDATA)>
+<!ELEMENT insurance_details (#PCDATA)>
+<!ELEMENT will_location (#PCDATA)>
+<!ELEMENT has_lasting_power_of_attorney (#PCDATA)>
+<!ELEMENT lpa_details (#PCDATA)>
+<!ELEMENT funeral_wishes (#PCDATA)>
+<!ELEMENT burial_or_cremation (#PCDATA)>
+<!ELEMENT other_practical_matters (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

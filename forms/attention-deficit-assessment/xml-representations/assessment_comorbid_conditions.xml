@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_comorbid_conditions SYSTEM "assessment_comorbid_conditions.dtd">
+<assessment_comorbid_conditions>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_anxiety>yes</has_anxiety>
+<has_depression>yes</has_depression>
+<has_bipolar_disorder>yes</has_bipolar_disorder>
+<has_autism_spectrum>yes</has_autism_spectrum>
+<has_learning_disability>yes</has_learning_disability>
+<has_substance_use_disorder>yes</has_substance_use_disorder>
+<substance_use_details>Example text.</substance_use_details>
+<has_sleep_disorder>yes</has_sleep_disorder>
+<sleep_disorder_details>Example text.</sleep_disorder_details>
+<has_personality_disorder>yes</has_personality_disorder>
+<has_eating_disorder>yes</has_eating_disorder>
+<has_tic_disorder>yes</has_tic_disorder>
+<other_comorbidities></other_comorbidities>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_comorbid_conditions>

@@ -1,0 +1,9 @@
+<!ELEMENT casualty_card_next_of_kin (id,casualty_card_id,name,relationship,phone,notified,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT casualty_card_id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT relationship (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT notified (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

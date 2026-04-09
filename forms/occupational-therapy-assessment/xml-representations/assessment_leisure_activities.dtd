@@ -1,0 +1,16 @@
+<!ELEMENT assessment_leisure_activities (id,assessment_id,quiet_recreation,active_recreation,socialisation,hobbies_and_interests,leisure_participation_level,barriers_to_leisure,previous_leisure_activities,activities_given_up,leisure_satisfaction,leisure_concerns,leisure_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT quiet_recreation (#PCDATA)>
+<!ELEMENT active_recreation (#PCDATA)>
+<!ELEMENT socialisation (#PCDATA)>
+<!ELEMENT hobbies_and_interests (#PCDATA)>
+<!ELEMENT leisure_participation_level (#PCDATA)>
+<!ELEMENT barriers_to_leisure (#PCDATA)>
+<!ELEMENT previous_leisure_activities (#PCDATA)>
+<!ELEMENT activities_given_up (#PCDATA)>
+<!ELEMENT leisure_satisfaction (#PCDATA)>
+<!ELEMENT leisure_concerns (#PCDATA)>
+<!ELEMENT leisure_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

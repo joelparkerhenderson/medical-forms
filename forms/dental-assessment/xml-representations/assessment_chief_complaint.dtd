@@ -1,0 +1,14 @@
+<!ELEMENT assessment_chief_complaint (id,assessment_id,chief_complaint,onset_date,duration,severity,pain_location,pain_character,aggravating_factors,relieving_factors,previous_treatment,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT chief_complaint (#PCDATA)>
+<!ELEMENT onset_date (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+<!ELEMENT severity (#PCDATA)>
+<!ELEMENT pain_location (#PCDATA)>
+<!ELEMENT pain_character (#PCDATA)>
+<!ELEMENT aggravating_factors (#PCDATA)>
+<!ELEMENT relieving_factors (#PCDATA)>
+<!ELEMENT previous_treatment (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

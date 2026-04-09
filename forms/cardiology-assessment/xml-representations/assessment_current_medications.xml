@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_medications SYSTEM "assessment_current_medications.dtd">
+<assessment_current_medications>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<on_antiplatelet>yes</on_antiplatelet>
+<antiplatelet_details>Example text.</antiplatelet_details>
+<on_anticoagulant>yes</on_anticoagulant>
+<anticoagulant_type>warfarin</anticoagulant_type>
+<anticoagulant_details>Example text.</anticoagulant_details>
+<on_beta_blocker>yes</on_beta_blocker>
+<beta_blocker_details>Example text.</beta_blocker_details>
+<on_ace_inhibitor_arb>yes</on_ace_inhibitor_arb>
+<ace_arb_details>Example text.</ace_arb_details>
+<on_statin>yes</on_statin>
+<statin_details>Example text.</statin_details>
+<on_diuretic>yes</on_diuretic>
+<diuretic_details>Example text.</diuretic_details>
+<on_calcium_channel_blocker>yes</on_calcium_channel_blocker>
+<ccb_details>Example text.</ccb_details>
+<on_nitrate>yes</on_nitrate>
+<nitrate_details>Example text.</nitrate_details>
+<other_cardiac_medications>Paracetamol</other_cardiac_medications>
+<medication_adherence>good</medication_adherence>
+<medication_notes>Example text.</medication_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_medications>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE signature_consent SYSTEM "signature_consent.dtd">
+<signature_consent>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<release_form_id>660e8400-e29b-41d4-a716-446655440001</release_form_id>
+<patient_signature_confirmed>yes</patient_signature_confirmed>
+<signature_date>2026-01-15</signature_date>
+<witness_name>Example</witness_name>
+<witness_signature_confirmed>yes</witness_signature_confirmed>
+<witness_date>2026-01-15</witness_date>
+<parent_guardian_name>Example</parent_guardian_name>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</signature_consent>

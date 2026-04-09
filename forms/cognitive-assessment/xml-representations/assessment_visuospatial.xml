@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_visuospatial SYSTEM "assessment_visuospatial.dtd">
+<assessment_visuospatial>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<pentagon_copy_correct>correct</pentagon_copy_correct>
+<visuospatial_score>5</visuospatial_score>
+<pentagon_quality>good</pentagon_quality>
+<tremor_observed>yes</tremor_observed>
+<visuospatial_notes>Example text.</visuospatial_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_visuospatial>

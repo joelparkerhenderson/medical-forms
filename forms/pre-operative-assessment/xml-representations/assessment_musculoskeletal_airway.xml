@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_musculoskeletal_airway SYSTEM "assessment_musculoskeletal_airway.dtd">
+<assessment_musculoskeletal_airway>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<rheumatoid_arthritis>yes</rheumatoid_arthritis>
+<cervical_spine_issues>yes</cervical_spine_issues>
+<limited_neck_movement>yes</limited_neck_movement>
+<limited_mouth_opening>yes</limited_mouth_opening>
+<dental_issues>yes</dental_issues>
+<dental_details>Example text.</dental_details>
+<previous_difficult_airway>yes</previous_difficult_airway>
+<mallampati_score>1</mallampati_score>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_musculoskeletal_airway>

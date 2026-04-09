@@ -1,0 +1,9 @@
+<!ELEMENT casualty_card_medication (id,casualty_card_id,name,dose,frequency,sort_order,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT casualty_card_id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT dose (#PCDATA)>
+<!ELEMENT frequency (#PCDATA)>
+<!ELEMENT sort_order (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

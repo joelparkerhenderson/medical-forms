@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_ear_examination SYSTEM "assessment_ear_examination.dtd">
+<assessment_ear_examination>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<left_ear_canal>normal</left_ear_canal>
+<left_ear_canal_details>Example text.</left_ear_canal_details>
+<right_ear_canal>normal</right_ear_canal>
+<right_ear_canal_details>Example text.</right_ear_canal_details>
+<left_tympanic_membrane>normal</left_tympanic_membrane>
+<left_tympanic_membrane_details>Example text.</left_tympanic_membrane_details>
+<right_tympanic_membrane>normal</right_tympanic_membrane>
+<right_tympanic_membrane_details>Example text.</right_tympanic_membrane_details>
+<left_pinna>normal</left_pinna>
+<left_pinna_details>Example text.</left_pinna_details>
+<right_pinna>normal</right_pinna>
+<right_pinna_details>Example text.</right_pinna_details>
+<otoscopy_referral_needed>yes</otoscopy_referral_needed>
+<ear_examination_notes>Example text.</ear_examination_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_ear_examination>

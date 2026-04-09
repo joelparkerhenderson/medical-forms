@@ -1,0 +1,9 @@
+<!ELEMENT demographics_ethnicity (id,assessment_id,age,sex,ethnicity,townsend_deprivation,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT sex (#PCDATA)>
+<!ELEMENT ethnicity (#PCDATA)>
+<!ELEMENT townsend_deprivation (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

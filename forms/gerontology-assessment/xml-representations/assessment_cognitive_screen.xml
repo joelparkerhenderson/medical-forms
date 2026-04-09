@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_cognitive_screen SYSTEM "assessment_cognitive_screen.dtd">
+<assessment_cognitive_screen>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<mmse_score>5</mmse_score>
+<moca_score>5</moca_score>
+<clock_drawing_score>5</clock_drawing_score>
+<orientation_to_time>intact</orientation_to_time>
+<orientation_to_place>intact</orientation_to_place>
+<short_term_memory>intact</short_term_memory>
+<long_term_memory>intact</long_term_memory>
+<executive_function>intact</executive_function>
+<language_function>intact</language_function>
+<known_dementia_diagnosis>yes</known_dementia_diagnosis>
+<dementia_type>standard</dementia_type>
+<delirium_screen>positive</delirium_screen>
+<cognitive_decline_reported_by>patient</cognitive_decline_reported_by>
+<cognitive_notes>Example text.</cognitive_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_cognitive_screen>

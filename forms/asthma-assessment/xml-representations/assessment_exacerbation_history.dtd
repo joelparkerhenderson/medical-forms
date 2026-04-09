@@ -1,0 +1,13 @@
+<!ELEMENT assessment_exacerbation_history (id,assessment_id,exacerbations_past_12_months,oral_steroid_courses_past_12_months,ed_visits_past_12_months,hospital_admissions_past_12_months,icu_admissions_ever,intubation_history,worst_exacerbation_details,has_asthma_action_plan,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT exacerbations_past_12_months (#PCDATA)>
+<!ELEMENT oral_steroid_courses_past_12_months (#PCDATA)>
+<!ELEMENT ed_visits_past_12_months (#PCDATA)>
+<!ELEMENT hospital_admissions_past_12_months (#PCDATA)>
+<!ELEMENT icu_admissions_ever (#PCDATA)>
+<!ELEMENT intubation_history (#PCDATA)>
+<!ELEMENT worst_exacerbation_details (#PCDATA)>
+<!ELEMENT has_asthma_action_plan (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

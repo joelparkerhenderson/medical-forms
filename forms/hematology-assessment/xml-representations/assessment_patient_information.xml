@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_patient_information SYSTEM "assessment_patient_information.dtd">
+<assessment_patient_information>
+<id>770e8400-e29b-41d4-a716-446655440002</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<patient_name>Example</patient_name>
+<date_of_birth>1965-06-15</date_of_birth>
+<medical_record_number></medical_record_number>
+<referring_physician>Dr Smith</referring_physician>
+<clinical_indication>Example Hospital</clinical_indication>
+<specimen_date>2026-01-15</specimen_date>
+<specimen_type>standard</specimen_type>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_patient_information>

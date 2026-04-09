@@ -1,0 +1,10 @@
+<!ELEMENT assessment_performance_ratings (id,assessment_id,overall_performance_score,self_care_performance_score,productivity_performance_score,leisure_performance_score,performance_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT overall_performance_score (#PCDATA)>
+<!ELEMENT self_care_performance_score (#PCDATA)>
+<!ELEMENT productivity_performance_score (#PCDATA)>
+<!ELEMENT leisure_performance_score (#PCDATA)>
+<!ELEMENT performance_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,12 @@
+<!ELEMENT grading_result (id,assessment_id,right_pta_db,left_pta_db,better_ear_pta_db,right_hearing_grade,left_hearing_grade,overall_hearing_grade,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT right_pta_db (#PCDATA)>
+<!ELEMENT left_pta_db (#PCDATA)>
+<!ELEMENT better_ear_pta_db (#PCDATA)>
+<!ELEMENT right_hearing_grade (#PCDATA)>
+<!ELEMENT left_hearing_grade (#PCDATA)>
+<!ELEMENT overall_hearing_grade (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

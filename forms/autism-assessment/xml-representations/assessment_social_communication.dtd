@@ -1,0 +1,14 @@
+<!ELEMENT assessment_social_communication (id,assessment_id,eye_contact_difficulty,understanding_sarcasm,difficulty_starting_conversations,difficulty_maintaining_conversations,literal_interpretation,difficulty_reading_body_language,difficulty_making_friends,preference_for_solitary_activities,social_communication_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT eye_contact_difficulty (#PCDATA)>
+<!ELEMENT understanding_sarcasm (#PCDATA)>
+<!ELEMENT difficulty_starting_conversations (#PCDATA)>
+<!ELEMENT difficulty_maintaining_conversations (#PCDATA)>
+<!ELEMENT literal_interpretation (#PCDATA)>
+<!ELEMENT difficulty_reading_body_language (#PCDATA)>
+<!ELEMENT difficulty_making_friends (#PCDATA)>
+<!ELEMENT preference_for_solitary_activities (#PCDATA)>
+<!ELEMENT social_communication_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

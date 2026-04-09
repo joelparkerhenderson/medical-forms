@@ -1,0 +1,14 @@
+<!ELEMENT assessment_active_straight_leg_raise (id,assessment_id,left_raw_score,right_raw_score,pain_noted_left,pain_noted_right,final_score,malleolus_position_left,malleolus_position_right,opposite_leg_remains_flat,clinician_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT left_raw_score (#PCDATA)>
+<!ELEMENT right_raw_score (#PCDATA)>
+<!ELEMENT pain_noted_left (#PCDATA)>
+<!ELEMENT pain_noted_right (#PCDATA)>
+<!ELEMENT final_score (#PCDATA)>
+<!ELEMENT malleolus_position_left (#PCDATA)>
+<!ELEMENT malleolus_position_right (#PCDATA)>
+<!ELEMENT opposite_leg_remains_flat (#PCDATA)>
+<!ELEMENT clinician_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

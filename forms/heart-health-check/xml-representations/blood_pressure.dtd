@@ -1,0 +1,10 @@
+<!ELEMENT blood_pressure (id,assessment_id,systolic_bp,systolic_bp_sd,diastolic_bp,on_bp_treatment,number_of_bp_medications,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT systolic_bp (#PCDATA)>
+<!ELEMENT systolic_bp_sd (#PCDATA)>
+<!ELEMENT diastolic_bp (#PCDATA)>
+<!ELEMENT on_bp_treatment (#PCDATA)>
+<!ELEMENT number_of_bp_medications (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

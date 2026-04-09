@@ -1,0 +1,8 @@
+<!ELEMENT access_scheduling (id,encounter_satisfaction_id,ease_of_scheduling,wait_for_appointment,wait_in_waiting_room,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT encounter_satisfaction_id (#PCDATA)>
+<!ELEMENT ease_of_scheduling (#PCDATA)>
+<!ELEMENT wait_for_appointment (#PCDATA)>
+<!ELEMENT wait_in_waiting_room (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

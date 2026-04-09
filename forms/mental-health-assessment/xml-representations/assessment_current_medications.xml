@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_medications SYSTEM "assessment_current_medications.dtd">
+<assessment_current_medications>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<taking_psychotropic_medication>yes</taking_psychotropic_medication>
+<medication_adherence>good</medication_adherence>
+<side_effects>yes</side_effects>
+<side_effects_details>Example text.</side_effects_details>
+<over_the_counter_medications>Paracetamol</over_the_counter_medications>
+<supplements></supplements>
+<medication_notes>Example text.</medication_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_medications>

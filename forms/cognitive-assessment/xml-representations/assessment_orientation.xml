@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_orientation SYSTEM "assessment_orientation.dtd">
+<assessment_orientation>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<orientation_year>correct</orientation_year>
+<orientation_season>correct</orientation_season>
+<orientation_month>correct</orientation_month>
+<orientation_date>correct</orientation_date>
+<orientation_day>correct</orientation_day>
+<orientation_time_score>5</orientation_time_score>
+<orientation_country>correct</orientation_country>
+<orientation_county>correct</orientation_county>
+<orientation_city>correct</orientation_city>
+<orientation_building>correct</orientation_building>
+<orientation_floor>correct</orientation_floor>
+<orientation_place_score>5</orientation_place_score>
+<orientation_notes>Example text.</orientation_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_orientation>

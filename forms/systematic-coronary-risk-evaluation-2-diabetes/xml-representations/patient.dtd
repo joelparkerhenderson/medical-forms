@@ -1,0 +1,11 @@
+<!ELEMENT patient (id,full_name,date_of_birth,sex,nhs_number,height_cm,weight_kg,ethnicity,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT full_name (#PCDATA)>
+<!ELEMENT date_of_birth (#PCDATA)>
+<!ELEMENT sex (#PCDATA)>
+<!ELEMENT nhs_number (#PCDATA)>
+<!ELEMENT height_cm (#PCDATA)>
+<!ELEMENT weight_kg (#PCDATA)>
+<!ELEMENT ethnicity (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_vestibular_symptoms SYSTEM "assessment_vestibular_symptoms.dtd">
+<assessment_vestibular_symptoms>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_dizziness>yes</has_dizziness>
+<has_vertigo>yes</has_vertigo>
+<vertigo_type>spinning</vertigo_type>
+<vertigo_duration></vertigo_duration>
+<vertigo_frequency>twice daily</vertigo_frequency>
+<vertigo_triggers></vertigo_triggers>
+<has_balance_problems>yes</has_balance_problems>
+<has_falls>yes</has_falls>
+<falls_frequency>twice daily</falls_frequency>
+<has_nausea_with_dizziness>yes</has_nausea_with_dizziness>
+<has_aural_fullness>yes</has_aural_fullness>
+<suspected_meniere_disease>yes</suspected_meniere_disease>
+<vestibular_notes>Example text.</vestibular_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_vestibular_symptoms>

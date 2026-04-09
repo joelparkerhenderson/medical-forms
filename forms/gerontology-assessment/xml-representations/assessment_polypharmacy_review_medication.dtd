@@ -1,0 +1,12 @@
+<!ELEMENT assessment_polypharmacy_review_medication (id,polypharmacy_review_id,medication_name,dose,frequency,route,indication,is_prn,sort_order,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT polypharmacy_review_id (#PCDATA)>
+<!ELEMENT medication_name (#PCDATA)>
+<!ELEMENT dose (#PCDATA)>
+<!ELEMENT frequency (#PCDATA)>
+<!ELEMENT route (#PCDATA)>
+<!ELEMENT indication (#PCDATA)>
+<!ELEMENT is_prn (#PCDATA)>
+<!ELEMENT sort_order (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

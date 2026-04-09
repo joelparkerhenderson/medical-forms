@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_treatment SYSTEM "assessment_current_treatment.dtd">
+<assessment_current_treatment>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<h1_antihistamine>yes</h1_antihistamine>
+<h1_antihistamine_name>Example</h1_antihistamine_name>
+<h1_antihistamine_dose>500mg</h1_antihistamine_dose>
+<h2_antihistamine>yes</h2_antihistamine>
+<h2_antihistamine_name>Example</h2_antihistamine_name>
+<h2_antihistamine_dose>500mg</h2_antihistamine_dose>
+<mast_cell_stabiliser>yes</mast_cell_stabiliser>
+<mast_cell_stabiliser_name>Example</mast_cell_stabiliser_name>
+<leukotriene_inhibitor>yes</leukotriene_inhibitor>
+<leukotriene_inhibitor_name>Example</leukotriene_inhibitor_name>
+<corticosteroids>yes</corticosteroids>
+<corticosteroid_details>Example text.</corticosteroid_details>
+<adrenaline_auto_injector_prescribed>yes</adrenaline_auto_injector_prescribed>
+<omalizumab>yes</omalizumab>
+<other_medications>Paracetamol</other_medications>
+<low_histamine_diet>yes</low_histamine_diet>
+<avoidance_strategies></avoidance_strategies>
+<treatment_effectiveness>very-effective</treatment_effectiveness>
+<treatment_notes>Example text.</treatment_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_treatment>

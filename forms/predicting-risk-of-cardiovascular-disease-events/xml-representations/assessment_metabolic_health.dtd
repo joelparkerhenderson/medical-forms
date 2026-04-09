@@ -1,0 +1,12 @@
+<!ELEMENT assessment_metabolic_health (id,assessment_id,has_diabetes,diabetes_type,hba1c_value,hba1c_unit,fasting_glucose,bmi,waist_circumference_cm,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT has_diabetes (#PCDATA)>
+<!ELEMENT diabetes_type (#PCDATA)>
+<!ELEMENT hba1c_value (#PCDATA)>
+<!ELEMENT hba1c_unit (#PCDATA)>
+<!ELEMENT fasting_glucose (#PCDATA)>
+<!ELEMENT bmi (#PCDATA)>
+<!ELEMENT waist_circumference_cm (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

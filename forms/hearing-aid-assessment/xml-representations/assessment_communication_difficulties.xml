@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_communication_difficulties SYSTEM "assessment_communication_difficulties.dtd">
+<assessment_communication_difficulties>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<difficulty_quiet_conversation>never</difficulty_quiet_conversation>
+<difficulty_noisy_environment>never</difficulty_noisy_environment>
+<difficulty_group_settings>never</difficulty_group_settings>
+<difficulty_on_telephone>never</difficulty_on_telephone>
+<difficulty_television>never</difficulty_television>
+<difficulty_understanding_speech>never</difficulty_understanding_speech>
+<asks_people_to_repeat>never</asks_people_to_repeat>
+<lip_reading_reliance>never</lip_reading_reliance>
+<social_withdrawal>yes</social_withdrawal>
+<communication_partner_concerns>yes</communication_partner_concerns>
+<communication_partner_details>Example text.</communication_partner_details>
+<communication_notes>Example text.</communication_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_communication_difficulties>

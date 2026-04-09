@@ -1,0 +1,13 @@
+<!ELEMENT assessment_complications_screening (id,assessment_id,retinopathy_status,last_eye_screening_date,neuropathy_symptoms,monofilament_test,foot_pulses,foot_ulcer_history,ankle_brachial_index,erectile_dysfunction,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT retinopathy_status (#PCDATA)>
+<!ELEMENT last_eye_screening_date (#PCDATA)>
+<!ELEMENT neuropathy_symptoms (#PCDATA)>
+<!ELEMENT monofilament_test (#PCDATA)>
+<!ELEMENT foot_pulses (#PCDATA)>
+<!ELEMENT foot_ulcer_history (#PCDATA)>
+<!ELEMENT ankle_brachial_index (#PCDATA)>
+<!ELEMENT erectile_dysfunction (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

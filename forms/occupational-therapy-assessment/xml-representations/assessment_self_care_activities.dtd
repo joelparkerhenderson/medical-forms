@@ -1,0 +1,15 @@
+<!ELEMENT assessment_self_care_activities (id,assessment_id,personal_care_independence,dressing_ability,bathing_ability,feeding_ability,toileting_ability,mobility_indoors,medication_management,self_care_concerns,assistive_devices_used,self_care_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT personal_care_independence (#PCDATA)>
+<!ELEMENT dressing_ability (#PCDATA)>
+<!ELEMENT bathing_ability (#PCDATA)>
+<!ELEMENT feeding_ability (#PCDATA)>
+<!ELEMENT toileting_ability (#PCDATA)>
+<!ELEMENT mobility_indoors (#PCDATA)>
+<!ELEMENT medication_management (#PCDATA)>
+<!ELEMENT self_care_concerns (#PCDATA)>
+<!ELEMENT assistive_devices_used (#PCDATA)>
+<!ELEMENT self_care_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,11 @@
+<!ELEMENT grading_result (id,assessment_id,phq9_total_score,phq9_severity,gad7_total_score,gad7_severity,risk_level,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT phq9_total_score (#PCDATA)>
+<!ELEMENT phq9_severity (#PCDATA)>
+<!ELEMENT gad7_total_score (#PCDATA)>
+<!ELEMENT gad7_severity (#PCDATA)>
+<!ELEMENT risk_level (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

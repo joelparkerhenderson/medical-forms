@@ -1,0 +1,12 @@
+<!ELEMENT assessment_current_medications (id,assessment_id,takes_regular_medications,takes_over_the_counter,takes_herbal_supplements,herbal_supplement_details,hormone_therapy,hormone_therapy_details,medication_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT takes_regular_medications (#PCDATA)>
+<!ELEMENT takes_over_the_counter (#PCDATA)>
+<!ELEMENT takes_herbal_supplements (#PCDATA)>
+<!ELEMENT herbal_supplement_details (#PCDATA)>
+<!ELEMENT hormone_therapy (#PCDATA)>
+<!ELEMENT hormone_therapy_details (#PCDATA)>
+<!ELEMENT medication_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

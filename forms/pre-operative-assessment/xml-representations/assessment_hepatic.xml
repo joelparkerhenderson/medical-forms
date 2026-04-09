@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_hepatic SYSTEM "assessment_hepatic.dtd">
+<assessment_hepatic>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<liver_disease>yes</liver_disease>
+<cirrhosis>yes</cirrhosis>
+<child_pugh_score>A</child_pugh_score>
+<hepatitis>yes</hepatitis>
+<hepatitis_type>standard</hepatitis_type>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_hepatic>

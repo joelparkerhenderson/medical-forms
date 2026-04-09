@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_body_composition SYSTEM "assessment_body_composition.dtd">
+<assessment_body_composition>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<current_weight_kg>70.0</current_weight_kg>
+<height_cm>170.0</height_cm>
+<bmi>24.2</bmi>
+<waist_circumference_cm>0.0</waist_circumference_cm>
+<hip_circumference_cm>0.0</hip_circumference_cm>
+<waist_hip_ratio>1.5</waist_hip_ratio>
+<body_fat_percentage>50.0</body_fat_percentage>
+<highest_lifetime_weight_kg>70.0</highest_lifetime_weight_kg>
+<weight_change_last_6_months_kg>70.0</weight_change_last_6_months_kg>
+<bmi_category>underweight</bmi_category>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_body_composition>

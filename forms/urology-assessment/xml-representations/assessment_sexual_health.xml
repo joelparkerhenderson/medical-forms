@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_sexual_health SYSTEM "assessment_sexual_health.dtd">
+<assessment_sexual_health>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<sexually_active>yes</sexually_active>
+<erectile_dysfunction>yes</erectile_dysfunction>
+<erectile_dysfunction_severity>mild</erectile_dysfunction_severity>
+<erectile_dysfunction_duration_months>1</erectile_dysfunction_duration_months>
+<iief5_score>5</iief5_score>
+<ejaculatory_dysfunction>yes</ejaculatory_dysfunction>
+<ejaculatory_dysfunction_type>premature</ejaculatory_dysfunction_type>
+<decreased_libido>yes</decreased_libido>
+<testosterone_level_nmol_l>5.0</testosterone_level_nmol_l>
+<pde5_inhibitor_use>yes</pde5_inhibitor_use>
+<pde5_inhibitor_name>Example</pde5_inhibitor_name>
+<fertility_concerns>yes</fertility_concerns>
+<fertility_details>Example text.</fertility_details>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_sexual_health>

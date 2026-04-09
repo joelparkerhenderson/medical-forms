@@ -1,0 +1,13 @@
+<!ELEMENT assessment_language (id,assessment_id,naming_object_1,naming_object_1_correct,naming_object_2,naming_object_2_correct,naming_score,repetition_correct,repetition_score,language_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT naming_object_1 (#PCDATA)>
+<!ELEMENT naming_object_1_correct (#PCDATA)>
+<!ELEMENT naming_object_2 (#PCDATA)>
+<!ELEMENT naming_object_2_correct (#PCDATA)>
+<!ELEMENT naming_score (#PCDATA)>
+<!ELEMENT repetition_correct (#PCDATA)>
+<!ELEMENT repetition_score (#PCDATA)>
+<!ELEMENT language_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

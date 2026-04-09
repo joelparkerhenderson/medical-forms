@@ -1,0 +1,11 @@
+<!ELEMENT grading_result (id,assessment_id,risk_level,risk_score,obstetric_risk,medical_risk,mental_health_risk,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT risk_level (#PCDATA)>
+<!ELEMENT risk_score (#PCDATA)>
+<!ELEMENT obstetric_risk (#PCDATA)>
+<!ELEMENT medical_risk (#PCDATA)>
+<!ELEMENT mental_health_risk (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

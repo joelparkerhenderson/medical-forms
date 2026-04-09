@@ -1,0 +1,13 @@
+<!ELEMENT travel_vaccinations (id,assessment_id,travel_planned,travel_destination,hepatitis_a,hepatitis_b,typhoid,yellow_fever,rabies,japanese_encephalitis,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT travel_planned (#PCDATA)>
+<!ELEMENT travel_destination (#PCDATA)>
+<!ELEMENT hepatitis_a (#PCDATA)>
+<!ELEMENT hepatitis_b (#PCDATA)>
+<!ELEMENT typhoid (#PCDATA)>
+<!ELEMENT yellow_fever (#PCDATA)>
+<!ELEMENT rabies (#PCDATA)>
+<!ELEMENT japanese_encephalitis (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

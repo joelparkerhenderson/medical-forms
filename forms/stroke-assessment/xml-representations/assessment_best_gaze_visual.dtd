@@ -1,0 +1,15 @@
+<!ELEMENT assessment_best_gaze_visual (id,assessment_id,nihss_2_best_gaze,nihss_3_visual_fields,gaze_deviation_direction,forced_eye_deviation,pupil_left_mm,pupil_right_mm,pupil_left_reactive,pupil_right_reactive,visual_field_deficit_type,visual_deficit_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT nihss_2_best_gaze (#PCDATA)>
+<!ELEMENT nihss_3_visual_fields (#PCDATA)>
+<!ELEMENT gaze_deviation_direction (#PCDATA)>
+<!ELEMENT forced_eye_deviation (#PCDATA)>
+<!ELEMENT pupil_left_mm (#PCDATA)>
+<!ELEMENT pupil_right_mm (#PCDATA)>
+<!ELEMENT pupil_left_reactive (#PCDATA)>
+<!ELEMENT pupil_right_reactive (#PCDATA)>
+<!ELEMENT visual_field_deficit_type (#PCDATA)>
+<!ELEMENT visual_deficit_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

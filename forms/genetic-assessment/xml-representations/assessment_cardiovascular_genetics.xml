@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_cardiovascular_genetics SYSTEM "assessment_cardiovascular_genetics.dtd">
+<assessment_cardiovascular_genetics>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<family_history_sudden_cardiac_death>yes</family_history_sudden_cardiac_death>
+<sudden_cardiac_death_details>Example text.</sudden_cardiac_death_details>
+<family_history_cardiomyopathy>yes</family_history_cardiomyopathy>
+<cardiomyopathy_type>hypertrophic</cardiomyopathy_type>
+<cardiomyopathy_details>Example text.</cardiomyopathy_details>
+<family_history_aortopathy>yes</family_history_aortopathy>
+<aortopathy_details>Example text.</aortopathy_details>
+<family_history_arrhythmia>yes</family_history_arrhythmia>
+<arrhythmia_type>standard</arrhythmia_type>
+<family_history_familial_hypercholesterolaemia>yes</family_history_familial_hypercholesterolaemia>
+<cholesterol_level_mmol_l>5.0</cholesterol_level_mmol_l>
+<connective_tissue_disorder>yes</connective_tissue_disorder>
+<connective_tissue_details>Example text.</connective_tissue_details>
+<cardiovascular_risk_score>5</cardiovascular_risk_score>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_cardiovascular_genetics>

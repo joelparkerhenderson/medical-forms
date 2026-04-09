@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_cardiovascular_history SYSTEM "assessment_cardiovascular_history.dtd">
+<assessment_cardiovascular_history>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<previous_mi>yes</previous_mi>
+<previous_stroke>yes</previous_stroke>
+<previous_tia>yes</previous_tia>
+<peripheral_arterial_disease>yes</peripheral_arterial_disease>
+<heart_failure>yes</heart_failure>
+<atrial_fibrillation>yes</atrial_fibrillation>
+<family_cvd_history>yes</family_cvd_history>
+<family_cvd_details>Example text.</family_cvd_details>
+<current_chest_pain>yes</current_chest_pain>
+<current_dyspnoea>yes</current_dyspnoea>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_cardiovascular_history>

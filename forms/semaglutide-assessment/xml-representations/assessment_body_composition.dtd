@@ -1,0 +1,15 @@
+<!ELEMENT assessment_body_composition (id,assessment_id,current_weight_kg,height_cm,bmi,waist_circumference_cm,hip_circumference_cm,waist_hip_ratio,body_fat_percentage,highest_lifetime_weight_kg,weight_change_last_6_months_kg,bmi_category,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT current_weight_kg (#PCDATA)>
+<!ELEMENT height_cm (#PCDATA)>
+<!ELEMENT bmi (#PCDATA)>
+<!ELEMENT waist_circumference_cm (#PCDATA)>
+<!ELEMENT hip_circumference_cm (#PCDATA)>
+<!ELEMENT waist_hip_ratio (#PCDATA)>
+<!ELEMENT body_fat_percentage (#PCDATA)>
+<!ELEMENT highest_lifetime_weight_kg (#PCDATA)>
+<!ELEMENT weight_change_last_6_months_kg (#PCDATA)>
+<!ELEMENT bmi_category (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE casualty_card_demographics SYSTEM "casualty_card_demographics.dtd">
+<casualty_card_demographics>
+<id>770e8400-e29b-41d4-a716-446655440002</id>
+<casualty_card_id>660e8400-e29b-41d4-a716-446655440001</casualty_card_id>
+<address>123 Example Street</address>
+<postcode>SW1A 1AA</postcode>
+<phone>07700900000</phone>
+<email>jane.doe@example.com</email>
+<ethnicity>White British</ethnicity>
+<preferred_language>English</preferred_language>
+<interpreter_required>yes</interpreter_required>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</casualty_card_demographics>

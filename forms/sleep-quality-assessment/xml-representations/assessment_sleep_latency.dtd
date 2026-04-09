@@ -1,0 +1,12 @@
+<!ELEMENT assessment_sleep_latency (id,assessment_id,time_to_fall_asleep_minutes,cannot_sleep_within_30_min,racing_thoughts_at_bedtime,physical_discomfort_at_bedtime,anxiety_at_bedtime,difficulty_relaxing,sleep_onset_strategies,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT time_to_fall_asleep_minutes (#PCDATA)>
+<!ELEMENT cannot_sleep_within_30_min (#PCDATA)>
+<!ELEMENT racing_thoughts_at_bedtime (#PCDATA)>
+<!ELEMENT physical_discomfort_at_bedtime (#PCDATA)>
+<!ELEMENT anxiety_at_bedtime (#PCDATA)>
+<!ELEMENT difficulty_relaxing (#PCDATA)>
+<!ELEMENT sleep_onset_strategies (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

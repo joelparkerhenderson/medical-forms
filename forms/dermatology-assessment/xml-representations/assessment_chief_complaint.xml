@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_chief_complaint SYSTEM "assessment_chief_complaint.dtd">
+<assessment_chief_complaint>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<chief_complaint></chief_complaint>
+<onset_date>2026-01-15</onset_date>
+<duration></duration>
+<body_area_affected></body_area_affected>
+<symptom_progression>improving</symptom_progression>
+<pruritus>yes</pruritus>
+<pruritus_severity>mild</pruritus_severity>
+<pain>yes</pain>
+<bleeding>yes</bleeding>
+<previous_treatment>Example treatment</previous_treatment>
+<previous_treatment_response>resolved</previous_treatment_response>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_chief_complaint>

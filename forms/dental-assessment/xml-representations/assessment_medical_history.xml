@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_medical_history SYSTEM "assessment_medical_history.dtd">
+<assessment_medical_history>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_cardiovascular_disease>yes</has_cardiovascular_disease>
+<cardiovascular_details>Example text.</cardiovascular_details>
+<has_diabetes>yes</has_diabetes>
+<diabetes_type>type_1</diabetes_type>
+<has_bleeding_disorder>yes</has_bleeding_disorder>
+<bleeding_disorder_details>Example text.</bleeding_disorder_details>
+<has_respiratory_disease>yes</has_respiratory_disease>
+<respiratory_details>Example text.</respiratory_details>
+<has_hepatitis>yes</has_hepatitis>
+<hepatitis_type>a</hepatitis_type>
+<has_hiv>yes</has_hiv>
+<has_epilepsy>yes</has_epilepsy>
+<has_osteoporosis>yes</has_osteoporosis>
+<bisphosphonate_use>yes</bisphosphonate_use>
+<has_immunosuppression>yes</has_immunosuppression>
+<immunosuppression_details>Example text.</immunosuppression_details>
+<is_pregnant>yes</is_pregnant>
+<pregnancy_trimester>first</pregnancy_trimester>
+<tobacco_use>current</tobacco_use>
+<alcohol_use>none</alcohol_use>
+<other_conditions></other_conditions>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_medical_history>

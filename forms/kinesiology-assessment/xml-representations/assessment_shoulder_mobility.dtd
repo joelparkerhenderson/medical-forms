@@ -1,0 +1,15 @@
+<!ELEMENT assessment_shoulder_mobility (id,assessment_id,left_raw_score,right_raw_score,pain_noted_left,pain_noted_right,clearing_test_pain_left,clearing_test_pain_right,final_score,hand_distance_cm,hand_span_length_cm,clinician_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT left_raw_score (#PCDATA)>
+<!ELEMENT right_raw_score (#PCDATA)>
+<!ELEMENT pain_noted_left (#PCDATA)>
+<!ELEMENT pain_noted_right (#PCDATA)>
+<!ELEMENT clearing_test_pain_left (#PCDATA)>
+<!ELEMENT clearing_test_pain_right (#PCDATA)>
+<!ELEMENT final_score (#PCDATA)>
+<!ELEMENT hand_distance_cm (#PCDATA)>
+<!ELEMENT hand_span_length_cm (#PCDATA)>
+<!ELEMENT clinician_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

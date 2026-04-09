@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_neurological_symptoms SYSTEM "assessment_neurological_symptoms.dtd">
+<assessment_neurological_symptoms>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<headaches>yes</headaches>
+<headache_severity>1</headache_severity>
+<headache_frequency>daily</headache_frequency>
+<brain_fog>yes</brain_fog>
+<brain_fog_severity>1</brain_fog_severity>
+<dizziness>yes</dizziness>
+<paraesthesia>yes</paraesthesia>
+<paraesthesia_location>Example location</paraesthesia_location>
+<insomnia>yes</insomnia>
+<fatigue>yes</fatigue>
+<fatigue_severity>1</fatigue_severity>
+<anxiety>yes</anxiety>
+<depression>yes</depression>
+<neurological_notes>Example text.</neurological_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_neurological_symptoms>

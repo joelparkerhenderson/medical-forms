@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_medical_history SYSTEM "assessment_medical_history.dtd">
+<assessment_medical_history>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_chronic_conditions>yes</has_chronic_conditions>
+<has_diabetes>yes</has_diabetes>
+<diabetes_type>type-1</diabetes_type>
+<has_hypertension>yes</has_hypertension>
+<has_heart_disease>yes</has_heart_disease>
+<heart_disease_details>Example text.</heart_disease_details>
+<has_lung_disease>yes</has_lung_disease>
+<lung_disease_details>Example text.</lung_disease_details>
+<has_kidney_disease>yes</has_kidney_disease>
+<has_liver_disease>yes</has_liver_disease>
+<has_cancer>yes</has_cancer>
+<cancer_details>Example text.</cancer_details>
+<has_stroke>yes</has_stroke>
+<has_epilepsy>yes</has_epilepsy>
+<has_mental_health_condition>yes</has_mental_health_condition>
+<mental_health_details>Example text.</mental_health_details>
+<has_autoimmune_disease>yes</has_autoimmune_disease>
+<autoimmune_disease_details>Example text.</autoimmune_disease_details>
+<has_previous_surgeries>yes</has_previous_surgeries>
+<surgery_details>Example text.</surgery_details>
+<has_hospitalisations>yes</has_hospitalisations>
+<hospitalisation_details>Example text.</hospitalisation_details>
+<other_conditions></other_conditions>
+<medical_history_notes>Example text.</medical_history_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_medical_history>

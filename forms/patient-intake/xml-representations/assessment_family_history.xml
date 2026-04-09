@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_family_history SYSTEM "assessment_family_history.dtd">
+<assessment_family_history>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<family_history_heart_disease>yes</family_history_heart_disease>
+<family_history_stroke>yes</family_history_stroke>
+<family_history_diabetes>yes</family_history_diabetes>
+<family_history_cancer>yes</family_history_cancer>
+<family_cancer_details>Example text.</family_cancer_details>
+<family_history_hypertension>yes</family_history_hypertension>
+<family_history_mental_health>yes</family_history_mental_health>
+<family_mental_health_details>Example text.</family_mental_health_details>
+<family_history_autoimmune>yes</family_history_autoimmune>
+<family_history_kidney_disease>yes</family_history_kidney_disease>
+<family_history_lung_disease>yes</family_history_lung_disease>
+<family_history_genetic>yes</family_history_genetic>
+<family_genetic_details>Example text.</family_genetic_details>
+<other_family_history>Example text.</other_family_history>
+<family_history_notes>Example text.</family_history_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_family_history>

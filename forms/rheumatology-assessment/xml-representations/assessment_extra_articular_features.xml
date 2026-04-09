@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_extra_articular_features SYSTEM "assessment_extra_articular_features.dtd">
+<assessment_extra_articular_features>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<rheumatoid_nodules>yes</rheumatoid_nodules>
+<rheumatoid_nodules_location>Example location</rheumatoid_nodules_location>
+<dry_eyes_or_mouth>yes</dry_eyes_or_mouth>
+<skin_rash>yes</skin_rash>
+<skin_rash_details>Example text.</skin_rash_details>
+<raynauds_phenomenon>yes</raynauds_phenomenon>
+<interstitial_lung_disease>yes</interstitial_lung_disease>
+<vasculitis>yes</vasculitis>
+<scleritis_episcleritis>yes</scleritis_episcleritis>
+<peripheral_neuropathy>yes</peripheral_neuropathy>
+<pleuritis_pericarditis>yes</pleuritis_pericarditis>
+<constitutional_symptoms>Fatigue</constitutional_symptoms>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_extra_articular_features>

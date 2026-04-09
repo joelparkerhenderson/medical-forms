@@ -1,0 +1,15 @@
+<!ELEMENT assessment_family_history (id,assessment_id,family_history_prostate_cancer,prostate_cancer_relationship,prostate_cancer_age_at_diagnosis,family_history_bladder_cancer,family_history_kidney_cancer,family_history_kidney_stones,family_history_bph,family_history_brca_mutation,family_history_breast_cancer,additional_family_history,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT family_history_prostate_cancer (#PCDATA)>
+<!ELEMENT prostate_cancer_relationship (#PCDATA)>
+<!ELEMENT prostate_cancer_age_at_diagnosis (#PCDATA)>
+<!ELEMENT family_history_bladder_cancer (#PCDATA)>
+<!ELEMENT family_history_kidney_cancer (#PCDATA)>
+<!ELEMENT family_history_kidney_stones (#PCDATA)>
+<!ELEMENT family_history_bph (#PCDATA)>
+<!ELEMENT family_history_brca_mutation (#PCDATA)>
+<!ELEMENT family_history_breast_cancer (#PCDATA)>
+<!ELEMENT additional_family_history (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

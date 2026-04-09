@@ -1,0 +1,12 @@
+<!ELEMENT assessment_recall (id,assessment_id,word_1_recalled,word_2_recalled,word_3_recalled,recall_score,cueing_required,cueing_details,recall_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT word_1_recalled (#PCDATA)>
+<!ELEMENT word_2_recalled (#PCDATA)>
+<!ELEMENT word_3_recalled (#PCDATA)>
+<!ELEMENT recall_score (#PCDATA)>
+<!ELEMENT cueing_required (#PCDATA)>
+<!ELEMENT cueing_details (#PCDATA)>
+<!ELEMENT recall_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

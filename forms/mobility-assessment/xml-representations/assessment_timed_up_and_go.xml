@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_timed_up_and_go SYSTEM "assessment_timed_up_and_go.dtd">
+<assessment_timed_up_and_go>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<tug_time_seconds>0.0</tug_time_seconds>
+<tug_risk_category>normal</tug_risk_category>
+<assistive_device_used>yes</assistive_device_used>
+<assistive_device_type>standard</assistive_device_type>
+<unsteadiness_observed>yes</unsteadiness_observed>
+<required_physical_assistance>yes</required_physical_assistance>
+<trial_count>2</trial_count>
+<tug_notes>Example text.</tug_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_timed_up_and_go>

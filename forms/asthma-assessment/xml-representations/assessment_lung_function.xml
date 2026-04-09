@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_lung_function SYSTEM "assessment_lung_function.dtd">
+<assessment_lung_function>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<fev1_litres>0.0</fev1_litres>
+<fev1_percent_predicted>50.0</fev1_percent_predicted>
+<fvc_litres>0.0</fvc_litres>
+<fev1_fvc_ratio>1.5</fev1_fvc_ratio>
+<pef_litres_per_min>0.0</pef_litres_per_min>
+<pef_percent_predicted>50.0</pef_percent_predicted>
+<pef_variability_percent>50.0</pef_variability_percent>
+<reversibility_test_done>yes</reversibility_test_done>
+<reversibility_percent>50.0</reversibility_percent>
+<spirometry_date>2026-01-15</spirometry_date>
+<spirometry_notes>Example text.</spirometry_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_lung_function>

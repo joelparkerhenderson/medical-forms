@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_spirometry SYSTEM "assessment_spirometry.dtd">
+<assessment_spirometry>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<spirometry_performed>yes</spirometry_performed>
+<test_date>2026-01-15</test_date>
+<fev1_litres>0.0</fev1_litres>
+<fev1_predicted_pct>0.0</fev1_predicted_pct>
+<fvc_litres>0.0</fvc_litres>
+<fvc_predicted_pct>0.0</fvc_predicted_pct>
+<fev1_fvc_ratio>1.5</fev1_fvc_ratio>
+<post_bronchodilator_fev1>0.0</post_bronchodilator_fev1>
+<post_bronchodilator_fev1_pct>0.0</post_bronchodilator_fev1_pct>
+<bronchodilator_reversibility>yes</bronchodilator_reversibility>
+<reversibility_pct>0.0</reversibility_pct>
+<peak_flow_lmin>1</peak_flow_lmin>
+<dlco_pct>0.0</dlco_pct>
+<test_quality>acceptable</test_quality>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_spirometry>

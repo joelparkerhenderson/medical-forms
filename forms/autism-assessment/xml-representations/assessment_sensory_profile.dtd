@@ -1,0 +1,17 @@
+<!ELEMENT assessment_sensory_profile (id,assessment_id,hypersensitivity_sound,hypersensitivity_light,hypersensitivity_touch,hypersensitivity_taste_smell,hyposensitivity_pain,hyposensitivity_temperature,sensory_seeking_behaviors,sensory_seeking_details,sensory_avoidance_behaviors,sensory_avoidance_details,sensory_overload_frequency,sensory_profile_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT hypersensitivity_sound (#PCDATA)>
+<!ELEMENT hypersensitivity_light (#PCDATA)>
+<!ELEMENT hypersensitivity_touch (#PCDATA)>
+<!ELEMENT hypersensitivity_taste_smell (#PCDATA)>
+<!ELEMENT hyposensitivity_pain (#PCDATA)>
+<!ELEMENT hyposensitivity_temperature (#PCDATA)>
+<!ELEMENT sensory_seeking_behaviors (#PCDATA)>
+<!ELEMENT sensory_seeking_details (#PCDATA)>
+<!ELEMENT sensory_avoidance_behaviors (#PCDATA)>
+<!ELEMENT sensory_avoidance_details (#PCDATA)>
+<!ELEMENT sensory_overload_frequency (#PCDATA)>
+<!ELEMENT sensory_profile_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

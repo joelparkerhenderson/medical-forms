@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_lower_gi_symptoms SYSTEM "assessment_lower_gi_symptoms.dtd">
+<assessment_lower_gi_symptoms>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<altered_bowel_habit>yes</altered_bowel_habit>
+<bowel_habit_change_type>diarrhoea</bowel_habit_change_type>
+<stool_frequency_per_day>1</stool_frequency_per_day>
+<bristol_stool_type>1</bristol_stool_type>
+<rectal_bleeding>yes</rectal_bleeding>
+<bleeding_colour>bright_red</bleeding_colour>
+<melaena>yes</melaena>
+<mucus_in_stool>yes</mucus_in_stool>
+<tenesmus>yes</tenesmus>
+<urgency>yes</urgency>
+<incontinence>yes</incontinence>
+<flatulence>normal</flatulence>
+<abdominal_distension>yes</abdominal_distension>
+<perianal_symptoms>yes</perianal_symptoms>
+<perianal_details>Example text.</perianal_details>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_lower_gi_symptoms>

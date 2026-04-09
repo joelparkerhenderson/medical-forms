@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE casualty_card_pain_assessment SYSTEM "casualty_card_pain_assessment.dtd">
+<casualty_card_pain_assessment>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<casualty_card_id>660e8400-e29b-41d4-a716-446655440001</casualty_card_id>
+<pain_present>yes</pain_present>
+<pain_score>5</pain_score>
+<pain_location>Example location</pain_location>
+<pain_character></pain_character>
+<pain_onset></pain_onset>
+<pain_severity_category>mild</pain_severity_category>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</casualty_card_pain_assessment>

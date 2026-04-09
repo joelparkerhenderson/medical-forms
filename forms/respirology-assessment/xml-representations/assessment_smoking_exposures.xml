@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_smoking_exposures SYSTEM "assessment_smoking_exposures.dtd">
+<assessment_smoking_exposures>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<smoking_status>never</smoking_status>
+<pack_years>0.0</pack_years>
+<cigarettes_per_day>1</cigarettes_per_day>
+<age_started_smoking>45</age_started_smoking>
+<age_stopped_smoking>45</age_stopped_smoking>
+<vaping>yes</vaping>
+<vaping_details>Example text.</vaping_details>
+<cannabis_smoking>yes</cannabis_smoking>
+<passive_smoke_exposure>yes</passive_smoke_exposure>
+<occupational_exposures>yes</occupational_exposures>
+<occupational_exposure_details>Example text.</occupational_exposure_details>
+<asbestos_exposure>yes</asbestos_exposure>
+<silica_exposure>yes</silica_exposure>
+<biomass_fuel_exposure>yes</biomass_fuel_exposure>
+<indoor_air_quality_concerns>yes</indoor_air_quality_concerns>
+<air_quality_details>Example text.</air_quality_details>
+<smoking_cessation_advice>yes</smoking_cessation_advice>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_smoking_exposures>

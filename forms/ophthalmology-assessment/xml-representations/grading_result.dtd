@@ -1,0 +1,10 @@
+<!ELEMENT grading_result (id,assessment_id,visual_acuity_grade,best_corrected_va_right,best_corrected_va_left,better_eye_va,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT visual_acuity_grade (#PCDATA)>
+<!ELEMENT best_corrected_va_right (#PCDATA)>
+<!ELEMENT best_corrected_va_left (#PCDATA)>
+<!ELEMENT better_eye_va (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

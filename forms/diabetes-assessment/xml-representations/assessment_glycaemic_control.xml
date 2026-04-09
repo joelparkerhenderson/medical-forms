@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_glycaemic_control SYSTEM "assessment_glycaemic_control.dtd">
+<assessment_glycaemic_control>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<hba1c_value>5.0</hba1c_value>
+<hba1c_unit>mmolMol</hba1c_unit>
+<hba1c_target>0.0</hba1c_target>
+<fasting_glucose>0.0</fasting_glucose>
+<postprandial_glucose>0.0</postprandial_glucose>
+<glucose_monitoring_type>smbg</glucose_monitoring_type>
+<hypoglycaemia_frequency>never</hypoglycaemia_frequency>
+<severe_hypoglycaemia>yes</severe_hypoglycaemia>
+<time_in_range>0.0</time_in_range>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_glycaemic_control>

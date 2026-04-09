@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_trunk_stability_push_up SYSTEM "assessment_trunk_stability_push_up.dtd">
+<assessment_trunk_stability_push_up>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<raw_score>5</raw_score>
+<pain_noted>yes</pain_noted>
+<clearing_test_pain>yes</clearing_test_pain>
+<final_score>5</final_score>
+<hand_position></hand_position>
+<body_lifts_as_unit>yes</body_lifts_as_unit>
+<spine_sag_noted>yes</spine_sag_noted>
+<clinician_notes>Example text.</clinician_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_trunk_stability_push_up>

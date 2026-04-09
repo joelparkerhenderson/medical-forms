@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_balance_assessment SYSTEM "assessment_balance_assessment.dtd">
+<assessment_balance_assessment>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<sitting_balance>1</sitting_balance>
+<arising_from_chair>1</arising_from_chair>
+<attempts_to_arise>1</attempts_to_arise>
+<immediate_standing_balance>1</immediate_standing_balance>
+<standing_balance>1</standing_balance>
+<nudge_test>1</nudge_test>
+<eyes_closed>1</eyes_closed>
+<turning_360>1</turning_360>
+<sitting_down>1</sitting_down>
+<balance_total_score>5</balance_total_score>
+<balance_notes>Example text.</balance_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_balance_assessment>

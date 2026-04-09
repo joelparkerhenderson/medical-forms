@@ -1,0 +1,14 @@
+<!ELEMENT contraindications_allergies (id,assessment_id,egg_allergy,gelatin_allergy,latex_allergy,neomycin_allergy,pregnant,pregnancy_weeks,severe_illness,previous_anaphylaxis,anaphylaxis_details,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT egg_allergy (#PCDATA)>
+<!ELEMENT gelatin_allergy (#PCDATA)>
+<!ELEMENT latex_allergy (#PCDATA)>
+<!ELEMENT neomycin_allergy (#PCDATA)>
+<!ELEMENT pregnant (#PCDATA)>
+<!ELEMENT pregnancy_weeks (#PCDATA)>
+<!ELEMENT severe_illness (#PCDATA)>
+<!ELEMENT previous_anaphylaxis (#PCDATA)>
+<!ELEMENT anaphylaxis_details (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

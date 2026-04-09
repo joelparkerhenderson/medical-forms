@@ -1,0 +1,8 @@
+<!ELEMENT grading_result (id,assessment_id,dash_score,disability_category,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT dash_score (#PCDATA)>
+<!ELEMENT disability_category (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

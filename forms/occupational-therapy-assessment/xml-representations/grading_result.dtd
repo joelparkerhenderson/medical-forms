@@ -1,0 +1,10 @@
+<!ELEMENT grading_result (id,assessment_id,performance_mean_score,satisfaction_mean_score,performance_category,satisfaction_category,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT performance_mean_score (#PCDATA)>
+<!ELEMENT satisfaction_mean_score (#PCDATA)>
+<!ELEMENT performance_category (#PCDATA)>
+<!ELEMENT satisfaction_category (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

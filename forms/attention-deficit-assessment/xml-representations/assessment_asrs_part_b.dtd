@@ -1,0 +1,17 @@
+<!ELEMENT assessment_asrs_part_b (id,assessment_id,q7_careless_mistakes,q8_difficulty_sustaining_attention,q9_difficulty_listening,q10_difficulty_following_through,q11_difficulty_keeping_quiet,q12_finishing_others_sentences,q13_difficulty_waiting_turn,q14_interrupting_others,q15_always_on_the_go,q16_difficulty_relaxing,q17_talking_too_much,q18_losing_things,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT q7_careless_mistakes (#PCDATA)>
+<!ELEMENT q8_difficulty_sustaining_attention (#PCDATA)>
+<!ELEMENT q9_difficulty_listening (#PCDATA)>
+<!ELEMENT q10_difficulty_following_through (#PCDATA)>
+<!ELEMENT q11_difficulty_keeping_quiet (#PCDATA)>
+<!ELEMENT q12_finishing_others_sentences (#PCDATA)>
+<!ELEMENT q13_difficulty_waiting_turn (#PCDATA)>
+<!ELEMENT q14_interrupting_others (#PCDATA)>
+<!ELEMENT q15_always_on_the_go (#PCDATA)>
+<!ELEMENT q16_difficulty_relaxing (#PCDATA)>
+<!ELEMENT q17_talking_too_much (#PCDATA)>
+<!ELEMENT q18_losing_things (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

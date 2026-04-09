@@ -1,0 +1,17 @@
+<!ELEMENT assessment_extra_articular_features (id,assessment_id,rheumatoid_nodules,rheumatoid_nodules_location,dry_eyes_or_mouth,skin_rash,skin_rash_details,raynauds_phenomenon,interstitial_lung_disease,vasculitis,scleritis_episcleritis,peripheral_neuropathy,pleuritis_pericarditis,constitutional_symptoms,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT rheumatoid_nodules (#PCDATA)>
+<!ELEMENT rheumatoid_nodules_location (#PCDATA)>
+<!ELEMENT dry_eyes_or_mouth (#PCDATA)>
+<!ELEMENT skin_rash (#PCDATA)>
+<!ELEMENT skin_rash_details (#PCDATA)>
+<!ELEMENT raynauds_phenomenon (#PCDATA)>
+<!ELEMENT interstitial_lung_disease (#PCDATA)>
+<!ELEMENT vasculitis (#PCDATA)>
+<!ELEMENT scleritis_episcleritis (#PCDATA)>
+<!ELEMENT peripheral_neuropathy (#PCDATA)>
+<!ELEMENT pleuritis_pericarditis (#PCDATA)>
+<!ELEMENT constitutional_symptoms (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

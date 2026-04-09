@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_social_functional SYSTEM "assessment_social_functional.dtd">
+<assessment_social_functional>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<exercise_capacity>unlimited</exercise_capacity>
+<flights_of_stairs>1</flights_of_stairs>
+<walking_distance_metres>1</walking_distance_metres>
+<driving_status>driving</driving_status>
+<employment_status>employed</employment_status>
+<occupation>Teacher</occupation>
+<physical_demands_of_work>sedentary</physical_demands_of_work>
+<alcohol_consumption>none</alcohol_consumption>
+<alcohol_units_per_week>1</alcohol_units_per_week>
+<recreational_drug_use>yes</recreational_drug_use>
+<recreational_drug_details>Example text.</recreational_drug_details>
+<psychological_impact>none</psychological_impact>
+<anxiety_depression_screen>yes</anxiety_depression_screen>
+<social_functional_notes>Example text.</social_functional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_social_functional>

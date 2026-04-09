@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_allergies_and_diet SYSTEM "assessment_allergies_and_diet.dtd">
+<assessment_allergies_and_diet>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_drug_allergies>yes</has_drug_allergies>
+<drug_allergy_details>Example text.</drug_allergy_details>
+<has_food_allergies>yes</has_food_allergies>
+<food_allergy_details>Example text.</food_allergy_details>
+<has_food_intolerances>yes</has_food_intolerances>
+<food_intolerance_details>Example text.</food_intolerance_details>
+<lactose_intolerance>yes</lactose_intolerance>
+<gluten_sensitivity>yes</gluten_sensitivity>
+<fructose_intolerance>yes</fructose_intolerance>
+<dietary_restrictions></dietary_restrictions>
+<diet_type>omnivore</diet_type>
+<diet_type_other>standard</diet_type_other>
+<fibre_intake>low</fibre_intake>
+<fluid_intake_litres>0.0</fluid_intake_litres>
+<caffeine_intake>none</caffeine_intake>
+<nutritional_supplements></nutritional_supplements>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_allergies_and_diet>

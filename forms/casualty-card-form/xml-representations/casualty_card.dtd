@@ -1,0 +1,8 @@
+<!ELEMENT casualty_card (id,patient_id,status,attendance_date,arrival_time,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT patient_id (#PCDATA)>
+<!ELEMENT status (#PCDATA)>
+<!ELEMENT attendance_date (#PCDATA)>
+<!ELEMENT arrival_time (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

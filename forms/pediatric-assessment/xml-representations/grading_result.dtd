@@ -1,0 +1,10 @@
+<!ELEMENT grading_result (id,assessment_id,overall_outcome,developmental_score,growth_classification,environmental_risk_level,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT overall_outcome (#PCDATA)>
+<!ELEMENT developmental_score (#PCDATA)>
+<!ELEMENT growth_classification (#PCDATA)>
+<!ELEMENT environmental_risk_level (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

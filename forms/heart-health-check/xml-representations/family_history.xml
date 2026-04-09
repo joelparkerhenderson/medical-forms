@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE family_history SYSTEM "family_history.dtd">
+<family_history>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<family_cvd_under_60>yes</family_cvd_under_60>
+<family_cvd_relationship>parent</family_cvd_relationship>
+<family_diabetes_history>yes</family_diabetes_history>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</family_history>

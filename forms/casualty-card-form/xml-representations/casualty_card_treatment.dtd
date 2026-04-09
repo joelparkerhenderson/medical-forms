@@ -1,0 +1,8 @@
+<!ELEMENT casualty_card_treatment (id,casualty_card_id,oxygen_therapy_device,oxygen_therapy_flow_rate,tetanus_prophylaxis,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT casualty_card_id (#PCDATA)>
+<!ELEMENT oxygen_therapy_device (#PCDATA)>
+<!ELEMENT oxygen_therapy_flow_rate (#PCDATA)>
+<!ELEMENT tetanus_prophylaxis (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

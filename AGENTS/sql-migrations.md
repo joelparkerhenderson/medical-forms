@@ -1,8 +1,12 @@
 # SQL migrations
 
+Ultrathink.
+
 PostgreSQL 18 with Liquibase SQL format for version-controlled database migrations.
 
 Slug: sql-migrations
+
+- Search pattern: "forms/\*/sql-migrations/\*.sql"
 
 ## Migration file naming
 

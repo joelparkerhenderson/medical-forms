@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_medical_history SYSTEM "assessment_medical_history.dtd">
+<assessment_medical_history>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<musculoskeletal_conditions></musculoskeletal_conditions>
+<previous_injuries></previous_injuries>
+<surgeries></surgeries>
+<chronic_pain>yes</chronic_pain>
+<rsi_carpal_tunnel>yes</rsi_carpal_tunnel>
+<back_problems>yes</back_problems>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_medical_history>

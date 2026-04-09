@@ -1,0 +1,14 @@
+<!ELEMENT assessment_chief_complaint (id,assessment_id,primary_complaint,symptom_onset_date,symptom_duration_weeks,symptom_pattern,morning_stiffness_duration_minutes,pain_severity,fatigue_severity,patient_global_assessment,additional_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT primary_complaint (#PCDATA)>
+<!ELEMENT symptom_onset_date (#PCDATA)>
+<!ELEMENT symptom_duration_weeks (#PCDATA)>
+<!ELEMENT symptom_pattern (#PCDATA)>
+<!ELEMENT morning_stiffness_duration_minutes (#PCDATA)>
+<!ELEMENT pain_severity (#PCDATA)>
+<!ELEMENT fatigue_severity (#PCDATA)>
+<!ELEMENT patient_global_assessment (#PCDATA)>
+<!ELEMENT additional_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_metabolic_profile SYSTEM "assessment_metabolic_profile.dtd">
+<assessment_metabolic_profile>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<fasting_glucose_mmol_l>0.0</fasting_glucose_mmol_l>
+<hba1c_percent>50.0</hba1c_percent>
+<hba1c_mmol_mol>0.0</hba1c_mmol_mol>
+<diabetes_diagnosis>yes</diabetes_diagnosis>
+<diabetes_type>type1</diabetes_type>
+<diabetes_duration_years>2026</diabetes_duration_years>
+<total_cholesterol_mmol_l>0.0</total_cholesterol_mmol_l>
+<ldl_cholesterol_mmol_l>0.0</ldl_cholesterol_mmol_l>
+<hdl_cholesterol_mmol_l>0.0</hdl_cholesterol_mmol_l>
+<triglycerides_mmol_l>0.0</triglycerides_mmol_l>
+<insulin_resistance_suspected>yes</insulin_resistance_suspected>
+<metabolic_syndrome>yes</metabolic_syndrome>
+<thyroid_function_normal>yes</thyroid_function_normal>
+<tsh_miu_l>0.0</tsh_miu_l>
+<lab_date>2026-01-15</lab_date>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_metabolic_profile>

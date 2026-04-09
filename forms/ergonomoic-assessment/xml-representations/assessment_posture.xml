@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_posture SYSTEM "assessment_posture.dtd">
+<assessment_posture>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<trunk_position>neutral</trunk_position>
+<trunk_score>5</trunk_score>
+<trunk_side_bent>yes</trunk_side_bent>
+<trunk_twisted>yes</trunk_twisted>
+<neck_position>flexed_0_20</neck_position>
+<neck_score>5</neck_score>
+<neck_side_bent>yes</neck_side_bent>
+<neck_twisted>yes</neck_twisted>
+<leg_position>bilateral_weight_bearing</leg_position>
+<leg_score>5</leg_score>
+<knee_flexion>flexed_30_60</knee_flexion>
+<upper_arm_position>flexed_0_20</upper_arm_position>
+<upper_arm_score>5</upper_arm_score>
+<shoulder_raised>yes</shoulder_raised>
+<upper_arm_abducted>yes</upper_arm_abducted>
+<lower_arm_position>flexed_60_100</lower_arm_position>
+<lower_arm_score>5</lower_arm_score>
+<wrist_position>neutral</wrist_position>
+<wrist_score>5</wrist_score>
+<wrist_deviated>yes</wrist_deviated>
+<wrist_twisted>yes</wrist_twisted>
+<posture_notes>Example text.</posture_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_posture>

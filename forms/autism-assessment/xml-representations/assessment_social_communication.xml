@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_social_communication SYSTEM "assessment_social_communication.dtd">
+<assessment_social_communication>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<eye_contact_difficulty>never</eye_contact_difficulty>
+<understanding_sarcasm>never</understanding_sarcasm>
+<difficulty_starting_conversations>never</difficulty_starting_conversations>
+<difficulty_maintaining_conversations>never</difficulty_maintaining_conversations>
+<literal_interpretation>never</literal_interpretation>
+<difficulty_reading_body_language>never</difficulty_reading_body_language>
+<difficulty_making_friends>never</difficulty_making_friends>
+<preference_for_solitary_activities>never</preference_for_solitary_activities>
+<social_communication_notes>Example text.</social_communication_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_social_communication>

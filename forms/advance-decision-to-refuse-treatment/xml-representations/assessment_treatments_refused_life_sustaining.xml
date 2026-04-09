@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_treatments_refused_life_sustaining SYSTEM "assessment_treatments_refused_life_sustaining.dtd">
+<assessment_treatments_refused_life_sustaining>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<includes_life_sustaining_treatment>yes</includes_life_sustaining_treatment>
+<understands_may_result_in_death>yes</understands_may_result_in_death>
+<life_sustaining_treatments_specified>Example treatment</life_sustaining_treatments_specified>
+<is_written_and_signed>yes</is_written_and_signed>
+<is_witnessed>yes</is_witnessed>
+<witness_confirmation></witness_confirmation>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_treatments_refused_life_sustaining>

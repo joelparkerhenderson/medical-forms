@@ -117,7 +117,17 @@
       "Bash(for dir in nutrition-assessment otolaryngology-assessment psychology-assessment encounter-satisfaction hematology-assessment vaccinations-assessment; do\n  if [ -f \"/Users/jph/git/joelparkerhenderson/medical-forms/forms/$dir/index.md\" ]; then\n    echo \"EXISTS: $dir\"\n  else\n    echo \"MISSING: $dir\"\n  fi\ndone)",
       "Bash(git mv forms/opthamology-assessment forms/ophthalmology-assessment)",
       "Bash(git mv forms/casuality-card-form forms/casualty-card-form)",
-      "Bash(find forms/orthopedic-assessment/sql-migrations -name '*.sql' -exec sed -i '' 's/orthopaedic/orthopedic/g' {} + && find forms/kinesiology-assessment -name '*.ts' -o -name '*.rs' | xargs sed -i '' 's/orthopaedic/orthopedic/g')"
+      "Bash(find forms/orthopedic-assessment/sql-migrations -name '*.sql' -exec sed -i '' 's/orthopaedic/orthopedic/g' {} + && find forms/kinesiology-assessment -name '*.ts' -o -name '*.rs' | xargs sed -i '' 's/orthopaedic/orthopedic/g')",
+      "Bash(find:*)",
+      "Read(//tmp/**)",
+      "Bash(cat:*)",
+      "Bash(python3:*)",
+      "Bash(xmllint:*)",
+      "Bash(grep:*)",
+      "Bash(for d:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/jph/git/joelparkerhenderson/medical-forms/$d/**)",
+      "Bash(ls:*)"
     ]
   }
 }

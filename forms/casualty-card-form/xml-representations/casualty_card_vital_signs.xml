@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE casualty_card_vital_signs SYSTEM "casualty_card_vital_signs.dtd">
+<casualty_card_vital_signs>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<casualty_card_id>660e8400-e29b-41d4-a716-446655440001</casualty_card_id>
+<heart_rate>1</heart_rate>
+<systolic_bp>1</systolic_bp>
+<diastolic_bp>1</diastolic_bp>
+<respiratory_rate>1</respiratory_rate>
+<oxygen_saturation>1</oxygen_saturation>
+<supplemental_oxygen>yes</supplemental_oxygen>
+<oxygen_flow_rate></oxygen_flow_rate>
+<temperature>0.0</temperature>
+<blood_glucose>0.0</blood_glucose>
+<consciousness_level>alert</consciousness_level>
+<pupil_left_size>1</pupil_left_size>
+<pupil_left_reactive>yes</pupil_left_reactive>
+<pupil_right_size>1</pupil_right_size>
+<pupil_right_reactive>yes</pupil_right_reactive>
+<capillary_refill_time></capillary_refill_time>
+<weight>70.0</weight>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</casualty_card_vital_signs>

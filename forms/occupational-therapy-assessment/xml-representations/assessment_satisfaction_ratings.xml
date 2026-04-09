@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_satisfaction_ratings SYSTEM "assessment_satisfaction_ratings.dtd">
+<assessment_satisfaction_ratings>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<overall_satisfaction_score>5.0</overall_satisfaction_score>
+<self_care_satisfaction_score>5.0</self_care_satisfaction_score>
+<productivity_satisfaction_score>5.0</productivity_satisfaction_score>
+<leisure_satisfaction_score>5.0</leisure_satisfaction_score>
+<satisfaction_notes>Example text.</satisfaction_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_satisfaction_ratings>

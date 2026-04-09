@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_allergies SYSTEM "assessment_allergies.dtd">
+<assessment_allergies>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_drug_allergies>yes</has_drug_allergies>
+<drug_allergy_details>Example text.</drug_allergy_details>
+<has_food_allergies>yes</has_food_allergies>
+<food_allergy_details>Example text.</food_allergy_details>
+<has_other_allergies>yes</has_other_allergies>
+<other_allergy_details>Example text.</other_allergy_details>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_allergies>

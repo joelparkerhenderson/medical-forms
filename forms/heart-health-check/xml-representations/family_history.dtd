@@ -1,0 +1,8 @@
+<!ELEMENT family_history (id,assessment_id,family_cvd_under_60,family_cvd_relationship,family_diabetes_history,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT family_cvd_under_60 (#PCDATA)>
+<!ELEMENT family_cvd_relationship (#PCDATA)>
+<!ELEMENT family_diabetes_history (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_medical_history SYSTEM "assessment_medical_history.dtd">
+<assessment_medical_history>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<previous_urological_surgery>yes</previous_urological_surgery>
+<urological_surgery_details>Example text.</urological_surgery_details>
+<benign_prostatic_hyperplasia>yes</benign_prostatic_hyperplasia>
+<prostate_cancer_history>yes</prostate_cancer_history>
+<prostate_cancer_details>Example text.</prostate_cancer_details>
+<bladder_cancer_history>yes</bladder_cancer_history>
+<kidney_stones_history>yes</kidney_stones_history>
+<kidney_stones_details>Example text.</kidney_stones_details>
+<catheterisation_history>yes</catheterisation_history>
+<diabetes>yes</diabetes>
+<hypertension>yes</hypertension>
+<cardiovascular_disease>yes</cardiovascular_disease>
+<neurological_disease>yes</neurological_disease>
+<neurological_disease_details>Example text.</neurological_disease_details>
+<chronic_kidney_disease>yes</chronic_kidney_disease>
+<previous_pelvic_surgery>yes</previous_pelvic_surgery>
+<pelvic_surgery_details>Example text.</pelvic_surgery_details>
+<previous_radiotherapy>yes</previous_radiotherapy>
+<radiotherapy_details>Example text.</radiotherapy_details>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_medical_history>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validation_fired_rule SYSTEM "validation_fired_rule.dtd">
+<validation_fired_rule>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<validation_result_id>ee0e8400-e29b-41d4-a716-446655440009</validation_result_id>
+<rule_id>660e8400-e29b-41d4-a716-446655440001</rule_id>
+<domain></domain>
+<description>Example text.</description>
+<score>5</score>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</validation_fired_rule>

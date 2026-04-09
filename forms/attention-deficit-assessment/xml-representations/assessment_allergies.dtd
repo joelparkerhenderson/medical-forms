@@ -1,0 +1,11 @@
+<!ELEMENT assessment_allergies (id,assessment_id,has_drug_allergies,drug_allergy_details,has_food_allergies,food_allergy_details,has_other_allergies,other_allergy_details,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT has_drug_allergies (#PCDATA)>
+<!ELEMENT drug_allergy_details (#PCDATA)>
+<!ELEMENT has_food_allergies (#PCDATA)>
+<!ELEMENT food_allergy_details (#PCDATA)>
+<!ELEMENT has_other_allergies (#PCDATA)>
+<!ELEMENT other_allergy_details (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

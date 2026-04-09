@@ -1,0 +1,9 @@
+<!ELEMENT casualty_card_gp (id,casualty_card_id,name,practice_name,practice_address,practice_phone,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT casualty_card_id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT practice_name (#PCDATA)>
+<!ELEMENT practice_address (#PCDATA)>
+<!ELEMENT practice_phone (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

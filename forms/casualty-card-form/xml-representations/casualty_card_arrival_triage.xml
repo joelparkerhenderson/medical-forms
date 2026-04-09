@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE casualty_card_arrival_triage SYSTEM "casualty_card_arrival_triage.dtd">
+<casualty_card_arrival_triage>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<casualty_card_id>660e8400-e29b-41d4-a716-446655440001</casualty_card_id>
+<attendance_category>first</attendance_category>
+<arrival_mode>ambulance</arrival_mode>
+<referral_source>self</referral_source>
+<ambulance_incident_number></ambulance_incident_number>
+<triage_time>2026-04-09T10:00:00Z</triage_time>
+<triage_nurse></triage_nurse>
+<mts_flowchart></mts_flowchart>
+<mts_category>1-immediate</mts_category>
+<mts_discriminator></mts_discriminator>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</casualty_card_arrival_triage>

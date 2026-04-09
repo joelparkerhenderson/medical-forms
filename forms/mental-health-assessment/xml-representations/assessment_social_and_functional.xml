@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_social_and_functional SYSTEM "assessment_social_and_functional.dtd">
+<assessment_social_and_functional>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<employment_status>employed</employment_status>
+<employment_impact></employment_impact>
+<social_support>strong</social_support>
+<social_isolation>yes</social_isolation>
+<relationship_difficulties>yes</relationship_difficulties>
+<relationship_details>Example text.</relationship_details>
+<financial_difficulties>yes</financial_difficulties>
+<housing_issues>yes</housing_issues>
+<housing_details>Example text.</housing_details>
+<caring_responsibilities>yes</caring_responsibilities>
+<caring_details>Example text.</caring_details>
+<daily_functioning>independent</daily_functioning>
+<hobbies_and_interests></hobbies_and_interests>
+<exercise_frequency>daily</exercise_frequency>
+<social_functional_notes>Example text.</social_functional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_social_and_functional>

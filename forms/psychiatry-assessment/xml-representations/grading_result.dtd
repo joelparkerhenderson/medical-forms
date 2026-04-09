@@ -1,0 +1,11 @@
+<!ELEMENT grading_result (id,assessment_id,gaf_score,gaf_category,symptom_severity,functional_impairment,risk_classification,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT gaf_score (#PCDATA)>
+<!ELEMENT gaf_category (#PCDATA)>
+<!ELEMENT symptom_severity (#PCDATA)>
+<!ELEMENT functional_impairment (#PCDATA)>
+<!ELEMENT risk_classification (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

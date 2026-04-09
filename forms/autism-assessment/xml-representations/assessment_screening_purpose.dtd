@@ -1,0 +1,13 @@
+<!ELEMENT assessment_screening_purpose (id,assessment_id,reason_for_referral,who_requested_screening,who_requested_screening_other,previous_autism_assessment,previous_assessment_details,previous_assessment_date,main_concerns,impact_on_daily_life,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT reason_for_referral (#PCDATA)>
+<!ELEMENT who_requested_screening (#PCDATA)>
+<!ELEMENT who_requested_screening_other (#PCDATA)>
+<!ELEMENT previous_autism_assessment (#PCDATA)>
+<!ELEMENT previous_assessment_details (#PCDATA)>
+<!ELEMENT previous_assessment_date (#PCDATA)>
+<!ELEMENT main_concerns (#PCDATA)>
+<!ELEMENT impact_on_daily_life (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

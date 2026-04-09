@@ -1,0 +1,12 @@
+<!ELEMENT assessment_psychological_wellbeing (id,assessment_id,diabetes_distress,depression_screening,anxiety_screening,eating_disorder,fear_of_hypoglycaemia,coping_ability,needs_support,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT diabetes_distress (#PCDATA)>
+<!ELEMENT depression_screening (#PCDATA)>
+<!ELEMENT anxiety_screening (#PCDATA)>
+<!ELEMENT eating_disorder (#PCDATA)>
+<!ELEMENT fear_of_hypoglycaemia (#PCDATA)>
+<!ELEMENT coping_ability (#PCDATA)>
+<!ELEMENT needs_support (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_sleep_disturbances SYSTEM "assessment_sleep_disturbances.dtd">
+<assessment_sleep_disturbances>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<wake_middle_of_night>1</wake_middle_of_night>
+<bathroom_use>1</bathroom_use>
+<breathing_difficulty>1</breathing_difficulty>
+<cough_or_snore>1</cough_or_snore>
+<feel_too_cold>1</feel_too_cold>
+<feel_too_hot>1</feel_too_hot>
+<bad_dreams>1</bad_dreams>
+<pain>1</pain>
+<other_disturbance>1</other_disturbance>
+<other_disturbance_description>Example text.</other_disturbance_description>
+<restless_legs>yes</restless_legs>
+<sleep_talking>yes</sleep_talking>
+<sleep_walking>yes</sleep_walking>
+<teeth_grinding>yes</teeth_grinding>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_sleep_disturbances>

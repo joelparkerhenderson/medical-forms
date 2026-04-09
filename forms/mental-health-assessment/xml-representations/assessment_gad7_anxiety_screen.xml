@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_gad7_anxiety_screen SYSTEM "assessment_gad7_anxiety_screen.dtd">
+<assessment_gad7_anxiety_screen>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<q1_feeling_nervous>1</q1_feeling_nervous>
+<q2_uncontrollable_worrying>1</q2_uncontrollable_worrying>
+<q3_worrying_too_much>1</q3_worrying_too_much>
+<q4_trouble_relaxing>1</q4_trouble_relaxing>
+<q5_restlessness>1</q5_restlessness>
+<q6_easily_annoyed>1</q6_easily_annoyed>
+<q7_feeling_afraid>1</q7_feeling_afraid>
+<gad7_total_score>5</gad7_total_score>
+<difficulty_level>not-difficult</difficulty_level>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_gad7_anxiety_screen>

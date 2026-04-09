@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_treatment_history SYSTEM "assessment_treatment_history.dtd">
+<assessment_treatment_history>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_prior_surgery>yes</has_prior_surgery>
+<surgery_details>Example text.</surgery_details>
+<has_prior_radiation>yes</has_prior_radiation>
+<radiation_details>Example text.</radiation_details>
+<has_prior_chemotherapy>yes</has_prior_chemotherapy>
+<chemotherapy_details>Example text.</chemotherapy_details>
+<has_prior_immunotherapy>yes</has_prior_immunotherapy>
+<immunotherapy_details>Example text.</immunotherapy_details>
+<has_prior_hormone_therapy>yes</has_prior_hormone_therapy>
+<hormone_therapy_details>Example text.</hormone_therapy_details>
+<has_prior_targeted_therapy>yes</has_prior_targeted_therapy>
+<targeted_therapy_details>Example text.</targeted_therapy_details>
+<has_clinical_trial_participation>yes</has_clinical_trial_participation>
+<clinical_trial_details>Example text.</clinical_trial_details>
+<best_response>complete-response</best_response>
+<treatment_history_notes>Example text.</treatment_history_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_treatment_history>

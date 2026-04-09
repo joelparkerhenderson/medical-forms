@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_substance_use SYSTEM "assessment_substance_use.dtd">
+<assessment_substance_use>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<alcohol_use>none</alcohol_use>
+<alcohol_units_per_week>1</alcohol_units_per_week>
+<alcohol_concern>yes</alcohol_concern>
+<tobacco_use>never</tobacco_use>
+<tobacco_per_day>1</tobacco_per_day>
+<cannabis_use>never</cannabis_use>
+<recreational_drug_use>yes</recreational_drug_use>
+<recreational_drug_details>Example text.</recreational_drug_details>
+<prescription_misuse>yes</prescription_misuse>
+<prescription_misuse_details>Example text.</prescription_misuse_details>
+<caffeine_intake>none</caffeine_intake>
+<previous_substance_treatment>yes</previous_substance_treatment>
+<previous_substance_treatment_details>Example text.</previous_substance_treatment_details>
+<substance_use_notes>Example text.</substance_use_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_substance_use>

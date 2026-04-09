@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_obstetric_history SYSTEM "assessment_obstetric_history.dtd">
+<assessment_obstetric_history>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<gravida>1</gravida>
+<para>1</para>
+<number_of_miscarriages>45</number_of_miscarriages>
+<number_of_terminations>2</number_of_terminations>
+<number_of_ectopics>2</number_of_ectopics>
+<number_of_stillbirths>2</number_of_stillbirths>
+<currently_pregnant>yes</currently_pregnant>
+<gestational_age_weeks>45</gestational_age_weeks>
+<delivery_complications>yes</delivery_complications>
+<delivery_complication_details>Example text.</delivery_complication_details>
+<caesarean_section_history>yes</caesarean_section_history>
+<number_of_caesareans>2</number_of_caesareans>
+<gestational_diabetes>yes</gestational_diabetes>
+<pre_eclampsia>yes</pre_eclampsia>
+<obstetric_notes>Example text.</obstetric_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_obstetric_history>

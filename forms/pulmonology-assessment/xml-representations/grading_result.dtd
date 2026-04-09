@@ -1,0 +1,12 @@
+<!ELEMENT grading_result (id,assessment_id,gold_stage,gold_group,fev1_predicted_pct,symptom_burden,exacerbation_risk,composite_score,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT gold_stage (#PCDATA)>
+<!ELEMENT gold_group (#PCDATA)>
+<!ELEMENT fev1_predicted_pct (#PCDATA)>
+<!ELEMENT symptom_burden (#PCDATA)>
+<!ELEMENT exacerbation_risk (#PCDATA)>
+<!ELEMENT composite_score (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

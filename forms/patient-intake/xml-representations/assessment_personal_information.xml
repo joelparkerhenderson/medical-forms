@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_personal_information SYSTEM "assessment_personal_information.dtd">
+<assessment_personal_information>
+<id>770e8400-e29b-41d4-a716-446655440002</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<first_name>Jane</first_name>
+<middle_name>Example</middle_name>
+<last_name>Doe</last_name>
+<preferred_name>Example</preferred_name>
+<date_of_birth>1965-06-15</date_of_birth>
+<sex>male</sex>
+<gender_identity>man</gender_identity>
+<pronouns>he-him</pronouns>
+<marital_status>single</marital_status>
+<ethnicity>White British</ethnicity>
+<preferred_language>English</preferred_language>
+<interpreter_needed>yes</interpreter_needed>
+<phone_home></phone_home>
+<phone_mobile></phone_mobile>
+<phone_work></phone_work>
+<email>jane.doe@example.com</email>
+<address_line_1></address_line_1>
+<address_line_2></address_line_2>
+<city></city>
+<county></county>
+<postcode>SW1A 1AA</postcode>
+<emergency_contact_name>Example</emergency_contact_name>
+<emergency_contact_phone>07700900001</emergency_contact_phone>
+<emergency_contact_relationship>Spouse</emergency_contact_relationship>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_personal_information>

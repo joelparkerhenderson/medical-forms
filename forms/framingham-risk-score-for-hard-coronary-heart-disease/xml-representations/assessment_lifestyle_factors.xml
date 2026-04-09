@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_lifestyle_factors SYSTEM "assessment_lifestyle_factors.dtd">
+<assessment_lifestyle_factors>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<physical_activity>sedentary</physical_activity>
+<alcohol_consumption>none</alcohol_consumption>
+<diet_quality>poor</diet_quality>
+<bmi>24.2</bmi>
+<waist_circumference_cm>0.0</waist_circumference_cm>
+<stress_level>low</stress_level>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_lifestyle_factors>

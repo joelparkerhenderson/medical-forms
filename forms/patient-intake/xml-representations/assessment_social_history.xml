@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_social_history SYSTEM "assessment_social_history.dtd">
+<assessment_social_history>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<smoking_status>never</smoking_status>
+<smoking_pack_years>0.0</smoking_pack_years>
+<smoking_quit_date>2026-01-15</smoking_quit_date>
+<alcohol_use>none</alcohol_use>
+<alcohol_units_per_week>0.0</alcohol_units_per_week>
+<recreational_drug_use>yes</recreational_drug_use>
+<recreational_drug_details>Example text.</recreational_drug_details>
+<caffeine_intake>none</caffeine_intake>
+<exercise_frequency>daily</exercise_frequency>
+<exercise_type>standard</exercise_type>
+<diet_description>balanced</diet_description>
+<diet_details>Example text.</diet_details>
+<occupation>Teacher</occupation>
+<employment_status>employed</employment_status>
+<occupational_hazards>Teacher</occupational_hazards>
+<living_situation>alone</living_situation>
+<housing_type>house</housing_type>
+<sexual_health_concerns>yes</sexual_health_concerns>
+<travel_history>Example text.</travel_history>
+<social_history_notes>Example text.</social_history_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_social_history>

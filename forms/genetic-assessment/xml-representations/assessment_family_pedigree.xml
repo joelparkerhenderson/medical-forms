@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_family_pedigree SYSTEM "assessment_family_pedigree.dtd">
+<assessment_family_pedigree>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<total_first_degree_relatives>1</total_first_degree_relatives>
+<total_second_degree_relatives>1</total_second_degree_relatives>
+<consanguinity_in_family>yes</consanguinity_in_family>
+<consanguinity_details>Example text.</consanguinity_details>
+<adoption_status>not-adopted</adoption_status>
+<pedigree_notes>Example text.</pedigree_notes>
+<three_generation_pedigree_drawn>yes</three_generation_pedigree_drawn>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_family_pedigree>

@@ -1,0 +1,14 @@
+<!ELEMENT assessment_treatments_refused_general (id,assessment_id,refuses_cardiopulmonary_resuscitation,refuses_mechanical_ventilation,refuses_artificial_nutrition,refuses_artificial_hydration,refuses_antibiotics,refuses_blood_transfusion,refuses_dialysis,other_treatments_refused,treatment_refusal_details,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT refuses_cardiopulmonary_resuscitation (#PCDATA)>
+<!ELEMENT refuses_mechanical_ventilation (#PCDATA)>
+<!ELEMENT refuses_artificial_nutrition (#PCDATA)>
+<!ELEMENT refuses_artificial_hydration (#PCDATA)>
+<!ELEMENT refuses_antibiotics (#PCDATA)>
+<!ELEMENT refuses_blood_transfusion (#PCDATA)>
+<!ELEMENT refuses_dialysis (#PCDATA)>
+<!ELEMENT other_treatments_refused (#PCDATA)>
+<!ELEMENT treatment_refusal_details (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

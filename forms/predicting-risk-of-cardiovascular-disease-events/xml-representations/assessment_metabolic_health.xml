@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_metabolic_health SYSTEM "assessment_metabolic_health.dtd">
+<assessment_metabolic_health>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_diabetes>yes</has_diabetes>
+<diabetes_type>type1</diabetes_type>
+<hba1c_value>5.0</hba1c_value>
+<hba1c_unit>percent</hba1c_unit>
+<fasting_glucose>0.0</fasting_glucose>
+<bmi>24.2</bmi>
+<waist_circumference_cm>0.0</waist_circumference_cm>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_metabolic_health>

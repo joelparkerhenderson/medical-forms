@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_allergy_item SYSTEM "assessment_allergy_item.dtd">
+<assessment_allergy_item>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<allergies_id>660e8400-e29b-41d4-a716-446655440001</allergies_id>
+<allergen>Peanuts</allergen>
+<allergy_type>drug</allergy_type>
+<reaction>Urticaria</reaction>
+<severity>mild</severity>
+<sort_order>0</sort_order>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_allergy_item>

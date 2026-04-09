@@ -1,0 +1,10 @@
+<!ELEMENT physical_activity_diet (id,assessment_id,physical_activity_minutes_per_week,activity_intensity,fruit_veg_portions_per_day,diet_quality,salt_intake,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT physical_activity_minutes_per_week (#PCDATA)>
+<!ELEMENT activity_intensity (#PCDATA)>
+<!ELEMENT fruit_veg_portions_per_day (#PCDATA)>
+<!ELEMENT diet_quality (#PCDATA)>
+<!ELEMENT salt_intake (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

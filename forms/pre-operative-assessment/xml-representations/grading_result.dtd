@@ -1,0 +1,9 @@
+<!ELEMENT grading_result (id,assessment_id,asa_grade,asa_grade_override,override_reason,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT asa_grade (#PCDATA)>
+<!ELEMENT asa_grade_override (#PCDATA)>
+<!ELEMENT override_reason (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

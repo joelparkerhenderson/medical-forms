@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_diabetes_history SYSTEM "assessment_diabetes_history.dtd">
+<assessment_diabetes_history>
+<id>770e8400-e29b-41d4-a716-446655440002</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<diabetes_type>type1</diabetes_type>
+<age_at_diagnosis>45</age_at_diagnosis>
+<diabetes_duration_years>2026</diabetes_duration_years>
+<hba1c_value>5.0</hba1c_value>
+<hba1c_unit>mmol/mol</hba1c_unit>
+<fasting_glucose>0.0</fasting_glucose>
+<diabetes_treatment>diet</diabetes_treatment>
+<insulin_duration_years>2026</insulin_duration_years>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_diabetes_history>

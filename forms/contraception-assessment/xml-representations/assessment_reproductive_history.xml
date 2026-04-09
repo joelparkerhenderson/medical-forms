@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_reproductive_history SYSTEM "assessment_reproductive_history.dtd">
+<assessment_reproductive_history>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<gravida>1</gravida>
+<para>1</para>
+<miscarriages>45</miscarriages>
+<terminations>1</terminations>
+<ectopic_pregnancies>1</ectopic_pregnancies>
+<last_delivery_date>2026-01-15</last_delivery_date>
+<last_delivery_method>vaginal</last_delivery_method>
+<breastfeeding>yes</breastfeeding>
+<weeks_postpartum>1</weeks_postpartum>
+<currently_pregnant>yes</currently_pregnant>
+<pregnancy_test_date>2026-01-15</pregnancy_test_date>
+<pregnancy_test_result>positive</pregnancy_test_result>
+<reproductive_history_notes>Example text.</reproductive_history_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_reproductive_history>

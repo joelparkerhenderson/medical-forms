@@ -1,0 +1,13 @@
+<!ELEMENT assessment_allergies (id,assessment_id,has_drug_allergies,drug_allergy_details,contrast_dye_allergy,contrast_dye_allergy_details,latex_allergy,other_allergies,previous_adverse_reactions,allergy_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT has_drug_allergies (#PCDATA)>
+<!ELEMENT drug_allergy_details (#PCDATA)>
+<!ELEMENT contrast_dye_allergy (#PCDATA)>
+<!ELEMENT contrast_dye_allergy_details (#PCDATA)>
+<!ELEMENT latex_allergy (#PCDATA)>
+<!ELEMENT other_allergies (#PCDATA)>
+<!ELEMENT previous_adverse_reactions (#PCDATA)>
+<!ELEMENT allergy_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

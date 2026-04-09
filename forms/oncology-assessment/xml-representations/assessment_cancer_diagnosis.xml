@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_cancer_diagnosis SYSTEM "assessment_cancer_diagnosis.dtd">
+<assessment_cancer_diagnosis>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<cancer_type>standard</cancer_type>
+<cancer_site>Example location</cancer_site>
+<histology></histology>
+<histology_other></histology_other>
+<date_of_diagnosis>2026-01-15</date_of_diagnosis>
+<stage>0</stage>
+<tnm_t></tnm_t>
+<tnm_n></tnm_n>
+<tnm_m></tnm_m>
+<grade>well-differentiated</grade>
+<laterality>left</laterality>
+<metastatic_sites>Example location</metastatic_sites>
+<biomarkers></biomarkers>
+<genetic_mutations></genetic_mutations>
+<diagnosis_notes>Example text.</diagnosis_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_cancer_diagnosis>

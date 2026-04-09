@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_attention_calculation SYSTEM "assessment_attention_calculation.dtd">
+<assessment_attention_calculation>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<test_used>serial-7s</test_used>
+<serial_7s_attempt_1>correct</serial_7s_attempt_1>
+<serial_7s_attempt_2>correct</serial_7s_attempt_2>
+<serial_7s_attempt_3>correct</serial_7s_attempt_3>
+<serial_7s_attempt_4>correct</serial_7s_attempt_4>
+<serial_7s_attempt_5>correct</serial_7s_attempt_5>
+<world_letter_1>correct</world_letter_1>
+<world_letter_2>correct</world_letter_2>
+<world_letter_3>correct</world_letter_3>
+<world_letter_4>correct</world_letter_4>
+<world_letter_5>correct</world_letter_5>
+<attention_score>5</attention_score>
+<attention_notes>Example text.</attention_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_attention_calculation>

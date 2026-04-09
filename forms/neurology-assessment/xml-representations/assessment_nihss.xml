@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_nihss SYSTEM "assessment_nihss.dtd">
+<assessment_nihss>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<q1a_level_of_consciousness>1</q1a_level_of_consciousness>
+<q1b_loc_questions>1</q1b_loc_questions>
+<q1c_loc_commands>1</q1c_loc_commands>
+<q2_best_gaze>1</q2_best_gaze>
+<q3_visual_fields>1</q3_visual_fields>
+<q4_facial_palsy>1</q4_facial_palsy>
+<q5a_motor_left_arm>1</q5a_motor_left_arm>
+<q5b_motor_right_arm>1</q5b_motor_right_arm>
+<q6a_motor_left_leg>1</q6a_motor_left_leg>
+<q6b_motor_right_leg>1</q6b_motor_right_leg>
+<q7_limb_ataxia>1</q7_limb_ataxia>
+<q8_sensory>1</q8_sensory>
+<q9_best_language>45</q9_best_language>
+<q10_dysarthria>1</q10_dysarthria>
+<q11_extinction_inattention>1</q11_extinction_inattention>
+<nihss_total_score>5</nihss_total_score>
+<assessment_datetime>2026-04-09T10:00:00Z</assessment_datetime>
+<nihss_notes>Example text.</nihss_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_nihss>

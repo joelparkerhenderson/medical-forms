@@ -1,0 +1,15 @@
+<!ELEMENT assessment_cardiovascular_history (id,assessment_id,previous_mi,previous_stroke,previous_tia,peripheral_arterial_disease,heart_failure,atrial_fibrillation,family_cvd_history,family_cvd_details,current_chest_pain,current_dyspnoea,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT previous_mi (#PCDATA)>
+<!ELEMENT previous_stroke (#PCDATA)>
+<!ELEMENT previous_tia (#PCDATA)>
+<!ELEMENT peripheral_arterial_disease (#PCDATA)>
+<!ELEMENT heart_failure (#PCDATA)>
+<!ELEMENT atrial_fibrillation (#PCDATA)>
+<!ELEMENT family_cvd_history (#PCDATA)>
+<!ELEMENT family_cvd_details (#PCDATA)>
+<!ELEMENT current_chest_pain (#PCDATA)>
+<!ELEMENT current_dyspnoea (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

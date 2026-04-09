@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_lesion_characteristics SYSTEM "assessment_lesion_characteristics.dtd">
+<assessment_lesion_characteristics>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<lesion_type>macule</lesion_type>
+<lesion_type_other>standard</lesion_type_other>
+<lesion_colour>erythematous</lesion_colour>
+<lesion_shape>round</lesion_shape>
+<lesion_border>well_defined</lesion_border>
+<lesion_surface>smooth</lesion_surface>
+<lesion_distribution>localised</lesion_distribution>
+<lesion_size_mm>0.0</lesion_size_mm>
+<number_of_lesions>single</number_of_lesions>
+<body_site>Example location</body_site>
+<dermoscopy_performed>yes</dermoscopy_performed>
+<dermoscopy_findings>Example text.</dermoscopy_findings>
+<photography_taken>yes</photography_taken>
+<clinical_notes>Example text.</clinical_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_lesion_characteristics>

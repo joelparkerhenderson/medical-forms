@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE casualty_card_presenting_complaint SYSTEM "casualty_card_presenting_complaint.dtd">
+<casualty_card_presenting_complaint>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<casualty_card_id>660e8400-e29b-41d4-a716-446655440001</casualty_card_id>
+<chief_complaint></chief_complaint>
+<history_of_presenting_complaint>Example text.</history_of_presenting_complaint>
+<onset></onset>
+<duration></duration>
+<character></character>
+<severity></severity>
+<location>Example location</location>
+<radiation></radiation>
+<aggravating_factors></aggravating_factors>
+<relieving_factors></relieving_factors>
+<associated_symptoms>Fatigue</associated_symptoms>
+<previous_episodes></previous_episodes>
+<treatment_prior_to_arrival>Example treatment</treatment_prior_to_arrival>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</casualty_card_presenting_complaint>

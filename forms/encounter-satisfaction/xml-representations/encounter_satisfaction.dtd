@@ -1,0 +1,6 @@
+<!ELEMENT encounter_satisfaction (id,patient_id,status,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT patient_id (#PCDATA)>
+<!ELEMENT status (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

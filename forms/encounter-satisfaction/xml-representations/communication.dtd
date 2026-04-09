@@ -1,0 +1,9 @@
+<!ELEMENT communication (id,encounter_satisfaction_id,listening,explaining_condition,answering_questions,time_spent,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT encounter_satisfaction_id (#PCDATA)>
+<!ELEMENT listening (#PCDATA)>
+<!ELEMENT explaining_condition (#PCDATA)>
+<!ELEMENT answering_questions (#PCDATA)>
+<!ELEMENT time_spent (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

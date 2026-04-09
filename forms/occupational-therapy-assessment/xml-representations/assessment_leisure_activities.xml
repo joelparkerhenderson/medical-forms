@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_leisure_activities SYSTEM "assessment_leisure_activities.dtd">
+<assessment_leisure_activities>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<quiet_recreation></quiet_recreation>
+<active_recreation></active_recreation>
+<socialisation></socialisation>
+<hobbies_and_interests></hobbies_and_interests>
+<leisure_participation_level>full</leisure_participation_level>
+<barriers_to_leisure></barriers_to_leisure>
+<previous_leisure_activities></previous_leisure_activities>
+<activities_given_up></activities_given_up>
+<leisure_satisfaction>very-satisfied</leisure_satisfaction>
+<leisure_concerns></leisure_concerns>
+<leisure_notes>Example text.</leisure_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_leisure_activities>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_risk_factors SYSTEM "assessment_risk_factors.dtd">
+<assessment_risk_factors>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<hypertension>yes</hypertension>
+<diabetes>yes</diabetes>
+<atrial_fibrillation>yes</atrial_fibrillation>
+<atrial_fibrillation_anticoagulated>yes</atrial_fibrillation_anticoagulated>
+<hyperlipidaemia>yes</hyperlipidaemia>
+<previous_stroke>yes</previous_stroke>
+<previous_stroke_details>Example text.</previous_stroke_details>
+<previous_tia>yes</previous_tia>
+<carotid_stenosis>yes</carotid_stenosis>
+<coronary_artery_disease>yes</coronary_artery_disease>
+<heart_failure>yes</heart_failure>
+<valvular_heart_disease>yes</valvular_heart_disease>
+<smoking_status>current</smoking_status>
+<alcohol_excess>yes</alcohol_excess>
+<illicit_drug_use>yes</illicit_drug_use>
+<family_history_stroke>yes</family_history_stroke>
+<obstructive_sleep_apnoea>yes</obstructive_sleep_apnoea>
+<oral_contraceptive_hrt>yes</oral_contraceptive_hrt>
+<additional_risk_factors></additional_risk_factors>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_risk_factors>

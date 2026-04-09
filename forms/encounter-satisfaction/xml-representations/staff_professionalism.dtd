@@ -1,0 +1,8 @@
+<!ELEMENT staff_professionalism (id,encounter_satisfaction_id,reception_courtesy,nursing_courtesy,respect_shown,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT encounter_satisfaction_id (#PCDATA)>
+<!ELEMENT reception_courtesy (#PCDATA)>
+<!ELEMENT nursing_courtesy (#PCDATA)>
+<!ELEMENT respect_shown (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

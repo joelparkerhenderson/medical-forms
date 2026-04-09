@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_satisfaction_rating_item SYSTEM "assessment_satisfaction_rating_item.dtd">
+<assessment_satisfaction_rating_item>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<satisfaction_ratings_id>660e8400-e29b-41d4-a716-446655440001</satisfaction_ratings_id>
+<occupational_issue>Teacher</occupational_issue>
+<domain>self-care</domain>
+<satisfaction_score>5</satisfaction_score>
+<sort_order>0</sort_order>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_satisfaction_rating_item>

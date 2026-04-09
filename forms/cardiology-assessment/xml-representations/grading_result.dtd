@@ -1,0 +1,9 @@
+<!ELEMENT grading_result (id,assessment_id,ccs_angina_class,nyha_class,overall_risk_level,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT ccs_angina_class (#PCDATA)>
+<!ELEMENT nyha_class (#PCDATA)>
+<!ELEMENT overall_risk_level (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

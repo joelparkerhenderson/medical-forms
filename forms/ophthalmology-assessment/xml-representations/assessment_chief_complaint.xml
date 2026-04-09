@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_chief_complaint SYSTEM "assessment_chief_complaint.dtd">
+<assessment_chief_complaint>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<primary_complaint></primary_complaint>
+<onset>sudden</onset>
+<duration></duration>
+<laterality>left</laterality>
+<associated_symptoms>Fatigue</associated_symptoms>
+<pain>yes</pain>
+<pain_severity>1</pain_severity>
+<pain_character>aching</pain_character>
+<photophobia>yes</photophobia>
+<discharge>yes</discharge>
+<discharge_description>Example text.</discharge_description>
+<flashes_or_floaters>yes</flashes_or_floaters>
+<flashes_floaters_details>Example text.</flashes_floaters_details>
+<vision_loss>yes</vision_loss>
+<vision_loss_details>Example text.</vision_loss_details>
+<chief_complaint_notes>Example text.</chief_complaint_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_chief_complaint>

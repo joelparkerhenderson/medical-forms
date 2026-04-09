@@ -1,0 +1,14 @@
+<!ELEMENT assessment_facial_palsy_motor (id,assessment_id,nihss_4_facial_palsy,nihss_5a_motor_arm_left,nihss_5b_motor_arm_right,nihss_6a_motor_leg_left,nihss_6b_motor_leg_right,facial_droop_side,pronator_drift,motor_deficit_pattern,affected_side,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT nihss_4_facial_palsy (#PCDATA)>
+<!ELEMENT nihss_5a_motor_arm_left (#PCDATA)>
+<!ELEMENT nihss_5b_motor_arm_right (#PCDATA)>
+<!ELEMENT nihss_6a_motor_leg_left (#PCDATA)>
+<!ELEMENT nihss_6b_motor_leg_right (#PCDATA)>
+<!ELEMENT facial_droop_side (#PCDATA)>
+<!ELEMENT pronator_drift (#PCDATA)>
+<!ELEMENT motor_deficit_pattern (#PCDATA)>
+<!ELEMENT affected_side (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

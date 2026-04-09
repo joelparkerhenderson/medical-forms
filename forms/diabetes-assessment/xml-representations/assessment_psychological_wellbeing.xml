@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_psychological_wellbeing SYSTEM "assessment_psychological_wellbeing.dtd">
+<assessment_psychological_wellbeing>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<diabetes_distress>1</diabetes_distress>
+<depression_screening>1</depression_screening>
+<anxiety_screening>1</anxiety_screening>
+<eating_disorder>yes</eating_disorder>
+<fear_of_hypoglycaemia>1</fear_of_hypoglycaemia>
+<coping_ability>1</coping_ability>
+<needs_support>yes</needs_support>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_psychological_wellbeing>

@@ -1,0 +1,15 @@
+<!ELEMENT assessment_alternative_treatments (id,assessment_id,alternatives_discussed,conservative_management_discussed,conservative_management_details,alternative_procedures_discussed,alternative_procedures_details,no_treatment_option_discussed,no_treatment_consequences,patient_preference,reason_for_chosen_treatment,alternative_treatments_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT alternatives_discussed (#PCDATA)>
+<!ELEMENT conservative_management_discussed (#PCDATA)>
+<!ELEMENT conservative_management_details (#PCDATA)>
+<!ELEMENT alternative_procedures_discussed (#PCDATA)>
+<!ELEMENT alternative_procedures_details (#PCDATA)>
+<!ELEMENT no_treatment_option_discussed (#PCDATA)>
+<!ELEMENT no_treatment_consequences (#PCDATA)>
+<!ELEMENT patient_preference (#PCDATA)>
+<!ELEMENT reason_for_chosen_treatment (#PCDATA)>
+<!ELEMENT alternative_treatments_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

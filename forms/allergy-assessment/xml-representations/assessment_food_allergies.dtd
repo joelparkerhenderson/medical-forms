@@ -1,0 +1,9 @@
+<!ELEMENT assessment_food_allergies (id,assessment_id,has_food_allergies,ige_type,oral_allergy_syndrome,dietary_restrictions,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT has_food_allergies (#PCDATA)>
+<!ELEMENT ige_type (#PCDATA)>
+<!ELEMENT oral_allergy_syndrome (#PCDATA)>
+<!ELEMENT dietary_restrictions (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_medications SYSTEM "assessment_current_medications.dtd">
+<assessment_current_medications>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<on_statin>yes</on_statin>
+<statin_name>Example</statin_name>
+<on_aspirin>yes</on_aspirin>
+<on_antihypertensive>yes</on_antihypertensive>
+<antihypertensive_name>Example</antihypertensive_name>
+<other_medications>Paracetamol</other_medications>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_medications>

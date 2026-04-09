@@ -1,0 +1,16 @@
+<!ELEMENT assessment_reason_for_visit (id,assessment_id,visit_type,primary_reason,symptom_onset,symptom_duration,symptom_severity,symptoms_worsening,previous_treatment_for_this,referring_provider,referral_reason,patient_goals,reason_for_visit_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT visit_type (#PCDATA)>
+<!ELEMENT primary_reason (#PCDATA)>
+<!ELEMENT symptom_onset (#PCDATA)>
+<!ELEMENT symptom_duration (#PCDATA)>
+<!ELEMENT symptom_severity (#PCDATA)>
+<!ELEMENT symptoms_worsening (#PCDATA)>
+<!ELEMENT previous_treatment_for_this (#PCDATA)>
+<!ELEMENT referring_provider (#PCDATA)>
+<!ELEMENT referral_reason (#PCDATA)>
+<!ELEMENT patient_goals (#PCDATA)>
+<!ELEMENT reason_for_visit_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

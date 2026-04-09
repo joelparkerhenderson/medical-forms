@@ -1,0 +1,10 @@
+<!ELEMENT assessment_strength_test_item (id,strength_testing_id,muscle_group,movement,mrc_grade,pain_on_testing,sort_order,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT strength_testing_id (#PCDATA)>
+<!ELEMENT muscle_group (#PCDATA)>
+<!ELEMENT movement (#PCDATA)>
+<!ELEMENT mrc_grade (#PCDATA)>
+<!ELEMENT pain_on_testing (#PCDATA)>
+<!ELEMENT sort_order (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,9 @@
+<!ELEMENT review_calculate (id,assessment_id,clinician_name,review_date,clinical_notes,audit_score,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT clinician_name (#PCDATA)>
+<!ELEMENT review_date (#PCDATA)>
+<!ELEMENT clinical_notes (#PCDATA)>
+<!ELEMENT audit_score (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

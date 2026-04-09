@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_headache SYSTEM "assessment_headache.dtd">
+<assessment_headache>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<headache_present>yes</headache_present>
+<headache_type>tension</headache_type>
+<headache_severity>1</headache_severity>
+<headache_location>frontal</headache_location>
+<headache_side>left</headache_side>
+<headache_frequency>daily</headache_frequency>
+<headache_duration></headache_duration>
+<aura>yes</aura>
+<aura_type>standard</aura_type>
+<photophobia>yes</photophobia>
+<phonophobia>yes</phonophobia>
+<nausea_with_headache>yes</nausea_with_headache>
+<neck_stiffness>yes</neck_stiffness>
+<worst_headache_ever>yes</worst_headache_ever>
+<headache_triggers></headache_triggers>
+<headache_notes>Example text.</headache_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_headache>

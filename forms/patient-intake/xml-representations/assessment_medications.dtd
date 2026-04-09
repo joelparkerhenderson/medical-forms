@@ -1,0 +1,13 @@
+<!ELEMENT assessment_medications (id,assessment_id,takes_medications,takes_over_the_counter,takes_supplements,supplement_details,medication_adherence,pharmacy_name,pharmacy_phone,medications_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT takes_medications (#PCDATA)>
+<!ELEMENT takes_over_the_counter (#PCDATA)>
+<!ELEMENT takes_supplements (#PCDATA)>
+<!ELEMENT supplement_details (#PCDATA)>
+<!ELEMENT medication_adherence (#PCDATA)>
+<!ELEMENT pharmacy_name (#PCDATA)>
+<!ELEMENT pharmacy_phone (#PCDATA)>
+<!ELEMENT medications_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

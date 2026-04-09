@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_manual_handling SYSTEM "assessment_manual_handling.dtd">
+<assessment_manual_handling>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<lifting_frequency>none</lifting_frequency>
+<load_weight_kg>70.0</load_weight_kg>
+<carry_distance_metres>0.0</carry_distance_metres>
+<push_pull_forces>none</push_pull_forces>
+<team_lifting>yes</team_lifting>
+<mechanical_aids_available>yes</mechanical_aids_available>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_manual_handling>

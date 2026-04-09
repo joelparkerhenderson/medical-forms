@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_cancer_history SYSTEM "assessment_cancer_history.dtd">
+<assessment_cancer_history>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<family_cancer_history>yes</family_cancer_history>
+<multiple_family_cancers>yes</multiple_family_cancers>
+<early_onset_cancer>yes</early_onset_cancer>
+<bilateral_cancer>yes</bilateral_cancer>
+<rare_tumour_types>yes</rare_tumour_types>
+<rare_tumour_details>Example text.</rare_tumour_details>
+<known_cancer_syndrome>yes</known_cancer_syndrome>
+<cancer_syndrome_details>Example text.</cancer_syndrome_details>
+<cancer_risk_score>5</cancer_risk_score>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_cancer_history>

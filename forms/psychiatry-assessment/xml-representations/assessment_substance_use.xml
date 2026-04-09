@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_substance_use SYSTEM "assessment_substance_use.dtd">
+<assessment_substance_use>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<alcohol_use>none</alcohol_use>
+<alcohol_units_per_week>1</alcohol_units_per_week>
+<audit_score>5</audit_score>
+<tobacco_use>never</tobacco_use>
+<cigarettes_per_day>1</cigarettes_per_day>
+<cannabis_use>never</cannabis_use>
+<stimulant_use>yes</stimulant_use>
+<stimulant_details>Example text.</stimulant_details>
+<opioid_use>yes</opioid_use>
+<opioid_details>Example text.</opioid_details>
+<benzodiazepine_misuse>yes</benzodiazepine_misuse>
+<novel_psychoactive_substances>yes</novel_psychoactive_substances>
+<iv_drug_use>yes</iv_drug_use>
+<previous_detox>yes</previous_detox>
+<previous_detox_details>Example text.</previous_detox_details>
+<substance_use_impact></substance_use_impact>
+<motivation_to_change>pre-contemplation</motivation_to_change>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_substance_use>

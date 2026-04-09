@@ -1,0 +1,16 @@
+<!ELEMENT assessment_language_dysarthria (id,assessment_id,nihss_9_best_language,nihss_10_dysarthria,aphasia_type,speech_fluency,comprehension_intact,repetition_intact,naming_intact,reading_intact,writing_intact,dysarthria_severity,language_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT nihss_9_best_language (#PCDATA)>
+<!ELEMENT nihss_10_dysarthria (#PCDATA)>
+<!ELEMENT aphasia_type (#PCDATA)>
+<!ELEMENT speech_fluency (#PCDATA)>
+<!ELEMENT comprehension_intact (#PCDATA)>
+<!ELEMENT repetition_intact (#PCDATA)>
+<!ELEMENT naming_intact (#PCDATA)>
+<!ELEMENT reading_intact (#PCDATA)>
+<!ELEMENT writing_intact (#PCDATA)>
+<!ELEMENT dysarthria_severity (#PCDATA)>
+<!ELEMENT language_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

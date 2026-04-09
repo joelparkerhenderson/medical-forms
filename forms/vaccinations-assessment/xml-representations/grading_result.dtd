@@ -1,0 +1,8 @@
+<!ELEMENT grading_result (id,assessment_id,vaccination_level,vaccination_score,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT vaccination_level (#PCDATA)>
+<!ELEMENT vaccination_score (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

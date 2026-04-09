@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_medications SYSTEM "assessment_current_medications.dtd">
+<assessment_current_medications>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<takes_regular_medications>yes</takes_regular_medications>
+<takes_over_the_counter>yes</takes_over_the_counter>
+<over_the_counter_details>Example text.</over_the_counter_details>
+<takes_supplements>yes</takes_supplements>
+<supplement_details>Example text.</supplement_details>
+<medication_adherence>good</medication_adherence>
+<adverse_drug_reactions>Paracetamol</adverse_drug_reactions>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_medications>

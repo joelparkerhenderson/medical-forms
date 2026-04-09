@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_social_history SYSTEM "assessment_social_history.dtd">
+<assessment_social_history>
+<id>551e8400-e29b-41d4-a716-44665544000f</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<alcohol>none</alcohol>
+<alcohol_units_per_week>1</alcohol_units_per_week>
+<recreational_drugs>yes</recreational_drugs>
+<drug_details>Example text.</drug_details>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_social_history>

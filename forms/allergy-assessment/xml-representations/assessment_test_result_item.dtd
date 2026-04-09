@@ -1,0 +1,9 @@
+<!ELEMENT assessment_test_result_item (id,testing_results_id,test_type,allergen,result,sort_order,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT testing_results_id (#PCDATA)>
+<!ELEMENT test_type (#PCDATA)>
+<!ELEMENT allergen (#PCDATA)>
+<!ELEMENT result (#PCDATA)>
+<!ELEMENT sort_order (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

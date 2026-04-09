@@ -1,0 +1,9 @@
+<!ELEMENT overall_satisfaction (id,encounter_satisfaction_id,overall_rating,likely_to_recommend,likely_to_return,comments,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT encounter_satisfaction_id (#PCDATA)>
+<!ELEMENT overall_rating (#PCDATA)>
+<!ELEMENT likely_to_recommend (#PCDATA)>
+<!ELEMENT likely_to_return (#PCDATA)>
+<!ELEMENT comments (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

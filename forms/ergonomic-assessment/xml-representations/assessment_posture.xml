@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_posture SYSTEM "assessment_posture.dtd">
+<assessment_posture>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<sitting_posture>upright</sitting_posture>
+<standing_posture>upright</standing_posture>
+<neck_angle>neutral</neck_angle>
+<trunk_angle>neutral</trunk_angle>
+<shoulder_position>neutral</shoulder_position>
+<wrist_deviation>neutral</wrist_deviation>
+<neck_score>5</neck_score>
+<trunk_score>5</trunk_score>
+<leg_score>5</leg_score>
+<upper_arm_score>5</upper_arm_score>
+<lower_arm_score>5</lower_arm_score>
+<wrist_score>5</wrist_score>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_posture>

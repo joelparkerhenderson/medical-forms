@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_cardiovascular_symptoms SYSTEM "assessment_cardiovascular_symptoms.dtd">
+<assessment_cardiovascular_symptoms>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<tachycardia>yes</tachycardia>
+<resting_heart_rate>1</resting_heart_rate>
+<hypotension>yes</hypotension>
+<systolic_bp>1</systolic_bp>
+<diastolic_bp>1</diastolic_bp>
+<presyncope>yes</presyncope>
+<syncope>yes</syncope>
+<syncope_frequency>daily</syncope_frequency>
+<palpitations>yes</palpitations>
+<chest_pain>yes</chest_pain>
+<orthostatic_intolerance>yes</orthostatic_intolerance>
+<anaphylaxis_history>yes</anaphylaxis_history>
+<anaphylaxis_episode_count>2</anaphylaxis_episode_count>
+<carries_adrenaline_auto_injector>yes</carries_adrenaline_auto_injector>
+<cardiovascular_notes>Example text.</cardiovascular_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_cardiovascular_symptoms>

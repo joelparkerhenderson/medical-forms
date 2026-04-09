@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_medications SYSTEM "assessment_current_medications.dtd">
+<assessment_current_medications>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<alpha_blocker_use>yes</alpha_blocker_use>
+<alpha_blocker_name>Example</alpha_blocker_name>
+<five_alpha_reductase_inhibitor>yes</five_alpha_reductase_inhibitor>
+<five_ari_name>Example</five_ari_name>
+<anticholinergic_use>yes</anticholinergic_use>
+<anticholinergic_name>Example</anticholinergic_name>
+<beta3_agonist_use>yes</beta3_agonist_use>
+<beta3_agonist_name>Example</beta3_agonist_name>
+<pde5_inhibitor_use>yes</pde5_inhibitor_use>
+<diuretic_use>yes</diuretic_use>
+<diuretic_name>Example</diuretic_name>
+<antihypertensive_use>yes</antihypertensive_use>
+<antihypertensive_details>Example text.</antihypertensive_details>
+<anticoagulant_use>yes</anticoagulant_use>
+<anticoagulant_name>Example</anticoagulant_name>
+<other_medications>Paracetamol</other_medications>
+<known_drug_allergies>Paracetamol</known_drug_allergies>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_medications>

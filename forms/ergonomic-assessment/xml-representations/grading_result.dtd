@@ -1,0 +1,10 @@
+<!ELEMENT grading_result (id,assessment_id,reba_score,risk_level,reba_score_override,override_reason,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT reba_score (#PCDATA)>
+<!ELEMENT risk_level (#PCDATA)>
+<!ELEMENT reba_score_override (#PCDATA)>
+<!ELEMENT override_reason (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

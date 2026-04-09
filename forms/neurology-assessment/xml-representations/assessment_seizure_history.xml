@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_seizure_history SYSTEM "assessment_seizure_history.dtd">
+<assessment_seizure_history>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<seizure_history>yes</seizure_history>
+<epilepsy_diagnosis>yes</epilepsy_diagnosis>
+<seizure_type>focal-aware</seizure_type>
+<seizure_frequency>daily</seizure_frequency>
+<last_seizure_date>2026-01-15</last_seizure_date>
+<seizure_duration_typical></seizure_duration_typical>
+<seizure_triggers></seizure_triggers>
+<aura_before_seizure>yes</aura_before_seizure>
+<aura_description>Example text.</aura_description>
+<postictal_symptoms>Fatigue</postictal_symptoms>
+<status_epilepticus_history>yes</status_epilepticus_history>
+<febrile_seizures_childhood>yes</febrile_seizures_childhood>
+<family_history_epilepsy>yes</family_history_epilepsy>
+<driving_status>driving</driving_status>
+<seizure_notes>Example text.</seizure_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_seizure_history>

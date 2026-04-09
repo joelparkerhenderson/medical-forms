@@ -1,0 +1,9 @@
+<!ELEMENT validation_fired_rule (id,validation_result_id,rule_id,domain,description,score,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT validation_result_id (#PCDATA)>
+<!ELEMENT rule_id (#PCDATA)>
+<!ELEMENT domain (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT score (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_psychosocial_factors SYSTEM "assessment_psychosocial_factors.dtd">
+<assessment_psychosocial_factors>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<job_satisfaction>very_high</job_satisfaction>
+<work_pace>relaxed</work_pace>
+<job_control>high</job_control>
+<work_related_stress>low</work_related_stress>
+<support_from_colleagues>good</support_from_colleagues>
+<support_from_management>good</support_from_management>
+<overtime_hours_per_week>0.0</overtime_hours_per_week>
+<deadline_pressure>low</deadline_pressure>
+<work_life_balance>good</work_life_balance>
+<fear_of_job_loss>yes</fear_of_job_loss>
+<monotonous_work>yes</monotonous_work>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_psychosocial_factors>

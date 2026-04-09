@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_periodontal SYSTEM "assessment_periodontal.dtd">
+<assessment_periodontal>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<gingival_status>healthy</gingival_status>
+<bleeding_on_probing>yes</bleeding_on_probing>
+<bleeding_sites>Example location</bleeding_sites>
+<probing_depth_max>1</probing_depth_max>
+<probing_depth_mean>0.0</probing_depth_mean>
+<clinical_attachment_loss>none</clinical_attachment_loss>
+<furcation_involvement>yes</furcation_involvement>
+<furcation_details>Example text.</furcation_details>
+<tooth_mobility>none</tooth_mobility>
+<mobility_details>Example text.</mobility_details>
+<plaque_index_score>5.0</plaque_index_score>
+<calculus_present>yes</calculus_present>
+<calculus_location>Example location</calculus_location>
+<gingival_recession>yes</gingival_recession>
+<recession_details>Example text.</recession_details>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_periodontal>

@@ -1,0 +1,7 @@
+<!ELEMENT purpose_of_release (id,release_form_id,purpose,other_details,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT release_form_id (#PCDATA)>
+<!ELEMENT purpose (#PCDATA)>
+<!ELEMENT other_details (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

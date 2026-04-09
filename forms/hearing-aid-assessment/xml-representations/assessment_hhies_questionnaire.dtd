@@ -1,0 +1,16 @@
+<!ELEMENT assessment_hhies_questionnaire (id,assessment_id,s1_telephone_difficulty,s2_embarrassment,s3_difficulty_group_conversation,s4_handicapped_feeling,s5_difficulty_visiting,s6_difficulty_religious_services,s7_arguments_due_to_hearing,s8_difficulty_tv_radio,s9_personal_social_life_affected,s10_difficulty_restaurant,hhies_total_score,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT s1_telephone_difficulty (#PCDATA)>
+<!ELEMENT s2_embarrassment (#PCDATA)>
+<!ELEMENT s3_difficulty_group_conversation (#PCDATA)>
+<!ELEMENT s4_handicapped_feeling (#PCDATA)>
+<!ELEMENT s5_difficulty_visiting (#PCDATA)>
+<!ELEMENT s6_difficulty_religious_services (#PCDATA)>
+<!ELEMENT s7_arguments_due_to_hearing (#PCDATA)>
+<!ELEMENT s8_difficulty_tv_radio (#PCDATA)>
+<!ELEMENT s9_personal_social_life_affected (#PCDATA)>
+<!ELEMENT s10_difficulty_restaurant (#PCDATA)>
+<!ELEMENT hhies_total_score (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

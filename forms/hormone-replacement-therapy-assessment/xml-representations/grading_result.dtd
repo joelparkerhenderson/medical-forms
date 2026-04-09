@@ -1,0 +1,12 @@
+<!ELEMENT grading_result (id,assessment_id,mrs_total_score,somatic_subscale_score,psychological_subscale_score,urogenital_subscale_score,overall_severity,hrt_eligibility,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT mrs_total_score (#PCDATA)>
+<!ELEMENT somatic_subscale_score (#PCDATA)>
+<!ELEMENT psychological_subscale_score (#PCDATA)>
+<!ELEMENT urogenital_subscale_score (#PCDATA)>
+<!ELEMENT overall_severity (#PCDATA)>
+<!ELEMENT hrt_eligibility (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

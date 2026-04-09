@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_diagnostic_results SYSTEM "assessment_diagnostic_results.dtd">
+<assessment_diagnostic_results>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<ecg_performed>yes</ecg_performed>
+<ecg_date>2026-01-15</ecg_date>
+<ecg_findings>Example text.</ecg_findings>
+<ecg_rhythm>sinus</ecg_rhythm>
+<echocardiogram_performed>yes</echocardiogram_performed>
+<echocardiogram_date>2026-01-15</echocardiogram_date>
+<echocardiogram_findings>Example text.</echocardiogram_findings>
+<lvef_percent>50.0</lvef_percent>
+<exercise_test_performed>yes</exercise_test_performed>
+<exercise_test_date>2026-01-15</exercise_test_date>
+<exercise_test_result>positive</exercise_test_result>
+<exercise_test_details>Example text.</exercise_test_details>
+<coronary_angiogram_performed>yes</coronary_angiogram_performed>
+<coronary_angiogram_date>2026-01-15</coronary_angiogram_date>
+<coronary_angiogram_findings>Example text.</coronary_angiogram_findings>
+<ct_coronary_angiogram_performed>yes</ct_coronary_angiogram_performed>
+<ct_coronary_angiogram_findings>Example text.</ct_coronary_angiogram_findings>
+<bnp_pg_ml>0.0</bnp_pg_ml>
+<troponin_ng_l>0.0</troponin_ng_l>
+<diagnostic_notes>Example text.</diagnostic_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_diagnostic_results>

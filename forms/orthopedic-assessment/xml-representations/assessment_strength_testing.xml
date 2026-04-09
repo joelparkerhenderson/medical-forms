@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_strength_testing SYSTEM "assessment_strength_testing.dtd">
+<assessment_strength_testing>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<grip_strength_affected_kg>0.0</grip_strength_affected_kg>
+<grip_strength_unaffected_kg>0.0</grip_strength_unaffected_kg>
+<overall_strength_status>normal</overall_strength_status>
+<strength_testing_notes>Example text.</strength_testing_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_strength_testing>

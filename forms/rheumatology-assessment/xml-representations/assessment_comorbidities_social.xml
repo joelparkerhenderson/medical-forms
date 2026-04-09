@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_comorbidities_social SYSTEM "assessment_comorbidities_social.dtd">
+<assessment_comorbidities_social>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<cardiovascular_disease>yes</cardiovascular_disease>
+<cardiovascular_details>Example text.</cardiovascular_details>
+<diabetes>yes</diabetes>
+<diabetes_type>type1</diabetes_type>
+<hypertension>yes</hypertension>
+<chronic_kidney_disease>yes</chronic_kidney_disease>
+<hepatitis_b_or_c>yes</hepatitis_b_or_c>
+<tuberculosis_history>yes</tuberculosis_history>
+<osteoporosis>yes</osteoporosis>
+<depression_anxiety>yes</depression_anxiety>
+<malignancy_history>yes</malignancy_history>
+<malignancy_details>Example text.</malignancy_details>
+<lives_alone>yes</lives_alone>
+<carer_support>yes</carer_support>
+<exercise_frequency>daily</exercise_frequency>
+<vaccination_status_up_to_date>yes</vaccination_status_up_to_date>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_comorbidities_social>

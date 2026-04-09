@@ -1,0 +1,9 @@
+<!ELEMENT flagged_issue (id,news2_result_id,flag_id,category,message,priority,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT news2_result_id (#PCDATA)>
+<!ELEMENT flag_id (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT message (#PCDATA)>
+<!ELEMENT priority (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

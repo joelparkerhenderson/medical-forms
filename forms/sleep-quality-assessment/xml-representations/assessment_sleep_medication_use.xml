@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_sleep_medication_use SYSTEM "assessment_sleep_medication_use.dtd">
+<assessment_sleep_medication_use>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<sleep_medication_frequency>1</sleep_medication_frequency>
+<prescribed_sleep_medication>yes</prescribed_sleep_medication>
+<prescribed_medication_names>Example</prescribed_medication_names>
+<prescribed_medication_dose>Paracetamol</prescribed_medication_dose>
+<prescribed_medication_duration_months>1</prescribed_medication_duration_months>
+<over_the_counter_sleep_aids>yes</over_the_counter_sleep_aids>
+<otc_sleep_aid_details>Example text.</otc_sleep_aid_details>
+<melatonin_use>yes</melatonin_use>
+<melatonin_dose_mg>10.0</melatonin_dose_mg>
+<herbal_supplements>yes</herbal_supplements>
+<herbal_supplement_details>Example text.</herbal_supplement_details>
+<caffeine_daily_intake>none</caffeine_daily_intake>
+<caffeine_last_intake_time></caffeine_last_intake_time>
+<alcohol_as_sleep_aid>yes</alcohol_as_sleep_aid>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_sleep_medication_use>

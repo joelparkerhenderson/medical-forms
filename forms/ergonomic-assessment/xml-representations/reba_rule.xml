@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reba_rule SYSTEM "reba_rule.dtd">
+<reba_rule>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<system></system>
+<description>Example text.</description>
+<score>5</score>
+<created_at>2026-04-09T10:00:00Z</created_at>
+</reba_rule>

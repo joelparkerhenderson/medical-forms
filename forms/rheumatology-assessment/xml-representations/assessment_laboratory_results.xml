@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_laboratory_results SYSTEM "assessment_laboratory_results.dtd">
+<assessment_laboratory_results>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<esr_mm_hr>0.0</esr_mm_hr>
+<crp_mg_l>0.0</crp_mg_l>
+<rheumatoid_factor_iu_ml>0.0</rheumatoid_factor_iu_ml>
+<anti_ccp_u_ml>0.0</anti_ccp_u_ml>
+<ana_positive>yes</ana_positive>
+<ana_titre></ana_titre>
+<haemoglobin_g_dl>0.0</haemoglobin_g_dl>
+<white_cell_count>0.0</white_cell_count>
+<platelet_count>2</platelet_count>
+<creatinine_umol_l>0.0</creatinine_umol_l>
+<alt_u_l>0.0</alt_u_l>
+<lab_date>2026-01-15</lab_date>
+<additional_results>Normal</additional_results>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_laboratory_results>

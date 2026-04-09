@@ -1,0 +1,13 @@
+<!ELEMENT assessment_signatures_witnesses (id,assessment_id,maker_signature_obtained,maker_signature_date,witness_name,witness_address,witness_signature_obtained,witness_signature_date,review_date,review_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT maker_signature_obtained (#PCDATA)>
+<!ELEMENT maker_signature_date (#PCDATA)>
+<!ELEMENT witness_name (#PCDATA)>
+<!ELEMENT witness_address (#PCDATA)>
+<!ELEMENT witness_signature_obtained (#PCDATA)>
+<!ELEMENT witness_signature_date (#PCDATA)>
+<!ELEMENT review_date (#PCDATA)>
+<!ELEMENT review_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pvt_rule SYSTEM "pvt_rule.dtd">
+<pvt_rule>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<category>General</category>
+<description>Example text.</description>
+<risk_level>high</risk_level>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</pvt_rule>

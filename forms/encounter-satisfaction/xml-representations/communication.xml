@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE communication SYSTEM "communication.dtd">
+<communication>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<encounter_satisfaction_id>660e8400-e29b-41d4-a716-446655440001</encounter_satisfaction_id>
+<listening>1</listening>
+<explaining_condition>1</explaining_condition>
+<answering_questions>1</answering_questions>
+<time_spent>1</time_spent>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</communication>

@@ -1,0 +1,13 @@
+<!ELEMENT assessment_medical_treatment_wishes (id,assessment_id,pain_management_preferences,attitude_to_hospital_admission,attitude_to_intensive_care,attitude_to_artificial_nutrition,attitude_to_artificial_hydration,medication_preferences,complementary_therapy_preferences,other_treatment_wishes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT pain_management_preferences (#PCDATA)>
+<!ELEMENT attitude_to_hospital_admission (#PCDATA)>
+<!ELEMENT attitude_to_intensive_care (#PCDATA)>
+<!ELEMENT attitude_to_artificial_nutrition (#PCDATA)>
+<!ELEMENT attitude_to_artificial_hydration (#PCDATA)>
+<!ELEMENT medication_preferences (#PCDATA)>
+<!ELEMENT complementary_therapy_preferences (#PCDATA)>
+<!ELEMENT other_treatment_wishes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

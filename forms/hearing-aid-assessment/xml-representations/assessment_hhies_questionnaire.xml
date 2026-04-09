@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_hhies_questionnaire SYSTEM "assessment_hhies_questionnaire.dtd">
+<assessment_hhies_questionnaire>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<s1_telephone_difficulty>1</s1_telephone_difficulty>
+<s2_embarrassment>1</s2_embarrassment>
+<s3_difficulty_group_conversation>1</s3_difficulty_group_conversation>
+<s4_handicapped_feeling>1</s4_handicapped_feeling>
+<s5_difficulty_visiting>1</s5_difficulty_visiting>
+<s6_difficulty_religious_services>1</s6_difficulty_religious_services>
+<s7_arguments_due_to_hearing>1</s7_arguments_due_to_hearing>
+<s8_difficulty_tv_radio>1</s8_difficulty_tv_radio>
+<s9_personal_social_life_affected>1</s9_personal_social_life_affected>
+<s10_difficulty_restaurant>1</s10_difficulty_restaurant>
+<hhies_total_score>5</hhies_total_score>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_hhies_questionnaire>

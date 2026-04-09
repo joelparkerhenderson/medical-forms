@@ -1,0 +1,15 @@
+<!ELEMENT assessment_indication_goals (id,assessment_id,primary_indication,indication_other,weight_loss_goal_kg,target_hba1c_percent,previous_weight_loss_attempts,previous_attempts_details,previous_glp1_use,previous_glp1_details,patient_motivation,realistic_expectations_discussed,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT primary_indication (#PCDATA)>
+<!ELEMENT indication_other (#PCDATA)>
+<!ELEMENT weight_loss_goal_kg (#PCDATA)>
+<!ELEMENT target_hba1c_percent (#PCDATA)>
+<!ELEMENT previous_weight_loss_attempts (#PCDATA)>
+<!ELEMENT previous_attempts_details (#PCDATA)>
+<!ELEMENT previous_glp1_use (#PCDATA)>
+<!ELEMENT previous_glp1_details (#PCDATA)>
+<!ELEMENT patient_motivation (#PCDATA)>
+<!ELEMENT realistic_expectations_discussed (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

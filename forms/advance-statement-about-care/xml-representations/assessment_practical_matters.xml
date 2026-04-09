@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_practical_matters SYSTEM "assessment_practical_matters.dtd">
+<assessment_practical_matters>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<financial_arrangements></financial_arrangements>
+<property_arrangements></property_arrangements>
+<insurance_details>Example text.</insurance_details>
+<will_location>Example location</will_location>
+<has_lasting_power_of_attorney>yes</has_lasting_power_of_attorney>
+<lpa_details>Example text.</lpa_details>
+<funeral_wishes></funeral_wishes>
+<burial_or_cremation>burial</burial_or_cremation>
+<other_practical_matters></other_practical_matters>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_practical_matters>

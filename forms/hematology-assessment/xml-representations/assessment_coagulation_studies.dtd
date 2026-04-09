@@ -1,0 +1,11 @@
+<!ELEMENT assessment_coagulation_studies (id,assessment_id,prothrombin_time,inr,activated_partial_thromboplastin_time,fibrinogen,d_dimer,bleeding_time,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT prothrombin_time (#PCDATA)>
+<!ELEMENT inr (#PCDATA)>
+<!ELEMENT activated_partial_thromboplastin_time (#PCDATA)>
+<!ELEMENT fibrinogen (#PCDATA)>
+<!ELEMENT d_dimer (#PCDATA)>
+<!ELEMENT bleeding_time (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

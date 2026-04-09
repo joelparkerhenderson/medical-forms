@@ -1,0 +1,11 @@
+<!ELEMENT assessment_demographics (id,assessment_id,occupation,sport_or_activity,activity_level,dominant_side,contact_phone,contact_email,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT occupation (#PCDATA)>
+<!ELEMENT sport_or_activity (#PCDATA)>
+<!ELEMENT activity_level (#PCDATA)>
+<!ELEMENT dominant_side (#PCDATA)>
+<!ELEMENT contact_phone (#PCDATA)>
+<!ELEMENT contact_email (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

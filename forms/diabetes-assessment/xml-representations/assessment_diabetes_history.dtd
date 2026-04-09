@@ -1,0 +1,11 @@
+<!ELEMENT assessment_diabetes_history (id,assessment_id,diabetes_type,age_at_diagnosis,years_duration,diagnosis_method,family_history,autoantibodies_tested,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT diabetes_type (#PCDATA)>
+<!ELEMENT age_at_diagnosis (#PCDATA)>
+<!ELEMENT years_duration (#PCDATA)>
+<!ELEMENT diagnosis_method (#PCDATA)>
+<!ELEMENT family_history (#PCDATA)>
+<!ELEMENT autoantibodies_tested (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

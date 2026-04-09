@@ -1,6 +1,10 @@
 # Front-end with SvelteKit Tailwind SVAR
 
+Ultrathink.
+
 Slug: front-end-with-sveltekit-tailwind-svar
+
+- Search pattern: "forms/\*/front-end-\*-with-svelte"
 
 ## Technology stack
 

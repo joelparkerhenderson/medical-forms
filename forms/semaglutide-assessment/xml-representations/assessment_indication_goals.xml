@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_indication_goals SYSTEM "assessment_indication_goals.dtd">
+<assessment_indication_goals>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<primary_indication>weight_management</primary_indication>
+<indication_other></indication_other>
+<weight_loss_goal_kg>70.0</weight_loss_goal_kg>
+<target_hba1c_percent>50.0</target_hba1c_percent>
+<previous_weight_loss_attempts>yes</previous_weight_loss_attempts>
+<previous_attempts_details>Example text.</previous_attempts_details>
+<previous_glp1_use>yes</previous_glp1_use>
+<previous_glp1_details>Example text.</previous_glp1_details>
+<patient_motivation>high</patient_motivation>
+<realistic_expectations_discussed>yes</realistic_expectations_discussed>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_indication_goals>

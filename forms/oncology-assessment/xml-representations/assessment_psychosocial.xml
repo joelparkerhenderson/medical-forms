@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_psychosocial SYSTEM "assessment_psychosocial.dtd">
+<assessment_psychosocial>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<anxiety_level>none</anxiety_level>
+<depression_level>none</depression_level>
+<distress_thermometer_score>5</distress_thermometer_score>
+<coping_ability>coping-well</coping_ability>
+<social_support>strong</social_support>
+<financial_concerns>yes</financial_concerns>
+<financial_concerns_details>Example text.</financial_concerns_details>
+<employment_impact>no-impact</employment_impact>
+<relationship_impact>no-impact</relationship_impact>
+<spiritual_concerns>yes</spiritual_concerns>
+<spiritual_concerns_details>Example text.</spiritual_concerns_details>
+<psychological_support_in_place>yes</psychological_support_in_place>
+<psychological_support_details>Example text.</psychological_support_details>
+<advance_care_planning_discussed>yes</advance_care_planning_discussed>
+<psychosocial_notes>Example text.</psychosocial_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_psychosocial>

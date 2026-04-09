@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_risks_benefits SYSTEM "assessment_risks_benefits.dtd">
+<assessment_risks_benefits>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<common_risks></common_risks>
+<uncommon_risks></uncommon_risks>
+<rare_risks></rare_risks>
+<specific_risks_to_patient></specific_risks_to_patient>
+<risk_of_not_having_treatment>Example treatment</risk_of_not_having_treatment>
+<expected_benefits></expected_benefits>
+<success_rate_discussed>yes</success_rate_discussed>
+<success_rate_details>Example text.</success_rate_details>
+<recovery_time_discussed>yes</recovery_time_discussed>
+<expected_recovery_details>Example text.</expected_recovery_details>
+<limitations_after_procedure>Example procedure</limitations_after_procedure>
+<follow_up_required>yes</follow_up_required>
+<follow_up_details>Example text.</follow_up_details>
+<risks_benefits_notes>Example text.</risks_benefits_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_risks_benefits>

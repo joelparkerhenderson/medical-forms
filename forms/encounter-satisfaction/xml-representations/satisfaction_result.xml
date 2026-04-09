@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE satisfaction_result SYSTEM "satisfaction_result.dtd">
+<satisfaction_result>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<encounter_satisfaction_id>660e8400-e29b-41d4-a716-446655440001</encounter_satisfaction_id>
+<composite_score>5.0</composite_score>
+<category>Excellent</category>
+<answered_count>2</answered_count>
+<domain_scores></domain_scores>
+<scored_at>2026-04-09T10:00:00Z</scored_at>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</satisfaction_result>

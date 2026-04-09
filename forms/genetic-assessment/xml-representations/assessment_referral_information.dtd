@@ -1,0 +1,14 @@
+<!ELEMENT assessment_referral_information (id,assessment_id,referring_clinician_name,referring_clinician_role,referring_organisation,referral_date,referral_reason,referral_urgency,specialty_referred_to,previous_genetic_referral,previous_referral_details,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT referring_clinician_name (#PCDATA)>
+<!ELEMENT referring_clinician_role (#PCDATA)>
+<!ELEMENT referring_organisation (#PCDATA)>
+<!ELEMENT referral_date (#PCDATA)>
+<!ELEMENT referral_reason (#PCDATA)>
+<!ELEMENT referral_urgency (#PCDATA)>
+<!ELEMENT specialty_referred_to (#PCDATA)>
+<!ELEMENT previous_genetic_referral (#PCDATA)>
+<!ELEMENT previous_referral_details (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

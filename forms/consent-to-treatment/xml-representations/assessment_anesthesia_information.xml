@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_anesthesia_information SYSTEM "assessment_anesthesia_information.dtd">
+<assessment_anesthesia_information>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<anesthesia_required>yes</anesthesia_required>
+<anesthesia_type>general</anesthesia_type>
+<anesthesia_details>Example text.</anesthesia_details>
+<anesthesia_risks_explained>yes</anesthesia_risks_explained>
+<anesthesia_specific_risks></anesthesia_specific_risks>
+<fasting_instructions_given>yes</fasting_instructions_given>
+<fasting_from_time></fasting_from_time>
+<previous_anesthesia_problems>yes</previous_anesthesia_problems>
+<previous_anesthesia_problem_details>Example text.</previous_anesthesia_problem_details>
+<family_anesthesia_problems>yes</family_anesthesia_problems>
+<family_anesthesia_problem_details>Example text.</family_anesthesia_problem_details>
+<anesthetist_name>Example</anesthetist_name>
+<anesthesia_notes>Example text.</anesthesia_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_anesthesia_information>

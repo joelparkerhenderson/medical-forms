@@ -1,0 +1,9 @@
+<!ELEMENT validation_result (id,release_form_id,completeness_score,completeness_status,validation_status,validated_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT release_form_id (#PCDATA)>
+<!ELEMENT completeness_score (#PCDATA)>
+<!ELEMENT completeness_status (#PCDATA)>
+<!ELEMENT validation_status (#PCDATA)>
+<!ELEMENT validated_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

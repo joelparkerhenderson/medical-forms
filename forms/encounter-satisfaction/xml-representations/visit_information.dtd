@@ -1,0 +1,11 @@
+<!ELEMENT visit_information (id,encounter_satisfaction_id,visit_date,department,provider_name,visit_type,reason_for_visit,first_visit,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT encounter_satisfaction_id (#PCDATA)>
+<!ELEMENT visit_date (#PCDATA)>
+<!ELEMENT department (#PCDATA)>
+<!ELEMENT provider_name (#PCDATA)>
+<!ELEMENT visit_type (#PCDATA)>
+<!ELEMENT reason_for_visit (#PCDATA)>
+<!ELEMENT first_visit (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

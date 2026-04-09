@@ -1,0 +1,14 @@
+<!ELEMENT casualty_card_arrival_triage (id,casualty_card_id,attendance_category,arrival_mode,referral_source,ambulance_incident_number,triage_time,triage_nurse,mts_flowchart,mts_category,mts_discriminator,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT casualty_card_id (#PCDATA)>
+<!ELEMENT attendance_category (#PCDATA)>
+<!ELEMENT arrival_mode (#PCDATA)>
+<!ELEMENT referral_source (#PCDATA)>
+<!ELEMENT ambulance_incident_number (#PCDATA)>
+<!ELEMENT triage_time (#PCDATA)>
+<!ELEMENT triage_nurse (#PCDATA)>
+<!ELEMENT mts_flowchart (#PCDATA)>
+<!ELEMENT mts_category (#PCDATA)>
+<!ELEMENT mts_discriminator (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

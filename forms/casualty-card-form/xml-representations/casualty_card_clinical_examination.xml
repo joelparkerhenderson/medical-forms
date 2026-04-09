@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE casualty_card_clinical_examination SYSTEM "casualty_card_clinical_examination.dtd">
+<casualty_card_clinical_examination>
+<id>330e8400-e29b-41d4-a716-44665544000d</id>
+<casualty_card_id>660e8400-e29b-41d4-a716-446655440001</casualty_card_id>
+<general_appearance></general_appearance>
+<head_and_face></head_and_face>
+<neck></neck>
+<chest_cardiovascular></chest_cardiovascular>
+<chest_respiratory></chest_respiratory>
+<abdomen></abdomen>
+<pelvis></pelvis>
+<musculoskeletal_limbs></musculoskeletal_limbs>
+<neurological></neurological>
+<skin></skin>
+<mental_state></mental_state>
+<body_diagram_notes>Example text.</body_diagram_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</casualty_card_clinical_examination>

@@ -1,0 +1,9 @@
+<!ELEMENT assessment_smoking_history (id,assessment_id,smoking_status,cigarettes_per_day,years_smoked,years_since_quit,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT smoking_status (#PCDATA)>
+<!ELEMENT cigarettes_per_day (#PCDATA)>
+<!ELEMENT years_smoked (#PCDATA)>
+<!ELEMENT years_since_quit (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

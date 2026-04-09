@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_capacity_and_consent SYSTEM "assessment_capacity_and_consent.dtd">
+<assessment_capacity_and_consent>
+<id>220e8400-e29b-41d4-a716-44665544000c</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<capacity_assessed>yes</capacity_assessed>
+<has_capacity>yes</has_capacity>
+<understands_information>yes</understands_information>
+<retains_information>yes</retains_information>
+<weighs_information>yes</weighs_information>
+<communicates_decision>yes</communicates_decision>
+<capacity_details>Example text.</capacity_details>
+<advance_directive>yes</advance_directive>
+<advance_directive_details>Example text.</advance_directive_details>
+<lasting_power_of_attorney>yes</lasting_power_of_attorney>
+<lpa_details>Example text.</lpa_details>
+<mental_health_act_status>informal</mental_health_act_status>
+<mha_details>Example text.</mha_details>
+<consent_to_treatment>given</consent_to_treatment>
+<consent_to_share_information>given</consent_to_share_information>
+<nearest_relative></nearest_relative>
+<nearest_relative_informed>yes</nearest_relative_informed>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_capacity_and_consent>

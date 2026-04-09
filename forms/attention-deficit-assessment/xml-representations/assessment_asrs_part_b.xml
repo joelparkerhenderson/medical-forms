@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_asrs_part_b SYSTEM "assessment_asrs_part_b.dtd">
+<assessment_asrs_part_b>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<q7_careless_mistakes>1</q7_careless_mistakes>
+<q8_difficulty_sustaining_attention>1</q8_difficulty_sustaining_attention>
+<q9_difficulty_listening>1</q9_difficulty_listening>
+<q10_difficulty_following_through>1</q10_difficulty_following_through>
+<q11_difficulty_keeping_quiet>1</q11_difficulty_keeping_quiet>
+<q12_finishing_others_sentences>1</q12_finishing_others_sentences>
+<q13_difficulty_waiting_turn>1</q13_difficulty_waiting_turn>
+<q14_interrupting_others>1</q14_interrupting_others>
+<q15_always_on_the_go>1</q15_always_on_the_go>
+<q16_difficulty_relaxing>1</q16_difficulty_relaxing>
+<q17_talking_too_much>1</q17_talking_too_much>
+<q18_losing_things>1</q18_losing_things>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_asrs_part_b>

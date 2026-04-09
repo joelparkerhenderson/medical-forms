@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_personal_medical_history SYSTEM "assessment_personal_medical_history.dtd">
+<assessment_personal_medical_history>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_cancer_diagnosis>yes</has_cancer_diagnosis>
+<cancer_type>standard</cancer_type>
+<cancer_age_at_diagnosis>45</cancer_age_at_diagnosis>
+<cancer_treatment_details>Example text.</cancer_treatment_details>
+<has_cardiovascular_condition>yes</has_cardiovascular_condition>
+<cardiovascular_details>Example text.</cardiovascular_details>
+<has_neurological_condition>yes</has_neurological_condition>
+<neurological_details>Example text.</neurological_details>
+<has_congenital_anomalies>yes</has_congenital_anomalies>
+<congenital_anomaly_details>Example text.</congenital_anomaly_details>
+<has_intellectual_disability>yes</has_intellectual_disability>
+<intellectual_disability_details>Example text.</intellectual_disability_details>
+<other_significant_conditions></other_significant_conditions>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_personal_medical_history>

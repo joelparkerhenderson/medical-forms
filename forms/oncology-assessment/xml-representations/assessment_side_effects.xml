@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_side_effects SYSTEM "assessment_side_effects.dtd">
+<assessment_side_effects>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_haematological_toxicity>yes</has_haematological_toxicity>
+<neutropenia_grade>1</neutropenia_grade>
+<anaemia_grade>1</anaemia_grade>
+<thrombocytopenia_grade>1</thrombocytopenia_grade>
+<has_dermatological_toxicity>yes</has_dermatological_toxicity>
+<dermatological_details>Example text.</dermatological_details>
+<has_neuropathy>yes</has_neuropathy>
+<neuropathy_grade>1</neuropathy_grade>
+<neuropathy_details>Example text.</neuropathy_details>
+<has_hepatotoxicity>yes</has_hepatotoxicity>
+<hepatotoxicity_details>Example text.</hepatotoxicity_details>
+<has_nephrotoxicity>yes</has_nephrotoxicity>
+<nephrotoxicity_details>Example text.</nephrotoxicity_details>
+<has_cardiotoxicity>yes</has_cardiotoxicity>
+<cardiotoxicity_details>Example text.</cardiotoxicity_details>
+<has_mucositis>yes</has_mucositis>
+<mucositis_grade>1</mucositis_grade>
+<alopecia>yes</alopecia>
+<other_side_effects></other_side_effects>
+<side_effects_notes>Example text.</side_effects_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_side_effects>

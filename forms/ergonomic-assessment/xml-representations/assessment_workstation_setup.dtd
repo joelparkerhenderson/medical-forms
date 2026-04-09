@@ -1,0 +1,15 @@
+<!ELEMENT assessment_workstation_setup (id,assessment_id,desk_height,chair_type,chair_adjustability,monitor_position,monitor_distance,monitor_height,keyboard_placement,mouse_placement,lighting,temperature,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT desk_height (#PCDATA)>
+<!ELEMENT chair_type (#PCDATA)>
+<!ELEMENT chair_adjustability (#PCDATA)>
+<!ELEMENT monitor_position (#PCDATA)>
+<!ELEMENT monitor_distance (#PCDATA)>
+<!ELEMENT monitor_height (#PCDATA)>
+<!ELEMENT keyboard_placement (#PCDATA)>
+<!ELEMENT mouse_placement (#PCDATA)>
+<!ELEMENT lighting (#PCDATA)>
+<!ELEMENT temperature (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

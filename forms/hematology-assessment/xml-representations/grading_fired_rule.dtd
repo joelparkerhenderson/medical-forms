@@ -1,0 +1,9 @@
+<!ELEMENT grading_fired_rule (id,grading_result_id,hem_rule_id,rule_category,rule_description,rule_concern_level,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT grading_result_id (#PCDATA)>
+<!ELEMENT hem_rule_id (#PCDATA)>
+<!ELEMENT rule_category (#PCDATA)>
+<!ELEMENT rule_description (#PCDATA)>
+<!ELEMENT rule_concern_level (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

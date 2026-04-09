@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_risk_assessment SYSTEM "assessment_risk_assessment.dtd">
+<assessment_risk_assessment>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<suicidal_ideation>yes</suicidal_ideation>
+<suicidal_ideation_frequency>rarely</suicidal_ideation_frequency>
+<suicidal_plan>yes</suicidal_plan>
+<suicidal_intent>yes</suicidal_intent>
+<previous_suicide_attempts>yes</previous_suicide_attempts>
+<previous_attempt_count>2</previous_attempt_count>
+<previous_attempt_details>Example text.</previous_attempt_details>
+<self_harm>yes</self_harm>
+<self_harm_type>standard</self_harm_type>
+<harm_to_others>yes</harm_to_others>
+<harm_to_others_details>Example text.</harm_to_others_details>
+<access_to_means>yes</access_to_means>
+<access_to_means_details>Example text.</access_to_means_details>
+<protective_factors></protective_factors>
+<overall_risk_level>low</overall_risk_level>
+<safety_plan_in_place>yes</safety_plan_in_place>
+<risk_notes>Example text.</risk_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_risk_assessment>

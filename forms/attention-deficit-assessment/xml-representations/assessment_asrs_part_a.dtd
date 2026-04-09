@@ -1,0 +1,12 @@
+<!ELEMENT assessment_asrs_part_a (id,assessment_id,q1_wrapping_up_details,q2_difficulty_ordering,q3_remembering_appointments,q4_avoiding_starting,q5_fidgeting,q6_feeling_overly_active,darkly_shaded_count,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT q1_wrapping_up_details (#PCDATA)>
+<!ELEMENT q2_difficulty_ordering (#PCDATA)>
+<!ELEMENT q3_remembering_appointments (#PCDATA)>
+<!ELEMENT q4_avoiding_starting (#PCDATA)>
+<!ELEMENT q5_fidgeting (#PCDATA)>
+<!ELEMENT q6_feeling_overly_active (#PCDATA)>
+<!ELEMENT darkly_shaded_count (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

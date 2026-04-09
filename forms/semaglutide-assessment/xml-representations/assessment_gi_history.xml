@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_gi_history SYSTEM "assessment_gi_history.dtd">
+<assessment_gi_history>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<history_of_nausea>yes</history_of_nausea>
+<history_of_vomiting>yes</history_of_vomiting>
+<chronic_diarrhoea>yes</chronic_diarrhoea>
+<chronic_constipation>yes</chronic_constipation>
+<gastroesophageal_reflux>yes</gastroesophageal_reflux>
+<gastroparesis>yes</gastroparesis>
+<inflammatory_bowel_disease>yes</inflammatory_bowel_disease>
+<ibd_type>crohns</ibd_type>
+<irritable_bowel_syndrome>yes</irritable_bowel_syndrome>
+<previous_gi_surgery>yes</previous_gi_surgery>
+<gi_surgery_details>Example text.</gi_surgery_details>
+<previous_bariatric_surgery>yes</previous_bariatric_surgery>
+<bariatric_surgery_type>Example procedure</bariatric_surgery_type>
+<current_gi_symptoms>Fatigue</current_gi_symptoms>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_gi_history>

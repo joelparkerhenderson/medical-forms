@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_heart_failure_symptoms SYSTEM "assessment_heart_failure_symptoms.dtd">
+<assessment_heart_failure_symptoms>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_dyspnoea>yes</has_dyspnoea>
+<dyspnoea_on_exertion>yes</dyspnoea_on_exertion>
+<orthopnoea>yes</orthopnoea>
+<pillows_required>1</pillows_required>
+<paroxysmal_nocturnal_dyspnoea>yes</paroxysmal_nocturnal_dyspnoea>
+<peripheral_oedema>yes</peripheral_oedema>
+<oedema_location>ankles</oedema_location>
+<fatigue_level>none</fatigue_level>
+<weight_gain_recent>yes</weight_gain_recent>
+<weight_gain_kg>70.0</weight_gain_kg>
+<nyha_class>I</nyha_class>
+<heart_failure_notes>Example text.</heart_failure_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_heart_failure_symptoms>

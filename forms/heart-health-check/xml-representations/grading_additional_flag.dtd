@@ -1,0 +1,8 @@
+<!ELEMENT grading_additional_flag (id,grading_result_id,flag_id,category,message,priority,created_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT grading_result_id (#PCDATA)>
+<!ELEMENT flag_id (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT message (#PCDATA)>
+<!ELEMENT priority (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>

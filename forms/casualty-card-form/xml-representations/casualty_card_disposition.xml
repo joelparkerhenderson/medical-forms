@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE casualty_card_disposition SYSTEM "casualty_card_disposition.dtd">
+<casualty_card_disposition>
+<id>771e8400-e29b-41d4-a716-446655440011</id>
+<casualty_card_id>660e8400-e29b-41d4-a716-446655440001</casualty_card_id>
+<disposition>admitted</disposition>
+<admitting_specialty></admitting_specialty>
+<admitting_consultant></admitting_consultant>
+<ward></ward>
+<level_of_care></level_of_care>
+<discharge_diagnosis>Under investigation</discharge_diagnosis>
+<discharge_medications>Paracetamol</discharge_medications>
+<discharge_instructions>Example text.</discharge_instructions>
+<follow_up></follow_up>
+<return_precautions></return_precautions>
+<receiving_hospital>Example Hospital</receiving_hospital>
+<reason_for_transfer>Example text.</reason_for_transfer>
+<mode_of_transfer></mode_of_transfer>
+<discharge_time>2026-04-09T10:00:00Z</discharge_time>
+<total_time_in_department></total_time_in_department>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</casualty_card_disposition>

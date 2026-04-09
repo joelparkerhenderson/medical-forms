@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_dermatological_symptoms SYSTEM "assessment_dermatological_symptoms.dtd">
+<assessment_dermatological_symptoms>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<flushing>yes</flushing>
+<flushing_severity>1</flushing_severity>
+<flushing_frequency>daily</flushing_frequency>
+<urticaria>yes</urticaria>
+<urticaria_severity>1</urticaria_severity>
+<angioedema>yes</angioedema>
+<angioedema_location>Example location</angioedema_location>
+<pruritus>yes</pruritus>
+<pruritus_severity>1</pruritus_severity>
+<dermatographism>yes</dermatographism>
+<skin_lesions></skin_lesions>
+<dermatological_notes>Example text.</dermatological_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_dermatological_symptoms>

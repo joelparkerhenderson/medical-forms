@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_developmental_milestones SYSTEM "assessment_developmental_milestones.dtd">
+<assessment_developmental_milestones>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<gross_motor_status>age-appropriate</gross_motor_status>
+<gross_motor_details>Example text.</gross_motor_details>
+<fine_motor_status>age-appropriate</fine_motor_status>
+<fine_motor_details>Example text.</fine_motor_details>
+<speech_language_status>age-appropriate</speech_language_status>
+<speech_language_details>Example text.</speech_language_details>
+<social_emotional_status>age-appropriate</social_emotional_status>
+<social_emotional_details>Example text.</social_emotional_details>
+<cognitive_status>age-appropriate</cognitive_status>
+<cognitive_details>Example text.</cognitive_details>
+<self_care_status>age-appropriate</self_care_status>
+<self_care_details>Example text.</self_care_details>
+<developmental_screening_tool></developmental_screening_tool>
+<developmental_screening_score>5</developmental_screening_score>
+<previous_developmental_concerns>yes</previous_developmental_concerns>
+<previous_concern_details>Example text.</previous_concern_details>
+<early_intervention_referral>yes</early_intervention_referral>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_developmental_milestones>

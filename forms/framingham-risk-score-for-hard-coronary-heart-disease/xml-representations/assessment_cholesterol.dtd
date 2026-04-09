@@ -1,0 +1,11 @@
+<!ELEMENT assessment_cholesterol (id,assessment_id,total_cholesterol,hdl_cholesterol,ldl_cholesterol,triglycerides,cholesterol_unit,fasting_sample,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT total_cholesterol (#PCDATA)>
+<!ELEMENT hdl_cholesterol (#PCDATA)>
+<!ELEMENT ldl_cholesterol (#PCDATA)>
+<!ELEMENT triglycerides (#PCDATA)>
+<!ELEMENT cholesterol_unit (#PCDATA)>
+<!ELEMENT fasting_sample (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

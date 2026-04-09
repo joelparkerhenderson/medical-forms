@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_deep_squat SYSTEM "assessment_deep_squat.dtd">
+<assessment_deep_squat>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<raw_score>5</raw_score>
+<pain_noted>yes</pain_noted>
+<clearing_test_pain>yes</clearing_test_pain>
+<final_score>5</final_score>
+<upper_torso_alignment></upper_torso_alignment>
+<femur_below_horizontal>yes</femur_below_horizontal>
+<knees_over_feet>yes</knees_over_feet>
+<heels_on_floor>yes</heels_on_floor>
+<dowel_overhead>yes</dowel_overhead>
+<clinician_notes>Example text.</clinician_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_deep_squat>

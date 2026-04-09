@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grading_result SYSTEM "grading_result.dtd">
+<grading_result>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<psqi_global_score>5</psqi_global_score>
+<psqi_component1_subjective_quality>1</psqi_component1_subjective_quality>
+<psqi_component2_sleep_latency>1</psqi_component2_sleep_latency>
+<psqi_component3_sleep_duration>1</psqi_component3_sleep_duration>
+<psqi_component4_sleep_efficiency>1</psqi_component4_sleep_efficiency>
+<psqi_component5_sleep_disturbances>1</psqi_component5_sleep_disturbances>
+<psqi_component6_sleep_medication>1</psqi_component6_sleep_medication>
+<psqi_component7_daytime_dysfunction>1</psqi_component7_daytime_dysfunction>
+<sleep_quality_category>good</sleep_quality_category>
+<graded_at>2026-04-09T10:00:00Z</graded_at>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</grading_result>

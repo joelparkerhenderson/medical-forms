@@ -1,0 +1,12 @@
+<!ELEMENT patient (id,first_name,last_name,date_of_birth,sex,occupation,employer,job_title,years_in_role,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT first_name (#PCDATA)>
+<!ELEMENT last_name (#PCDATA)>
+<!ELEMENT date_of_birth (#PCDATA)>
+<!ELEMENT sex (#PCDATA)>
+<!ELEMENT occupation (#PCDATA)>
+<!ELEMENT employer (#PCDATA)>
+<!ELEMENT job_title (#PCDATA)>
+<!ELEMENT years_in_role (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

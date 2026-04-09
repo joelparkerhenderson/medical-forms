@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_joint_assessment SYSTEM "assessment_joint_assessment.dtd">
+<assessment_joint_assessment>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<tender_joint_count_28>2</tender_joint_count_28>
+<swollen_joint_count_28>2</swollen_joint_count_28>
+<shoulders_involved>yes</shoulders_involved>
+<elbows_involved>yes</elbows_involved>
+<wrists_involved>yes</wrists_involved>
+<mcp_joints_involved>yes</mcp_joints_involved>
+<pip_joints_involved>yes</pip_joints_involved>
+<knees_involved>yes</knees_involved>
+<joint_deformity_present>yes</joint_deformity_present>
+<joint_deformity_details>Example text.</joint_deformity_details>
+<joint_pattern>symmetric</joint_pattern>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_joint_assessment>

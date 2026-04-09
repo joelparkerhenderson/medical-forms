@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_cholesterol_lipids SYSTEM "assessment_cholesterol_lipids.dtd">
+<assessment_cholesterol_lipids>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<total_cholesterol>0.0</total_cholesterol>
+<hdl_cholesterol>0.0</hdl_cholesterol>
+<ldl_cholesterol>0.0</ldl_cholesterol>
+<triglycerides>0.0</triglycerides>
+<non_hdl_cholesterol>0.0</non_hdl_cholesterol>
+<on_statin>yes</on_statin>
+<statin_name>Example</statin_name>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_cholesterol_lipids>

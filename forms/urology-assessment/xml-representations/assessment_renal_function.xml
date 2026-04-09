@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_renal_function SYSTEM "assessment_renal_function.dtd">
+<assessment_renal_function>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<creatinine_umol_l>0.0</creatinine_umol_l>
+<egfr_ml_min>0.0</egfr_ml_min>
+<urea_mmol_l>0.0</urea_mmol_l>
+<psa_ng_ml>0.0</psa_ng_ml>
+<psa_previous_value>5.0</psa_previous_value>
+<psa_previous_date>2026-01-15</psa_previous_date>
+<urinalysis_performed>yes</urinalysis_performed>
+<urinalysis_leukocytes>negative</urinalysis_leukocytes>
+<urinalysis_nitrites>negative</urinalysis_nitrites>
+<urinalysis_blood>negative</urinalysis_blood>
+<urinalysis_protein>negative</urinalysis_protein>
+<post_void_residual_ml>1</post_void_residual_ml>
+<uroflowmetry_performed>yes</uroflowmetry_performed>
+<max_flow_rate_ml_s>72.0</max_flow_rate_ml_s>
+<ultrasound_performed>yes</ultrasound_performed>
+<ultrasound_findings>Example text.</ultrasound_findings>
+<prostate_volume_ml>0.0</prostate_volume_ml>
+<lab_date>2026-01-15</lab_date>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_renal_function>

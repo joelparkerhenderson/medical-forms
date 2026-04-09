@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_shoulder_mobility SYSTEM "assessment_shoulder_mobility.dtd">
+<assessment_shoulder_mobility>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<left_raw_score>5</left_raw_score>
+<right_raw_score>5</right_raw_score>
+<pain_noted_left>yes</pain_noted_left>
+<pain_noted_right>yes</pain_noted_right>
+<clearing_test_pain_left>yes</clearing_test_pain_left>
+<clearing_test_pain_right>yes</clearing_test_pain_right>
+<final_score>5</final_score>
+<hand_distance_cm>0.0</hand_distance_cm>
+<hand_span_length_cm>0.0</hand_span_length_cm>
+<clinician_notes>Example text.</clinician_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_shoulder_mobility>

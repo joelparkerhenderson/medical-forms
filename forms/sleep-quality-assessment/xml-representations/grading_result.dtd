@@ -1,0 +1,15 @@
+<!ELEMENT grading_result (id,assessment_id,psqi_global_score,psqi_component1_subjective_quality,psqi_component2_sleep_latency,psqi_component3_sleep_duration,psqi_component4_sleep_efficiency,psqi_component5_sleep_disturbances,psqi_component6_sleep_medication,psqi_component7_daytime_dysfunction,sleep_quality_category,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT psqi_global_score (#PCDATA)>
+<!ELEMENT psqi_component1_subjective_quality (#PCDATA)>
+<!ELEMENT psqi_component2_sleep_latency (#PCDATA)>
+<!ELEMENT psqi_component3_sleep_duration (#PCDATA)>
+<!ELEMENT psqi_component4_sleep_efficiency (#PCDATA)>
+<!ELEMENT psqi_component5_sleep_disturbances (#PCDATA)>
+<!ELEMENT psqi_component6_sleep_medication (#PCDATA)>
+<!ELEMENT psqi_component7_daytime_dysfunction (#PCDATA)>
+<!ELEMENT sleep_quality_category (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

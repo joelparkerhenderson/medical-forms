@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_comorbidities SYSTEM "assessment_comorbidities.dtd">
+<assessment_comorbidities>
+<id>440e8400-e29b-41d4-a716-44665544000e</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<asthma>yes</asthma>
+<asthma_severity>mild</asthma_severity>
+<eczema>yes</eczema>
+<eczema_severity>mild</eczema_severity>
+<rhinitis>yes</rhinitis>
+<rhinitis_severity>mild</rhinitis_severity>
+<eosinophilic_oesophagitis>yes</eosinophilic_oesophagitis>
+<mast_cell_disorders>yes</mast_cell_disorders>
+<mast_cell_details>Example text.</mast_cell_details>
+<mental_health_impact>yes</mental_health_impact>
+<mental_health_details>Example text.</mental_health_details>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_comorbidities>

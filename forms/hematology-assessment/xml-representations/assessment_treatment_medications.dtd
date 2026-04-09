@@ -1,0 +1,11 @@
+<!ELEMENT assessment_treatment_medications (id,assessment_id,current_medications,chemotherapy_regimen,anticoagulant_therapy,iron_therapy,treatment_response,adverse_effects,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT current_medications (#PCDATA)>
+<!ELEMENT chemotherapy_regimen (#PCDATA)>
+<!ELEMENT anticoagulant_therapy (#PCDATA)>
+<!ELEMENT iron_therapy (#PCDATA)>
+<!ELEMENT treatment_response (#PCDATA)>
+<!ELEMENT adverse_effects (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

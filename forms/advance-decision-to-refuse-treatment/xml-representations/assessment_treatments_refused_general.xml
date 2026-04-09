@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_treatments_refused_general SYSTEM "assessment_treatments_refused_general.dtd">
+<assessment_treatments_refused_general>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<refuses_cardiopulmonary_resuscitation>yes</refuses_cardiopulmonary_resuscitation>
+<refuses_mechanical_ventilation>yes</refuses_mechanical_ventilation>
+<refuses_artificial_nutrition>yes</refuses_artificial_nutrition>
+<refuses_artificial_hydration>yes</refuses_artificial_hydration>
+<refuses_antibiotics>yes</refuses_antibiotics>
+<refuses_blood_transfusion>yes</refuses_blood_transfusion>
+<refuses_dialysis>yes</refuses_dialysis>
+<other_treatments_refused>Example treatment</other_treatments_refused>
+<treatment_refusal_details>Example text.</treatment_refusal_details>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_treatments_refused_general>

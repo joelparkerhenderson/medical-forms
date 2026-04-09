@@ -1,0 +1,15 @@
+<!ELEMENT assessment_demographics (id,assessment_id,preferred_name,gender_identity,ethnicity,preferred_language,interpreter_required,education_level,years_of_education,handedness,gp_name,gp_practice,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT preferred_name (#PCDATA)>
+<!ELEMENT gender_identity (#PCDATA)>
+<!ELEMENT ethnicity (#PCDATA)>
+<!ELEMENT preferred_language (#PCDATA)>
+<!ELEMENT interpreter_required (#PCDATA)>
+<!ELEMENT education_level (#PCDATA)>
+<!ELEMENT years_of_education (#PCDATA)>
+<!ELEMENT handedness (#PCDATA)>
+<!ELEMENT gp_name (#PCDATA)>
+<!ELEMENT gp_practice (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

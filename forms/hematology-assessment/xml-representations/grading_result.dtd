@@ -1,0 +1,10 @@
+<!ELEMENT grading_result (id,assessment_id,abnormality_level,abnormality_score,abnormality_level_override,override_reason,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT abnormality_level (#PCDATA)>
+<!ELEMENT abnormality_score (#PCDATA)>
+<!ELEMENT abnormality_level_override (#PCDATA)>
+<!ELEMENT override_reason (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

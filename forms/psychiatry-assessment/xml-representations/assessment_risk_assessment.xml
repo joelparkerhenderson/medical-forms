@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_risk_assessment SYSTEM "assessment_risk_assessment.dtd">
+<assessment_risk_assessment>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<suicidal_ideation>none</suicidal_ideation>
+<suicidal_ideation_details>Example text.</suicidal_ideation_details>
+<suicidal_plan>yes</suicidal_plan>
+<suicidal_plan_details>Example text.</suicidal_plan_details>
+<suicidal_intent>yes</suicidal_intent>
+<access_to_means>yes</access_to_means>
+<means_details>Example text.</means_details>
+<previous_suicide_attempts>yes</previous_suicide_attempts>
+<attempt_count>2</attempt_count>
+<attempt_details>Example text.</attempt_details>
+<self_harm_current>yes</self_harm_current>
+<self_harm_details>Example text.</self_harm_details>
+<risk_to_others>none</risk_to_others>
+<risk_to_others_details>Example text.</risk_to_others_details>
+<violence_history>yes</violence_history>
+<violence_details>Example text.</violence_details>
+<vulnerability>none</vulnerability>
+<vulnerability_details>Example text.</vulnerability_details>
+<safeguarding_concerns>yes</safeguarding_concerns>
+<safeguarding_details>Example text.</safeguarding_details>
+<protective_factors></protective_factors>
+<overall_risk_level>low</overall_risk_level>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_risk_assessment>

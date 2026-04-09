@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_medications SYSTEM "assessment_current_medications.dtd">
+<assessment_current_medications>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<currently_on_dmard>yes</currently_on_dmard>
+<dmard_names>Example</dmard_names>
+<currently_on_biologic>yes</currently_on_biologic>
+<biologic_name>Example</biologic_name>
+<currently_on_corticosteroid>yes</currently_on_corticosteroid>
+<corticosteroid_dose_mg>10.0</corticosteroid_dose_mg>
+<nsaid_use>yes</nsaid_use>
+<nsaid_name>Example</nsaid_name>
+<analgesic_use>yes</analgesic_use>
+<analgesic_details>Example text.</analgesic_details>
+<folic_acid_supplementation>yes</folic_acid_supplementation>
+<other_medications>Paracetamol</other_medications>
+<medication_adherence>good</medication_adherence>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_medications>

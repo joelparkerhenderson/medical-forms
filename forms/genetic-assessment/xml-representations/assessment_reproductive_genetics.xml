@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_reproductive_genetics SYSTEM "assessment_reproductive_genetics.dtd">
+<assessment_reproductive_genetics>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<planning_pregnancy>yes</planning_pregnancy>
+<currently_pregnant>yes</currently_pregnant>
+<gestational_age_weeks>45</gestational_age_weeks>
+<history_of_recurrent_miscarriage>yes</history_of_recurrent_miscarriage>
+<number_of_miscarriages>45</number_of_miscarriages>
+<history_of_stillbirth>yes</history_of_stillbirth>
+<stillbirth_details>Example text.</stillbirth_details>
+<history_of_neonatal_death>yes</history_of_neonatal_death>
+<neonatal_death_details>Example text.</neonatal_death_details>
+<child_with_congenital_anomaly>yes</child_with_congenital_anomaly>
+<congenital_anomaly_details>Example text.</congenital_anomaly_details>
+<known_carrier_status>yes</known_carrier_status>
+<carrier_status_details>Example text.</carrier_status_details>
+<partner_carrier_status>yes</partner_carrier_status>
+<partner_carrier_details>Example text.</partner_carrier_details>
+<assisted_reproduction>yes</assisted_reproduction>
+<assisted_reproduction_details>Example text.</assisted_reproduction_details>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_reproductive_genetics>

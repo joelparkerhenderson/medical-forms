@@ -1,0 +1,11 @@
+<!ELEMENT signature_consent (id,release_form_id,patient_signature_confirmed,signature_date,witness_name,witness_signature_confirmed,witness_date,parent_guardian_name,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT release_form_id (#PCDATA)>
+<!ELEMENT patient_signature_confirmed (#PCDATA)>
+<!ELEMENT signature_date (#PCDATA)>
+<!ELEMENT witness_name (#PCDATA)>
+<!ELEMENT witness_signature_confirmed (#PCDATA)>
+<!ELEMENT witness_date (#PCDATA)>
+<!ELEMENT parent_guardian_name (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

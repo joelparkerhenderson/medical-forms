@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_transfusion_history SYSTEM "assessment_transfusion_history.dtd">
+<assessment_transfusion_history>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<previous_transfusions></previous_transfusions>
+<transfusion_reactions>Urticaria</transfusion_reactions>
+<blood_group_type>standard</blood_group_type>
+<antibody_screen></antibody_screen>
+<crossmatch_results>Normal</crossmatch_results>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_transfusion_history>

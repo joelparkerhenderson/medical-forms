@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_hearing_aids SYSTEM "assessment_current_hearing_aids.dtd">
+<assessment_current_hearing_aids>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<currently_uses_hearing_aids>yes</currently_uses_hearing_aids>
+<hearing_aid_side>left</hearing_aid_side>
+<hearing_aid_type>bte</hearing_aid_type>
+<hearing_aid_make></hearing_aid_make>
+<hearing_aid_model></hearing_aid_model>
+<hearing_aid_age_years>45</hearing_aid_age_years>
+<daily_usage_hours>45</daily_usage_hours>
+<satisfaction_with_current_aid>very-satisfied</satisfaction_with_current_aid>
+<problems_with_current_aid>yes</problems_with_current_aid>
+<problem_details>Example text.</problem_details>
+<previous_hearing_aids>yes</previous_hearing_aids>
+<previous_aid_details>Example text.</previous_aid_details>
+<uses_assistive_listening_devices>yes</uses_assistive_listening_devices>
+<assistive_device_details>Example text.</assistive_device_details>
+<hearing_aid_notes>Example text.</hearing_aid_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_hearing_aids>

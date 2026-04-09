@@ -1,0 +1,10 @@
+<!ELEMENT assessment_hemoglobinopathy_screening (id,assessment_id,hemoglobin_electrophoresis,sickle_cell_screen,thalassemia_screen,hplc_results,genetic_testing_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT hemoglobin_electrophoresis (#PCDATA)>
+<!ELEMENT sickle_cell_screen (#PCDATA)>
+<!ELEMENT thalassemia_screen (#PCDATA)>
+<!ELEMENT hplc_results (#PCDATA)>
+<!ELEMENT genetic_testing_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

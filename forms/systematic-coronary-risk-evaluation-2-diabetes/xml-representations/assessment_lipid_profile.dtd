@@ -1,0 +1,13 @@
+<!ELEMENT assessment_lipid_profile (id,assessment_id,total_cholesterol,hdl_cholesterol,ldl_cholesterol,triglycerides,non_hdl_cholesterol,on_statin,statin_name,on_other_lipid_therapy,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT total_cholesterol (#PCDATA)>
+<!ELEMENT hdl_cholesterol (#PCDATA)>
+<!ELEMENT ldl_cholesterol (#PCDATA)>
+<!ELEMENT triglycerides (#PCDATA)>
+<!ELEMENT non_hdl_cholesterol (#PCDATA)>
+<!ELEMENT on_statin (#PCDATA)>
+<!ELEMENT statin_name (#PCDATA)>
+<!ELEMENT on_other_lipid_therapy (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

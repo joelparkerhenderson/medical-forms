@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_people_important_to_me SYSTEM "assessment_people_important_to_me.dtd">
+<assessment_people_important_to_me>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<primary_contact_name>Example</primary_contact_name>
+<primary_contact_relationship>Spouse</primary_contact_relationship>
+<primary_contact_phone>07700900001</primary_contact_phone>
+<primary_contact_email>07700900001</primary_contact_email>
+<secondary_contact_name>Example</secondary_contact_name>
+<secondary_contact_relationship>Spouse</secondary_contact_relationship>
+<secondary_contact_phone>07700900001</secondary_contact_phone>
+<people_who_should_visit></people_who_should_visit>
+<people_who_should_not_visit></people_who_should_not_visit>
+<support_network_details>Example text.</support_network_details>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_people_important_to_me>

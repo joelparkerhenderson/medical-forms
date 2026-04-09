@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_foot_assessment SYSTEM "assessment_foot_assessment.dtd">
+<assessment_foot_assessment>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<foot_pulses>present</foot_pulses>
+<monofilament_test>normal</monofilament_test>
+<vibration_sense>normal</vibration_sense>
+<foot_deformity>yes</foot_deformity>
+<callus_present>yes</callus_present>
+<ulcer_present>yes</ulcer_present>
+<previous_amputation>yes</previous_amputation>
+<foot_risk_category>low</foot_risk_category>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_foot_assessment>

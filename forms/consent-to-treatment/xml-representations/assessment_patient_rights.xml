@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_patient_rights SYSTEM "assessment_patient_rights.dtd">
+<assessment_patient_rights>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<right_to_withdraw_explained>yes</right_to_withdraw_explained>
+<right_to_second_opinion_explained>yes</right_to_second_opinion_explained>
+<confidentiality_explained>yes</confidentiality_explained>
+<data_use_explained>yes</data_use_explained>
+<consent_to_photography>yes</consent_to_photography>
+<consent_to_teaching>yes</consent_to_teaching>
+<consent_to_tissue_storage>yes</consent_to_tissue_storage>
+<advance_directive_in_place>yes</advance_directive_in_place>
+<advance_directive_details>Example text.</advance_directive_details>
+<lasting_power_of_attorney>yes</lasting_power_of_attorney>
+<lpa_details>Example text.</lpa_details>
+<patient_rights_notes>Example text.</patient_rights_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_patient_rights>

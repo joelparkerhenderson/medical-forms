@@ -1,0 +1,17 @@
+<!ELEMENT assessment_immunization_status (id,assessment_id,immunization_up_to_date,immunization_schedule,missed_vaccinations,vaccine_adverse_reactions,adverse_reaction_details,vaccine_exemptions,exemption_reason,bcg_given,influenza_vaccine,covid_vaccine,last_vaccination_date,additional_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT immunization_up_to_date (#PCDATA)>
+<!ELEMENT immunization_schedule (#PCDATA)>
+<!ELEMENT missed_vaccinations (#PCDATA)>
+<!ELEMENT vaccine_adverse_reactions (#PCDATA)>
+<!ELEMENT adverse_reaction_details (#PCDATA)>
+<!ELEMENT vaccine_exemptions (#PCDATA)>
+<!ELEMENT exemption_reason (#PCDATA)>
+<!ELEMENT bcg_given (#PCDATA)>
+<!ELEMENT influenza_vaccine (#PCDATA)>
+<!ELEMENT covid_vaccine (#PCDATA)>
+<!ELEMENT last_vaccination_date (#PCDATA)>
+<!ELEMENT additional_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

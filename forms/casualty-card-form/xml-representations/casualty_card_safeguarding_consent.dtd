@@ -1,0 +1,15 @@
+<!ELEMENT casualty_card_safeguarding_consent (id,casualty_card_id,safeguarding_concern,safeguarding_type,referral_made,mental_capacity_assessment,mental_health_act_status,consent_for_treatment,completed_by_name,completed_by_role,completed_by_gmc_number,senior_reviewing_clinician,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT casualty_card_id (#PCDATA)>
+<!ELEMENT safeguarding_concern (#PCDATA)>
+<!ELEMENT safeguarding_type (#PCDATA)>
+<!ELEMENT referral_made (#PCDATA)>
+<!ELEMENT mental_capacity_assessment (#PCDATA)>
+<!ELEMENT mental_health_act_status (#PCDATA)>
+<!ELEMENT consent_for_treatment (#PCDATA)>
+<!ELEMENT completed_by_name (#PCDATA)>
+<!ELEMENT completed_by_role (#PCDATA)>
+<!ELEMENT completed_by_gmc_number (#PCDATA)>
+<!ELEMENT senior_reviewing_clinician (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

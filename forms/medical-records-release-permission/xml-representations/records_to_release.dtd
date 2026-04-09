@@ -1,0 +1,10 @@
+<!ELEMENT records_to_release (id,release_form_id,record_types,specific_date_range,date_from,date_to,specific_record_details,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT release_form_id (#PCDATA)>
+<!ELEMENT record_types (#PCDATA)>
+<!ELEMENT specific_date_range (#PCDATA)>
+<!ELEMENT date_from (#PCDATA)>
+<!ELEMENT date_to (#PCDATA)>
+<!ELEMENT specific_record_details (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

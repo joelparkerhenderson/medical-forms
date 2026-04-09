@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_allergies SYSTEM "assessment_allergies.dtd">
+<assessment_allergies>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_drug_allergies>yes</has_drug_allergies>
+<drug_allergy_details>Example text.</drug_allergy_details>
+<contrast_dye_allergy>yes</contrast_dye_allergy>
+<contrast_dye_allergy_details>Example text.</contrast_dye_allergy_details>
+<latex_allergy>yes</latex_allergy>
+<other_allergies></other_allergies>
+<previous_adverse_reactions>Urticaria</previous_adverse_reactions>
+<allergy_notes>Example text.</allergy_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_allergies>

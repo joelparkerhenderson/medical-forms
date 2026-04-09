@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_language_dysarthria SYSTEM "assessment_language_dysarthria.dtd">
+<assessment_language_dysarthria>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<nihss_9_best_language>45</nihss_9_best_language>
+<nihss_10_dysarthria>1</nihss_10_dysarthria>
+<aphasia_type>none</aphasia_type>
+<speech_fluency>fluent</speech_fluency>
+<comprehension_intact>yes</comprehension_intact>
+<repetition_intact>yes</repetition_intact>
+<naming_intact>yes</naming_intact>
+<reading_intact>yes</reading_intact>
+<writing_intact>yes</writing_intact>
+<dysarthria_severity>none</dysarthria_severity>
+<language_notes>Example text.</language_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_language_dysarthria>

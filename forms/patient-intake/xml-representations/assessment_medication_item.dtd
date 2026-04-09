@@ -1,0 +1,13 @@
+<!ELEMENT assessment_medication_item (id,medications_id,medication_name,dose,frequency,route,prescriber,reason,start_date,sort_order,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT medications_id (#PCDATA)>
+<!ELEMENT medication_name (#PCDATA)>
+<!ELEMENT dose (#PCDATA)>
+<!ELEMENT frequency (#PCDATA)>
+<!ELEMENT route (#PCDATA)>
+<!ELEMENT prescriber (#PCDATA)>
+<!ELEMENT reason (#PCDATA)>
+<!ELEMENT start_date (#PCDATA)>
+<!ELEMENT sort_order (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

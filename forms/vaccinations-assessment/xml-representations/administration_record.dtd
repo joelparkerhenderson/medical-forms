@@ -1,0 +1,13 @@
+<!ELEMENT administration_record (id,assessment_id,vaccine_name,batch_number,expiry_date,administration_site,administration_route,dose_number,administered_by,administration_date,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT vaccine_name (#PCDATA)>
+<!ELEMENT batch_number (#PCDATA)>
+<!ELEMENT expiry_date (#PCDATA)>
+<!ELEMENT administration_site (#PCDATA)>
+<!ELEMENT administration_route (#PCDATA)>
+<!ELEMENT dose_number (#PCDATA)>
+<!ELEMENT administered_by (#PCDATA)>
+<!ELEMENT administration_date (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

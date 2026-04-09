@@ -1,0 +1,12 @@
+<!ELEMENT assessment_current_medications (id,assessment_id,taking_psychotropic_medication,medication_adherence,side_effects,side_effects_details,over_the_counter_medications,supplements,medication_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT taking_psychotropic_medication (#PCDATA)>
+<!ELEMENT medication_adherence (#PCDATA)>
+<!ELEMENT side_effects (#PCDATA)>
+<!ELEMENT side_effects_details (#PCDATA)>
+<!ELEMENT over_the_counter_medications (#PCDATA)>
+<!ELEMENT supplements (#PCDATA)>
+<!ELEMENT medication_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_symptom_onset SYSTEM "assessment_symptom_onset.dtd">
+<assessment_symptom_onset>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<symptom_onset_time>2026-04-09T10:00:00Z</symptom_onset_time>
+<last_known_well_time>2026-04-09T10:00:00Z</last_known_well_time>
+<onset_witnessed>yes</onset_witnessed>
+<wake_up_stroke>yes</wake_up_stroke>
+<onset_setting>home</onset_setting>
+<onset_activity></onset_activity>
+<symptom_progression>sudden</symptom_progression>
+<initial_symptoms>Fatigue</initial_symptoms>
+<headache_at_onset>yes</headache_at_onset>
+<seizure_at_onset>yes</seizure_at_onset>
+<vomiting_at_onset>yes</vomiting_at_onset>
+<loss_of_consciousness>yes</loss_of_consciousness>
+<time_from_onset_to_arrival_minutes>1</time_from_onset_to_arrival_minutes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_symptom_onset>

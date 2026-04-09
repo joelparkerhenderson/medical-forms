@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE clinical_review SYSTEM "clinical_review.dtd">
+<clinical_review>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<post_vaccination_observation>1</post_vaccination_observation>
+<immediate_reaction>yes</immediate_reaction>
+<reaction_details>Example text.</reaction_details>
+<next_dose_due>2026-01-15</next_dose_due>
+<catch_up_schedule_needed>yes</catch_up_schedule_needed>
+<referral_needed>yes</referral_needed>
+<clinician_notes>Example text.</clinician_notes>
+<reviewing_clinician>Dr Smith</reviewing_clinician>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</clinical_review>

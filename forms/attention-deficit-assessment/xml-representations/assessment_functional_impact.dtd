@@ -1,0 +1,17 @@
+<!ELEMENT assessment_functional_impact (id,assessment_id,impact_on_work,work_impact_details,impact_on_education,education_impact_details,impact_on_relationships,relationship_impact_details,impact_on_daily_tasks,daily_tasks_impact_details,impact_on_finances,impact_on_self_esteem,driving_concerns,overall_functional_impairment,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT impact_on_work (#PCDATA)>
+<!ELEMENT work_impact_details (#PCDATA)>
+<!ELEMENT impact_on_education (#PCDATA)>
+<!ELEMENT education_impact_details (#PCDATA)>
+<!ELEMENT impact_on_relationships (#PCDATA)>
+<!ELEMENT relationship_impact_details (#PCDATA)>
+<!ELEMENT impact_on_daily_tasks (#PCDATA)>
+<!ELEMENT daily_tasks_impact_details (#PCDATA)>
+<!ELEMENT impact_on_finances (#PCDATA)>
+<!ELEMENT impact_on_self_esteem (#PCDATA)>
+<!ELEMENT driving_concerns (#PCDATA)>
+<!ELEMENT overall_functional_impairment (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

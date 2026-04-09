@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_communication_preferences SYSTEM "assessment_communication_preferences.dtd">
+<assessment_communication_preferences>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<preferred_language>English</preferred_language>
+<communication_aids></communication_aids>
+<how_to_share_information></how_to_share_information>
+<who_to_involve_in_decisions></who_to_involve_in_decisions>
+<information_sharing_restrictions></information_sharing_restrictions>
+<preferred_communication_style></preferred_communication_style>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_communication_preferences>

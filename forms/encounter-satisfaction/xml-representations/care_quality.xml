@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE care_quality SYSTEM "care_quality.dtd">
+<care_quality>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<encounter_satisfaction_id>660e8400-e29b-41d4-a716-446655440001</encounter_satisfaction_id>
+<involvement_in_decisions>1</involvement_in_decisions>
+<treatment_plan_explanation>1</treatment_plan_explanation>
+<confidence_in_care>1</confidence_in_care>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</care_quality>

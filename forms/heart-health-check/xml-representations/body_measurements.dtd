@@ -1,0 +1,9 @@
+<!ELEMENT body_measurements (id,assessment_id,height_cm,weight_kg,bmi,waist_circumference_cm,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT height_cm (#PCDATA)>
+<!ELEMENT weight_kg (#PCDATA)>
+<!ELEMENT bmi (#PCDATA)>
+<!ELEMENT waist_circumference_cm (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

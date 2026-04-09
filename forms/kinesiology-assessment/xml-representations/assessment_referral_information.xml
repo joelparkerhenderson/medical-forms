@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_referral_information SYSTEM "assessment_referral_information.dtd">
+<assessment_referral_information>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<referring_clinician>Dr Smith</referring_clinician>
+<referring_organisation></referring_organisation>
+<referral_date>2026-01-15</referral_date>
+<referral_reason>Example text.</referral_reason>
+<previous_fms_assessment>yes</previous_fms_assessment>
+<previous_fms_date>2026-01-15</previous_fms_date>
+<previous_fms_score>5</previous_fms_score>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_referral_information>

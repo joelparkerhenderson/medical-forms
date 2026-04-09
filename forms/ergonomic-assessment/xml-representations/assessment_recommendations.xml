@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_recommendations SYSTEM "assessment_recommendations.dtd">
+<assessment_recommendations>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<equipment_changes></equipment_changes>
+<workstation_modifications></workstation_modifications>
+<training_required></training_required>
+<break_schedule></break_schedule>
+<follow_up_date>2026-01-15</follow_up_date>
+<referrals></referrals>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_recommendations>

@@ -1,0 +1,14 @@
+<!ELEMENT assessment_current_management (id,assessment_id,antihistamines,antihistamine_details,nasal_steroids,adrenaline_auto_injector,immunotherapy,immunotherapy_details,biologics,biologic_details,allergen_avoidance_strategies,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT antihistamines (#PCDATA)>
+<!ELEMENT antihistamine_details (#PCDATA)>
+<!ELEMENT nasal_steroids (#PCDATA)>
+<!ELEMENT adrenaline_auto_injector (#PCDATA)>
+<!ELEMENT immunotherapy (#PCDATA)>
+<!ELEMENT immunotherapy_details (#PCDATA)>
+<!ELEMENT biologics (#PCDATA)>
+<!ELEMENT biologic_details (#PCDATA)>
+<!ELEMENT allergen_avoidance_strategies (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

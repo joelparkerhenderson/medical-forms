@@ -1,0 +1,12 @@
+<!ELEMENT grading_result (id,assessment_id,risk_level,total_risk_score,cancer_genetics_score,cardiovascular_genetics_score,neurogenetics_score,reproductive_genetics_score,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT risk_level (#PCDATA)>
+<!ELEMENT total_risk_score (#PCDATA)>
+<!ELEMENT cancer_genetics_score (#PCDATA)>
+<!ELEMENT cardiovascular_genetics_score (#PCDATA)>
+<!ELEMENT neurogenetics_score (#PCDATA)>
+<!ELEMENT reproductive_genetics_score (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,12 @@
+<!ELEMENT patient (id,patient_name,date_of_birth,patient_sex,patient_age,nhs_number,gp_practice,contact_phone,contact_email,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT patient_name (#PCDATA)>
+<!ELEMENT date_of_birth (#PCDATA)>
+<!ELEMENT patient_sex (#PCDATA)>
+<!ELEMENT patient_age (#PCDATA)>
+<!ELEMENT nhs_number (#PCDATA)>
+<!ELEMENT gp_practice (#PCDATA)>
+<!ELEMENT contact_phone (#PCDATA)>
+<!ELEMENT contact_email (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

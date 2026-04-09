@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_functional_assessment SYSTEM "assessment_functional_assessment.dtd">
+<assessment_functional_assessment>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<haq_dressing_grooming>1</haq_dressing_grooming>
+<haq_arising>1</haq_arising>
+<haq_eating>1</haq_eating>
+<haq_walking>1</haq_walking>
+<haq_hygiene>1</haq_hygiene>
+<haq_reach>1</haq_reach>
+<haq_grip>1</haq_grip>
+<haq_activities>1</haq_activities>
+<work_impact>none</work_impact>
+<mobility_aid_use>yes</mobility_aid_use>
+<mobility_aid_details>Example text.</mobility_aid_details>
+<physiotherapy_current>yes</physiotherapy_current>
+<occupational_therapy_current>yes</occupational_therapy_current>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_functional_assessment>

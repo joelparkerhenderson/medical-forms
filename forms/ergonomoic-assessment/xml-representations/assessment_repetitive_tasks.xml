@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_repetitive_tasks SYSTEM "assessment_repetitive_tasks.dtd">
+<assessment_repetitive_tasks>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<keyboard_use_hours>0.0</keyboard_use_hours>
+<mouse_use_hours>0.0</mouse_use_hours>
+<repetitive_hand_movements>yes</repetitive_hand_movements>
+<hand_movement_frequency>low</hand_movement_frequency>
+<hand_movement_description>Example text.</hand_movement_description>
+<repetitive_arm_movements>yes</repetitive_arm_movements>
+<arm_movement_description>Example text.</arm_movement_description>
+<sustained_grip>yes</sustained_grip>
+<grip_duration_minutes>1</grip_duration_minutes>
+<pinch_grip_required>yes</pinch_grip_required>
+<vibrating_tools_use>yes</vibrating_tools_use>
+<vibrating_tools_details>Example text.</vibrating_tools_details>
+<task_rotation_available>yes</task_rotation_available>
+<cycle_time_seconds>1</cycle_time_seconds>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_repetitive_tasks>

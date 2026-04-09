@@ -1,0 +1,8 @@
+<!ELEMENT grading_result (id,assessment_id,dlqi_score,impact_level,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT dlqi_score (#PCDATA)>
+<!ELEMENT impact_level (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,8 @@
+<!ELEMENT grading_result (id,assessment_id,risk_level,risk_factor_count,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT risk_level (#PCDATA)>
+<!ELEMENT risk_factor_count (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

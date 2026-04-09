@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_arrhythmia_conduction SYSTEM "assessment_arrhythmia_conduction.dtd">
+<assessment_arrhythmia_conduction>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_palpitations>yes</has_palpitations>
+<palpitation_character>regular</palpitation_character>
+<palpitation_frequency>daily</palpitation_frequency>
+<known_atrial_fibrillation>yes</known_atrial_fibrillation>
+<af_type>paroxysmal</af_type>
+<history_of_syncope>yes</history_of_syncope>
+<syncope_details>Example text.</syncope_details>
+<history_of_presyncope>yes</history_of_presyncope>
+<known_conduction_disorder>yes</known_conduction_disorder>
+<conduction_disorder_type>lbbb</conduction_disorder_type>
+<has_pacemaker>yes</has_pacemaker>
+<has_icd>yes</has_icd>
+<device_details>Example text.</device_details>
+<arrhythmia_notes>Example text.</arrhythmia_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_arrhythmia_conduction>

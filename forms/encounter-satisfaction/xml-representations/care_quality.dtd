@@ -1,0 +1,8 @@
+<!ELEMENT care_quality (id,encounter_satisfaction_id,involvement_in_decisions,treatment_plan_explanation,confidence_in_care,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT encounter_satisfaction_id (#PCDATA)>
+<!ELEMENT involvement_in_decisions (#PCDATA)>
+<!ELEMENT treatment_plan_explanation (#PCDATA)>
+<!ELEMENT confidence_in_care (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

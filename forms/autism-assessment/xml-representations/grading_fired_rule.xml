@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grading_fired_rule SYSTEM "grading_fired_rule.dtd">
+<grading_fired_rule>
+<id>220e8400-e29b-41d4-a716-44665544000c</id>
+<grading_result_id>110e8400-e29b-41d4-a716-44665544000b</grading_result_id>
+<rule_id>660e8400-e29b-41d4-a716-446655440001</rule_id>
+<category>General</category>
+<description>Example text.</description>
+<severity_level>below_threshold</severity_level>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</grading_fired_rule>

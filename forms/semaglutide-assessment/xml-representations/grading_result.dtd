@@ -1,0 +1,9 @@
+<!ELEMENT grading_result (id,assessment_id,eligibility_status,absolute_contraindication_count,relative_contraindication_count,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT eligibility_status (#PCDATA)>
+<!ELEMENT absolute_contraindication_count (#PCDATA)>
+<!ELEMENT relative_contraindication_count (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

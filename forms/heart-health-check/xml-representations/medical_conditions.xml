@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE medical_conditions SYSTEM "medical_conditions.dtd">
+<medical_conditions>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_diabetes>no</has_diabetes>
+<has_atrial_fibrillation>yes</has_atrial_fibrillation>
+<has_rheumatoid_arthritis>yes</has_rheumatoid_arthritis>
+<has_chronic_kidney_disease>yes</has_chronic_kidney_disease>
+<has_migraine>yes</has_migraine>
+<has_severe_mental_illness>yes</has_severe_mental_illness>
+<has_erectile_dysfunction>yes</has_erectile_dysfunction>
+<on_atypical_antipsychotic>yes</on_atypical_antipsychotic>
+<on_corticosteroids>yes</on_corticosteroids>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</medical_conditions>

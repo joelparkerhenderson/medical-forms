@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_tinnitus SYSTEM "assessment_tinnitus.dtd">
+<assessment_tinnitus>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_tinnitus>yes</has_tinnitus>
+<tinnitus_laterality>left</tinnitus_laterality>
+<tinnitus_type>ringing</tinnitus_type>
+<tinnitus_description>Example text.</tinnitus_description>
+<tinnitus_onset>sudden</tinnitus_onset>
+<tinnitus_duration></tinnitus_duration>
+<tinnitus_constancy>constant</tinnitus_constancy>
+<tinnitus_severity>1</tinnitus_severity>
+<tinnitus_impact_on_sleep>none</tinnitus_impact_on_sleep>
+<tinnitus_impact_on_concentration>none</tinnitus_impact_on_concentration>
+<tinnitus_impact_on_mood>none</tinnitus_impact_on_mood>
+<tinnitus_management></tinnitus_management>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_tinnitus>

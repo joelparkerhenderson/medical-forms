@@ -1,0 +1,12 @@
+<!ELEMENT assessment_ipss_questionnaire (id,assessment_id,ipss_q1_incomplete_emptying,ipss_q2_frequency,ipss_q3_intermittency,ipss_q4_urgency,ipss_q5_weak_stream,ipss_q6_straining,ipss_q7_nocturia,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT ipss_q1_incomplete_emptying (#PCDATA)>
+<!ELEMENT ipss_q2_frequency (#PCDATA)>
+<!ELEMENT ipss_q3_intermittency (#PCDATA)>
+<!ELEMENT ipss_q4_urgency (#PCDATA)>
+<!ELEMENT ipss_q5_weak_stream (#PCDATA)>
+<!ELEMENT ipss_q6_straining (#PCDATA)>
+<!ELEMENT ipss_q7_nocturia (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

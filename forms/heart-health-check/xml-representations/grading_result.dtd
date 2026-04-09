@@ -1,0 +1,9 @@
+<!ELEMENT grading_result (id,assessment_id,risk_category,ten_year_risk_percent,heart_age,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT risk_category (#PCDATA)>
+<!ELEMENT ten_year_risk_percent (#PCDATA)>
+<!ELEMENT heart_age (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

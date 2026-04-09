@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_renal_function SYSTEM "assessment_renal_function.dtd">
+<assessment_renal_function>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<egfr>1</egfr>
+<creatinine>1</creatinine>
+<urine_acr>0.0</urine_acr>
+<proteinuria>yes</proteinuria>
+<ckd_stage>none</ckd_stage>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_renal_function>

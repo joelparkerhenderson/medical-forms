@@ -1,0 +1,12 @@
+<!ELEMENT assessment_referral_information (id,assessment_id,referring_clinician,referring_organisation,referral_date,referral_reason,previous_mobility_assessment,previous_assessment_date,previous_tinetti_score,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT referring_clinician (#PCDATA)>
+<!ELEMENT referring_organisation (#PCDATA)>
+<!ELEMENT referral_date (#PCDATA)>
+<!ELEMENT referral_reason (#PCDATA)>
+<!ELEMENT previous_mobility_assessment (#PCDATA)>
+<!ELEMENT previous_assessment_date (#PCDATA)>
+<!ELEMENT previous_tinetti_score (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

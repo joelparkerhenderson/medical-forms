@@ -1,0 +1,10 @@
+<!ELEMENT grading_result (id,assessment_id,total_fms_score,risk_category,asymmetry_count,pain_count,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT total_fms_score (#PCDATA)>
+<!ELEMENT risk_category (#PCDATA)>
+<!ELEMENT asymmetry_count (#PCDATA)>
+<!ELEMENT pain_count (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

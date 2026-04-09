@@ -1,0 +1,10 @@
+<!ELEMENT news2_result (id,casualty_card_id,total_score,clinical_response,has_any_single_score_3,parameter_scores,scored_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT casualty_card_id (#PCDATA)>
+<!ELEMENT total_score (#PCDATA)>
+<!ELEMENT clinical_response (#PCDATA)>
+<!ELEMENT has_any_single_score_3 (#PCDATA)>
+<!ELEMENT parameter_scores (#PCDATA)>
+<!ELEMENT scored_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

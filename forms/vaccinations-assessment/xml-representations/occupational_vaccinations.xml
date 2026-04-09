@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE occupational_vaccinations SYSTEM "occupational_vaccinations.dtd">
+<occupational_vaccinations>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<occupation>Teacher</occupation>
+<healthcare_worker>yes</healthcare_worker>
+<hepatitis_b_occupational>1</hepatitis_b_occupational>
+<influenza_occupational>1</influenza_occupational>
+<varicella>1</varicella>
+<bcg_tuberculosis>1</bcg_tuberculosis>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</occupational_vaccinations>

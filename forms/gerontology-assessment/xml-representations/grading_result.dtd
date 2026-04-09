@@ -1,0 +1,13 @@
+<!ELEMENT grading_result (id,assessment_id,cfs_score,cfs_category,functional_domain_score,cognitive_domain_score,mobility_domain_score,nutrition_domain_score,polypharmacy_domain_score,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT cfs_score (#PCDATA)>
+<!ELEMENT cfs_category (#PCDATA)>
+<!ELEMENT functional_domain_score (#PCDATA)>
+<!ELEMENT cognitive_domain_score (#PCDATA)>
+<!ELEMENT mobility_domain_score (#PCDATA)>
+<!ELEMENT nutrition_domain_score (#PCDATA)>
+<!ELEMENT polypharmacy_domain_score (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

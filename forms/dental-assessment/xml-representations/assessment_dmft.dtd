@@ -1,0 +1,14 @@
+<!ELEMENT assessment_dmft (id,assessment_id,decayed_teeth,missing_teeth,filled_teeth,dmft_total,decayed_tooth_numbers,missing_tooth_numbers,filled_tooth_numbers,caries_activity,notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT decayed_teeth (#PCDATA)>
+<!ELEMENT missing_teeth (#PCDATA)>
+<!ELEMENT filled_teeth (#PCDATA)>
+<!ELEMENT dmft_total (#PCDATA)>
+<!ELEMENT decayed_tooth_numbers (#PCDATA)>
+<!ELEMENT missing_tooth_numbers (#PCDATA)>
+<!ELEMENT filled_tooth_numbers (#PCDATA)>
+<!ELEMENT caries_activity (#PCDATA)>
+<!ELEMENT notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

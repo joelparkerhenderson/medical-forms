@@ -1,0 +1,16 @@
+<!ELEMENT assessment_joint_assessment (id,assessment_id,tender_joint_count_28,swollen_joint_count_28,shoulders_involved,elbows_involved,wrists_involved,mcp_joints_involved,pip_joints_involved,knees_involved,joint_deformity_present,joint_deformity_details,joint_pattern,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT tender_joint_count_28 (#PCDATA)>
+<!ELEMENT swollen_joint_count_28 (#PCDATA)>
+<!ELEMENT shoulders_involved (#PCDATA)>
+<!ELEMENT elbows_involved (#PCDATA)>
+<!ELEMENT wrists_involved (#PCDATA)>
+<!ELEMENT mcp_joints_involved (#PCDATA)>
+<!ELEMENT pip_joints_involved (#PCDATA)>
+<!ELEMENT knees_involved (#PCDATA)>
+<!ELEMENT joint_deformity_present (#PCDATA)>
+<!ELEMENT joint_deformity_details (#PCDATA)>
+<!ELEMENT joint_pattern (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

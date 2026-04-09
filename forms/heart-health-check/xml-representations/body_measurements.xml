@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE body_measurements SYSTEM "body_measurements.dtd">
+<body_measurements>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<height_cm>170.0</height_cm>
+<weight_kg>70.0</weight_kg>
+<bmi>24.2</bmi>
+<waist_circumference_cm>0.0</waist_circumference_cm>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</body_measurements>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_birth_history SYSTEM "assessment_birth_history.dtd">
+<assessment_birth_history>
+<id>770e8400-e29b-41d4-a716-446655440002</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<gestational_age_weeks>45</gestational_age_weeks>
+<birth_weight_grams>1</birth_weight_grams>
+<delivery_method>vaginal</delivery_method>
+<apgar_score_1min>5</apgar_score_1min>
+<apgar_score_5min>5</apgar_score_5min>
+<nicu_admission>yes</nicu_admission>
+<nicu_duration_days>1</nicu_duration_days>
+<birth_complications></birth_complications>
+<maternal_complications></maternal_complications>
+<preterm>yes</preterm>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_birth_history>

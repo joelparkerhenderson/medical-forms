@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE blood_pressure SYSTEM "blood_pressure.dtd">
+<blood_pressure>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<systolic_bp>1</systolic_bp>
+<systolic_bp_sd>0.0</systolic_bp_sd>
+<diastolic_bp>1</diastolic_bp>
+<on_bp_treatment>yes</on_bp_treatment>
+<number_of_bp_medications>2</number_of_bp_medications>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</blood_pressure>

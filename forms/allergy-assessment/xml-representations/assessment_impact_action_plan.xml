@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_impact_action_plan SYSTEM "assessment_impact_action_plan.dtd">
+<assessment_impact_action_plan>
+<id>551e8400-e29b-41d4-a716-44665544000f</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<quality_of_life_score>5</quality_of_life_score>
+<school_work_impact>yes</school_work_impact>
+<school_work_impact_details>Example text.</school_work_impact_details>
+<emergency_action_plan_status>in-place</emergency_action_plan_status>
+<training_provided>yes</training_provided>
+<training_details>Example text.</training_details>
+<follow_up_schedule></follow_up_schedule>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_impact_action_plan>

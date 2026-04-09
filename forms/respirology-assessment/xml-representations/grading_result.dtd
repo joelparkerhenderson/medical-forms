@@ -1,0 +1,11 @@
+<!ELEMENT grading_result (id,assessment_id,mrc_grade,mrc_description,overall_severity,functional_impairment,composite_score,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT mrc_grade (#PCDATA)>
+<!ELEMENT mrc_description (#PCDATA)>
+<!ELEMENT overall_severity (#PCDATA)>
+<!ELEMENT functional_impairment (#PCDATA)>
+<!ELEMENT composite_score (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

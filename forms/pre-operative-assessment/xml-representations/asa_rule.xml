@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE asa_rule SYSTEM "asa_rule.dtd">
+<asa_rule>
+<id>881e8400-e29b-41d4-a716-446655440012</id>
+<system></system>
+<description>Example text.</description>
+<grade>1</grade>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</asa_rule>

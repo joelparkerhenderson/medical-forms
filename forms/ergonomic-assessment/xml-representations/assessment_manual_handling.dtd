@@ -1,0 +1,11 @@
+<!ELEMENT assessment_manual_handling (id,assessment_id,lifting_frequency,load_weight_kg,carry_distance_metres,push_pull_forces,team_lifting,mechanical_aids_available,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT lifting_frequency (#PCDATA)>
+<!ELEMENT load_weight_kg (#PCDATA)>
+<!ELEMENT carry_distance_metres (#PCDATA)>
+<!ELEMENT push_pull_forces (#PCDATA)>
+<!ELEMENT team_lifting (#PCDATA)>
+<!ELEMENT mechanical_aids_available (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,17 @@
+<!ELEMENT assessment_gait_assessment (id,assessment_id,initiation_of_gait,step_length_right,step_length_left,step_height_right,step_height_left,step_symmetry,step_continuity,path_deviation,trunk_sway,walking_stance,gait_total_score,gait_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT initiation_of_gait (#PCDATA)>
+<!ELEMENT step_length_right (#PCDATA)>
+<!ELEMENT step_length_left (#PCDATA)>
+<!ELEMENT step_height_right (#PCDATA)>
+<!ELEMENT step_height_left (#PCDATA)>
+<!ELEMENT step_symmetry (#PCDATA)>
+<!ELEMENT step_continuity (#PCDATA)>
+<!ELEMENT path_deviation (#PCDATA)>
+<!ELEMENT trunk_sway (#PCDATA)>
+<!ELEMENT walking_stance (#PCDATA)>
+<!ELEMENT gait_total_score (#PCDATA)>
+<!ELEMENT gait_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

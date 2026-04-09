@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_management SYSTEM "assessment_current_management.dtd">
+<assessment_current_management>
+<id>220e8400-e29b-41d4-a716-44665544000c</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<antihistamines>yes</antihistamines>
+<antihistamine_details>Example text.</antihistamine_details>
+<nasal_steroids>yes</nasal_steroids>
+<adrenaline_auto_injector>yes</adrenaline_auto_injector>
+<immunotherapy>yes</immunotherapy>
+<immunotherapy_details>Example text.</immunotherapy_details>
+<biologics>yes</biologics>
+<biologic_details>Example text.</biologic_details>
+<allergen_avoidance_strategies>Peanuts</allergen_avoidance_strategies>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_management>

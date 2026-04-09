@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_consent_preferences SYSTEM "assessment_consent_preferences.dtd">
+<assessment_consent_preferences>
+<id>330e8400-e29b-41d4-a716-44665544000d</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<consent_to_treatment>yes</consent_to_treatment>
+<consent_to_share_records>yes</consent_to_share_records>
+<consent_to_research>yes</consent_to_research>
+<consent_to_contact_sms>yes</consent_to_contact_sms>
+<consent_to_contact_email>yes</consent_to_contact_email>
+<consent_to_contact_phone>yes</consent_to_contact_phone>
+<preferred_contact_method>phone</preferred_contact_method>
+<preferred_appointment_time>morning</preferred_appointment_time>
+<advance_directive>yes</advance_directive>
+<advance_directive_details>Example text.</advance_directive_details>
+<power_of_attorney>yes</power_of_attorney>
+<power_of_attorney_details>Example text.</power_of_attorney_details>
+<accessibility_needs></accessibility_needs>
+<special_requirements></special_requirements>
+<patient_signature_date>2026-01-15</patient_signature_date>
+<consent_notes>Example text.</consent_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_consent_preferences>

@@ -1,0 +1,8 @@
+<!ELEMENT grading_result (id,assessment_id,act_total_score,control_level,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT act_total_score (#PCDATA)>
+<!ELEMENT control_level (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

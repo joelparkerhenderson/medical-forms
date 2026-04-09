@@ -1,0 +1,14 @@
+<!ELEMENT assessment_surgical_history (id,assessment_id,has_previous_surgery,surgery_considered,surgery_considered_details,patient_preference,comorbidities_affecting_surgery,anaesthetic_risk,anticoagulant_use,anticoagulant_details,surgical_history_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT has_previous_surgery (#PCDATA)>
+<!ELEMENT surgery_considered (#PCDATA)>
+<!ELEMENT surgery_considered_details (#PCDATA)>
+<!ELEMENT patient_preference (#PCDATA)>
+<!ELEMENT comorbidities_affecting_surgery (#PCDATA)>
+<!ELEMENT anaesthetic_risk (#PCDATA)>
+<!ELEMENT anticoagulant_use (#PCDATA)>
+<!ELEMENT anticoagulant_details (#PCDATA)>
+<!ELEMENT surgical_history_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

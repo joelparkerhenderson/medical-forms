@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_polypharmacy_review_medication SYSTEM "assessment_polypharmacy_review_medication.dtd">
+<assessment_polypharmacy_review_medication>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<polypharmacy_review_id>660e8400-e29b-41d4-a716-446655440001</polypharmacy_review_id>
+<medication_name>Example</medication_name>
+<dose>500mg</dose>
+<frequency>twice daily</frequency>
+<route>oral</route>
+<indication></indication>
+<is_prn>yes</is_prn>
+<sort_order>0</sort_order>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_polypharmacy_review_medication>

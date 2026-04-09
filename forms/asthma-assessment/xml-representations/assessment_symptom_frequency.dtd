@@ -1,0 +1,13 @@
+<!ELEMENT assessment_symptom_frequency (id,assessment_id,act_q1_activity_limitation,act_q2_shortness_of_breath,act_q3_night_symptoms,act_q4_rescue_inhaler_use,act_q5_self_rated_control,daytime_symptom_frequency,nocturnal_symptom_frequency,exercise_induced_symptoms,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT act_q1_activity_limitation (#PCDATA)>
+<!ELEMENT act_q2_shortness_of_breath (#PCDATA)>
+<!ELEMENT act_q3_night_symptoms (#PCDATA)>
+<!ELEMENT act_q4_rescue_inhaler_use (#PCDATA)>
+<!ELEMENT act_q5_self_rated_control (#PCDATA)>
+<!ELEMENT daytime_symptom_frequency (#PCDATA)>
+<!ELEMENT nocturnal_symptom_frequency (#PCDATA)>
+<!ELEMENT exercise_induced_symptoms (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_nutrition SYSTEM "assessment_nutrition.dtd">
+<assessment_nutrition>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<unintentional_weight_loss>yes</unintentional_weight_loss>
+<weight_loss_amount_kg>70.0</weight_loss_amount_kg>
+<weight_loss_duration_months>1</weight_loss_duration_months>
+<appetite>good</appetite>
+<meals_per_day>1</meals_per_day>
+<meal_preparation>self</meal_preparation>
+<dietary_restrictions></dietary_restrictions>
+<swallowing_difficulty>yes</swallowing_difficulty>
+<swallowing_details>Example text.</swallowing_details>
+<denture_status>none</denture_status>
+<hydration_status>adequate</hydration_status>
+<must_score>5</must_score>
+<nutritional_supplement>yes</nutritional_supplement>
+<supplement_details>Example text.</supplement_details>
+<nutrition_notes>Example text.</nutrition_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_nutrition>

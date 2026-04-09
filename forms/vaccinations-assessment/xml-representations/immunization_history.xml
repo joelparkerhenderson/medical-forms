@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE immunization_history SYSTEM "immunization_history.dtd">
+<immunization_history>
+<id>770e8400-e29b-41d4-a716-446655440002</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_vaccination_record>yes</has_vaccination_record>
+<record_source>redBook</record_source>
+<last_review_date>2026-01-15</last_review_date>
+<previous_adverse_reactions>yes</previous_adverse_reactions>
+<adverse_reaction_details>Example text.</adverse_reaction_details>
+<immunocompromised>yes</immunocompromised>
+<immunocompromised_details>Example text.</immunocompromised_details>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</immunization_history>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_facial_palsy_motor SYSTEM "assessment_facial_palsy_motor.dtd">
+<assessment_facial_palsy_motor>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<nihss_4_facial_palsy>1</nihss_4_facial_palsy>
+<nihss_5a_motor_arm_left>1</nihss_5a_motor_arm_left>
+<nihss_5b_motor_arm_right>1</nihss_5b_motor_arm_right>
+<nihss_6a_motor_leg_left>1</nihss_6a_motor_leg_left>
+<nihss_6b_motor_leg_right>1</nihss_6b_motor_leg_right>
+<facial_droop_side>left</facial_droop_side>
+<pronator_drift>left</pronator_drift>
+<motor_deficit_pattern>hemiparesis</motor_deficit_pattern>
+<affected_side>left</affected_side>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_facial_palsy_motor>

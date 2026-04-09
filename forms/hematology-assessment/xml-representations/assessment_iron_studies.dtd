@@ -1,0 +1,10 @@
+<!ELEMENT assessment_iron_studies (id,assessment_id,serum_iron,total_iron_binding_capacity,transferrin_saturation,serum_ferritin,reticulocyte_count,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT serum_iron (#PCDATA)>
+<!ELEMENT total_iron_binding_capacity (#PCDATA)>
+<!ELEMENT transferrin_saturation (#PCDATA)>
+<!ELEMENT serum_ferritin (#PCDATA)>
+<!ELEMENT reticulocyte_count (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

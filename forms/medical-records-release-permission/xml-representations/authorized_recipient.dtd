@@ -1,0 +1,11 @@
+<!ELEMENT authorized_recipient (id,release_form_id,recipient_name,recipient_organization,recipient_address,recipient_phone,recipient_email,recipient_role,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT release_form_id (#PCDATA)>
+<!ELEMENT recipient_name (#PCDATA)>
+<!ELEMENT recipient_organization (#PCDATA)>
+<!ELEMENT recipient_address (#PCDATA)>
+<!ELEMENT recipient_phone (#PCDATA)>
+<!ELEMENT recipient_email (#PCDATA)>
+<!ELEMENT recipient_role (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

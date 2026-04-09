@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_allergies SYSTEM "assessment_allergies.dtd">
+<assessment_allergies>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_drug_allergies>yes</has_drug_allergies>
+<drug_allergy_details>Example text.</drug_allergy_details>
+<has_environmental_allergies>yes</has_environmental_allergies>
+<environmental_allergy_details>Example text.</environmental_allergy_details>
+<atopic_history>yes</atopic_history>
+<eczema>yes</eczema>
+<allergic_rhinitis>yes</allergic_rhinitis>
+<food_allergies>yes</food_allergies>
+<food_allergy_details>Example text.</food_allergy_details>
+<aspirin_sensitivity>yes</aspirin_sensitivity>
+<allergy_testing_performed>yes</allergy_testing_performed>
+<allergy_test_results>Normal</allergy_test_results>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_allergies>

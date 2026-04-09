@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_birth_plan SYSTEM "assessment_birth_plan.dtd">
+<assessment_birth_plan>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<preferred_birth_location>hospital</preferred_birth_location>
+<preferred_delivery_method>vaginal</preferred_delivery_method>
+<pain_relief_preference>epidural</pain_relief_preference>
+<birth_partner>yes</birth_partner>
+<birth_partner_details>Example text.</birth_partner_details>
+<skin_to_skin>yes</skin_to_skin>
+<delayed_cord_clamping>yes</delayed_cord_clamping>
+<infant_feeding_intention>breastfeed</infant_feeding_intention>
+<vitamin_k_consent>yes</vitamin_k_consent>
+<vitamin_k_route>injection</vitamin_k_route>
+<cord_blood_banking>yes</cord_blood_banking>
+<cultural_religious_needs></cultural_religious_needs>
+<special_requests></special_requests>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_birth_plan>

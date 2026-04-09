@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_anterior_segment SYSTEM "assessment_anterior_segment.dtd">
+<assessment_anterior_segment>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<lids_right>normal</lids_right>
+<lids_right_details>Example text.</lids_right_details>
+<lids_left>normal</lids_left>
+<lids_left_details>Example text.</lids_left_details>
+<conjunctiva_right>normal</conjunctiva_right>
+<conjunctiva_right_details>Example text.</conjunctiva_right_details>
+<conjunctiva_left>normal</conjunctiva_left>
+<conjunctiva_left_details>Example text.</conjunctiva_left_details>
+<cornea_right>clear</cornea_right>
+<cornea_right_details>Example text.</cornea_right_details>
+<cornea_left>clear</cornea_left>
+<cornea_left_details>Example text.</cornea_left_details>
+<anterior_chamber_right>deep-quiet</anterior_chamber_right>
+<anterior_chamber_right_details>Example text.</anterior_chamber_right_details>
+<anterior_chamber_left>deep-quiet</anterior_chamber_left>
+<anterior_chamber_left_details>Example text.</anterior_chamber_left_details>
+<iris_right>normal</iris_right>
+<iris_right_details>Example text.</iris_right_details>
+<iris_left>normal</iris_left>
+<iris_left_details>Example text.</iris_left_details>
+<lens_right>clear</lens_right>
+<lens_right_details>Example text.</lens_right_details>
+<lens_left>clear</lens_left>
+<lens_left_details>Example text.</lens_left_details>
+<iop_right_mmhg>0.0</iop_right_mmhg>
+<iop_left_mmhg>0.0</iop_left_mmhg>
+<iop_method>goldmann</iop_method>
+<iop_time></iop_time>
+<anterior_segment_notes>Example text.</anterior_segment_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_anterior_segment>

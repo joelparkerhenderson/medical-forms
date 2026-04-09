@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_exacerbation_history SYSTEM "assessment_exacerbation_history.dtd">
+<assessment_exacerbation_history>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<exacerbations_past_12_months>1</exacerbations_past_12_months>
+<oral_steroid_courses_past_12_months>1</oral_steroid_courses_past_12_months>
+<ed_visits_past_12_months>1</ed_visits_past_12_months>
+<hospital_admissions_past_12_months>1</hospital_admissions_past_12_months>
+<icu_admissions_ever>1</icu_admissions_ever>
+<intubation_history>yes</intubation_history>
+<worst_exacerbation_details>Example text.</worst_exacerbation_details>
+<has_asthma_action_plan>yes</has_asthma_action_plan>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_exacerbation_history>

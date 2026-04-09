@@ -1,0 +1,16 @@
+<!ELEMENT assessment_cervical_screening (id,assessment_id,last_smear_date,smear_result,hpv_status,hpv_vaccination,colposcopy_history,colposcopy_details,cervical_treatment_history,cervical_treatment_type,cervical_treatment_details,screening_up_to_date,screening_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT last_smear_date (#PCDATA)>
+<!ELEMENT smear_result (#PCDATA)>
+<!ELEMENT hpv_status (#PCDATA)>
+<!ELEMENT hpv_vaccination (#PCDATA)>
+<!ELEMENT colposcopy_history (#PCDATA)>
+<!ELEMENT colposcopy_details (#PCDATA)>
+<!ELEMENT cervical_treatment_history (#PCDATA)>
+<!ELEMENT cervical_treatment_type (#PCDATA)>
+<!ELEMENT cervical_treatment_details (#PCDATA)>
+<!ELEMENT screening_up_to_date (#PCDATA)>
+<!ELEMENT screening_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

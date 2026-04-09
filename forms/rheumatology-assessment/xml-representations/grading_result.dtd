@@ -1,0 +1,9 @@
+<!ELEMENT grading_result (id,assessment_id,das28_score,das28_method,disease_activity_level,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT das28_score (#PCDATA)>
+<!ELEMENT das28_method (#PCDATA)>
+<!ELEMENT disease_activity_level (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

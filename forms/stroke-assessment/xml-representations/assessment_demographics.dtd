@@ -1,0 +1,11 @@
+<!ELEMENT assessment_demographics (id,assessment_id,ethnicity,handedness,pre_stroke_mrs_score,pre_stroke_independence,emergency_contact_name,emergency_contact_phone,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT ethnicity (#PCDATA)>
+<!ELEMENT handedness (#PCDATA)>
+<!ELEMENT pre_stroke_mrs_score (#PCDATA)>
+<!ELEMENT pre_stroke_independence (#PCDATA)>
+<!ELEMENT emergency_contact_name (#PCDATA)>
+<!ELEMENT emergency_contact_phone (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

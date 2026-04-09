@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_alternative_treatments SYSTEM "assessment_alternative_treatments.dtd">
+<assessment_alternative_treatments>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<alternatives_discussed>yes</alternatives_discussed>
+<conservative_management_discussed>yes</conservative_management_discussed>
+<conservative_management_details>Example text.</conservative_management_details>
+<alternative_procedures_discussed>yes</alternative_procedures_discussed>
+<alternative_procedures_details>Example text.</alternative_procedures_details>
+<no_treatment_option_discussed>yes</no_treatment_option_discussed>
+<no_treatment_consequences>Example treatment</no_treatment_consequences>
+<patient_preference></patient_preference>
+<reason_for_chosen_treatment>Example text.</reason_for_chosen_treatment>
+<alternative_treatments_notes>Example text.</alternative_treatments_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_alternative_treatments>

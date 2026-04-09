@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_medical_history SYSTEM "assessment_medical_history.dtd">
+<assessment_medical_history>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<chronic_conditions></chronic_conditions>
+<neurological_conditions>yes</neurological_conditions>
+<neurological_details>Example text.</neurological_details>
+<endocrine_conditions>yes</endocrine_conditions>
+<endocrine_details>Example text.</endocrine_details>
+<cardiovascular_conditions>yes</cardiovascular_conditions>
+<cardiovascular_details>Example text.</cardiovascular_details>
+<head_injuries>yes</head_injuries>
+<head_injury_details>Example text.</head_injury_details>
+<seizure_history>yes</seizure_history>
+<known_allergies>yes</known_allergies>
+<allergy_details>Example text.</allergy_details>
+<recent_blood_tests>yes</recent_blood_tests>
+<blood_test_results>Normal</blood_test_results>
+<physical_health_screening>yes</physical_health_screening>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_medical_history>

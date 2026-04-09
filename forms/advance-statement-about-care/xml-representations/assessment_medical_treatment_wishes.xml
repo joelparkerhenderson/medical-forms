@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_medical_treatment_wishes SYSTEM "assessment_medical_treatment_wishes.dtd">
+<assessment_medical_treatment_wishes>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<pain_management_preferences></pain_management_preferences>
+<attitude_to_hospital_admission>Example Hospital</attitude_to_hospital_admission>
+<attitude_to_intensive_care></attitude_to_intensive_care>
+<attitude_to_artificial_nutrition></attitude_to_artificial_nutrition>
+<attitude_to_artificial_hydration></attitude_to_artificial_hydration>
+<medication_preferences>Paracetamol</medication_preferences>
+<complementary_therapy_preferences>Example treatment</complementary_therapy_preferences>
+<other_treatment_wishes>Example treatment</other_treatment_wishes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_medical_treatment_wishes>

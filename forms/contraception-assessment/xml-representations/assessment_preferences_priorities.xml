@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_preferences_priorities SYSTEM "assessment_preferences_priorities.dtd">
+<assessment_preferences_priorities>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<most_important_factor>effectiveness</most_important_factor>
+<most_important_factor_other></most_important_factor_other>
+<preference_for_hormonal>happy-with-hormonal</preference_for_hormonal>
+<preference_for_long_acting>prefer-larc</preference_for_long_acting>
+<comfortable_with_procedure>yes</comfortable_with_procedure>
+<wants_period_control>lighter</wants_period_control>
+<fertility_timeline>within-1-year</fertility_timeline>
+<partner_involvement>yes</partner_involvement>
+<partner_preferences></partner_preferences>
+<previous_method_preferences></previous_method_preferences>
+<preferences_notes>Example text.</preferences_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_preferences_priorities>

@@ -1,0 +1,14 @@
+<!ELEMENT assessment_cancer_history (id,assessment_id,family_cancer_history,multiple_family_cancers,early_onset_cancer,bilateral_cancer,rare_tumour_types,rare_tumour_details,known_cancer_syndrome,cancer_syndrome_details,cancer_risk_score,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT family_cancer_history (#PCDATA)>
+<!ELEMENT multiple_family_cancers (#PCDATA)>
+<!ELEMENT early_onset_cancer (#PCDATA)>
+<!ELEMENT bilateral_cancer (#PCDATA)>
+<!ELEMENT rare_tumour_types (#PCDATA)>
+<!ELEMENT rare_tumour_details (#PCDATA)>
+<!ELEMENT known_cancer_syndrome (#PCDATA)>
+<!ELEMENT cancer_syndrome_details (#PCDATA)>
+<!ELEMENT cancer_risk_score (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

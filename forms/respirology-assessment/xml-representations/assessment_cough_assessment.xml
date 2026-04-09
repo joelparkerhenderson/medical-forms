@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_cough_assessment SYSTEM "assessment_cough_assessment.dtd">
+<assessment_cough_assessment>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<cough_present>yes</cough_present>
+<cough_duration>acute</cough_duration>
+<cough_duration_weeks>1</cough_duration_weeks>
+<cough_type>dry</cough_type>
+<cough_timing>morning</cough_timing>
+<sputum_production>yes</sputum_production>
+<sputum_volume>minimal</sputum_volume>
+<sputum_colour>clear</sputum_colour>
+<sputum_odour>none</sputum_odour>
+<haemoptysis>yes</haemoptysis>
+<haemoptysis_volume>streaks</haemoptysis_volume>
+<cough_triggers></cough_triggers>
+<cough_impact_on_sleep>none</cough_impact_on_sleep>
+<cough_impact_on_daily_life>none</cough_impact_on_daily_life>
+<post_nasal_drip>yes</post_nasal_drip>
+<gastro_oesophageal_reflux>yes</gastro_oesophageal_reflux>
+<ace_inhibitor_use>yes</ace_inhibitor_use>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_cough_assessment>

@@ -1,0 +1,10 @@
+<!ELEMENT smoking_alcohol (id,assessment_id,smoking_status,cigarettes_per_day,years_since_quit,alcohol_units_per_week,alcohol_frequency,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT smoking_status (#PCDATA)>
+<!ELEMENT cigarettes_per_day (#PCDATA)>
+<!ELEMENT years_since_quit (#PCDATA)>
+<!ELEMENT alcohol_units_per_week (#PCDATA)>
+<!ELEMENT alcohol_frequency (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

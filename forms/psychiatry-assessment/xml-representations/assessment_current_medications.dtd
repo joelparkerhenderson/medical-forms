@@ -1,0 +1,15 @@
+<!ELEMENT assessment_current_medications (id,assessment_id,takes_psychiatric_medications,takes_other_medications,medication_adherence,adherence_barriers,side_effects,clozapine_registered,depot_injection,depot_details,adverse_drug_reactions,additional_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT takes_psychiatric_medications (#PCDATA)>
+<!ELEMENT takes_other_medications (#PCDATA)>
+<!ELEMENT medication_adherence (#PCDATA)>
+<!ELEMENT adherence_barriers (#PCDATA)>
+<!ELEMENT side_effects (#PCDATA)>
+<!ELEMENT clozapine_registered (#PCDATA)>
+<!ELEMENT depot_injection (#PCDATA)>
+<!ELEMENT depot_details (#PCDATA)>
+<!ELEMENT adverse_drug_reactions (#PCDATA)>
+<!ELEMENT additional_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

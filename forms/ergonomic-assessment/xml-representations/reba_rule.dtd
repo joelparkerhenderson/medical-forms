@@ -1,0 +1,6 @@
+<!ELEMENT reba_rule (id,system,description,score,created_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT system (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT score (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE access_scheduling SYSTEM "access_scheduling.dtd">
+<access_scheduling>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<encounter_satisfaction_id>660e8400-e29b-41d4-a716-446655440001</encounter_satisfaction_id>
+<ease_of_scheduling>1</ease_of_scheduling>
+<wait_for_appointment>1</wait_for_appointment>
+<wait_in_waiting_room>1</wait_in_waiting_room>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</access_scheduling>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE authorized_recipient SYSTEM "authorized_recipient.dtd">
+<authorized_recipient>
+<id>770e8400-e29b-41d4-a716-446655440002</id>
+<release_form_id>660e8400-e29b-41d4-a716-446655440001</release_form_id>
+<recipient_name>Example</recipient_name>
+<recipient_organization></recipient_organization>
+<recipient_address></recipient_address>
+<recipient_phone></recipient_phone>
+<recipient_email></recipient_email>
+<recipient_role></recipient_role>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</authorized_recipient>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_upper_gi_symptoms SYSTEM "assessment_upper_gi_symptoms.dtd">
+<assessment_upper_gi_symptoms>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<dysphagia>yes</dysphagia>
+<dysphagia_type>solids</dysphagia_type>
+<dysphagia_progression>stable</dysphagia_progression>
+<odynophagia>yes</odynophagia>
+<heartburn>yes</heartburn>
+<heartburn_frequency>daily</heartburn_frequency>
+<acid_regurgitation>yes</acid_regurgitation>
+<nausea>yes</nausea>
+<nausea_frequency>daily</nausea_frequency>
+<vomiting>yes</vomiting>
+<vomiting_frequency>daily</vomiting_frequency>
+<haematemesis>yes</haematemesis>
+<early_satiety>yes</early_satiety>
+<bloating>yes</bloating>
+<epigastric_pain>yes</epigastric_pain>
+<epigastric_pain_relation_to_meals>worse_with_food</epigastric_pain_relation_to_meals>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_upper_gi_symptoms>

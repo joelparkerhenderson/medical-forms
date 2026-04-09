@@ -1,0 +1,13 @@
+<!ELEMENT assessment_complications_screening (id,assessment_id,retinopathy_status,last_eye_screening,nephropathy_status,egfr,urine_acr,neuropathy_symptoms,autonomic_neuropathy,erectile_dysfunction,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT retinopathy_status (#PCDATA)>
+<!ELEMENT last_eye_screening (#PCDATA)>
+<!ELEMENT nephropathy_status (#PCDATA)>
+<!ELEMENT egfr (#PCDATA)>
+<!ELEMENT urine_acr (#PCDATA)>
+<!ELEMENT neuropathy_symptoms (#PCDATA)>
+<!ELEMENT autonomic_neuropathy (#PCDATA)>
+<!ELEMENT erectile_dysfunction (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

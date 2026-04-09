@@ -1,0 +1,15 @@
+<!ELEMENT assessment_birth_history (id,assessment_id,gestational_age_weeks,birth_weight_grams,delivery_method,apgar_score_1min,apgar_score_5min,nicu_admission,nicu_duration_days,birth_complications,maternal_complications,preterm,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT gestational_age_weeks (#PCDATA)>
+<!ELEMENT birth_weight_grams (#PCDATA)>
+<!ELEMENT delivery_method (#PCDATA)>
+<!ELEMENT apgar_score_1min (#PCDATA)>
+<!ELEMENT apgar_score_5min (#PCDATA)>
+<!ELEMENT nicu_admission (#PCDATA)>
+<!ELEMENT nicu_duration_days (#PCDATA)>
+<!ELEMENT birth_complications (#PCDATA)>
+<!ELEMENT maternal_complications (#PCDATA)>
+<!ELEMENT preterm (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

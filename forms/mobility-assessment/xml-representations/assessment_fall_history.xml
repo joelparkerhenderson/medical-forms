@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_fall_history SYSTEM "assessment_fall_history.dtd">
+<assessment_fall_history>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<falls_in_past_12_months>yes</falls_in_past_12_months>
+<fall_count>2</fall_count>
+<most_recent_fall_date>2026-01-15</most_recent_fall_date>
+<fall_circumstances></fall_circumstances>
+<fall_injuries>yes</fall_injuries>
+<fall_injury_details>Example text.</fall_injury_details>
+<fracture_from_fall>yes</fracture_from_fall>
+<fracture_details>Example text.</fracture_details>
+<hospitalisation_from_fall>yes</hospitalisation_from_fall>
+<fear_of_falling>none</fear_of_falling>
+<activity_restriction_due_to_fear>yes</activity_restriction_due_to_fear>
+<near_falls>yes</near_falls>
+<near_fall_frequency>daily</near_fall_frequency>
+<fall_history_notes>Example text.</fall_history_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_fall_history>

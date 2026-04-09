@@ -1,0 +1,16 @@
+<!ELEMENT assessment_dlqi_questionnaire (id,assessment_id,q1_symptoms,q2_embarrassment,q3_daily_activities,q4_clothing,q5_social_leisure,q6_sport,q7_work_study,q8_relationships,q9_sexual,q10_treatment,dlqi_total,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT q1_symptoms (#PCDATA)>
+<!ELEMENT q2_embarrassment (#PCDATA)>
+<!ELEMENT q3_daily_activities (#PCDATA)>
+<!ELEMENT q4_clothing (#PCDATA)>
+<!ELEMENT q5_social_leisure (#PCDATA)>
+<!ELEMENT q6_sport (#PCDATA)>
+<!ELEMENT q7_work_study (#PCDATA)>
+<!ELEMENT q8_relationships (#PCDATA)>
+<!ELEMENT q9_sexual (#PCDATA)>
+<!ELEMENT q10_treatment (#PCDATA)>
+<!ELEMENT dlqi_total (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE travel_vaccinations SYSTEM "travel_vaccinations.dtd">
+<travel_vaccinations>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<travel_planned>yes</travel_planned>
+<travel_destination></travel_destination>
+<hepatitis_a>1</hepatitis_a>
+<hepatitis_b>1</hepatitis_b>
+<typhoid>1</typhoid>
+<yellow_fever>1</yellow_fever>
+<rabies>1</rabies>
+<japanese_encephalitis>1</japanese_encephalitis>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</travel_vaccinations>

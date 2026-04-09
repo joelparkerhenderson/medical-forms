@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grading_result SYSTEM "grading_result.dtd">
+<grading_result>
+<id>440e8400-e29b-41d4-a716-44665544000e</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<performance_mean_score>5.0</performance_mean_score>
+<satisfaction_mean_score>5.0</satisfaction_mean_score>
+<performance_category>significant-issues</performance_category>
+<satisfaction_category>significant-issues</satisfaction_category>
+<graded_at>2026-04-09T10:00:00Z</graded_at>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</grading_result>

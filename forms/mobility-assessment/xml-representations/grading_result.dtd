@@ -1,0 +1,12 @@
+<!ELEMENT grading_result (id,assessment_id,balance_score,gait_score,total_tinetti_score,fall_risk_category,tug_time_seconds,tug_risk_category,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT balance_score (#PCDATA)>
+<!ELEMENT gait_score (#PCDATA)>
+<!ELEMENT total_tinetti_score (#PCDATA)>
+<!ELEMENT fall_risk_category (#PCDATA)>
+<!ELEMENT tug_time_seconds (#PCDATA)>
+<!ELEMENT tug_risk_category (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

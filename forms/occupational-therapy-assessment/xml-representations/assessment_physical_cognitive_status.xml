@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_physical_cognitive_status SYSTEM "assessment_physical_cognitive_status.dtd">
+<assessment_physical_cognitive_status>
+<id>220e8400-e29b-41d4-a716-44665544000c</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<upper_limb_function>normal</upper_limb_function>
+<lower_limb_function>normal</lower_limb_function>
+<grip_strength_left_kg>0.0</grip_strength_left_kg>
+<grip_strength_right_kg>0.0</grip_strength_right_kg>
+<pinch_strength_left_kg>0.0</pinch_strength_left_kg>
+<pinch_strength_right_kg>0.0</pinch_strength_right_kg>
+<balance_sitting>normal</balance_sitting>
+<balance_standing>normal</balance_standing>
+<endurance_level>normal</endurance_level>
+<pain_level>1</pain_level>
+<pain_location>Example location</pain_location>
+<sensation>intact</sensation>
+<cognition_orientation>fully-orientated</cognition_orientation>
+<cognition_memory>normal</cognition_memory>
+<cognition_attention>normal</cognition_attention>
+<cognition_executive_function>normal</cognition_executive_function>
+<cognition_perception>normal</cognition_perception>
+<vision>normal</vision>
+<hearing>normal</hearing>
+<physical_cognitive_notes>Example text.</physical_cognitive_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_physical_cognitive_status>

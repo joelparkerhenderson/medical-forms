@@ -1,0 +1,9 @@
+<!ELEMENT assessment_anaphylaxis_history (id,assessment_id,has_anaphylaxis_history,number_of_episodes,adrenaline_auto_injector_prescribed,action_plan_in_place,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT has_anaphylaxis_history (#PCDATA)>
+<!ELEMENT number_of_episodes (#PCDATA)>
+<!ELEMENT adrenaline_auto_injector_prescribed (#PCDATA)>
+<!ELEMENT action_plan_in_place (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

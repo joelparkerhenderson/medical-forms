@@ -1,0 +1,16 @@
+<!ELEMENT assessment_demographics (id,assessment_id,ethnicity,primary_language,interpreter_required,marital_status,living_situation,next_of_kin_name,next_of_kin_phone,next_of_kin_relationship,has_lasting_power_of_attorney,gp_name,gp_practice,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT ethnicity (#PCDATA)>
+<!ELEMENT primary_language (#PCDATA)>
+<!ELEMENT interpreter_required (#PCDATA)>
+<!ELEMENT marital_status (#PCDATA)>
+<!ELEMENT living_situation (#PCDATA)>
+<!ELEMENT next_of_kin_name (#PCDATA)>
+<!ELEMENT next_of_kin_phone (#PCDATA)>
+<!ELEMENT next_of_kin_relationship (#PCDATA)>
+<!ELEMENT has_lasting_power_of_attorney (#PCDATA)>
+<!ELEMENT gp_name (#PCDATA)>
+<!ELEMENT gp_practice (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

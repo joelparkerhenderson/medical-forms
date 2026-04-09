@@ -1,0 +1,16 @@
+<!ELEMENT assessment_comorbidities (id,assessment_id,asthma,asthma_severity,eczema,eczema_severity,rhinitis,rhinitis_severity,eosinophilic_oesophagitis,mast_cell_disorders,mast_cell_details,mental_health_impact,mental_health_details,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT asthma (#PCDATA)>
+<!ELEMENT asthma_severity (#PCDATA)>
+<!ELEMENT eczema (#PCDATA)>
+<!ELEMENT eczema_severity (#PCDATA)>
+<!ELEMENT rhinitis (#PCDATA)>
+<!ELEMENT rhinitis_severity (#PCDATA)>
+<!ELEMENT eosinophilic_oesophagitis (#PCDATA)>
+<!ELEMENT mast_cell_disorders (#PCDATA)>
+<!ELEMENT mast_cell_details (#PCDATA)>
+<!ELEMENT mental_health_impact (#PCDATA)>
+<!ELEMENT mental_health_details (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

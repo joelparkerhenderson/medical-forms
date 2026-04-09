@@ -1,0 +1,11 @@
+<!ELEMENT assessment_bone_marrow_assessment (id,assessment_id,aspirate_findings,biopsy_findings,cellularity,cytogenetics_results,flow_cytometry_results,bone_marrow_comments,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT aspirate_findings (#PCDATA)>
+<!ELEMENT biopsy_findings (#PCDATA)>
+<!ELEMENT cellularity (#PCDATA)>
+<!ELEMENT cytogenetics_results (#PCDATA)>
+<!ELEMENT flow_cytometry_results (#PCDATA)>
+<!ELEMENT bone_marrow_comments (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

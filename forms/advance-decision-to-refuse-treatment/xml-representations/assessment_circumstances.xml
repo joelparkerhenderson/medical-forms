@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_circumstances SYSTEM "assessment_circumstances.dtd">
+<assessment_circumstances>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<circumstances_description>Example text.</circumstances_description>
+<specific_conditions></specific_conditions>
+<applies_if_terminally_ill>yes</applies_if_terminally_ill>
+<applies_if_permanently_unconscious>yes</applies_if_permanently_unconscious>
+<applies_if_severely_brain_damaged>yes</applies_if_severely_brain_damaged>
+<applies_if_advanced_dementia>yes</applies_if_advanced_dementia>
+<other_circumstances></other_circumstances>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_circumstances>

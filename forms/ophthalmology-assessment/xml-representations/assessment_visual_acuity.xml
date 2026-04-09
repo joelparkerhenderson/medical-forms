@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_visual_acuity SYSTEM "assessment_visual_acuity.dtd">
+<assessment_visual_acuity>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<va_right_unaided></va_right_unaided>
+<va_left_unaided></va_left_unaided>
+<va_right_corrected></va_right_corrected>
+<va_left_corrected></va_left_corrected>
+<va_right_pinhole></va_right_pinhole>
+<va_left_pinhole></va_left_pinhole>
+<va_method>snellen</va_method>
+<near_vision_right></near_vision_right>
+<near_vision_left></near_vision_left>
+<current_spectacle_prescription></current_spectacle_prescription>
+<refraction_right></refraction_right>
+<refraction_left></refraction_left>
+<auto_refraction_right></auto_refraction_right>
+<auto_refraction_left></auto_refraction_left>
+<colour_vision>normal</colour_vision>
+<colour_vision_details>Example text.</colour_vision_details>
+<visual_acuity_notes>Example text.</visual_acuity_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_visual_acuity>

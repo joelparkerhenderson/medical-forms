@@ -1,0 +1,12 @@
+<!ELEMENT adult_vaccinations (id,assessment_id,td_ipv_booster,hpv,meningitis_acwy,influenza_annual,covid19,shingles,pneumococcal_ppv,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT td_ipv_booster (#PCDATA)>
+<!ELEMENT hpv (#PCDATA)>
+<!ELEMENT meningitis_acwy (#PCDATA)>
+<!ELEMENT influenza_annual (#PCDATA)>
+<!ELEMENT covid19 (#PCDATA)>
+<!ELEMENT shingles (#PCDATA)>
+<!ELEMENT pneumococcal_ppv (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

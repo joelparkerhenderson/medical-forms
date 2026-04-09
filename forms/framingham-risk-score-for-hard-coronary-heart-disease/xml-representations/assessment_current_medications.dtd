@@ -1,0 +1,11 @@
+<!ELEMENT assessment_current_medications (id,assessment_id,on_statin,statin_name,on_aspirin,on_antihypertensive,antihypertensive_name,other_medications,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT on_statin (#PCDATA)>
+<!ELEMENT statin_name (#PCDATA)>
+<!ELEMENT on_aspirin (#PCDATA)>
+<!ELEMENT on_antihypertensive (#PCDATA)>
+<!ELEMENT antihypertensive_name (#PCDATA)>
+<!ELEMENT other_medications (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,8 @@
+<!ELEMENT environment (id,encounter_satisfaction_id,cleanliness,waiting_area_comfort,privacy,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT encounter_satisfaction_id (#PCDATA)>
+<!ELEMENT cleanliness (#PCDATA)>
+<!ELEMENT waiting_area_comfort (#PCDATA)>
+<!ELEMENT privacy (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

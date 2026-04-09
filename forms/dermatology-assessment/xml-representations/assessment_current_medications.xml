@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_medications SYSTEM "assessment_current_medications.dtd">
+<assessment_current_medications>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<takes_topical_steroids>yes</takes_topical_steroids>
+<topical_steroid_name>Example</topical_steroid_name>
+<topical_steroid_potency>mild</topical_steroid_potency>
+<takes_systemic_immunosuppressants>yes</takes_systemic_immunosuppressants>
+<immunosuppressant_name>Example</immunosuppressant_name>
+<takes_biologics>yes</takes_biologics>
+<biologic_name>Example</biologic_name>
+<takes_retinoids>yes</takes_retinoids>
+<retinoid_name>Example</retinoid_name>
+<takes_antibiotics>yes</takes_antibiotics>
+<antibiotic_name>Example</antibiotic_name>
+<takes_antihistamines>yes</takes_antihistamines>
+<antihistamine_name>Example</antihistamine_name>
+<uses_emollients>yes</uses_emollients>
+<emollient_name>Example</emollient_name>
+<phototherapy_history>yes</phototherapy_history>
+<phototherapy_details>Example text.</phototherapy_details>
+<other_medications>Paracetamol</other_medications>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_medications>

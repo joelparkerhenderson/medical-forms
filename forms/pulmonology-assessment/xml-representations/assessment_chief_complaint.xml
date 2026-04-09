@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_chief_complaint SYSTEM "assessment_chief_complaint.dtd">
+<assessment_chief_complaint>
+<id>770e8400-e29b-41d4-a716-446655440002</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<chief_complaint></chief_complaint>
+<onset>acute</onset>
+<duration></duration>
+<severity>mild</severity>
+<dyspnoea>yes</dyspnoea>
+<dyspnoea_onset>rest</dyspnoea_onset>
+<cough>yes</cough>
+<cough_type>dry</cough_type>
+<sputum_production>yes</sputum_production>
+<sputum_colour>clear</sputum_colour>
+<wheeze>yes</wheeze>
+<chest_pain>yes</chest_pain>
+<chest_pain_character>pleuritic</chest_pain_character>
+<weight_loss>yes</weight_loss>
+<night_sweats>yes</night_sweats>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_chief_complaint>

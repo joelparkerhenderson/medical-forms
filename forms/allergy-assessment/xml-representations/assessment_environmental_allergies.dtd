@@ -1,0 +1,14 @@
+<!ELEMENT assessment_environmental_allergies (id,assessment_id,pollen_allergy,dust_mite_allergy,mould_allergy,animal_dander_allergy,latex_allergy,insect_sting_allergy,insect_sting_severity,seasonal_pattern,other_environmental_allergens,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT pollen_allergy (#PCDATA)>
+<!ELEMENT dust_mite_allergy (#PCDATA)>
+<!ELEMENT mould_allergy (#PCDATA)>
+<!ELEMENT animal_dander_allergy (#PCDATA)>
+<!ELEMENT latex_allergy (#PCDATA)>
+<!ELEMENT insect_sting_allergy (#PCDATA)>
+<!ELEMENT insect_sting_severity (#PCDATA)>
+<!ELEMENT seasonal_pattern (#PCDATA)>
+<!ELEMENT other_environmental_allergens (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

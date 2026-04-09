@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE administration_record SYSTEM "administration_record.dtd">
+<administration_record>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<vaccine_name>Example</vaccine_name>
+<batch_number></batch_number>
+<expiry_date>2026-01-15</expiry_date>
+<administration_site>leftDeltoid</administration_site>
+<administration_route>intramuscular</administration_route>
+<dose_number>1</dose_number>
+<administered_by></administered_by>
+<administration_date>2026-01-15</administration_date>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</administration_record>

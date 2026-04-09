@@ -1,0 +1,11 @@
+<!ELEMENT assessment_allergy_history (id,assessment_id,age_of_onset,known_allergens,family_history_of_atopy,family_atopy_details,family_history_of_allergy,family_allergy_details,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT age_of_onset (#PCDATA)>
+<!ELEMENT known_allergens (#PCDATA)>
+<!ELEMENT family_history_of_atopy (#PCDATA)>
+<!ELEMENT family_atopy_details (#PCDATA)>
+<!ELEMENT family_history_of_allergy (#PCDATA)>
+<!ELEMENT family_allergy_details (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

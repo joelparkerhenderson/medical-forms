@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE smoking_alcohol SYSTEM "smoking_alcohol.dtd">
+<smoking_alcohol>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<smoking_status>nonSmoker</smoking_status>
+<cigarettes_per_day>1</cigarettes_per_day>
+<years_since_quit>2026</years_since_quit>
+<alcohol_units_per_week>0.0</alcohol_units_per_week>
+<alcohol_frequency>never</alcohol_frequency>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</smoking_alcohol>

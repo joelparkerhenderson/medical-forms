@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_functional_history SYSTEM "assessment_functional_history.dtd">
+<assessment_functional_history>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<managing_finances>independent</managing_finances>
+<managing_medications>independent</managing_medications>
+<using_telephone>independent</using_telephone>
+<meal_preparation>independent</meal_preparation>
+<shopping>independent</shopping>
+<housekeeping>independent</housekeeping>
+<transportation>independent</transportation>
+<personal_care>independent</personal_care>
+<driving_status>driving</driving_status>
+<safety_concerns>yes</safety_concerns>
+<safety_concern_details>Example text.</safety_concern_details>
+<wandering_risk>yes</wandering_risk>
+<carer_name>Example</carer_name>
+<carer_relationship>Spouse</carer_relationship>
+<carer_strain>none</carer_strain>
+<functional_history_notes>Example text.</functional_history_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_functional_history>

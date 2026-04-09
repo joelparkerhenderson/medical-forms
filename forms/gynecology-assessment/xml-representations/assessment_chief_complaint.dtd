@@ -1,0 +1,15 @@
+<!ELEMENT assessment_chief_complaint (id,assessment_id,primary_complaint,symptom_duration,symptom_onset,symptom_severity,symptom_pattern,aggravating_factors,relieving_factors,impact_on_daily_life,previous_treatment_for_complaint,previous_treatment_details,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT primary_complaint (#PCDATA)>
+<!ELEMENT symptom_duration (#PCDATA)>
+<!ELEMENT symptom_onset (#PCDATA)>
+<!ELEMENT symptom_severity (#PCDATA)>
+<!ELEMENT symptom_pattern (#PCDATA)>
+<!ELEMENT aggravating_factors (#PCDATA)>
+<!ELEMENT relieving_factors (#PCDATA)>
+<!ELEMENT impact_on_daily_life (#PCDATA)>
+<!ELEMENT previous_treatment_for_complaint (#PCDATA)>
+<!ELEMENT previous_treatment_details (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

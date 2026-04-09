@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_motor_and_sensory_exam SYSTEM "assessment_motor_and_sensory_exam.dtd">
+<assessment_motor_and_sensory_exam>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<upper_limb_power_left>1</upper_limb_power_left>
+<upper_limb_power_right>1</upper_limb_power_right>
+<lower_limb_power_left>1</lower_limb_power_left>
+<lower_limb_power_right>1</lower_limb_power_right>
+<grip_strength_left>1</grip_strength_left>
+<grip_strength_right>1</grip_strength_right>
+<upper_limb_tone_left>normal</upper_limb_tone_left>
+<upper_limb_tone_right>normal</upper_limb_tone_right>
+<lower_limb_tone_left>normal</lower_limb_tone_left>
+<lower_limb_tone_right>normal</lower_limb_tone_right>
+<biceps_reflex_left>1</biceps_reflex_left>
+<biceps_reflex_right>1</biceps_reflex_right>
+<knee_reflex_left>1</knee_reflex_left>
+<knee_reflex_right>1</knee_reflex_right>
+<ankle_reflex_left>1</ankle_reflex_left>
+<ankle_reflex_right>1</ankle_reflex_right>
+<plantar_response_left>flexor</plantar_response_left>
+<plantar_response_right>flexor</plantar_response_right>
+<light_touch_intact>yes</light_touch_intact>
+<light_touch_deficit_area></light_touch_deficit_area>
+<pinprick_intact>yes</pinprick_intact>
+<pinprick_deficit_area></pinprick_deficit_area>
+<proprioception_intact>yes</proprioception_intact>
+<vibration_sense_intact>yes</vibration_sense_intact>
+<finger_nose_test_left>normal</finger_nose_test_left>
+<finger_nose_test_right>normal</finger_nose_test_right>
+<heel_shin_test_left>normal</heel_shin_test_left>
+<heel_shin_test_right>normal</heel_shin_test_right>
+<romberg_test>negative</romberg_test>
+<motor_sensory_notes>Example text.</motor_sensory_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_motor_and_sensory_exam>

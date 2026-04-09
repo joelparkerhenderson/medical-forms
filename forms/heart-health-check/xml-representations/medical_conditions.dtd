@@ -1,0 +1,14 @@
+<!ELEMENT medical_conditions (id,assessment_id,has_diabetes,has_atrial_fibrillation,has_rheumatoid_arthritis,has_chronic_kidney_disease,has_migraine,has_severe_mental_illness,has_erectile_dysfunction,on_atypical_antipsychotic,on_corticosteroids,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT has_diabetes (#PCDATA)>
+<!ELEMENT has_atrial_fibrillation (#PCDATA)>
+<!ELEMENT has_rheumatoid_arthritis (#PCDATA)>
+<!ELEMENT has_chronic_kidney_disease (#PCDATA)>
+<!ELEMENT has_migraine (#PCDATA)>
+<!ELEMENT has_severe_mental_illness (#PCDATA)>
+<!ELEMENT has_erectile_dysfunction (#PCDATA)>
+<!ELEMENT on_atypical_antipsychotic (#PCDATA)>
+<!ELEMENT on_corticosteroids (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

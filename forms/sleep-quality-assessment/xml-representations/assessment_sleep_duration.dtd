@@ -1,0 +1,11 @@
+<!ELEMENT assessment_sleep_duration (id,assessment_id,actual_sleep_hours,sleep_duration_weekday_hours,sleep_duration_weekend_hours,sleep_duration_variability,perceived_sleep_need_hours,sleep_debt_present,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT actual_sleep_hours (#PCDATA)>
+<!ELEMENT sleep_duration_weekday_hours (#PCDATA)>
+<!ELEMENT sleep_duration_weekend_hours (#PCDATA)>
+<!ELEMENT sleep_duration_variability (#PCDATA)>
+<!ELEMENT perceived_sleep_need_hours (#PCDATA)>
+<!ELEMENT sleep_debt_present (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

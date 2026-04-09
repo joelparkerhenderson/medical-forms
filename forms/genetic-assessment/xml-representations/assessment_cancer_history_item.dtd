@@ -1,0 +1,10 @@
+<!ELEMENT assessment_cancer_history_item (id,cancer_history_id,relative_relationship,cancer_type,age_at_diagnosis,outcome,sort_order,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT cancer_history_id (#PCDATA)>
+<!ELEMENT relative_relationship (#PCDATA)>
+<!ELEMENT cancer_type (#PCDATA)>
+<!ELEMENT age_at_diagnosis (#PCDATA)>
+<!ELEMENT outcome (#PCDATA)>
+<!ELEMENT sort_order (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

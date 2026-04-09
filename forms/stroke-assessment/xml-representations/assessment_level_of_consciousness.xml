@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_level_of_consciousness SYSTEM "assessment_level_of_consciousness.dtd">
+<assessment_level_of_consciousness>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<nihss_1a_loc>1</nihss_1a_loc>
+<nihss_1b_loc_questions>1</nihss_1b_loc_questions>
+<nihss_1c_loc_commands>1</nihss_1c_loc_commands>
+<gcs_eye>1</gcs_eye>
+<gcs_verbal>1</gcs_verbal>
+<gcs_motor>1</gcs_motor>
+<gcs_total>1</gcs_total>
+<orientation_notes>Example text.</orientation_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_level_of_consciousness>

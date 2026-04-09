@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_aq10_questionnaire SYSTEM "assessment_aq10_questionnaire.dtd">
+<assessment_aq10_questionnaire>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<q01_notice_small_sounds>definitely_agree</q01_notice_small_sounds>
+<q02_concentrate_whole_picture>definitely_agree</q02_concentrate_whole_picture>
+<q03_easy_multitask>definitely_agree</q03_easy_multitask>
+<q04_easy_go_back_and_forth>definitely_agree</q04_easy_go_back_and_forth>
+<q05_easy_read_between_lines>definitely_agree</q05_easy_read_between_lines>
+<q06_easy_detect_feeling_bored>definitely_agree</q06_easy_detect_feeling_bored>
+<q07_easy_work_out_intentions>definitely_agree</q07_easy_work_out_intentions>
+<q08_easy_imagine_as_character>definitely_agree</q08_easy_imagine_as_character>
+<q09_find_social_situations_easy>definitely_agree</q09_find_social_situations_easy>
+<q10_difficult_work_out_friends>definitely_agree</q10_difficult_work_out_friends>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_aq10_questionnaire>

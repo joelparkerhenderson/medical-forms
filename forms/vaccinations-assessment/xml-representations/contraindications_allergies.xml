@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE contraindications_allergies SYSTEM "contraindications_allergies.dtd">
+<contraindications_allergies>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<egg_allergy>yes</egg_allergy>
+<gelatin_allergy>yes</gelatin_allergy>
+<latex_allergy>yes</latex_allergy>
+<neomycin_allergy>yes</neomycin_allergy>
+<pregnant>yes</pregnant>
+<pregnancy_weeks></pregnancy_weeks>
+<severe_illness>yes</severe_illness>
+<previous_anaphylaxis>yes</previous_anaphylaxis>
+<anaphylaxis_details>Example text.</anaphylaxis_details>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</contraindications_allergies>

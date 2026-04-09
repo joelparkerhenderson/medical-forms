@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_surgical_history SYSTEM "assessment_surgical_history.dtd">
+<assessment_surgical_history>
+<id>440e8400-e29b-41d4-a716-44665544000e</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_previous_surgery>yes</has_previous_surgery>
+<surgery_considered>yes</surgery_considered>
+<surgery_considered_details>Example text.</surgery_considered_details>
+<patient_preference>conservative</patient_preference>
+<comorbidities_affecting_surgery>Example procedure</comorbidities_affecting_surgery>
+<anaesthetic_risk>low</anaesthetic_risk>
+<anticoagulant_use>yes</anticoagulant_use>
+<anticoagulant_details>Example text.</anticoagulant_details>
+<surgical_history_notes>Example text.</surgical_history_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_surgical_history>

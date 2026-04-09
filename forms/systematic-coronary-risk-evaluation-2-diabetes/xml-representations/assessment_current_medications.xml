@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_medications SYSTEM "assessment_current_medications.dtd">
+<assessment_current_medications>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<metformin>yes</metformin>
+<sglt2_inhibitor>yes</sglt2_inhibitor>
+<glp1_agonist>yes</glp1_agonist>
+<sulfonylurea>yes</sulfonylurea>
+<dpp4_inhibitor>yes</dpp4_inhibitor>
+<insulin>yes</insulin>
+<ace_inhibitor_or_arb>yes</ace_inhibitor_or_arb>
+<antiplatelet>yes</antiplatelet>
+<anticoagulant>yes</anticoagulant>
+<other_medications>Paracetamol</other_medications>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_medications>

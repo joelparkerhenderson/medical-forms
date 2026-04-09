@@ -1,0 +1,15 @@
+<!ELEMENT assessment_chief_complaint (id,assessment_id,primary_complaint,complaint_duration,onset_type,laterality,ear_most_affected,difficulty_in_noise,difficulty_on_phone,difficulty_with_television,asks_others_to_repeat,additional_concerns,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT primary_complaint (#PCDATA)>
+<!ELEMENT complaint_duration (#PCDATA)>
+<!ELEMENT onset_type (#PCDATA)>
+<!ELEMENT laterality (#PCDATA)>
+<!ELEMENT ear_most_affected (#PCDATA)>
+<!ELEMENT difficulty_in_noise (#PCDATA)>
+<!ELEMENT difficulty_on_phone (#PCDATA)>
+<!ELEMENT difficulty_with_television (#PCDATA)>
+<!ELEMENT asks_others_to_repeat (#PCDATA)>
+<!ELEMENT additional_concerns (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,10 @@
+<!ELEMENT assessment_imaging_item (id,imaging_history_id,modality,body_region,date_performed,findings,sort_order,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT imaging_history_id (#PCDATA)>
+<!ELEMENT modality (#PCDATA)>
+<!ELEMENT body_region (#PCDATA)>
+<!ELEMENT date_performed (#PCDATA)>
+<!ELEMENT findings (#PCDATA)>
+<!ELEMENT sort_order (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>
