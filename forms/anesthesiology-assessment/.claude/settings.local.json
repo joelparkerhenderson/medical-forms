@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.ncbi.nlm.nih.gov)",
+      "WebFetch(domain:www.nice.org.uk)",
+      "WebFetch(domain:www.mdcalc.com)",
+      "WebFetch(domain:geekymedics.com)",
+      "WebFetch(domain:rcoa.ac.uk)"
+    ]
+  }
+}

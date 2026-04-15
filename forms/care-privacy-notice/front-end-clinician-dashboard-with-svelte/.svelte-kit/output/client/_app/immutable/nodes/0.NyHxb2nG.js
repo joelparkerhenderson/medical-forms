@@ -1,0 +1,1 @@
+import{c as e,a as i}from"../chunks/BKFil4DZ.js";import{f as n,g as c,$ as s}from"../chunks/Ckgl4OmB.js";import{h as m,s as f}from"../chunks/XK2uX_-h.js";function $(o,r){var a=e();m("12qhfyh",p=>{c(()=>{s.title="Care Privacy Notice — Clinician Dashboard"})});var t=n(a);f(t,()=>r.children),i(o,a)}export{$ as component};

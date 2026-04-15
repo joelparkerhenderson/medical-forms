@@ -1,6 +1,6 @@
 import "clsx";
 import { a as assessment } from "./assessment.svelte.js";
-import { e as escape_html, f as attr, k as bind_props, d as derived, a as attr_class, b as stringify } from "./renderer.js";
+import { e as escape_html, c as attr, f as bind_props, d as derived, a as attr_class, s as stringify } from "./renderer.js";
 function SectionCard($$renderer, $$props) {
   let { title, description = "", children } = $$props;
   $$renderer.push(`<div class="mx-auto max-w-2xl"><div class="mb-6"><h2 class="text-2xl font-bold text-gray-900">${escape_html(title)}</h2> `);

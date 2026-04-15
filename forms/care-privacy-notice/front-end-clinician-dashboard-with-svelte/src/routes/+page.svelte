@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { Grid, Willow } from '@svar-ui/svelte-grid';
-	import { fetchPatients } from '$lib/api.ts';
-	import { patients as samplePatients } from '$lib/data.ts';
-	import type { PatientRow } from '$lib/types.ts';
+	import { fetchAcknowledgments } from '$lib/api.ts';
+	import { acknowledgments as sampleData } from '$lib/data.ts';
+	import type { AcknowledgmentRow } from '$lib/types.ts';
 
-	let patients = $state<PatientRow[]>(samplePatients);
+	let rows = $state<AcknowledgmentRow[]>(sampleData);
 	let loading = $state(true);
 	let error = $state('');
 	let searchTerm = $state('');
@@ -12,60 +12,42 @@
 	let gridApi = $state<any>(null);
 
 	$effect(() => {
-		fetchPatients()
+		fetchAcknowledgments()
 			.then((items) => {
 				if (items.length > 0) {
-					patients = items;
+					rows = items;
 				}
 				loading = false;
 			})
 			.catch(() => {
+				// Backend unavailable -- use sample data
 				loading = false;
 			});
 	});
 
 	const statusOptions = [
-		{ value: '', label: 'All statuses' },
+		{ value: '', label: 'All Status' },
 		{ value: 'complete', label: 'Complete' },
 		{ value: 'incomplete', label: 'Incomplete' },
 	];
 
 	const columns = [
-		{
-			id: 'patientName',
-			header: 'Patient Name',
-			flexgrow: 1,
-			sort: true,
-		},
-		{
-			id: 'nhsNumber',
-			header: 'NHS Number',
-			width: 140,
-			sort: true,
-		},
-		{
-			id: 'dateAcknowledged',
-			header: 'Date Acknowledged',
-			width: 160,
-			sort: true,
-		},
+		{ id: 'patientName', header: 'Patient Name', flexgrow: 1, sort: true },
+		{ id: 'nhsNumber', header: 'NHS Number', width: 140, sort: true },
+		{ id: 'dateAcknowledged', header: 'Date Acknowledged', width: 160, sort: true },
 		{
 			id: 'status',
 			header: 'Status',
 			width: 120,
 			sort: true,
+			template: (value: string) => value.charAt(0).toUpperCase() + value.slice(1),
 		},
-		{
-			id: 'practiceName',
-			header: 'Practice Name',
-			flexgrow: 1,
-			sort: true,
-		},
+		{ id: 'practiceName', header: 'Practice Name', flexgrow: 1, sort: true },
 	];
 
 	function init(api: any) {
 		gridApi = api;
-		api.exec('sort-rows', { key: 'patientName', order: 'asc' });
+		api.exec('sort-rows', { key: 'dateAcknowledged', order: 'desc' });
 	}
 
 	function applyFilters() {
@@ -73,12 +55,11 @@
 
 		const term = searchTerm.toLowerCase();
 
-		const filter = (row: PatientRow) => {
+		const filter = (row: AcknowledgmentRow) => {
 			if (term) {
 				const matches =
 					row.patientName.toLowerCase().includes(term) ||
-					row.nhsNumber.toLowerCase().includes(term) ||
-					row.practiceName.toLowerCase().includes(term);
+					row.nhsNumber.toLowerCase().includes(term);
 				if (!matches) return false;
 			}
 
@@ -100,22 +81,23 @@
 		}
 	}
 
-	let hasActiveFilters = $derived(
-		searchTerm !== '' || statusFilter !== ''
-	);
+	let hasActiveFilters = $derived(searchTerm !== '' || statusFilter !== '');
 </script>
 
 <div class="min-h-screen bg-gray-50">
+	<!-- Header -->
 	<header class="bg-nhs-blue text-white shadow">
 		<div class="mx-auto max-w-7xl px-4 py-4 sm:px-6">
 			<h1 class="text-2xl font-bold">Care Privacy Notice — Clinician Dashboard</h1>
-			<p class="mt-1 text-sm text-blue-100">Patient privacy notice acknowledgment status</p>
+			<p class="mt-1 text-sm text-blue-100">Patient privacy notice acknowledgments</p>
 		</div>
 	</header>
 
 	<main class="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+		<!-- Filters bar -->
 		<div class="mb-4 rounded-lg bg-white p-4 shadow-sm">
 			<div class="flex flex-wrap items-end gap-4">
+				<!-- Search -->
 				<div class="min-w-[240px] flex-1">
 					<label for="search" class="mb-1 block text-sm font-medium text-gray-700">
 						Search
@@ -123,13 +105,14 @@
 					<input
 						id="search"
 						type="text"
-						placeholder="Name, NHS number, or practice..."
+						placeholder="Name or NHS number..."
 						bind:value={searchTerm}
 						oninput={applyFilters}
 						class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
 					/>
 				</div>
 
+				<!-- Status filter -->
 				<div>
 					<label for="status-filter" class="mb-1 block text-sm font-medium text-gray-700">
 						Status
@@ -146,6 +129,7 @@
 					</select>
 				</div>
 
+				<!-- Clear filters -->
 				{#if hasActiveFilters}
 					<button
 						onclick={clearFilters}
@@ -157,6 +141,7 @@
 			</div>
 		</div>
 
+		<!-- Data grid -->
 		<div class="rounded-lg bg-white shadow-sm" style="height: 600px;">
 			{#if loading}
 				<div class="flex h-full items-center justify-center text-muted">
@@ -164,13 +149,14 @@
 				</div>
 			{:else}
 				<Willow>
-					<Grid data={patients} {columns} {init} />
+					<Grid data={rows} {columns} {init} />
 				</Willow>
 			{/if}
 		</div>
 
+		<!-- Summary -->
 		<div class="mt-4 flex items-center gap-4 text-sm text-muted">
-			<span>{patients.length} acknowledgments total</span>
+			<span>{rows.length} patients total</span>
 			{#if error}
 				<span class="text-warning">{error}</span>
 			{/if}

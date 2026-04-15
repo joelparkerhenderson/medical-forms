@@ -1,5 +1,4 @@
-/** Patient row displayed in the clinician dashboard */
-export interface PatientRow {
+export interface AcknowledgmentRow {
 	id: string;
 	patientName: string;
 	nhsNumber: string;
@@ -8,8 +7,7 @@ export interface PatientRow {
 	practiceName: string;
 }
 
-/** Response from GET /api/dashboard/patients */
-export interface DashboardPatientsResponse {
-	items: PatientRow[];
+export interface DashboardResponse {
+	items: AcknowledgmentRow[];
 	total: number;
 }

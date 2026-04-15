@@ -1,7 +1,7 @@
-import type { PatientRow } from './types.ts';
+import type { AcknowledgmentRow } from './types.ts';
 
 /** Sample privacy notice acknowledgment data for the clinician dashboard */
-export const patients: PatientRow[] = [
+export const acknowledgments: AcknowledgmentRow[] = [
 	{ id: '1', patientName: 'Smith, John', nhsNumber: '943 476 5919', dateAcknowledged: '2026-04-15', status: 'complete', practiceName: 'Riverside Medical Practice' },
 	{ id: '2', patientName: 'Patel, Priya', nhsNumber: '721 938 4102', dateAcknowledged: '2026-04-14', status: 'complete', practiceName: 'Riverside Medical Practice' },
 	{ id: '3', patientName: 'Jones, Margaret', nhsNumber: '384 615 7230', dateAcknowledged: '2026-04-13', status: 'incomplete', practiceName: 'Hillside Surgery' },

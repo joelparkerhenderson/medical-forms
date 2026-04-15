@@ -30,11 +30,16 @@
     "file": "chunks/exports.js",
     "name": "exports"
   },
+  "_false.js": {
+    "file": "chunks/false.js",
+    "name": "false"
+  },
   "_index.js": {
     "file": "chunks/index.js",
     "name": "index",
     "imports": [
-      "_renderer.js"
+      "_renderer.js",
+      "_root.js"
     ]
   },
   "_internal.js": {
@@ -60,7 +65,8 @@
     "file": "chunks/root.js",
     "name": "root",
     "imports": [
-      "_renderer.js"
+      "_renderer.js",
+      "_false.js"
     ]
   },
   "_shared.js": {
@@ -95,7 +101,7 @@
     "isEntry": true,
     "imports": [
       "_shared.js",
-      "_render-context.js",
+      "_false.js",
       "_environment.js"
     ]
   },
@@ -120,19 +126,13 @@
     "isEntry": true,
     "imports": [
       "_shared.js",
-      "_render-context.js",
+      "_false.js",
       "_environment.js",
       "_exports.js",
       "_utils.js",
       "_index.js",
       "_internal.js"
     ]
-  },
-  "src/params/step.ts": {
-    "file": "entries/matchers/step.js",
-    "name": "entries/matchers/step",
-    "src": "src/params/step.ts",
-    "isEntry": true
   },
   "src/routes/+layout.svelte": {
     "file": "entries/pages/_layout.svelte.js",
@@ -143,7 +143,7 @@
       "_renderer.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.CcT5bRD8.css"
+      "_app/immutable/assets/_layout.DdWm7uLG.css"
     ]
   },
   "src/routes/+page.svelte": {
@@ -158,13 +158,12 @@
       "_Step3AcknowledgmentSignature.js"
     ]
   },
-  "src/routes/assessment/[step=step]/+page.svelte": {
-    "file": "entries/pages/assessment/_step_step_/_page.svelte.js",
-    "name": "entries/pages/assessment/_step_step_/_page.svelte",
-    "src": "src/routes/assessment/[step=step]/+page.svelte",
+  "src/routes/assessment/+page.svelte": {
+    "file": "entries/pages/assessment/_page.svelte.js",
+    "name": "entries/pages/assessment/_page.svelte",
+    "src": "src/routes/assessment/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_renderer.js",
       "_exports.js",
       "_utils.js",
       "_root.js",

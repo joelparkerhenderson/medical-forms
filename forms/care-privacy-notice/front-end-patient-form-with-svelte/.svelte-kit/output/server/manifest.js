@@ -10,7 +10,7 @@ return {
 	assets: new Set([]),
 	mimeTypes: {},
 	_: {
-		client: {start:"_app/immutable/entry/start.DCci0dw-.js",app:"_app/immutable/entry/app.D8M5YK8a.js",imports:["_app/immutable/entry/start.DCci0dw-.js","_app/immutable/chunks/iPSuiUv5.js","_app/immutable/chunks/BJjQH1xc.js","_app/immutable/chunks/l1ghm2BZ.js","_app/immutable/chunks/D2qP5oba.js","_app/immutable/entry/app.D8M5YK8a.js","_app/immutable/chunks/BJjQH1xc.js","_app/immutable/chunks/D_rTd1hy.js","_app/immutable/chunks/D8mrjy7l.js","_app/immutable/chunks/D2qP5oba.js","_app/immutable/chunks/CyEHCTcm.js","_app/immutable/chunks/DeR8T30c.js","_app/immutable/chunks/BC_GyKR0.js","_app/immutable/chunks/l1ghm2BZ.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.B9n0Dcxa.js",app:"_app/immutable/entry/app.DQ5IQl8V.js",imports:["_app/immutable/entry/start.B9n0Dcxa.js","_app/immutable/chunks/BFTIdnhC.js","_app/immutable/chunks/BO_1ccXQ.js","_app/immutable/chunks/CGvR8zP8.js","_app/immutable/entry/app.DQ5IQl8V.js","_app/immutable/chunks/BO_1ccXQ.js","_app/immutable/chunks/l9YnK5gb.js","_app/immutable/chunks/CgLd2K39.js","_app/immutable/chunks/CGvR8zP8.js","_app/immutable/chunks/DQJYbyGC.js","_app/immutable/chunks/CQPSQXtH.js","_app/immutable/chunks/DADbbWz1.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js')),
@@ -30,9 +30,9 @@ return {
 				endpoint: null
 			},
 			{
-				id: "/assessment/[step=step]",
-				pattern: /^\/assessment\/([^/]+?)\/?$/,
-				params: [{"name":"step","matcher":"step","optional":false,"rest":false,"chained":false}],
+				id: "/assessment",
+				pattern: /^\/assessment\/?$/,
+				params: [],
 				page: { layouts: [0,], errors: [1,], leaf: 3 },
 				endpoint: null
 			},
@@ -46,8 +46,8 @@ return {
 		],
 		prerendered_routes: new Set([]),
 		matchers: async () => {
-			const { match: step } = await import ('./entries/matchers/step.js')
-			return { step };
+			
+			return {  };
 		},
 		server_assets: {}
 	}

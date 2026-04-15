@@ -1,4 +1,4 @@
-import { a as attr_class, b as stringify, e as escape_html, c as ensure_array_like, d as derived } from "../../chunks/renderer.js";
+import { a as attr_class, s as stringify, e as escape_html, b as ensure_array_like, d as derived } from "../../chunks/renderer.js";
 import { a as assessment } from "../../chunks/assessment.svelte.js";
 import { c as completenessColor } from "../../chunks/utils2.js";
 import { S as Step1PracticeConfiguration, a as Step2PrivacyNotice, b as Step3AcknowledgmentSignature } from "../../chunks/Step3AcknowledgmentSignature.js";
