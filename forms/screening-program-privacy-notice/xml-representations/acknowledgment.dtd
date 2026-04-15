@@ -1,0 +1,8 @@
+<!ELEMENT acknowledgment (id, patient_id, confirmed, full_name, acknowledged_date, created_at, updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT patient_id (#PCDATA)>
+<!ELEMENT confirmed (#PCDATA)>
+<!ELEMENT full_name (#PCDATA)>
+<!ELEMENT acknowledged_date (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

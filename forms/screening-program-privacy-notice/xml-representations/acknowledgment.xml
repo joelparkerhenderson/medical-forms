@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE acknowledgment SYSTEM "acknowledgment.dtd">
+<acknowledgment>
+  <id></id>
+  <patient_id></patient_id>
+  <confirmed></confirmed>
+  <full_name></full_name>
+  <acknowledged_date></acknowledged_date>
+  <created_at></created_at>
+  <updated_at></updated_at>
+</acknowledgment>

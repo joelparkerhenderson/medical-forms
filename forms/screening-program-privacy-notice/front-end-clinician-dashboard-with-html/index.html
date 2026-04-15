@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screening Programme Privacy Notice — Clinician Dashboard</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f3f2f1;
+            color: #0b0c0c;
+            line-height: 1.5;
+        }
+        header {
+            background: #005eb8;
+            color: #fff;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .container { max-width: 960px; margin: 0 auto; padding: 0 1rem; }
+        header h1 { font-size: 1.5rem; font-weight: 700; }
+        header p { color: #d0e6f9; margin-top: 0.25rem; font-size: 0.95rem; }
+        main { padding: 2rem 0; }
+        .card {
+            background: #fff;
+            border: 1px solid #d2d8de;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .filters input[type="text"] {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.5rem 0.75rem;
+            border: 2px solid #b1b4b6;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+        .filters input[type="text"]:focus {
+            outline: none;
+            border-color: #005eb8;
+            box-shadow: 0 0 0 3px rgba(0,94,184,0.2);
+        }
+        .filters select {
+            padding: 0.5rem 0.75rem;
+            border: 2px solid #b1b4b6;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: #fff;
+        }
+        .filters select:focus {
+            outline: none;
+            border-color: #005eb8;
+        }
+        .btn-clear {
+            padding: 0.5rem 1rem;
+            border: 2px solid #005eb8;
+            border-radius: 6px;
+            background: transparent;
+            color: #005eb8;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: none;
+        }
+        .btn-clear:hover { background: #e8f1fa; }
+        .btn-clear.visible { display: inline-block; }
+        .count { font-size: 0.85rem; color: #505a5f; margin-bottom: 0.75rem; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+        th {
+            text-align: left;
+            padding: 0.75rem 0.5rem;
+            border-bottom: 2px solid #005eb8;
+            font-weight: 600;
+            color: #0b0c0c;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+        th:hover { color: #005eb8; }
+        th .sort-arrow { font-size: 0.7rem; margin-left: 0.25rem; color: #b1b4b6; }
+        th .sort-arrow.active { color: #005eb8; }
+        td { padding: 0.65rem 0.5rem; border-bottom: 1px solid #e8e8e8; }
+        tr:hover td { background: #f8f8f8; }
+        .badge {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid;
+        }
+        .badge-complete { background: #e6f4ed; color: #00703c; border-color: #00703c; }
+        .badge-incomplete { background: #fef3e8; color: #f47738; border-color: #f47738; }
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: #505a5f;
+            display: none;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            color: #505a5f;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Screening Programme Privacy Notice</h1>
+            <p>Clinician Dashboard — Patient Acknowledgments</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <div class="filters">
+                <input type="text" id="search" placeholder="Search by name or NHS number...">
+                <select id="statusFilter">
+                    <option value="all">All statuses</option>
+                    <option value="complete">Complete</option>
+                    <option value="incomplete">Incomplete</option>
+                </select>
+                <button class="btn-clear" id="clearBtn">Clear filters</button>
+            </div>
+            <p class="count">Showing <span id="showing">0</span> of <span id="total">0</span> acknowledgments</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-sort="patientName">Patient Name <span class="sort-arrow">&#9650;&#9660;</span></th>
+                        <th data-sort="nhsNumber">NHS Number <span class="sort-arrow">&#9650;&#9660;</span></th>
+                        <th data-sort="acknowledgedDate">Acknowledged Date <span class="sort-arrow active">&#9660;</span></th>
+                        <th data-sort="status">Status <span class="sort-arrow">&#9650;&#9660;</span></th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+            <div class="empty-state" id="emptyState">No matching acknowledgments found.</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>This notice is provided in accordance with UK GDPR Articles 6(1)(e), 9(2)(a)/(j), and 9(2)(h).</p>
+        </div>
+    </footer>
+
+    <script>
+        const sampleData = [
+            { id: '1', patientName: 'Sarah Thompson', nhsNumber: '943 476 5919', acknowledgedDate: '2026-04-15', status: 'complete' },
+            { id: '2', patientName: 'James Wilson', nhsNumber: '725 183 4062', acknowledgedDate: '2026-04-14', status: 'complete' },
+            { id: '3', patientName: 'Emily Roberts', nhsNumber: '481 927 3658', acknowledgedDate: '2026-04-14', status: 'complete' },
+            { id: '4', patientName: 'Mohammed Ali Khan', nhsNumber: '612 845 9073', acknowledgedDate: '2026-04-13', status: 'complete' },
+            { id: '5', patientName: 'Catherine Davies', nhsNumber: '358 271 6490', acknowledgedDate: '', status: 'incomplete' },
+            { id: '6', patientName: 'Robert Patel', nhsNumber: '894 536 1027', acknowledgedDate: '2026-04-12', status: 'complete' },
+            { id: '7', patientName: "Margaret O'Brien", nhsNumber: '167 493 8205', acknowledgedDate: '', status: 'incomplete' },
+            { id: '8', patientName: 'David Chen', nhsNumber: '539 718 2046', acknowledgedDate: '2026-04-11', status: 'complete' }
+        ];
+
+        function loadFromLocalStorage() {
+            try {
+                const saved = localStorage.getItem('screeningProgramAcknowledgments');
+                if (!saved) return [];
+                const entries = JSON.parse(saved);
+                if (!Array.isArray(entries)) return [];
+                return entries.map((entry, idx) => ({
+                    id: 'ls-' + idx,
+                    patientName: entry.fullName || 'Unknown',
+                    nhsNumber: entry.nhsNumber || '—',
+                    acknowledgedDate: entry.date || (entry.submittedAt ? entry.submittedAt.slice(0, 10) : ''),
+                    status: entry.date || entry.submittedAt ? 'complete' : 'incomplete'
+                }));
+            } catch (e) {
+                return [];
+            }
+        }
+
+        const localEntries = loadFromLocalStorage();
+        let data = [...localEntries, ...sampleData];
+
+        let sortKey = 'acknowledgedDate';
+        let sortDir = 'desc';
+
+        const searchInput = document.getElementById('search');
+        const statusSelect = document.getElementById('statusFilter');
+        const clearBtn = document.getElementById('clearBtn');
+        const tableBody = document.getElementById('tableBody');
+        const showingEl = document.getElementById('showing');
+        const totalEl = document.getElementById('total');
+        const emptyState = document.getElementById('emptyState');
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function getFiltered() {
+            let rows = data;
+            const q = searchInput.value.toLowerCase().trim();
+            const status = statusSelect.value;
+
+            if (q) {
+                rows = rows.filter(r =>
+                    r.patientName.toLowerCase().includes(q) ||
+                    r.nhsNumber.includes(q)
+                );
+            }
+            if (status !== 'all') {
+                rows = rows.filter(r => r.status === status);
+            }
+
+            rows.sort((a, b) => {
+                let va = a[sortKey] || '';
+                let vb = b[sortKey] || '';
+                if (va < vb) return sortDir === 'asc' ? -1 : 1;
+                if (va > vb) return sortDir === 'asc' ? 1 : -1;
+                return 0;
+            });
+
+            return rows;
+        }
+
+        function render() {
+            const filtered = getFiltered();
+            showingEl.textContent = filtered.length;
+            totalEl.textContent = data.length;
+
+            const hasFilters = searchInput.value !== '' || statusSelect.value !== 'all';
+            clearBtn.classList.toggle('visible', hasFilters);
+
+            if (filtered.length === 0) {
+                tableBody.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+            emptyState.style.display = 'none';
+
+            tableBody.innerHTML = filtered.map(row => `
+                <tr>
+                    <td>${escapeHtml(row.patientName)}</td>
+                    <td>${escapeHtml(row.nhsNumber)}</td>
+                    <td>${row.acknowledgedDate ? escapeHtml(row.acknowledgedDate) : '—'}</td>
+                    <td><span class="badge badge-${row.status}">${row.status === 'complete' ? 'Complete' : 'Incomplete'}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        searchInput.addEventListener('input', render);
+        statusSelect.addEventListener('change', render);
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            statusSelect.value = 'all';
+            render();
+        });
+
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => {
+                const key = th.dataset.sort;
+                if (sortKey === key) {
+                    sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+                } else {
+                    sortKey = key;
+                    sortDir = 'asc';
+                }
+                document.querySelectorAll('.sort-arrow').forEach(el => {
+                    el.classList.remove('active');
+                    el.innerHTML = '&#9650;&#9660;';
+                });
+                const arrow = th.querySelector('.sort-arrow');
+                arrow.classList.add('active');
+                arrow.innerHTML = sortDir === 'asc' ? '&#9650;' : '&#9660;';
+                render();
+            });
+        });
+
+        render();
+    </script>
+</body>
+</html>

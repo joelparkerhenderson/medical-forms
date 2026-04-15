@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE patient SYSTEM "patient.dtd">
+<patient>
+  <id></id>
+  <first_name></first_name>
+  <last_name></last_name>
+  <nhs_number></nhs_number>
+  <created_at></created_at>
+  <updated_at></updated_at>
+</patient>

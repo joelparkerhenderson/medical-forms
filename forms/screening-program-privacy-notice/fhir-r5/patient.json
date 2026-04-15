@@ -1,0 +1,25 @@
+{
+  "resourceType": "Patient",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Patient"
+    ],
+    "lastUpdated": "2024-01-01T00:00:00Z"
+  },
+  "identifier": [
+    {
+      "system": "https://fhir.nhs.uk/Id/nhs-number",
+      "value": ""
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "",
+      "given": [
+        ""
+      ]
+    }
+  ]
+}
