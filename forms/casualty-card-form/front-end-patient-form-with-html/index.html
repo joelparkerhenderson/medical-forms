@@ -16,12 +16,7 @@
 
   <main class="container main-content">
     <!-- ─── Landing ────────────────────────────────────── -->
-    <div id="landing" class="hero">
-      <h1>Casualty Card Form</h1>
-      <p>Emergency Department / Minor Injury Unit clinical documentation. Captures patient information from arrival through triage, assessment, treatment, and disposition including NEWS2 scoring.</p>
-      <div class="feature-grid">
-        <div class="feature-card"><h3>14 Steps</h3><p>Demographics to safeguarding</p></div>
-        <div class="feature-card"><h3>NEWS2 Scoring</h3><p>Auto-calculated from vital signs</p></div>
+    <div class="feature-card"><h3>NEWS2 Scoring</h3><p>Auto-calculated from vital signs</p></div>
         <div class="feature-card"><h3>Safety Flags</h3><p>Clinical safety alerts for care team</p></div>
       </div>
       <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Casualty Card</button>
@@ -35,8 +30,7 @@
           <span id="step-label">Step 1 of 14: Patient Demographics</span>
           <span id="step-percent">7%</span>
         </div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:7%"></div></div>
-      </div>
+</div>
 
       <!-- ═══ STEP 1: Patient Demographics ═══ -->
       <section id="step-1" class="step-section active">
@@ -101,7 +95,6 @@
         </div>
         <div class="step-nav">
           <span></span>
-          <button class="btn btn-primary" onclick="goToStep(2)">Next</button>
         </div>
       </section>
 
@@ -131,8 +124,6 @@
           <div class="form-group"><label>Practice Phone</label><input type="tel" data-field="nextOfKinGP.gp.practicePhone"></div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(1)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(3)">Next</button>
         </div>
       </section>
 
@@ -237,8 +228,6 @@
           <div class="form-group"><label>MTS Discriminator</label><input type="text" data-field="arrivalTriage.mtsDiscriminator"></div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(2)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(4)">Next</button>
         </div>
       </section>
 
@@ -269,8 +258,6 @@
           <div class="form-group"><label>Treatment Prior to Arrival</label><textarea data-field="presentingComplaint.treatmentPriorToArrival" rows="2"></textarea></div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(3)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(5)">Next</button>
         </div>
       </section>
 
@@ -302,8 +289,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(4)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(6)">Next</button>
         </div>
       </section>
 
@@ -344,8 +329,6 @@
           <div class="form-group"><label>Last Oral Intake</label><input type="text" data-field="medicalHistory.lastOralIntake"></div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(5)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(7)">Next</button>
         </div>
       </section>
 
@@ -414,8 +397,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(6)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(8)">Next</button>
         </div>
       </section>
 
@@ -493,8 +474,6 @@
           <div class="form-group"><label>Log Roll Findings</label><textarea data-field="primarySurvey.exposure.logRollFindings" rows="2"></textarea></div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(7)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(9)">Next</button>
         </div>
       </section>
 
@@ -517,8 +496,6 @@
           <div class="form-group"><label>Body Diagram Notes</label><textarea data-field="clinicalExamination.bodyDiagramNotes" rows="3" placeholder="Document any injury locations or findings"></textarea></div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(8)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(10)">Next</button>
         </div>
       </section>
 
@@ -563,8 +540,6 @@
           <div class="form-group"><label>Other Investigations</label><textarea data-field="investigations.otherInvestigations" rows="2"></textarea></div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(9)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(11)">Next</button>
         </div>
       </section>
 
@@ -597,8 +572,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(10)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(12)">Next</button>
         </div>
       </section>
 
@@ -613,8 +586,6 @@
           <div class="form-group"><label>Risk Stratification</label><textarea data-field="assessmentPlan.riskStratification" rows="2" placeholder="e.g. HEART score, Wells score, CURB-65"></textarea></div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(11)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(13)">Next</button>
         </div>
       </section>
 
@@ -661,8 +632,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(12)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(14)">Next</button>
         </div>
       </section>
 
@@ -709,7 +678,6 @@
           <div class="form-group"><label>Senior Reviewing Clinician</label><input type="text" data-field="safeguardingConsent.seniorReviewingClinician"></div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(13)">Previous</button>
           <button class="btn btn-success btn-lg" onclick="submitForm()">Submit Casualty Card</button>
         </div>
       </section>

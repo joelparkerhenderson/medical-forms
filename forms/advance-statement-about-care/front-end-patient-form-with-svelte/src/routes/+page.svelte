@@ -4,7 +4,7 @@
 
 	function startStatement() {
 		assessment.reset();
-		goto('/assessment/1');
+		goto('/assessment');
 	}
 </script>
 

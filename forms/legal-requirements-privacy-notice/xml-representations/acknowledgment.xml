@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE acknowledgment SYSTEM "acknowledgment.dtd">
 <acknowledgment>
-  <id></id>
-  <patient_id></patient_id>
-  <confirmed></confirmed>
-  <full_name></full_name>
-  <acknowledged_date></acknowledged_date>
-  <created_at></created_at>
-  <updated_at></updated_at>
+<id>660e8400-e29b-41d4-a716-446655440001</id>
+<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+<confirmed>true</confirmed>
+<full_name>Example</full_name>
+<acknowledged_date>2026-01-15</acknowledged_date>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
 </acknowledgment>

@@ -69,8 +69,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
 /* ─── Steps ────────────────────────────────────────────── */
-.step-section { display: none; }
-.step-section.active { display: block; }
+.step-section { display: block; margin-bottom: 2rem; }
+
 .step-nav { display: flex; justify-content: space-between; margin-top: 1.5rem; }
 
 /* ─── Report ───────────────────────────────────────────── */

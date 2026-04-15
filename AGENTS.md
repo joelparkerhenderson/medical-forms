@@ -39,6 +39,10 @@ forms/<slug>/
   full-stack-with-rust-axum-loco-tera-htmx-alpine/ # Full-stack Rust backend
 ```
 
+## User interface
+
+IMPORTANT: form must be one continuous page. No multi-page forms.
+
 ## Technology stacks
 
 See AGENTS subdirectory files for per-stack details:

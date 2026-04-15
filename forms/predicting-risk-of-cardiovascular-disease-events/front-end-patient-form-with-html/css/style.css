@@ -78,8 +78,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .step-nav { display: flex; justify-content: space-between; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200); }
 
 /* ─── Step Sections ────────────────────────────────────── */
-.step-section { display: none; }
-.step-section.active { display: block; }
+.step-section { display: block; margin-bottom: 2rem; }
+
 
 /* ─── Landing / Hero ───────────────────────────────────── */
 .hero { text-align: center; padding: 3rem 1rem; }

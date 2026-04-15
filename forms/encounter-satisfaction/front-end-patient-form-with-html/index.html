@@ -16,12 +16,7 @@
 
   <main class="container main-content">
     <!-- ─── Landing ────────────────────────────────────── -->
-    <div id="landing" class="hero">
-      <h1>Encounter Satisfaction Survey</h1>
-      <p>Share your feedback about your recent healthcare visit. This survey covers 8 areas including access, communication, staff professionalism, care quality, and environment.</p>
-      <div class="feature-grid">
-        <div class="feature-card"><h3>8 Steps</h3><p>Structured satisfaction questionnaire</p></div>
-        <div class="feature-card"><h3>19 Questions</h3><p>Across 6 satisfaction domains</p></div>
+    <div class="feature-card"><h3>19 Questions</h3><p>Across 6 satisfaction domains</p></div>
         <div class="feature-card"><h3>Instant Results</h3><p>Composite score with domain breakdown</p></div>
       </div>
       <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Survey</button>
@@ -34,8 +29,7 @@
           <span id="step-label">Step 1 of 8: Demographics</span>
           <span id="step-percent">13%</span>
         </div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:13%"></div></div>
-      </div>
+</div>
 
       <!-- ─── Step 1: Demographics ──────────────────────── -->
       <section id="step-1" class="step-section card">
@@ -65,7 +59,6 @@
         </div>
         <div class="step-nav">
           <span></span>
-          <button class="btn btn-primary" onclick="goToStep(2)">Next</button>
         </div>
       </section>
 
@@ -109,8 +102,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(1)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(3)">Next</button>
         </div>
       </section>
 
@@ -149,8 +140,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(2)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(4)">Next</button>
         </div>
       </section>
 
@@ -199,8 +188,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(3)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(5)">Next</button>
         </div>
       </section>
 
@@ -239,8 +226,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(4)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(6)">Next</button>
         </div>
       </section>
 
@@ -279,8 +264,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(5)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(7)">Next</button>
         </div>
       </section>
 
@@ -319,8 +302,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(6)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(8)">Next</button>
         </div>
       </section>
 
@@ -363,7 +344,6 @@
           <textarea data-field="overallSatisfaction.comments" rows="4" placeholder="Please share any additional feedback about your experience..."></textarea>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(7)">Previous</button>
           <button class="btn btn-success" onclick="submitForm()">Submit &amp; View Report</button>
         </div>
       </section>

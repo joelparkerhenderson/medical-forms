@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:carenhs.org)",
+      "WebSearch",
+      "WebFetch(domain:builtwith.com)"
+    ]
+  }
+}

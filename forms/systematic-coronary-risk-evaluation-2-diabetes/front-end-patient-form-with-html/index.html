@@ -16,16 +16,7 @@
 
   <main class="container" style="padding-top:2rem;padding-bottom:2rem;">
     <!-- ─── Landing ────────────────────────────────────── -->
-    <div id="landing" style="text-align:center;">
-      <div class="card">
-        <h2 style="font-size:1.5rem;margin-bottom:.5rem;">SCORE2-Diabetes Risk Assessment</h2>
-        <p style="color:var(--gray-500);margin-bottom:1.5rem;">Predicts 10-year cardiovascular disease risk in patients with type 2 diabetes. Complete all 10 steps for a comprehensive risk evaluation.</p>
-        <div class="form-row" style="grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
-          <div class="card" style="text-align:center;margin-bottom:0;">
-            <h3>10 Steps</h3>
-            <p style="font-size:.8rem;color:var(--gray-500);">Comprehensive CVD risk evaluation</p>
-          </div>
-          <div class="card" style="text-align:center;margin-bottom:0;">
+    <div class="card" style="text-align:center;margin-bottom:0;">
             <h3>CVD Risk Grading</h3>
             <p style="font-size:.8rem;color:var(--gray-500);">Low, moderate, high, or very high</p>
           </div>
@@ -45,8 +36,7 @@
           <span id="step-label">Step 1 of 10: Patient Demographics</span>
           <span id="step-percent">10%</span>
         </div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
-      </div>
+</div>
 
       <!-- ─── Step 1: Patient Demographics ─────────────── -->
       <section id="step-1" class="step-section card">
@@ -102,7 +92,6 @@
         </div>
         <div class="step-nav">
           <span></span>
-          <button class="btn btn-primary" onclick="goToStep(2)">Next</button>
         </div>
       </section>
 
@@ -165,8 +154,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(1)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(3)">Next</button>
         </div>
       </section>
 
@@ -244,8 +231,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(2)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(4)">Next</button>
         </div>
       </section>
 
@@ -291,8 +276,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(3)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(5)">Next</button>
         </div>
       </section>
 
@@ -345,8 +328,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(4)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(6)">Next</button>
         </div>
       </section>
 
@@ -389,8 +370,6 @@
           </select>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(5)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(7)">Next</button>
         </div>
       </section>
 
@@ -454,8 +433,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(6)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(8)">Next</button>
         </div>
       </section>
 
@@ -531,8 +508,6 @@
           <textarea data-field="currentMedications.otherMedications" rows="2" placeholder="List any other medications..."></textarea>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(7)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(9)">Next</button>
         </div>
       </section>
 
@@ -602,8 +577,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(8)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(10)">Next</button>
         </div>
       </section>
 
@@ -644,7 +617,6 @@
           </select>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(9)">Previous</button>
           <button class="btn btn-success" onclick="submitForm()">Submit &amp; View Report</button>
         </div>
       </section>

@@ -16,12 +16,7 @@
 
   <main class="container main-content">
     <!-- ─── Landing ────────────────────────────────────── -->
-    <div id="landing" class="hero">
-      <h1>Workplace Ergonomic Assessment</h1>
-      <p>Complete this REBA (Rapid Entire Body Assessment) to evaluate your workplace ergonomic risk. The form has 10 steps covering your workstation, posture, symptoms, and recommendations.</p>
-      <div class="feature-grid">
-        <div class="feature-card"><h3>10 Steps</h3><p>Comprehensive workplace ergonomic evaluation</p></div>
-        <div class="feature-card"><h3>REBA Scoring</h3><p>Validated musculoskeletal risk assessment (1-15)</p></div>
+    <div class="feature-card"><h3>REBA Scoring</h3><p>Validated musculoskeletal risk assessment (1-15)</p></div>
         <div class="feature-card"><h3>Safety Flags</h3><p>Actionable alerts for occupational health</p></div>
       </div>
       <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Assessment</button>
@@ -34,8 +29,7 @@
           <span id="step-label">Step 1 of 10: Demographics</span>
           <span id="step-percent">10%</span>
         </div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
-      </div>
+</div>
 
       <!-- Step 1: Demographics -->
       <section id="step-1" class="step-section active">
@@ -61,7 +55,7 @@
           </div>
           <div class="form-group"><label>Years in Current Role</label><input type="number" min="0" max="60" data-field="demographics.yearsInRole" data-type="number"></div>
         </div>
-        <div class="step-nav"><span></span><button class="btn btn-primary" onclick="goToStep(2)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"><span></span></div>
       </section>
 
       <!-- Step 2: Workstation Setup -->
@@ -151,7 +145,7 @@
             </select>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(1)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(3)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 3: Posture Assessment -->
@@ -230,7 +224,7 @@
             </div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(2)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(4)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 4: Repetitive Tasks -->
@@ -274,7 +268,7 @@
           </div>
           <div class="form-group"><label>Cycle time (seconds per repetition)</label><input type="number" min="0" max="3600" data-field="repetitiveTasks.cycleTimeSeconds" data-type="number"></div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(3)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(5)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 5: Manual Handling -->
@@ -317,7 +311,7 @@
             </div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(4)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(6)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 6: Current Symptoms -->
@@ -378,7 +372,7 @@
             </select>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(5)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(7)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 7: Medical History -->
@@ -421,7 +415,7 @@
             </div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(6)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(8)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 8: Current Interventions -->
@@ -458,7 +452,7 @@
           <div class="form-group"><label>Current workplace adjustments</label><textarea rows="2" data-field="currentInterventions.workplaceAdjustments" placeholder="e.g., modified duties, reduced hours, alternative tasks..."></textarea></div>
           <div class="form-group"><label>Current medications for pain/condition</label><textarea rows="2" data-field="currentInterventions.medications" placeholder="e.g., ibuprofen, paracetamol, prescription medications..."></textarea></div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(7)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(9)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 9: Psychosocial Factors -->
@@ -522,7 +516,7 @@
             </select>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(8)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(10)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 10: Recommendations & Action Plan -->
@@ -537,7 +531,7 @@
           <div class="form-group"><label>Follow-up date</label><input type="date" data-field="recommendations.followUpDate"></div>
           <div class="form-group"><label>Referrals</label><textarea rows="2" data-field="recommendations.referrals" placeholder="e.g., physiotherapy, occupational health, GP..."></textarea></div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(9)">&larr; Previous</button><button class="btn btn-success" onclick="submitForm()">Submit Assessment</button></div>
+        <div class="step-nav"><button class="btn btn-success" onclick="submitForm()">Submit Assessment</button></div>
       </section>
     </div>
   </main>

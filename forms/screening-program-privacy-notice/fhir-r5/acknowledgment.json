@@ -1,57 +1,76 @@
 {
-  "resourceType": "Consent",
-  "id": "00000000-0000-0000-0000-000000000000",
+  "resourceType": "Observation",
+  "id": "660e8400-e29b-41d4-a716-446655440001",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/StructureDefinition/Consent"
+      "http://hl7.org/fhir/StructureDefinition/Observation"
     ],
-    "lastUpdated": "2024-01-01T00:00:00Z"
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
   },
-  "status": "active",
+  "status": "final",
   "category": [
     {
       "coding": [
         {
-          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-          "code": "INFA",
-          "display": "information access"
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
         }
       ]
     }
   ],
-  "subject": {
-    "reference": "Patient/00000000-0000-0000-0000-000000000000"
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:screening-program-privacy-notice",
+        "code": "acknowledgment",
+        "display": "Acknowledgment"
+      }
+    ]
   },
-  "date": "",
-  "grantor": [
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/770e8400-e29b-41d4-a716-446655440002"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
     {
-      "reference": "Patient/00000000-0000-0000-0000-000000000000"
-    }
-  ],
-  "decision": "permit",
-  "provision": [
-    {
-      "purpose": [
-        {
-          "system": "urn:medical-forms:screening-program-privacy-notice",
-          "code": "screening_program_privacy_notice",
-          "display": "Acknowledgment of screening program privacy notice"
-        }
-      ]
-    }
-  ],
-  "extension": [
-    {
-      "url": "urn:medical-forms:screening-program-privacy-notice:confirmed",
-      "valueBoolean": false
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:screening-program-privacy-notice",
+            "code": "confirmed",
+            "display": "Confirmed"
+          }
+        ]
+      },
+      "valueBoolean": true
     },
     {
-      "url": "urn:medical-forms:screening-program-privacy-notice:full_name",
-      "valueString": ""
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:screening-program-privacy-notice",
+            "code": "full_name",
+            "display": "Full Name"
+          }
+        ]
+      },
+      "valueString": "Example"
     },
     {
-      "url": "urn:medical-forms:screening-program-privacy-notice:acknowledged_date",
-      "valueDate": ""
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:screening-program-privacy-notice",
+            "code": "acknowledged_date",
+            "display": "Acknowledged Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
     }
   ]
 }

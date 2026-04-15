@@ -6,78 +6,12 @@ import { createDefaultAssessment } from './data-model.js';
 import { calculateBMI, bmiCategory, estimateMETs, asaGradeLabel, asaGradeColor } from './utils.js';
 import { calculateASA } from './asa-grader.js';
 import { detectAdditionalFlags } from './flagged-issues.js';
-import { getVisibleSteps, getNextStep, getPrevStep, isStepVisible } from './steps.js';
+import { getVisibleSteps, isStepVisible } from './steps.js';
 
 // ─── State ───────────────────────────────────────────────────
 let assessmentData = createDefaultAssessment();
-let currentStep = 1;
 
-// ─── DOM references ──────────────────────────────────────────
-const landing = document.getElementById('landing');
-const assessment = document.getElementById('assessment');
-const progressFill = document.getElementById('progress-fill');
-const progressStep = document.getElementById('progress-step');
-const progressTitle = document.getElementById('progress-title');
-const btnStart = document.getElementById('btn-start');
-const btnPrev = document.getElementById('btn-prev');
-const btnNext = document.getElementById('btn-next');
-const btnSubmit = document.getElementById('btn-submit');
-
-// ─── Navigation ──────────────────────────────────────────────
-
-btnStart.addEventListener('click', () => {
-	landing.classList.add('hidden');
-	assessment.classList.remove('hidden');
-	showStep(1);
-});
-
-btnPrev.addEventListener('click', () => {
-	const prev = getPrevStep(currentStep, assessmentData);
-	if (prev !== null) showStep(prev);
-});
-
-btnNext.addEventListener('click', () => {
-	const next = getNextStep(currentStep, assessmentData);
-	if (next !== null) showStep(next);
-});
-
-btnSubmit.addEventListener('click', () => {
-	submitAssessment();
-});
-
-function showStep(stepNumber) {
-	currentStep = stepNumber;
-	// Hide all steps
-	document.querySelectorAll('#step-container > section').forEach((s) => {
-		s.classList.add('hidden');
-	});
-	// Show current step
-	const stepEl = document.getElementById(`step-${stepNumber}`);
-	if (stepEl) stepEl.classList.remove('hidden');
-
-	// Update progress
-	const visible = getVisibleSteps(assessmentData);
-	const idx = visible.findIndex((s) => s.number === stepNumber);
-	const total = visible.length;
-	const pct = Math.round(((idx + 1) / total) * 100);
-	progressFill.style.width = `${pct}%`;
-	progressStep.textContent = `Step ${idx + 1} of ${total}`;
-	const stepConfig = visible[idx];
-	progressTitle.textContent = stepConfig ? stepConfig.title : '';
-
-	// Show/hide nav buttons
-	const prevStep = getPrevStep(stepNumber, assessmentData);
-	const nextStep = getNextStep(stepNumber, assessmentData);
-	btnPrev.classList.toggle('hidden', prevStep === null);
-	btnNext.classList.toggle('hidden', nextStep !== null ? false : true);
-	btnSubmit.classList.toggle('hidden', nextStep !== null);
-
-	// Update conditional visibility
-	updateConditionals();
-
-	// Scroll to top
-	window.scrollTo(0, 0);
-}
+// ─── Single-page layout: show form immediately ──────────────
 
 // ─── Data binding ────────────────────────────────────────────
 
@@ -330,3 +264,9 @@ function escapeHtml(str) {
 	div.appendChild(document.createTextNode(str));
 	return div.innerHTML;
 }
+
+// Show form immediately (single-page layout)
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('form-container');
+  if (form) form.classList.remove('hidden');
+});

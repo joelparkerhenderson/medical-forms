@@ -16,12 +16,7 @@
 
   <main class="container main-content">
     <!-- ─── Landing ────────────────────────────────────── -->
-    <div id="landing" class="hero">
-      <h1>Allergy Assessment</h1>
-      <p>Comprehensive allergy evaluation covering drug, food, and environmental allergies with anaphylaxis risk assessment. The form has 10 steps.</p>
-      <div class="feature-grid">
-        <div class="feature-card"><h3>10 Steps</h3><p>Comprehensive allergy evaluation</p></div>
-        <div class="feature-card"><h3>Severity Grading</h3><p>Mild, moderate, or severe classification</p></div>
+    <div class="feature-card"><h3>Severity Grading</h3><p>Mild, moderate, or severe classification</p></div>
         <div class="feature-card"><h3>Safety Flags</h3><p>Critical alerts for clinician review</p></div>
       </div>
       <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Assessment</button>
@@ -34,8 +29,7 @@
           <span id="step-label">Step 1 of 10: Demographics</span>
           <span id="step-percent">10%</span>
         </div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
-      </div>
+</div>
 
       <!-- ─── Step 1: Demographics ─────────────────────── -->
       <section id="step-1" class="step-section card">
@@ -87,7 +81,6 @@
         </div>
         <div class="step-nav">
           <span></span>
-          <button class="btn btn-primary" onclick="goToStep(2)">Next</button>
         </div>
       </section>
 
@@ -130,8 +123,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(1)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(3)">Next</button>
         </div>
       </section>
 
@@ -158,8 +149,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(2)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(4)">Next</button>
         </div>
       </section>
 
@@ -203,8 +192,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(3)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(5)">Next</button>
         </div>
       </section>
 
@@ -283,8 +270,6 @@
           <textarea data-field="environmentalAllergies.otherEnvironmentalAllergens" rows="2" placeholder="Any other environmental triggers..."></textarea>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(4)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(6)">Next</button>
         </div>
       </section>
 
@@ -325,8 +310,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(5)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(7)">Next</button>
         </div>
       </section>
 
@@ -375,8 +358,6 @@
           <button type="button" class="btn-add" onclick="addTestResult()">+ Add Test Result</button>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(6)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(8)">Next</button>
         </div>
       </section>
 
@@ -447,8 +428,6 @@
           <button type="button" class="btn-add" onclick="addMedication()">+ Add Medication</button>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(7)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(9)">Next</button>
         </div>
       </section>
 
@@ -544,8 +523,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(8)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(10)">Next</button>
         </div>
       </section>
 
@@ -597,7 +574,6 @@
           <input type="text" data-field="impactActionPlan.followUpSchedule" placeholder="e.g. Annual allergy review, 6-monthly IgE monitoring">
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(9)">Previous</button>
           <button class="btn btn-success" onclick="submitForm()">Submit &amp; View Report</button>
         </div>
       </section>

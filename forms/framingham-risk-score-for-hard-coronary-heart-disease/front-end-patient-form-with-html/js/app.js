@@ -5,49 +5,22 @@ import { detectAdditionalFlags } from './flagged-issues.js';
 import { riskLevelLabel } from './utils.js';
 
 let assessmentData = createDefaultAssessment();
-let currentStep = 0;
+// ─── Single-page layout ──────────────────────────
 
-// ─── Navigation ───────────────────────────────────
 window.startForm = function () {
-  assessmentData = createDefaultAssessment();
-  currentStep = 0;
-  document.getElementById('landing').style.display = 'none';
-  document.getElementById('form-container').style.display = 'block';
-  document.getElementById('report-container').style.display = 'none';
-  showStep(1);
-};
-
-window.nextStep = function () {
-  saveCurrentStep();
-  if (currentStep < TOTAL_STEPS) showStep(currentStep + 1);
-};
-
-window.prevStep = function () {
-  saveCurrentStep();
-  if (currentStep > 1) showStep(currentStep - 1);
+  window.location.reload();
 };
 
 window.submitForm = function () {
-  saveCurrentStep();
+  saveAllFields();
   const { riskCategory, tenYearRiskPercent, firedRules } = calculateRisk(assessmentData);
   const additionalFlags = detectAdditionalFlags(assessmentData);
   showReport({ riskCategory, tenYearRiskPercent, firedRules, additionalFlags });
 };
 
-function showStep(step) {
-  currentStep = step;
-  document.querySelectorAll('.step-section').forEach(s => s.classList.remove('active'));
-  const el = document.getElementById(`step-${step}`);
-  if (el) el.classList.add('active');
-  const pct = Math.round((step / TOTAL_STEPS) * 100);
-  document.getElementById('step-label').textContent = `Step ${step} of ${TOTAL_STEPS}: ${stepTitles[step - 1]}`;
-  document.getElementById('step-percent').textContent = `${pct}%`;
-  document.getElementById('progress-fill').style.width = `${pct}%`;
-}
-
 // ─── Data binding ─────────────────────────────────
-function saveCurrentStep() {
-  document.querySelectorAll(`#step-${currentStep} [data-field]`).forEach(el => {
+function saveAllFields() {
+  document.querySelectorAll('[data-field]').forEach(el => {
     const path = el.dataset.field.split('.');
     let obj = assessmentData;
     for (let i = 0; i < path.length - 1; i++) obj = obj[path[i]];

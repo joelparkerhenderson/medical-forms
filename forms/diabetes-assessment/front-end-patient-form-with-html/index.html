@@ -16,12 +16,7 @@
 
   <main class="container main-content">
     <!-- ─── Landing ────────────────────────────────────── -->
-    <div id="landing" class="hero">
-      <h1>Diabetes Assessment</h1>
-      <p>Comprehensive diabetes management assessment evaluating glycaemic control, complications screening, medication management, and self-care behaviours for type 1 and type 2 diabetes.</p>
-      <div class="feature-grid">
-        <div class="feature-card"><h3>10 Steps</h3><p>Structured clinical diabetes review</p></div>
-        <div class="feature-card"><h3>Control Scoring</h3><p>Composite score with control level grading</p></div>
+    <div class="feature-card"><h3>Control Scoring</h3><p>Composite score with control level grading</p></div>
         <div class="feature-card"><h3>Clinical Flags</h3><p>14 actionable safety alerts for clinicians</p></div>
       </div>
       <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Assessment</button>
@@ -34,8 +29,7 @@
           <span id="step-label">Step 1 of 10: Patient Information</span>
           <span id="step-percent">10%</span>
         </div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
-      </div>
+</div>
 
       <!-- Step 1: Patient Information -->
       <section id="step-1" class="step-section active">
@@ -57,7 +51,7 @@
             <div class="form-group"><label>GP Practice</label><input type="text" data-field="patientInformation.gpPractice" placeholder="e.g. Riverside Surgery"></div>
           </div>
         </div>
-        <div class="step-nav"><span></span><button class="btn btn-primary" onclick="goToStep(2)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"><span></span></div>
       </section>
 
       <!-- Step 2: Diabetes History -->
@@ -107,7 +101,7 @@
             </div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(1)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(3)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 3: Glycaemic Control -->
@@ -161,7 +155,7 @@
             </div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(2)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(4)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 4: Medications -->
@@ -243,7 +237,7 @@
           </div>
           <div class="form-group"><label>Other Medications</label><textarea rows="3" data-field="medications.otherMedications" placeholder="List any other medications (non-diabetes)"></textarea></div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(3)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(5)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 5: Complications Screening -->
@@ -304,7 +298,7 @@
             </div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(4)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(6)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 6: Cardiovascular Risk -->
@@ -355,7 +349,7 @@
           </div>
           <div class="form-group"><label>QRISK Score (%)</label><input type="number" step="0.1" min="0" max="100" data-field="cardiovascularRisk.qriskScore" data-type="number" placeholder="e.g. 15.2"></div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(5)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(7)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 7: Self-Care & Lifestyle -->
@@ -425,7 +419,7 @@
             </div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(6)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(8)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 8: Psychological Wellbeing -->
@@ -480,7 +474,7 @@
             </div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(7)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(9)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 9: Foot Assessment -->
@@ -552,7 +546,7 @@
             </div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(8)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(10)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 10: Review & Care Plan -->
@@ -577,7 +571,7 @@
           <div class="form-group"><label>Referrals Made</label><textarea rows="3" data-field="reviewCarePlan.referrals" placeholder="e.g. Ophthalmology, Podiatry, Dietetics, Psychology"></textarea></div>
           <div class="form-group"><label>Next Review Date</label><input type="date" data-field="reviewCarePlan.nextReviewDate"></div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(9)">&larr; Previous</button><button class="btn btn-primary" onclick="submitForm()">Submit Assessment</button></div>
+        <div class="step-nav"><button class="btn btn-primary" onclick="submitForm()">Submit Assessment</button></div>
       </section>
     </div>
   </main>

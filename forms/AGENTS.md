@@ -9,6 +9,7 @@ Subprojects:
 - [attention deficit assessment](attention-deficit-assessment)
 - [audiology assessment](audiology-assessment)
 - [autism assessment](autism-assessment)
+- [care privacy notice](care-privacy-notice)
 - [cardiology assessment](cardiology-assessment)
 - [casualty card form](casualty-card-form)
 - [cognitive assessment](cognitive-assessment)

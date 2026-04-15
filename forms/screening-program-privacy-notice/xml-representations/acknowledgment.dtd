@@ -1,4 +1,4 @@
-<!ELEMENT acknowledgment (id, patient_id, confirmed, full_name, acknowledged_date, created_at, updated_at)>
+<!ELEMENT acknowledgment (id,patient_id,confirmed,full_name,acknowledged_date,created_at,updated_at)>
 <!ELEMENT id (#PCDATA)>
 <!ELEMENT patient_id (#PCDATA)>
 <!ELEMENT confirmed (#PCDATA)>

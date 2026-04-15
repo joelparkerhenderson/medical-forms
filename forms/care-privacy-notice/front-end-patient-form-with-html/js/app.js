@@ -14,7 +14,7 @@ let data = createDefaultData();
 // ─── Navigation ─────────────────────────────────────────
 
 window.submitForm = function () {
-  collectCurrentStep();
+  collectAllFields();
 
   // Validate step 3 before submitting
   const errors = [];
@@ -78,7 +78,7 @@ function populateStep(step) {
   const section = document.getElementById('step-' + step);
   if (!section) return;
 
-  section.querySelectorAll('[data-field]').forEach(el => {
+  document.querySelectorAll('[data-field]').forEach(el => {
     const path = el.getAttribute('data-field');
     const val = getNestedValue(data, path);
     if (el.type === 'checkbox') {
@@ -91,11 +91,8 @@ function populateStep(step) {
 
 // ─── Collect form fields into data ──────────────────────
 
-function collectCurrentStep() {
-  const section = document.getElementById('step-' + currentStep);
-  if (!section) return;
-
-  section.querySelectorAll('[data-field]').forEach(el => {
+function collectAllFields() {
+  document.querySelectorAll('[data-field]').forEach(el => {
     const path = el.getAttribute('data-field');
     if (el.type === 'checkbox') {
       setNestedValue(data, path, el.checked);

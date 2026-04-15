@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE patient SYSTEM "patient.dtd">
 <patient>
-  <id></id>
-  <first_name></first_name>
-  <last_name></last_name>
-  <nhs_number></nhs_number>
-  <created_at></created_at>
-  <updated_at></updated_at>
+<id>550e8400-e29b-41d4-a716-446655440000</id>
+<first_name>Jane</first_name>
+<last_name>Doe</last_name>
+<nhs_number>9434765919</nhs_number>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
 </patient>

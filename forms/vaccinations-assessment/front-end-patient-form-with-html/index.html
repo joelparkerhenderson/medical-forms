@@ -16,12 +16,7 @@
 
   <main class="container main-content">
     <!-- ─── Landing ────────────────────────────────────── -->
-    <div id="landing" class="hero">
-      <h1>Vaccinations Assessment</h1>
-      <p>Complete this assessment to record vaccination status, screen for contraindications, and generate a compliance summary for clinical review. The form has 10 steps.</p>
-      <div class="feature-grid">
-        <div class="feature-card"><h3>10 Steps</h3><p>Comprehensive vaccination status tracking</p></div>
-        <div class="feature-card"><h3>Compliance Score</h3><p>Automated composite scoring (0-100)</p></div>
+    <div class="feature-card"><h3>Compliance Score</h3><p>Automated composite scoring (0-100)</p></div>
         <div class="feature-card"><h3>Safety Flags</h3><p>Contraindication and allergy screening</p></div>
       </div>
       <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Assessment</button>
@@ -34,8 +29,7 @@
           <span id="step-label">Step 1 of 10: Patient Information</span>
           <span id="step-percent">10%</span>
         </div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
-      </div>
+</div>
 
       <!-- ─── Step 1: Patient Information ──────────────── -->
       <section id="step-1" class="step-section card">
@@ -86,7 +80,6 @@
         </div>
         <div class="step-nav">
           <span></span>
-          <button class="btn btn-primary" onclick="goToStep(2)">Next</button>
         </div>
       </section>
 
@@ -145,8 +138,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(1)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(3)">Next</button>
         </div>
       </section>
 
@@ -218,8 +209,6 @@
           </select>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(2)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(4)">Next</button>
         </div>
       </section>
 
@@ -256,8 +245,6 @@
           <select data-field="adultVaccinations.pneumococcalPpv" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(3)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(5)">Next</button>
         </div>
       </section>
 
@@ -285,8 +272,6 @@
         <div class="form-group"><label>Rabies</label><select data-field="travelVaccinations.rabies" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
         <div class="form-group"><label>Japanese Encephalitis</label><select data-field="travelVaccinations.japaneseEncephalitis" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(4)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(6)">Next</button>
         </div>
       </section>
 
@@ -312,8 +297,6 @@
         <div class="form-group"><label>Varicella (Chickenpox)</label><select data-field="occupationalVaccinations.varicella" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
         <div class="form-group"><label>BCG / Tuberculosis</label><select data-field="occupationalVaccinations.bcgTuberculosis" data-numeric><option value="">-- Select --</option><option value="0">Not Given</option><option value="1">Partial</option><option value="2">Complete</option></select></div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(5)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(7)">Next</button>
         </div>
       </section>
 
@@ -387,8 +370,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(6)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(8)">Next</button>
         </div>
       </section>
 
@@ -422,8 +403,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(7)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(9)">Next</button>
         </div>
       </section>
 
@@ -492,8 +471,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(8)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(10)">Next</button>
         </div>
       </section>
 
@@ -546,7 +523,6 @@
           <input type="text" data-field="clinicalReview.reviewingClinician" placeholder="e.g. Dr Smith">
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(9)">Previous</button>
           <button class="btn btn-success" onclick="submitForm()">Submit &amp; View Report</button>
         </div>
       </section>

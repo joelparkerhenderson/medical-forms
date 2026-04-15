@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Read(//Users/jph/git/joelparkerhenderson/medical-forms/**)",
+      "Bash(python3 bin/generate-xml-representations.py)",
+      "Bash(cd:*)"
     ]
   }
 }

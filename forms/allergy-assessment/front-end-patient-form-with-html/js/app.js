@@ -5,22 +5,10 @@ import { TOTAL_STEPS, steps } from './steps.js';
 import { calculateBMI } from './utils.js';
 
 let data = createDefaultAssessment();
-let currentStep = 1;
 
 // ─── Navigation ────────────────────────────────────────
-window.startForm = function () {
-  document.getElementById('landing').style.display = 'none';
-  document.getElementById('form-container').style.display = 'block';
-  showStep(1);
-};
-
-window.goToStep = function (step) {
-  collectCurrentStep();
-  showStep(step);
-};
-
 window.submitForm = function () {
-  collectCurrentStep();
+  collectAllFields();
   const { severityLevel, firedRules } = calculateAllergySeverity(data);
   const allergyBurdenScore = calculateAllergyBurdenScore(data);
   const additionalFlags = detectAdditionalFlags(data);
@@ -30,27 +18,13 @@ window.submitForm = function () {
   window.location.href = 'report.html';
 };
 
-function showStep(step) {
-  currentStep = step;
-  document.querySelectorAll('.step-section').forEach(s => s.classList.remove('active'));
-  const el = document.getElementById('step-' + step);
-  if (el) el.classList.add('active');
-  const pct = Math.round((step / TOTAL_STEPS) * 100);
-  document.getElementById('step-label').textContent = 'Step ' + step + ' of ' + TOTAL_STEPS + ': ' + steps[step - 1].title;
-  document.getElementById('step-percent').textContent = pct + '%';
-  document.getElementById('progress-fill').style.width = pct + '%';
-  populateStep(step);
-  updateConditionalFields();
-  window.scrollTo(0, 0);
-}
-
 // ─── Data binding: populate form from data ─────────────
 function populateStep(step) {
   const section = document.getElementById('step-' + step);
   if (!section) return;
 
   // Text/select/textarea/number fields
-  section.querySelectorAll('[data-field]').forEach(el => {
+  document.querySelectorAll('[data-field]').forEach(el => {
     const path = el.getAttribute('data-field');
     const val = getNestedValue(data, path);
     if (el.type === 'radio') {
@@ -74,11 +48,8 @@ function populateStep(step) {
 }
 
 // ─── Data binding: collect form into data ──────────────
-function collectCurrentStep() {
-  const section = document.getElementById('step-' + currentStep);
-  if (!section) return;
-
-  section.querySelectorAll('[data-field]').forEach(el => {
+function collectAllFields() {
+  document.querySelectorAll('[data-field]').forEach(el => {
     const path = el.getAttribute('data-field');
     if (el.type === 'radio') {
       if (el.checked) setNestedValue(data, path, el.value);
@@ -90,14 +61,14 @@ function collectCurrentStep() {
   });
 
   // Collect dynamic lists
-  if (currentStep === 3) collectDrugAllergyList();
-  if (currentStep === 4) collectFoodAllergyList();
-  if (currentStep === 6) collectEpisodeList();
-  if (currentStep === 7) collectTestResultList();
-  if (currentStep === 8) collectMedicationList();
+  collectDrugAllergyList();
+  collectFoodAllergyList();
+  collectEpisodeList();
+  collectTestResultList();
+  collectMedicationList();
 
   // Auto-calculate BMI
-  if (currentStep === 1) {
+  {
     data.demographics.bmi = calculateBMI(data.demographics.weight, data.demographics.height);
     updateBMIDisplay();
   }
@@ -360,3 +331,9 @@ function setNestedValue(obj, path, value) {
 function escAttr(str) {
   return (str || '').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
+
+// Show form immediately (single-page layout)
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('form-container');
+  if (form) form.classList.remove('hidden');
+});

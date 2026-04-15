@@ -16,12 +16,7 @@
 
   <main class="container main-content">
     <!-- ─── Landing ────────────────────────────────────── -->
-    <div id="landing" class="hero">
-      <h1>PREVENT CVD Risk Calculator</h1>
-      <p>Predicting Risk of Cardiovascular Disease EVENTs (PREVENT) estimates 10-year and 30-year CVD risk for patients aged 30-79 without known cardiovascular disease.</p>
-      <div class="feature-grid">
-        <div class="feature-card"><h3>10 Steps</h3><p>Comprehensive cardiovascular risk assessment</p></div>
-        <div class="feature-card"><h3>Risk Scoring</h3><p>10-year and 30-year risk estimates</p></div>
+    <div class="feature-card"><h3>Risk Scoring</h3><p>10-year and 30-year risk estimates</p></div>
         <div class="feature-card"><h3>Clinical Flags</h3><p>14 actionable safety alerts for clinicians</p></div>
       </div>
       <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Assessment</button>
@@ -34,8 +29,7 @@
           <span id="step-label">Step 1 of 10: Patient Information</span>
           <span id="step-percent">10%</span>
         </div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
-      </div>
+</div>
 
       <!-- Step 1: Patient Information -->
       <section id="step-1" class="step-section active">
@@ -56,7 +50,7 @@
             <div class="form-group"><label>GP Practice</label><input type="text" data-field="patientInformation.gpPractice"></div>
           </div>
         </div>
-        <div class="step-nav"><span></span><button class="btn btn-primary" onclick="goToStep(2)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"><span></span></div>
       </section>
 
       <!-- Step 2: Demographics -->
@@ -88,7 +82,7 @@
           </div>
           <div class="form-group"><label>ZIP / Postal Code</label><input type="text" data-field="demographics.zipCode"></div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(1)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(3)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 3: Blood Pressure -->
@@ -115,7 +109,7 @@
             </div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(2)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(4)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 4: Cholesterol & Lipids -->
@@ -141,7 +135,7 @@
             <div class="form-group"><label>Statin Name</label><input type="text" data-field="cholesterolLipids.statinName"></div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(3)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(5)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 5: Metabolic Health -->
@@ -180,7 +174,7 @@
             <div class="form-group"><label>Waist Circumference (cm)</label><input type="number" min="40" max="200" step="0.1" data-field="metabolicHealth.waistCircumferenceCm" data-type="number"></div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(4)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(6)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 6: Renal Function -->
@@ -204,7 +198,7 @@
             </select>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(5)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(7)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 7: Smoking History -->
@@ -229,7 +223,7 @@
             <div class="form-group"><label>Years Since Quit</label><input type="number" min="0" max="80" data-field="smokingHistory.yearsSinceQuit" data-type="number"></div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(6)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(8)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 8: Medical History -->
@@ -289,7 +283,7 @@
             <div class="form-group"><label>Family CVD Details</label><textarea rows="2" data-field="medicalHistory.familyCvdDetails"></textarea></div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(7)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(9)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 9: Current Medications -->
@@ -320,7 +314,7 @@
           </div>
           <div class="form-group"><label>Other Medications</label><textarea rows="3" data-field="currentMedications.otherMedications"></textarea></div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(8)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(10)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 10: Review & Calculate -->
@@ -342,7 +336,7 @@
           </div>
           <div class="form-group"><label>Clinical Notes</label><textarea rows="4" data-field="reviewCalculate.clinicalNotes"></textarea></div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(9)">&larr; Previous</button><button class="btn btn-success" onclick="submitForm()">Calculate Risk</button></div>
+        <div class="step-nav"><button class="btn btn-success" onclick="submitForm()">Calculate Risk</button></div>
       </section>
     </div>
   </main>

@@ -16,12 +16,7 @@
 
   <main class="container main-content">
     <!-- ─── Landing ────────────────────────────────────── -->
-    <div id="landing" class="hero">
-      <h1>Patient Intake Form</h1>
-      <p>Complete this form to provide your medical information. The form has 10 steps covering your personal details, medical history, and preferences.</p>
-      <div class="feature-grid">
-        <div class="feature-card"><h3>10 Steps</h3><p>Comprehensive patient information collection</p></div>
-        <div class="feature-card"><h3>Risk Assessment</h3><p>Automated risk level classification</p></div>
+    <div class="feature-card"><h3>Risk Assessment</h3><p>Automated risk level classification</p></div>
         <div class="feature-card"><h3>Safety Flags</h3><p>Clinical safety alerts for your care team</p></div>
       </div>
       <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Intake Form</button>
@@ -34,8 +29,7 @@
           <span id="step-label">Step 1 of 10: Personal Information</span>
           <span id="step-percent">10%</span>
         </div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
-      </div>
+</div>
 
       <!-- Step 1: Personal Information -->
       <section id="step-1" class="step-section active">
@@ -69,7 +63,7 @@
             <div class="form-group"><label>Relationship</label><input type="text" data-field="personalInformation.emergencyContactRelationship"></div>
           </div>
         </div>
-        <div class="step-nav"><span></span><button class="btn btn-primary" onclick="goToStep(2)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"><span></span></div>
       </section>
 
       <!-- Step 2: Insurance & ID -->
@@ -87,7 +81,7 @@
             <div class="form-group"><label>GP Phone</label><input type="tel" data-field="insuranceAndId.gpPhone"></div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(1)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(3)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 3: Reason for Visit -->
@@ -109,7 +103,7 @@
           <div class="form-group"><label>Symptom Duration</label><input type="text" data-field="reasonForVisit.symptomDuration"></div>
           <div class="form-group"><label>Additional Details</label><textarea rows="2" data-field="reasonForVisit.additionalDetails"></textarea></div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(2)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(4)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 4: Medical History -->
@@ -142,7 +136,7 @@
           <div class="form-group"><label>Previous Hospitalizations</label><textarea rows="2" data-field="medicalHistory.previousHospitalizations"></textarea></div>
           <div class="form-group"><label>Ongoing Treatments</label><textarea rows="2" data-field="medicalHistory.ongoingTreatments"></textarea></div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(3)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(5)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 5: Current Medications -->
@@ -153,7 +147,7 @@
           <div id="medications-list"></div>
           <button class="add-btn" onclick="addMedication()">+ Add Medication</button>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(4)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(6)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 6: Allergies -->
@@ -164,7 +158,7 @@
           <div id="allergies-list"></div>
           <button class="add-btn" onclick="addAllergy()">+ Add Allergy</button>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(5)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(7)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 7: Family History -->
@@ -216,7 +210,7 @@
             </div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(6)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(8)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 8: Social History -->
@@ -280,7 +274,7 @@
             </div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(7)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(9)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 9: Review of Systems -->
@@ -309,7 +303,7 @@
             <div class="form-group"><label>Skin</label><textarea rows="2" data-field="reviewOfSystems.skin"></textarea></div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(8)">&larr; Previous</button><button class="btn btn-primary" onclick="goToStep(10)">Save &amp; Continue &rarr;</button></div>
+        <div class="step-nav"></div>
       </section>
 
       <!-- Step 10: Consent & Preferences -->
@@ -345,7 +339,7 @@
             <div class="conditional-field" data-show-if="consentAndPreferences.advanceDirectives=yes"><div class="form-group"><label>Details</label><textarea rows="2" data-field="consentAndPreferences.advanceDirectiveDetails"></textarea></div></div>
           </div>
         </div>
-        <div class="step-nav"><button class="btn btn-secondary" onclick="goToStep(9)">&larr; Previous</button><button class="btn btn-success" onclick="submitForm()">Submit Assessment</button></div>
+        <div class="step-nav"><button class="btn btn-success" onclick="submitForm()">Submit Assessment</button></div>
       </section>
     </div>
   </main>

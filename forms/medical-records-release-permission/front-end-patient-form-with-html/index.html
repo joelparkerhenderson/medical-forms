@@ -16,12 +16,7 @@
 
   <main class="container main-content">
     <!-- ─── Landing ────────────────────────────────────── -->
-    <div id="landing" class="hero">
-      <h1>Medical Records Release Permission</h1>
-      <p>Complete this form to authorise the release of your medical records to a specified recipient. The form has 8 steps covering patient details, recipient, records scope, and consent.</p>
-      <div class="feature-grid">
-        <div class="feature-card"><h3>8 Steps</h3><p>Structured consent and authorisation process</p></div>
-        <div class="feature-card"><h3>Completeness Check</h3><p>Automated validation of all required fields</p></div>
+    <div class="feature-card"><h3>Completeness Check</h3><p>Automated validation of all required fields</p></div>
         <div class="feature-card"><h3>Safety Flags</h3><p>Alerts for sensitive records and compliance</p></div>
       </div>
       <button class="btn btn-primary btn-lg" onclick="startForm()">Begin Release Form</button>
@@ -34,8 +29,7 @@
           <span id="step-label">Step 1 of 8: Patient Information</span>
           <span id="step-percent">13%</span>
         </div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:13%"></div></div>
-      </div>
+</div>
 
       <!-- ─── Step 1: Patient Information ──────────────── -->
       <section id="step-1" class="step-section card">
@@ -94,7 +88,6 @@
         </div>
         <div class="step-nav">
           <span></span>
-          <button class="btn btn-primary" onclick="goToStep(2)">Next</button>
         </div>
       </section>
 
@@ -130,8 +123,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(1)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(3)">Next</button>
         </div>
       </section>
 
@@ -175,8 +166,6 @@
           <textarea data-field="recordsToRelease.specificRecordDetails" rows="3" placeholder="Describe any specific records you wish to release (optional)"></textarea>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(2)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(4)">Next</button>
         </div>
       </section>
 
@@ -203,8 +192,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(3)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(5)">Next</button>
         </div>
       </section>
 
@@ -229,8 +216,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(4)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(6)">Next</button>
         </div>
       </section>
 
@@ -278,8 +263,6 @@
           <textarea data-field="restrictionsLimitations.additionalRestrictions" rows="3" placeholder="Any other restrictions or limitations (optional)"></textarea>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(5)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(7)">Next</button>
         </div>
       </section>
 
@@ -309,8 +292,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(6)">Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(8)">Next</button>
         </div>
       </section>
 
@@ -352,7 +333,6 @@
           </div>
         </div>
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(7)">Previous</button>
           <button class="btn btn-success" onclick="submitForm()">Submit &amp; View Report</button>
         </div>
       </section>
