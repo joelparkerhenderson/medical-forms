@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-primary: #005eb8;
+	--color-primary-dark: #003d7a;
+	--color-success: #00703c;
+	--color-danger: #d4351c;
+	--color-warning: #f47738;
+	--color-muted: #505a5f;
+	--color-light-gray: #f3f2f1;
+	--color-border: #b1b4b6;
+}
+
+@media print {
+	.no-print {
+		display: none !important;
+	}
+}
