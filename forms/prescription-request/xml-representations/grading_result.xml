@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grading_result SYSTEM "grading_result.dtd">
+<grading_result>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<prescription_request_id>770e8400-e29b-41d4-a716-446655440002</prescription_request_id>
+<priority_level>routine</priority_level>
+<rule_count>2</rule_count>
+<graded_at>2026-04-09T10:00:00Z</graded_at>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</grading_result>

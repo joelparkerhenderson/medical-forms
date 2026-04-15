@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE prescription_request_type SYSTEM "prescription_request_type.dtd">
+<prescription_request_type>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<prescription_request_id>770e8400-e29b-41d4-a716-446655440002</prescription_request_id>
+<is_new_prescription>yes</is_new_prescription>
+<is_emergency>yes</is_emergency>
+<additional_notes>Example text.</additional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</prescription_request_type>

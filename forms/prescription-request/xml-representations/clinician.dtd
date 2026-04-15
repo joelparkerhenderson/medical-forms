@@ -1,0 +1,9 @@
+<!ELEMENT clinician (id,first_name,last_name,nhs_employee_number,phone,email,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT first_name (#PCDATA)>
+<!ELEMENT last_name (#PCDATA)>
+<!ELEMENT nhs_employee_number (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

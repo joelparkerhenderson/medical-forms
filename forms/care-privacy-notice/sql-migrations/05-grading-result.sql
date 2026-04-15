@@ -1,5 +1,5 @@
--- 05-grading-result.sql
--- Stores the computed form completeness validation result for a care privacy notice assessment.
+-- 05_grading_result.sql
+-- Stores the computed form completeness validation result.
 
 CREATE TABLE grading_result (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -7,12 +7,12 @@ CREATE TABLE grading_result (
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
 
-    overall_status VARCHAR(20) NOT NULL DEFAULT 'incomplete'
-        CHECK (overall_status IN ('complete', 'incomplete')),
-    completeness_score INT NOT NULL DEFAULT 0
-        CHECK (completeness_score >= 0),
-    flagged_issues_count INT NOT NULL DEFAULT 0
-        CHECK (flagged_issues_count >= 0),
+    completeness_status VARCHAR(20) NOT NULL DEFAULT 'incomplete'
+        CHECK (completeness_status IN ('complete', 'incomplete')),
+    sections_complete INTEGER NOT NULL DEFAULT 0
+        CHECK (sections_complete >= 0 AND sections_complete <= 3),
+    sections_total INTEGER NOT NULL DEFAULT 3
+        CHECK (sections_total = 3),
     graded_at TIMESTAMPTZ NOT NULL DEFAULT now(),
 
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -25,20 +25,14 @@ CREATE TRIGGER trg_grading_result_updated_at
     EXECUTE FUNCTION set_updated_at();
 
 COMMENT ON TABLE grading_result IS
-    'Computed form completeness validation result for the care privacy notice. One-to-one child of assessment.';
-COMMENT ON COLUMN grading_result.id IS
-    'Primary key UUID, auto-generated.';
+    'Computed form completeness validation result. Complete means acknowledgment checkbox checked, name provided, and date provided. One-to-one child of assessment.';
 COMMENT ON COLUMN grading_result.assessment_id IS
-    'Foreign key to the parent assessment (unique, enforcing 1:1 relationship).';
-COMMENT ON COLUMN grading_result.overall_status IS
+    'Foreign key to the parent assessment (unique, enforcing 1:1).';
+COMMENT ON COLUMN grading_result.completeness_status IS
     'Overall form completeness: complete or incomplete.';
-COMMENT ON COLUMN grading_result.completeness_score IS
-    'Numeric completeness score computed by the grading engine (0 or higher).';
-COMMENT ON COLUMN grading_result.flagged_issues_count IS
-    'Number of validation issues flagged during grading.';
+COMMENT ON COLUMN grading_result.sections_complete IS
+    'Number of sections that pass completeness validation (0-3).';
+COMMENT ON COLUMN grading_result.sections_total IS
+    'Total number of sections requiring validation (always 3).';
 COMMENT ON COLUMN grading_result.graded_at IS
-    'Timestamp when the grading was computed.';
-COMMENT ON COLUMN grading_result.created_at IS
-    'Timestamp when the row was created.';
-COMMENT ON COLUMN grading_result.updated_at IS
-    'Timestamp when the row was last updated.';
+    'Timestamp when the validation was computed.';

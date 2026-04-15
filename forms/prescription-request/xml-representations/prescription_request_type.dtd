@@ -1,0 +1,8 @@
+<!ELEMENT prescription_request_type (id,prescription_request_id,is_new_prescription,is_emergency,additional_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT prescription_request_id (#PCDATA)>
+<!ELEMENT is_new_prescription (#PCDATA)>
+<!ELEMENT is_emergency (#PCDATA)>
+<!ELEMENT additional_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

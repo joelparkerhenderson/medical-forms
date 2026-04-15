@@ -1,5 +1,5 @@
--- 06-grading-fired-rule.sql
--- Individual validation rules that fired during care privacy notice completeness checking.
+-- 06_grading_fired_rule.sql
+-- Individual validation rules that fired during completeness checking.
 
 CREATE TABLE grading_fired_rule (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -7,11 +7,11 @@ CREATE TABLE grading_fired_rule (
     grading_result_id UUID NOT NULL
         REFERENCES grading_result(id) ON DELETE CASCADE,
 
-    rule_code VARCHAR(50) NOT NULL DEFAULT '',
-    rule_name VARCHAR(255) NOT NULL DEFAULT '',
-    severity VARCHAR(20) NOT NULL DEFAULT 'info'
-        CHECK (severity IN ('error', 'warning', 'info')),
-    message TEXT NOT NULL DEFAULT '',
+    rule_id VARCHAR(20) NOT NULL,
+    category VARCHAR(100) NOT NULL DEFAULT '',
+    description TEXT NOT NULL DEFAULT '',
+    severity_level VARCHAR(20) NOT NULL DEFAULT ''
+        CHECK (severity_level IN ('complete', 'incomplete', '')),
 
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
@@ -24,19 +24,13 @@ CREATE TRIGGER trg_grading_fired_rule_updated_at
 
 COMMENT ON TABLE grading_fired_rule IS
     'Individual validation rules that evaluated to true during care privacy notice completeness checking.';
-COMMENT ON COLUMN grading_fired_rule.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN grading_fired_rule.grading_result_id IS
     'Foreign key to the parent grading result.';
-COMMENT ON COLUMN grading_fired_rule.rule_code IS
-    'Short machine-readable code identifying the rule (e.g. PRIV-ACK-001).';
-COMMENT ON COLUMN grading_fired_rule.rule_name IS
-    'Human-readable name of the validation rule.';
-COMMENT ON COLUMN grading_fired_rule.severity IS
-    'Severity level of the fired rule: error, warning, or info.';
-COMMENT ON COLUMN grading_fired_rule.message IS
-    'Human-readable message describing the validation issue.';
-COMMENT ON COLUMN grading_fired_rule.created_at IS
-    'Timestamp when the row was created.';
-COMMENT ON COLUMN grading_fired_rule.updated_at IS
-    'Timestamp when the row was last updated.';
+COMMENT ON COLUMN grading_fired_rule.rule_id IS
+    'Identifier of the rule that fired (e.g. REQ-PC-001, REQ-AK-001).';
+COMMENT ON COLUMN grading_fired_rule.category IS
+    'Category of the rule (e.g. Practice Configuration, Acknowledgment).';
+COMMENT ON COLUMN grading_fired_rule.description IS
+    'Human-readable description of the validation rule.';
+COMMENT ON COLUMN grading_fired_rule.severity_level IS
+    'Validation result contributed by this rule: complete or incomplete.';

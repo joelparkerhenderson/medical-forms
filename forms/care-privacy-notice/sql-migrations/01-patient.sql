@@ -1,4 +1,4 @@
--- 01-patient.sql
+-- 01_patient.sql
 -- Patient demographic information.
 
 CREATE TABLE patient (
@@ -34,7 +34,3 @@ COMMENT ON COLUMN patient.nhs_number IS
     'NHS number, unique per patient.';
 COMMENT ON COLUMN patient.sex IS
     'Patient sex: male, female, other, or empty string if unanswered.';
-COMMENT ON COLUMN patient.created_at IS
-    'Timestamp when the row was created.';
-COMMENT ON COLUMN patient.updated_at IS
-    'Timestamp when the row was last updated.';

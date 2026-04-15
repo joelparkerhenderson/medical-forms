@@ -1,0 +1,9 @@
+<!ELEMENT prescription_substitution_options (id,prescription_request_id,allow_brand_substitution,allow_generic_substitution,allow_dosage_adjustment,substitution_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT prescription_request_id (#PCDATA)>
+<!ELEMENT allow_brand_substitution (#PCDATA)>
+<!ELEMENT allow_generic_substitution (#PCDATA)>
+<!ELEMENT allow_dosage_adjustment (#PCDATA)>
+<!ELEMENT substitution_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

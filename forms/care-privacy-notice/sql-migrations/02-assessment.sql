@@ -1,4 +1,4 @@
--- 02-assessment.sql
+-- 02_assessment.sql
 -- Top-level care privacy notice form linking a patient to an assessment instance.
 
 CREATE TABLE assessment (
@@ -20,14 +20,10 @@ CREATE TRIGGER trg_assessment_updated_at
     EXECUTE FUNCTION set_updated_at();
 
 COMMENT ON TABLE assessment IS
-    'Assessment form instance. Parent entity for all sections.';
+    'Care privacy notice form with completeness validation. Parent entity for practice configuration and acknowledgment.';
 COMMENT ON COLUMN assessment.id IS
     'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment.patient_id IS
-    'Foreign key to the patient this assessment belongs to.';
+    'Foreign key to the patient who owns this privacy notice form.';
 COMMENT ON COLUMN assessment.status IS
-    'Workflow status: draft, submitted, reviewed, or urgent.';
-COMMENT ON COLUMN assessment.created_at IS
-    'Timestamp when the row was created.';
-COMMENT ON COLUMN assessment.updated_at IS
-    'Timestamp when the row was last updated.';
+    'Lifecycle status: draft, submitted, reviewed, or urgent.';

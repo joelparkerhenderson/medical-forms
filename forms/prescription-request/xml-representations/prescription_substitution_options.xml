@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE prescription_substitution_options SYSTEM "prescription_substitution_options.dtd">
+<prescription_substitution_options>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<prescription_request_id>770e8400-e29b-41d4-a716-446655440002</prescription_request_id>
+<allow_brand_substitution>yes</allow_brand_substitution>
+<allow_generic_substitution>yes</allow_generic_substitution>
+<allow_dosage_adjustment>yes</allow_dosage_adjustment>
+<substitution_notes>Example text.</substitution_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</prescription_substitution_options>

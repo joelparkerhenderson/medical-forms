@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE clinician SYSTEM "clinician.dtd">
+<clinician>
+<id>660e8400-e29b-41d4-a716-446655440001</id>
+<first_name>Jane</first_name>
+<last_name>Doe</last_name>
+<nhs_employee_number></nhs_employee_number>
+<phone>07700900000</phone>
+<email>jane.doe@example.com</email>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</clinician>

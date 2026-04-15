@@ -1,0 +1,7 @@
+<!ELEMENT prescription_request (id,patient_id,clinician_id,status,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT patient_id (#PCDATA)>
+<!ELEMENT clinician_id (#PCDATA)>
+<!ELEMENT status (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>
