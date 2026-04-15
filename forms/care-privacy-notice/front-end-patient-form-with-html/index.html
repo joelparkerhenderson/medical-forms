@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Care Privacy Notice</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-title">Care Privacy Notice</a>
+      <nav><a href="index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+
+    <!-- ─── Landing ─────────────────────────────────────── -->
+    <div id="landing" class="hero">
+      <h1>Care Privacy Notice</h1>
+      <p>This form displays your practice's GDPR-compliant privacy notice and collects your
+      acknowledgment that you have read and understood it.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>3 Steps</h3>
+          <p>Practice configuration, privacy notice, and acknowledgment</p>
+        </div>
+        <div class="feature-card">
+          <h3>BMA Template</h3>
+          <p>Based on the BMA GDPR privacy notice template for GP practices</p>
+        </div>
+        <div class="feature-card">
+          <h3>UK GDPR</h3>
+          <p>Compliant with UK GDPR and the Data Protection Act 2018</p>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startForm()">Begin</button>
+    </div>
+
+    <!-- ─── Form ─────────────────────────────────────────── -->
+    <div id="form-container" style="display:none;">
+
+      <!-- Progress bar -->
+      <div class="progress-container">
+        <div class="progress-header">
+          <span id="step-label">Step 1 of 3: Practice Configuration</span>
+          <span id="step-percent">33%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill" style="width:33%"></div>
+        </div>
+      </div>
+
+      <!-- ─── Step 1: Practice Configuration ─────────────── -->
+      <section id="step-1" class="step-section active">
+        <div class="card">
+          <h2>Practice Configuration</h2>
+          <p class="admin-note">
+            <strong>For admin or clinical staff:</strong> Enter your practice details below.
+            These will be inserted into the privacy notice displayed to the patient.
+          </p>
+
+          <div class="form-group">
+            <label for="cfg-practiceName">Practice Name <span class="required">*</span></label>
+            <input type="text" id="cfg-practiceName" data-field="config.practiceName"
+              placeholder="e.g. Riverside Medical Centre" autocomplete="organization">
+          </div>
+
+          <div class="form-group">
+            <label for="cfg-practiceAddress">Practice Address <span class="required">*</span></label>
+            <input type="text" id="cfg-practiceAddress" data-field="config.practiceAddress"
+              placeholder="e.g. 12 High Street, London, SW1A 1AA" autocomplete="street-address">
+          </div>
+
+          <div class="form-group">
+            <label for="cfg-dpoName">Data Protection Officer (DPO) Name <span class="required">*</span></label>
+            <input type="text" id="cfg-dpoName" data-field="config.dpoName"
+              placeholder="e.g. Dr Jane Smith">
+          </div>
+
+          <div class="form-group">
+            <label for="cfg-dpoContactDetails">DPO Contact Details <span class="required">*</span></label>
+            <input type="text" id="cfg-dpoContactDetails" data-field="config.dpoContactDetails"
+              placeholder="e.g. dpo@riversidemedicalmcentre.nhs.uk or 020 7123 4567">
+          </div>
+
+          <div class="form-group">
+            <label for="cfg-dataSharingPartners">Data Sharing Partners <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+            <input type="text" id="cfg-dataSharingPartners" data-field="config.dataSharingPartners"
+              placeholder="e.g. St Mary's Hospital NHS Foundation Trust">
+            <p class="hint">Named organisations with which patient data may be shared for direct care.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="cfg-researchOrganisations">Research Organisations <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+            <input type="text" id="cfg-researchOrganisations" data-field="config.researchOrganisations"
+              placeholder="e.g. University College London research consortium">
+            <p class="hint">Research organisations authorised to access anonymised data.</p>
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <span></span>
+          <button class="btn btn-primary" onclick="goToStep(2)">Save &amp; Continue &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 2: Privacy Notice ──────────────────────── -->
+      <section id="step-2" class="step-section">
+        <div class="card">
+          <h2>Privacy Notice</h2>
+          <p>Please read the full privacy notice below.</p>
+          <div id="notice-content" class="notice-scroll">
+            <!-- Populated by app.js via renderNoticeHtml() -->
+          </div>
+          <p class="scroll-hint">Scroll down to read the full notice before continuing.</p>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(1)">&larr; Previous</button>
+          <button class="btn btn-primary" onclick="goToStep(3)">I have read the notice &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ─── Step 3: Acknowledgment & Signature ──────────── -->
+      <section id="step-3" class="step-section">
+        <div class="card">
+          <h2>Acknowledgment &amp; Signature</h2>
+          <p>Please confirm that you have read and understood the privacy notice.</p>
+
+          <ul id="step3-errors" class="error-list" style="display:none;"></ul>
+
+          <div class="form-group">
+            <label class="ack-label" id="ack-label">
+              <input type="checkbox" id="ack-checkbox" data-field="acknowledgment.checked"
+                onchange="document.getElementById('ack-label').classList.toggle('checked', this.checked)">
+              I have read, understand, and agree to the above privacy notice.
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="ack-name">Full Name <span class="required">*</span></label>
+            <input type="text" id="ack-name" data-field="acknowledgment.patientName"
+              placeholder="Enter your full name" autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="ack-date">Today's Date <span class="required">*</span></label>
+            <input type="date" id="ack-date" data-field="acknowledgment.date">
+          </div>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn btn-secondary" onclick="goToStep(2)">&larr; Previous</button>
+          <button class="btn btn-success" onclick="submitForm()">Submit</button>
+        </div>
+      </section>
+
+    </div><!-- /#form-container -->
+
+    <!-- ─── Success ──────────────────────────────────────── -->
+    <div id="success" style="display:none;">
+      <div class="card success-box">
+        <div class="success-icon">&#10003;</div>
+        <h2>Acknowledgment Recorded</h2>
+        <p>Thank you. Your acknowledgment of the practice privacy notice has been recorded.</p>
+        <p>Please speak to a member of staff if you have any questions.</p>
+        <div class="success-summary" id="success-summary"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>Care Privacy Notice &copy; 2026. Based on the BMA GDPR privacy notice template.</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+  <script>
+    // Set today's date as default for the date field after DOM is ready
+    document.addEventListener('DOMContentLoaded', function () {
+      const dateField = document.getElementById('ack-date');
+      if (dateField && !dateField.value) {
+        const today = new Date().toISOString().split('T')[0];
+        dateField.value = today;
+      }
+    });
+  </script>
+</body>
+</html>
