@@ -1,0 +1,9 @@
+<!ELEMENT assessment_acknowledgment (id,assessment_id,agreed,patient_typed_full_name,patient_typed_date,acknowledged_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT agreed (#PCDATA)>
+<!ELEMENT patient_typed_full_name (#PCDATA)>
+<!ELEMENT patient_typed_date (#PCDATA)>
+<!ELEMENT acknowledged_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

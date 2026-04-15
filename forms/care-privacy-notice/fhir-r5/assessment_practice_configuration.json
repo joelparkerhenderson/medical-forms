@@ -1,0 +1,112 @@
+{
+  "resourceType": "Observation",
+  "id": "770e8400-e29b-41d4-a716-446655440002",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:care-privacy-notice",
+        "code": "assessment_practice_configuration",
+        "display": "Practice Configuration"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:care-privacy-notice",
+            "code": "practice_name",
+            "display": "Practice Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:care-privacy-notice",
+            "code": "practice_address",
+            "display": "Practice Address"
+          }
+        ]
+      },
+      "valueString": "123 Example Street"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:care-privacy-notice",
+            "code": "dpo_name",
+            "display": "Dpo Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:care-privacy-notice",
+            "code": "dpo_contact_details",
+            "display": "Dpo Contact Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:care-privacy-notice",
+            "code": "research_organisations",
+            "display": "Research Organisations"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:care-privacy-notice",
+            "code": "data_sharing_partners",
+            "display": "Data Sharing Partners"
+          }
+        ]
+      },
+      "valueString": ""
+    }
+  ]
+}

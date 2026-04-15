@@ -17,16 +17,7 @@
   <main class="container main-content">
 
     <!-- ─── Landing ─────────────────────────────────────── -->
-    <div id="landing" class="hero">
-      <h1>Care Privacy Notice</h1>
-      <p>This form displays your practice's GDPR-compliant privacy notice and collects your
-      acknowledgment that you have read and understood it.</p>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <h3>3 Steps</h3>
-          <p>Practice configuration, privacy notice, and acknowledgment</p>
-        </div>
-        <div class="feature-card">
+    <div class="feature-card">
           <h3>BMA Template</h3>
           <p>Based on the BMA GDPR privacy notice template for GP practices</p>
         </div>
@@ -47,10 +38,7 @@
           <span id="step-label">Step 1 of 3: Practice Configuration</span>
           <span id="step-percent">33%</span>
         </div>
-        <div class="progress-bar">
-          <div class="progress-fill" id="progress-fill" style="width:33%"></div>
-        </div>
-      </div>
+</div>
 
       <!-- ─── Step 1: Practice Configuration ─────────────── -->
       <section id="step-1" class="step-section active">
@@ -102,7 +90,6 @@
 
         <div class="step-nav">
           <span></span>
-          <button class="btn btn-primary" onclick="goToStep(2)">Save &amp; Continue &rarr;</button>
         </div>
       </section>
 
@@ -118,8 +105,6 @@
         </div>
 
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(1)">&larr; Previous</button>
-          <button class="btn btn-primary" onclick="goToStep(3)">I have read the notice &rarr;</button>
         </div>
       </section>
 
@@ -152,7 +137,6 @@
         </div>
 
         <div class="step-nav">
-          <button class="btn btn-secondary" onclick="goToStep(2)">&larr; Previous</button>
           <button class="btn btn-success" onclick="submitForm()">Submit</button>
         </div>
       </section>

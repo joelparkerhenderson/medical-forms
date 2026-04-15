@@ -10,20 +10,8 @@ const STEP_TITLES = [
 ];
 
 let data = createDefaultData();
-let currentStep = 1;
 
 // ─── Navigation ─────────────────────────────────────────
-
-window.startForm = function () {
-  document.getElementById('landing').style.display = 'none';
-  document.getElementById('form-container').style.display = 'block';
-  showStep(1);
-};
-
-window.goToStep = function (step) {
-  collectCurrentStep();
-  showStep(step);
-};
 
 window.submitForm = function () {
   collectCurrentStep();
@@ -74,26 +62,6 @@ window.submitForm = function () {
 };
 
 // ─── Step display ────────────────────────────────────────
-
-function showStep(step) {
-  currentStep = step;
-  document.querySelectorAll('.step-section').forEach(s => s.classList.remove('active'));
-  const el = document.getElementById('step-' + step);
-  if (el) el.classList.add('active');
-
-  const pct = Math.round((step / TOTAL_STEPS) * 100);
-  document.getElementById('step-label').textContent =
-    'Step ' + step + ' of ' + TOTAL_STEPS + ': ' + STEP_TITLES[step - 1];
-  document.getElementById('step-percent').textContent = pct + '%';
-  document.getElementById('progress-fill').style.width = pct + '%';
-
-  if (step === 2) {
-    renderNotice();
-  }
-
-  populateStep(step);
-  window.scrollTo(0, 0);
-}
 
 // ─── Render notice (Step 2) ──────────────────────────────
 
@@ -152,3 +120,9 @@ function setNestedValue(obj, path, value) {
   }
   current[keys[keys.length - 1]] = value;
 }
+
+// Show form immediately (single-page layout)
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('form-container');
+  if (form) form.classList.remove('hidden');
+});

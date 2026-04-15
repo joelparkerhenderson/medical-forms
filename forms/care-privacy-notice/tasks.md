@@ -1,10 +1,15 @@
 # Care Privacy Notice — Tasks
 
-- [x] Scaffold directory
-- [x] Write documentation (index.md, AGENTS.md, CLAUDE.md, plan.md)
+## Completed
+
+- [x] Create form directory scaffold and documentation
+
+## Pending
+
 - [ ] SQL migrations
+- [ ] Svelte patient form
+- [ ] Svelte clinician dashboard
 - [ ] HTML patient form
 - [ ] HTML clinician dashboard
-- [ ] SvelteKit patient form
-- [ ] SvelteKit clinician dashboard
-- [ ] Rust full-stack backend
+- [ ] XML representations
+- [ ] FHIR R5 representations

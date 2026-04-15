@@ -1,34 +1,62 @@
 # Care Privacy Notice
 
-Read-and-acknowledge GDPR privacy notice for GP practices (BMA template).
+Read-and-acknowledge privacy notice form based on the BMA GDPR template for GP practices. Patients read the notice, confirm understanding, and provide their name and date.
 
-## Form type
+## Directory structure
 
-Single-page acknowledgment form. No multi-step wizard. No clinical scoring.
+- ./index.md - Project overview and documentation
+- ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
+- ./plan.md - Development roadmap
+- ./tasks.md - Task tracking
+- ./sql-migrations/ - PostgreSQL schema migrations
+- ./xml-representations/ - XML and DTD per SQL table entity
+- ./fhir-r5/ - FHIR HL7 R5 JSON per SQL table entity
+- ./front-end-patient-form-with-html/ - Patient form (HTML)
+- ./front-end-patient-form-with-svelte/ - Patient form (SvelteKit)
+- ./front-end-clinician-dashboard-with-html/ - Clinician dashboard (HTML)
+- ./front-end-clinician-dashboard-with-svelte/ - Clinician dashboard (SvelteKit)
 
-## Patient form flow
+## Scoring system
 
-1. Display privacy notice text (populated from admin configuration)
-2. Patient enters: full name, NHS number, date of birth, email
-3. Patient checks: "I have read, understand, and agree to this privacy notice"
-4. Date acknowledged (auto-populated, editable)
-5. Submit
+- **Instrument**: Completeness Validation
+- **Range**: Complete / Incomplete
+- **Categories**:
+  - Complete: All acknowledgment fields filled
+  - Incomplete: One or more missing
+- **Engine files**: `types.ts`, `form-validator.ts`, `validation-rules.ts`, `flagged-issues.ts`, `utils.ts`
+- **Test file**: `form-validator.test.ts`
 
-## Admin configuration
+## Assessment steps (3 total)
 
-Practice-specific fields stored in `practice_configuration` table:
-practice_name, practice_address, dpo_name, dpo_contact_details,
-shared_records_link, safeguarding_service_name_address, safeguarding_policy_link,
-nhs_body_name, nhs_body_website, nhs_body_phone, subject_access_request_link,
-risk_stratification_link.
+1. Practice Configuration - `Step1PracticeConfiguration.svelte`
+2. Privacy Notice - `Step2PrivacyNotice.svelte`
+3. Acknowledgment & Signature - `Step3AcknowledgmentSignature.svelte`
+
+## Patient form architecture
+
+- SvelteKit 2.x with Svelte 5 runes ($state, $derived, $bindable, $props, $effect)
+- Tailwind CSS 4 with @import 'tailwindcss' and @theme for custom colours
+- Multi-step wizard with StepNavigation and ProgressBar components
+- Pure validation engine with no side effects
+- Class-based reactive store (assessment.svelte.ts)
+- Vitest unit tests for validation logic
 
 ## Clinician dashboard
 
-Table of completed acknowledgments: Patient Name, NHS Number, Date of Birth,
-Email, Date Acknowledged. Sortable and searchable.
+- SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
+- Sortable columns and dropdown filters
+- Backend API client with sample data fallback
+
+## Conventions
+
+- Empty string '' for unanswered text fields
+- null for unanswered numeric fields
+- camelCase property names in TypeScript
+- Step components named StepNName.svelte (1-indexed)
+- UI components in src/lib/components/ui/
 
 ## Compliance
 
-- UK General Data Protection Regulation (UK GDPR)
-- Data Protection Act 2018
-- BMA guidance on GDPR privacy notices for GP practices
+- MDCG 2019-11 Rev.1 (EU MDR Software Classification)
+- UK Medical Devices Regulations 2002
+- ISO/IEC/IEEE 26514:2022

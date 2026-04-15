@@ -1,36 +1,23 @@
 # Care Privacy Notice
 
-A read-and-acknowledge GDPR privacy notice for GP practices, based on the
-BMA template. Patients read the practice's privacy notice, confirm they
-understand and agree, and provide identifying information.
+Read-and-acknowledge privacy notice form based on the BMA GDPR template for GP practices.
 
-## Form structure
+## Scoring system
 
-| Section | Description |
-|---------|-------------|
-| Privacy notice text | Full BMA GDPR template with practice-specific fields |
-| Patient identification | Full name, NHS number, date of birth, email |
-| Acknowledgment | Checkbox confirmation + date acknowledged |
+- **Instrument**: Completeness Validation
+- **Range**: Complete / Incomplete
+- **Categories**:
+  - Complete: Checkbox checked, name provided, date provided
+  - Incomplete: One or more required acknowledgment fields missing
 
-## Admin configuration
+## Steps
 
-Practice-specific fields (practice name, DPO contact, safeguarding links, etc.)
-are stored in a configuration table and injected into the notice text.
-
-## Scoring
-
-Validation only: the form is either "Acknowledged" (all fields complete, checkbox
-checked) or not submitted.
+| # | Step |
+|---|------|
+| 1 | Practice Configuration |
+| 2 | Privacy Notice |
+| 3 | Acknowledgment & Signature |
 
 ## Directory structure
 
-| Directory | Description |
-|-----------|-------------|
-| sql-migrations/ | PostgreSQL schema |
-| xml-representations/ | XML and DTD per entity |
-| fhir-r5/ | FHIR HL7 R5 JSON per entity |
-| front-end-patient-form-with-html/ | HTML patient form |
-| front-end-patient-form-with-svelte/ | SvelteKit patient form |
-| front-end-clinician-dashboard-with-html/ | HTML clinician dashboard |
-| front-end-clinician-dashboard-with-svelte/ | SvelteKit clinician dashboard |
-| full-stack-with-rust-axum-loco-tera-htmx-alpine/ | Rust full-stack backend |
+See root `index.md` for technology stack details.

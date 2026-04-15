@@ -1,22 +1,16 @@
-# Care Privacy Notice — Development Plan
+# Care Privacy Notice — Plan
 
-## Status
+## Current status
 
-In progress.
+Initial implementation in progress.
 
-## Implemented
+## Scoring engine
 
-- Directory scaffold
-- SQL migrations
-- HTML patient form
-- HTML clinician dashboard
-- SvelteKit patient form
-- SvelteKit clinician dashboard
+Simple completeness validation: checks that the acknowledgment checkbox is checked, patient has typed their full name, and patient has entered today's date. Returns Complete or Incomplete.
 
-## Future
+## Future enhancements
 
-- Rust full-stack backend
-- XML representations (auto-generated)
-- FHIR R5 representations (auto-generated)
+- localStorage persistence for draft forms
+- PDF download of signed acknowledgment
+- i18n for Welsh language support
 - Playwright end-to-end tests
-- Accessibility audit (axe-core)
