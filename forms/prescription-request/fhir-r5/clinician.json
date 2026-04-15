@@ -1,0 +1,100 @@
+{
+  "resourceType": "Observation",
+  "id": "660e8400-e29b-41d4-a716-446655440001",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:prescription-request",
+        "code": "clinician",
+        "display": "Clinician"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/ee0e8400-e29b-41d4-a716-446655440009"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:prescription-request",
+            "code": "first_name",
+            "display": "First Name"
+          }
+        ]
+      },
+      "valueString": "Jane"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:prescription-request",
+            "code": "last_name",
+            "display": "Last Name"
+          }
+        ]
+      },
+      "valueString": "Doe"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:prescription-request",
+            "code": "nhs_employee_number",
+            "display": "Nhs Employee Number"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:prescription-request",
+            "code": "phone",
+            "display": "Phone"
+          }
+        ]
+      },
+      "valueString": "07700900000"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:prescription-request",
+            "code": "email",
+            "display": "Email"
+          }
+        ]
+      },
+      "valueString": "jane.doe@example.com"
+    }
+  ]
+}
