@@ -1,0 +1,16 @@
+<!ELEMENT assessment_reason_for_referral (id,assessment_id,referral_type,referral_type_other,urgency,primary_complaint,affected_body_area,affected_body_area_other,laterality,duration_of_condition,previous_consultations,previous_consultations_details,referral_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT referral_type (#PCDATA)>
+<!ELEMENT referral_type_other (#PCDATA)>
+<!ELEMENT urgency (#PCDATA)>
+<!ELEMENT primary_complaint (#PCDATA)>
+<!ELEMENT affected_body_area (#PCDATA)>
+<!ELEMENT affected_body_area_other (#PCDATA)>
+<!ELEMENT laterality (#PCDATA)>
+<!ELEMENT duration_of_condition (#PCDATA)>
+<!ELEMENT previous_consultations (#PCDATA)>
+<!ELEMENT previous_consultations_details (#PCDATA)>
+<!ELEMENT referral_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,288 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:plastic-surgery-assessment",
+        "code": "assessment_wound_tissue",
+        "display": "Wound Tissue"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "has_open_wound",
+            "display": "Has Open Wound"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:has_open_wound",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "wound_classification",
+            "display": "Wound Classification"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:wound_classification",
+            "code": "clean",
+            "display": "Clean"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "wound_age",
+            "display": "Wound Age"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:wound_age",
+            "code": "acute",
+            "display": "Acute"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "wound_aetiology",
+            "display": "Wound Aetiology"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:wound_aetiology",
+            "code": "surgical",
+            "display": "Surgical"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "wound_bed_tissue",
+            "display": "Wound Bed Tissue"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:wound_bed_tissue",
+            "code": "granulation",
+            "display": "Granulation"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "wound_exudate",
+            "display": "Wound Exudate"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "wound_infection_signs",
+            "display": "Wound Infection Signs"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:wound_infection_signs",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "wound_infection_details",
+            "display": "Wound Infection Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "tissue_viability",
+            "display": "Tissue Viability"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:tissue_viability",
+            "code": "viable",
+            "display": "Viable"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "surrounding_skin",
+            "display": "Surrounding Skin"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:surrounding_skin",
+            "code": "healthy",
+            "display": "Healthy"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "vascular_supply",
+            "display": "Vascular Supply"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:vascular_supply",
+            "code": "adequate",
+            "display": "Adequate"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "sensory_status",
+            "display": "Sensory Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:sensory_status",
+            "code": "intact",
+            "display": "Intact"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "previous_wound_treatments",
+            "display": "Previous Wound Treatments"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "wound_tissue_notes",
+            "display": "Wound Tissue Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

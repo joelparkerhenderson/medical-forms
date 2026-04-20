@@ -1,0 +1,334 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:plastic-surgery-assessment",
+        "code": "assessment_anaesthetic_risk",
+        "display": "Anaesthetic Risk"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "asa_class",
+            "display": "Asa Class"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:asa_class",
+            "code": "I",
+            "display": "I"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "previous_anaesthetic",
+            "display": "Previous Anaesthetic"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:previous_anaesthetic",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "anaesthetic_complications",
+            "display": "Anaesthetic Complications"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:anaesthetic_complications",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "anaesthetic_complications_details",
+            "display": "Anaesthetic Complications Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "difficult_airway",
+            "display": "Difficult Airway"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:difficult_airway",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "difficult_airway_details",
+            "display": "Difficult Airway Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "malignant_hyperthermia_risk",
+            "display": "Malignant Hyperthermia Risk"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:malignant_hyperthermia_risk",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "family_anaesthetic_problems",
+            "display": "Family Anaesthetic Problems"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:family_anaesthetic_problems",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "family_anaesthetic_details",
+            "display": "Family Anaesthetic Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "smoking_status",
+            "display": "Smoking Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:smoking_status",
+            "code": "current",
+            "display": "Current"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "pack_years",
+            "display": "Pack Years"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "alcohol_consumption",
+            "display": "Alcohol Consumption"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:alcohol_consumption",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "recreational_drugs",
+            "display": "Recreational Drugs"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:recreational_drugs",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "recreational_drugs_details",
+            "display": "Recreational Drugs Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "obstructive_sleep_apnoea",
+            "display": "Obstructive Sleep Apnoea"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:obstructive_sleep_apnoea",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "anaesthetic_preference",
+            "display": "Anaesthetic Preference"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:anaesthetic_preference",
+            "code": "local",
+            "display": "Local"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "anaesthetic_notes",
+            "display": "Anaesthetic Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

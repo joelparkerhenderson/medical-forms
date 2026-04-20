@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_reason_for_referral SYSTEM "assessment_reason_for_referral.dtd">
+<assessment_reason_for_referral>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<referral_type>reconstructive</referral_type>
+<referral_type_other>standard</referral_type_other>
+<urgency>elective</urgency>
+<primary_complaint></primary_complaint>
+<affected_body_area>face</affected_body_area>
+<affected_body_area_other></affected_body_area_other>
+<laterality>left</laterality>
+<duration_of_condition>acute</duration_of_condition>
+<previous_consultations>yes</previous_consultations>
+<previous_consultations_details>Example text.</previous_consultations_details>
+<referral_notes>Example text.</referral_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_reason_for_referral>

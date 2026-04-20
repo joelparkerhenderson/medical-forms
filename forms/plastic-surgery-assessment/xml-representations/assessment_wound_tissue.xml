@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_wound_tissue SYSTEM "assessment_wound_tissue.dtd">
+<assessment_wound_tissue>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_open_wound>yes</has_open_wound>
+<wound_classification>clean</wound_classification>
+<wound_age>acute</wound_age>
+<wound_aetiology>surgical</wound_aetiology>
+<wound_bed_tissue>granulation</wound_bed_tissue>
+<wound_exudate>none</wound_exudate>
+<wound_infection_signs>yes</wound_infection_signs>
+<wound_infection_details>Example text.</wound_infection_details>
+<tissue_viability>viable</tissue_viability>
+<surrounding_skin>healthy</surrounding_skin>
+<vascular_supply>adequate</vascular_supply>
+<sensory_status>intact</sensory_status>
+<previous_wound_treatments>Example treatment</previous_wound_treatments>
+<wound_tissue_notes>Example text.</wound_tissue_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_wound_tissue>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_photography_documentation SYSTEM "assessment_photography_documentation.dtd">
+<assessment_photography_documentation>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<clinical_photos_taken>yes</clinical_photos_taken>
+<photo_consent_obtained>yes</photo_consent_obtained>
+<number_of_photos>2</number_of_photos>
+<photo_views_taken></photo_views_taken>
+<standardised_views>yes</standardised_views>
+<measurements_recorded>yes</measurements_recorded>
+<measurement_details>Example text.</measurement_details>
+<diagrams_drawn>yes</diagrams_drawn>
+<diagram_notes>Example text.</diagram_notes>
+<previous_imaging>yes</previous_imaging>
+<previous_imaging_type>ct</previous_imaging_type>
+<previous_imaging_findings>Example text.</previous_imaging_findings>
+<documentation_notes>Example text.</documentation_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_photography_documentation>

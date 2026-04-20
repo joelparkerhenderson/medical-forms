@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_condition SYSTEM "assessment_current_condition.dtd">
+<assessment_current_condition>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<condition_category>skin-lesion</condition_category>
+<condition_description>Example text.</condition_description>
+<lesion_size_length_mm>1</lesion_size_length_mm>
+<lesion_size_width_mm>1</lesion_size_width_mm>
+<lesion_size_depth_mm>1</lesion_size_depth_mm>
+<tissue_loss>yes</tissue_loss>
+<tissue_loss_percentage>50.0</tissue_loss_percentage>
+<functional_impairment>none</functional_impairment>
+<functional_impairment_details>Example text.</functional_impairment_details>
+<pain_level>1</pain_level>
+<cosmetic_concern>none</cosmetic_concern>
+<impact_on_daily_activities>none</impact_on_daily_activities>
+<current_condition_notes>Example text.</current_condition_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_condition>

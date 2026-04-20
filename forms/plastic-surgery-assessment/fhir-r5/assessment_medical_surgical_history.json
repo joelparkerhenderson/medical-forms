@@ -1,0 +1,432 @@
+{
+  "resourceType": "Observation",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:plastic-surgery-assessment",
+        "code": "assessment_medical_surgical_history",
+        "display": "Medical Surgical History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "previous_plastic_surgery",
+            "display": "Previous Plastic Surgery"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:previous_plastic_surgery",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "previous_plastic_surgery_details",
+            "display": "Previous Plastic Surgery Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "previous_general_surgery",
+            "display": "Previous General Surgery"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:previous_general_surgery",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "previous_general_surgery_details",
+            "display": "Previous General Surgery Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "wound_healing_problems",
+            "display": "Wound Healing Problems"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:wound_healing_problems",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "wound_healing_details",
+            "display": "Wound Healing Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "keloid_hypertrophic_scarring",
+            "display": "Keloid Hypertrophic Scarring"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:keloid_hypertrophic_scarring",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "scarring_details",
+            "display": "Scarring Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "diabetes",
+            "display": "Diabetes"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:diabetes",
+            "code": "type-1",
+            "display": "Type-1"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "diabetes_controlled",
+            "display": "Diabetes Controlled"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:diabetes_controlled",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "hypertension",
+            "display": "Hypertension"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:hypertension",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "cardiac_disease",
+            "display": "Cardiac Disease"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:cardiac_disease",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "cardiac_disease_details",
+            "display": "Cardiac Disease Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "respiratory_disease",
+            "display": "Respiratory Disease"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:respiratory_disease",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "respiratory_disease_details",
+            "display": "Respiratory Disease Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "autoimmune_disease",
+            "display": "Autoimmune Disease"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:autoimmune_disease",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "autoimmune_disease_details",
+            "display": "Autoimmune Disease Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "bleeding_disorder",
+            "display": "Bleeding Disorder"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:bleeding_disorder",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "bleeding_disorder_details",
+            "display": "Bleeding Disorder Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "immunosuppressed",
+            "display": "Immunosuppressed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:immunosuppressed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "immunosuppressed_details",
+            "display": "Immunosuppressed Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "cancer_history",
+            "display": "Cancer History"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:cancer_history",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "cancer_history_details",
+            "display": "Cancer History Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "medical_history_notes",
+            "display": "Medical History Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

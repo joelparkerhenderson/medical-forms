@@ -1,0 +1,220 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:plastic-surgery-assessment",
+        "code": "assessment_reason_for_referral",
+        "display": "Reason For Referral"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "referral_type",
+            "display": "Referral Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:referral_type",
+            "code": "reconstructive",
+            "display": "Reconstructive"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "referral_type_other",
+            "display": "Referral Type Other"
+          }
+        ]
+      },
+      "valueString": "standard"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "urgency",
+            "display": "Urgency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:urgency",
+            "code": "elective",
+            "display": "Elective"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "primary_complaint",
+            "display": "Primary Complaint"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "affected_body_area",
+            "display": "Affected Body Area"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:affected_body_area",
+            "code": "face",
+            "display": "Face"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "affected_body_area_other",
+            "display": "Affected Body Area Other"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "laterality",
+            "display": "Laterality"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:laterality",
+            "code": "left",
+            "display": "Left"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "duration_of_condition",
+            "display": "Duration Of Condition"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:duration_of_condition",
+            "code": "acute",
+            "display": "Acute"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "previous_consultations",
+            "display": "Previous Consultations"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment:previous_consultations",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "previous_consultations_details",
+            "display": "Previous Consultations Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:plastic-surgery-assessment",
+            "code": "referral_notes",
+            "display": "Referral Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

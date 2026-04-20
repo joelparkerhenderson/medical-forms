@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_medications_allergies SYSTEM "assessment_medications_allergies.dtd">
+<assessment_medications_allergies>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<on_anticoagulants>yes</on_anticoagulants>
+<anticoagulant_details>Example text.</anticoagulant_details>
+<on_antiplatelets>yes</on_antiplatelets>
+<antiplatelet_details>Example text.</antiplatelet_details>
+<on_steroids>yes</on_steroids>
+<steroid_details>Example text.</steroid_details>
+<on_immunosuppressants>yes</on_immunosuppressants>
+<immunosuppressant_details>Example text.</immunosuppressant_details>
+<on_chemotherapy>yes</on_chemotherapy>
+<chemotherapy_details>Example text.</chemotherapy_details>
+<on_hormone_therapy>yes</on_hormone_therapy>
+<hormone_therapy_details>Example text.</hormone_therapy_details>
+<other_medications>Paracetamol</other_medications>
+<has_drug_allergies>yes</has_drug_allergies>
+<drug_allergy_details>Example text.</drug_allergy_details>
+<latex_allergy>yes</latex_allergy>
+<adhesive_allergy>yes</adhesive_allergy>
+<other_allergies></other_allergies>
+<medication_adherence>good</medication_adherence>
+<medications_allergies_notes>Example text.</medications_allergies_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_medications_allergies>
