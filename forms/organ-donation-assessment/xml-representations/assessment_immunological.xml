@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_immunological SYSTEM "assessment_immunological.dtd">
+<assessment_immunological>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<hla_typing_completed>yes</hla_typing_completed>
+<hla_a></hla_a>
+<hla_b></hla_b>
+<hla_dr></hla_dr>
+<hla_dq></hla_dq>
+<crossmatch_performed>yes</crossmatch_performed>
+<crossmatch_result>negative</crossmatch_result>
+<pra_percentage>50.0</pra_percentage>
+<donor_specific_antibodies>yes</donor_specific_antibodies>
+<donor_specific_antibodies_details>Example text.</donor_specific_antibodies_details>
+<abo_compatibility>compatible</abo_compatibility>
+<immunological_notes>Example text.</immunological_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_immunological>

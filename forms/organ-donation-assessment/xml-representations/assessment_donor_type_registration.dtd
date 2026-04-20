@@ -1,0 +1,17 @@
+<!ELEMENT assessment_donor_type_registration (id,assessment_id,donor_type,registered_donor,organ_donor_register_checked,advance_directive,advance_directive_details,organs_offered,relationship_to_recipient,cause_of_death,cause_of_death_details,time_of_death,warm_ischaemia_minutes,donor_type_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT donor_type (#PCDATA)>
+<!ELEMENT registered_donor (#PCDATA)>
+<!ELEMENT organ_donor_register_checked (#PCDATA)>
+<!ELEMENT advance_directive (#PCDATA)>
+<!ELEMENT advance_directive_details (#PCDATA)>
+<!ELEMENT organs_offered (#PCDATA)>
+<!ELEMENT relationship_to_recipient (#PCDATA)>
+<!ELEMENT cause_of_death (#PCDATA)>
+<!ELEMENT cause_of_death_details (#PCDATA)>
+<!ELEMENT time_of_death (#PCDATA)>
+<!ELEMENT warm_ischaemia_minutes (#PCDATA)>
+<!ELEMENT donor_type_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

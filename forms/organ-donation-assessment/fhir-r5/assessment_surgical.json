@@ -1,0 +1,240 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:organ-donation-assessment",
+        "code": "assessment_surgical",
+        "display": "Surgical"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment",
+            "code": "abdominal_anatomy_normal",
+            "display": "Abdominal Anatomy Normal"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment:abdominal_anatomy_normal",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment",
+            "code": "abdominal_anatomy_findings",
+            "display": "Abdominal Anatomy Findings"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment",
+            "code": "vascular_anatomy_normal",
+            "display": "Vascular Anatomy Normal"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment:vascular_anatomy_normal",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment",
+            "code": "vascular_anatomy_findings",
+            "display": "Vascular Anatomy Findings"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment",
+            "code": "ct_angiogram_performed",
+            "display": "Ct Angiogram Performed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment:ct_angiogram_performed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment",
+            "code": "ct_angiogram_findings",
+            "display": "Ct Angiogram Findings"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment",
+            "code": "number_of_renal_arteries",
+            "display": "Number Of Renal Arteries"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment:number_of_renal_arteries",
+            "code": "1",
+            "display": "1"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment",
+            "code": "previous_abdominal_surgery",
+            "display": "Previous Abdominal Surgery"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment:previous_abdominal_surgery",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment",
+            "code": "previous_abdominal_surgery_details",
+            "display": "Previous Abdominal Surgery Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment",
+            "code": "anaesthetic_risk",
+            "display": "Anaesthetic Risk"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment:anaesthetic_risk",
+            "code": "asa-1",
+            "display": "Asa-1"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment",
+            "code": "surgical_fitness",
+            "display": "Surgical Fitness"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment:surgical_fitness",
+            "code": "fit",
+            "display": "Fit"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:organ-donation-assessment",
+            "code": "surgical_notes",
+            "display": "Surgical Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

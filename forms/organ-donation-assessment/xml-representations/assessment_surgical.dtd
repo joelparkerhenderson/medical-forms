@@ -1,0 +1,17 @@
+<!ELEMENT assessment_surgical (id,assessment_id,abdominal_anatomy_normal,abdominal_anatomy_findings,vascular_anatomy_normal,vascular_anatomy_findings,ct_angiogram_performed,ct_angiogram_findings,number_of_renal_arteries,previous_abdominal_surgery,previous_abdominal_surgery_details,anaesthetic_risk,surgical_fitness,surgical_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT abdominal_anatomy_normal (#PCDATA)>
+<!ELEMENT abdominal_anatomy_findings (#PCDATA)>
+<!ELEMENT vascular_anatomy_normal (#PCDATA)>
+<!ELEMENT vascular_anatomy_findings (#PCDATA)>
+<!ELEMENT ct_angiogram_performed (#PCDATA)>
+<!ELEMENT ct_angiogram_findings (#PCDATA)>
+<!ELEMENT number_of_renal_arteries (#PCDATA)>
+<!ELEMENT previous_abdominal_surgery (#PCDATA)>
+<!ELEMENT previous_abdominal_surgery_details (#PCDATA)>
+<!ELEMENT anaesthetic_risk (#PCDATA)>
+<!ELEMENT surgical_fitness (#PCDATA)>
+<!ELEMENT surgical_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

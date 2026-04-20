@@ -1,0 +1,16 @@
+<!ELEMENT assessment_eligibility_allocation (id,assessment_id,eligibility,expanded_criteria_donor,organs_approved,organs_declined,decline_reason,nhsbt_referral_made,nhsbt_reference,allocation_priority,lead_clinician,decision_date,decision_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT eligibility (#PCDATA)>
+<!ELEMENT expanded_criteria_donor (#PCDATA)>
+<!ELEMENT organs_approved (#PCDATA)>
+<!ELEMENT organs_declined (#PCDATA)>
+<!ELEMENT decline_reason (#PCDATA)>
+<!ELEMENT nhsbt_referral_made (#PCDATA)>
+<!ELEMENT nhsbt_reference (#PCDATA)>
+<!ELEMENT allocation_priority (#PCDATA)>
+<!ELEMENT lead_clinician (#PCDATA)>
+<!ELEMENT decision_date (#PCDATA)>
+<!ELEMENT decision_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>
