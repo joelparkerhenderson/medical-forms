@@ -1,0 +1,218 @@
+{
+  "resourceType": "Observation",
+  "id": "cc0e8400-e29b-41d4-a716-446655440007",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:endometriosis-assessment",
+        "code": "assessment_fertility",
+        "display": "Fertility"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "trying_to_conceive",
+            "display": "Trying To Conceive"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment:trying_to_conceive",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "duration_trying_months",
+            "display": "Duration Trying Months"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "previous_pregnancies",
+            "display": "Previous Pregnancies"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "live_births",
+            "display": "Live Births"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "miscarriages",
+            "display": "Miscarriages"
+          }
+        ]
+      },
+      "valueInteger": 45
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "ectopic_pregnancies",
+            "display": "Ectopic Pregnancies"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "previous_fertility_treatment",
+            "display": "Previous Fertility Treatment"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment:previous_fertility_treatment",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "fertility_treatment_details",
+            "display": "Fertility Treatment Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "amh_level",
+            "display": "Amh Level"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "partner_semen_analysis",
+            "display": "Partner Semen Analysis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment:partner_semen_analysis",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "future_fertility_concerns",
+            "display": "Future Fertility Concerns"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment:future_fertility_concerns",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "fertility_notes",
+            "display": "Fertility Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

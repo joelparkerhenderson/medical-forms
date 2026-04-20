@@ -1,0 +1,212 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:endometriosis-assessment",
+        "code": "assessment_quality_of_life",
+        "display": "Quality Of Life"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "pain_domain_score",
+            "display": "Pain Domain Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "control_powerlessness_score",
+            "display": "Control Powerlessness Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "emotional_wellbeing_score",
+            "display": "Emotional Wellbeing Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "social_support_score",
+            "display": "Social Support Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "self_image_score",
+            "display": "Self Image Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "work_impact",
+            "display": "Work Impact"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment:work_impact",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "relationship_impact",
+            "display": "Relationship Impact"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment:relationship_impact",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "sleep_impact",
+            "display": "Sleep Impact"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment:sleep_impact",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "mental_health_impact",
+            "display": "Mental Health Impact"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment:mental_health_impact",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "exercise_impact",
+            "display": "Exercise Impact"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment:exercise_impact",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:endometriosis-assessment",
+            "code": "qol_notes",
+            "display": "Qol Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

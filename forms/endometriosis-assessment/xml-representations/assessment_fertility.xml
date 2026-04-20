@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_fertility SYSTEM "assessment_fertility.dtd">
+<assessment_fertility>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<trying_to_conceive>yes</trying_to_conceive>
+<duration_trying_months>1</duration_trying_months>
+<previous_pregnancies>1</previous_pregnancies>
+<live_births>1</live_births>
+<miscarriages>45</miscarriages>
+<ectopic_pregnancies>1</ectopic_pregnancies>
+<previous_fertility_treatment>yes</previous_fertility_treatment>
+<fertility_treatment_details>Example text.</fertility_treatment_details>
+<amh_level>5.0</amh_level>
+<partner_semen_analysis>normal</partner_semen_analysis>
+<future_fertility_concerns>yes</future_fertility_concerns>
+<fertility_notes>Example text.</fertility_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_fertility>

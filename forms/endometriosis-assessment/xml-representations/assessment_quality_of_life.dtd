@@ -1,0 +1,16 @@
+<!ELEMENT assessment_quality_of_life (id,assessment_id,pain_domain_score,control_powerlessness_score,emotional_wellbeing_score,social_support_score,self_image_score,work_impact,relationship_impact,sleep_impact,mental_health_impact,exercise_impact,qol_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT pain_domain_score (#PCDATA)>
+<!ELEMENT control_powerlessness_score (#PCDATA)>
+<!ELEMENT emotional_wellbeing_score (#PCDATA)>
+<!ELEMENT social_support_score (#PCDATA)>
+<!ELEMENT self_image_score (#PCDATA)>
+<!ELEMENT work_impact (#PCDATA)>
+<!ELEMENT relationship_impact (#PCDATA)>
+<!ELEMENT sleep_impact (#PCDATA)>
+<!ELEMENT mental_health_impact (#PCDATA)>
+<!ELEMENT exercise_impact (#PCDATA)>
+<!ELEMENT qol_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

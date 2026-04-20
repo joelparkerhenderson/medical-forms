@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_quality_of_life SYSTEM "assessment_quality_of_life.dtd">
+<assessment_quality_of_life>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<pain_domain_score>5</pain_domain_score>
+<control_powerlessness_score>5</control_powerlessness_score>
+<emotional_wellbeing_score>5</emotional_wellbeing_score>
+<social_support_score>5</social_support_score>
+<self_image_score>5</self_image_score>
+<work_impact>none</work_impact>
+<relationship_impact>none</relationship_impact>
+<sleep_impact>none</sleep_impact>
+<mental_health_impact>none</mental_health_impact>
+<exercise_impact>none</exercise_impact>
+<qol_notes>Example text.</qol_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_quality_of_life>

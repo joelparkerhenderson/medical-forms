@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_treatment_planning SYSTEM "assessment_treatment_planning.dtd">
+<assessment_treatment_planning>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<treatment_goals>Example treatment</treatment_goals>
+<preferred_approach>conservative</preferred_approach>
+<surgery_considered>yes</surgery_considered>
+<surgery_type_considered>diagnostic-laparoscopy</surgery_type_considered>
+<fertility_preservation_needed>yes</fertility_preservation_needed>
+<mdt_referral_needed>yes</mdt_referral_needed>
+<pain_management_referral>yes</pain_management_referral>
+<psychology_referral>yes</psychology_referral>
+<physiotherapy_referral>yes</physiotherapy_referral>
+<fertility_clinic_referral>yes</fertility_clinic_referral>
+<imaging_requested>none</imaging_requested>
+<follow_up_interval>2-weeks</follow_up_interval>
+<planning_notes>Example text.</planning_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_treatment_planning>
