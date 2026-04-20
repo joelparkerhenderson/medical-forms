@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_temporal_pattern SYSTEM "assessment_temporal_pattern.dtd">
+<assessment_temporal_pattern>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<onset_time>early-afternoon</onset_time>
+<typical_onset_hour>1</typical_onset_hour>
+<peak_severity_time>late-afternoon</peak_severity_time>
+<typical_duration_hours>1</typical_duration_hours>
+<episode_frequency>daily</episode_frequency>
+<seasonal_pattern>yes</seasonal_pattern>
+<seasonal_pattern_details>Example text.</seasonal_pattern_details>
+<worse_with_daylight_changes>yes</worse_with_daylight_changes>
+<symptoms_resolve_by_morning>yes</symptoms_resolve_by_morning>
+<pattern_duration_months>1</pattern_duration_months>
+<pattern_worsening>yes</pattern_worsening>
+<temporal_notes>Example text.</temporal_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_temporal_pattern>

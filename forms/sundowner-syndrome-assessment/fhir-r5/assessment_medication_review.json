@@ -1,0 +1,368 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:sundowner-syndrome-assessment",
+        "code": "assessment_medication_review",
+        "display": "Medication Review"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "on_cholinesterase_inhibitor",
+            "display": "On Cholinesterase Inhibitor"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:on_cholinesterase_inhibitor",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "cholinesterase_inhibitor_details",
+            "display": "Cholinesterase Inhibitor Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "on_memantine",
+            "display": "On Memantine"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:on_memantine",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "on_antipsychotic",
+            "display": "On Antipsychotic"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:on_antipsychotic",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "antipsychotic_details",
+            "display": "Antipsychotic Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "on_benzodiazepine",
+            "display": "On Benzodiazepine"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:on_benzodiazepine",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "benzodiazepine_details",
+            "display": "Benzodiazepine Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "on_antidepressant",
+            "display": "On Antidepressant"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:on_antidepressant",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "antidepressant_details",
+            "display": "Antidepressant Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "on_melatonin",
+            "display": "On Melatonin"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:on_melatonin",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "melatonin_dose",
+            "display": "Melatonin Dose"
+          }
+        ]
+      },
+      "valueString": "500mg"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "on_analgesic",
+            "display": "On Analgesic"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:on_analgesic",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "analgesic_details",
+            "display": "Analgesic Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "anticholinergic_burden",
+            "display": "Anticholinergic Burden"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:anticholinergic_burden",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "polypharmacy",
+            "display": "Polypharmacy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:polypharmacy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "total_medications",
+            "display": "Total Medications"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "recent_medication_changes",
+            "display": "Recent Medication Changes"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:recent_medication_changes",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "recent_medication_changes_details",
+            "display": "Recent Medication Changes Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "medication_adherence",
+            "display": "Medication Adherence"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:medication_adherence",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "medication_notes",
+            "display": "Medication Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

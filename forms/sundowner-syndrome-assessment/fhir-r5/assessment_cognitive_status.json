@@ -1,0 +1,236 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:sundowner-syndrome-assessment",
+        "code": "assessment_cognitive_status",
+        "display": "Cognitive Status"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "dementia_diagnosis",
+            "display": "Dementia Diagnosis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:dementia_diagnosis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "dementia_type",
+            "display": "Dementia Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:dementia_type",
+            "code": "alzheimers",
+            "display": "Alzheimers"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "dementia_stage",
+            "display": "Dementia Stage"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:dementia_stage",
+            "code": "mild",
+            "display": "Mild"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "mmse_score",
+            "display": "Mmse Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "moca_score",
+            "display": "Moca Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "orientation_impaired",
+            "display": "Orientation Impaired"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:orientation_impaired",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "short_term_memory_impaired",
+            "display": "Short Term Memory Impaired"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:short_term_memory_impaired",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "long_term_memory_impaired",
+            "display": "Long Term Memory Impaired"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:long_term_memory_impaired",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "communication_ability",
+            "display": "Communication Ability"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:communication_ability",
+            "code": "intact",
+            "display": "Intact"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "decision_making_capacity",
+            "display": "Decision Making Capacity"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:decision_making_capacity",
+            "code": "full",
+            "display": "Full"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "cognitive_status_notes",
+            "display": "Cognitive Status Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

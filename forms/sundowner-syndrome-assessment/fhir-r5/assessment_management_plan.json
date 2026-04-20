@@ -1,0 +1,368 @@
+{
+  "resourceType": "Observation",
+  "id": "110e8400-e29b-41d4-a716-44665544000b",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:sundowner-syndrome-assessment",
+        "code": "assessment_management_plan",
+        "display": "Management Plan"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "non_pharmacological_interventions",
+            "display": "Non Pharmacological Interventions"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:non_pharmacological_interventions",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "light_therapy",
+            "display": "Light Therapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:light_therapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "music_therapy",
+            "display": "Music Therapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:music_therapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "aromatherapy",
+            "display": "Aromatherapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:aromatherapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "structured_activities",
+            "display": "Structured Activities"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:structured_activities",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "exercise_programme",
+            "display": "Exercise Programme"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:exercise_programme",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "sleep_hygiene_plan",
+            "display": "Sleep Hygiene Plan"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:sleep_hygiene_plan",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "environmental_modifications",
+            "display": "Environmental Modifications"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:environmental_modifications",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "environmental_modifications_details",
+            "display": "Environmental Modifications Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "pharmacological_review",
+            "display": "Pharmacological Review"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:pharmacological_review",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "pharmacological_review_details",
+            "display": "Pharmacological Review Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "referral_to_specialist",
+            "display": "Referral To Specialist"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:referral_to_specialist",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "specialist_type",
+            "display": "Specialist Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:specialist_type",
+            "code": "psychiatrist",
+            "display": "Psychiatrist"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "carer_support_plan",
+            "display": "Carer Support Plan"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:carer_support_plan",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "follow_up_interval",
+            "display": "Follow Up Interval"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:follow_up_interval",
+            "code": "1-week",
+            "display": "1-Week"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "safety_plan",
+            "display": "Safety Plan"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:safety_plan",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "safety_plan_details",
+            "display": "Safety Plan Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "management_plan_notes",
+            "display": "Management Plan Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

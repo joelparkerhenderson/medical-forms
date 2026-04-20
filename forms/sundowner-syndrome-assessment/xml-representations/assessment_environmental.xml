@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_environmental SYSTEM "assessment_environmental.dtd">
+<assessment_environmental>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<lighting_adequate>yes</lighting_adequate>
+<lighting_notes>Example text.</lighting_notes>
+<noise_level>quiet</noise_level>
+<temperature_comfortable>yes</temperature_comfortable>
+<familiar_objects_present>yes</familiar_objects_present>
+<orientation_cues_present>yes</orientation_cues_present>
+<orientation_cues_details>Example text.</orientation_cues_details>
+<safe_wandering_space>yes</safe_wandering_space>
+<exit_security>yes</exit_security>
+<fall_hazards_addressed>yes</fall_hazards_addressed>
+<structured_routine>yes</structured_routine>
+<evening_routine_established>yes</evening_routine_established>
+<evening_routine_details>Example text.</evening_routine_details>
+<daytime_activity_level>active</daytime_activity_level>
+<social_interaction>frequent</social_interaction>
+<environmental_notes>Example text.</environmental_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_environmental>

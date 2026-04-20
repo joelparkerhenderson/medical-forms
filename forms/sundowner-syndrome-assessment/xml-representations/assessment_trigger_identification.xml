@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_trigger_identification SYSTEM "assessment_trigger_identification.dtd">
+<assessment_trigger_identification>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<pain_trigger>yes</pain_trigger>
+<pain_details>Example text.</pain_details>
+<hunger_thirst_trigger>yes</hunger_thirst_trigger>
+<toileting_needs_trigger>yes</toileting_needs_trigger>
+<fatigue_trigger>yes</fatigue_trigger>
+<overstimulation_trigger>yes</overstimulation_trigger>
+<understimulation_trigger>yes</understimulation_trigger>
+<unfamiliar_environment_trigger>yes</unfamiliar_environment_trigger>
+<carer_change_trigger>yes</carer_change_trigger>
+<routine_disruption_trigger>yes</routine_disruption_trigger>
+<infection_trigger>yes</infection_trigger>
+<infection_details>Example text.</infection_details>
+<constipation_trigger>yes</constipation_trigger>
+<dehydration_trigger>yes</dehydration_trigger>
+<medication_change_trigger>yes</medication_change_trigger>
+<other_triggers></other_triggers>
+<trigger_notes>Example text.</trigger_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_trigger_identification>

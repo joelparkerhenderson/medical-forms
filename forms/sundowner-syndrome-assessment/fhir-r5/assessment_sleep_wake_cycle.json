@@ -1,0 +1,296 @@
+{
+  "resourceType": "Observation",
+  "id": "cc0e8400-e29b-41d4-a716-446655440007",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:sundowner-syndrome-assessment",
+        "code": "assessment_sleep_wake_cycle",
+        "display": "Sleep Wake Cycle"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "sleep_quality",
+            "display": "Sleep Quality"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:sleep_quality",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "typical_bedtime",
+            "display": "Typical Bedtime"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "typical_wake_time",
+            "display": "Typical Wake Time"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "sleep_duration_hours",
+            "display": "Sleep Duration Hours"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "night_waking_frequency",
+            "display": "Night Waking Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:night_waking_frequency",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "daytime_napping",
+            "display": "Daytime Napping"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:daytime_napping",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "nap_duration_hours",
+            "display": "Nap Duration Hours"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "day_night_reversal",
+            "display": "Day Night Reversal"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:day_night_reversal",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "circadian_rhythm_disruption",
+            "display": "Circadian Rhythm Disruption"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:circadian_rhythm_disruption",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "sleep_apnoea",
+            "display": "Sleep Apnoea"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:sleep_apnoea",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "restless_legs",
+            "display": "Restless Legs"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:restless_legs",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "sleep_medication",
+            "display": "Sleep Medication"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:sleep_medication",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "sleep_medication_details",
+            "display": "Sleep Medication Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "light_exposure_adequate",
+            "display": "Light Exposure Adequate"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment:light_exposure_adequate",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:sundowner-syndrome-assessment",
+            "code": "sleep_notes",
+            "display": "Sleep Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

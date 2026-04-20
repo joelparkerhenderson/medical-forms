@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_carer_impact SYSTEM "assessment_carer_impact.dtd">
+<assessment_carer_impact>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<carer_stress_level>none</carer_stress_level>
+<carer_sleep_disruption>yes</carer_sleep_disruption>
+<carer_physical_health_impact>yes</carer_physical_health_impact>
+<carer_mental_health_impact>yes</carer_mental_health_impact>
+<carer_burnout_risk>low</carer_burnout_risk>
+<respite_care_available>yes</respite_care_available>
+<respite_care_frequency>regular</respite_care_frequency>
+<formal_support_services>yes</formal_support_services>
+<formal_support_details>Example text.</formal_support_details>
+<carer_training_received>yes</carer_training_received>
+<carer_support_group>yes</carer_support_group>
+<safeguarding_concerns>yes</safeguarding_concerns>
+<safeguarding_details>Example text.</safeguarding_details>
+<carer_impact_notes>Example text.</carer_impact_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_carer_impact>

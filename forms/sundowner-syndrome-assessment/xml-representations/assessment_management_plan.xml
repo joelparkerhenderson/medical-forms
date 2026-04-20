@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_management_plan SYSTEM "assessment_management_plan.dtd">
+<assessment_management_plan>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<non_pharmacological_interventions>yes</non_pharmacological_interventions>
+<light_therapy>yes</light_therapy>
+<music_therapy>yes</music_therapy>
+<aromatherapy>yes</aromatherapy>
+<structured_activities>yes</structured_activities>
+<exercise_programme>yes</exercise_programme>
+<sleep_hygiene_plan>yes</sleep_hygiene_plan>
+<environmental_modifications>yes</environmental_modifications>
+<environmental_modifications_details>Example text.</environmental_modifications_details>
+<pharmacological_review>yes</pharmacological_review>
+<pharmacological_review_details>Example text.</pharmacological_review_details>
+<referral_to_specialist>yes</referral_to_specialist>
+<specialist_type>psychiatrist</specialist_type>
+<carer_support_plan>yes</carer_support_plan>
+<follow_up_interval>1-week</follow_up_interval>
+<safety_plan>yes</safety_plan>
+<safety_plan_details>Example text.</safety_plan_details>
+<management_plan_notes>Example text.</management_plan_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_management_plan>
