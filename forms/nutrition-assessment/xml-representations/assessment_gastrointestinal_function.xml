@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_gastrointestinal_function SYSTEM "assessment_gastrointestinal_function.dtd">
+<assessment_gastrointestinal_function>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<nausea>yes</nausea>
+<vomiting>yes</vomiting>
+<vomiting_frequency>occasional</vomiting_frequency>
+<diarrhoea>yes</diarrhoea>
+<diarrhoea_frequency>occasional</diarrhoea_frequency>
+<constipation>yes</constipation>
+<abdominal_pain>yes</abdominal_pain>
+<abdominal_bloating>yes</abdominal_bloating>
+<stoma>yes</stoma>
+<stoma_type>colostomy</stoma_type>
+<bowel_surgery>yes</bowel_surgery>
+<bowel_surgery_details>Example text.</bowel_surgery_details>
+<gi_function_notes>Example text.</gi_function_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_gastrointestinal_function>

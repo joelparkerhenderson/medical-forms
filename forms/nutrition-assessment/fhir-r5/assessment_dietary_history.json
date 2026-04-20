@@ -1,0 +1,232 @@
+{
+  "resourceType": "Observation",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:nutrition-assessment",
+        "code": "assessment_dietary_history",
+        "display": "Dietary History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "meals_per_day",
+            "display": "Meals Per Day"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "snacks_per_day",
+            "display": "Snacks Per Day"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "appetite",
+            "display": "Appetite"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:appetite",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "appetite_change",
+            "display": "Appetite Change"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:appetite_change",
+            "code": "increased",
+            "display": "Increased"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "fluid_intake_ml_per_day",
+            "display": "Fluid Intake Ml Per Day"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "diet_type",
+            "display": "Diet Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:diet_type",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "diet_type_other",
+            "display": "Diet Type Other"
+          }
+        ]
+      },
+      "valueString": "standard"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "texture_modification",
+            "display": "Texture Modification"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:texture_modification",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "fluid_consistency",
+            "display": "Fluid Consistency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:fluid_consistency",
+            "code": "thin",
+            "display": "Thin"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "meal_preparation",
+            "display": "Meal Preparation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:meal_preparation",
+            "code": "self",
+            "display": "Self"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "dietary_restrictions",
+            "display": "Dietary Restrictions"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "dietary_history_notes",
+            "display": "Dietary History Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

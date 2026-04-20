@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_nutritional_screening SYSTEM "assessment_nutritional_screening.dtd">
+<assessment_nutritional_screening>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<must_step1_bmi_score>5</must_step1_bmi_score>
+<must_step2_weight_loss_score>5</must_step2_weight_loss_score>
+<must_step3_acute_disease_score>5</must_step3_acute_disease_score>
+<must_total_score>5</must_total_score>
+<must_risk_category>low</must_risk_category>
+<acutely_ill>yes</acutely_ill>
+<no_nutritional_intake_days>1</no_nutritional_intake_days>
+<screening_date>2026-01-15</screening_date>
+<screened_by></screened_by>
+<nutritional_screening_notes>Example text.</nutritional_screening_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_nutritional_screening>

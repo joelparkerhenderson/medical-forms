@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_dietary_history SYSTEM "assessment_dietary_history.dtd">
+<assessment_dietary_history>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<meals_per_day>1</meals_per_day>
+<snacks_per_day>1</snacks_per_day>
+<appetite>good</appetite>
+<appetite_change>increased</appetite_change>
+<fluid_intake_ml_per_day>1</fluid_intake_ml_per_day>
+<diet_type>normal</diet_type>
+<diet_type_other>standard</diet_type_other>
+<texture_modification>normal</texture_modification>
+<fluid_consistency>thin</fluid_consistency>
+<meal_preparation>self</meal_preparation>
+<dietary_restrictions></dietary_restrictions>
+<dietary_history_notes>Example text.</dietary_history_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_dietary_history>

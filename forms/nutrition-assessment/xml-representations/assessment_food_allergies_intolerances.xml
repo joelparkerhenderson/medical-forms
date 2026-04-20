@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_food_allergies_intolerances SYSTEM "assessment_food_allergies_intolerances.dtd">
+<assessment_food_allergies_intolerances>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_food_allergies>yes</has_food_allergies>
+<has_food_intolerances>yes</has_food_intolerances>
+<coeliac_disease>yes</coeliac_disease>
+<lactose_intolerance>yes</lactose_intolerance>
+<has_drug_allergies>yes</has_drug_allergies>
+<anaphylaxis_history>yes</anaphylaxis_history>
+<anaphylaxis_details>Example text.</anaphylaxis_details>
+<epipen_available>yes</epipen_available>
+<allergy_details>Example text.</allergy_details>
+<intolerance_details>Example text.</intolerance_details>
+<drug_allergy_details>Example text.</drug_allergy_details>
+<food_allergy_notes>Example text.</food_allergy_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_food_allergies_intolerances>

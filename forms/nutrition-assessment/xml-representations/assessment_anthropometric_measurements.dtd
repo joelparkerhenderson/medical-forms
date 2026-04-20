@@ -1,0 +1,17 @@
+<!ELEMENT assessment_anthropometric_measurements (id,assessment_id,current_weight_kg,usual_weight_kg,height_cm,bmi,mid_upper_arm_circumference_cm,waist_circumference_cm,unplanned_weight_loss,weight_loss_percent,weight_loss_timeframe,unable_to_weigh,unable_to_weigh_reason,anthropometric_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT current_weight_kg (#PCDATA)>
+<!ELEMENT usual_weight_kg (#PCDATA)>
+<!ELEMENT height_cm (#PCDATA)>
+<!ELEMENT bmi (#PCDATA)>
+<!ELEMENT mid_upper_arm_circumference_cm (#PCDATA)>
+<!ELEMENT waist_circumference_cm (#PCDATA)>
+<!ELEMENT unplanned_weight_loss (#PCDATA)>
+<!ELEMENT weight_loss_percent (#PCDATA)>
+<!ELEMENT weight_loss_timeframe (#PCDATA)>
+<!ELEMENT unable_to_weigh (#PCDATA)>
+<!ELEMENT unable_to_weigh_reason (#PCDATA)>
+<!ELEMENT anthropometric_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

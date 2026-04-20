@@ -1,0 +1,15 @@
+<!ELEMENT assessment_nutritional_screening (id,assessment_id,must_step1_bmi_score,must_step2_weight_loss_score,must_step3_acute_disease_score,must_total_score,must_risk_category,acutely_ill,no_nutritional_intake_days,screening_date,screened_by,nutritional_screening_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT must_step1_bmi_score (#PCDATA)>
+<!ELEMENT must_step2_weight_loss_score (#PCDATA)>
+<!ELEMENT must_step3_acute_disease_score (#PCDATA)>
+<!ELEMENT must_total_score (#PCDATA)>
+<!ELEMENT must_risk_category (#PCDATA)>
+<!ELEMENT acutely_ill (#PCDATA)>
+<!ELEMENT no_nutritional_intake_days (#PCDATA)>
+<!ELEMENT screening_date (#PCDATA)>
+<!ELEMENT screened_by (#PCDATA)>
+<!ELEMENT nutritional_screening_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

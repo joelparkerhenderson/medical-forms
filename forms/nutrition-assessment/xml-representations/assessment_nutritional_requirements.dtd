@@ -1,0 +1,17 @@
+<!ELEMENT assessment_nutritional_requirements (id,assessment_id,estimated_energy_kcal_per_day,estimated_protein_g_per_day,estimated_fluid_ml_per_day,fluid_restriction,fluid_restriction_ml,electrolyte_monitoring,refeeding_risk,refeeding_risk_factors,micronutrient_supplementation,micronutrient_details,special_requirements,nutritional_requirements_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT estimated_energy_kcal_per_day (#PCDATA)>
+<!ELEMENT estimated_protein_g_per_day (#PCDATA)>
+<!ELEMENT estimated_fluid_ml_per_day (#PCDATA)>
+<!ELEMENT fluid_restriction (#PCDATA)>
+<!ELEMENT fluid_restriction_ml (#PCDATA)>
+<!ELEMENT electrolyte_monitoring (#PCDATA)>
+<!ELEMENT refeeding_risk (#PCDATA)>
+<!ELEMENT refeeding_risk_factors (#PCDATA)>
+<!ELEMENT micronutrient_supplementation (#PCDATA)>
+<!ELEMENT micronutrient_details (#PCDATA)>
+<!ELEMENT special_requirements (#PCDATA)>
+<!ELEMENT nutritional_requirements_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

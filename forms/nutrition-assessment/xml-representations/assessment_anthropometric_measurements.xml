@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_anthropometric_measurements SYSTEM "assessment_anthropometric_measurements.dtd">
+<assessment_anthropometric_measurements>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<current_weight_kg>70.0</current_weight_kg>
+<usual_weight_kg>70.0</usual_weight_kg>
+<height_cm>170.0</height_cm>
+<bmi>24.2</bmi>
+<mid_upper_arm_circumference_cm>0.0</mid_upper_arm_circumference_cm>
+<waist_circumference_cm>0.0</waist_circumference_cm>
+<unplanned_weight_loss>yes</unplanned_weight_loss>
+<weight_loss_percent>70.0</weight_loss_percent>
+<weight_loss_timeframe>1-month</weight_loss_timeframe>
+<unable_to_weigh>yes</unable_to_weigh>
+<unable_to_weigh_reason>Example text.</unable_to_weigh_reason>
+<anthropometric_notes>Example text.</anthropometric_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_anthropometric_measurements>

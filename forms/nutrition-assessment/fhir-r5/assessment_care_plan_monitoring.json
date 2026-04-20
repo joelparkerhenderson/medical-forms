@@ -1,0 +1,252 @@
+{
+  "resourceType": "Observation",
+  "id": "110e8400-e29b-41d4-a716-44665544000b",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:nutrition-assessment",
+        "code": "assessment_care_plan_monitoring",
+        "display": "Care Plan Monitoring"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "nutritional_goals",
+            "display": "Nutritional Goals"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "weight_monitoring_frequency",
+            "display": "Weight Monitoring Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:weight_monitoring_frequency",
+            "code": "daily",
+            "display": "Daily"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "food_chart_required",
+            "display": "Food Chart Required"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:food_chart_required",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "fluid_balance_chart_required",
+            "display": "Fluid Balance Chart Required"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:fluid_balance_chart_required",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "dietitian_referral",
+            "display": "Dietitian Referral"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:dietitian_referral",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "salt_referral",
+            "display": "Salt Referral"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:salt_referral",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "reassessment_date",
+            "display": "Reassessment Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "reassessment_frequency",
+            "display": "Reassessment Frequency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:reassessment_frequency",
+            "code": "weekly",
+            "display": "Weekly"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "escalation_plan",
+            "display": "Escalation Plan"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "discharge_nutrition_plan",
+            "display": "Discharge Nutrition Plan"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "patient_education_provided",
+            "display": "Patient Education Provided"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment:patient_education_provided",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "patient_education_details",
+            "display": "Patient Education Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:nutrition-assessment",
+            "code": "care_plan_notes",
+            "display": "Care Plan Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}
