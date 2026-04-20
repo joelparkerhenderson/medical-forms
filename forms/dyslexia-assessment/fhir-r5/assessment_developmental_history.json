@@ -1,0 +1,276 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:dyslexia-assessment",
+        "code": "assessment_developmental_history",
+        "display": "Developmental History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "birth_complications",
+            "display": "Birth Complications"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:birth_complications",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "birth_complications_details",
+            "display": "Birth Complications Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "speech_delay",
+            "display": "Speech Delay"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:speech_delay",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "speech_delay_details",
+            "display": "Speech Delay Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "motor_delay",
+            "display": "Motor Delay"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:motor_delay",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "motor_delay_details",
+            "display": "Motor Delay Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "family_history_dyslexia",
+            "display": "Family History Dyslexia"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:family_history_dyslexia",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "family_history_details",
+            "display": "Family History Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "family_history_other_learning_difficulties",
+            "display": "Family History Other Learning Difficulties"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:family_history_other_learning_difficulties",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "family_history_other_details",
+            "display": "Family History Other Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "hearing_concerns",
+            "display": "Hearing Concerns"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:hearing_concerns",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "hearing_concerns_details",
+            "display": "Hearing Concerns Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "vision_concerns",
+            "display": "Vision Concerns"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:vision_concerns",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "vision_concerns_details",
+            "display": "Vision Concerns Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "developmental_notes",
+            "display": "Developmental Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "resourceType": "Observation",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:dyslexia-assessment",
+        "code": "assessment_educational_background",
+        "display": "Educational Background"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "current_education_level",
+            "display": "Current Education Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:current_education_level",
+            "code": "primary",
+            "display": "Primary"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "school_name",
+            "display": "School Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "year_group",
+            "display": "Year Group"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "previous_schools_count",
+            "display": "Previous Schools Count"
+          }
+        ]
+      },
+      "valueInteger": 2
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "school_attendance",
+            "display": "School Attendance"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:school_attendance",
+            "code": "regular",
+            "display": "Regular"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "academic_performance",
+            "display": "Academic Performance"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:academic_performance",
+            "code": "above-average",
+            "display": "Above-Average"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "english_as_additional_language",
+            "display": "English As Additional Language"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:english_as_additional_language",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "additional_languages",
+            "display": "Additional Languages"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "sen_register",
+            "display": "Sen Register"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:sen_register",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "ehcp",
+            "display": "Ehcp"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:ehcp",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "ehcp_details",
+            "display": "Ehcp Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "educational_notes",
+            "display": "Educational Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

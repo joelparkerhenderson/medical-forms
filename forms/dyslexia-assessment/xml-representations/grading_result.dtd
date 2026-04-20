@@ -1,0 +1,10 @@
+<!ELEMENT grading_result (id,assessment_id,severity_level,lowest_domain_score,lowest_domain_name,overall_risk_level,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT severity_level (#PCDATA)>
+<!ELEMENT lowest_domain_score (#PCDATA)>
+<!ELEMENT lowest_domain_name (#PCDATA)>
+<!ELEMENT overall_risk_level (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

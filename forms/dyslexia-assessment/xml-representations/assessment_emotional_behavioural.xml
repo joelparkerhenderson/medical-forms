@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_emotional_behavioural SYSTEM "assessment_emotional_behavioural.dtd">
+<assessment_emotional_behavioural>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<self_esteem>good</self_esteem>
+<anxiety_about_learning>yes</anxiety_about_learning>
+<anxiety_details>Example text.</anxiety_details>
+<frustration_with_tasks>yes</frustration_with_tasks>
+<frustration_details>Example text.</frustration_details>
+<avoidance_behaviours>yes</avoidance_behaviours>
+<avoidance_details>Example text.</avoidance_details>
+<peer_relationships>good</peer_relationships>
+<behavioural_concerns>yes</behavioural_concerns>
+<behavioural_concerns_details>Example text.</behavioural_concerns_details>
+<motivation_for_learning>high</motivation_for_learning>
+<emotional_notes>Example text.</emotional_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_emotional_behavioural>

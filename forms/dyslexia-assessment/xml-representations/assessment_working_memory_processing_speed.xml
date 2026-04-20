@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_working_memory_processing_speed SYSTEM "assessment_working_memory_processing_speed.dtd">
+<assessment_working_memory_processing_speed>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<working_memory_score>5</working_memory_score>
+<processing_speed_score>5</processing_speed_score>
+<digit_span_forward>1</digit_span_forward>
+<digit_span_backward>1</digit_span_backward>
+<following_instructions>age-appropriate</following_instructions>
+<task_completion_speed>above-average</task_completion_speed>
+<organisational_skills>good</organisational_skills>
+<concentration_difficulties>yes</concentration_difficulties>
+<concentration_details>Example text.</concentration_details>
+<working_memory_notes>Example text.</working_memory_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_working_memory_processing_speed>

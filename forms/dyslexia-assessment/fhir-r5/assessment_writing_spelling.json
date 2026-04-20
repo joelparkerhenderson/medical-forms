@@ -1,0 +1,196 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:dyslexia-assessment",
+        "code": "assessment_writing_spelling",
+        "display": "Writing Spelling"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "spelling_score",
+            "display": "Spelling Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "written_expression_score",
+            "display": "Written Expression Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "handwriting_quality",
+            "display": "Handwriting Quality"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:handwriting_quality",
+            "code": "legible",
+            "display": "Legible"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "handwriting_speed",
+            "display": "Handwriting Speed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:handwriting_speed",
+            "code": "above-average",
+            "display": "Above-Average"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "spelling_error_pattern",
+            "display": "Spelling Error Pattern"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:spelling_error_pattern",
+            "code": "phonetic",
+            "display": "Phonetic"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "sentence_structure",
+            "display": "Sentence Structure"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:sentence_structure",
+            "code": "age-appropriate",
+            "display": "Age-Appropriate"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "punctuation_use",
+            "display": "Punctuation Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:punctuation_use",
+            "code": "age-appropriate",
+            "display": "Age-Appropriate"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "writing_avoidance",
+            "display": "Writing Avoidance"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment:writing_avoidance",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:dyslexia-assessment",
+            "code": "writing_notes",
+            "display": "Writing Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

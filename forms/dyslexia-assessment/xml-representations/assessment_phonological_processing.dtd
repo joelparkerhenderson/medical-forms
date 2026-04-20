@@ -1,0 +1,14 @@
+<!ELEMENT assessment_phonological_processing (id,assessment_id,phonological_awareness_score,phonological_memory_score,rapid_naming_score,rhyme_detection,phoneme_segmentation,phoneme_blending,phoneme_manipulation,rapid_naming_difficulty,phonological_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT phonological_awareness_score (#PCDATA)>
+<!ELEMENT phonological_memory_score (#PCDATA)>
+<!ELEMENT rapid_naming_score (#PCDATA)>
+<!ELEMENT rhyme_detection (#PCDATA)>
+<!ELEMENT phoneme_segmentation (#PCDATA)>
+<!ELEMENT phoneme_blending (#PCDATA)>
+<!ELEMENT phoneme_manipulation (#PCDATA)>
+<!ELEMENT rapid_naming_difficulty (#PCDATA)>
+<!ELEMENT phonological_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

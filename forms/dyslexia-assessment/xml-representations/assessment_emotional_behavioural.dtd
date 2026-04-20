@@ -1,0 +1,17 @@
+<!ELEMENT assessment_emotional_behavioural (id,assessment_id,self_esteem,anxiety_about_learning,anxiety_details,frustration_with_tasks,frustration_details,avoidance_behaviours,avoidance_details,peer_relationships,behavioural_concerns,behavioural_concerns_details,motivation_for_learning,emotional_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT self_esteem (#PCDATA)>
+<!ELEMENT anxiety_about_learning (#PCDATA)>
+<!ELEMENT anxiety_details (#PCDATA)>
+<!ELEMENT frustration_with_tasks (#PCDATA)>
+<!ELEMENT frustration_details (#PCDATA)>
+<!ELEMENT avoidance_behaviours (#PCDATA)>
+<!ELEMENT avoidance_details (#PCDATA)>
+<!ELEMENT peer_relationships (#PCDATA)>
+<!ELEMENT behavioural_concerns (#PCDATA)>
+<!ELEMENT behavioural_concerns_details (#PCDATA)>
+<!ELEMENT motivation_for_learning (#PCDATA)>
+<!ELEMENT emotional_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

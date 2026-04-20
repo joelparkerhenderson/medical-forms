@@ -1,0 +1,15 @@
+<!ELEMENT assessment_working_memory_processing_speed (id,assessment_id,working_memory_score,processing_speed_score,digit_span_forward,digit_span_backward,following_instructions,task_completion_speed,organisational_skills,concentration_difficulties,concentration_details,working_memory_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT working_memory_score (#PCDATA)>
+<!ELEMENT processing_speed_score (#PCDATA)>
+<!ELEMENT digit_span_forward (#PCDATA)>
+<!ELEMENT digit_span_backward (#PCDATA)>
+<!ELEMENT following_instructions (#PCDATA)>
+<!ELEMENT task_completion_speed (#PCDATA)>
+<!ELEMENT organisational_skills (#PCDATA)>
+<!ELEMENT concentration_difficulties (#PCDATA)>
+<!ELEMENT concentration_details (#PCDATA)>
+<!ELEMENT working_memory_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>
