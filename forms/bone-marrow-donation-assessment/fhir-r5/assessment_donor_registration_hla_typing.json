@@ -1,0 +1,260 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:bone-marrow-donation-assessment",
+        "code": "assessment_donor_registration_hla_typing",
+        "display": "Donor Registration Hla Typing"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "donor_registry",
+            "display": "Donor Registry"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "registration_date",
+            "display": "Registration Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "donation_type",
+            "display": "Donation Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:donation_type",
+            "code": "allogeneic",
+            "display": "Allogeneic"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "recipient_relationship",
+            "display": "Recipient Relationship"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:recipient_relationship",
+            "code": "related",
+            "display": "Related"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "hla_a",
+            "display": "Hla A"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "hla_b",
+            "display": "Hla B"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "hla_c",
+            "display": "Hla C"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "hla_drb1",
+            "display": "Hla Drb1"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "hla_dqb1",
+            "display": "Hla Dqb1"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "hla_dpb1",
+            "display": "Hla Dpb1"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "hla_match_level",
+            "display": "Hla Match Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:hla_match_level",
+            "code": "10-of-10",
+            "display": "10-Of-10"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "crossmatch_result",
+            "display": "Crossmatch Result"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:crossmatch_result",
+            "code": "negative",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "previous_donation",
+            "display": "Previous Donation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:previous_donation",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "previous_donation_details",
+            "display": "Previous Donation Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "hla_typing_notes",
+            "display": "Hla Typing Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

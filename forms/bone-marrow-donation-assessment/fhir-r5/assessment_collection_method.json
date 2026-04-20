@@ -1,0 +1,256 @@
+{
+  "resourceType": "Observation",
+  "id": "ee0e8400-e29b-41d4-a716-446655440009",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:bone-marrow-donation-assessment",
+        "code": "assessment_collection_method",
+        "display": "Collection Method"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "preferred_method",
+            "display": "Preferred Method"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:preferred_method",
+            "code": "pbsc",
+            "display": "Pbsc"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "recipient_preference",
+            "display": "Recipient Preference"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:recipient_preference",
+            "code": "pbsc",
+            "display": "Pbsc"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "final_collection_method",
+            "display": "Final Collection Method"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:final_collection_method",
+            "code": "pbsc",
+            "display": "Pbsc"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "gcsf_eligible",
+            "display": "Gcsf Eligible"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:gcsf_eligible",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "gcsf_contraindications",
+            "display": "Gcsf Contraindications"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "venous_access_suitable_for_apheresis",
+            "display": "Venous Access Suitable For Apheresis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:venous_access_suitable_for_apheresis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "central_line_required",
+            "display": "Central Line Required"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:central_line_required",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "estimated_donor_weight_kg",
+            "display": "Estimated Donor Weight Kg"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 70.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "target_cd34_dose",
+            "display": "Target Cd34 Dose"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "estimated_collection_days",
+            "display": "Estimated Collection Days"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "bone_marrow_harvest_volume_ml",
+            "display": "Bone Marrow Harvest Volume Ml"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "autologous_blood_donation",
+            "display": "Autologous Blood Donation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:autologous_blood_donation",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "collection_method_notes",
+            "display": "Collection Method Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

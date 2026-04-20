@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_medical_history SYSTEM "assessment_medical_history.dtd">
+<assessment_medical_history>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<has_autoimmune_disease>yes</has_autoimmune_disease>
+<autoimmune_details>Example text.</autoimmune_details>
+<has_malignancy>yes</has_malignancy>
+<malignancy_details>Example text.</malignancy_details>
+<has_cardiovascular_disease>yes</has_cardiovascular_disease>
+<cardiovascular_details>Example text.</cardiovascular_details>
+<has_respiratory_disease>yes</has_respiratory_disease>
+<respiratory_details>Example text.</respiratory_details>
+<has_renal_disease>yes</has_renal_disease>
+<renal_details>Example text.</renal_details>
+<has_hepatic_disease>yes</has_hepatic_disease>
+<hepatic_details>Example text.</hepatic_details>
+<has_bleeding_disorder>yes</has_bleeding_disorder>
+<bleeding_disorder_details>Example text.</bleeding_disorder_details>
+<has_neurological_condition>yes</has_neurological_condition>
+<neurological_details>Example text.</neurological_details>
+<current_medications>Paracetamol</current_medications>
+<drug_allergies>Paracetamol</drug_allergies>
+<previous_surgery>yes</previous_surgery>
+<surgery_details>Example text.</surgery_details>
+<medical_history_notes>Example text.</medical_history_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_medical_history>

@@ -1,0 +1,276 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:bone-marrow-donation-assessment",
+        "code": "assessment_psychological_readiness",
+        "display": "Psychological Readiness"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "understands_procedure",
+            "display": "Understands Procedure"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:understands_procedure",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "understands_risks",
+            "display": "Understands Risks"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:understands_risks",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "voluntary_decision",
+            "display": "Voluntary Decision"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:voluntary_decision",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "coercion_concerns",
+            "display": "Coercion Concerns"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:coercion_concerns",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "coercion_details",
+            "display": "Coercion Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "anxiety_about_procedure",
+            "display": "Anxiety About Procedure"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:anxiety_about_procedure",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "previous_psychological_issues",
+            "display": "Previous Psychological Issues"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:previous_psychological_issues",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "psychological_issue_details",
+            "display": "Psychological Issue Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "support_network",
+            "display": "Support Network"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:support_network",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "time_off_work_arranged",
+            "display": "Time Off Work Arranged"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:time_off_work_arranged",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "donor_advocate_consulted",
+            "display": "Donor Advocate Consulted"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:donor_advocate_consulted",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "willing_to_proceed",
+            "display": "Willing To Proceed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:willing_to_proceed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "psychological_readiness_notes",
+            "display": "Psychological Readiness Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

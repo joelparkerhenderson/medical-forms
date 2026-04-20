@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_infectious_disease_screening SYSTEM "assessment_infectious_disease_screening.dtd">
+<assessment_infectious_disease_screening>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<hiv_status>negative</hiv_status>
+<hepatitis_b_surface_antigen>negative</hepatitis_b_surface_antigen>
+<hepatitis_b_core_antibody>negative</hepatitis_b_core_antibody>
+<hepatitis_c_antibody>negative</hepatitis_c_antibody>
+<htlv_status>negative</htlv_status>
+<syphilis_screen>negative</syphilis_screen>
+<cmv_status>negative</cmv_status>
+<ebv_status>negative</ebv_status>
+<toxoplasma_status>negative</toxoplasma_status>
+<tuberculosis_screen>negative</tuberculosis_screen>
+<recent_travel>yes</recent_travel>
+<travel_details>Example text.</travel_details>
+<recent_infection>yes</recent_infection>
+<infection_details>Example text.</infection_details>
+<vaccination_up_to_date>yes</vaccination_up_to_date>
+<infectious_disease_notes>Example text.</infectious_disease_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_infectious_disease_screening>

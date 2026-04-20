@@ -1,0 +1,10 @@
+<!ELEMENT grading_result (id,assessment_id,eligibility,overall_risk_level,hla_match_level,collection_method,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT eligibility (#PCDATA)>
+<!ELEMENT overall_risk_level (#PCDATA)>
+<!ELEMENT hla_match_level (#PCDATA)>
+<!ELEMENT collection_method (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

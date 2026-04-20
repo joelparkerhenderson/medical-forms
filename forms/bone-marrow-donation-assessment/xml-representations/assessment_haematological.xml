@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_haematological SYSTEM "assessment_haematological.dtd">
+<assessment_haematological>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<haemoglobin>0.0</haemoglobin>
+<white_cell_count>0.0</white_cell_count>
+<platelet_count>2</platelet_count>
+<neutrophil_count>0.0</neutrophil_count>
+<lymphocyte_count>0.0</lymphocyte_count>
+<haematocrit>0.0</haematocrit>
+<mcv>0.0</mcv>
+<blood_group>A+</blood_group>
+<coagulation_screen>normal</coagulation_screen>
+<coagulation_details>Example text.</coagulation_details>
+<ferritin>0.0</ferritin>
+<creatinine>0.0</creatinine>
+<liver_function>normal</liver_function>
+<liver_function_details>Example text.</liver_function_details>
+<haematological_notes>Example text.</haematological_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_haematological>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_physical_examination SYSTEM "assessment_physical_examination.dtd">
+<assessment_physical_examination>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<blood_pressure_systolic>1</blood_pressure_systolic>
+<blood_pressure_diastolic>1</blood_pressure_diastolic>
+<heart_rate>1</heart_rate>
+<temperature_celsius>0.0</temperature_celsius>
+<respiratory_rate>1</respiratory_rate>
+<oxygen_saturation>1</oxygen_saturation>
+<general_appearance>well</general_appearance>
+<cardiovascular_examination>normal</cardiovascular_examination>
+<cardiovascular_findings>Example text.</cardiovascular_findings>
+<respiratory_examination>normal</respiratory_examination>
+<respiratory_findings>Example text.</respiratory_findings>
+<abdominal_examination>normal</abdominal_examination>
+<abdominal_findings>Example text.</abdominal_findings>
+<venous_access_assessment>good</venous_access_assessment>
+<venous_access_notes>Example text.</venous_access_notes>
+<posterior_iliac_crest_assessment>suitable</posterior_iliac_crest_assessment>
+<physical_examination_notes>Example text.</physical_examination_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_physical_examination>

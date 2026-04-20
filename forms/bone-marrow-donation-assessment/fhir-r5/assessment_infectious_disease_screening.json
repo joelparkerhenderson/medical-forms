@@ -1,0 +1,328 @@
+{
+  "resourceType": "Observation",
+  "id": "cc0e8400-e29b-41d4-a716-446655440007",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:bone-marrow-donation-assessment",
+        "code": "assessment_infectious_disease_screening",
+        "display": "Infectious Disease Screening"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "hiv_status",
+            "display": "Hiv Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:hiv_status",
+            "code": "negative",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "hepatitis_b_surface_antigen",
+            "display": "Hepatitis B Surface Antigen"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:hepatitis_b_surface_antigen",
+            "code": "negative",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "hepatitis_b_core_antibody",
+            "display": "Hepatitis B Core Antibody"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:hepatitis_b_core_antibody",
+            "code": "negative",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "hepatitis_c_antibody",
+            "display": "Hepatitis C Antibody"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:hepatitis_c_antibody",
+            "code": "negative",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "htlv_status",
+            "display": "Htlv Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:htlv_status",
+            "code": "negative",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "syphilis_screen",
+            "display": "Syphilis Screen"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:syphilis_screen",
+            "code": "negative",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "cmv_status",
+            "display": "Cmv Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:cmv_status",
+            "code": "negative",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "ebv_status",
+            "display": "Ebv Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:ebv_status",
+            "code": "negative",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "toxoplasma_status",
+            "display": "Toxoplasma Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:toxoplasma_status",
+            "code": "negative",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "tuberculosis_screen",
+            "display": "Tuberculosis Screen"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:tuberculosis_screen",
+            "code": "negative",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "recent_travel",
+            "display": "Recent Travel"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:recent_travel",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "travel_details",
+            "display": "Travel Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "recent_infection",
+            "display": "Recent Infection"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment:recent_infection",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "infection_details",
+            "display": "Infection Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "vaccination_up_to_date",
+            "display": "Vaccination Up To Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:bone-marrow-donation-assessment",
+            "code": "infectious_disease_notes",
+            "display": "Infectious Disease Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

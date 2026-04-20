@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_psychological_readiness SYSTEM "assessment_psychological_readiness.dtd">
+<assessment_psychological_readiness>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<understands_procedure>yes</understands_procedure>
+<understands_risks>yes</understands_risks>
+<voluntary_decision>yes</voluntary_decision>
+<coercion_concerns>yes</coercion_concerns>
+<coercion_details>Example text.</coercion_details>
+<anxiety_about_procedure>none</anxiety_about_procedure>
+<previous_psychological_issues>yes</previous_psychological_issues>
+<psychological_issue_details>Example text.</psychological_issue_details>
+<support_network>yes</support_network>
+<time_off_work_arranged>yes</time_off_work_arranged>
+<donor_advocate_consulted>yes</donor_advocate_consulted>
+<willing_to_proceed>yes</willing_to_proceed>
+<psychological_readiness_notes>Example text.</psychological_readiness_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_psychological_readiness>
