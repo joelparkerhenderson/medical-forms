@@ -1,0 +1,328 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:vaccinations-checklist",
+        "code": "assessment_travel_vaccines",
+        "display": "Travel Vaccines"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "travel_planned",
+            "display": "Travel Planned"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:travel_planned",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "travel_destination",
+            "display": "Travel Destination"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "travel_departure_date",
+            "display": "Travel Departure Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "travel_return_date",
+            "display": "Travel Return Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "yellow_fever_vaccine",
+            "display": "Yellow Fever Vaccine"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:yellow_fever_vaccine",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "yellow_fever_vaccine_date",
+            "display": "Yellow Fever Vaccine Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "yellow_fever_certificate",
+            "display": "Yellow Fever Certificate"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:yellow_fever_certificate",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "japanese_encephalitis_vaccine",
+            "display": "Japanese Encephalitis Vaccine"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:japanese_encephalitis_vaccine",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "japanese_encephalitis_date",
+            "display": "Japanese Encephalitis Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "tick_borne_encephalitis_vaccine",
+            "display": "Tick Borne Encephalitis Vaccine"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:tick_borne_encephalitis_vaccine",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "tick_borne_encephalitis_date",
+            "display": "Tick Borne Encephalitis Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "cholera_vaccine",
+            "display": "Cholera Vaccine"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:cholera_vaccine",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "cholera_vaccine_date",
+            "display": "Cholera Vaccine Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "meningococcal_acwy_travel",
+            "display": "Meningococcal Acwy Travel"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:meningococcal_acwy_travel",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "meningococcal_acwy_travel_date",
+            "display": "Meningococcal Acwy Travel Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "malaria_prophylaxis",
+            "display": "Malaria Prophylaxis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:malaria_prophylaxis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "malaria_prophylaxis_drug",
+            "display": "Malaria Prophylaxis Drug"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:malaria_prophylaxis_drug",
+            "code": "atovaquone-proguanil",
+            "display": "Atovaquone-Proguanil"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "travel_vaccines_notes",
+            "display": "Travel Vaccines Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "resourceType": "Observation",
+  "id": "aa0e8400-e29b-41d4-a716-446655440005",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:vaccinations-checklist",
+        "code": "assessment_occupational_vaccines",
+        "display": "Occupational Vaccines"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "hepatitis_b_course",
+            "display": "Hepatitis B Course"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:hepatitis_b_course",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "hepatitis_b_course_date",
+            "display": "Hepatitis B Course Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "hepatitis_b_doses_received",
+            "display": "Hepatitis B Doses Received"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "hepatitis_b_antibody_level",
+            "display": "Hepatitis B Antibody Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:hepatitis_b_antibody_level",
+            "code": "adequate",
+            "display": "Adequate"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "bcg_vaccine",
+            "display": "Bcg Vaccine"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:bcg_vaccine",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "bcg_vaccine_date",
+            "display": "Bcg Vaccine Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "bcg_scar_present",
+            "display": "Bcg Scar Present"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:bcg_scar_present",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "varicella_vaccine",
+            "display": "Varicella Vaccine"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:varicella_vaccine",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "varicella_vaccine_date",
+            "display": "Varicella Vaccine Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "varicella_history",
+            "display": "Varicella History"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:varicella_history",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "hepatitis_a_vaccine",
+            "display": "Hepatitis A Vaccine"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:hepatitis_a_vaccine",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "hepatitis_a_vaccine_date",
+            "display": "Hepatitis A Vaccine Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "typhoid_vaccine",
+            "display": "Typhoid Vaccine"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:typhoid_vaccine",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "typhoid_vaccine_date",
+            "display": "Typhoid Vaccine Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "rabies_vaccine",
+            "display": "Rabies Vaccine"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:rabies_vaccine",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "rabies_vaccine_date",
+            "display": "Rabies Vaccine Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "occupational_vaccines_notes",
+            "display": "Occupational Vaccines Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

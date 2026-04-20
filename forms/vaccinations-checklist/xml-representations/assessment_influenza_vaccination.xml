@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_influenza_vaccination SYSTEM "assessment_influenza_vaccination.dtd">
+<assessment_influenza_vaccination>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<flu_vaccine_current_season>yes</flu_vaccine_current_season>
+<flu_vaccine_current_date>2026-01-15</flu_vaccine_current_date>
+<flu_vaccine_type>standard</flu_vaccine_type>
+<flu_vaccine_previous_season>yes</flu_vaccine_previous_season>
+<flu_vaccine_annual_recipient>yes</flu_vaccine_annual_recipient>
+<flu_high_risk_group>yes</flu_high_risk_group>
+<flu_high_risk_reason>age-65-plus</flu_high_risk_reason>
+<flu_adverse_reaction>yes</flu_adverse_reaction>
+<flu_adverse_reaction_details>Example text.</flu_adverse_reaction_details>
+<influenza_vaccination_notes>Example text.</influenza_vaccination_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_influenza_vaccination>

@@ -1,0 +1,15 @@
+<!ELEMENT assessment_influenza_vaccination (id,assessment_id,flu_vaccine_current_season,flu_vaccine_current_date,flu_vaccine_type,flu_vaccine_previous_season,flu_vaccine_annual_recipient,flu_high_risk_group,flu_high_risk_reason,flu_adverse_reaction,flu_adverse_reaction_details,influenza_vaccination_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT flu_vaccine_current_season (#PCDATA)>
+<!ELEMENT flu_vaccine_current_date (#PCDATA)>
+<!ELEMENT flu_vaccine_type (#PCDATA)>
+<!ELEMENT flu_vaccine_previous_season (#PCDATA)>
+<!ELEMENT flu_vaccine_annual_recipient (#PCDATA)>
+<!ELEMENT flu_high_risk_group (#PCDATA)>
+<!ELEMENT flu_high_risk_reason (#PCDATA)>
+<!ELEMENT flu_adverse_reaction (#PCDATA)>
+<!ELEMENT flu_adverse_reaction_details (#PCDATA)>
+<!ELEMENT influenza_vaccination_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,354 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:vaccinations-checklist",
+        "code": "assessment_serology_immunity_testing",
+        "display": "Serology Immunity Testing"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "hep_b_surface_antibody",
+            "display": "Hep B Surface Antibody"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:hep_b_surface_antibody",
+            "code": "positive",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "hep_b_surface_antibody_level",
+            "display": "Hep B Surface Antibody Level"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "hep_b_surface_antibody_date",
+            "display": "Hep B Surface Antibody Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "varicella_igg",
+            "display": "Varicella Igg"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:varicella_igg",
+            "code": "positive",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "varicella_igg_date",
+            "display": "Varicella Igg Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "measles_igg",
+            "display": "Measles Igg"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:measles_igg",
+            "code": "positive",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "measles_igg_date",
+            "display": "Measles Igg Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "rubella_igg",
+            "display": "Rubella Igg"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:rubella_igg",
+            "code": "positive",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "rubella_igg_date",
+            "display": "Rubella Igg Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "mumps_igg",
+            "display": "Mumps Igg"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:mumps_igg",
+            "code": "positive",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "mumps_igg_date",
+            "display": "Mumps Igg Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "hep_a_igg",
+            "display": "Hep A Igg"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:hep_a_igg",
+            "code": "positive",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "hep_a_igg_date",
+            "display": "Hep A Igg Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "tetanus_antibody",
+            "display": "Tetanus Antibody"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:tetanus_antibody",
+            "code": "positive",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "tetanus_antibody_date",
+            "display": "Tetanus Antibody Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "tb_igra_result",
+            "display": "Tb Igra Result"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:tb_igra_result",
+            "code": "positive",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "tb_igra_date",
+            "display": "Tb Igra Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "mantoux_result",
+            "display": "Mantoux Result"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist:mantoux_result",
+            "code": "positive",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "mantoux_induration_mm",
+            "display": "Mantoux Induration Mm"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:vaccinations-checklist",
+            "code": "serology_immunity_testing_notes",
+            "display": "Serology Immunity Testing Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

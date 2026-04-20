@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_covid19_vaccination SYSTEM "assessment_covid19_vaccination.dtd">
+<assessment_covid19_vaccination>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<covid_primary_course>yes</covid_primary_course>
+<covid_primary_vaccine_type>pfizer</covid_primary_vaccine_type>
+<covid_dose_1_date>2026-01-15</covid_dose_1_date>
+<covid_dose_2_date>2026-01-15</covid_dose_2_date>
+<covid_booster_1>yes</covid_booster_1>
+<covid_booster_1_date>2026-01-15</covid_booster_1_date>
+<covid_booster_1_type>pfizer</covid_booster_1_type>
+<covid_booster_2>yes</covid_booster_2>
+<covid_booster_2_date>2026-01-15</covid_booster_2_date>
+<covid_booster_2_type>pfizer</covid_booster_2_type>
+<covid_autumn_booster>yes</covid_autumn_booster>
+<covid_autumn_booster_date>2026-01-15</covid_autumn_booster_date>
+<total_covid_doses>1</total_covid_doses>
+<covid_adverse_reaction>yes</covid_adverse_reaction>
+<covid_adverse_reaction_details>Example text.</covid_adverse_reaction_details>
+<covid19_vaccination_notes>Example text.</covid19_vaccination_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_covid19_vaccination>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_childhood_immunisations SYSTEM "assessment_childhood_immunisations.dtd">
+<assessment_childhood_immunisations>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<mmr_dose_1>yes</mmr_dose_1>
+<mmr_dose_1_date>2026-01-15</mmr_dose_1_date>
+<mmr_dose_2>yes</mmr_dose_2>
+<mmr_dose_2_date>2026-01-15</mmr_dose_2_date>
+<dtp_primary_course>yes</dtp_primary_course>
+<dtp_primary_date>2026-01-15</dtp_primary_date>
+<dtp_booster>yes</dtp_booster>
+<dtp_booster_date>2026-01-15</dtp_booster_date>
+<polio_primary_course>yes</polio_primary_course>
+<polio_primary_date>2026-01-15</polio_primary_date>
+<polio_booster>yes</polio_booster>
+<polio_booster_date>2026-01-15</polio_booster_date>
+<hib_vaccine>yes</hib_vaccine>
+<hib_vaccine_date>2026-01-15</hib_vaccine_date>
+<men_c_vaccine>yes</men_c_vaccine>
+<men_c_vaccine_date>2026-01-15</men_c_vaccine_date>
+<men_acwy_vaccine>yes</men_acwy_vaccine>
+<men_acwy_vaccine_date>2026-01-15</men_acwy_vaccine_date>
+<pcv_vaccine>yes</pcv_vaccine>
+<pcv_vaccine_date>2026-01-15</pcv_vaccine_date>
+<childhood_immunisations_notes>Example text.</childhood_immunisations_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_childhood_immunisations>
