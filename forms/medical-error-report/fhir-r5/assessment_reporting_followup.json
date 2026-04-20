@@ -1,0 +1,284 @@
+{
+  "resourceType": "Observation",
+  "id": "110e8400-e29b-41d4-a716-44665544000b",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:medical-error-report",
+        "code": "assessment_reporting_followup",
+        "display": "Reporting Followup"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "internal_reference",
+            "display": "Internal Reference"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "reported_to_datix",
+            "display": "Reported To Datix"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:reported_to_datix",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "datix_reference",
+            "display": "Datix Reference"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "reported_to_nrls",
+            "display": "Reported To Nrls"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:reported_to_nrls",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "nrls_reference",
+            "display": "Nrls Reference"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "reported_to_cqc",
+            "display": "Reported To Cqc"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:reported_to_cqc",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "reported_to_hsib",
+            "display": "Reported To Hsib"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:reported_to_hsib",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "reported_to_coroner",
+            "display": "Reported To Coroner"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:reported_to_coroner",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "safeguarding_referral",
+            "display": "Safeguarding Referral"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:safeguarding_referral",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "lessons_learned",
+            "display": "Lessons Learned"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "shared_with_team",
+            "display": "Shared With Team"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:shared_with_team",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "follow_up_review_date",
+            "display": "Follow Up Review Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "follow_up_reviewer",
+            "display": "Follow Up Reviewer"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "final_status",
+            "display": "Final Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:final_status",
+            "code": "open",
+            "display": "Open"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "closure_date",
+            "display": "Closure Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    }
+  ]
+}

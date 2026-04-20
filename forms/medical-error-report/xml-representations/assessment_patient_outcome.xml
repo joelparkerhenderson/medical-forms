@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_patient_outcome SYSTEM "assessment_patient_outcome.dtd">
+<assessment_patient_outcome>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<harm_reached_patient>yes</harm_reached_patient>
+<harm_level>none</harm_level>
+<harm_description>Example text.</harm_description>
+<additional_treatment_required>yes</additional_treatment_required>
+<additional_treatment_details>Example text.</additional_treatment_details>
+<extended_hospital_stay>yes</extended_hospital_stay>
+<extra_days>1</extra_days>
+<readmission_required>yes</readmission_required>
+<permanent_disability>yes</permanent_disability>
+<disability_details>Example text.</disability_details>
+<patient_died>yes</patient_died>
+<death_date>2026-01-15</death_date>
+<outcome_notes>Example text.</outcome_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_patient_outcome>

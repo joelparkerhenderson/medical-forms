@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_root_cause_analysis SYSTEM "assessment_root_cause_analysis.dtd">
+<assessment_root_cause_analysis>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<rca_conducted>yes</rca_conducted>
+<rca_date>2026-01-15</rca_date>
+<rca_lead></rca_lead>
+<rca_team_members></rca_team_members>
+<root_cause_category>human-error</root_cause_category>
+<root_cause_description>Example text.</root_cause_description>
+<five_whys_analysis></five_whys_analysis>
+<fishbone_factors></fishbone_factors>
+<system_vulnerabilities></system_vulnerabilities>
+<similar_incidents>yes</similar_incidents>
+<similar_incidents_details>Example text.</similar_incidents_details>
+<rca_findings_summary>Example text.</rca_findings_summary>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_root_cause_analysis>

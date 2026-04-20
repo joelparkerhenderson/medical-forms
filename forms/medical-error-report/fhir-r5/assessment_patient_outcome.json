@@ -1,0 +1,252 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:medical-error-report",
+        "code": "assessment_patient_outcome",
+        "display": "Patient Outcome"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "harm_reached_patient",
+            "display": "Harm Reached Patient"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:harm_reached_patient",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "harm_level",
+            "display": "Harm Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:harm_level",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "harm_description",
+            "display": "Harm Description"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "additional_treatment_required",
+            "display": "Additional Treatment Required"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:additional_treatment_required",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "additional_treatment_details",
+            "display": "Additional Treatment Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "extended_hospital_stay",
+            "display": "Extended Hospital Stay"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:extended_hospital_stay",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "extra_days",
+            "display": "Extra Days"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "readmission_required",
+            "display": "Readmission Required"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:readmission_required",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "permanent_disability",
+            "display": "Permanent Disability"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:permanent_disability",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "disability_details",
+            "display": "Disability Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "patient_died",
+            "display": "Patient Died"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:patient_died",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "death_date",
+            "display": "Death Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "outcome_notes",
+            "display": "Outcome Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

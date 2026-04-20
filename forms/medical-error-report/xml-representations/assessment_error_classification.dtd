@@ -1,0 +1,12 @@
+<!ELEMENT assessment_error_classification (id,assessment_id,error_type,error_type_details,medication_error_stage,who_severity,ncc_merp_category,preventability,recurrence_likelihood,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT error_type (#PCDATA)>
+<!ELEMENT error_type_details (#PCDATA)>
+<!ELEMENT medication_error_stage (#PCDATA)>
+<!ELEMENT who_severity (#PCDATA)>
+<!ELEMENT ncc_merp_category (#PCDATA)>
+<!ELEMENT preventability (#PCDATA)>
+<!ELEMENT recurrence_likelihood (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

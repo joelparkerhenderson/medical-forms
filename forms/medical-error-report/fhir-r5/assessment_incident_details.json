@@ -1,0 +1,204 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:medical-error-report",
+        "code": "assessment_incident_details",
+        "display": "Incident Details"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "incident_date",
+            "display": "Incident Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "incident_time",
+            "display": "Incident Time"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "discovery_date",
+            "display": "Discovery Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "discovery_time",
+            "display": "Discovery Time"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "location_type",
+            "display": "Location Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:location_type",
+            "code": "inpatient-ward",
+            "display": "Inpatient-Ward"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "location_details",
+            "display": "Location Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "incident_summary",
+            "display": "Incident Summary"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "incident_witnessed",
+            "display": "Incident Witnessed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:incident_witnessed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "witness_details",
+            "display": "Witness Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "shift_type",
+            "display": "Shift Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:shift_type",
+            "code": "day",
+            "display": "Day"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report",
+            "code": "staffing_level",
+            "display": "Staffing Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:medical-error-report:staffing_level",
+            "code": "adequate",
+            "display": "Adequate"
+          }
+        ]
+      }
+    }
+  ]
+}

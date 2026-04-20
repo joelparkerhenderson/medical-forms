@@ -1,0 +1,15 @@
+<!ELEMENT assessment_demographics (id,assessment_id,reporter_first_name,reporter_last_name,reporter_role,reporter_department,reporter_contact_phone,reporter_contact_email,facility_name,facility_ward,report_date,anonymous_report,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT reporter_first_name (#PCDATA)>
+<!ELEMENT reporter_last_name (#PCDATA)>
+<!ELEMENT reporter_role (#PCDATA)>
+<!ELEMENT reporter_department (#PCDATA)>
+<!ELEMENT reporter_contact_phone (#PCDATA)>
+<!ELEMENT reporter_contact_email (#PCDATA)>
+<!ELEMENT facility_name (#PCDATA)>
+<!ELEMENT facility_ward (#PCDATA)>
+<!ELEMENT report_date (#PCDATA)>
+<!ELEMENT anonymous_report (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

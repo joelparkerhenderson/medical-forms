@@ -1,0 +1,17 @@
+<!ELEMENT assessment_root_cause_analysis (id,assessment_id,rca_conducted,rca_date,rca_lead,rca_team_members,root_cause_category,root_cause_description,five_whys_analysis,fishbone_factors,system_vulnerabilities,similar_incidents,similar_incidents_details,rca_findings_summary,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT rca_conducted (#PCDATA)>
+<!ELEMENT rca_date (#PCDATA)>
+<!ELEMENT rca_lead (#PCDATA)>
+<!ELEMENT rca_team_members (#PCDATA)>
+<!ELEMENT root_cause_category (#PCDATA)>
+<!ELEMENT root_cause_description (#PCDATA)>
+<!ELEMENT five_whys_analysis (#PCDATA)>
+<!ELEMENT fishbone_factors (#PCDATA)>
+<!ELEMENT system_vulnerabilities (#PCDATA)>
+<!ELEMENT similar_incidents (#PCDATA)>
+<!ELEMENT similar_incidents_details (#PCDATA)>
+<!ELEMENT rca_findings_summary (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>
