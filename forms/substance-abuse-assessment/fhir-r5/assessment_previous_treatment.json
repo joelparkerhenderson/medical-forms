@@ -1,0 +1,316 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:substance-abuse-assessment",
+        "code": "assessment_previous_treatment",
+        "display": "Previous Treatment"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "previous_treatment",
+            "display": "Previous Treatment"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:previous_treatment",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "number_of_treatment_episodes",
+            "display": "Number Of Treatment Episodes"
+          }
+        ]
+      },
+      "valueInteger": 2
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "previous_detox",
+            "display": "Previous Detox"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:previous_detox",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "detox_setting",
+            "display": "Detox Setting"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:detox_setting",
+            "code": "inpatient",
+            "display": "Inpatient"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "previous_rehab",
+            "display": "Previous Rehab"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:previous_rehab",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "rehab_type",
+            "display": "Rehab Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:rehab_type",
+            "code": "residential",
+            "display": "Residential"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "previous_counselling",
+            "display": "Previous Counselling"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:previous_counselling",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "counselling_type",
+            "display": "Counselling Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:counselling_type",
+            "code": "cbt",
+            "display": "Cbt"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "previous_medication_assisted",
+            "display": "Previous Medication Assisted"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:previous_medication_assisted",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "mat_medication",
+            "display": "Mat Medication"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:mat_medication",
+            "code": "methadone",
+            "display": "Methadone"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "self_help_groups",
+            "display": "Self Help Groups"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:self_help_groups",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "self_help_group_type",
+            "display": "Self Help Group Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:self_help_group_type",
+            "code": "aa",
+            "display": "Aa"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "longest_period_abstinent",
+            "display": "Longest Period Abstinent"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:longest_period_abstinent",
+            "code": "less-1-month",
+            "display": "Less-1-Month"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "relapse_triggers",
+            "display": "Relapse Triggers"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "treatment_history_notes",
+            "display": "Treatment History Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_physical_health_impact SYSTEM "assessment_physical_health_impact.dtd">
+<assessment_physical_health_impact>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<liver_disease>yes</liver_disease>
+<liver_disease_type>fatty-liver</liver_disease_type>
+<hepatitis_b>yes</hepatitis_b>
+<hepatitis_c>yes</hepatitis_c>
+<hiv_status>positive</hiv_status>
+<cardiovascular_issues>yes</cardiovascular_issues>
+<cardiovascular_details>Example text.</cardiovascular_details>
+<respiratory_issues>yes</respiratory_issues>
+<respiratory_details>Example text.</respiratory_details>
+<gastrointestinal_issues>yes</gastrointestinal_issues>
+<gastrointestinal_details>Example text.</gastrointestinal_details>
+<neurological_issues>yes</neurological_issues>
+<neurological_details>Example text.</neurological_details>
+<nutritional_deficiency>yes</nutritional_deficiency>
+<chronic_pain>yes</chronic_pain>
+<chronic_pain_details>Example text.</chronic_pain_details>
+<overdose_history>yes</overdose_history>
+<overdose_count>2</overdose_count>
+<last_overdose_date>2026-01-15</last_overdose_date>
+<physical_health_notes>Example text.</physical_health_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_physical_health_impact>

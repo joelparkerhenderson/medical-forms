@@ -1,0 +1,164 @@
+{
+  "resourceType": "Observation",
+  "id": "770e8400-e29b-41d4-a716-446655440002",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:substance-abuse-assessment",
+        "code": "assessment_demographics",
+        "display": "Demographics"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "preferred_name",
+            "display": "Preferred Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "gender_identity",
+            "display": "Gender Identity"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:gender_identity",
+            "code": "male",
+            "display": "Male"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "ethnicity",
+            "display": "Ethnicity"
+          }
+        ]
+      },
+      "valueString": "White British"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "preferred_language",
+            "display": "Preferred Language"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "interpreter_required",
+            "display": "Interpreter Required"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:interpreter_required",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "gp_name",
+            "display": "Gp Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "gp_practice",
+            "display": "Gp Practice"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "referrer_name",
+            "display": "Referrer Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "referrer_role",
+            "display": "Referrer Role"
+          }
+        ]
+      },
+      "valueString": ""
+    }
+  ]
+}

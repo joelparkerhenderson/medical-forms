@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_mental_health_comorbidities SYSTEM "assessment_mental_health_comorbidities.dtd">
+<assessment_mental_health_comorbidities>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<depression>yes</depression>
+<depression_severity>mild</depression_severity>
+<anxiety_disorder>yes</anxiety_disorder>
+<anxiety_disorder_type>generalised</anxiety_disorder_type>
+<ptsd>yes</ptsd>
+<ptsd_details>Example text.</ptsd_details>
+<bipolar_disorder>yes</bipolar_disorder>
+<psychosis>yes</psychosis>
+<personality_disorder>yes</personality_disorder>
+<eating_disorder>yes</eating_disorder>
+<adhd>yes</adhd>
+<suicidal_ideation>yes</suicidal_ideation>
+<suicidal_ideation_current>yes</suicidal_ideation_current>
+<self_harm_history>yes</self_harm_history>
+<previous_suicide_attempts>yes</previous_suicide_attempts>
+<psychiatric_medication>yes</psychiatric_medication>
+<psychiatric_medication_details>Example text.</psychiatric_medication_details>
+<mental_health_notes>Example text.</mental_health_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_mental_health_comorbidities>

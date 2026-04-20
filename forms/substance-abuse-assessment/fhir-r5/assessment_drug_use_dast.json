@@ -1,0 +1,284 @@
+{
+  "resourceType": "Observation",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:substance-abuse-assessment",
+        "code": "assessment_drug_use_dast",
+        "display": "Drug Use Dast"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "dast_q1_non_medical_use",
+            "display": "Dast Q1 Non Medical Use"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:dast_q1_non_medical_use",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "dast_q2_poly_drug",
+            "display": "Dast Q2 Poly Drug"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:dast_q2_poly_drug",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "dast_q3_able_to_stop",
+            "display": "Dast Q3 Able To Stop"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:dast_q3_able_to_stop",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "dast_q4_blackouts",
+            "display": "Dast Q4 Blackouts"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:dast_q4_blackouts",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "dast_q5_guilt",
+            "display": "Dast Q5 Guilt"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:dast_q5_guilt",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "dast_q6_complaints",
+            "display": "Dast Q6 Complaints"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:dast_q6_complaints",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "dast_q7_neglect",
+            "display": "Dast Q7 Neglect"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:dast_q7_neglect",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "dast_q8_illegal_activities",
+            "display": "Dast Q8 Illegal Activities"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:dast_q8_illegal_activities",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "dast_q9_withdrawal",
+            "display": "Dast Q9 Withdrawal"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:dast_q9_withdrawal",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "dast_q10_medical_problems",
+            "display": "Dast Q10 Medical Problems"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:dast_q10_medical_problems",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "dast_total_score",
+            "display": "Dast Total Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "dast_risk_category",
+            "display": "Dast Risk Category"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:dast_risk_category",
+            "code": "no-problems",
+            "display": "No-Problems"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "drug_use_notes",
+            "display": "Drug Use Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

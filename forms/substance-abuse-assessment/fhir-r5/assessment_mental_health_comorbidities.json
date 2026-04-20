@@ -1,0 +1,376 @@
+{
+  "resourceType": "Observation",
+  "id": "cc0e8400-e29b-41d4-a716-446655440007",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:substance-abuse-assessment",
+        "code": "assessment_mental_health_comorbidities",
+        "display": "Mental Health Comorbidities"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "depression",
+            "display": "Depression"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:depression",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "depression_severity",
+            "display": "Depression Severity"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:depression_severity",
+            "code": "mild",
+            "display": "Mild"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "anxiety_disorder",
+            "display": "Anxiety Disorder"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:anxiety_disorder",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "anxiety_disorder_type",
+            "display": "Anxiety Disorder Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:anxiety_disorder_type",
+            "code": "generalised",
+            "display": "Generalised"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "ptsd",
+            "display": "Ptsd"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:ptsd",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "ptsd_details",
+            "display": "Ptsd Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "bipolar_disorder",
+            "display": "Bipolar Disorder"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:bipolar_disorder",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "psychosis",
+            "display": "Psychosis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:psychosis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "personality_disorder",
+            "display": "Personality Disorder"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:personality_disorder",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "eating_disorder",
+            "display": "Eating Disorder"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:eating_disorder",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "adhd",
+            "display": "Adhd"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:adhd",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "suicidal_ideation",
+            "display": "Suicidal Ideation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:suicidal_ideation",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "suicidal_ideation_current",
+            "display": "Suicidal Ideation Current"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:suicidal_ideation_current",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "self_harm_history",
+            "display": "Self Harm History"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:self_harm_history",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "previous_suicide_attempts",
+            "display": "Previous Suicide Attempts"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:previous_suicide_attempts",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "psychiatric_medication",
+            "display": "Psychiatric Medication"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:psychiatric_medication",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "psychiatric_medication_details",
+            "display": "Psychiatric Medication Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "mental_health_notes",
+            "display": "Mental Health Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

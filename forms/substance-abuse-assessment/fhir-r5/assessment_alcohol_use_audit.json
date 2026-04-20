@@ -1,0 +1,204 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:substance-abuse-assessment",
+        "code": "assessment_alcohol_use_audit",
+        "display": "Alcohol Use Audit"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "audit_q1_frequency",
+            "display": "Audit Q1 Frequency"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "audit_q2_typical_quantity",
+            "display": "Audit Q2 Typical Quantity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "audit_q3_binge_frequency",
+            "display": "Audit Q3 Binge Frequency"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "audit_q4_impaired_control",
+            "display": "Audit Q4 Impaired Control"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "audit_q5_failed_expectations",
+            "display": "Audit Q5 Failed Expectations"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "audit_q6_morning_drinking",
+            "display": "Audit Q6 Morning Drinking"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "audit_q7_guilt",
+            "display": "Audit Q7 Guilt"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "audit_q8_blackout",
+            "display": "Audit Q8 Blackout"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "audit_q9_injury",
+            "display": "Audit Q9 Injury"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "audit_q10_concern",
+            "display": "Audit Q10 Concern"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "audit_total_score",
+            "display": "Audit Total Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "audit_risk_category",
+            "display": "Audit Risk Category"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment:audit_risk_category",
+            "code": "low-risk",
+            "display": "Low-Risk"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:substance-abuse-assessment",
+            "code": "alcohol_use_notes",
+            "display": "Alcohol Use Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}
