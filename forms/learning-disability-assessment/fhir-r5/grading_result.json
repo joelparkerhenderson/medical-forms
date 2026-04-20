@@ -1,0 +1,21 @@
+{
+  "resourceType": "ClinicalImpression",
+  "id": "770e8400-e29b-41d4-a716-446655440002",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/ClinicalImpression"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "date": "2026-04-09T10:00:00+00:00",
+  "description": "Learning Disability Assessment grading result",
+  "summary": "Result Category: General; Result Score: 5.0; Result Notes: Example text."
+}
