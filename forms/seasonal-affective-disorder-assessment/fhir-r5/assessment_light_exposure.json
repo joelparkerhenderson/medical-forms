@@ -1,0 +1,220 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+        "code": "assessment_light_exposure",
+        "display": "Light Exposure"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "daily_outdoor_minutes",
+            "display": "Daily Outdoor Minutes"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "outdoor_time_of_day",
+            "display": "Outdoor Time Of Day"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:outdoor_time_of_day",
+            "code": "morning",
+            "display": "Morning"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "workplace_natural_light",
+            "display": "Workplace Natural Light"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:workplace_natural_light",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "home_natural_light",
+            "display": "Home Natural Light"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:home_natural_light",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "latitude_awareness",
+            "display": "Latitude Awareness"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:latitude_awareness",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "uses_light_therapy",
+            "display": "Uses Light Therapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:uses_light_therapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "light_therapy_details",
+            "display": "Light Therapy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "light_therapy_duration_minutes",
+            "display": "Light Therapy Duration Minutes"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "light_therapy_lux",
+            "display": "Light Therapy Lux"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "dawn_simulator",
+            "display": "Dawn Simulator"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:dawn_simulator",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "light_exposure_notes",
+            "display": "Light Exposure Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

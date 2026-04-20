@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_mood SYSTEM "assessment_current_mood.dtd">
+<assessment_current_mood>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<phq9_interest>1</phq9_interest>
+<phq9_feeling_down>1</phq9_feeling_down>
+<phq9_sleep>1</phq9_sleep>
+<phq9_tired>1</phq9_tired>
+<phq9_appetite>1</phq9_appetite>
+<phq9_feeling_bad>1</phq9_feeling_bad>
+<phq9_concentration>1</phq9_concentration>
+<phq9_moving_slowly>1</phq9_moving_slowly>
+<phq9_self_harm>1</phq9_self_harm>
+<phq9_total>1</phq9_total>
+<current_mood_notes>Example text.</current_mood_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_mood>

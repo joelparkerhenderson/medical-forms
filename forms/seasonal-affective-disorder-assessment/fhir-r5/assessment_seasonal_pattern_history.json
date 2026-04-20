@@ -1,0 +1,208 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+        "code": "assessment_seasonal_pattern_history",
+        "display": "Seasonal Pattern History"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "worst_month",
+            "display": "Worst Month"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:worst_month",
+            "code": "january",
+            "display": "January"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "best_month",
+            "display": "Best Month"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:best_month",
+            "code": "january",
+            "display": "January"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "years_of_seasonal_symptoms",
+            "display": "Years Of Seasonal Symptoms"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "gss_sleep_length",
+            "display": "Gss Sleep Length"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "gss_social_activity",
+            "display": "Gss Social Activity"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "gss_mood",
+            "display": "Gss Mood"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "gss_weight",
+            "display": "Gss Weight"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "gss_appetite",
+            "display": "Gss Appetite"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "gss_energy",
+            "display": "Gss Energy"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "gss_total",
+            "display": "Gss Total"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "seasonal_pattern_is_problem",
+            "display": "Seasonal Pattern Is Problem"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:seasonal_pattern_is_problem",
+            "code": "no",
+            "display": "No"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "seasonal_pattern_notes",
+            "display": "Seasonal Pattern Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

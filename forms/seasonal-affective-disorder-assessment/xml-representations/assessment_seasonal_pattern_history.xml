@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_seasonal_pattern_history SYSTEM "assessment_seasonal_pattern_history.dtd">
+<assessment_seasonal_pattern_history>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<worst_month>january</worst_month>
+<best_month>january</best_month>
+<years_of_seasonal_symptoms>2026</years_of_seasonal_symptoms>
+<gss_sleep_length>1</gss_sleep_length>
+<gss_social_activity>1</gss_social_activity>
+<gss_mood>1</gss_mood>
+<gss_weight>1</gss_weight>
+<gss_appetite>1</gss_appetite>
+<gss_energy>1</gss_energy>
+<gss_total>1</gss_total>
+<seasonal_pattern_is_problem>no</seasonal_pattern_is_problem>
+<seasonal_pattern_notes>Example text.</seasonal_pattern_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_seasonal_pattern_history>

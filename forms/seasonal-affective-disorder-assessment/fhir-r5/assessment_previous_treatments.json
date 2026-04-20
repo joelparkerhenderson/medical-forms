@@ -1,0 +1,308 @@
+{
+  "resourceType": "Observation",
+  "id": "ee0e8400-e29b-41d4-a716-446655440009",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+        "code": "assessment_previous_treatments",
+        "display": "Previous Treatments"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "previous_sad_diagnosis",
+            "display": "Previous Sad Diagnosis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:previous_sad_diagnosis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "previous_depression_diagnosis",
+            "display": "Previous Depression Diagnosis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:previous_depression_diagnosis",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "on_antidepressant",
+            "display": "On Antidepressant"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:on_antidepressant",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "antidepressant_details",
+            "display": "Antidepressant Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "previous_antidepressant",
+            "display": "Previous Antidepressant"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:previous_antidepressant",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "previous_antidepressant_details",
+            "display": "Previous Antidepressant Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "previous_light_therapy",
+            "display": "Previous Light Therapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:previous_light_therapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "light_therapy_response",
+            "display": "Light Therapy Response"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:light_therapy_response",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "previous_cbt",
+            "display": "Previous Cbt"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:previous_cbt",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "cbt_response",
+            "display": "Cbt Response"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:cbt_response",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "previous_other_therapy",
+            "display": "Previous Other Therapy"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:previous_other_therapy",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "other_therapy_details",
+            "display": "Other Therapy Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "vitamin_d_supplementation",
+            "display": "Vitamin D Supplementation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:vitamin_d_supplementation",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "medication_adherence",
+            "display": "Medication Adherence"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment:medication_adherence",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:seasonal-affective-disorder-assessment",
+            "code": "treatment_notes",
+            "display": "Treatment Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<!ELEMENT assessment_seasonal_pattern_history (id,assessment_id,worst_month,best_month,years_of_seasonal_symptoms,gss_sleep_length,gss_social_activity,gss_mood,gss_weight,gss_appetite,gss_energy,gss_total,seasonal_pattern_is_problem,seasonal_pattern_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT worst_month (#PCDATA)>
+<!ELEMENT best_month (#PCDATA)>
+<!ELEMENT years_of_seasonal_symptoms (#PCDATA)>
+<!ELEMENT gss_sleep_length (#PCDATA)>
+<!ELEMENT gss_social_activity (#PCDATA)>
+<!ELEMENT gss_mood (#PCDATA)>
+<!ELEMENT gss_weight (#PCDATA)>
+<!ELEMENT gss_appetite (#PCDATA)>
+<!ELEMENT gss_energy (#PCDATA)>
+<!ELEMENT gss_total (#PCDATA)>
+<!ELEMENT seasonal_pattern_is_problem (#PCDATA)>
+<!ELEMENT seasonal_pattern_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

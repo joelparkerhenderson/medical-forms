@@ -1,0 +1,16 @@
+<!ELEMENT assessment_light_exposure (id,assessment_id,daily_outdoor_minutes,outdoor_time_of_day,workplace_natural_light,home_natural_light,latitude_awareness,uses_light_therapy,light_therapy_details,light_therapy_duration_minutes,light_therapy_lux,dawn_simulator,light_exposure_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT daily_outdoor_minutes (#PCDATA)>
+<!ELEMENT outdoor_time_of_day (#PCDATA)>
+<!ELEMENT workplace_natural_light (#PCDATA)>
+<!ELEMENT home_natural_light (#PCDATA)>
+<!ELEMENT latitude_awareness (#PCDATA)>
+<!ELEMENT uses_light_therapy (#PCDATA)>
+<!ELEMENT light_therapy_details (#PCDATA)>
+<!ELEMENT light_therapy_duration_minutes (#PCDATA)>
+<!ELEMENT light_therapy_lux (#PCDATA)>
+<!ELEMENT dawn_simulator (#PCDATA)>
+<!ELEMENT light_exposure_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>
