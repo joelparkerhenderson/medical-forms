@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_comments_suggestions SYSTEM "assessment_comments_suggestions.dtd">
+<assessment_comments_suggestions>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<what_went_well></what_went_well>
+<what_could_improve></what_could_improve>
+<specific_staff_praise></specific_staff_praise>
+<complaint_raised>yes</complaint_raised>
+<complaint_details>Example text.</complaint_details>
+<additional_comments>Example text.</additional_comments>
+<consent_to_contact>yes</consent_to_contact>
+<contact_email>07700900001</contact_email>
+<contact_phone>07700900001</contact_phone>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_comments_suggestions>

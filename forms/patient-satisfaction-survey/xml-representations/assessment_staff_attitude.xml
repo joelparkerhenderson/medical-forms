@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_staff_attitude SYSTEM "assessment_staff_attitude.dtd">
+<assessment_staff_attitude>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<doctor_courtesy>1</doctor_courtesy>
+<nurse_courtesy>1</nurse_courtesy>
+<reception_courtesy>1</reception_courtesy>
+<respect_for_dignity>1</respect_for_dignity>
+<cultural_sensitivity>1</cultural_sensitivity>
+<emotional_support>1</emotional_support>
+<staff_attitude_notes>Example text.</staff_attitude_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_staff_attitude>

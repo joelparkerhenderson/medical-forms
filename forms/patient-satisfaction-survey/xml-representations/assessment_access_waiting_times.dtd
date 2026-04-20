@@ -1,0 +1,13 @@
+<!ELEMENT assessment_access_waiting_times (id,assessment_id,ease_of_booking,waiting_time_for_appointment,waiting_time_on_day,reception_service,signage_wayfinding,parking_transport,actual_wait_minutes,access_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT ease_of_booking (#PCDATA)>
+<!ELEMENT waiting_time_for_appointment (#PCDATA)>
+<!ELEMENT waiting_time_on_day (#PCDATA)>
+<!ELEMENT reception_service (#PCDATA)>
+<!ELEMENT signage_wayfinding (#PCDATA)>
+<!ELEMENT parking_transport (#PCDATA)>
+<!ELEMENT actual_wait_minutes (#PCDATA)>
+<!ELEMENT access_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

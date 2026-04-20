@@ -1,0 +1,12 @@
+<!ELEMENT assessment_overall_experience (id,assessment_id,overall_satisfaction,would_recommend,met_expectations,felt_safe,would_return,nhs_rating,overall_experience_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT overall_satisfaction (#PCDATA)>
+<!ELEMENT would_recommend (#PCDATA)>
+<!ELEMENT met_expectations (#PCDATA)>
+<!ELEMENT felt_safe (#PCDATA)>
+<!ELEMENT would_return (#PCDATA)>
+<!ELEMENT nhs_rating (#PCDATA)>
+<!ELEMENT overall_experience_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

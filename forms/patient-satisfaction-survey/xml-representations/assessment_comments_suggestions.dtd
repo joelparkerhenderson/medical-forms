@@ -1,0 +1,14 @@
+<!ELEMENT assessment_comments_suggestions (id,assessment_id,what_went_well,what_could_improve,specific_staff_praise,complaint_raised,complaint_details,additional_comments,consent_to_contact,contact_email,contact_phone,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT what_went_well (#PCDATA)>
+<!ELEMENT what_could_improve (#PCDATA)>
+<!ELEMENT specific_staff_praise (#PCDATA)>
+<!ELEMENT complaint_raised (#PCDATA)>
+<!ELEMENT complaint_details (#PCDATA)>
+<!ELEMENT additional_comments (#PCDATA)>
+<!ELEMENT consent_to_contact (#PCDATA)>
+<!ELEMENT contact_email (#PCDATA)>
+<!ELEMENT contact_phone (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

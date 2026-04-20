@@ -1,0 +1,12 @@
+<!ELEMENT assessment_communication_information (id,assessment_id,explanation_of_condition,explanation_of_treatment,opportunity_to_ask_questions,listened_to,informed_about_medication,written_information_quality,communication_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT explanation_of_condition (#PCDATA)>
+<!ELEMENT explanation_of_treatment (#PCDATA)>
+<!ELEMENT opportunity_to_ask_questions (#PCDATA)>
+<!ELEMENT listened_to (#PCDATA)>
+<!ELEMENT informed_about_medication (#PCDATA)>
+<!ELEMENT written_information_quality (#PCDATA)>
+<!ELEMENT communication_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

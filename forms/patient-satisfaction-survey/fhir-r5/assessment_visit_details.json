@@ -1,0 +1,160 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:patient-satisfaction-survey",
+        "code": "assessment_visit_details",
+        "display": "Visit Details"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:patient-satisfaction-survey",
+            "code": "visit_date",
+            "display": "Visit Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:patient-satisfaction-survey",
+            "code": "visit_type",
+            "display": "Visit Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:patient-satisfaction-survey:visit_type",
+            "code": "outpatient",
+            "display": "Outpatient"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:patient-satisfaction-survey",
+            "code": "department",
+            "display": "Department"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:patient-satisfaction-survey",
+            "code": "hospital_site",
+            "display": "Hospital Site"
+          }
+        ]
+      },
+      "valueString": "Example location"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:patient-satisfaction-survey",
+            "code": "length_of_stay_days",
+            "display": "Length Of Stay Days"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:patient-satisfaction-survey",
+            "code": "referral_source",
+            "display": "Referral Source"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:patient-satisfaction-survey:referral_source",
+            "code": "gp",
+            "display": "Gp"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:patient-satisfaction-survey",
+            "code": "is_first_visit",
+            "display": "Is First Visit"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:patient-satisfaction-survey:is_first_visit",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:patient-satisfaction-survey",
+            "code": "visit_details_notes",
+            "display": "Visit Details Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

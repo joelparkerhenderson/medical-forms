@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_environment_facilities SYSTEM "assessment_environment_facilities.dtd">
+<assessment_environment_facilities>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<cleanliness>1</cleanliness>
+<comfort>1</comfort>
+<noise_levels>1</noise_levels>
+<food_quality>1</food_quality>
+<toilet_facilities>1</toilet_facilities>
+<temperature_comfort>1</temperature_comfort>
+<environment_notes>Example text.</environment_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_environment_facilities>

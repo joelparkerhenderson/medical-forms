@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_access_waiting_times SYSTEM "assessment_access_waiting_times.dtd">
+<assessment_access_waiting_times>
+<id>990e8400-e29b-41d4-a716-446655440004</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<ease_of_booking>1</ease_of_booking>
+<waiting_time_for_appointment>1</waiting_time_for_appointment>
+<waiting_time_on_day>1</waiting_time_on_day>
+<reception_service>1</reception_service>
+<signage_wayfinding>45</signage_wayfinding>
+<parking_transport>1</parking_transport>
+<actual_wait_minutes>1</actual_wait_minutes>
+<access_notes>Example text.</access_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_access_waiting_times>

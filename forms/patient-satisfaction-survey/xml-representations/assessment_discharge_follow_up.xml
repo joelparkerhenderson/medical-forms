@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_discharge_follow_up SYSTEM "assessment_discharge_follow_up.dtd">
+<assessment_discharge_follow_up>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<discharge_information>1</discharge_information>
+<medication_explanation>1</medication_explanation>
+<follow_up_arrangements>1</follow_up_arrangements>
+<knew_who_to_contact>1</knew_who_to_contact>
+<recovery_information>1</recovery_information>
+<care_plan_clarity>1</care_plan_clarity>
+<discharge_notes>Example text.</discharge_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_discharge_follow_up>

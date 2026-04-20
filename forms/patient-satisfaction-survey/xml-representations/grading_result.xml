@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grading_result SYSTEM "grading_result.dtd">
+<grading_result>
+<id>220e8400-e29b-41d4-a716-44665544000c</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<normalized_score>5.0</normalized_score>
+<satisfaction_category>excellent</satisfaction_category>
+<domain_access_score>5.0</domain_access_score>
+<domain_communication_score>5.0</domain_communication_score>
+<domain_clinical_care_score>5.0</domain_clinical_care_score>
+<domain_staff_score>5.0</domain_staff_score>
+<domain_environment_score>5.0</domain_environment_score>
+<domain_discharge_score>5.0</domain_discharge_score>
+<domain_overall_score>5.0</domain_overall_score>
+<graded_at>2026-04-09T10:00:00Z</graded_at>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</grading_result>

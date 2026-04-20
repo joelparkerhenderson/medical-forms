@@ -1,0 +1,15 @@
+<!ELEMENT grading_result (id,assessment_id,normalized_score,satisfaction_category,domain_access_score,domain_communication_score,domain_clinical_care_score,domain_staff_score,domain_environment_score,domain_discharge_score,domain_overall_score,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT normalized_score (#PCDATA)>
+<!ELEMENT satisfaction_category (#PCDATA)>
+<!ELEMENT domain_access_score (#PCDATA)>
+<!ELEMENT domain_communication_score (#PCDATA)>
+<!ELEMENT domain_clinical_care_score (#PCDATA)>
+<!ELEMENT domain_staff_score (#PCDATA)>
+<!ELEMENT domain_environment_score (#PCDATA)>
+<!ELEMENT domain_discharge_score (#PCDATA)>
+<!ELEMENT domain_overall_score (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

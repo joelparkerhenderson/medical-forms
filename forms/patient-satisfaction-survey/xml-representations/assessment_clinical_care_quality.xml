@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_clinical_care_quality SYSTEM "assessment_clinical_care_quality.dtd">
+<assessment_clinical_care_quality>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<confidence_in_clinician>1</confidence_in_clinician>
+<thoroughness_of_examination>1</thoroughness_of_examination>
+<pain_management>45</pain_management>
+<involvement_in_decisions>1</involvement_in_decisions>
+<privacy_during_examination>1</privacy_during_examination>
+<coordination_of_care>1</coordination_of_care>
+<clinical_care_notes>Example text.</clinical_care_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_clinical_care_quality>

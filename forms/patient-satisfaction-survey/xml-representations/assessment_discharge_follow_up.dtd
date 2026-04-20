@@ -1,0 +1,12 @@
+<!ELEMENT assessment_discharge_follow_up (id,assessment_id,discharge_information,medication_explanation,follow_up_arrangements,knew_who_to_contact,recovery_information,care_plan_clarity,discharge_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT discharge_information (#PCDATA)>
+<!ELEMENT medication_explanation (#PCDATA)>
+<!ELEMENT follow_up_arrangements (#PCDATA)>
+<!ELEMENT knew_who_to_contact (#PCDATA)>
+<!ELEMENT recovery_information (#PCDATA)>
+<!ELEMENT care_plan_clarity (#PCDATA)>
+<!ELEMENT discharge_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>
