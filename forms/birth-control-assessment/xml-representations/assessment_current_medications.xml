@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_current_medications SYSTEM "assessment_current_medications.dtd">
+<assessment_current_medications>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<on_enzyme_inducing_drugs>yes</on_enzyme_inducing_drugs>
+<enzyme_inducing_details>Example text.</enzyme_inducing_details>
+<on_anticoagulants>yes</on_anticoagulants>
+<anticoagulant_details>Example text.</anticoagulant_details>
+<on_antiepileptics>yes</on_antiepileptics>
+<antiepileptic_details>Example text.</antiepileptic_details>
+<on_antiretrovirals>yes</on_antiretrovirals>
+<antiretroviral_details>Example text.</antiretroviral_details>
+<on_antibiotics>yes</on_antibiotics>
+<antibiotic_details>Example text.</antibiotic_details>
+<on_ssri_snri>yes</on_ssri_snri>
+<ssri_snri_details>Example text.</ssri_snri_details>
+<herbal_remedies>yes</herbal_remedies>
+<herbal_details>Example text.</herbal_details>
+<other_medications>Paracetamol</other_medications>
+<drug_allergies>yes</drug_allergies>
+<drug_allergy_details>Example text.</drug_allergy_details>
+<medication_notes>Example text.</medication_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_current_medications>

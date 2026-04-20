@@ -1,0 +1,216 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:birth-control-assessment",
+        "code": "assessment_contraceptive_preferences",
+        "display": "Contraceptive Preferences"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment",
+            "code": "preferred_method",
+            "display": "Preferred Method"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment:preferred_method",
+            "code": "coc",
+            "display": "Coc"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment",
+            "code": "hormonal_acceptable",
+            "display": "Hormonal Acceptable"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment:hormonal_acceptable",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment",
+            "code": "long_acting_acceptable",
+            "display": "Long Acting Acceptable"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment:long_acting_acceptable",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment",
+            "code": "daily_pill_acceptable",
+            "display": "Daily Pill Acceptable"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment:daily_pill_acceptable",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment",
+            "code": "intrauterine_acceptable",
+            "display": "Intrauterine Acceptable"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment:intrauterine_acceptable",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment",
+            "code": "fertility_plans",
+            "display": "Fertility Plans"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment:fertility_plans",
+            "code": "within-1-year",
+            "display": "Within-1-Year"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment",
+            "code": "breastfeeding",
+            "display": "Breastfeeding"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment:breastfeeding",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment",
+            "code": "postpartum_weeks",
+            "display": "Postpartum Weeks"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment",
+            "code": "concerns",
+            "display": "Concerns"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:birth-control-assessment",
+            "code": "preference_notes",
+            "display": "Preference Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

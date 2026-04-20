@@ -1,0 +1,15 @@
+<!ELEMENT assessment_contraceptive_preferences (id,assessment_id,preferred_method,hormonal_acceptable,long_acting_acceptable,daily_pill_acceptable,intrauterine_acceptable,fertility_plans,breastfeeding,postpartum_weeks,concerns,preference_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT preferred_method (#PCDATA)>
+<!ELEMENT hormonal_acceptable (#PCDATA)>
+<!ELEMENT long_acting_acceptable (#PCDATA)>
+<!ELEMENT daily_pill_acceptable (#PCDATA)>
+<!ELEMENT intrauterine_acceptable (#PCDATA)>
+<!ELEMENT fertility_plans (#PCDATA)>
+<!ELEMENT breastfeeding (#PCDATA)>
+<!ELEMENT postpartum_weeks (#PCDATA)>
+<!ELEMENT concerns (#PCDATA)>
+<!ELEMENT preference_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

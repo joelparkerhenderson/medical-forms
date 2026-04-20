@@ -1,0 +1,17 @@
+<!ELEMENT assessment_lifestyle (id,assessment_id,smoking_status,cigarettes_per_day,age_over_35_smoker,alcohol_consumption,alcohol_units_per_week,recreational_drug_use,recreational_drug_details,exercise_frequency,sexual_activity,number_of_partners,pregnancy_risk_awareness,lifestyle_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT smoking_status (#PCDATA)>
+<!ELEMENT cigarettes_per_day (#PCDATA)>
+<!ELEMENT age_over_35_smoker (#PCDATA)>
+<!ELEMENT alcohol_consumption (#PCDATA)>
+<!ELEMENT alcohol_units_per_week (#PCDATA)>
+<!ELEMENT recreational_drug_use (#PCDATA)>
+<!ELEMENT recreational_drug_details (#PCDATA)>
+<!ELEMENT exercise_frequency (#PCDATA)>
+<!ELEMENT sexual_activity (#PCDATA)>
+<!ELEMENT number_of_partners (#PCDATA)>
+<!ELEMENT pregnancy_risk_awareness (#PCDATA)>
+<!ELEMENT lifestyle_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

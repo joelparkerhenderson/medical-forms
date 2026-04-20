@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_menstrual_history SYSTEM "assessment_menstrual_history.dtd">
+<assessment_menstrual_history>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<menarche_age>45</menarche_age>
+<cycle_regularity>regular</cycle_regularity>
+<cycle_length_days>1</cycle_length_days>
+<period_duration_days>1</period_duration_days>
+<flow_heaviness>light</flow_heaviness>
+<intermenstrual_bleeding>yes</intermenstrual_bleeding>
+<postcoital_bleeding>yes</postcoital_bleeding>
+<dysmenorrhoea>none</dysmenorrhoea>
+<last_menstrual_period>2026-01-15</last_menstrual_period>
+<amenorrhoea>yes</amenorrhoea>
+<amenorrhoea_duration_months>1</amenorrhoea_duration_months>
+<menstrual_notes>Example text.</menstrual_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_menstrual_history>

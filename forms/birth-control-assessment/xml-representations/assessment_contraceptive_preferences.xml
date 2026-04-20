@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_contraceptive_preferences SYSTEM "assessment_contraceptive_preferences.dtd">
+<assessment_contraceptive_preferences>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<preferred_method>coc</preferred_method>
+<hormonal_acceptable>yes</hormonal_acceptable>
+<long_acting_acceptable>yes</long_acting_acceptable>
+<daily_pill_acceptable>yes</daily_pill_acceptable>
+<intrauterine_acceptable>yes</intrauterine_acceptable>
+<fertility_plans>within-1-year</fertility_plans>
+<breastfeeding>yes</breastfeeding>
+<postpartum_weeks>1</postpartum_weeks>
+<concerns></concerns>
+<preference_notes>Example text.</preference_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_contraceptive_preferences>
