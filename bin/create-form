@@ -17,7 +17,7 @@ mkdir_with_ai() (
 dir="$top/forms/$1"
 mkdir_with_ai "$dir"
 mkdir -p "$dir/doc"
-mkdir -p "$dir/fhir-api"
+mkdir -p "$dir/fhir-r5"
 mkdir -p "$dir/sql-migrations"
 mkdir -p "$dir/xml-representations"
 mkdir_with_ai "$dir/front-end-patient-form-with-html"

@@ -35,11 +35,20 @@ ai_exists_or_err() (
 
 top="$(git rev-parse --show-toplevel)"
 
-repo_setup_exists_or_err "$top"
-ai_exists_or_err "$top"
-file_exists_or_err "$top/AGENTS/front-end-with-sveltekit-tailwind-svar.md"
-file_exists_or_err "$top/AGENTS/full-stack-with-rust-axum-loco-htmx-alpine.md"  
-file_exists_or_err "$top/AGENTS/sql-migrations.md"  
-for x in $("$top/bin/list-forms"); do
-    "$top/bin/test-form" "$x"
-done
+test_repository() {
+    repo_setup_exists_or_err "$top"
+    ai_exists_or_err "$top"
+    file_exists_or_err "$top/AGENTS/front-end-with-sveltekit-tailwind-svar.md"
+    file_exists_or_err "$top/AGENTS/full-stack-with-rust-axum-loco-htmx-alpine.md"  
+    file_exists_or_err "$top/AGENTS/sql-migrations.md"  
+    file_exists_or_err "$top/AGENTS/xml-representations.md"  
+}
+
+test_forms() {
+    for x in $("$top/bin/list-forms"); do
+        "$top/bin/test-form" "$x"
+    done
+}
+
+test_repository
+test_forms

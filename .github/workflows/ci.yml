@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Structure validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run bin/test
+        run: bin/test
+
+  generators:
+    name: Verify generators produce valid output
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install xmllint
+        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+      - name: Generate XML representations
+        run: python3 bin/generate-xml-representations.py
+      - name: Generate FHIR R5 representations
+        run: python3 bin/generate-fhir-r5-representations.py
+      - name: Validate XML against DTDs
+        run: |
+          failed=0
+          for xml in forms/*/xml-representations/*.xml; do
+            xmllint --valid --noout "$xml" 2>&1 || failed=$((failed+1))
+          done
+          if [ "$failed" -gt 0 ]; then
+            echo "::error::$failed XML files failed DTD validation"
+            exit 1
+          fi
+      - name: Validate FHIR R5 JSON well-formedness and resourceType
+        run: |
+          failed=0
+          for f in forms/*/fhir-r5/*.json; do
+            python3 -c "
+import json, sys
+d = json.load(open('$f'))
+assert 'resourceType' in d, 'missing resourceType'
+" || failed=$((failed+1))
+          done
+          if [ "$failed" -gt 0 ]; then
+            echo "::error::$failed FHIR R5 JSON files failed validation"
+            exit 1
+          fi
+      - name: Fail if generators produced uncommitted diffs
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::Generator output differs from committed files. Run bin/generate-*.py locally and commit."
+            git status --short
+            git --no-pager diff
+            exit 1
+          fi

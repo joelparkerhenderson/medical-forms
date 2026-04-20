@@ -1,5 +1,5 @@
 -- ============================================================
--- 00_extensions.sql
+-- 00-extensions.sql
 -- PostgreSQL extensions and shared utility functions
 -- for the encounter satisfaction survey database.
 -- ============================================================

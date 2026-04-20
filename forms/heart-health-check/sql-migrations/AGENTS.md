@@ -8,21 +8,21 @@ PostgreSQL schema migrations for the Heart Health Check assessment. 15 files cre
 
 | File                           | Purpose                                              |
 | ------------------------------ | ---------------------------------------------------- |
-| 00_extensions.sql              | pgcrypto extension, set_updated_at() trigger         |
-| 01_patient.sql                 | Patient demographics and contact details             |
-| 02_assessment.sql              | Assessment header (status: draft/submitted/reviewed) |
-| 03_demographics_ethnicity.sql  | Age, sex, ethnicity, Townsend deprivation            |
-| 04_blood_pressure.sql          | Systolic, diastolic, SD, treatment status            |
-| 05_cholesterol.sql             | Total cholesterol, HDL, TC/HDL ratio, statin         |
-| 06_medical_conditions.sql      | Diabetes, AF, RA, CKD, migraine, SMI, ED, meds       |
-| 07_family_history.sql          | CVD under 60, relationship, diabetes history         |
-| 08_smoking_alcohol.sql         | Smoking status, quantity, alcohol use                |
-| 09_physical_activity_diet.sql  | Activity minutes, intensity, diet quality            |
-| 10_body_measurements.sql       | Height, weight, BMI, waist circumference             |
-| 11_review_calculate.sql        | Clinician name, date, notes, AUDIT score             |
-| 12_grading_result.sql          | Risk category, 10-year risk %, heart age             |
-| 13_grading_fired_rule.sql      | Individual fired rules (HHC-001 to HHC-020)          |
-| 14_grading_additional_flag.sql | Clinical flags (FLAG-AGE-001, etc.)                  |
+| 00-extensions.sql              | pgcrypto extension, set_updated_at() trigger         |
+| 01-patient.sql                 | Patient demographics and contact details             |
+| 02-assessment.sql              | Assessment header (status: draft/submitted/reviewed) |
+| 03-demographics-ethnicity.sql  | Age, sex, ethnicity, Townsend deprivation            |
+| 04-blood-pressure.sql          | Systolic, diastolic, SD, treatment status            |
+| 05-cholesterol.sql             | Total cholesterol, HDL, TC/HDL ratio, statin         |
+| 06-medical-conditions.sql      | Diabetes, AF, RA, CKD, migraine, SMI, ED, meds       |
+| 07-family-history.sql          | CVD under 60, relationship, diabetes history         |
+| 08-smoking-alcohol.sql         | Smoking status, quantity, alcohol use                |
+| 09-physical-activity-diet.sql  | Activity minutes, intensity, diet quality            |
+| 10-body-measurements.sql       | Height, weight, BMI, waist circumference             |
+| 11-review-calculate.sql        | Clinician name, date, notes, AUDIT score             |
+| 12-grading-result.sql          | Risk category, 10-year risk %, heart age             |
+| 13-grading-fired-rule.sql      | Individual fired rules (HHC-001 to HHC-020)          |
+| 14-grading-additional-flag.sql | Clinical flags (FLAG-AGE-001, etc.)                  |
 
 ## Schema conventions
 

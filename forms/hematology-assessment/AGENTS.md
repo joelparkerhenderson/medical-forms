@@ -1,10 +1,6 @@
 # Hematology Assessment
 
-Haematological evaluation for blood disorders, anaemia screening, coagulation assessment, and complete blood count interpretation.
-
-## Status
-
-Not yet implemented. Directory structure exists but no code has been written.
+Haematological evaluation covering complete blood count, coagulation studies, peripheral blood film, iron studies, haemoglobinopathy screening, bone-marrow review, transfusion history, and current treatment, producing a composite haematological risk classification.
 
 ## Directory structure
 
@@ -12,25 +8,52 @@ Not yet implemented. Directory structure exists but no code has been written.
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
-- ./front-end-patient-form-with-svelte/ - Patient questionnaire (to be built)
-- ./front-end-clinician-dashboard-with-svelte/ - Clinician dashboard (to be built)
-- ./full-stack-with-rust-axum-loco-tera/ - Full-stack option (to be built)
+- ./front-end-patient-form-with-svelte/ - Patient questionnaire; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-clinician-dashboard-with-svelte/ - Haematology clinic dashboard; SvelteKit + SVAR DataGrid
+- ./full-stack-with-rust-axum-loco-tera-htmx-alpine/ - Full-stack Rust backend
 
-## Planned scoring system
+## Scoring system
 
-- **Instrument**: CBC Interpretation / Haematological Risk Score
-- **Scope**: Anaemia classification, coagulation screen, white cell differential, platelet assessment
-- **Planned steps**: Demographics, Presenting Symptoms, Bleeding History, CBC Results, Iron Studies, Coagulation Screen, Blood Film, Transfusion History, Current Medications, Comorbidities
+- **Instrument**: CBC Interpretation + Haematological Risk Score
+- **Range**: Normal / Mild / Moderate / Severe abnormality
+- **Engine files**: `types.ts`, `hem-grader.ts`, `hem-rules.ts`, `flagged-issues.ts`, `utils.ts`
+- **Test file**: `hem-grader.test.ts`
 
-## Planned architecture
+## Assessment steps (10 total)
 
-Follow the same patterns as other projects in this monorepo (see ../dermatology-assessment/ as template):
+1. Patient Information - `Step1PatientInformation.svelte`
+2. Blood Count Analysis - `Step2BloodCountAnalysis.svelte`
+3. Coagulation Studies - `Step3CoagulationStudies.svelte`
+4. Peripheral Blood Film - `Step4PeripheralBloodFilm.svelte`
+5. Iron Studies - `Step5IronStudies.svelte`
+6. Haemoglobinopathy Screening - `Step6HemoglobinopathyScreening.svelte`
+7. Bone Marrow Assessment - `Step7BoneMarrowAssessment.svelte`
+8. Transfusion History - `Step8TransfusionHistory.svelte`
+9. Treatment & Medications - `Step9TreatmentMedications.svelte`
+10. Clinical Review - `Step10ClinicalReview.svelte`
 
-- SvelteKit 2.x with Svelte 5 runes
-- Tailwind CSS 4
-- Pure scoring engine
-- SVAR DataGrid clinician dashboard
-- Rust + Loco backend
+## Patient form architecture
+
+- SvelteKit 2.x with Svelte 5 runes ($state, $derived, $bindable, $props, $effect)
+- Tailwind CSS 4 with @import 'tailwindcss' and @theme for custom colours
+- Multi-step wizard with StepNavigation and ProgressBar components
+- Pure scoring engine with no side effects
+- Class-based reactive store (assessment.svelte.ts)
+- PDF report generation via /report/pdf server endpoint
+- Vitest unit tests for grading logic
+
+## Clinician dashboard
+
+- SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
+- Sortable columns and dropdown filters
+- Backend API client with sample data fallback
+
+## Backend
+
+- Rust edition 2024 with Loco 0.16 framework
+- axum 0.8 web framework
+- SeaORM 1.1 with PostgreSQL
+- Engine types mirror TypeScript with serde(rename_all = "camelCase")
 
 ## Conventions
 
@@ -39,3 +62,9 @@ Follow the same patterns as other projects in this monorepo (see ../dermatology-
 - camelCase property names in TypeScript
 - Step components named StepNName.svelte (1-indexed)
 - UI components in src/lib/components/ui/
+
+## Compliance
+
+- MDCG 2019-11 Rev.1 (EU MDR Software Classification)
+- UK Medical Devices Regulations 2002
+- ISO/IEC/IEEE 26514:2022

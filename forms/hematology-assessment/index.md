@@ -1,15 +1,31 @@
 # Hematology Assessment
 
-Haematological evaluation for blood disorders, anaemia screening, coagulation assessment, and complete blood count interpretation.
+Haematological evaluation covering complete blood count, coagulation studies, peripheral blood film, iron studies, haemoglobinopathy screening, bone-marrow review, transfusion history, and current treatment, producing a composite haematological risk classification.
 
-## Status
+## Scoring system
 
-Not yet implemented. Directory structure exists but no code has been written.
+- **Instrument**: CBC Interpretation + Haematological Risk Score
+- **Range**: Normal / Mild / Moderate / Severe abnormality
+- **Categories**:
+  - Normal: All indices within reference range
+  - Mild: Isolated abnormality, non-urgent follow-up
+  - Moderate: Multi-line abnormality or coagulation disturbance requiring specialist review
+  - Severe: Pancytopenia, active bleeding diathesis, or haemolysis — urgent haematology referral
 
-## Planned scoring system
+## Steps
 
-- **Instrument**: CBC Interpretation / Haematological Risk Score
-- **Scope**: Anaemia classification, coagulation screen, white cell differential, platelet assessment
+| #   | Step                                  |
+| --- | ------------------------------------- |
+| 1   | Patient Information                   |
+| 2   | Blood Count Analysis                  |
+| 3   | Coagulation Studies                   |
+| 4   | Peripheral Blood Film                 |
+| 5   | Iron Studies                          |
+| 6   | Haemoglobinopathy Screening           |
+| 7   | Bone Marrow Assessment                |
+| 8   | Transfusion History                   |
+| 9   | Treatment & Medications               |
+| 10  | Clinical Review                       |
 
 ## Directory structure
 
@@ -17,7 +33,7 @@ Not yet implemented. Directory structure exists but no code has been written.
 hematology-assessment/
   front-end-patient-form-with-svelte/
   front-end-clinician-dashboard-with-svelte/
-  full-stack-with-rust-axum-loco-tera/
+  full-stack-with-rust-axum-loco-tera-htmx-alpine/
 ```
 
 ## Technology

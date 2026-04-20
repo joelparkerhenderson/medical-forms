@@ -49,7 +49,7 @@ Put all the documentation files in ./doc directory.
 - One file per database table, numbered 00-22
 - CHECK constraints on TEXT columns instead of ENUM types
 - Empty string '' for unanswered fields (matches TypeScript convention)
-- Auto-updated timestamps via shared trigger function (00_extensions.sql)
+- Auto-updated timestamps via shared trigger function (00-extensions.sql)
 - 42 ASA rules seeded in asa_rule table (19_asa_rule.sql)
 - Denormalized fired rules for clinical audit trail
 - Apply schema: `for f in db/*.sql; do psql -f "$f"; done`

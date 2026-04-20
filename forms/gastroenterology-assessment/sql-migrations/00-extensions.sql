@@ -1,4 +1,4 @@
--- 00_extensions.sql
+-- 00-extensions.sql
 -- Enable required extensions and create shared trigger function.
 
 -- pgcrypto provides gen_random_uuid() for UUID primary key generation.

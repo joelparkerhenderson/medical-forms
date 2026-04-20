@@ -1,5 +1,5 @@
 -- ============================================================
--- 00_extensions.sql
+-- 00-extensions.sql
 -- PostgreSQL 18 extensions and shared utility functions
 -- for the diabetes assessment database.
 -- ============================================================

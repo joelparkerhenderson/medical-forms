@@ -1,123 +1,168 @@
 <script lang="ts">
-	import { acknowledgment } from '$lib/stores/acknowledgment.svelte';
-	import PrivacyNotice from '$lib/components/PrivacyNotice.svelte';
+	import { assessment } from '$lib/stores/assessment.svelte';
+	import { validateForm } from '$lib/engine/form-validator';
+	import { detectAdditionalFlags } from '$lib/engine/flagged-issues';
+	import { completenessColor } from '$lib/engine/utils';
+	import Step1LegalRequirementsPrivacyNotice from '$lib/components/steps/Step1LegalRequirementsPrivacyNotice.svelte';
+	import Step2AcknowledgmentSignature from '$lib/components/steps/Step2AcknowledgmentSignature.svelte';
 
-	const today = new Date().toISOString().split('T')[0];
+	const submitted = $derived(assessment.result !== null);
 
-	if (!acknowledgment.data.acknowledgedDate) {
-		acknowledgment.data.acknowledgedDate = today;
+	const priorityColor: Record<string, string> = {
+		high: 'bg-red-100 text-red-800 border-red-300',
+		medium: 'bg-yellow-100 text-yellow-800 border-yellow-300',
+		low: 'bg-gray-100 text-gray-700 border-gray-300'
+	};
+
+	function submitForm() {
+		const { completeness, status, firedRules } = validateForm(assessment.data);
+		const additionalFlags = detectAdditionalFlags(assessment.data);
+		assessment.result = {
+			completenessPercent: completeness,
+			status,
+			firedRules,
+			additionalFlags,
+			timestamp: new Date().toISOString()
+		};
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
 
-	let isComplete = $derived(
-		acknowledgment.data.confirmed &&
-		acknowledgment.data.fullName.trim() !== '' &&
-		acknowledgment.data.acknowledgedDate !== ''
-	);
-
-	function handleSubmit() {
-		if (!isComplete) return;
-		acknowledgment.submitted = true;
-	}
-
-	function handleReset() {
-		acknowledgment.reset();
-		acknowledgment.data.acknowledgedDate = today;
+	function startNew() {
+		assessment.reset();
+		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
 </script>
 
+<svelte:head>
+	<title>Legal Requirements Privacy Notice</title>
+</svelte:head>
+
 <div class="min-h-screen bg-gray-50">
-	<header class="bg-primary text-white py-6 shadow-md">
-		<div class="max-w-3xl mx-auto px-4">
-			<h1 class="text-2xl font-bold">Legal Requirements Privacy Notice</h1>
-			<p class="text-blue-100 mt-1">Please read this notice carefully before confirming below</p>
+	<header class="border-b border-nhs-blue bg-nhs-blue shadow-sm no-print">
+		<div class="mx-auto max-w-2xl px-4 py-4">
+			<h1 class="text-xl font-bold text-white">Legal Requirements Privacy Notice</h1>
+			<p class="mt-0.5 text-sm text-blue-100">
+				Statutory disclosures to NHS England, CQC, UKHSA and other bodies
+			</p>
 		</div>
 	</header>
 
-	<main class="max-w-3xl mx-auto px-4 py-8">
-		{#if acknowledgment.submitted}
-			<div class="bg-white rounded-xl border border-green-300 shadow-sm p-8 text-center">
-				<div class="text-success text-5xl mb-4">&#10003;</div>
-				<h2 class="text-2xl font-bold text-gray-900 mb-2">Thank you</h2>
-				<p class="text-gray-600 mb-4">
-					Your acknowledgment has been recorded.
-				</p>
-				<div class="bg-light-gray rounded-lg p-4 inline-block text-left">
-					<p><strong>Name:</strong> {acknowledgment.data.fullName}</p>
-					<p><strong>Date:</strong> {acknowledgment.data.acknowledgedDate}</p>
-				</div>
-				<div class="mt-6">
+	<main class="mx-auto max-w-2xl px-4 py-8">
+		{#if submitted && assessment.result}
+			<div class="mb-6 flex items-center justify-between">
+				<h2 class="text-2xl font-bold text-gray-900">Acknowledgment Summary</h2>
+				<div class="flex gap-3 no-print">
 					<button
-						onclick={handleReset}
-						class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
+						onclick={() => window.print()}
+						class="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
 					>
-						Submit another
+						Print
+					</button>
+					<button
+						onclick={startNew}
+						class="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-dark"
+					>
+						New Form
 					</button>
 				</div>
 			</div>
-		{:else}
-			<div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6 mb-8">
-				<PrivacyNotice />
+
+			<div
+				class="mb-6 rounded-xl border-2 p-6 text-center {completenessColor(
+					assessment.result.completenessPercent
+				)}"
+			>
+				<div class="text-3xl font-bold">{assessment.result.completenessPercent}% Complete</div>
+				<div class="mt-1 text-lg">{assessment.result.status}</div>
+				<div class="mt-2 text-sm opacity-75">
+					Generated {new Date(assessment.result.timestamp).toLocaleString()}
+				</div>
 			</div>
 
-			<div class="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
-				<h2 class="text-xl font-bold text-gray-900 mb-4">Acknowledgment</h2>
+			{#if assessment.result.additionalFlags.length > 0}
+				<div class="mb-6 rounded-xl border border-red-200 bg-white p-6">
+					<h3 class="mb-4 text-lg font-bold text-red-800">Flagged Issues</h3>
+					<div class="space-y-2">
+						{#each assessment.result.additionalFlags as flag}
+							<div class="flex items-start gap-3 rounded-lg border p-3 {priorityColor[flag.priority]}">
+								<span class="mt-0.5 rounded px-2 py-0.5 text-xs font-bold uppercase {priorityColor[flag.priority]}">
+									{flag.priority}
+								</span>
+								<div>
+									<span class="font-medium">{flag.category}:</span>
+									{flag.message}
+								</div>
+							</div>
+						{/each}
+					</div>
+				</div>
+			{/if}
 
-				<div class="space-y-4">
-					<label class="flex items-start gap-3 cursor-pointer">
-						<input
-							type="checkbox"
-							bind:checked={acknowledgment.data.confirmed}
-							class="mt-1 h-5 w-5 rounded border-border text-primary focus:ring-primary"
-						/>
-						<span class="text-gray-700">
-							I confirm that I have read and understood this privacy notice about how my
-							information is shared to meet legal requirements.
-							<span class="text-danger">*</span>
+			{#if assessment.result.firedRules.length > 0}
+				<div class="mb-6 rounded-xl border border-gray-200 bg-white p-6">
+					<h3 class="mb-4 text-lg font-bold text-gray-900">Missing Required Fields</h3>
+					<table class="w-full text-sm">
+						<thead>
+							<tr class="border-b text-left text-gray-600">
+								<th class="pb-2 pr-4">Rule</th>
+								<th class="pb-2 pr-4">Section</th>
+								<th class="pb-2 pr-4">Issue</th>
+								<th class="pb-2">Field</th>
+							</tr>
+						</thead>
+						<tbody>
+							{#each assessment.result.firedRules as rule}
+								<tr class="border-b border-gray-100">
+									<td class="py-2 pr-4 font-mono text-xs text-gray-500">{rule.id}</td>
+									<td class="py-2 pr-4">{rule.section}</td>
+									<td class="py-2 pr-4">{rule.description}</td>
+									<td class="py-2 font-mono text-xs">{rule.field}</td>
+								</tr>
+							{/each}
+						</tbody>
+					</table>
+				</div>
+			{/if}
+
+			<div class="mb-6 rounded-xl border border-gray-200 bg-white p-6">
+				<h3 class="mb-4 text-lg font-bold text-gray-900">Acknowledgment Summary</h3>
+				<div class="grid grid-cols-1 gap-4 text-sm sm:grid-cols-2">
+					<div>
+						<span class="font-medium text-gray-600">Acknowledged: </span>
+						<span class="{assessment.data.acknowledgment.agreed ? 'font-bold text-green-700' : 'font-bold text-red-700'}">
+							{assessment.data.acknowledgment.agreed ? 'Yes' : 'No'}
 						</span>
-					</label>
-
-					<div>
-						<label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">
-							Full name <span class="text-danger">*</span>
-						</label>
-						<input
-							id="fullName"
-							type="text"
-							bind:value={acknowledgment.data.fullName}
-							placeholder="Enter your full name"
-							required
-							class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
-						/>
 					</div>
-
 					<div>
-						<label for="acknowledgedDate" class="block text-sm font-medium text-gray-700 mb-1">
-							Date <span class="text-danger">*</span>
-						</label>
-						<input
-							id="acknowledgedDate"
-							type="date"
-							bind:value={acknowledgment.data.acknowledgedDate}
-							required
-							class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
-						/>
+						<span class="font-medium text-gray-600">Patient Name: </span>
+						{assessment.data.acknowledgment.patientTypedFullName || 'N/A'}
 					</div>
-
-					<div class="pt-4">
-						<button
-							onclick={handleSubmit}
-							disabled={!isComplete}
-							class="w-full px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-						>
-							Submit Acknowledgment
-						</button>
+					<div>
+						<span class="font-medium text-gray-600">Date: </span>
+						{assessment.data.acknowledgment.patientTypedDate || 'N/A'}
 					</div>
 				</div>
 			</div>
+		{:else}
+			<div class="mb-8">
+				<Step1LegalRequirementsPrivacyNotice />
+			</div>
+
+			<div class="mb-8">
+				<Step2AcknowledgmentSignature />
+			</div>
+
+			<div class="mx-auto max-w-2xl">
+				<button
+					onclick={submitForm}
+					class="w-full rounded-lg bg-primary px-8 py-3 text-lg font-medium text-white transition-colors hover:bg-primary-dark"
+				>
+					Submit Legal Requirements Privacy Acknowledgment
+				</button>
+				<p class="mt-3 text-center text-xs text-gray-400">
+					For practice records. Covers statutory disclosures under the NHS Act 2006, Health and Social Care Act 2008, and the Public Health (Control of Disease) Act 1984.
+				</p>
+			</div>
 		{/if}
 	</main>
-
-	<footer class="max-w-3xl mx-auto px-4 py-6 text-center text-sm text-muted">
-		<p>This notice is provided in accordance with UK GDPR Articles 6(1)(c) and 9(2)(h).</p>
-	</footer>
 </div>
