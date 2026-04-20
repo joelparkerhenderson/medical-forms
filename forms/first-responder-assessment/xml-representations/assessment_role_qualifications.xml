@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_role_qualifications SYSTEM "assessment_role_qualifications.dtd">
+<assessment_role_qualifications>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<role_type>paramedic</role_type>
+<role_type_other>standard</role_type_other>
+<employer_organisation></employer_organisation>
+<station_base></station_base>
+<years_of_service>0.0</years_of_service>
+<registration_number></registration_number>
+<registration_body>hcpc</registration_body>
+<registration_expiry_date>2026-01-15</registration_expiry_date>
+<highest_qualification>certificate</highest_qualification>
+<qualification_details>Example text.</qualification_details>
+<driving_licence_category>c1</driving_licence_category>
+<blue_light_trained>yes</blue_light_trained>
+<role_notes>Example text.</role_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_role_qualifications>

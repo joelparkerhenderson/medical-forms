@@ -1,0 +1,212 @@
+{
+  "resourceType": "Observation",
+  "id": "110e8400-e29b-41d4-a716-44665544000b",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:first-responder-assessment",
+        "code": "assessment_fitness_decision",
+        "display": "Fitness Decision"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "overall_fitness",
+            "display": "Overall Fitness"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:overall_fitness",
+            "code": "fit-for-duty",
+            "display": "Fit-For-Duty"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "restrictions_details",
+            "display": "Restrictions Details"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "reassessment_required",
+            "display": "Reassessment Required"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:reassessment_required",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "reassessment_date",
+            "display": "Reassessment Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "remedial_actions",
+            "display": "Remedial Actions"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "referrals_required",
+            "display": "Referrals Required"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "assessor_name",
+            "display": "Assessor Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "assessor_role",
+            "display": "Assessor Role"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "assessor_registration",
+            "display": "Assessor Registration"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "assessment_date",
+            "display": "Assessment Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "countersignature_name",
+            "display": "Countersignature Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "countersignature_date",
+            "display": "Countersignature Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "fitness_decision_notes",
+            "display": "Fitness Decision Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

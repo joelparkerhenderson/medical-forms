@@ -1,0 +1,248 @@
+{
+  "resourceType": "Observation",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:first-responder-assessment",
+        "code": "assessment_physical_fitness",
+        "display": "Physical Fitness"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "cardiovascular_fitness",
+            "display": "Cardiovascular Fitness"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:cardiovascular_fitness",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "shuttle_run_level",
+            "display": "Shuttle Run Level"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "vo2_max",
+            "display": "Vo2 Max"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "muscular_strength",
+            "display": "Muscular Strength"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:muscular_strength",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "grip_strength_kg",
+            "display": "Grip Strength Kg"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "manual_handling_competency",
+            "display": "Manual Handling Competency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:manual_handling_competency",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "patient_carry_ability",
+            "display": "Patient Carry Ability"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:patient_carry_ability",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "flexibility_mobility",
+            "display": "Flexibility Mobility"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:flexibility_mobility",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "balance_coordination",
+            "display": "Balance Coordination"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:balance_coordination",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "resting_heart_rate_bpm",
+            "display": "Resting Heart Rate Bpm"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "blood_pressure_systolic",
+            "display": "Blood Pressure Systolic"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "blood_pressure_diastolic",
+            "display": "Blood Pressure Diastolic"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "physical_fitness_notes",
+            "display": "Physical Fitness Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_psychological_readiness SYSTEM "assessment_psychological_readiness.dtd">
+<assessment_psychological_readiness>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<stress_management>not-competent</stress_management>
+<resilience_level>low</resilience_level>
+<ptsd_screening>yes</ptsd_screening>
+<ptsd_screening_result>negative</ptsd_screening_result>
+<critical_incident_exposure>yes</critical_incident_exposure>
+<critical_incident_details>Example text.</critical_incident_details>
+<critical_incident_debriefed>yes</critical_incident_debriefed>
+<sleep_quality>good</sleep_quality>
+<burnout_risk>low</burnout_risk>
+<decision_making_under_pressure>not-competent</decision_making_under_pressure>
+<emotional_regulation>not-competent</emotional_regulation>
+<psychological_notes>Example text.</psychological_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_psychological_readiness>

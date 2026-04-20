@@ -1,0 +1,292 @@
+{
+  "resourceType": "Observation",
+  "id": "aa0e8400-e29b-41d4-a716-446655440005",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:first-responder-assessment",
+        "code": "assessment_clinical_skills",
+        "display": "Clinical Skills"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "basic_life_support",
+            "display": "Basic Life Support"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:basic_life_support",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "advanced_life_support",
+            "display": "Advanced Life Support"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:advanced_life_support",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "airway_management",
+            "display": "Airway Management"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:airway_management",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "iv_cannulation",
+            "display": "Iv Cannulation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:iv_cannulation",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "drug_administration",
+            "display": "Drug Administration"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:drug_administration",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "trauma_assessment",
+            "display": "Trauma Assessment"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:trauma_assessment",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "immobilisation_splinting",
+            "display": "Immobilisation Splinting"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:immobilisation_splinting",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "ecg_interpretation",
+            "display": "Ecg Interpretation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:ecg_interpretation",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "patient_assessment",
+            "display": "Patient Assessment"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:patient_assessment",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "triage_competency",
+            "display": "Triage Competency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:triage_competency",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "paediatric_competency",
+            "display": "Paediatric Competency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:paediatric_competency",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "obstetric_competency",
+            "display": "Obstetric Competency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:obstetric_competency",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "clinical_skills_notes",
+            "display": "Clinical Skills Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

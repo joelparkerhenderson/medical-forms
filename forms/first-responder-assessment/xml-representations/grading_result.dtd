@@ -1,0 +1,13 @@
+<!ELEMENT grading_result (id,assessment_id,physical_fitness_level,clinical_skills_level,equipment_vehicle_level,communication_level,psychological_level,overall_competency,overall_fitness,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT physical_fitness_level (#PCDATA)>
+<!ELEMENT clinical_skills_level (#PCDATA)>
+<!ELEMENT equipment_vehicle_level (#PCDATA)>
+<!ELEMENT communication_level (#PCDATA)>
+<!ELEMENT psychological_level (#PCDATA)>
+<!ELEMENT overall_competency (#PCDATA)>
+<!ELEMENT overall_fitness (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

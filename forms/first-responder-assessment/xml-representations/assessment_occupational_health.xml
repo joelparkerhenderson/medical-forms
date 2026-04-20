@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_occupational_health SYSTEM "assessment_occupational_health.dtd">
+<assessment_occupational_health>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<vision_test>pass</vision_test>
+<vision_corrected>yes</vision_corrected>
+<hearing_test>pass</hearing_test>
+<hearing_aid_required>yes</hearing_aid_required>
+<immunisation_status>up-to-date</immunisation_status>
+<hepatitis_b_immune>yes</hepatitis_b_immune>
+<current_medications>Paracetamol</current_medications>
+<substance_misuse_screen>negative</substance_misuse_screen>
+<musculoskeletal_issues>yes</musculoskeletal_issues>
+<musculoskeletal_details>Example text.</musculoskeletal_details>
+<respiratory_issues>yes</respiratory_issues>
+<respiratory_details>Example text.</respiratory_details>
+<skin_conditions>yes</skin_conditions>
+<skin_condition_details>Example text.</skin_condition_details>
+<sickness_absence_days>1</sickness_absence_days>
+<occupational_health_notes>Example text.</occupational_health_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_occupational_health>

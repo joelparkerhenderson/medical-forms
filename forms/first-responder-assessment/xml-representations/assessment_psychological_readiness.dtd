@@ -1,0 +1,17 @@
+<!ELEMENT assessment_psychological_readiness (id,assessment_id,stress_management,resilience_level,ptsd_screening,ptsd_screening_result,critical_incident_exposure,critical_incident_details,critical_incident_debriefed,sleep_quality,burnout_risk,decision_making_under_pressure,emotional_regulation,psychological_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT stress_management (#PCDATA)>
+<!ELEMENT resilience_level (#PCDATA)>
+<!ELEMENT ptsd_screening (#PCDATA)>
+<!ELEMENT ptsd_screening_result (#PCDATA)>
+<!ELEMENT critical_incident_exposure (#PCDATA)>
+<!ELEMENT critical_incident_details (#PCDATA)>
+<!ELEMENT critical_incident_debriefed (#PCDATA)>
+<!ELEMENT sleep_quality (#PCDATA)>
+<!ELEMENT burnout_risk (#PCDATA)>
+<!ELEMENT decision_making_under_pressure (#PCDATA)>
+<!ELEMENT emotional_regulation (#PCDATA)>
+<!ELEMENT psychological_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

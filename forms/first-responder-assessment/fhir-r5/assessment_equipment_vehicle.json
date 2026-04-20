@@ -1,0 +1,272 @@
+{
+  "resourceType": "Observation",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:first-responder-assessment",
+        "code": "assessment_equipment_vehicle",
+        "display": "Equipment Vehicle"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "defibrillator_competency",
+            "display": "Defibrillator Competency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:defibrillator_competency",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "monitor_competency",
+            "display": "Monitor Competency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:monitor_competency",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "ventilator_competency",
+            "display": "Ventilator Competency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:ventilator_competency",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "suction_competency",
+            "display": "Suction Competency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:suction_competency",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "stretcher_competency",
+            "display": "Stretcher Competency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:stretcher_competency",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "scoop_competency",
+            "display": "Scoop Competency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:scoop_competency",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "ambulance_driving",
+            "display": "Ambulance Driving"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:ambulance_driving",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "emergency_driving",
+            "display": "Emergency Driving"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:emergency_driving",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "vehicle_daily_inspection",
+            "display": "Vehicle Daily Inspection"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:vehicle_daily_inspection",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "equipment_check_competency",
+            "display": "Equipment Check Competency"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:equipment_check_competency",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "radio_communications",
+            "display": "Radio Communications"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment:radio_communications",
+            "code": "not-competent",
+            "display": "Not-Competent"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:first-responder-assessment",
+            "code": "equipment_vehicle_notes",
+            "display": "Equipment Vehicle Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

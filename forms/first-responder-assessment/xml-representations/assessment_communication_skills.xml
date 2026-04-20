@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_communication_skills SYSTEM "assessment_communication_skills.dtd">
+<assessment_communication_skills>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<patient_communication>not-competent</patient_communication>
+<relative_communication>not-competent</relative_communication>
+<handover_competency>not-competent</handover_competency>
+<documentation_competency>not-competent</documentation_competency>
+<multidisciplinary_teamwork>not-competent</multidisciplinary_teamwork>
+<conflict_resolution>not-competent</conflict_resolution>
+<safeguarding_awareness>not-competent</safeguarding_awareness>
+<breaking_bad_news>not-competent</breaking_bad_news>
+<communication_notes>Example text.</communication_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_communication_skills>
