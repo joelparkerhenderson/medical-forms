@@ -1,0 +1,228 @@
+{
+  "resourceType": "Observation",
+  "id": "ee0e8400-e29b-41d4-a716-446655440009",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:employee-onboarding-checklist",
+        "code": "assessment_induction_programme",
+        "display": "Induction Programme"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/551e8400-e29b-41d4-a716-44665544000f"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "corporate_induction_completed",
+            "display": "Corporate Induction Completed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:corporate_induction_completed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "corporate_induction_date",
+            "display": "Corporate Induction Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "local_induction_completed",
+            "display": "Local Induction Completed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:local_induction_completed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "local_induction_date",
+            "display": "Local Induction Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "department_tour_completed",
+            "display": "Department Tour Completed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:department_tour_completed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "introduced_to_team",
+            "display": "Introduced To Team"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:introduced_to_team",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "emergency_procedures_briefed",
+            "display": "Emergency Procedures Briefed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:emergency_procedures_briefed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "policies_handbook_received",
+            "display": "Policies Handbook Received"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:policies_handbook_received",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "buddy_assigned",
+            "display": "Buddy Assigned"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:buddy_assigned",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "buddy_name",
+            "display": "Buddy Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "induction_programme_notes",
+            "display": "Induction Programme Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

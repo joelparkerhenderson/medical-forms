@@ -1,0 +1,17 @@
+<!ELEMENT assessment_pre_employment_checks (id,assessment_id,dbs_check_status,dbs_certificate_number,dbs_check_date,dbs_update_service_registered,right_to_work_verified,right_to_work_document_type,right_to_work_expiry_date,references_received,references_required,references_satisfactory,identity_verified,pre_employment_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT dbs_check_status (#PCDATA)>
+<!ELEMENT dbs_certificate_number (#PCDATA)>
+<!ELEMENT dbs_check_date (#PCDATA)>
+<!ELEMENT dbs_update_service_registered (#PCDATA)>
+<!ELEMENT right_to_work_verified (#PCDATA)>
+<!ELEMENT right_to_work_document_type (#PCDATA)>
+<!ELEMENT right_to_work_expiry_date (#PCDATA)>
+<!ELEMENT references_received (#PCDATA)>
+<!ELEMENT references_required (#PCDATA)>
+<!ELEMENT references_satisfactory (#PCDATA)>
+<!ELEMENT identity_verified (#PCDATA)>
+<!ELEMENT pre_employment_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,268 @@
+{
+  "resourceType": "Observation",
+  "id": "110e8400-e29b-41d4-a716-44665544000b",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:employee-onboarding-checklist",
+        "code": "assessment_sign_off_compliance",
+        "display": "Sign Off Compliance"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/551e8400-e29b-41d4-a716-44665544000f"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "confidentiality_agreement_signed",
+            "display": "Confidentiality Agreement Signed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:confidentiality_agreement_signed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "code_of_conduct_signed",
+            "display": "Code Of Conduct Signed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:code_of_conduct_signed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "social_media_policy_acknowledged",
+            "display": "Social Media Policy Acknowledged"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:social_media_policy_acknowledged",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "it_acceptable_use_signed",
+            "display": "It Acceptable Use Signed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:it_acceptable_use_signed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "gdpr_training_completed",
+            "display": "Gdpr Training Completed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:gdpr_training_completed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "duty_of_candour_briefed",
+            "display": "Duty Of Candour Briefed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:duty_of_candour_briefed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "whistleblowing_policy_briefed",
+            "display": "Whistleblowing Policy Briefed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:whistleblowing_policy_briefed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "employee_signed_off",
+            "display": "Employee Signed Off"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:employee_signed_off",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "employee_sign_off_date",
+            "display": "Employee Sign Off Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "manager_signed_off",
+            "display": "Manager Signed Off"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:manager_signed_off",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "manager_sign_off_date",
+            "display": "Manager Sign Off Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "manager_sign_off_name",
+            "display": "Manager Sign Off Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "sign_off_compliance_notes",
+            "display": "Sign Off Compliance Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_mandatory_training SYSTEM "assessment_mandatory_training.dtd">
+<assessment_mandatory_training>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<fire_safety_completed>yes</fire_safety_completed>
+<fire_safety_date>2026-01-15</fire_safety_date>
+<manual_handling_completed>yes</manual_handling_completed>
+<manual_handling_date>2026-01-15</manual_handling_date>
+<infection_control_completed>yes</infection_control_completed>
+<infection_control_date>2026-01-15</infection_control_date>
+<safeguarding_adults_completed>yes</safeguarding_adults_completed>
+<safeguarding_adults_level>level-1</safeguarding_adults_level>
+<safeguarding_children_completed>yes</safeguarding_children_completed>
+<safeguarding_children_level>level-1</safeguarding_children_level>
+<information_governance_completed>yes</information_governance_completed>
+<information_governance_date>2026-01-15</information_governance_date>
+<basic_life_support_completed>yes</basic_life_support_completed>
+<basic_life_support_date>2026-01-15</basic_life_support_date>
+<equality_diversity_completed>yes</equality_diversity_completed>
+<health_safety_completed>yes</health_safety_completed>
+<conflict_resolution_completed>yes</conflict_resolution_completed>
+<mandatory_training_notes>Example text.</mandatory_training_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_mandatory_training>

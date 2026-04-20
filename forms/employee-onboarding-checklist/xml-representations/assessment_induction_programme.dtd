@@ -1,0 +1,16 @@
+<!ELEMENT assessment_induction_programme (id,assessment_id,corporate_induction_completed,corporate_induction_date,local_induction_completed,local_induction_date,department_tour_completed,introduced_to_team,emergency_procedures_briefed,policies_handbook_received,buddy_assigned,buddy_name,induction_programme_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT corporate_induction_completed (#PCDATA)>
+<!ELEMENT corporate_induction_date (#PCDATA)>
+<!ELEMENT local_induction_completed (#PCDATA)>
+<!ELEMENT local_induction_date (#PCDATA)>
+<!ELEMENT department_tour_completed (#PCDATA)>
+<!ELEMENT introduced_to_team (#PCDATA)>
+<!ELEMENT emergency_procedures_briefed (#PCDATA)>
+<!ELEMENT policies_handbook_received (#PCDATA)>
+<!ELEMENT buddy_assigned (#PCDATA)>
+<!ELEMENT buddy_name (#PCDATA)>
+<!ELEMENT induction_programme_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

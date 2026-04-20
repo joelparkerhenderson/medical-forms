@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_professional_registration SYSTEM "assessment_professional_registration.dtd">
+<assessment_professional_registration>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<registration_required>yes</registration_required>
+<regulatory_body>nmc</regulatory_body>
+<regulatory_body_other></regulatory_body_other>
+<registration_number></registration_number>
+<registration_verified>yes</registration_verified>
+<registration_expiry_date>2026-01-15</registration_expiry_date>
+<registration_conditions>yes</registration_conditions>
+<registration_condition_details>Example text.</registration_condition_details>
+<revalidation_date>2026-01-15</revalidation_date>
+<indemnity_insurance>yes</indemnity_insurance>
+<professional_registration_notes>Example text.</professional_registration_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_professional_registration>

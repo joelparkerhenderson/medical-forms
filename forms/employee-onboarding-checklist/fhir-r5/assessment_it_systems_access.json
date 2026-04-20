@@ -1,0 +1,220 @@
+{
+  "resourceType": "Observation",
+  "id": "cc0e8400-e29b-41d4-a716-446655440007",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:employee-onboarding-checklist",
+        "code": "assessment_it_systems_access",
+        "display": "It Systems Access"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/551e8400-e29b-41d4-a716-44665544000f"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "nhs_smartcard_issued",
+            "display": "Nhs Smartcard Issued"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:nhs_smartcard_issued",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "nhs_smartcard_number",
+            "display": "Nhs Smartcard Number"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "email_account_created",
+            "display": "Email Account Created"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:email_account_created",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "network_login_created",
+            "display": "Network Login Created"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:network_login_created",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "clinical_system_access",
+            "display": "Clinical System Access"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:clinical_system_access",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "clinical_system_name",
+            "display": "Clinical System Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "clinical_system_training_completed",
+            "display": "Clinical System Training Completed"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:clinical_system_training_completed",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "rostering_system_access",
+            "display": "Rostering System Access"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:rostering_system_access",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "phone_extension",
+            "display": "Phone Extension"
+          }
+        ]
+      },
+      "valueString": "07700900000"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "bleep_number",
+            "display": "Bleep Number"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "it_access_notes",
+            "display": "It Access Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+<!ELEMENT assessment_occupational_health (id,assessment_id,oh_questionnaire_submitted,oh_clearance_received,oh_clearance_date,oh_restrictions,oh_restriction_details,hepatitis_b_status,tb_screening_status,immunisation_status,fit_to_work,occupational_health_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT oh_questionnaire_submitted (#PCDATA)>
+<!ELEMENT oh_clearance_received (#PCDATA)>
+<!ELEMENT oh_clearance_date (#PCDATA)>
+<!ELEMENT oh_restrictions (#PCDATA)>
+<!ELEMENT oh_restriction_details (#PCDATA)>
+<!ELEMENT hepatitis_b_status (#PCDATA)>
+<!ELEMENT tb_screening_status (#PCDATA)>
+<!ELEMENT immunisation_status (#PCDATA)>
+<!ELEMENT fit_to_work (#PCDATA)>
+<!ELEMENT occupational_health_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

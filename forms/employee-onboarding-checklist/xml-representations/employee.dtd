@@ -1,0 +1,13 @@
+<!ELEMENT employee (id,first_name,last_name,date_of_birth,nhs_number,email,phone,job_title,department,start_date,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT first_name (#PCDATA)>
+<!ELEMENT last_name (#PCDATA)>
+<!ELEMENT date_of_birth (#PCDATA)>
+<!ELEMENT nhs_number (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT job_title (#PCDATA)>
+<!ELEMENT department (#PCDATA)>
+<!ELEMENT start_date (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

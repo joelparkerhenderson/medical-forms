@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_sign_off_compliance SYSTEM "assessment_sign_off_compliance.dtd">
+<assessment_sign_off_compliance>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<confidentiality_agreement_signed>yes</confidentiality_agreement_signed>
+<code_of_conduct_signed>yes</code_of_conduct_signed>
+<social_media_policy_acknowledged>yes</social_media_policy_acknowledged>
+<it_acceptable_use_signed>yes</it_acceptable_use_signed>
+<gdpr_training_completed>yes</gdpr_training_completed>
+<duty_of_candour_briefed>yes</duty_of_candour_briefed>
+<whistleblowing_policy_briefed>yes</whistleblowing_policy_briefed>
+<employee_signed_off>yes</employee_signed_off>
+<employee_sign_off_date>2026-01-15</employee_sign_off_date>
+<manager_signed_off>yes</manager_signed_off>
+<manager_sign_off_date>2026-01-15</manager_sign_off_date>
+<manager_sign_off_name>Example</manager_sign_off_name>
+<sign_off_compliance_notes>Example text.</sign_off_compliance_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_sign_off_compliance>

@@ -1,0 +1,37 @@
+{
+  "resourceType": "DetectedIssue",
+  "id": "330e8400-e29b-41d4-a716-44665544000d",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/DetectedIssue"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "urn:medical-forms:employee-onboarding-checklist",
+          "code": "grading-fired-rule",
+          "display": "General"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:employee-onboarding-checklist:rules",
+        "code": "RULE-001",
+        "display": "Example grading rule"
+      }
+    ]
+  },
+  "severity": "low",
+  "subject": {
+    "reference": "Patient/551e8400-e29b-41d4-a716-44665544000f"
+  },
+  "identifiedDateTime": "2026-04-09T10:00:00+00:00",
+  "detail": "Example text."
+}

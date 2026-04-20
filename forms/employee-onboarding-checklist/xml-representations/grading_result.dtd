@@ -1,0 +1,11 @@
+<!ELEMENT grading_result (id,assessment_id,completion_percentage,completion_status,overall_risk_level,items_completed,items_total,graded_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT completion_percentage (#PCDATA)>
+<!ELEMENT completion_status (#PCDATA)>
+<!ELEMENT overall_risk_level (#PCDATA)>
+<!ELEMENT items_completed (#PCDATA)>
+<!ELEMENT items_total (#PCDATA)>
+<!ELEMENT graded_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

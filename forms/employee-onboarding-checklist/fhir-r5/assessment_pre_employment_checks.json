@@ -1,0 +1,216 @@
+{
+  "resourceType": "Observation",
+  "id": "880e8400-e29b-41d4-a716-446655440003",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:employee-onboarding-checklist",
+        "code": "assessment_pre_employment_checks",
+        "display": "Pre Employment Checks"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/551e8400-e29b-41d4-a716-44665544000f"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "dbs_check_status",
+            "display": "Dbs Check Status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:dbs_check_status",
+            "code": "not-started",
+            "display": "Not-Started"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "dbs_certificate_number",
+            "display": "Dbs Certificate Number"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "dbs_check_date",
+            "display": "Dbs Check Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "dbs_update_service_registered",
+            "display": "Dbs Update Service Registered"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "right_to_work_verified",
+            "display": "Right To Work Verified"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:right_to_work_verified",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "right_to_work_document_type",
+            "display": "Right To Work Document Type"
+          }
+        ]
+      },
+      "valueString": "standard"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "right_to_work_expiry_date",
+            "display": "Right To Work Expiry Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "references_received",
+            "display": "References Received"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "references_required",
+            "display": "References Required"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "references_satisfactory",
+            "display": "References Satisfactory"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:references_satisfactory",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "identity_verified",
+            "display": "Identity Verified"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist:identity_verified",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-onboarding-checklist",
+            "code": "pre_employment_notes",
+            "display": "Pre Employment Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

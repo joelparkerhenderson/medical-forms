@@ -1,0 +1,17 @@
+<!ELEMENT assessment_uniform_id_badge (id,assessment_id,uniform_required,uniform_ordered,uniform_received,uniform_size,id_badge_photo_taken,id_badge_issued,id_badge_number,access_card_issued,access_card_areas,locker_allocated,locker_number,uniform_id_notes,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT uniform_required (#PCDATA)>
+<!ELEMENT uniform_ordered (#PCDATA)>
+<!ELEMENT uniform_received (#PCDATA)>
+<!ELEMENT uniform_size (#PCDATA)>
+<!ELEMENT id_badge_photo_taken (#PCDATA)>
+<!ELEMENT id_badge_issued (#PCDATA)>
+<!ELEMENT id_badge_number (#PCDATA)>
+<!ELEMENT access_card_issued (#PCDATA)>
+<!ELEMENT access_card_areas (#PCDATA)>
+<!ELEMENT locker_allocated (#PCDATA)>
+<!ELEMENT locker_number (#PCDATA)>
+<!ELEMENT uniform_id_notes (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>
