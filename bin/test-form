@@ -9,7 +9,7 @@ set -euf
 # 
 # Example:
 # 
-#     test-form pre-operative-assessment
+#     test-form pre-operative-assessment-by-patient
 # 
 
 ## https://github.com/sixarm/unix-shell-script-kit
@@ -18,7 +18,7 @@ err() { >&2 printf %s\\n "Error: ${*}"; }
 
 directory_exists_or_err() { test -d "$1" || err "Directory should exist: $1"; }
 file_exists_or_err() { test -f "$1" || err "File should exist: $1"; }
-file_not_empty_or_err() { file_exists_or_err "$1" && test -f "$1" || err "File should be not empty: $1"; }
+file_size_or_err() { test -s "$1" || err "File should have size: $1"; }
 symlink_exists_or_err() { test -h "$1" || err "Symlink should exist: $1"; }
 
 ## Utilities
@@ -26,20 +26,20 @@ symlink_exists_or_err() { test -h "$1" || err "Symlink should exist: $1"; }
 ai_exists_or_err() (
     # dir="$1"
     directory_exists_or_err "$1"
-    file_not_empty_or_err "$1/index.md"
+    file_size_or_err "$1/index.md"
     symlink_exists_or_err "$1/README.md"
-    file_not_empty_or_err "$1/AGENTS.md"
-    file_not_empty_or_err "$1/CLAUDE.md"
-    file_not_empty_or_err "$1/plan.md"
-    file_not_empty_or_err "$1/tasks.md"
+    file_size_or_err "$1/AGENTS.md"
+    file_size_or_err "$1/CLAUDE.md"
+    file_size_or_err "$1/plan.md"
+    file_size_or_err "$1/tasks.md"
 )
 
 rust_crate_exists_or_err() (
     # dir="$1"
     ai_exists_or_err "$1"
     directory_exists_or_err "$1"
-    file_not_empty_or_err "$1/Cargo.toml"
-    file_not_empty_or_err "$1/.gitignore"
+    file_size_or_err "$1/Cargo.toml"
+    file_size_or_err "$1/.gitignore"
     directory_exists_or_err "$1/src"
     directory_exists_or_err "$1/target"
     ## Tera HTMX Alpine
@@ -60,9 +60,9 @@ directory_exists_or_err "$dir/doc"
 directory_exists_or_err "$dir/fhir-r5"
 directory_exists_or_err "$dir/sql-migrations"
 directory_exists_or_err "$dir/xml-representations"
-file_exists_or_err "$dir/sql-migrations/00-extensions.sql"
-ai_exists_or_err "$dir/front-end-patient-form-with-html"
-ai_exists_or_err "$dir/front-end-patient-form-with-svelte"
-ai_exists_or_err "$dir/front-end-clinician-dashboard-with-html"
-ai_exists_or_err "$dir/front-end-clinician-dashboard-with-svelte"
+file_size_or_err "$dir/sql-migrations/00-extensions.sql"
+ai_exists_or_err "$dir/front-end-form-with-html"
+ai_exists_or_err "$dir/front-end-form-with-svelte"
+ai_exists_or_err "$dir/front-end-dashboard-with-html"
+ai_exists_or_err "$dir/front-end-dashboard-with-svelte"
 rust_crate_exists_or_err "$dir/full-stack-with-rust-axum-loco-tera-htmx-alpine"
