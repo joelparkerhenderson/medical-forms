@@ -27,8 +27,8 @@ Balance and gait evaluation using the Tinetti Assessment Tool (Performance-Orien
 
 ```
 mobility-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera/
 ```
 

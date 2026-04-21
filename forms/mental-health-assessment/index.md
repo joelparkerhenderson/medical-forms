@@ -26,8 +26,8 @@ Combined depression and anxiety screening using PHQ-9 (Patient Health Questionna
 
 ```
 mental-health-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera/
 ```
 

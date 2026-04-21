@@ -25,8 +25,8 @@ Authorisation form for releasing medical records, validated for completeness of 
 
 ```
 medical-records-release-permission/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera/
 ```
 

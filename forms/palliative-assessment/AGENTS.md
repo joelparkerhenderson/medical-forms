@@ -8,8 +8,8 @@ Symptom-focused palliative care assessment using the Edmonton Symptom Assessment
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
-- ./front-end-patient-form-with-svelte/ - Patient / carer questionnaire; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Palliative MDT dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-svelte/ - Patient / carer questionnaire; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Palliative MDT dashboard; SvelteKit + SVAR DataGrid
 
 ## Scoring system
 
@@ -46,7 +46,7 @@ Symptom-focused palliative care assessment using the Edmonton Symptom Assessment
 - PDF report generation via /report/pdf server endpoint
 - Vitest unit tests for grading logic
 
-## Clinician dashboard
+## Dashboard
 
 - SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
 - Sortable columns and dropdown filters

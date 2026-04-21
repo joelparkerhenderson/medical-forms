@@ -8,8 +8,8 @@ Haematopoietic stem cell donor evaluation assessing HLA typing, health screening
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
-- ./front-end-patient-form-with-svelte/ - Patient questionnaire; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Clinician dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-svelte/ - Patient questionnaire; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Dashboard; SvelteKit + SVAR DataGrid
 
 ## Scoring system
 
@@ -45,7 +45,7 @@ Haematopoietic stem cell donor evaluation assessing HLA typing, health screening
 - PDF report generation via /report/pdf server endpoint
 - Vitest unit tests for grading logic
 
-## Clinician dashboard
+## Dashboard
 
 - SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
 - Sortable columns and dropdown filters

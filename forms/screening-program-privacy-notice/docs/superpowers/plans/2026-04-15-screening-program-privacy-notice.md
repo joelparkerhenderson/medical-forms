@@ -4,7 +4,7 @@
 
 **Goal:** Create a screening program privacy notice form where patients read an NHS privacy notice about medical research / service planning / clinical audits, then acknowledge by checking a box, entering their full name and date. A clinician dashboard lists all completed acknowledgments.
 
-**Architecture:** Single-page HTML patient form with a `practiceConfig` JS object for practice-specific customization (practice name, DPO, research orgs, GDPR basis). Clinician dashboard reads submissions from localStorage with sample data fallback. SQL migrations, XML, and FHIR R5 follow the established sibling pattern from `legal-requirements-privacy-notice`.
+**Architecture:** Single-page HTML patient form with a `practiceConfig` JS object for practice-specific customization (practice name, DPO, research orgs, GDPR basis). Dashboard reads submissions from localStorage with sample data fallback. SQL migrations, XML, and FHIR R5 follow the established sibling pattern from `legal-requirements-privacy-notice`.
 
 **Tech Stack:** Vanilla HTML/CSS/JS, PostgreSQL 18, XML/DTD, FHIR HL7 R5 JSON
 
@@ -87,8 +87,8 @@ screening-program-privacy-notice/
   sql-migrations/
   xml-representations/
   fhir-r5/
-  front-end-patient-form-with-html/
-  front-end-clinician-dashboard-with-html/
+  front-end-form-with-html/
+  front-end-dashboard-with-html/
 
 ## Form data model
 
@@ -105,7 +105,7 @@ The patient form has two sections:
 
 The patient form includes a `practiceConfig` JavaScript object at the top of the script section. Practices edit this object to fill in their specific details (practice name, DPO, research organisations, GDPR basis).
 
-## Clinician dashboard
+## Dashboard
 
 The clinician dashboard displays a table of completed acknowledgments with columns:
 - Patient Name
@@ -446,7 +446,7 @@ git commit -m "feat(screening-program-privacy-notice): add FHIR R5 representatio
 ### Task 5: HTML patient form
 
 **Files:**
-- Create: `front-end-patient-form-with-html/index.html`
+- Create: `front-end-form-with-html/index.html`
 
 - [ ] **Step 1: Create index.html**
 
@@ -471,12 +471,12 @@ Single-page HTML file with:
 - Inline CSS following NHS design system colors
 - XSS protection via textContent assignment
 
-See full HTML implementation in the task execution — follows the exact pattern from `legal-requirements-privacy-notice/front-end-patient-form-with-html/index.html` with the addition of `practiceConfig` and config-value span population.
+See full HTML implementation in the task execution — follows the exact pattern from `legal-requirements-privacy-notice/front-end-form-with-html/index.html` with the addition of `practiceConfig` and config-value span population.
 
 - [ ] **Step 2: Commit**
 
 ```bash
-git add front-end-patient-form-with-html/
+git add front-end-form-with-html/
 git commit -m "feat(screening-program-privacy-notice): add HTML patient form with practice config"
 ```
 
@@ -485,7 +485,7 @@ git commit -m "feat(screening-program-privacy-notice): add HTML patient form wit
 ### Task 6: HTML clinician dashboard
 
 **Files:**
-- Create: `front-end-clinician-dashboard-with-html/index.html`
+- Create: `front-end-dashboard-with-html/index.html`
 
 - [ ] **Step 1: Create index.html**
 
@@ -501,12 +501,12 @@ Single-page HTML file with:
 - On page load: reads localStorage `screeningProgramAcknowledgments`, merges with sample data
 - `escapeHtml()` function for XSS protection
 - Footer with GDPR article references
-- Follows exact pattern from `legal-requirements-privacy-notice/front-end-clinician-dashboard-with-html/index.html`
+- Follows exact pattern from `legal-requirements-privacy-notice/front-end-dashboard-with-html/index.html`
 
 - [ ] **Step 2: Commit**
 
 ```bash
-git add front-end-clinician-dashboard-with-html/
+git add front-end-dashboard-with-html/
 git commit -m "feat(screening-program-privacy-notice): add HTML clinician dashboard"
 ```
 

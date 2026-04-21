@@ -8,8 +8,8 @@ Patient encounter satisfaction survey for collecting feedback on healthcare expe
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
-- ./front-end-patient-form-with-svelte/ - Patient questionnaire; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Clinician dashboard (to be built)
+- ./front-end-form-with-svelte/ - Patient questionnaire; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Dashboard (to be built)
 - ./full-stack-with-rust-axum-loco-tera/ - Full-stack option (to be built)
 
 ## Scoring system

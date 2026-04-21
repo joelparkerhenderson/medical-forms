@@ -26,8 +26,8 @@ Document for recording a patient's wishes and preferences about future care, inc
 
 ```
 advance-statement-about-care/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera-htmx-alpine/
 ```
 

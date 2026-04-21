@@ -125,8 +125,8 @@ Each CABCDE category has an Assessment column (Normal checkbox or findings) and 
 
 ```
 who-emergency-first-aid-form/
-  front-end-patient-form-with-svelte/     # Patient questionnaire
-  front-end-clinician-dashboard-with-svelte/  # Clinician dashboard
+  front-end-form-with-svelte/                         # Patient questionnaire
+  front-end-dashboard-with-svelte/                    # Dashboard
   full-stack-with-rust-axum-loco-tera-htmx-alpine/    # Full-stack option
 ```
 

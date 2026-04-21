@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(npm install 2>&1 | tail -5)",
-      "Bash(npm run dev 2>&1)"
-    ]
-  }
-}

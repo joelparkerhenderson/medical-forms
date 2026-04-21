@@ -8,8 +8,8 @@ International Patient Summary (IPS) — a standardised, minimal, specialty-agnos
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
-- ./front-end-patient-form-with-svelte/ - Clinician form; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Cross-border care dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-svelte/ - Clinician form; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Cross-border care dashboard; SvelteKit + SVAR DataGrid
 - ./full-stack-with-rust-axum-loco-tera-htmx-alpine/ - Full-stack Rust backend
 
 ## Scoring system
@@ -44,7 +44,7 @@ International Patient Summary (IPS) — a standardised, minimal, specialty-agnos
 - PDF report generation via /report/pdf server endpoint
 - Vitest unit tests for validation logic
 
-## Clinician dashboard
+## Dashboard
 
 - SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
 - Sortable columns and dropdown filters

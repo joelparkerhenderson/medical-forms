@@ -31,8 +31,8 @@ Contraceptive method eligibility screening using UKMEC (UK Medical Eligibility C
 
 ```
 contraception-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera/
 ```
 

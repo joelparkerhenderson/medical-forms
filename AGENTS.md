@@ -38,15 +38,14 @@ forms/<slug>/
   sql-migrations/                                  # PostgreSQL Liquibase migrations
   xml-representations/                             # XML + DTD per SQL table entity
   fhir-r5/                                         # FHIR HL7 R5 JSON per SQL entity
-  front-end-patient-form-with-html/                # Patient questionnaire (HTML)
-  front-end-patient-form-with-svelte/              # Patient questionnaire (SvelteKit)
-  front-end-clinician-dashboard-with-html/         # Clinician dashboard (HTML + table)
-  front-end-clinician-dashboard-with-svelte/       # Clinician dashboard (SvelteKit + SVAR Grid)
+  front-end-form-with-html/                        # Questionnaire (HTML)
+  front-end-form-with-svelte/                      # Questionnaire (SvelteKit)
+  front-end-dashboard-with-html/                   # Dashboard (HTML + table)
+  front-end-dashboard-with-svelte/                 # Dashboard (SvelteKit + SVAR Grid)
   full-stack-with-rust-axum-loco-tera-htmx-alpine/ # Full-stack Rust backend
 ```
 
-Generated FHIR HL7 R5 JSON resources live in `fhir-r5/`. (Older scaffolds used
-a sibling `fhir-api/` directory; these have been consolidated into `fhir-r5/`.)
+Generated FHIR HL7 R5 JSON resources live in `fhir-r5/`.
 
 ## Standard workflow for a new form
 
@@ -55,13 +54,13 @@ a sibling `fhir-api/` directory; these have been consolidated into `fhir-r5/`.)
 3. Author SQL migrations in `forms/<slug>/sql-migrations/`
 4. Generate XML + DTD representations (`bin/generate-xml-representations.py`)
 5. Generate FHIR R5 JSON (`bin/generate-fhir-r5-representations.py`)
-6. Build the front-ends (HTML and SvelteKit, patient and clinician)
+6. Build the front-ends (form and dashboard, each in HTML and SvelteKit)
 7. Build the full-stack Rust implementation
 8. `bin/test-form <slug>` — validate structure
 
 ## User interface
 
-IMPORTANT: the patient form must be one continuous single-page wizard. No
+IMPORTANT: the form must be one continuous single-page wizard. No
 multi-page forms.
 
 ## Technology stacks
@@ -72,7 +71,7 @@ See the per-stack agent docs:
 - [Full-stack with Rust / axum / Loco / HTMX / Alpine.js](AGENTS/full-stack-with-rust-axum-loco-htmx-alpine.md)
 - [SQL migrations](AGENTS/sql-migrations.md)
 - [XML representations](AGENTS/xml-representations.md)
-- [FHIR HL7 R5 representations](AGENTS/fhir-api.md)
+- [FHIR HL7 R5 representations](AGENTS/fhir-r5.md)
 
 ## Conventions
 

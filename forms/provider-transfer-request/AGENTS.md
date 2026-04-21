@@ -8,8 +8,8 @@ Inter-provider handover form for transferring a patient's care between clinician
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
-- ./front-end-patient-form-with-svelte/ - Requesting clinician form; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Receiving clinician dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-svelte/ - Requesting clinician form; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Receiving clinician dashboard; SvelteKit + SVAR DataGrid
 
 ## Scoring system
 
@@ -44,7 +44,7 @@ Inter-provider handover form for transferring a patient's care between clinician
 - PDF handover generation via /report/pdf server endpoint
 - Vitest unit tests for validation logic
 
-## Clinician dashboard
+## Dashboard
 
 - SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
 - Sortable columns and dropdown filters

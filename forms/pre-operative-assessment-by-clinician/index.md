@@ -98,10 +98,10 @@ pre-operative-assessment-by-clinician/
   sql-migrations/                                   # Liquibase Postgres migrations
   xml-representations/                              # XML + DTD per SQL table
   fhir-r5/                                          # FHIR HL7 R5 JSON resources
-  front-end-patient-form-with-html/                 # static single-page HTML wizard
-  front-end-patient-form-with-svelte/               # SvelteKit single-page wizard
-  front-end-clinician-dashboard-with-html/          # review dashboard (HTML table)
-  front-end-clinician-dashboard-with-svelte/        # review dashboard (SVAR Grid)
+  front-end-form-with-html/                         # static single-page HTML wizard
+  front-end-form-with-svelte/                       # SvelteKit single-page wizard
+  front-end-dashboard-with-html/                    # review dashboard (HTML table)
+  front-end-dashboard-with-svelte/                  # review dashboard (SVAR Grid)
   full-stack-with-rust-axum-loco-tera-htmx-alpine/  # Rust backend + server-rendered UI
 ```
 

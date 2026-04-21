@@ -16,7 +16,7 @@ src/
 ├── controllers/
 │   ├── mod.rs                # Controller modules
 │   ├── assessment.rs         # Landing, step forms, report (POST/redirect/GET)
-│   └── dashboard.rs          # Clinician dashboard with server-side filters
+│   └── dashboard.rs          # Dashboard with server-side filters
 ├── engine/                   # Copied verbatim from back-end-with-rust-axum-loco-json
 │   ├── mod.rs
 │   ├── types.rs              # AssessmentData, GradingResult, etc.

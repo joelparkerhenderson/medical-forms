@@ -31,8 +31,8 @@ Contraceptive suitability evaluation using UK Medical Eligibility Criteria (UK M
 
 ```
 birth-control-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
 ```
 
 ## Technology

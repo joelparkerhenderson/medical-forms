@@ -37,8 +37,8 @@ Plastic surgery assessment evaluating reconstructive and aesthetic surgery candi
 
 ```
 plastic-surgery-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
 ```
 
 ## Technology

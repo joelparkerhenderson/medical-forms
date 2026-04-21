@@ -41,8 +41,8 @@ Classification grade, and identifies safety-critical issues for anaesthetic plan
 
 ```
 pre-operative-assessment-by-patient/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera/
   doc/
   db/

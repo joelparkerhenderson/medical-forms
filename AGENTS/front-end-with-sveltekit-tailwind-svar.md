@@ -2,9 +2,8 @@
 
 Ultrathink.
 
-SvelteKit single-page patient questionnaire and SVAR-based clinician dashboard,
-styled with Tailwind CSS 4 and powered by a pure Svelte 5 reactive scoring
-engine.
+SvelteKit single-page form and SVAR-based dashboard, styled with Tailwind
+CSS 4 and powered by a pure Svelte 5 reactive scoring engine.
 
 Slug: front-end-with-sveltekit-tailwind-svar
 
@@ -44,7 +43,7 @@ Svelte 5 class-based reactive state in `src/lib/stores/assessment.svelte.ts`:
 Do not use Svelte 3/4 `writable` stores. Class-based runes stores are the
 convention across this monorepo.
 
-## Patient form pattern
+## Form pattern
 
 1. Single-page, step-by-step wizard using `StepNavigation` and `ProgressBar` components
 2. Pure scoring engine split into small files: `types.ts` → `*-rules.ts` → `*-grader.ts` → `flagged-issues.ts`
@@ -52,7 +51,7 @@ convention across this monorepo.
 4. PDF report generation via SvelteKit server endpoint (`/report/pdf`) using `pdfmake`
 5. Vitest unit tests cover the grading engine end-to-end
 
-## Clinician dashboard pattern
+## Dashboard pattern
 
 - `Willow` theme wrapper for consistent styling
 - `Grid` component with columns, sorting, and filtering
@@ -60,7 +59,7 @@ convention across this monorepo.
   - `api.exec('sort-rows', ...)` — sort rows programmatically
   - `api.exec('filter-rows', ...)` — filter rows programmatically
 - Backend API client with in-memory sample data fallback when offline
-- Patient list shows assessment scores and status indicators
+- Row list shows computed scores, severities, and safety flags
 
 ## UI components
 

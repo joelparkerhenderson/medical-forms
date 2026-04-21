@@ -13,10 +13,10 @@ A clinical document used in Emergency Departments (ED) and Minor Injury Units (M
 
 ```
 casualty-card-form/
-├── front-end-patient-form-with-svelte/   # SvelteKit patient form
-├── front-end-clinician-dashboard-with-svelte/  # Clinician dashboard
-├── front-end-patient-form-with-html/     # HTML form (scaffold)
-├── full-stack-with-rust-axum-loco-tera/  # Rust backend
+├── front-end-form-with-svelte/            # SvelteKit form
+├── front-end-dashboard-with-svelte/       # Dashboard
+├── front-end-form-with-html/              # HTML form (scaffold)
+├── full-stack-with-rust-axum-loco-tera/   # Rust backend
 ├── db/                                    # SQL migrations
 └── doc/                                   # Documentation
 ```

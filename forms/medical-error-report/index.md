@@ -41,8 +41,8 @@ Medical error reporting form for incident documentation, root cause analysis, an
 
 ```
 medical-error-report/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera/
 ```
 

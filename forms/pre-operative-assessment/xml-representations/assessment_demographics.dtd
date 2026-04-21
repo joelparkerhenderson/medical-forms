@@ -1,5 +1,0 @@
-<!ELEMENT assessment_demographics (id,assessment_id,created_at,updated_at)>
-<!ELEMENT id (#PCDATA)>
-<!ELEMENT assessment_id (#PCDATA)>
-<!ELEMENT created_at (#PCDATA)>
-<!ELEMENT updated_at (#PCDATA)>

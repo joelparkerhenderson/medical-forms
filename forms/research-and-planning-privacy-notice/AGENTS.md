@@ -8,8 +8,8 @@ Read-and-acknowledge privacy notice covering the use of patient data for researc
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
-- ./front-end-patient-form-with-svelte/ - Recipient form; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Information governance dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-svelte/ - Recipient form; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Information governance dashboard; SvelteKit + SVAR DataGrid
 - ./full-stack-with-rust-axum-loco-tera-htmx-alpine/ - Full-stack Rust backend
 
 ## Scoring system
@@ -38,7 +38,7 @@ Read-and-acknowledge privacy notice covering the use of patient data for researc
 - PDF acknowledgement generation via /report/pdf server endpoint
 - Vitest unit tests for validation logic
 
-## Clinician dashboard
+## Dashboard
 
 - SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
 - Sortable columns and dropdown filters

@@ -41,8 +41,8 @@ Seasonal mood disorder evaluation using SPAQ Global Seasonality Score (GSS) and 
 
 ```
 seasonal-affective-disorder-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
 ```
 
 ## Technology

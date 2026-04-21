@@ -85,7 +85,7 @@ Patient intake questionnaire application:
 
 ## Front-end for clinician using SvelteKit in ./front-end-for-clinician
 
-Clinician dashboard application:
+Dashboard application:
 
 - SvelteKit with TypeScript
 - Svelte 5 runes ($state, $derived, $props)

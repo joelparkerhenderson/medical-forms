@@ -7,7 +7,7 @@ improve every file:
 - AGENTS/full-stack-with-rust-axum-loco-htmx-alpine.md
 - AGENTS/sql-migrations.md
 - AGENTS/xml-representations.md
-- AGENTS/fhir-api.md
+- AGENTS/fhir-r5.md
 - plan.md
 - tasks.md
 "

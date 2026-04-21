@@ -27,10 +27,10 @@ Estimates 10-year risk of heart attack (myocardial infarction or coronary death)
 
 ```
 framingham-risk-score-for-hard-coronary-heart-disease/
-  front-end-patient-form-with-html/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-html/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-html/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-html/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera-htmx-alpine/
 ```
 

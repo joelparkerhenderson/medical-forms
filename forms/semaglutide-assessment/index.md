@@ -27,8 +27,8 @@ GLP-1 receptor agonist eligibility screening for semaglutide therapy, evaluating
 
 ```
 semaglutide-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera/
 ```
 

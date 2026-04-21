@@ -30,8 +30,8 @@ SCORE2-Diabetes predicts 10-year risk of fatal and non-fatal cardiovascular dise
 
 ```
 systematic-coronary-risk-evaluation-2-diabetes/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera-htmx-alpine/
 ```
 

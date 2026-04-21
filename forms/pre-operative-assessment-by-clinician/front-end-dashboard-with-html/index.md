@@ -1,4 +1,4 @@
-# Clinician dashboard — static HTML
+# Dashboard — static HTML
 
 Static HTML + Alpine.js dashboard listing recent pre-operative assessments
 with the computed ASA grade, composite risk, and key flags. Read-only

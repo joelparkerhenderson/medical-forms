@@ -8,11 +8,11 @@ engine, and generates a clinical report with flagged issues.
 
 ## Contents
 
-- 110+ form projects, each in `forms/<slug>/`
+- 116 form projects, each in `forms/<slug>/`
 - PostgreSQL SQL migrations (Liquibase SQL format)
 - XML + DTD representations per SQL entity
 - FHIR HL7 R5 JSON resources per SQL entity
-- Four front-end implementations per form (HTML and SvelteKit; patient and clinician dashboard)
+- Four front-end implementations per form (form and dashboard, each in HTML and SvelteKit)
 - Full-stack Rust implementation (axum + Loco + Tera + HTMX + Alpine.js)
 
 For the full list of form projects, see [`forms/AGENTS.md`](forms/AGENTS.md)
@@ -45,7 +45,7 @@ or run `bin/list-forms`.
 │   ├── full-stack-with-rust-axum-loco-htmx-alpine.md
 │   ├── sql-migrations.md
 │   ├── xml-representations.md
-│   └── fhir-api.md
+│   └── fhir-r5.md
 ├── bin/                            # Tools (list-forms, create-form, test, etc.)
 ├── docs/                           # Repo-wide docs (specs, plans)
 ├── forms/                          # All form projects
@@ -72,16 +72,16 @@ forms/<slug>/
   sql-migrations/                                  # PostgreSQL Liquibase migrations
   xml-representations/                             # XML + DTD per SQL table entity
   fhir-r5/                                         # FHIR HL7 R5 JSON per SQL entity
-  front-end-patient-form-with-html/                # Patient questionnaire (HTML)
-  front-end-patient-form-with-svelte/              # Patient questionnaire (SvelteKit)
-  front-end-clinician-dashboard-with-html/         # Clinician dashboard (HTML)
-  front-end-clinician-dashboard-with-svelte/       # Clinician dashboard (SvelteKit)
+  front-end-form-with-html/                        # Patient questionnaire (HTML)
+  front-end-form-with-svelte/                      # Patient questionnaire (SvelteKit)
+  front-end-dashboard-with-html/                   # Dashboard (HTML)
+  front-end-dashboard-with-svelte/                 # Dashboard (SvelteKit)
   full-stack-with-rust-axum-loco-tera-htmx-alpine/ # Full-stack Rust backend
 ```
 
 ## Design patterns
 
-### Patient form
+### Form
 
 1. Single-page, step-by-step wizard with `StepNavigation` and `ProgressBar`
 2. Pure scoring engine: `types.ts` → `*-rules.ts` → `*-grader.ts` → `flagged-issues.ts`
@@ -89,12 +89,12 @@ forms/<slug>/
 4. PDF report generation via SvelteKit server endpoint (`/report/pdf`)
 5. Vitest unit tests for grading logic
 
-### Clinician dashboard
+### Dashboard
 
 - SVAR DataGrid with sortable columns and dropdown filters
 - Willow theme wrapper for consistent styling
 - Backend API client with sample data fallback
-- Patient list with assessment scores and status indicators
+- Row list with computed scores, severities, and safety flags
 
 ### Backend
 
@@ -111,7 +111,7 @@ See the per-stack agent docs:
 - [Full-stack with Rust / axum / Loco / HTMX / Alpine.js](AGENTS/full-stack-with-rust-axum-loco-htmx-alpine.md)
 - [SQL migrations](AGENTS/sql-migrations.md)
 - [XML representations](AGENTS/xml-representations.md)
-- [FHIR HL7 R5 representations](AGENTS/fhir-api.md)
+- [FHIR HL7 R5 representations](AGENTS/fhir-r5.md)
 
 ## Tools
 

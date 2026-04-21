@@ -8,8 +8,8 @@ Read-and-acknowledge code of conduct notice presenting the twelve core principle
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
-- ./front-end-patient-form-with-svelte/ - Recipient form; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Compliance dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-svelte/ - Recipient form; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Compliance dashboard; SvelteKit + SVAR DataGrid
 
 ## Scoring system
 
@@ -36,7 +36,7 @@ Read-and-acknowledge code of conduct notice presenting the twelve core principle
 - Class-based reactive store (assessment.svelte.ts)
 - Vitest unit tests for validation logic
 
-## Clinician dashboard
+## Dashboard
 
 - SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
 - Sortable columns and dropdown filters

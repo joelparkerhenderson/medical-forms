@@ -31,8 +31,8 @@ Workplace safety audit form aligned with UK Health and Safety Executive (HSE) st
 
 ```
 workplace-safety-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
 ```
 
 ## Technology

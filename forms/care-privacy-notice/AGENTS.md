@@ -11,10 +11,10 @@ Read-and-acknowledge privacy notice form based on the BMA GDPR template for GP p
 - ./sql-migrations/ - PostgreSQL schema migrations
 - ./xml-representations/ - XML and DTD per SQL table entity
 - ./fhir-r5/ - FHIR HL7 R5 JSON per SQL table entity
-- ./front-end-patient-form-with-html/ - Patient form (HTML)
-- ./front-end-patient-form-with-svelte/ - Patient form (SvelteKit)
-- ./front-end-clinician-dashboard-with-html/ - Clinician dashboard (HTML)
-- ./front-end-clinician-dashboard-with-svelte/ - Clinician dashboard (SvelteKit)
+- ./front-end-form-with-html/ - Patient form (HTML)
+- ./front-end-form-with-svelte/ - Patient form (SvelteKit)
+- ./front-end-dashboard-with-html/ - Dashboard (HTML)
+- ./front-end-dashboard-with-svelte/ - Dashboard (SvelteKit)
 
 ## Scoring system
 
@@ -41,7 +41,7 @@ Read-and-acknowledge privacy notice form based on the BMA GDPR template for GP p
 - Class-based reactive store (assessment.svelte.ts)
 - Vitest unit tests for validation logic
 
-## Clinician dashboard
+## Dashboard
 
 - SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
 - Sortable columns and dropdown filters

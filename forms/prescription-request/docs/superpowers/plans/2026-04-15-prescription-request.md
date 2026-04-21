@@ -4,7 +4,7 @@
 
 **Goal:** Build a prescription request form with priority classification engine (Routine/Urgent/Emergency), patient-facing SvelteKit wizard, clinician dashboard, SQL migrations, and generated XML/FHIR representations.
 
-**Architecture:** 5-step patient wizard collecting patient info, clinician info, prescription details, substitution options, and request type. Pure priority classification engine derives urgency from request flags and substitution constraints. Clinician dashboard uses SVAR DataGrid with filters.
+**Architecture:** 5-step patient wizard collecting patient info, clinician info, prescription details, substitution options, and request type. Pure priority classification engine derives urgency from request flags and substitution constraints. Dashboard uses SVAR DataGrid with filters.
 
 **Tech Stack:** SvelteKit 2.x, Svelte 5 runes, Tailwind CSS 4, SVAR DataGrid 2.x, pdfmake, Vitest, PostgreSQL 18 with Liquibase SQL
 
@@ -443,20 +443,20 @@ git commit -m "feat(prescription-request): add generated XML and FHIR R5 represe
 ### Task 3: Patient Form — Scaffold and Engine
 
 **Files:**
-- Create: `front-end-patient-form-with-svelte/package.json`
-- Create: `front-end-patient-form-with-svelte/svelte.config.js`
-- Create: `front-end-patient-form-with-svelte/vite.config.ts`
-- Create: `front-end-patient-form-with-svelte/tsconfig.json`
-- Create: `front-end-patient-form-with-svelte/src/app.html`
-- Create: `front-end-patient-form-with-svelte/src/app.css`
-- Create: `front-end-patient-form-with-svelte/src/app.d.ts`
-- Create: `front-end-patient-form-with-svelte/src/lib/index.ts`
-- Create: `front-end-patient-form-with-svelte/src/lib/engine/types.ts`
-- Create: `front-end-patient-form-with-svelte/src/lib/engine/prescription-grader.ts`
-- Create: `front-end-patient-form-with-svelte/src/lib/engine/prescription-rules.ts`
-- Create: `front-end-patient-form-with-svelte/src/lib/engine/flagged-issues.ts`
-- Create: `front-end-patient-form-with-svelte/src/lib/engine/utils.ts`
-- Test: `front-end-patient-form-with-svelte/src/lib/engine/prescription-grader.test.ts`
+- Create: `front-end-form-with-svelte/package.json`
+- Create: `front-end-form-with-svelte/svelte.config.js`
+- Create: `front-end-form-with-svelte/vite.config.ts`
+- Create: `front-end-form-with-svelte/tsconfig.json`
+- Create: `front-end-form-with-svelte/src/app.html`
+- Create: `front-end-form-with-svelte/src/app.css`
+- Create: `front-end-form-with-svelte/src/app.d.ts`
+- Create: `front-end-form-with-svelte/src/lib/index.ts`
+- Create: `front-end-form-with-svelte/src/lib/engine/types.ts`
+- Create: `front-end-form-with-svelte/src/lib/engine/prescription-grader.ts`
+- Create: `front-end-form-with-svelte/src/lib/engine/prescription-rules.ts`
+- Create: `front-end-form-with-svelte/src/lib/engine/flagged-issues.ts`
+- Create: `front-end-form-with-svelte/src/lib/engine/utils.ts`
+- Test: `front-end-form-with-svelte/src/lib/engine/prescription-grader.test.ts`
 
 - [ ] **Step 1: Create package.json**
 
@@ -1143,7 +1143,7 @@ describe('Additional Flags Detection', () => {
 - [ ] **Step 9: Install dependencies and run tests**
 
 ```bash
-cd forms/prescription-request/front-end-patient-form-with-svelte
+cd forms/prescription-request/front-end-form-with-svelte
 npm install
 npx vitest run
 ```
@@ -1153,7 +1153,7 @@ Expected: All tests pass.
 - [ ] **Step 10: Commit engine**
 
 ```bash
-git add front-end-patient-form-with-svelte/
+git add front-end-form-with-svelte/
 git commit -m "feat(prescription-request): add patient form scaffold and priority classification engine with tests"
 ```
 
@@ -1162,17 +1162,17 @@ git commit -m "feat(prescription-request): add patient form scaffold and priorit
 ### Task 4: Patient Form — Store, Config, UI Components
 
 **Files:**
-- Create: `front-end-patient-form-with-svelte/src/lib/stores/assessment.svelte.ts`
-- Create: `front-end-patient-form-with-svelte/src/lib/config/steps.ts`
-- Create: `front-end-patient-form-with-svelte/src/params/step.ts`
-- Create: `front-end-patient-form-with-svelte/src/lib/components/ui/SectionCard.svelte`
-- Create: `front-end-patient-form-with-svelte/src/lib/components/ui/TextInput.svelte`
-- Create: `front-end-patient-form-with-svelte/src/lib/components/ui/TextArea.svelte`
-- Create: `front-end-patient-form-with-svelte/src/lib/components/ui/RadioGroup.svelte`
-- Create: `front-end-patient-form-with-svelte/src/lib/components/ui/SelectInput.svelte`
-- Create: `front-end-patient-form-with-svelte/src/lib/components/ui/ProgressBar.svelte`
-- Create: `front-end-patient-form-with-svelte/src/lib/components/ui/StepNavigation.svelte`
-- Create: `front-end-patient-form-with-svelte/src/lib/components/ui/Badge.svelte`
+- Create: `front-end-form-with-svelte/src/lib/stores/assessment.svelte.ts`
+- Create: `front-end-form-with-svelte/src/lib/config/steps.ts`
+- Create: `front-end-form-with-svelte/src/params/step.ts`
+- Create: `front-end-form-with-svelte/src/lib/components/ui/SectionCard.svelte`
+- Create: `front-end-form-with-svelte/src/lib/components/ui/TextInput.svelte`
+- Create: `front-end-form-with-svelte/src/lib/components/ui/TextArea.svelte`
+- Create: `front-end-form-with-svelte/src/lib/components/ui/RadioGroup.svelte`
+- Create: `front-end-form-with-svelte/src/lib/components/ui/SelectInput.svelte`
+- Create: `front-end-form-with-svelte/src/lib/components/ui/ProgressBar.svelte`
+- Create: `front-end-form-with-svelte/src/lib/components/ui/StepNavigation.svelte`
+- Create: `front-end-form-with-svelte/src/lib/components/ui/Badge.svelte`
 
 - [ ] **Step 1: Create assessment.svelte.ts**
 
@@ -1307,7 +1307,7 @@ All other UI components (SectionCard, TextInput, TextArea, RadioGroup, SelectInp
 - [ ] **Step 5: Commit store, config, and UI components**
 
 ```bash
-git add front-end-patient-form-with-svelte/src/lib/stores/ front-end-patient-form-with-svelte/src/lib/config/ front-end-patient-form-with-svelte/src/params/ front-end-patient-form-with-svelte/src/lib/components/ui/
+git add front-end-form-with-svelte/src/lib/stores/ front-end-form-with-svelte/src/lib/config/ front-end-form-with-svelte/src/params/ front-end-form-with-svelte/src/lib/components/ui/
 git commit -m "feat(prescription-request): add assessment store, step config, and UI components"
 ```
 
@@ -1316,15 +1316,15 @@ git commit -m "feat(prescription-request): add assessment store, step config, an
 ### Task 5: Patient Form — Step Components and Routes
 
 **Files:**
-- Create: `front-end-patient-form-with-svelte/src/lib/components/steps/Step1PatientInformation.svelte`
-- Create: `front-end-patient-form-with-svelte/src/lib/components/steps/Step2ClinicianInformation.svelte`
-- Create: `front-end-patient-form-with-svelte/src/lib/components/steps/Step3PrescriptionDetails.svelte`
-- Create: `front-end-patient-form-with-svelte/src/lib/components/steps/Step4SubstitutionOptions.svelte`
-- Create: `front-end-patient-form-with-svelte/src/lib/components/steps/Step5RequestType.svelte`
-- Create: `front-end-patient-form-with-svelte/src/routes/+page.svelte`
-- Create: `front-end-patient-form-with-svelte/src/routes/+layout.svelte`
-- Create: `front-end-patient-form-with-svelte/src/routes/assessment/+layout.svelte`
-- Create: `front-end-patient-form-with-svelte/src/routes/assessment/[step=step]/+page.svelte`
+- Create: `front-end-form-with-svelte/src/lib/components/steps/Step1PatientInformation.svelte`
+- Create: `front-end-form-with-svelte/src/lib/components/steps/Step2ClinicianInformation.svelte`
+- Create: `front-end-form-with-svelte/src/lib/components/steps/Step3PrescriptionDetails.svelte`
+- Create: `front-end-form-with-svelte/src/lib/components/steps/Step4SubstitutionOptions.svelte`
+- Create: `front-end-form-with-svelte/src/lib/components/steps/Step5RequestType.svelte`
+- Create: `front-end-form-with-svelte/src/routes/+page.svelte`
+- Create: `front-end-form-with-svelte/src/routes/+layout.svelte`
+- Create: `front-end-form-with-svelte/src/routes/assessment/+layout.svelte`
+- Create: `front-end-form-with-svelte/src/routes/assessment/[step=step]/+page.svelte`
 
 - [ ] **Step 1: Create Step1PatientInformation.svelte**
 
@@ -1675,7 +1675,7 @@ git commit -m "feat(prescription-request): add assessment store, step config, an
 - [ ] **Step 7: Commit step components and routes**
 
 ```bash
-git add front-end-patient-form-with-svelte/src/lib/components/steps/ front-end-patient-form-with-svelte/src/routes/
+git add front-end-form-with-svelte/src/lib/components/steps/ front-end-form-with-svelte/src/routes/
 git commit -m "feat(prescription-request): add step components and SvelteKit routes"
 ```
 
@@ -1684,9 +1684,9 @@ git commit -m "feat(prescription-request): add step components and SvelteKit rou
 ### Task 6: Patient Form — Report Page and PDF
 
 **Files:**
-- Create: `front-end-patient-form-with-svelte/src/lib/report/pdf-builder.ts`
-- Create: `front-end-patient-form-with-svelte/src/routes/report/+page.svelte`
-- Create: `front-end-patient-form-with-svelte/src/routes/report/pdf/+server.ts`
+- Create: `front-end-form-with-svelte/src/lib/report/pdf-builder.ts`
+- Create: `front-end-form-with-svelte/src/routes/report/+page.svelte`
+- Create: `front-end-form-with-svelte/src/routes/report/pdf/+server.ts`
 
 - [ ] **Step 1: Create pdf-builder.ts**
 
@@ -2120,7 +2120,7 @@ export const POST: RequestHandler = async ({ request }) => {
 - [ ] **Step 4: Commit report and PDF**
 
 ```bash
-git add front-end-patient-form-with-svelte/src/lib/report/ front-end-patient-form-with-svelte/src/routes/report/
+git add front-end-form-with-svelte/src/lib/report/ front-end-form-with-svelte/src/routes/report/
 git commit -m "feat(prescription-request): add report page and PDF generation"
 ```
 
@@ -2129,19 +2129,19 @@ git commit -m "feat(prescription-request): add report page and PDF generation"
 ### Task 7: Clinician Dashboard
 
 **Files:**
-- Create: `front-end-clinician-dashboard-with-svelte/package.json`
-- Create: `front-end-clinician-dashboard-with-svelte/svelte.config.js`
-- Create: `front-end-clinician-dashboard-with-svelte/vite.config.ts`
-- Create: `front-end-clinician-dashboard-with-svelte/tsconfig.json`
-- Create: `front-end-clinician-dashboard-with-svelte/src/app.html`
-- Create: `front-end-clinician-dashboard-with-svelte/src/app.css`
-- Create: `front-end-clinician-dashboard-with-svelte/src/app.d.ts`
-- Create: `front-end-clinician-dashboard-with-svelte/src/lib/index.ts`
-- Create: `front-end-clinician-dashboard-with-svelte/src/lib/types.ts`
-- Create: `front-end-clinician-dashboard-with-svelte/src/lib/data.ts`
-- Create: `front-end-clinician-dashboard-with-svelte/src/lib/api.ts`
-- Create: `front-end-clinician-dashboard-with-svelte/src/routes/+layout.svelte`
-- Create: `front-end-clinician-dashboard-with-svelte/src/routes/+page.svelte`
+- Create: `front-end-dashboard-with-svelte/package.json`
+- Create: `front-end-dashboard-with-svelte/svelte.config.js`
+- Create: `front-end-dashboard-with-svelte/vite.config.ts`
+- Create: `front-end-dashboard-with-svelte/tsconfig.json`
+- Create: `front-end-dashboard-with-svelte/src/app.html`
+- Create: `front-end-dashboard-with-svelte/src/app.css`
+- Create: `front-end-dashboard-with-svelte/src/app.d.ts`
+- Create: `front-end-dashboard-with-svelte/src/lib/index.ts`
+- Create: `front-end-dashboard-with-svelte/src/lib/types.ts`
+- Create: `front-end-dashboard-with-svelte/src/lib/data.ts`
+- Create: `front-end-dashboard-with-svelte/src/lib/api.ts`
+- Create: `front-end-dashboard-with-svelte/src/routes/+layout.svelte`
+- Create: `front-end-dashboard-with-svelte/src/routes/+page.svelte`
 
 - [ ] **Step 1: Create package.json and config files**
 
@@ -2603,14 +2603,14 @@ export async function fetchPrescriptions(): Promise<PrescriptionRow[]> {
 - [ ] **Step 6: Install dependencies**
 
 ```bash
-cd forms/prescription-request/front-end-clinician-dashboard-with-svelte
+cd forms/prescription-request/front-end-dashboard-with-svelte
 npm install
 ```
 
 - [ ] **Step 7: Commit clinician dashboard**
 
 ```bash
-git add front-end-clinician-dashboard-with-svelte/
+git add front-end-dashboard-with-svelte/
 git commit -m "feat(prescription-request): add clinician dashboard with SVAR DataGrid"
 ```
 
@@ -2652,8 +2652,8 @@ Prescription request form collecting patient information, clinician details, med
 
 ```
 prescription-request/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   sql-migrations/
   xml-representations/
   fhir-r5/
@@ -2682,8 +2682,8 @@ Prescription request form with priority classification engine (Routine / Urgent 
 - ./index.md - Project overview and documentation
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
-- ./front-end-patient-form-with-svelte/ - Patient questionnaire; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Clinician dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-svelte/ - Patient questionnaire; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Dashboard; SvelteKit + SVAR DataGrid
 - ./sql-migrations/ - PostgreSQL schema migrations
 - ./xml-representations/ - XML and DTD per SQL table entity
 - ./fhir-r5/ - FHIR HL7 R5 JSON per SQL table entity
@@ -2722,7 +2722,7 @@ All tasks implemented:
 - [x] Patient form with SvelteKit
 - [x] Priority classification engine with tests
 - [x] Report page with PDF generation
-- [x] Clinician dashboard with SVAR DataGrid
+- [x] Dashboard with SVAR DataGrid
 - [x] Project documentation
 ```
 
@@ -2746,7 +2746,7 @@ git commit -m "feat(prescription-request): add project documentation"
 - [ ] **Step 1: Run engine tests**
 
 ```bash
-cd forms/prescription-request/front-end-patient-form-with-svelte
+cd forms/prescription-request/front-end-form-with-svelte
 npx vitest run
 ```
 
@@ -2755,7 +2755,7 @@ Expected: All 13 tests pass (7 grading + 6 flags).
 - [ ] **Step 2: Run type checking on patient form**
 
 ```bash
-cd forms/prescription-request/front-end-patient-form-with-svelte
+cd forms/prescription-request/front-end-form-with-svelte
 npm run check
 ```
 
@@ -2764,7 +2764,7 @@ Expected: No type errors.
 - [ ] **Step 3: Run type checking on clinician dashboard**
 
 ```bash
-cd forms/prescription-request/front-end-clinician-dashboard-with-svelte
+cd forms/prescription-request/front-end-dashboard-with-svelte
 npm run check
 ```
 

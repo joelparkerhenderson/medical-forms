@@ -1,8 +1,0 @@
-<!ELEMENT assessment_pregnancy (id,assessment_id,possibly_pregnant,pregnancy_confirmed,gestation_weeks,created_at,updated_at)>
-<!ELEMENT id (#PCDATA)>
-<!ELEMENT assessment_id (#PCDATA)>
-<!ELEMENT possibly_pregnant (#PCDATA)>
-<!ELEMENT pregnancy_confirmed (#PCDATA)>
-<!ELEMENT gestation_weeks (#PCDATA)>
-<!ELEMENT created_at (#PCDATA)>
-<!ELEMENT updated_at (#PCDATA)>

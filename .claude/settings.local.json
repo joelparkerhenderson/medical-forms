@@ -132,7 +132,20 @@
       "Bash(echo \"=== $d ===\")",
       "Read(//Users/jph/git/joelparkerhenderson/medical-forms/forms/$d/**)",
       "Bash(while read:*)",
-      "Read(//Users/jph/git/joelparkerhenderson/medical-forms/**)"
+      "Read(//Users/jph/git/joelparkerhenderson/medical-forms/**)",
+      "Bash(bin/test-form pre-operative-assessment-by-patient *)",
+      "Bash(git mv *)",
+      "Bash(awk -F/ '{print $2}')",
+      "Bash(awk -F/ '{print $1\"/\"$2\"/\"$3}')",
+      "Bash(sort -u wc -l /tmp/rename-targets.txt head -5 /tmp/rename-targets.txt echo \"---\")",
+      "Bash(bin/test)",
+      "Bash(awk '{for\\(i=1;i<=NF;i++\\) if\\($i ~ /forms\\\\//\\) print $i}')",
+      "Bash(ln -sfn index.md README.md)",
+      "Bash(bin/test-form psychology-assessment *)",
+      "Bash(bin/test-form heart-health-check *)",
+      "Bash(echo \"---exit:$?\")",
+      "Bash(tee /tmp/test-out.txt)",
+      "Bash(echo \"EXIT: $?\")"
     ]
   }
 }

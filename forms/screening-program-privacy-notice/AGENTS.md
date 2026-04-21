@@ -14,8 +14,8 @@ screening-program-privacy-notice/
   sql-migrations/
   xml-representations/
   fhir-r5/
-  front-end-patient-form-with-html/
-  front-end-clinician-dashboard-with-html/
+  front-end-form-with-html/
+  front-end-dashboard-with-html/
 ```
 
 ## Form data model
@@ -33,7 +33,7 @@ The patient form has two sections:
 
 The patient form includes a `practiceConfig` JavaScript object at the top of the script section. Practices edit this object to fill in their specific details (practice name, DPO, research organisations, GDPR basis).
 
-## Clinician dashboard
+## Dashboard
 
 The clinician dashboard displays a table of completed acknowledgments with columns:
 - Patient Name

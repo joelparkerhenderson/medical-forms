@@ -13,7 +13,7 @@ src/
   app.rs                   # Tera init, routes registration
   controllers/
     assessment.rs          # Landing, step forms (10 steps), report
-    dashboard.rs           # Clinician dashboard with filters
+    dashboard.rs           # Dashboard with filters
   engine/
     types.rs               # AssessmentData and all diabetes-specific types
     diabetes_rules.rs      # 20 diabetes rules (DM-001 to DM-020)
@@ -34,7 +34,7 @@ templates/
     _nav.html.tera         # Step navigation partial
     step01-step10.html.tera # 10 step forms
   report.html.tera         # Assessment report with score, rules, flags
-  dashboard.html.tera      # Clinician dashboard
+  dashboard.html.tera      # Dashboard
 tests/
   engine_tests.rs          # Test harness
   engine/

@@ -35,8 +35,8 @@ Structured post-operative (operation note) report documenting the procedure, int
 
 ```
 post-operative-report/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
 ```
 
 ## Technology

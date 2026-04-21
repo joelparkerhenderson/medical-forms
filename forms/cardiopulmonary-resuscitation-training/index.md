@@ -27,8 +27,8 @@ Basic Life Support (BLS) cardiopulmonary resuscitation competency assessment ali
 
 ```
 cardiopulmonary-resuscitation-training/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
 ```
 
 ## Technology

@@ -31,8 +31,8 @@ Workplace stress assessment using the UK HSE Management Standards Indicator Tool
 
 ```
 workplace-stress-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
 ```
 
 ## Technology

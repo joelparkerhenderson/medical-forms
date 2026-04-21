@@ -13,7 +13,7 @@ src/
   app.rs                   # Tera init, routes registration
   controllers/
     assessment.rs          # Landing, step forms (10 steps), report
-    dashboard.rs           # Clinician dashboard with filters
+    dashboard.rs           # Dashboard with filters
   engine/
     types.rs               # AssessmentData and all gerontology-specific types
     frailty_rules.rs       # 20 frailty rules (GER-001-020, high/medium/low concern)
@@ -34,7 +34,7 @@ templates/
     _nav.html.tera         # Step navigation partial
     step01-step10.html.tera # 10 step forms
   report.html.tera         # Assessment report with scores, rules, flags
-  dashboard.html.tera      # Clinician dashboard
+  dashboard.html.tera      # Dashboard
 tests/
   engine_tests.rs          # Test harness
   engine/

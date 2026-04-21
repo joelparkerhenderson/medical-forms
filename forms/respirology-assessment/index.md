@@ -27,8 +27,8 @@ Respiratory evaluation using the MRC (Medical Research Council) Dyspnoea Scale w
 
 ```
 respirology-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera/
 ```
 

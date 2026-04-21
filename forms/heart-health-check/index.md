@@ -29,10 +29,10 @@ NHS Heart Health Check for cardiovascular risk assessment using simplified QRISK
 ```
 heart-health-check/
   doc/                                          # Additional documentation
-  front-end-patient-form-with-html/             # Patient form (HTML/CSS/JS)
-  front-end-clinician-dashboard-with-html/      # Clinician dashboard (HTML/CSS/JS)
-  front-end-patient-form-with-svelte/           # Patient form (SvelteKit + Tailwind)
-  front-end-clinician-dashboard-with-svelte/    # Clinician dashboard (SvelteKit + SVAR)
+  front-end-form-with-html/                         # Patient form (HTML/CSS/JS)
+  front-end-dashboard-with-html/                    # Dashboard (HTML/CSS/JS)
+  front-end-form-with-svelte/                       # Patient form (SvelteKit + Tailwind)
+  front-end-dashboard-with-svelte/                  # Dashboard (SvelteKit + SVAR)
   full-stack-with-rust-axum-loco-tera-htmx-alpine/  # Backend (Rust + Loco + Tera)
   sql-migrations/                               # PostgreSQL schema migrations
 ```

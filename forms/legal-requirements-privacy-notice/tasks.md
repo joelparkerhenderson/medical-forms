@@ -6,5 +6,5 @@
 - [x] FHIR R5 representations
 - [x] HTML patient form
 - [x] HTML clinician dashboard
-- [x] SvelteKit patient form
+- [x] SvelteKit form
 - [x] SvelteKit clinician dashboard

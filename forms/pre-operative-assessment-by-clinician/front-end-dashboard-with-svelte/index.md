@@ -1,4 +1,4 @@
-# Clinician dashboard — SvelteKit + SVAR DataGrid
+# Dashboard — SvelteKit + SVAR DataGrid
 
 SvelteKit + Svelte 5 + Tailwind 4 dashboard for reviewing pre-operative
 assessments. Uses **SVAR DataGrid** (`@svar-ui/svelte-grid`) with the Willow

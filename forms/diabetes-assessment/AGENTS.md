@@ -8,8 +8,8 @@ Structured diabetes review aligned with NICE NG28 (type 2) / NG17 (type 1) and t
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
-- ./front-end-patient-form-with-svelte/ - Patient questionnaire; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Clinician dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-svelte/ - Patient questionnaire; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Dashboard; SvelteKit + SVAR DataGrid
 - ./full-stack-with-rust-axum-loco-tera-htmx-alpine/ - Full-stack Rust backend
 
 ## Scoring system
@@ -42,7 +42,7 @@ Structured diabetes review aligned with NICE NG28 (type 2) / NG17 (type 1) and t
 - PDF report generation via /report/pdf server endpoint
 - Vitest unit tests for grading logic
 
-## Clinician dashboard
+## Dashboard
 
 - SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
 - Sortable columns and dropdown filters

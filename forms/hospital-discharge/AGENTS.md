@@ -8,8 +8,8 @@ Hospital discharge summary form aligned with UK NICE NG27 and the SAFER patient-
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
-- ./front-end-patient-form-with-svelte/ - Clinician form; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Ward / GP liaison dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-svelte/ - Clinician form; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Ward / GP liaison dashboard; SvelteKit + SVAR DataGrid
 
 ## Scoring system
 
@@ -45,7 +45,7 @@ Hospital discharge summary form aligned with UK NICE NG27 and the SAFER patient-
 - PDF discharge summary generation via /report/pdf server endpoint
 - Vitest unit tests for validation logic
 
-## Clinician dashboard
+## Dashboard
 
 - SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
 - Sortable columns and dropdown filters

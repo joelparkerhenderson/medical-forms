@@ -20,10 +20,10 @@ See [`index.md`](./index.md) for the full design and the 16-step wizard table.
 - `./sql-migrations/` — Liquibase-formatted Postgres schema
 - `./xml-representations/` — generated XML + DTD per SQL table
 - `./fhir-r5/` — generated FHIR HL7 R5 JSON per SQL entity
-- `./front-end-patient-form-with-html/` — static single-page clinician wizard
-- `./front-end-patient-form-with-svelte/` — SvelteKit single-page clinician wizard
-- `./front-end-clinician-dashboard-with-html/` — HTML review table
-- `./front-end-clinician-dashboard-with-svelte/` — SvelteKit SVAR DataGrid
+- `./front-end-form-with-html/` — static single-page clinician wizard
+- `./front-end-form-with-svelte/` — SvelteKit single-page clinician wizard
+- `./front-end-dashboard-with-html/` — HTML review table
+- `./front-end-dashboard-with-svelte/` — SvelteKit SVAR DataGrid
   review dashboard
 - `./full-stack-with-rust-axum-loco-tera-htmx-alpine/` — Rust backend with
   server-rendered HTMX UI

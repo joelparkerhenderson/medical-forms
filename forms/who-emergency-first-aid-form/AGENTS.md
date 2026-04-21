@@ -16,10 +16,10 @@ World Health Organization standardised emergency first aid documentation form fo
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
 - ./doc/ - Reference documentation
-- ./front-end-patient-form-with-html/ - Form; HTML
-- ./front-end-patient-form-with-svelte/ - Form; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-html/ - Dashboard; HTML
-- ./front-end-clinician-dashboard-with-svelte/ - Dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-html/ - Form; HTML
+- ./front-end-form-with-svelte/ - Form; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-html/ - Dashboard; HTML
+- ./front-end-dashboard-with-svelte/ - Dashboard; SvelteKit + SVAR DataGrid
 - ./full-stack-with-rust-axum-loco-tera-htmx-alpine/ - Full-stack option; Rust + Tera templates
 
 ## Form sections

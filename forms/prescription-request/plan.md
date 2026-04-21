@@ -8,5 +8,5 @@ All tasks implemented:
 - [x] Patient form with SvelteKit (single continuous page)
 - [x] Priority classification engine with tests
 - [x] Report page with PDF generation
-- [x] Clinician dashboard with SVAR DataGrid
+- [x] Dashboard with SVAR DataGrid
 - [x] Project documentation

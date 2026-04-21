@@ -42,7 +42,7 @@ src/
   app.rs                   # Tera init, routes registration
   controllers/
     assessment.rs          # Landing, step forms (10 steps), report
-    dashboard.rs           # Clinician dashboard with filters
+    dashboard.rs           # Dashboard with filters
   engine/
     types.rs               # AssessmentData and all sleep-specific types
     sleep_quality_rules.rs  # 20 sleep quality rules (SLP-001 to SLP-020)
@@ -64,7 +64,7 @@ templates/
     step01-step10.html.tera # 10 step forms (Alpine conditionals on steps 8, 10)
   report.html.tera         # Sleep quality report with PSQI, ESS, STOP-BANG, rules, flags
   _dashboard_results.html.tera # Dashboard results partial (HTMX target)
-  dashboard.html.tera      # Clinician dashboard with HTMX live filtering
+  dashboard.html.tera      # Dashboard with HTMX live filtering
 tests/
   engine_tests.rs          # Test harness
   engine/

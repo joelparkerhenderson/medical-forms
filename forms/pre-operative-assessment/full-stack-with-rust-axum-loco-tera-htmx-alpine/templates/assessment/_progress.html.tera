@@ -1,9 +1,0 @@
-<div class="progress-container">
-    <div class="progress-header">
-        <span>Step {{ step }} of {{ total_steps }}: {{ step_title }}</span>
-        <span>{{ progress }}%</span>
-    </div>
-    <div class="progress-bar">
-        <div class="progress-fill" style="width: {{ progress }}%"></div>
-    </div>
-</div>

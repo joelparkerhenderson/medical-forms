@@ -10,5 +10,5 @@
 4. [x] Create FHIR R5 representations (patient, acknowledgment)
 5. [x] Create HTML patient form
 6. [x] Create HTML clinician dashboard
-7. [x] Create SvelteKit patient form
+7. [x] Create SvelteKit form
 8. [x] Create SvelteKit clinician dashboard

@@ -27,8 +27,8 @@ Post-traumatic stress symptom screen based on the DSM-5-aligned PCL-5 (PTSD Chec
 
 ```
 post-traumatic-stress-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
 ```
 
 ## Technology

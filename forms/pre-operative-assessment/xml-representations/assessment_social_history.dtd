@@ -1,9 +1,0 @@
-<!ELEMENT assessment_social_history (id,assessment_id,alcohol,alcohol_units_per_week,recreational_drugs,drug_details,created_at,updated_at)>
-<!ELEMENT id (#PCDATA)>
-<!ELEMENT assessment_id (#PCDATA)>
-<!ELEMENT alcohol (#PCDATA)>
-<!ELEMENT alcohol_units_per_week (#PCDATA)>
-<!ELEMENT recreational_drugs (#PCDATA)>
-<!ELEMENT drug_details (#PCDATA)>
-<!ELEMENT created_at (#PCDATA)>
-<!ELEMENT updated_at (#PCDATA)>

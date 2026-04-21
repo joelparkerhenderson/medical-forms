@@ -30,8 +30,8 @@ Antenatal obstetric assessment aligned with NICE NG201, stratifying pregnancies 
 
 ```
 obstetrics-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
 ```
 
 ## Technology

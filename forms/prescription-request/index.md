@@ -21,8 +21,8 @@ Prescription request form collecting patient information, clinician details, med
 ## Directory structure
 
     prescription-request/
-      front-end-patient-form-with-svelte/
-      front-end-clinician-dashboard-with-svelte/
+      front-end-form-with-svelte/
+      front-end-dashboard-with-svelte/
       sql-migrations/
       xml-representations/
       fhir-r5/

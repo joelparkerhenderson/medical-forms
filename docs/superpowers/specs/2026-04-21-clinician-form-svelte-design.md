@@ -1,7 +1,7 @@
 # Pre-op assessment: front-end clinician form (SvelteKit) — Design
 
 **Date:** 2026-04-21
-**Subproject:** `forms/pre-operative-assessment/front-end-clinician-form-with-svelte/`
+**Subproject:** `forms/pre-operative-assessment-by-clinician/front-end-clinician-form-with-svelte/`
 **Status:** Approved design — ready for implementation plan
 
 ## Purpose
@@ -35,7 +35,7 @@ side-by-side comparison) belongs in the clinician dashboard, not here.
 
 ### Pattern
 
-Mirrors `front-end-patient-form-with-svelte/` exactly. Symmetric subprojects
+Mirrors `front-end-form-with-svelte/` exactly. Symmetric subprojects
 keep the monorepo predictable: the same file layout, the same engine shape,
 the same report pipeline, so a contributor who knows one knows both.
 

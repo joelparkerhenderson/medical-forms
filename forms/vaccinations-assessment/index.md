@@ -30,8 +30,8 @@ Immunisation-schedule compliance assessment covering childhood, adult, travel, a
 
 ```
 vaccinations-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera-htmx-alpine/
 ```
 

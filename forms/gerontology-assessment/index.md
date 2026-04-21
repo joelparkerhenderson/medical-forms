@@ -26,8 +26,8 @@ Elderly patient assessment using the Clinical Frailty Scale (CFS) with functiona
 
 ```
 gerontology-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
   full-stack-with-rust-axum-loco-tera/
 ```
 

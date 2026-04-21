@@ -1,7 +1,0 @@
-<!ELEMENT asa_rule (id,system,description,grade,created_at,updated_at)>
-<!ELEMENT id (#PCDATA)>
-<!ELEMENT system (#PCDATA)>
-<!ELEMENT description (#PCDATA)>
-<!ELEMENT grade (#PCDATA)>
-<!ELEMENT created_at (#PCDATA)>
-<!ELEMENT updated_at (#PCDATA)>

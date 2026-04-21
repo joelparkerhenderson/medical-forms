@@ -1,0 +1,3 @@
+# Tasks: SvelteKit dashboard
+
+- [ ] Implement.

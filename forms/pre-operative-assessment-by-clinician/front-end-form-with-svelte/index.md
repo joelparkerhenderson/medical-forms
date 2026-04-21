@@ -5,7 +5,7 @@ that collects objective pre-operative findings across 16 steps, computes an
 ASA Physical Status grade plus Mallampati / RCRI / STOP-BANG / Clinical
 Frailty Scale scores, raises safety flags, and generates a signed PDF report.
 
-Although the directory is named `front-end-patient-form-with-svelte` (monorepo
+Although the directory is named `front-end-form-with-svelte` (monorepo
 convention), the data-entry operator is a **clinician**, not the patient.
 
 ## Stack

@@ -8,8 +8,8 @@ Not yet implemented. Directory structure exists but no code has been written.
 
 Follow the same patterns as dermatology-assessment (canonical template):
 
-1. Create front-end-patient-form-with-svelte/ with all engine files, step components, and routes
-2. Create front-end-clinician-dashboard-with-svelte/ with SVAR DataGrid
+1. Create front-end-form-with-svelte/ with all engine files, step components, and routes
+2. Create front-end-dashboard-with-svelte/ with SVAR DataGrid
 3. Create back-end-with-rust-axum-loco-json/ with Rust engine types
 4. Add Vitest unit tests for grading logic
 

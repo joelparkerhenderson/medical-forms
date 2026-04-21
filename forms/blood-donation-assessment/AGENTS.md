@@ -8,8 +8,8 @@ Blood donation eligibility screening aligned with the JPAC Donor Selection Guide
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
-- ./front-end-patient-form-with-svelte/ - Donor questionnaire; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Donation session nurse dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-svelte/ - Donor questionnaire; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Donation session nurse dashboard; SvelteKit + SVAR DataGrid
 
 ## Scoring system
 
@@ -45,7 +45,7 @@ Blood donation eligibility screening aligned with the JPAC Donor Selection Guide
 - PDF report generation via /report/pdf server endpoint
 - Vitest unit tests for grading logic
 
-## Clinician dashboard
+## Dashboard
 
 - SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
 - Sortable columns and dropdown filters

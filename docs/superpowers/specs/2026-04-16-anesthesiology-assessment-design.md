@@ -283,13 +283,13 @@ forms/anesthesiology-assessment/
   xml-representations/ (generated)
   fhir-r5/ (generated)
 
-  front-end-patient-form-with-html/
+  front-end-form-with-html/
     index.html
     report.html
     css/style.css
     js/app.js, data-model.js, anesthesia-grader.js, anesthesia-rules.js, flagged-issues.js, utils.js
 
-  front-end-patient-form-with-svelte/
+  front-end-form-with-svelte/
     package.json, svelte.config.js, vite.config.ts, tsconfig.json
     src/
       app.css, app.html
@@ -300,10 +300,10 @@ forms/anesthesiology-assessment/
         stores/assessment.svelte.ts
         engine/ (types.ts, anesthesia-grader.ts, anesthesia-rules.ts, flagged-issues.ts, utils.ts, anesthesia-grader.test.ts)
 
-  front-end-clinician-dashboard-with-html/
+  front-end-dashboard-with-html/
     index.html, css/style.css, js/app.js, js/sample-data.js
 
-  front-end-clinician-dashboard-with-svelte/
+  front-end-dashboard-with-svelte/
     package.json, svelte.config.js, vite.config.ts
     src/routes/ (+layout, +page)
     src/lib/ (sample-data.ts, columns.ts)

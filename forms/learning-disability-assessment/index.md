@@ -31,8 +31,8 @@ Structured annual health check and adaptive-functioning assessment for people wi
 
 ```
 learning-disability-assessment/
-  front-end-patient-form-with-svelte/
-  front-end-clinician-dashboard-with-svelte/
+  front-end-form-with-svelte/
+  front-end-dashboard-with-svelte/
 ```
 
 ## Technology

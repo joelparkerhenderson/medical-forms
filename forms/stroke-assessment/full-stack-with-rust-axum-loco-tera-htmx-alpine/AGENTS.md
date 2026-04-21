@@ -39,7 +39,7 @@ src/
   app.rs                   # Tera init, routes registration
   controllers/
     assessment.rs          # Landing, step forms (10 steps), report
-    dashboard.rs           # Clinician dashboard with filters
+    dashboard.rs           # Dashboard with filters
   engine/
     types.rs               # AssessmentData and all stroke-specific types
     stroke_rules.rs        # 20 stroke rules (STR-001 to STR-020)
@@ -60,7 +60,7 @@ templates/
     _nav.html.tera         # Step navigation partial
     step01-step10.html.tera # 10 step forms
   report.html.tera         # Stroke report with NIHSS score, rules, flags
-  dashboard.html.tera      # Clinician dashboard
+  dashboard.html.tera      # Dashboard
 tests/
   engine_tests.rs          # Test harness
   engine/

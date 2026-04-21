@@ -17,7 +17,7 @@ Server-rendered web application for conducting NHS Heart Health Checks using QRI
 - Risk scoring engine (20 HHC rules, 13 clinical flags)
 - Heart age calculation
 - Risk report with colour-coded results
-- Clinician dashboard with search and filtering
+- Dashboard with search and filtering
 - 18 unit tests for scoring engine
 
 ## Status

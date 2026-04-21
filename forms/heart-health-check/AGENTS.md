@@ -9,10 +9,10 @@ NHS Heart Health Check for cardiovascular risk assessment using simplified QRISK
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
 - ./doc/ - Additional documentation
-- ./front-end-patient-form-with-html/ - Patient form; HTML + CSS + vanilla JS
-- ./front-end-clinician-dashboard-with-html/ - Clinician dashboard; HTML + CSS + vanilla JS
-- ./front-end-patient-form-with-svelte/ - Patient form; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Clinician dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-html/ - Patient form; HTML + CSS + vanilla JS
+- ./front-end-dashboard-with-html/ - Dashboard; HTML + CSS + vanilla JS
+- ./front-end-form-with-svelte/ - Patient form; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Dashboard; SvelteKit + SVAR DataGrid
 - ./full-stack-with-rust-axum-loco-tera-htmx-alpine/ - Full-stack backend; Rust + Loco 0.16 + Tera
 - ./sql-migrations/ - PostgreSQL schema migrations (15 files)
 
@@ -73,7 +73,7 @@ Sorted by priority: high > medium > low.
 - Class-based reactive store (assessment.svelte.ts)
 - Vitest unit tests for grading logic
 
-## Clinician dashboard
+## Dashboard
 
 - SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
 - Sortable columns and dropdown filters

@@ -8,8 +8,8 @@ Structured integumentary (skin, hair, nails) clinical assessment combining a hea
 - ./AGENTS.md - Agent instructions (this file, referenced by CLAUDE.md)
 - ./plan.md - Development roadmap
 - ./tasks.md - Task tracking
-- ./front-end-patient-form-with-svelte/ - Clinician form; SvelteKit + Svelte 5 + Tailwind 4
-- ./front-end-clinician-dashboard-with-svelte/ - Tissue-viability dashboard; SvelteKit + SVAR DataGrid
+- ./front-end-form-with-svelte/ - Clinician form; SvelteKit + Svelte 5 + Tailwind 4
+- ./front-end-dashboard-with-svelte/ - Tissue-viability dashboard; SvelteKit + SVAR DataGrid
 
 ## Scoring system
 
@@ -46,7 +46,7 @@ Structured integumentary (skin, hair, nails) clinical assessment combining a hea
 - PDF report generation via /report/pdf server endpoint
 - Vitest unit tests for grading logic
 
-## Clinician dashboard
+## Dashboard
 
 - SVAR DataGrid (@svar-ui/svelte-grid) with Willow theme
 - Sortable columns and dropdown filters
