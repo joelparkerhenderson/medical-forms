@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clinician Dashboard — Pre-op Assessments</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/sample-data.js"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="js/dashboard.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900" x-data="dashboard()">
+  <div class="max-w-7xl mx-auto p-6">
+    <header class="mb-4 pb-3 border-b">
+      <h1 class="text-2xl font-bold text-blue-800">Clinician Dashboard — Pre-op Assessments</h1>
+      <p class="text-sm text-slate-600">Review completed pre-operative assessments by ASA grade and composite risk.</p>
+    </header>
+
+    <div class="flex gap-3 mb-4 items-end">
+      <label class="block"><span class="text-sm text-slate-700">Risk</span>
+        <select class="border rounded px-2 py-1" x-model="filterRisk">
+          <option value="">All</option>
+          <option value="low">Low</option><option value="moderate">Moderate</option>
+          <option value="high">High</option><option value="critical">Critical</option>
+        </select></label>
+      <label class="block"><span class="text-sm text-slate-700">Urgency</span>
+        <select class="border rounded px-2 py-1" x-model="filterUrgency">
+          <option value="">All</option>
+          <option value="elective">Elective</option><option value="urgent">Urgent</option>
+          <option value="emergency">Emergency</option>
+        </select></label>
+      <p class="text-sm text-slate-500 ml-auto"><span x-text="filtered.length"></span> results</p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow overflow-x-auto">
+      <table class="min-w-full text-sm">
+        <thead class="bg-slate-100 text-left">
+          <tr>
+            <th class="p-2 cursor-pointer" @click="setSort('date')">Date</th>
+            <th class="p-2 cursor-pointer" @click="setSort('patient')">Patient</th>
+            <th class="p-2">NHS</th>
+            <th class="p-2">Procedure</th>
+            <th class="p-2 cursor-pointer" @click="setSort('urgency')">Urgency</th>
+            <th class="p-2 cursor-pointer" @click="setSort('asa')">ASA</th>
+            <th class="p-2 cursor-pointer" @click="setSort('composite')">Risk</th>
+            <th class="p-2">Flags</th>
+            <th class="p-2">Clinician</th>
+          </tr>
+        </thead>
+        <tbody>
+          <template x-for="r in filtered" :key="r.id">
+            <tr :class="`risk-${r.composite} border-b border-slate-200`">
+              <td class="p-2" x-text="r.date"></td>
+              <td class="p-2 font-medium" x-text="r.patient"></td>
+              <td class="p-2 text-slate-600" x-text="r.nhs"></td>
+              <td class="p-2" x-text="r.procedure"></td>
+              <td class="p-2" x-text="r.urgency"></td>
+              <td class="p-2 font-semibold" x-text="r.asa"></td>
+              <td class="p-2 uppercase" x-text="r.composite"></td>
+              <td class="p-2 text-xs" x-text="r.flags.join(', ') || '—'"></td>
+              <td class="p-2" x-text="r.clinician"></td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+
+    <footer class="mt-8 text-xs text-slate-500 border-t pt-4">
+      Clinical decision support. Composite risk is advisory; final clinical
+      judgement is the responsibility of the signing clinician.
+    </footer>
+  </div>
+</body>
+</html>

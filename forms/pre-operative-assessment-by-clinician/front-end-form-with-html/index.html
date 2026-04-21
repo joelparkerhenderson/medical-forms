@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pre-operative Assessment by Clinician</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="js/assessment.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900" x-data="assessment()">
+  <div class="max-w-5xl mx-auto p-6">
+    <header class="mb-4 pb-3 border-b border-slate-300">
+      <h1 class="text-2xl font-bold text-blue-800">Pre-operative Assessment by Clinician</h1>
+      <p class="text-sm text-slate-600">
+        NHS-aligned clinician data-entry wizard — ASA, Mallampati, RCRI, STOP-BANG, Clinical Frailty Scale.
+      </p>
+    </header>
+
+    <!-- Progress bar -->
+    <div class="mb-4 no-print">
+      <div class="w-full bg-slate-200 rounded-full h-2">
+        <div class="bg-blue-600 h-2 rounded-full transition-all"
+          :style="`width: ${(step / totalSteps) * 100}%`"></div>
+      </div>
+      <p class="text-xs text-slate-600 mt-1">
+        Step <span x-text="step"></span> of <span x-text="totalSteps"></span> —
+        <span x-text="stepTitles[step - 1]"></span>
+      </p>
+    </div>
+
+    <div class="bg-white p-6 rounded-lg shadow-sm">
+
+      <!-- STEP 1: Clinician -->
+      <section x-show="step === 1">
+        <h2 class="text-xl font-semibold mb-4">Step 1 — Clinician identification</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <label class="block"><span class="text-sm">Name</span>
+            <input type="text" class="w-full border rounded px-2 py-1" x-model="data.clinician.name" /></label>
+          <label class="block"><span class="text-sm">Role</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.clinician.role">
+              <option value="">—</option>
+              <option value="anaesthetist">Anaesthetist</option>
+              <option value="surgeon">Surgeon</option>
+              <option value="preop-nurse">Pre-op nurse</option>
+              <option value="perioperative-physician">Perioperative physician</option>
+              <option value="pharmacist">Pharmacist</option>
+              <option value="other">Other</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Registration body</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.clinician.regBody">
+              <option value="">—</option>
+              <option value="GMC">GMC</option><option value="NMC">NMC</option>
+              <option value="HCPC">HCPC</option><option value="GPhC">GPhC</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Registration number</span>
+            <input type="text" class="w-full border rounded px-2 py-1" x-model="data.clinician.regNumber" /></label>
+          <label class="block"><span class="text-sm">Site</span>
+            <input type="text" class="w-full border rounded px-2 py-1" x-model="data.clinician.site" /></label>
+          <label class="block"><span class="text-sm">Date</span>
+            <input type="date" class="w-full border rounded px-2 py-1" x-model="data.clinician.date" /></label>
+          <label class="block"><span class="text-sm">Time</span>
+            <input type="time" class="w-full border rounded px-2 py-1" x-model="data.clinician.time" /></label>
+        </div>
+      </section>
+
+      <!-- STEP 2: Patient -->
+      <section x-show="step === 2">
+        <h2 class="text-xl font-semibold mb-4">Step 2 — Patient &amp; planned procedure</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <label class="block"><span class="text-sm">First name</span>
+            <input type="text" class="w-full border rounded px-2 py-1" x-model="data.patient.firstName" /></label>
+          <label class="block"><span class="text-sm">Last name</span>
+            <input type="text" class="w-full border rounded px-2 py-1" x-model="data.patient.lastName" /></label>
+          <label class="block"><span class="text-sm">DOB</span>
+            <input type="date" class="w-full border rounded px-2 py-1" x-model="data.patient.dob" /></label>
+          <label class="block"><span class="text-sm">NHS number</span>
+            <input type="text" class="w-full border rounded px-2 py-1" x-model="data.patient.nhs" /></label>
+          <label class="block"><span class="text-sm">Sex</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.patient.sex">
+              <option value="">—</option><option value="male">Male</option>
+              <option value="female">Female</option><option value="other">Other</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Weight (kg)</span>
+            <input type="number" step="0.1" class="w-full border rounded px-2 py-1" x-model.number="data.patient.weight" /></label>
+          <label class="block"><span class="text-sm">Height (cm)</span>
+            <input type="number" step="0.1" class="w-full border rounded px-2 py-1" x-model.number="data.patient.height" /></label>
+          <label class="block md:col-span-2"><span class="text-sm">Planned procedure</span>
+            <input type="text" class="w-full border rounded px-2 py-1" x-model="data.surgery.procedure" /></label>
+          <label class="block"><span class="text-sm">Urgency</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.surgery.urgency">
+              <option value="">—</option><option value="elective">Elective</option>
+              <option value="urgent">Urgent</option><option value="emergency">Emergency</option>
+              <option value="immediate">Immediate</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Surgical severity (NG45)</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.surgery.severity">
+              <option value="">—</option><option value="minor">Minor</option>
+              <option value="intermediate">Intermediate</option><option value="major">Major</option>
+              <option value="major-plus">Major+</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Anticipated blood loss (mL)</span>
+            <input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.surgery.blood" /></label>
+        </div>
+      </section>
+
+      <!-- STEP 3: Vitals -->
+      <section x-show="step === 3">
+        <h2 class="text-xl font-semibold mb-4">Step 3 — Vital signs</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          <label class="block"><span class="text-sm">SBP</span><input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.vitals.sbp" /></label>
+          <label class="block"><span class="text-sm">DBP</span><input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.vitals.dbp" /></label>
+          <label class="block"><span class="text-sm">HR</span><input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.vitals.hr" /></label>
+          <label class="block"><span class="text-sm">SpO₂ (%)</span><input type="number" step="0.1" class="w-full border rounded px-2 py-1" x-model.number="data.vitals.spo2" /></label>
+          <label class="block"><span class="text-sm">RR</span><input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.vitals.rr" /></label>
+          <label class="block"><span class="text-sm">Temp (°C)</span><input type="number" step="0.1" class="w-full border rounded px-2 py-1" x-model.number="data.vitals.temp" /></label>
+          <label class="block"><span class="text-sm">On room air?</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.vitals.roomAir">
+              <option value="">—</option><option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+        </div>
+      </section>
+
+      <!-- STEP 4: Airway -->
+      <section x-show="step === 4">
+        <h2 class="text-xl font-semibold mb-4">Step 4 — Airway</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+          <label class="block"><span class="text-sm">Mallampati</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.airway.mallampati">
+              <option value="">—</option><option>I</option><option>II</option>
+              <option>III</option><option>IV</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Thyromental distance (cm)</span>
+            <input type="number" step="0.1" class="w-full border rounded px-2 py-1" x-model.number="data.airway.thyromental" /></label>
+          <label class="block"><span class="text-sm">Mouth opening (cm)</span>
+            <input type="number" step="0.1" class="w-full border rounded px-2 py-1" x-model.number="data.airway.mouthOpening" /></label>
+          <label class="block"><span class="text-sm">Neck ROM</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.airway.neckRom">
+              <option value="">—</option><option value="full">Full</option>
+              <option value="reduced">Reduced</option><option value="severely-limited">Severely limited</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Dentition</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.airway.dentition">
+              <option value="">—</option><option value="good">Good</option>
+              <option value="loose-teeth">Loose teeth</option><option value="edentulous">Edentulous</option>
+              <option value="dentures">Dentures</option>
+            </select></label>
+        </div>
+        <h3 class="font-semibold mb-2">STOP-BANG</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <template x-for="(label, key) in { S: 'Snoring', T: 'Tired', O: 'Observed apnoea', P: 'Pressure (HTN)', B: 'BMI > 35', A: 'Age > 50', N: 'Neck > 40 cm', G: 'Male' }">
+            <label class="block"><span class="text-sm" x-text="label"></span>
+              <select class="w-full border rounded px-2 py-1" x-model="data.airway.stopbang[key]">
+                <option value="">—</option><option value="yes">Yes</option><option value="no">No</option>
+              </select></label>
+          </template>
+        </div>
+      </section>
+
+      <!-- STEP 5: Cardiovascular -->
+      <section x-show="step === 5">
+        <h2 class="text-xl font-semibold mb-4">Step 5 — Cardiovascular</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <label class="block"><span class="text-sm">Rhythm</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.cardio.rhythm">
+              <option value="">—</option><option value="sinus">Sinus</option>
+              <option value="atrial-fibrillation">AF</option><option value="heart-block">Heart block</option>
+              <option value="paced">Paced</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Echo EF (%)</span>
+            <input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.cardio.ef" /></label>
+          <template x-for="(label, key) in { ihd: 'History IHD', chf: 'History CHF', stroke: 'Stroke/TIA', recentMi: 'Recent MI <3/12', pacemaker: 'Pacemaker/ICD', valve: 'Severe valve', angina: 'Active angina', ischaemia: 'ECG ischaemia' }">
+            <label class="block"><span class="text-sm" x-text="label"></span>
+              <select class="w-full border rounded px-2 py-1" x-model="data.cardio[key]">
+                <option value="">—</option><option value="yes">Yes</option><option value="no">No</option>
+              </select></label>
+          </template>
+        </div>
+      </section>
+
+      <!-- STEP 6: Respiratory -->
+      <section x-show="step === 6">
+        <h2 class="text-xl font-semibold mb-4">Step 6 — Respiratory</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <label class="block"><span class="text-sm">Asthma</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.resp.asthma">
+              <option value="">—</option><option value="none">None</option>
+              <option value="controlled">Controlled</option><option value="uncontrolled">Uncontrolled</option>
+            </select></label>
+          <label class="block"><span class="text-sm">COPD</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.resp.copd">
+              <option value="">—</option><option value="none">None</option>
+              <option value="mild">Mild</option><option value="moderate">Moderate</option><option value="severe">Severe</option>
+            </select></label>
+          <label class="block"><span class="text-sm">FEV1 (% predicted)</span>
+            <input type="number" step="0.1" class="w-full border rounded px-2 py-1" x-model.number="data.resp.fev1" /></label>
+          <label class="block"><span class="text-sm">Smoking</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.resp.smoking">
+              <option value="">—</option><option value="never">Never</option>
+              <option value="ex">Ex</option><option value="current">Current</option>
+            </select></label>
+          <label class="block"><span class="text-sm">COVID history</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.resp.covid">
+              <option value="">—</option><option value="never">Never</option>
+              <option value="recovered">Recovered</option><option value="recent">Recent</option>
+              <option value="long-covid">Long COVID</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Days since COVID</span>
+            <input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.resp.daysSinceCovid" /></label>
+        </div>
+      </section>
+
+      <!-- STEP 7: Neurological -->
+      <section x-show="step === 7">
+        <h2 class="text-xl font-semibold mb-4">Step 7 — Neurological</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <label class="block"><span class="text-sm">GCS (3–15)</span>
+            <input type="number" min="3" max="15" class="w-full border rounded px-2 py-1" x-model.number="data.neuro.gcs" /></label>
+          <label class="block"><span class="text-sm">Cognitive impairment</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.neuro.cognition">
+              <option value="">—</option><option value="none">None</option>
+              <option value="mild">Mild</option><option value="moderate">Moderate</option><option value="severe">Severe</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Capacity concern</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.neuro.capacity">
+              <option value="">—</option><option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Recent stroke/TIA</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.neuro.recentStroke">
+              <option value="">—</option><option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Days since stroke/TIA</span>
+            <input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.neuro.daysSinceStroke" /></label>
+        </div>
+      </section>
+
+      <!-- STEP 8: Renal & hepatic -->
+      <section x-show="step === 8">
+        <h2 class="text-xl font-semibold mb-4">Step 8 — Renal &amp; hepatic</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <label class="block"><span class="text-sm">Creatinine (µmol/L)</span>
+            <input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.renalHep.creatinine" /></label>
+          <label class="block"><span class="text-sm">eGFR</span>
+            <input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.renalHep.egfr" /></label>
+          <label class="block"><span class="text-sm">Dialysis</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.renalHep.dialysis">
+              <option value="">—</option><option value="none">None</option>
+              <option value="peritoneal">Peritoneal</option><option value="haemodialysis">HD</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Bilirubin (µmol/L)</span>
+            <input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.renalHep.bilirubin" /></label>
+          <label class="block"><span class="text-sm">Albumin (g/L)</span>
+            <input type="number" step="0.1" class="w-full border rounded px-2 py-1" x-model.number="data.renalHep.albumin" /></label>
+          <label class="block"><span class="text-sm">Liver disease</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.renalHep.liverDisease">
+              <option value="">—</option><option value="none">None</option>
+              <option value="compensated">Compensated</option><option value="decompensated">Decompensated</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Child-Pugh</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.renalHep.childPugh">
+              <option value="">—</option><option value="A">A</option><option value="B">B</option><option value="C">C</option>
+            </select></label>
+        </div>
+      </section>
+
+      <!-- STEP 9: Haematology -->
+      <section x-show="step === 9">
+        <h2 class="text-xl font-semibold mb-4">Step 9 — Haematology</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <label class="block"><span class="text-sm">Hb (g/L)</span>
+            <input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.haem.hb" /></label>
+          <label class="block"><span class="text-sm">Platelets</span>
+            <input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.haem.platelets" /></label>
+          <label class="block"><span class="text-sm">INR</span>
+            <input type="number" step="0.01" class="w-full border rounded px-2 py-1" x-model.number="data.haem.inr" /></label>
+          <label class="block"><span class="text-sm">On anticoagulant?</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.haem.onAnticoag">
+              <option value="">—</option><option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Group &amp; save</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.haem.groupSave">
+              <option value="">—</option><option value="not-required">Not required</option>
+              <option value="ordered">Ordered</option><option value="valid">Valid</option>
+            </select></label>
+          <label class="block md:col-span-3"><span class="text-sm">Hold plan</span>
+            <input type="text" class="w-full border rounded px-2 py-1" x-model="data.haem.holdPlan" /></label>
+        </div>
+      </section>
+
+      <!-- STEP 10: Endocrine -->
+      <section x-show="step === 10">
+        <h2 class="text-xl font-semibold mb-4">Step 10 — Endocrine</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <label class="block"><span class="text-sm">DM type</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.endo.type">
+              <option value="">—</option><option value="none">None</option>
+              <option value="type-1">T1</option><option value="type-2">T2</option>
+            </select></label>
+          <label class="block"><span class="text-sm">On insulin?</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.endo.onInsulin">
+              <option value="">—</option><option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+          <label class="block"><span class="text-sm">HbA1c (mmol/mol)</span>
+            <input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.endo.hba1c" /></label>
+          <label class="block"><span class="text-sm">Control</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.endo.control">
+              <option value="">—</option><option value="well-controlled">Well</option>
+              <option value="suboptimal">Suboptimal</option><option value="poor">Poor</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Long-term steroids</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.endo.steroids">
+              <option value="">—</option><option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+        </div>
+      </section>
+
+      <!-- STEP 11: GI -->
+      <section x-show="step === 11">
+        <h2 class="text-xl font-semibold mb-4">Step 11 — Gastrointestinal</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <label class="block"><span class="text-sm">Reflux</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.gi.reflux">
+              <option value="">—</option><option value="none">None</option>
+              <option value="occasional">Occasional</option><option value="frequent">Frequent</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Fasting confirmed</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.gi.fastingConfirmed">
+              <option value="">—</option><option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+          <label class="block"><span class="text-sm">RSI needed</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.gi.rsi">
+              <option value="">—</option><option value="yes">Yes</option><option value="no">No</option>
+            </select></label>
+        </div>
+      </section>
+
+      <!-- STEP 12: MSK -->
+      <section x-show="step === 12">
+        <h2 class="text-xl font-semibold mb-4">Step 12 — Musculoskeletal &amp; skin</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <label class="block"><span class="text-sm">Spine</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.msk.spine">
+              <option value="">—</option><option value="normal">Normal</option>
+              <option value="scoliosis">Scoliosis</option><option value="previous-surgery">Previous surgery</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Neuraxial suitable</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.msk.neuraxial">
+              <option value="">—</option><option value="yes">Yes</option>
+              <option value="no">No</option><option value="unsure">Unsure</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Hip ROM</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.msk.hipRom">
+              <option value="">—</option><option value="full">Full</option>
+              <option value="reduced">Reduced</option><option value="severely-limited">Severely limited</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Shoulder ROM</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.msk.shoulderRom">
+              <option value="">—</option><option value="full">Full</option>
+              <option value="reduced">Reduced</option><option value="severely-limited">Severely limited</option>
+            </select></label>
+        </div>
+      </section>
+
+      <!-- STEP 13: Meds & allergies -->
+      <section x-show="step === 13">
+        <h2 class="text-xl font-semibold mb-4">Step 13 — Medications &amp; allergies</h2>
+        <div class="mb-4">
+          <h3 class="font-semibold mb-2">Medications</h3>
+          <button type="button" class="mb-3 px-3 py-1 rounded bg-slate-200 text-sm" @click="addMed()">+ Add</button>
+          <template x-for="(m, i) in data.meds" :key="i">
+            <div class="border rounded p-2 mb-2 grid grid-cols-2 md:grid-cols-5 gap-2">
+              <input class="border rounded px-2 py-1" placeholder="Name" x-model="m.name" />
+              <input class="border rounded px-2 py-1" placeholder="Dose" x-model="m.dose" />
+              <input class="border rounded px-2 py-1" placeholder="Freq" x-model="m.freq" />
+              <input class="border rounded px-2 py-1" placeholder="Class" x-model="m.class" />
+              <button type="button" class="text-red-600 text-sm" @click="removeMed(i)">Remove</button>
+            </div>
+          </template>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Allergies</h3>
+          <button type="button" class="mb-3 px-3 py-1 rounded bg-slate-200 text-sm" @click="addAllergy()">+ Add</button>
+          <template x-for="(a, i) in data.allergies" :key="i">
+            <div class="border rounded p-2 mb-2 grid grid-cols-2 md:grid-cols-5 gap-2">
+              <input class="border rounded px-2 py-1" placeholder="Allergen" x-model="a.allergen" />
+              <input class="border rounded px-2 py-1" placeholder="Category" x-model="a.category" />
+              <input class="border rounded px-2 py-1" placeholder="Reaction" x-model="a.reaction" />
+              <input class="border rounded px-2 py-1" placeholder="Severity" x-model="a.severity" />
+              <button type="button" class="text-red-600 text-sm" @click="removeAllergy(i)">Remove</button>
+            </div>
+          </template>
+        </div>
+      </section>
+
+      <!-- STEP 14: Functional capacity -->
+      <section x-show="step === 14">
+        <h2 class="text-xl font-semibold mb-4">Step 14 — Functional capacity &amp; frailty</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <label class="block"><span class="text-sm">METs</span>
+            <input type="number" step="0.1" class="w-full border rounded px-2 py-1" x-model.number="data.func.mets" /></label>
+          <label class="block"><span class="text-sm">DASI</span>
+            <input type="number" step="0.1" class="w-full border rounded px-2 py-1" x-model.number="data.func.dasi" /></label>
+          <label class="block"><span class="text-sm">Clinical Frailty Scale (1–9)</span>
+            <input type="number" min="1" max="9" class="w-full border rounded px-2 py-1" x-model.number="data.func.cfs" /></label>
+          <label class="block"><span class="text-sm">ECOG (0–4)</span>
+            <input type="number" min="0" max="4" class="w-full border rounded px-2 py-1" x-model.number="data.func.ecog" /></label>
+          <label class="block"><span class="text-sm">Malnutrition risk</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.func.malnutrition">
+              <option value="">—</option><option value="none">None</option>
+              <option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option>
+            </select></label>
+        </div>
+      </section>
+
+      <!-- STEP 15: Plan -->
+      <section x-show="step === 15">
+        <h2 class="text-xl font-semibold mb-4">Step 15 — Anaesthesia &amp; post-op plan</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <label class="block"><span class="text-sm">Technique</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.plan.technique">
+              <option value="">—</option><option value="ga">GA</option>
+              <option value="regional">Regional</option><option value="neuraxial">Neuraxial</option>
+              <option value="sedation">Sedation</option><option value="combined-ga-regional">GA + regional</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Airway plan</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.plan.airwayPlan">
+              <option value="">—</option><option value="face-mask">Mask</option>
+              <option value="supraglottic">Supraglottic</option><option value="ett">ETT</option>
+              <option value="awake-fibreoptic">Awake fibreoptic</option>
+            </select></label>
+          <label class="block md:col-span-2"><span class="text-sm">Analgesia</span>
+            <input type="text" class="w-full border rounded px-2 py-1" x-model="data.plan.analgesia" /></label>
+          <label class="block"><span class="text-sm">Disposition</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.plan.disposition">
+              <option value="">—</option><option value="day-case">Day case</option>
+              <option value="ward">Ward</option><option value="enhanced-care">Enhanced care</option>
+              <option value="hdu">HDU</option><option value="icu">ICU</option>
+            </select></label>
+          <label class="block"><span class="text-sm">LOS (days)</span>
+            <input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.plan.los" /></label>
+        </div>
+      </section>
+
+      <!-- STEP 16: Summary -->
+      <section x-show="step === 16">
+        <h2 class="text-xl font-semibold mb-4">Step 16 — Summary &amp; sign-off</h2>
+        <div class="border-l-4 p-4 mb-4" :class="`risk-${result.risk}`">
+          <p><strong>Computed ASA:</strong> <span x-text="result.asa + result.suffix"></span></p>
+          <p><strong>Mallampati:</strong> <span x-text="data.airway.mallampati || '—'"></span>
+             · <strong>RCRI:</strong> <span x-text="result.rcri.score"></span>
+             · <strong>STOP-BANG:</strong> <span x-text="result.sb"></span>
+             · <strong>CFS:</strong> <span x-text="data.func.cfs ?? '—'"></span></p>
+          <p><strong>Composite risk:</strong> <span x-text="result.risk.toUpperCase()"></span></p>
+        </div>
+
+        <template x-if="result.flags.length > 0">
+          <div class="border-l-4 border-red-500 bg-red-50 p-3 mb-4">
+            <p class="font-semibold mb-2">Safety flags</p>
+            <ul class="list-disc list-inside text-sm">
+              <template x-for="f in result.flags" :key="f.id">
+                <li><span class="font-medium" x-text="`[${f.priority.toUpperCase()}]`"></span>
+                  <span x-text="f.desc"></span> — <span x-text="f.action"></span></li>
+              </template>
+            </ul>
+          </div>
+        </template>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <label class="block"><span class="text-sm">Final ASA (override)</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.summary.finalAsa">
+              <option value="">Use computed</option>
+              <option>I</option><option>II</option><option>III</option>
+              <option>IV</option><option>V</option><option>VI</option>
+            </select></label>
+          <label class="block"><span class="text-sm">Recommendation</span>
+            <select class="w-full border rounded px-2 py-1" x-model="data.summary.recommendation">
+              <option value="">—</option><option value="proceed">Proceed</option>
+              <option value="optimise-first">Optimise first</option><option value="cancel">Cancel</option>
+            </select></label>
+          <label class="block md:col-span-2"><span class="text-sm">Override reason</span>
+            <input type="text" class="w-full border rounded px-2 py-1" x-model="data.summary.override" /></label>
+          <label class="block md:col-span-2"><span class="text-sm">Notes</span>
+            <textarea rows="4" class="w-full border rounded px-2 py-1" x-model="data.summary.notes"></textarea></label>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex justify-between mt-6 no-print">
+      <button type="button" class="px-4 py-2 rounded border border-slate-300 disabled:opacity-50"
+        :disabled="step === 1" @click="back()">Back</button>
+      <div class="flex gap-2">
+        <button type="button" class="px-4 py-2 rounded border border-slate-300" @click="print()">Print / Save PDF</button>
+        <button type="button" class="px-4 py-2 rounded bg-blue-600 text-white"
+          :disabled="step === totalSteps" @click="next()"
+          x-text="step === totalSteps ? 'Finish' : 'Next'"></button>
+      </div>
+    </div>
+
+    <footer class="mt-8 text-xs text-slate-500 border-t pt-4">
+      Pre-operative Assessment by Clinician · Clinical decision support only.
+      Final ASA grade and anaesthesia plan remain the responsibility of the
+      signing clinician.
+    </footer>
+  </div>
+</body>
+</html>

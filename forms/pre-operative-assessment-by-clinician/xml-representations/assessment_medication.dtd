@@ -1,0 +1,14 @@
+<!ELEMENT assessment_medication (id,assessment_id,name,dose,route,frequency,indication,class,perioperative_action,perioperative_notes,last_dose_at,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT dose (#PCDATA)>
+<!ELEMENT route (#PCDATA)>
+<!ELEMENT frequency (#PCDATA)>
+<!ELEMENT indication (#PCDATA)>
+<!ELEMENT class (#PCDATA)>
+<!ELEMENT perioperative_action (#PCDATA)>
+<!ELEMENT perioperative_notes (#PCDATA)>
+<!ELEMENT last_dose_at (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

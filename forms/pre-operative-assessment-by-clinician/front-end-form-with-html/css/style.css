@@ -1,0 +1,14 @@
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.risk-low { background: #dcfce7; border-color: #16a34a; color: #14532d; }
+.risk-moderate { background: #fef3c7; border-color: #ca8a04; color: #713f12; }
+.risk-high { background: #ffedd5; border-color: #ea580c; color: #7c2d12; }
+.risk-critical { background: #fee2e2; border-color: #dc2626; color: #7f1d1d; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  section { page-break-inside: avoid; }
+}

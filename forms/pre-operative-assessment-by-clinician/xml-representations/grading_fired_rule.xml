@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grading_fired_rule SYSTEM "grading_fired_rule.dtd">
+<grading_fired_rule>
+<id>991e8400-e29b-41d4-a716-446655440013</id>
+<grading_result_id>881e8400-e29b-41d4-a716-446655440012</grading_result_id>
+<rule_id>660e8400-e29b-41d4-a716-446655440001</rule_id>
+<instrument>asa</instrument>
+<grade></grade>
+<category>General</category>
+<description>Example text.</description>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</grading_fired_rule>

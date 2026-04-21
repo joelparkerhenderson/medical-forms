@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grading_additional_flag SYSTEM "grading_additional_flag.dtd">
+<grading_additional_flag>
+<id>aa1e8400-e29b-41d4-a716-446655440014</id>
+<grading_result_id>881e8400-e29b-41d4-a716-446655440012</grading_result_id>
+<flag_id>660e8400-e29b-41d4-a716-446655440001</flag_id>
+<category>difficult-airway</category>
+<priority>low</priority>
+<description>Example text.</description>
+<suggested_action></suggested_action>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</grading_additional_flag>

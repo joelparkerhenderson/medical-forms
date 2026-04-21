@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_cardiovascular SYSTEM "assessment_cardiovascular.dtd">
+<assessment_cardiovascular>
+<id>bb0e8400-e29b-41d4-a716-446655440006</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<heart_rhythm>sinus</heart_rhythm>
+<murmur_present>yes</murmur_present>
+<murmur_description>Example text.</murmur_description>
+<peripheral_pulses>normal</peripheral_pulses>
+<jvp_raised>yes</jvp_raised>
+<peripheral_oedema>none</peripheral_oedema>
+<ecg_performed>yes</ecg_performed>
+<ecg_rhythm></ecg_rhythm>
+<ecg_rate_bpm>1</ecg_rate_bpm>
+<ecg_axis>normal</ecg_axis>
+<ecg_ischaemic_changes>yes</ecg_ischaemic_changes>
+<ecg_notes>Example text.</ecg_notes>
+<echo_performed>yes</echo_performed>
+<echo_ef_percent>1</echo_ef_percent>
+<echo_notes>Example text.</echo_notes>
+<history_ihd>yes</history_ihd>
+<history_chf>yes</history_chf>
+<history_stroke_tia>yes</history_stroke_tia>
+<recent_mi_within_3_months>yes</recent_mi_within_3_months>
+<pacemaker_or_icd>yes</pacemaker_or_icd>
+<severe_valve_dysfunction>yes</severe_valve_dysfunction>
+<active_angina>yes</active_angina>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_cardiovascular>

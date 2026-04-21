@@ -1,0 +1,27 @@
+# Tasks: SvelteKit clinician front-end
+
+- [x] `package.json` with SvelteKit 2, Svelte 5, Tailwind 4, pdfmake, Vitest.
+- [x] `svelte.config.js` + `vite.config.ts` + `tsconfig.json`.
+- [x] `src/app.html`, `src/app.css`, `src/app.d.ts`.
+- [x] `src/params/step.ts` — route matcher 1-16.
+- [x] `src/lib/engine/types.ts` — ClinicianAssessment + sub-types.
+- [x] `src/lib/engine/utils.ts` — BMI, age, MET helpers.
+- [x] `src/lib/engine/asa-rules.ts`.
+- [x] `src/lib/engine/mallampati-rules.ts`.
+- [x] `src/lib/engine/rcri-rules.ts`.
+- [x] `src/lib/engine/stopbang-rules.ts`.
+- [x] `src/lib/engine/frailty-rules.ts`.
+- [x] `src/lib/engine/composite-grader.ts`.
+- [x] `src/lib/engine/flagged-issues.ts`.
+- [x] `src/lib/engine/composite-grader.test.ts` — Vitest.
+- [x] `src/lib/stores/assessment.svelte.ts` — reactive store.
+- [x] `src/lib/config/steps.ts` — 16-step definitions.
+- [x] `src/lib/components/ui/*.svelte` — progress, navigation, fields.
+- [x] `src/lib/components/steps/Step*.svelte` — all 16 steps.
+- [x] `src/lib/report/pdf-builder.ts`.
+- [x] `src/routes/+layout.svelte`, `+page.svelte`.
+- [x] `src/routes/assessment/[step=step]/+page.svelte`.
+- [x] `src/routes/report/+page.svelte`, `/pdf/+server.ts`.
+- [ ] Zod runtime validation (deferred).
+- [ ] Axe-core audit (deferred).
+- [ ] Playwright end-to-end (deferred).

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_haematology SYSTEM "assessment_haematology.dtd">
+<assessment_haematology>
+<id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<hb_g_l>1</hb_g_l>
+<wcc_10_9_l>0.0</wcc_10_9_l>
+<platelets_10_9_l>1</platelets_10_9_l>
+<mcv_fl>0.0</mcv_fl>
+<ferritin_ug_l>1</ferritin_ug_l>
+<transferrin_saturation_percent>50.0</transferrin_saturation_percent>
+<inr>0.0</inr>
+<aptt_seconds>0.0</aptt_seconds>
+<fibrinogen_g_l>0.0</fibrinogen_g_l>
+<on_anticoagulant>yes</on_anticoagulant>
+<anticoagulant_type>warfarin</anticoagulant_type>
+<anticoagulant_hold_plan>Example text.</anticoagulant_hold_plan>
+<group_and_save>not-required</group_and_save>
+<crossmatch_units>1</crossmatch_units>
+<last_transfusion_date>2026-01-15</last_transfusion_date>
+<anaemia_severity>none</anaemia_severity>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_haematology>

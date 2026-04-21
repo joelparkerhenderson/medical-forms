@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_neurological SYSTEM "assessment_neurological.dtd">
+<assessment_neurological>
+<id>dd0e8400-e29b-41d4-a716-446655440008</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<gcs_total>1</gcs_total>
+<gcs_eye>1</gcs_eye>
+<gcs_verbal>1</gcs_verbal>
+<gcs_motor>1</gcs_motor>
+<cognition_tool>AMT-4</cognition_tool>
+<cognition_score>5</cognition_score>
+<cognitive_impairment>none</cognitive_impairment>
+<capacity_concern>yes</capacity_concern>
+<cranial_nerves_notes>Example text.</cranial_nerves_notes>
+<motor_power>normal</motor_power>
+<sensory_notes>Example text.</sensory_notes>
+<reflexes>normal</reflexes>
+<recent_stroke_tia>yes</recent_stroke_tia>
+<days_since_stroke_tia>1</days_since_stroke_tia>
+<seizure_disorder>yes</seizure_disorder>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_neurological>

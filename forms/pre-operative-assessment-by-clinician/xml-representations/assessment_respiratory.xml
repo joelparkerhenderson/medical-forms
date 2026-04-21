@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_respiratory SYSTEM "assessment_respiratory.dtd">
+<assessment_respiratory>
+<id>cc0e8400-e29b-41d4-a716-446655440007</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<breath_sounds>normal</breath_sounds>
+<wheeze>yes</wheeze>
+<crackles>yes</crackles>
+<crepitations>yes</crepitations>
+<chest_wall_deformity>yes</chest_wall_deformity>
+<asthma>none</asthma>
+<copd>none</copd>
+<cxr_performed>yes</cxr_performed>
+<cxr_findings>Example text.</cxr_findings>
+<pft_performed>yes</pft_performed>
+<pft_fev1_percent_predicted>50.0</pft_fev1_percent_predicted>
+<pft_fev1_fvc_ratio>1.5</pft_fev1_fvc_ratio>
+<smoking_status>never</smoking_status>
+<pack_years>0.0</pack_years>
+<covid_history>never</covid_history>
+<days_since_covid>1</days_since_covid>
+<covid_unresolved_symptoms>yes</covid_unresolved_symptoms>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_respiratory>

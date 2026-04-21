@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:geekymedics.com)",
+      "WebFetch(domain:cpoc.org.uk)",
+      "Bash(curl -sL -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" \"https://geekymedics.com/anaesthetic-pre-operative-assessment-osce-guide/\" -o /tmp/geeky.html)",
+      "Read(//tmp/**)",
+      "Bash(curl -sL -A \"Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" \"https://cpoc.org.uk/sites/cpoc/files/documents/2021-06/Preoperative%20assessment%20and%20optimisation%20guidance_format.pdf\" -o /tmp/cpoc.pdf)",
+      "WebSearch",
+      "Bash(pdftotext -layout /tmp/cpoc.pdf /tmp/cpoc.txt)",
+      "WebFetch(domain:www.studocu.com)",
+      "Bash(bin/create-form pre-operative-assessment-by-clinician *)",
+      "Bash(python3 bin/generate-xml-representations.py)",
+      "Bash(python3 bin/generate-fhir-r5-representations.py)",
+      "Bash(bin/test-form pre-operative-assessment-by-clinician *)",
+      "Bash(echo \"exit=$?\")"
+    ]
+  }
+}

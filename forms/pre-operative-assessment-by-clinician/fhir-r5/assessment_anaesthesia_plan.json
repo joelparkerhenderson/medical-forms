@@ -1,0 +1,224 @@
+{
+  "resourceType": "Observation",
+  "id": "771e8400-e29b-41d4-a716-446655440011",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+        "code": "assessment_anaesthesia_plan",
+        "display": "Anaesthesia Plan"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "technique",
+            "display": "Technique"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:technique",
+            "code": "ga",
+            "display": "Ga"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "airway_plan",
+            "display": "Airway Plan"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:airway_plan",
+            "code": "face-mask",
+            "display": "Face-Mask"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "rsi_planned",
+            "display": "Rsi Planned"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:rsi_planned",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "monitoring_level",
+            "display": "Monitoring Level"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:monitoring_level",
+            "code": "standard",
+            "display": "Standard"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "analgesia_plan",
+            "display": "Analgesia Plan"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "regional_block_planned",
+            "display": "Regional Block Planned"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "dvt_prophylaxis",
+            "display": "Dvt Prophylaxis"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "antibiotic_prophylaxis",
+            "display": "Antibiotic Prophylaxis"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "post_op_disposition",
+            "display": "Post Op Disposition"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:post_op_disposition",
+            "code": "day-case",
+            "display": "Day-Case"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "anticipated_length_of_stay_days",
+            "display": "Anticipated Length Of Stay Days"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "special_equipment",
+            "display": "Special Equipment"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "blood_products_required",
+            "display": "Blood Products Required"
+          }
+        ]
+      },
+      "valueString": ""
+    }
+  ]
+}

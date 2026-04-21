@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_endocrine SYSTEM "assessment_endocrine.dtd">
+<assessment_endocrine>
+<id>110e8400-e29b-41d4-a716-44665544000b</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<diabetes_type>none</diabetes_type>
+<diabetes_on_insulin>yes</diabetes_on_insulin>
+<hba1c_mmol_mol>1</hba1c_mmol_mol>
+<fasting_glucose_mmol_l>0.0</fasting_glucose_mmol_l>
+<random_glucose_mmol_l>0.0</random_glucose_mmol_l>
+<diabetes_control>well-controlled</diabetes_control>
+<diabetes_complications></diabetes_complications>
+<thyroid_status>euthyroid</thyroid_status>
+<tsh_mu_l>0.0</tsh_mu_l>
+<adrenal_status>normal</adrenal_status>
+<on_long_term_steroids>yes</on_long_term_steroids>
+<steroid_dose_mg>10.0</steroid_dose_mg>
+<steroid_cover_plan>Example text.</steroid_cover_plan>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_endocrine>

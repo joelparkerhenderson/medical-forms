@@ -1,0 +1,15 @@
+<!ELEMENT assessment_vitals (id,assessment_id,systolic_bp,diastolic_bp,heart_rate,respiratory_rate,spo2_percent,temperature_celsius,capillary_refill_seconds,pain_score_0_10,on_room_air,supplemental_oxygen_litres,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT systolic_bp (#PCDATA)>
+<!ELEMENT diastolic_bp (#PCDATA)>
+<!ELEMENT heart_rate (#PCDATA)>
+<!ELEMENT respiratory_rate (#PCDATA)>
+<!ELEMENT spo2_percent (#PCDATA)>
+<!ELEMENT temperature_celsius (#PCDATA)>
+<!ELEMENT capillary_refill_seconds (#PCDATA)>
+<!ELEMENT pain_score_0_10 (#PCDATA)>
+<!ELEMENT on_room_air (#PCDATA)>
+<!ELEMENT supplemental_oxygen_litres (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

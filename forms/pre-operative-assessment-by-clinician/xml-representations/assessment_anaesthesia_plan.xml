@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_anaesthesia_plan SYSTEM "assessment_anaesthesia_plan.dtd">
+<assessment_anaesthesia_plan>
+<id>771e8400-e29b-41d4-a716-446655440011</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<technique>ga</technique>
+<airway_plan>face-mask</airway_plan>
+<rsi_planned>yes</rsi_planned>
+<monitoring_level>standard</monitoring_level>
+<analgesia_plan>Example text.</analgesia_plan>
+<regional_block_planned>Example text.</regional_block_planned>
+<dvt_prophylaxis></dvt_prophylaxis>
+<antibiotic_prophylaxis></antibiotic_prophylaxis>
+<post_op_disposition>day-case</post_op_disposition>
+<anticipated_length_of_stay_days>1</anticipated_length_of_stay_days>
+<special_equipment></special_equipment>
+<blood_products_required></blood_products_required>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_anaesthesia_plan>

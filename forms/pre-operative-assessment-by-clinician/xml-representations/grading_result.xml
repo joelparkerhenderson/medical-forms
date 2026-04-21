@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE grading_result SYSTEM "grading_result.dtd">
+<grading_result>
+<id>881e8400-e29b-41d4-a716-446655440012</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<computed_asa_grade>I</computed_asa_grade>
+<final_asa_grade>I</final_asa_grade>
+<asa_emergency_suffix>E</asa_emergency_suffix>
+<override_reason>Example text.</override_reason>
+<mallampati_class>I</mallampati_class>
+<rcri_score>5</rcri_score>
+<stopbang_score>5</stopbang_score>
+<frailty_scale>1</frailty_scale>
+<composite_risk>low</composite_risk>
+<recommendation>proceed</recommendation>
+<clinician_notes>Example text.</clinician_notes>
+<signed_at>2026-04-09T10:00:00Z</signed_at>
+<graded_at>2026-04-09T10:00:00Z</graded_at>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</grading_result>

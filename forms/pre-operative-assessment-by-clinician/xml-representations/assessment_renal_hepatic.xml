@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_renal_hepatic SYSTEM "assessment_renal_hepatic.dtd">
+<assessment_renal_hepatic>
+<id>ee0e8400-e29b-41d4-a716-446655440009</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<creatinine_umol_l>1</creatinine_umol_l>
+<egfr_ml_min_1_73m2>1</egfr_ml_min_1_73m2>
+<urea_mmol_l>0.0</urea_mmol_l>
+<potassium_mmol_l>0.0</potassium_mmol_l>
+<sodium_mmol_l>0.0</sodium_mmol_l>
+<dialysis_status>none</dialysis_status>
+<ckd_stage>1</ckd_stage>
+<bilirubin_umol_l>1</bilirubin_umol_l>
+<alt_u_l>1</alt_u_l>
+<ast_u_l>1</ast_u_l>
+<alp_u_l>1</alp_u_l>
+<albumin_g_l>0.0</albumin_g_l>
+<chronic_liver_disease>none</chronic_liver_disease>
+<child_pugh_class>A</child_pugh_class>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_renal_hepatic>

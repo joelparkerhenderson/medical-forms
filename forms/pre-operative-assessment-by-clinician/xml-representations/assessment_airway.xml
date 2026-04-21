@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_airway SYSTEM "assessment_airway.dtd">
+<assessment_airway>
+<id>aa0e8400-e29b-41d4-a716-446655440005</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<mallampati_class>I</mallampati_class>
+<thyromental_distance_cm>0.0</thyromental_distance_cm>
+<mouth_opening_cm>0.0</mouth_opening_cm>
+<inter_incisor_gap_cm>0.0</inter_incisor_gap_cm>
+<neck_rom>full</neck_rom>
+<cervical_spine_stability>stable</cervical_spine_stability>
+<dentition>good</dentition>
+<beard>yes</beard>
+<upper_lip_bite_test>I</upper_lip_bite_test>
+<prior_difficult_intubation>yes</prior_difficult_intubation>
+<stopbang_snoring>yes</stopbang_snoring>
+<stopbang_tired>yes</stopbang_tired>
+<stopbang_observed_apnoea>yes</stopbang_observed_apnoea>
+<stopbang_pressure>yes</stopbang_pressure>
+<stopbang_bmi_gt35>yes</stopbang_bmi_gt35>
+<stopbang_age_gt50>yes</stopbang_age_gt50>
+<stopbang_neck_gt40>yes</stopbang_neck_gt40>
+<stopbang_male>yes</stopbang_male>
+<airway_notes>Example text.</airway_notes>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_airway>

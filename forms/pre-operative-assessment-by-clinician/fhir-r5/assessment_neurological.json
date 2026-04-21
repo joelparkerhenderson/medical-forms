@@ -1,0 +1,276 @@
+{
+  "resourceType": "Observation",
+  "id": "dd0e8400-e29b-41d4-a716-446655440008",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+        "code": "assessment_neurological",
+        "display": "Neurological"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "gcs_total",
+            "display": "Gcs Total"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "gcs_eye",
+            "display": "Gcs Eye"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "gcs_verbal",
+            "display": "Gcs Verbal"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "gcs_motor",
+            "display": "Gcs Motor"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "cognition_tool",
+            "display": "Cognition Tool"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:cognition_tool",
+            "code": "AMT-4",
+            "display": "Amt-4"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "cognition_score",
+            "display": "Cognition Score"
+          }
+        ]
+      },
+      "valueInteger": 5
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "cognitive_impairment",
+            "display": "Cognitive Impairment"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:cognitive_impairment",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "capacity_concern",
+            "display": "Capacity Concern"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:capacity_concern",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "cranial_nerves_notes",
+            "display": "Cranial Nerves Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "motor_power",
+            "display": "Motor Power"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:motor_power",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "sensory_notes",
+            "display": "Sensory Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "reflexes",
+            "display": "Reflexes"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:reflexes",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "recent_stroke_tia",
+            "display": "Recent Stroke Tia"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:recent_stroke_tia",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "days_since_stroke_tia",
+            "display": "Days Since Stroke Tia"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "seizure_disorder",
+            "display": "Seizure Disorder"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:seizure_disorder",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    }
+  ]
+}

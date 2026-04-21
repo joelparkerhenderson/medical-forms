@@ -1,0 +1,212 @@
+{
+  "resourceType": "Observation",
+  "id": "330e8400-e29b-41d4-a716-44665544000d",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+        "code": "assessment_musculoskeletal",
+        "display": "Musculoskeletal"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "spine_exam",
+            "display": "Spine Exam"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:spine_exam",
+            "code": "normal",
+            "display": "Normal"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "spine_notes",
+            "display": "Spine Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "neuraxial_suitable",
+            "display": "Neuraxial Suitable"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:neuraxial_suitable",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "joint_rom_hip",
+            "display": "Joint Rom Hip"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:joint_rom_hip",
+            "code": "full",
+            "display": "Full"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "joint_rom_shoulder",
+            "display": "Joint Rom Shoulder"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:joint_rom_shoulder",
+            "code": "full",
+            "display": "Full"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "joint_rom_neck",
+            "display": "Joint Rom Neck"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:joint_rom_neck",
+            "code": "full",
+            "display": "Full"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "skin_iv_access",
+            "display": "Skin Iv Access"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:skin_iv_access",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "skin_block_site",
+            "display": "Skin Block Site"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:skin_block_site",
+            "code": "intact",
+            "display": "Intact"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "pressure_ulcer_risk",
+            "display": "Pressure Ulcer Risk"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:pressure_ulcer_risk",
+            "code": "low",
+            "display": "Low"
+          }
+        ]
+      }
+    }
+  ]
+}

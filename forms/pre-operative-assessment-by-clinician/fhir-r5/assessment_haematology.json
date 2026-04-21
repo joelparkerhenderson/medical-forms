@@ -1,0 +1,276 @@
+{
+  "resourceType": "Observation",
+  "id": "ff0e8400-e29b-41d4-a716-44665544000a",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+        "code": "assessment_haematology",
+        "display": "Haematology"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "hb_g_l",
+            "display": "Hb G L"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "wcc_10_9_l",
+            "display": "Wcc 10 9 L"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "platelets_10_9_l",
+            "display": "Platelets 10 9 L"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "mcv_fl",
+            "display": "Mcv Fl"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "ferritin_ug_l",
+            "display": "Ferritin Ug L"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "transferrin_saturation_percent",
+            "display": "Transferrin Saturation Percent"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "inr",
+            "display": "Inr"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "aptt_seconds",
+            "display": "Aptt Seconds"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "fibrinogen_g_l",
+            "display": "Fibrinogen G L"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "on_anticoagulant",
+            "display": "On Anticoagulant"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:on_anticoagulant",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "anticoagulant_type",
+            "display": "Anticoagulant Type"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:anticoagulant_type",
+            "code": "warfarin",
+            "display": "Warfarin"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "anticoagulant_hold_plan",
+            "display": "Anticoagulant Hold Plan"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "group_and_save",
+            "display": "Group And Save"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:group_and_save",
+            "code": "not-required",
+            "display": "Not-Required"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "crossmatch_units",
+            "display": "Crossmatch Units"
+          }
+        ]
+      },
+      "valueInteger": 1
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "last_transfusion_date",
+            "display": "Last Transfusion Date"
+          }
+        ]
+      },
+      "valueDateTime": "2026-01-15"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "anaemia_severity",
+            "display": "Anaemia Severity"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:anaemia_severity",
+            "code": "none",
+            "display": "None"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<!ELEMENT assessment_anaesthesia_plan (id,assessment_id,technique,airway_plan,rsi_planned,monitoring_level,analgesia_plan,regional_block_planned,dvt_prophylaxis,antibiotic_prophylaxis,post_op_disposition,anticipated_length_of_stay_days,special_equipment,blood_products_required,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT technique (#PCDATA)>
+<!ELEMENT airway_plan (#PCDATA)>
+<!ELEMENT rsi_planned (#PCDATA)>
+<!ELEMENT monitoring_level (#PCDATA)>
+<!ELEMENT analgesia_plan (#PCDATA)>
+<!ELEMENT regional_block_planned (#PCDATA)>
+<!ELEMENT dvt_prophylaxis (#PCDATA)>
+<!ELEMENT antibiotic_prophylaxis (#PCDATA)>
+<!ELEMENT post_op_disposition (#PCDATA)>
+<!ELEMENT anticipated_length_of_stay_days (#PCDATA)>
+<!ELEMENT special_equipment (#PCDATA)>
+<!ELEMENT blood_products_required (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_allergy SYSTEM "assessment_allergy.dtd">
+<assessment_allergy>
+<id>551e8400-e29b-41d4-a716-44665544000f</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<allergen>Peanuts</allergen>
+<category>drug</category>
+<reaction_type>anaphylaxis</reaction_type>
+<reaction_severity>mild</reaction_severity>
+<reaction_notes>Example text.</reaction_notes>
+<verified>yes</verified>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_allergy>

@@ -1,0 +1,394 @@
+{
+  "resourceType": "Observation",
+  "id": "aa0e8400-e29b-41d4-a716-446655440005",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+        "code": "assessment_airway",
+        "display": "Airway"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "mallampati_class",
+            "display": "Mallampati Class"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:mallampati_class",
+            "code": "I",
+            "display": "I"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "thyromental_distance_cm",
+            "display": "Thyromental Distance Cm"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "mouth_opening_cm",
+            "display": "Mouth Opening Cm"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "inter_incisor_gap_cm",
+            "display": "Inter Incisor Gap Cm"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 0.0
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "neck_rom",
+            "display": "Neck Rom"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:neck_rom",
+            "code": "full",
+            "display": "Full"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "cervical_spine_stability",
+            "display": "Cervical Spine Stability"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:cervical_spine_stability",
+            "code": "stable",
+            "display": "Stable"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "dentition",
+            "display": "Dentition"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:dentition",
+            "code": "good",
+            "display": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "beard",
+            "display": "Beard"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:beard",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "upper_lip_bite_test",
+            "display": "Upper Lip Bite Test"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:upper_lip_bite_test",
+            "code": "I",
+            "display": "I"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "prior_difficult_intubation",
+            "display": "Prior Difficult Intubation"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:prior_difficult_intubation",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "stopbang_snoring",
+            "display": "Stopbang Snoring"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:stopbang_snoring",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "stopbang_tired",
+            "display": "Stopbang Tired"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:stopbang_tired",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "stopbang_observed_apnoea",
+            "display": "Stopbang Observed Apnoea"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:stopbang_observed_apnoea",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "stopbang_pressure",
+            "display": "Stopbang Pressure"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:stopbang_pressure",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "stopbang_bmi_gt35",
+            "display": "Stopbang Bmi Gt35"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:stopbang_bmi_gt35",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "stopbang_age_gt50",
+            "display": "Stopbang Age Gt50"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:stopbang_age_gt50",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "stopbang_neck_gt40",
+            "display": "Stopbang Neck Gt40"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:stopbang_neck_gt40",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "stopbang_male",
+            "display": "Stopbang Male"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician:stopbang_male",
+            "code": "yes",
+            "display": "Yes"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:pre-operative-assessment-by-clinician",
+            "code": "airway_notes",
+            "display": "Airway Notes"
+          }
+        ]
+      },
+      "valueString": "Example text."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_surgery_plan SYSTEM "assessment_surgery_plan.dtd">
+<assessment_surgery_plan>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<planned_procedure>Example text.</planned_procedure>
+<surgical_specialty></surgical_specialty>
+<urgency>elective</urgency>
+<laterality>left</laterality>
+<surgical_severity>minor</surgical_severity>
+<anticipated_blood_loss_ml>1</anticipated_blood_loss_ml>
+<anticipated_duration_minutes>1</anticipated_duration_minutes>
+<consultant_surgeon></consultant_surgeon>
+<planned_date>2026-01-15</planned_date>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_surgery_plan>
