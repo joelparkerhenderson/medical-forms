@@ -1,0 +1,66 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        cirrhosis: '{{ hepatic.cirrhosis }}',
+        hepatitis: '{{ hepatic.hepatitis }}'
+    }">
+        <div class="form-group">
+            <label>Liver Disease</label>
+            <div class="radio-group">
+                <label><input type="radio" name="hepatic.liver_disease" value="yes" {% if hepatic.liverDisease == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="hepatic.liver_disease" value="no" {% if hepatic.liverDisease == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Cirrhosis</label>
+            <div class="radio-group">
+                <label><input type="radio" name="hepatic.cirrhosis" value="yes" x-model="cirrhosis" {% if hepatic.cirrhosis == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="hepatic.cirrhosis" value="no" x-model="cirrhosis" {% if hepatic.cirrhosis == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="cirrhosis === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="child_pugh">Child-Pugh Score</label>
+                <select id="child_pugh" name="hepatic.child_pugh_score">
+                    <option value="" {% if hepatic.childPughScore == "" %}selected{% endif %}>Select...</option>
+                    <option value="A" {% if hepatic.childPughScore == "A" %}selected{% endif %}>A (5-6 points)</option>
+                    <option value="B" {% if hepatic.childPughScore == "B" %}selected{% endif %}>B (7-9 points)</option>
+                    <option value="C" {% if hepatic.childPughScore == "C" %}selected{% endif %}>C (10-15 points)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Hepatitis</label>
+            <div class="radio-group">
+                <label><input type="radio" name="hepatic.hepatitis" value="yes" x-model="hepatitis" {% if hepatic.hepatitis == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="hepatic.hepatitis" value="no" x-model="hepatitis" {% if hepatic.hepatitis == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="hepatitis === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="hepatitis_type">Hepatitis Type</label>
+                <select id="hepatitis_type" name="hepatic.hepatitis_type">
+                    <option value="" {% if hepatic.hepatitisType == "" %}selected{% endif %}>Select...</option>
+                    <option value="A" {% if hepatic.hepatitisType == "A" %}selected{% endif %}>Hepatitis A</option>
+                    <option value="B" {% if hepatic.hepatitisType == "B" %}selected{% endif %}>Hepatitis B</option>
+                    <option value="C" {% if hepatic.hepatitisType == "C" %}selected{% endif %}>Hepatitis C</option>
+                </select>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

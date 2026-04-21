@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pre-Operative Assessment — Report</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<h1>Pre-Operative Assessment</h1>
+		<p>Assessment report</p>
+	</header>
+
+	<div class="container" id="report-container">
+		<!-- Populated by JS -->
+	</div>
+
+	<script type="module">
+		import { asaGradeLabel, asaGradeColor } from './js/utils.js';
+
+		const container = document.getElementById('report-container');
+		const dataStr = sessionStorage.getItem('assessmentData');
+		const resultStr = sessionStorage.getItem('gradingResult');
+
+		if (!dataStr || !resultStr) {
+			container.innerHTML = `
+				<div class="card landing">
+					<h2>No Assessment Data</h2>
+					<p>Please complete the assessment questionnaire first.</p>
+					<a href="index.html" class="btn btn-primary">Go to Assessment</a>
+				</div>
+			`;
+		} else {
+			const data = JSON.parse(dataStr);
+			const result = JSON.parse(resultStr);
+			renderReport(data, result);
+		}
+
+		function renderReport(data, result) {
+			const d = data.demographics;
+			const asaRoman = ['I', 'II', 'III', 'IV', 'V', 'VI'];
+
+			let html = '';
+
+			// Patient info
+			html += `
+				<div class="card">
+					<h2>Patient Information</h2>
+					<div class="form-row">
+						<div><strong>Name:</strong> ${escapeHtml(d.firstName)} ${escapeHtml(d.lastName)}</div>
+						<div><strong>Date of Birth:</strong> ${escapeHtml(d.dateOfBirth)}</div>
+					</div>
+					<div class="form-row" style="margin-top: 0.5rem">
+						<div><strong>Planned Procedure:</strong> ${escapeHtml(d.plannedProcedure)}</div>
+						<div><strong>Urgency:</strong> ${escapeHtml(d.procedureUrgency)}</div>
+					</div>
+					${d.bmi ? `<div style="margin-top: 0.5rem"><strong>BMI:</strong> ${d.bmi}</div>` : ''}
+				</div>
+			`;
+
+			// ASA Grade
+			html += `
+				<div class="card">
+					<h2>ASA Physical Status Classification</h2>
+					<div class="asa-badge ${asaGradeColor(result.asaGrade)}">
+						ASA ${asaRoman[result.asaGrade - 1] || result.asaGrade}
+					</div>
+					<p>${asaGradeLabel(result.asaGrade)}</p>
+					<p style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--gray-500)">
+						Generated: ${new Date(result.timestamp).toLocaleString()}
+					</p>
+				</div>
+			`;
+
+			// Additional Flags
+			if (result.additionalFlags.length > 0) {
+				html += `<div class="card"><h2>Safety Flags</h2><ul class="flag-list">`;
+				for (const flag of result.additionalFlags) {
+					html += `
+						<li class="flag-item flag-${flag.priority}">
+							<span class="flag-category">[${escapeHtml(flag.category)}]</span>
+							${escapeHtml(flag.message)}
+						</li>
+					`;
+				}
+				html += `</ul></div>`;
+			}
+
+			// Fired Rules
+			if (result.firedRules.length > 0) {
+				html += `
+					<div class="card">
+						<h2>Fired ASA Rules (${result.firedRules.length})</h2>
+						<table class="rules-table">
+							<thead>
+								<tr>
+									<th>Rule ID</th>
+									<th>System</th>
+									<th>Description</th>
+									<th>Grade</th>
+								</tr>
+							</thead>
+							<tbody>
+				`;
+				for (const rule of result.firedRules) {
+					html += `
+						<tr>
+							<td>${escapeHtml(rule.id)}</td>
+							<td>${escapeHtml(rule.system)}</td>
+							<td>${escapeHtml(rule.description)}</td>
+							<td>ASA ${asaRoman[rule.grade - 1] || rule.grade}</td>
+						</tr>
+					`;
+				}
+				html += `</tbody></table></div>`;
+			} else {
+				html += `
+					<div class="card">
+						<h2>Fired ASA Rules</h2>
+						<p style="color: var(--gray-500)">No ASA rules fired. Patient classified as ASA I (healthy).</p>
+					</div>
+				`;
+			}
+
+			// Actions
+			html += `
+				<div class="step-nav">
+					<a href="index.html" class="btn btn-secondary">New Assessment</a>
+					<button class="btn btn-primary" onclick="window.print()">Print Report</button>
+				</div>
+			`;
+
+			container.innerHTML = html;
+		}
+
+		function escapeHtml(str) {
+			if (str === null || str === undefined) return '';
+			const div = document.createElement('div');
+			div.appendChild(document.createTextNode(String(str)));
+			return div.innerHTML;
+		}
+	</script>
+</body>
+</html>

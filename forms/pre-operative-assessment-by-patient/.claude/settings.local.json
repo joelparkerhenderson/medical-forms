@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__svelte__get-documentation",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.asahq.org)",
+      "WebFetch(domain:www.ncbi.nlm.nih.gov)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:www.mdcalc.com)",
+      "Bash(npx sv create:*)",
+      "Bash(npm install:*)",
+      "Bash(npx sv add:*)",
+      "Bash(npx vitest run:*)",
+      "Bash(npx svelte-kit sync:*)",
+      "Bash(npx svelte-check:*)",
+      "Bash(npm run build:*)",
+      "Bash(claude doctor:*)",
+      "Bash(find:*)",
+      "Bash(npm run check:*)",
+      "Bash(wc:*)",
+      "Bash(python3:*)",
+      "mcp__svelte__svelte-autofixer",
+      "Bash(cargo test:*)",
+      "WebFetch(domain:svar.dev)",
+      "WebFetch(domain:docs.svar.dev)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(bin/test-form pre-operative-assessment-by-patient *)"
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+        dentalIssues: '{{ musculoskeletal_airway.dentalIssues }}'
+    }">
+        <div class="form-group">
+            <label>Rheumatoid Arthritis</label>
+            <div class="radio-group">
+                <label><input type="radio" name="musculoskeletal_airway.rheumatoid_arthritis" value="yes" {% if musculoskeletal_airway.rheumatoidArthritis == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="musculoskeletal_airway.rheumatoid_arthritis" value="no" {% if musculoskeletal_airway.rheumatoidArthritis == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Cervical Spine Issues</label>
+            <div class="radio-group">
+                <label><input type="radio" name="musculoskeletal_airway.cervical_spine_issues" value="yes" {% if musculoskeletal_airway.cervicalSpineIssues == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="musculoskeletal_airway.cervical_spine_issues" value="no" {% if musculoskeletal_airway.cervicalSpineIssues == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Limited Neck Movement</label>
+            <div class="radio-group">
+                <label><input type="radio" name="musculoskeletal_airway.limited_neck_movement" value="yes" {% if musculoskeletal_airway.limitedNeckMovement == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="musculoskeletal_airway.limited_neck_movement" value="no" {% if musculoskeletal_airway.limitedNeckMovement == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Limited Mouth Opening</label>
+            <div class="radio-group">
+                <label><input type="radio" name="musculoskeletal_airway.limited_mouth_opening" value="yes" {% if musculoskeletal_airway.limitedMouthOpening == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="musculoskeletal_airway.limited_mouth_opening" value="no" {% if musculoskeletal_airway.limitedMouthOpening == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Dental Issues</label>
+            <div class="radio-group">
+                <label><input type="radio" name="musculoskeletal_airway.dental_issues" value="yes" x-model="dentalIssues" {% if musculoskeletal_airway.dentalIssues == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="musculoskeletal_airway.dental_issues" value="no" x-model="dentalIssues" {% if musculoskeletal_airway.dentalIssues == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="conditional-field" x-show="dentalIssues === 'yes'" x-transition x-cloak>
+            <div class="form-group">
+                <label for="dental_details">Dental Details</label>
+                <textarea id="dental_details" name="musculoskeletal_airway.dental_details">{{ musculoskeletal_airway.dentalDetails }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Previous Difficult Airway</label>
+            <div class="radio-group">
+                <label><input type="radio" name="musculoskeletal_airway.previous_difficult_airway" value="yes" {% if musculoskeletal_airway.previousDifficultAirway == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="musculoskeletal_airway.previous_difficult_airway" value="no" {% if musculoskeletal_airway.previousDifficultAirway == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="mallampati">Mallampati Score</label>
+            <select id="mallampati" name="musculoskeletal_airway.mallampati_score">
+                <option value="" {% if musculoskeletal_airway.mallampatiScore == "" %}selected{% endif %}>Select...</option>
+                <option value="1" {% if musculoskeletal_airway.mallampatiScore == "1" %}selected{% endif %}>Class I</option>
+                <option value="2" {% if musculoskeletal_airway.mallampatiScore == "2" %}selected{% endif %}>Class II</option>
+                <option value="3" {% if musculoskeletal_airway.mallampatiScore == "3" %}selected{% endif %}>Class III</option>
+                <option value="4" {% if musculoskeletal_airway.mallampatiScore == "4" %}selected{% endif %}>Class IV</option>
+            </select>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

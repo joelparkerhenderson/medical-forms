@@ -1,0 +1,45 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-group">
+            <label for="exercise_tolerance">Exercise Tolerance</label>
+            <select id="exercise_tolerance" name="functional_capacity.exercise_tolerance">
+                <option value="" {% if functional_capacity.exerciseTolerance == "" %}selected{% endif %}>Select...</option>
+                <option value="unable" {% if functional_capacity.exerciseTolerance == "unable" %}selected{% endif %}>Unable to exercise</option>
+                <option value="1-flight" {% if functional_capacity.exerciseTolerance == "1-flight" %}selected{% endif %}>Can climb 1 flight of stairs</option>
+                <option value="2-flights" {% if functional_capacity.exerciseTolerance == "2-flights" %}selected{% endif %}>Can climb 2 flights of stairs</option>
+                <option value="light-housework" {% if functional_capacity.exerciseTolerance == "light-housework" %}selected{% endif %}>Can do light housework</option>
+                <option value="moderate-activity" {% if functional_capacity.exerciseTolerance == "moderate-activity" %}selected{% endif %}>Can do moderate activity (e.g. walking)</option>
+                <option value="strenuous-activity" {% if functional_capacity.exerciseTolerance == "strenuous-activity" %}selected{% endif %}>Can do strenuous activity (e.g. running)</option>
+            </select>
+            <p class="form-hint">Estimated METs will be calculated from exercise tolerance.</p>
+        </div>
+
+        <div class="form-group">
+            <label>Uses Mobility Aids</label>
+            <div class="radio-group">
+                <label><input type="radio" name="functional_capacity.mobility_aids" value="yes" {% if functional_capacity.mobilityAids == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="functional_capacity.mobility_aids" value="no" {% if functional_capacity.mobilityAids == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Recent Decline in Function</label>
+            <div class="radio-group">
+                <label><input type="radio" name="functional_capacity.recent_decline" value="yes" {% if functional_capacity.recentDecline == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="functional_capacity.recent_decline" value="no" {% if functional_capacity.recentDecline == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+<!ELEMENT assessment_neurological (id,assessment_id,stroke_or_tia,stroke_details,epilepsy,epilepsy_controlled,neuromuscular_disease,neuromuscular_details,raised_icp,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT stroke_or_tia (#PCDATA)>
+<!ELEMENT stroke_details (#PCDATA)>
+<!ELEMENT epilepsy (#PCDATA)>
+<!ELEMENT epilepsy_controlled (#PCDATA)>
+<!ELEMENT neuromuscular_disease (#PCDATA)>
+<!ELEMENT neuromuscular_details (#PCDATA)>
+<!ELEMENT raised_icp (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

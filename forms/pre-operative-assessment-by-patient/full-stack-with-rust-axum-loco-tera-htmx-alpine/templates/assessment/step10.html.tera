@@ -1,0 +1,39 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
+
+{% block content %}
+{% include "assessment/_progress.html.tera" %}
+
+<div class="card">
+    <h2>Step {{ step }}: {{ step_title }}</h2>
+
+    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
+        <div class="form-group">
+            <label>GORD (Gastro-oesophageal Reflux Disease)</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gastrointestinal.gord" value="yes" {% if gastrointestinal.gord == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="gastrointestinal.gord" value="no" {% if gastrointestinal.gord == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Hiatus Hernia</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gastrointestinal.hiatus_hernia" value="yes" {% if gastrointestinal.hiatusHernia == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="gastrointestinal.hiatus_hernia" value="no" {% if gastrointestinal.hiatusHernia == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Prone to Nausea / Vomiting</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gastrointestinal.nausea" value="yes" {% if gastrointestinal.nausea == "yes" %}checked{% endif %}> Yes</label>
+                <label><input type="radio" name="gastrointestinal.nausea" value="no" {% if gastrointestinal.nausea == "no" %}checked{% endif %}> No</label>
+            </div>
+        </div>
+
+        {% include "assessment/_nav.html.tera" %}
+    </form>
+</div>
+{% endblock %}

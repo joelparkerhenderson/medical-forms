@@ -1,0 +1,10 @@
+<!ELEMENT assessment_hepatic (id,assessment_id,liver_disease,cirrhosis,child_pugh_score,hepatitis,hepatitis_type,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT liver_disease (#PCDATA)>
+<!ELEMENT cirrhosis (#PCDATA)>
+<!ELEMENT child_pugh_score (#PCDATA)>
+<!ELEMENT hepatitis (#PCDATA)>
+<!ELEMENT hepatitis_type (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

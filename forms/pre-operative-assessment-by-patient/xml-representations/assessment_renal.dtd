@@ -1,0 +1,9 @@
+<!ELEMENT assessment_renal (id,assessment_id,ckd,ckd_stage,dialysis,dialysis_type,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT ckd (#PCDATA)>
+<!ELEMENT ckd_stage (#PCDATA)>
+<!ELEMENT dialysis (#PCDATA)>
+<!ELEMENT dialysis_type (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE assessment_cardiovascular SYSTEM "assessment_cardiovascular.dtd">
+<assessment_cardiovascular>
+<id>880e8400-e29b-41d4-a716-446655440003</id>
+<assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+<hypertension>yes</hypertension>
+<hypertension_controlled>yes</hypertension_controlled>
+<ischemic_heart_disease>yes</ischemic_heart_disease>
+<ihd_details>Example text.</ihd_details>
+<heart_failure>yes</heart_failure>
+<heart_failure_nyha>1</heart_failure_nyha>
+<valvular_disease>yes</valvular_disease>
+<valvular_details>Example text.</valvular_details>
+<arrhythmia>yes</arrhythmia>
+<arrhythmia_type>standard</arrhythmia_type>
+<pacemaker>yes</pacemaker>
+<recent_mi>yes</recent_mi>
+<recent_mi_weeks>1</recent_mi_weeks>
+<created_at>2026-04-09T10:00:00Z</created_at>
+<updated_at>2026-04-09T10:00:00Z</updated_at>
+</assessment_cardiovascular>

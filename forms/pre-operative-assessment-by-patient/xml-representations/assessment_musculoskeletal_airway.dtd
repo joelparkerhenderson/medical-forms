@@ -1,0 +1,13 @@
+<!ELEMENT assessment_musculoskeletal_airway (id,assessment_id,rheumatoid_arthritis,cervical_spine_issues,limited_neck_movement,limited_mouth_opening,dental_issues,dental_details,previous_difficult_airway,mallampati_score,created_at,updated_at)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT assessment_id (#PCDATA)>
+<!ELEMENT rheumatoid_arthritis (#PCDATA)>
+<!ELEMENT cervical_spine_issues (#PCDATA)>
+<!ELEMENT limited_neck_movement (#PCDATA)>
+<!ELEMENT limited_mouth_opening (#PCDATA)>
+<!ELEMENT dental_issues (#PCDATA)>
+<!ELEMENT dental_details (#PCDATA)>
+<!ELEMENT previous_difficult_airway (#PCDATA)>
+<!ELEMENT mallampati_score (#PCDATA)>
+<!ELEMENT created_at (#PCDATA)>
+<!ELEMENT updated_at (#PCDATA)>
