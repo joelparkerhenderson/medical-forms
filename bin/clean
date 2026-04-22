@@ -1,0 +1,16 @@
+#!/bin/sh
+set -euf
+
+clean_rust() {
+    export RUSTC_WRAPPER="sccache"
+    export SCCACHE_CACHE_SIZE="50G"
+    find "$(pwd)" -name Cargo.toml -exec dirname {} \; | 
+    while read -r x; do 
+        cd "$x"
+        cargo clean
+        cargo build
+        cargo test
+    done
+}
+
+clean_rust
