@@ -32,7 +32,7 @@ Rust edition 2024 requires Rust 1.85 or newer.
 
 Each form's full-stack crate is a Cargo workspace with a `migration` sub-crate:
 
-```
+```txt
 full-stack-with-rust-axum-loco-tera-htmx-alpine/
   Cargo.toml                  # Workspace + package manifest
   .gitignore                  # ignore /target, /node_modules, etc.
@@ -120,6 +120,34 @@ Environment variables for production:
 - `HOST` — server host URL
 - `DATABASE_URL` — PostgreSQL connection string
 - `FRONTEND_URL` — allowed CORS origin
+
+## Database
+
+### Development database
+
+Development database name is [form]_development snake case; example patient_intake_development
+
+File `config/development.yaml`:
+
+```yaml
+database:
+  uri: postgres://postgres:postgres@localhost:5432/[form]_development
+```
+
+### Test database
+
+- Test database name is [form]_test snake case; example patient_intake_test
+
+File `config/test.yaml`:
+
+```yaml
+database:
+  uri: postgres://postgres:postgres@localhost:5432/[form]_test
+```
+
+### Database naming
+
+For database naming, always use the full form name, never use an abbreviation or truncation.
 
 ## Verify
 
