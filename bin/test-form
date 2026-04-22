@@ -22,6 +22,7 @@ file_size_or_err() { test -s "$1" || err "File should have size: $1"; }
 symlink_exists_or_err() { test -h "$1" || err "Symlink should exist: $1"; }
 grep_exists_or_err() { grep -q -m 1 "$@" || err "grep should exist: " "$@"; }
 task_exists_or_err() { grep -q -m 1 "^- \[" "$1" || err "task should exist: " "$1"; }
+implemented_or_err() { if (grep -q -m 1 "Not yet implemented\." "$1"); then err "not yet implemented: $1"; else true; fi; }
 
 ## Utilities
 
@@ -30,10 +31,10 @@ ai_exists_or_err() (
     directory_exists_or_err "$1"
     file_size_or_err "$1/index.md"
     symlink_exists_or_err "$1/README.md"
-    file_size_or_err "$1/AGENTS.md"
-    file_size_or_err "$1/CLAUDE.md"
-    file_size_or_err "$1/plan.md"
-    task_exists_or_err "$1/tasks.md"
+    file_size_or_err "$1/AGENTS.md" && implemented_or_err "$1/AGENTS.md"
+    file_size_or_err "$1/CLAUDE.md" && implemented_or_err "$1/CLAUDE.md"
+    file_size_or_err "$1/plan.md" && implemented_or_err "$1/plan.md"
+    task_exists_or_err "$1/tasks.md" && implemented_or_err "$1/tasks.md"
 )
 
 rust_crate_exists_or_err() (
