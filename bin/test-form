@@ -20,6 +20,7 @@ directory_exists_or_err() { test -d "$1" || err "Directory should exist: $1"; }
 file_exists_or_err() { test -f "$1" || err "File should exist: $1"; }
 file_size_or_err() { test -s "$1" || err "File should have size: $1"; }
 symlink_exists_or_err() { test -h "$1" || err "Symlink should exist: $1"; }
+grep_exists_or_err() { grep -q -m 1 "$@" || err "grep should exist: " "$@"; }
 
 ## Utilities
 
