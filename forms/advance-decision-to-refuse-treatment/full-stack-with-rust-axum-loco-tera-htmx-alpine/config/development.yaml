@@ -31,7 +31,7 @@ server:
         - Authorization
 
 database:
-  uri: postgres://localhost:5432/advance_decision_tera_development
+  uri: postgres://postgres:postgres@localhost:5432/advance_decision_to_refuse_treatment_development
   enable_logging: false
   connect_timeout: 500
   idle_timeout: 500

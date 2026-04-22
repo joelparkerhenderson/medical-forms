@@ -21,7 +21,7 @@ server:
         - http://localhost:5190
 
 database:
-  uri: postgres://localhost:5432/score2_diabetes_tera_development
+  uri: postgres://postgres:postgres@localhost:5432/systematic_coronary_risk_evaluation_2_diabetes_development
   enable_logging: false
   connect_timeout: 500
   idle_timeout: 500

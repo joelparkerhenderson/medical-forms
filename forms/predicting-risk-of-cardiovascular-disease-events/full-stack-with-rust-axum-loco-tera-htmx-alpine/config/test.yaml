@@ -13,7 +13,7 @@ server:
         - http://localhost:5210
 
 database:
-  uri: postgres://localhost:5432/prevent_cvd_tera_test
+  uri: postgres://postgres:postgres@localhost:5432/predicting_risk_of_cardiovascular_disease_events_test
   enable_logging: false
   connect_timeout: 500
   idle_timeout: 500

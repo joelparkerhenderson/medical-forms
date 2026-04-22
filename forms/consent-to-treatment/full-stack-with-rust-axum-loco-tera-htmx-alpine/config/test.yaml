@@ -13,7 +13,7 @@ server:
         - http://localhost:5310
 
 database:
-  uri: postgres://localhost:5432/consent_to_treatment_tera_test
+  uri: postgres://postgres:postgres@localhost:5432/consent_to_treatment_test
   enable_logging: false
   connect_timeout: 500
   idle_timeout: 500

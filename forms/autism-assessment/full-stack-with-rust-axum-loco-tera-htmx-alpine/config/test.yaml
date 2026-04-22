@@ -13,7 +13,7 @@ server:
         - http://localhost:5280
 
 database:
-  uri: postgres://localhost:5432/autism_assessment_tera_test
+  uri: postgres://postgres:postgres@localhost:5432/autism_assessment_test
   enable_logging: false
   connect_timeout: 500
   idle_timeout: 500

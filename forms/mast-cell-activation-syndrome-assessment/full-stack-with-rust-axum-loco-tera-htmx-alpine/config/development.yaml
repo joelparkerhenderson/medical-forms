@@ -21,7 +21,7 @@ server:
         - http://localhost:5450
 
 database:
-  uri: postgres://localhost:5432/mcas_assessment_tera_development
+  uri: postgres://postgres:postgres@localhost:5432/mast_cell_activation_syndrome_assessment_development
   enable_logging: false
   connect_timeout: 500
   idle_timeout: 500

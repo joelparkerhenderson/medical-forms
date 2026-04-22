@@ -21,7 +21,7 @@ server:
         - http://localhost:5200
 
 database:
-  uri: postgres://localhost:5432/framingham_risk_score_tera_development
+  uri: postgres://postgres:postgres@localhost:5432/framingham_risk_score_for_hard_coronary_heart_disease_development
   enable_logging: false
   connect_timeout: 500
   idle_timeout: 500

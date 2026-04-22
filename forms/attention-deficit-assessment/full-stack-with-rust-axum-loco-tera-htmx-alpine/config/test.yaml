@@ -13,7 +13,7 @@ server:
         - http://localhost:5260
 
 database:
-  uri: postgres://localhost:5432/attention_deficit_assessment_tera_test
+  uri: postgres://postgres:postgres@localhost:5432/attention_deficit_assessment_test
   enable_logging: false
   connect_timeout: 500
   idle_timeout: 500

@@ -13,7 +13,7 @@ server:
         - http://localhost:5230
 
 database:
-  uri: postgres://localhost:5432/advance_statement_tera_test
+  uri: postgres://postgres:postgres@localhost:5432/advance_statement_about_care_test
   enable_logging: false
   connect_timeout: 500
   idle_timeout: 500

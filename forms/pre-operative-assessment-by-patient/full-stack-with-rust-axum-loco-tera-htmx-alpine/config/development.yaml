@@ -31,7 +31,7 @@ server:
         - Authorization
 
 database:
-  uri: postgres://localhost:5432/pre_op_assessment_tera_development
+  uri: postgres://postgres:postgres@localhost:5432/pre_operative_assessment_by_patient_development
   enable_logging: false
   connect_timeout: 500
   idle_timeout: 500
