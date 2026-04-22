@@ -1,7 +1,5 @@
 # Front-end with SvelteKit Tailwind SVAR
 
-Ultrathink.
-
 SvelteKit single-page form and SVAR-based dashboard, styled with Tailwind
 CSS 4 and powered by a pure Svelte 5 reactive scoring engine.
 

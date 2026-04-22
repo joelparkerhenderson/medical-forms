@@ -1,7 +1,5 @@
 # FHIR HL7 R5 representations
 
-Ultrathink.
-
 FHIR HL7 R5 JSON resources for each form, generated from `sql-migrations/`.
 The directory where the JSON lives is `fhir-r5/` inside each form.
 

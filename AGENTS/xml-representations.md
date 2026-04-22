@@ -1,7 +1,5 @@
 # XML representations
 
-Ultrathink.
-
 Example XML instances and matching DTD schemas for each SQL table entity, so
 that a form's data can be exported, transmitted, or validated outside of the
 PostgreSQL database. Generated from `sql-migrations/`.

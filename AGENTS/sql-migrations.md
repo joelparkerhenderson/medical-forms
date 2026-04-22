@@ -1,7 +1,5 @@
 # SQL migrations
 
-Ultrathink.
-
 PostgreSQL 18 with Liquibase SQL format for version-controlled database
 migrations. Each form owns its own schema under `forms/<slug>/sql-migrations/`.
 

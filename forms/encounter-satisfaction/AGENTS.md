@@ -10,7 +10,7 @@ Patient encounter satisfaction survey for collecting feedback on healthcare expe
 - ./tasks.md - Task tracking
 - ./front-end-form-with-svelte/ - Patient questionnaire; SvelteKit + Svelte 5 + Tailwind 4
 - ./front-end-dashboard-with-svelte/ - Dashboard (to be built)
-- ./full-stack-with-rust-axum-loco-tera/ - Full-stack option (to be built)
+- ./full-stack-with-rust-axum-loco-tera-htmx-alpine/ - Full-stack option (to be built)
 
 ## Scoring system
 

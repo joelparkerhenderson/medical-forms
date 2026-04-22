@@ -10,7 +10,7 @@ Legal document allowing patients to record treatment refusal decisions in advanc
 - ./tasks.md - Task tracking
 - ./front-end-form-with-svelte/ - Patient questionnaire; SvelteKit + Svelte 5 + Tailwind 4
 - ./front-end-dashboard-with-svelte/ - Dashboard; SvelteKit + SVAR DataGrid
-- ./full-stack-with-rust-axum-loco-tera/ - Full-stack option; Rust + Tera templates
+- ./full-stack-with-rust-axum-loco-tera-htmx-alpine/ - Full-stack option; Rust + Tera templates
 
 ## Scoring system
 
