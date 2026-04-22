@@ -40,6 +40,7 @@ ai_exists_or_err() (
 top="$(git rev-parse --show-toplevel)"
 
 test_repository() {
+    echo "test_repository $top"
     repo_setup_exists_or_err "$top"
     ai_exists_or_err "$top"
     file_exists_or_err "$top/AGENTS/front-end-with-sveltekit-tailwind-svar.md"
@@ -49,6 +50,7 @@ test_repository() {
 }
 
 test_forms() {
+    echo "test_forms $top"
     for x in $("$top/bin/list-forms"); do
         "$top/bin/test-form" "$x"
     done
