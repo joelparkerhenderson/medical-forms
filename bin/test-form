@@ -1,6 +1,8 @@
 #!/bin/sh
 set -euf
 
+echo "here"
+
 # test-form: test one form directory in this project for implementation
 # 
 # Syntax: 
@@ -56,16 +58,44 @@ rust_crate_exists_or_err() (
 ## Main
 
 top="$(git rev-parse --show-toplevel)"
+form="$1"
+form_dir="$top/forms/$form"
 
-dir="$top/forms/$1"
-ai_exists_or_err "$dir"
-directory_exists_or_err "$dir/doc"
-directory_exists_or_err "$dir/fhir-r5"
-directory_exists_or_err "$dir/sql-migrations"
-directory_exists_or_err "$dir/xml-representations"
-file_size_or_err "$dir/sql-migrations/00-extensions.sql"
-ai_exists_or_err "$dir/front-end-form-with-html"
-ai_exists_or_err "$dir/front-end-form-with-svelte"
-ai_exists_or_err "$dir/front-end-dashboard-with-html"
-ai_exists_or_err "$dir/front-end-dashboard-with-svelte"
-rust_crate_exists_or_err "$dir/full-stack-with-rust-axum-loco-tera-htmx-alpine"
+test_form() {
+    dir="$1"
+    echo "test_form $dir"
+    ai_exists_or_err "$dir"
+    directory_exists_or_err "$dir/doc"
+    directory_exists_or_err "$dir/fhir-r5"
+    directory_exists_or_err "$dir/sql-migrations"
+    directory_exists_or_err "$dir/xml-representations"
+    file_size_or_err "$dir/sql-migrations/00-extensions.sql"
+    ai_exists_or_err "$dir/front-end-form-with-html"
+    ai_exists_or_err "$dir/front-end-form-with-svelte"
+    ai_exists_or_err "$dir/front-end-dashboard-with-html"
+    ai_exists_or_err "$dir/front-end-dashboard-with-svelte"
+    rust_crate_exists_or_err "$dir/full-stack-with-rust-axum-loco-tera-htmx-alpine"
+}
+
+test_dir_via_pnpm() {
+    dir="$1"
+    echo "test_dir_via_pnpm $dir"
+    cd "$dir" && 
+    pnpm install && 
+    pnpm run check && 
+    pnpm run test
+}
+
+test_dir_via_cargo() {
+    dir="$1"
+    echo "test_dir_via_cargo $dir"
+    cd "$dir" &&
+    cargo build && 
+    cargo check && 
+    cargo test
+}
+
+test_form "$form_dir"
+test_dir_via_pnpm "$form_dir/front-end-form-with-svelte"
+test_dir_via_pnpm "$form_dir/front-end-dashboard-with-svelte"
+test_dir_via_cargo "$form_dir/full-stack-with-rust-axum-loco-tera-htmx-alpine"
