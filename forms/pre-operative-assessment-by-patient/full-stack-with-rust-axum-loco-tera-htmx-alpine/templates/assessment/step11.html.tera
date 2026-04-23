@@ -1,14 +1,4 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
-<div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
-
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+<div class="card" x-data="{
         items: [
             {% for med in medications %}
             { name: '{{ med.name }}', dose: '{{ med.dose }}', frequency: '{{ med.frequency }}' }{% if not loop.last %},{% endif %}
@@ -17,7 +7,9 @@
         addItem() { this.items.push({ name: '', dose: '', frequency: '' }); },
         removeItem(i) { this.items.splice(i, 1); }
     }">
-        <p class="form-hint">List all current medications including dose and frequency.</p>
+    <h2>Step 11: Medications</h2>
+
+<p class="form-hint">List all current medications including dose and frequency.</p>
 
         <div id="medications-list">
             <template x-for="(item, i) in items" :key="i">
@@ -42,8 +34,4 @@
         </div>
 
         <button type="button" class="btn-add-item" @click="addItem()">+ Add Medication</button>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

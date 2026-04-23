@@ -3,15 +3,12 @@
 // ──────────────────────────────────────────────
 
 import { createDefaultAssessment } from './data-model.js';
-import { calculateBMI, bmiCategory, estimateMETs, asaGradeLabel, asaGradeColor } from './utils.js';
+import { calculateBMI, bmiCategory, estimateMETs } from './utils.js';
 import { calculateASA } from './asa-grader.js';
 import { detectAdditionalFlags } from './flagged-issues.js';
-import { getVisibleSteps, isStepVisible } from './steps.js';
 
 // ─── State ───────────────────────────────────────────────────
 let assessmentData = createDefaultAssessment();
-
-// ─── Single-page layout: show form immediately ──────────────
 
 // ─── Data binding ────────────────────────────────────────────
 
@@ -265,8 +262,5 @@ function escapeHtml(str) {
 	return div.innerHTML;
 }
 
-// Show form immediately (single-page layout)
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('form-container');
-  if (form) form.classList.remove('hidden');
-});
+// ─── Wire Submit ─────────────────────────────────────────────
+document.getElementById('btn-submit').addEventListener('click', submitAssessment);

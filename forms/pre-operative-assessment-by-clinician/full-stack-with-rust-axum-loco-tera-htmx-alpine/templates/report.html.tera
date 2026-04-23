@@ -1,0 +1,65 @@
+{% extends "base.html.tera" %}
+
+{% block content %}
+<section class="card">
+  <h2 class="text-xl font-semibold mb-3">Assessment report</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div>
+      <div class="text-xs uppercase text-slate-500">Computed ASA</div>
+      <div class="text-3xl font-bold">{{ computed_asa_roman }}</div>
+    </div>
+    <div>
+      <div class="text-xs uppercase text-slate-500">Final ASA</div>
+      <div class="text-3xl font-bold">{{ final_asa_roman }}</div>
+      {% if result.asaGradeOverride %}
+        <div class="text-xs text-amber-700">override applied</div>
+      {% endif %}
+    </div>
+    <div>
+      <div class="text-xs uppercase text-slate-500">Composite risk</div>
+      <div class="text-3xl font-bold">{{ composite_risk_label }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <h3 class="text-lg font-semibold mb-2">Fired ASA rules</h3>
+  {% if fired_rules | length == 0 %}
+    <p class="text-sm text-slate-600">No rules fired — defaulted to ASA I.</p>
+  {% else %}
+    <ul class="list-disc pl-6 space-y-1 text-sm">
+      {% for r in fired_rules %}
+        <li><span class="font-mono text-slate-500">{{ r.ruleId }}</span> — ASA {{ r.asaGradeRoman }}: {{ r.description }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
+
+<section class="card">
+  <h3 class="text-lg font-semibold mb-2">Safety flags</h3>
+  {% if result.safetyFlags | length == 0 %}
+    <p class="text-sm text-slate-600">No safety flags detected.</p>
+  {% else %}
+    <ul class="list-disc pl-6 space-y-1 text-sm">
+      {% for f in result.safetyFlags %}
+        <li><span class="font-mono text-slate-500">{{ f.flagId }}</span> — <span class="uppercase text-xs">[{{ f.priority }}]</span> {{ f.description }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
+
+<section class="card">
+  <h3 class="text-lg font-semibold mb-2">Submitted data</h3>
+  <dl class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+    <div><dt class="text-slate-500">Clinician</dt><dd>{{ data.clinicianName | default(value="—") }} ({{ data.clinicianRole | default(value="—") }})</dd></div>
+    <div><dt class="text-slate-500">Patient</dt><dd>{{ data.patientName | default(value="—") }}, DOB {{ data.dateOfBirth | default(value="—") }}</dd></div>
+    <div><dt class="text-slate-500">Procedure</dt><dd>{{ data.plannedProcedure | default(value="—") }} ({{ data.urgency | default(value="—") }})</dd></div>
+    <div><dt class="text-slate-500">Technique</dt><dd>{{ data.anaesthesiaTechnique | default(value="—") }} → {{ data.postOpDisposition | default(value="—") }}</dd></div>
+  </dl>
+</section>
+
+<div>
+  <a href="/" class="btn-primary">Start a new assessment</a>
+</div>
+{% endblock %}

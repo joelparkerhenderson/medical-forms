@@ -162,11 +162,10 @@ body {
 /* Hidden */
 .hidden { display: none !important; }
 
-/* Navigation */
-.step-nav {
+/* Submit */
+.submit-row {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	justify-content: flex-end;
 	margin-top: 1.5rem;
 }
 .btn {
@@ -307,6 +306,6 @@ body {
 /* Print */
 @media print {
 	.header { background: var(--gray-700) !important; -webkit-print-color-adjust: exact; }
-	.step-nav, .btn { display: none !important; }
+	.submit-row, .btn { display: none !important; }
 	.card { break-inside: avoid; box-shadow: none; border: 1px solid var(--gray-200); }
 }

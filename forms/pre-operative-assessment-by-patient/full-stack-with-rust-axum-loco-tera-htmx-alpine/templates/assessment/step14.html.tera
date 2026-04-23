@@ -1,18 +1,10 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
-<div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
-
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+<div class="card" x-data="{
         alcohol: '{{ social_history.alcohol }}',
         recreationalDrugs: '{{ social_history.recreationalDrugs }}'
     }">
-        <div class="form-group">
+    <h2>Step 14: Social History</h2>
+
+<div class="form-group">
             <label>Alcohol Consumption</label>
             <div class="radio-group">
                 <label><input type="radio" name="social_history.alcohol" value="none" x-model="alcohol" {% if social_history.alcohol == "none" %}checked{% endif %}> None</label>
@@ -44,8 +36,4 @@
                 <textarea id="drug_details" name="social_history.drug_details">{{ social_history.drugDetails }}</textarea>
             </div>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

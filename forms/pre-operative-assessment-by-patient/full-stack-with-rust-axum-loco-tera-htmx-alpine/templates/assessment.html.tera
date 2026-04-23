@@ -1,0 +1,33 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Pre-Operative Assessment{% endblock %}
+
+{% block content %}
+<div class="assessment-header">
+    <h1>Pre-Operative Assessment</h1>
+    <p class="form-hint">Complete all sections, then submit the assessment to produce your ASA grade and safety flags.</p>
+</div>
+
+<form method="POST" action="/assessment/{{ id }}/submit" hx-boost="false">
+    {% include "assessment/step01.html.tera" %}
+    {% include "assessment/step02.html.tera" %}
+    {% include "assessment/step03.html.tera" %}
+    {% include "assessment/step04.html.tera" %}
+    {% include "assessment/step05.html.tera" %}
+    {% include "assessment/step06.html.tera" %}
+    {% include "assessment/step07.html.tera" %}
+    {% include "assessment/step08.html.tera" %}
+    {% include "assessment/step09.html.tera" %}
+    {% include "assessment/step10.html.tera" %}
+    {% include "assessment/step11.html.tera" %}
+    {% include "assessment/step12.html.tera" %}
+    {% include "assessment/step13.html.tera" %}
+    {% include "assessment/step14.html.tera" %}
+    {% include "assessment/step15.html.tera" %}
+    {% include "assessment/step16.html.tera" %}
+
+    <div class="submit-row">
+        <button type="submit" class="btn btn-success">Submit Assessment</button>
+    </div>
+</form>
+{% endblock %}

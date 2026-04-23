@@ -9,22 +9,10 @@
 <body>
 	<header class="header">
 		<h1>Pre-Operative Assessment</h1>
-		<p>Patient health questionnaire</p>
+		<p>Patient health questionnaire — complete all sections, then submit.</p>
 	</header>
 
-	<!-- Landing page -->
-	</div>
-
-	<!-- Assessment wizard -->
-	<div id="assessment" class="container hidden">
-		<!-- Progress bar -->
-<div class="progress-text">
-				<span id="progress-step">Step 1 of 16</span>
-				<span id="progress-title">Demographics</span>
-			</div>
-		</div>
-
-		<!-- Step container -->
+	<main id="assessment" class="container">
 		<div id="step-container">
 
 			<!-- ═══ STEP 1: Demographics ═══ -->
@@ -84,7 +72,7 @@
 			</section>
 
 			<!-- ═══ STEP 2: Cardiovascular ═══ -->
-			<section id="step-2" class="card hidden" data-step="2">
+			<section id="step-2" class="card" data-step="2">
 				<h2>Step 2: Cardiovascular</h2>
 				<div class="form-group">
 					<label>Hypertension (high blood pressure)?</label>
@@ -183,7 +171,7 @@
 			</section>
 
 			<!-- ═══ STEP 3: Respiratory ═══ -->
-			<section id="step-3" class="card hidden" data-step="3">
+			<section id="step-3" class="card" data-step="3">
 				<h2>Step 3: Respiratory</h2>
 				<div class="form-group">
 					<label>Asthma?</label>
@@ -262,7 +250,7 @@
 			</section>
 
 			<!-- ═══ STEP 4: Renal ═══ -->
-			<section id="step-4" class="card hidden" data-step="4">
+			<section id="step-4" class="card" data-step="4">
 				<h2>Step 4: Renal</h2>
 				<div class="form-group">
 					<label>Chronic kidney disease (CKD)?</label>
@@ -304,7 +292,7 @@
 			</section>
 
 			<!-- ═══ STEP 5: Hepatic ═══ -->
-			<section id="step-5" class="card hidden" data-step="5">
+			<section id="step-5" class="card" data-step="5">
 				<h2>Step 5: Hepatic</h2>
 				<div class="form-group">
 					<label>Liver disease?</label>
@@ -349,7 +337,7 @@
 			</section>
 
 			<!-- ═══ STEP 6: Endocrine ═══ -->
-			<section id="step-6" class="card hidden" data-step="6">
+			<section id="step-6" class="card" data-step="6">
 				<h2>Step 6: Endocrine</h2>
 				<div class="form-group">
 					<label for="endo-diabetes">Diabetes</label>
@@ -405,7 +393,7 @@
 			</section>
 
 			<!-- ═══ STEP 7: Neurological ═══ -->
-			<section id="step-7" class="card hidden" data-step="7">
+			<section id="step-7" class="card" data-step="7">
 				<h2>Step 7: Neurological</h2>
 				<div class="form-group">
 					<label>Previous stroke or TIA?</label>
@@ -459,7 +447,7 @@
 			</section>
 
 			<!-- ═══ STEP 8: Haematological ═══ -->
-			<section id="step-8" class="card hidden" data-step="8">
+			<section id="step-8" class="card" data-step="8">
 				<h2>Step 8: Haematological</h2>
 				<div class="form-group">
 					<label>Bleeding disorder?</label>
@@ -513,7 +501,7 @@
 			</section>
 
 			<!-- ═══ STEP 9: Musculoskeletal & Airway ═══ -->
-			<section id="step-9" class="card hidden" data-step="9">
+			<section id="step-9" class="card" data-step="9">
 				<h2>Step 9: Musculoskeletal & Airway</h2>
 				<div class="form-group">
 					<label>Rheumatoid arthritis?</label>
@@ -576,7 +564,7 @@
 			</section>
 
 			<!-- ═══ STEP 10: Gastrointestinal ═══ -->
-			<section id="step-10" class="card hidden" data-step="10">
+			<section id="step-10" class="card" data-step="10">
 				<h2>Step 10: Gastrointestinal</h2>
 				<div class="form-group">
 					<label>Gastro-oesophageal reflux (GORD)?</label>
@@ -602,7 +590,7 @@
 			</section>
 
 			<!-- ═══ STEP 11: Medications ═══ -->
-			<section id="step-11" class="card hidden" data-step="11">
+			<section id="step-11" class="card" data-step="11">
 				<h2>Step 11: Current Medications</h2>
 				<button class="btn btn-secondary btn-sm" id="btn-add-medication">+ Add Medication</button>
 				<div id="medications-list" style="margin-top: 1rem;">
@@ -611,7 +599,7 @@
 			</section>
 
 			<!-- ═══ STEP 12: Allergies ═══ -->
-			<section id="step-12" class="card hidden" data-step="12">
+			<section id="step-12" class="card" data-step="12">
 				<h2>Step 12: Allergies</h2>
 				<button class="btn btn-secondary btn-sm" id="btn-add-allergy">+ Add Allergy</button>
 				<div id="allergies-list" style="margin-top: 1rem;">
@@ -620,7 +608,7 @@
 			</section>
 
 			<!-- ═══ STEP 13: Previous Anaesthesia ═══ -->
-			<section id="step-13" class="card hidden" data-step="13">
+			<section id="step-13" class="card" data-step="13">
 				<h2>Step 13: Previous Anaesthesia</h2>
 				<div class="form-group">
 					<label>Have you had a general anaesthetic before?</label>
@@ -667,7 +655,7 @@
 			</section>
 
 			<!-- ═══ STEP 14: Social History ═══ -->
-			<section id="step-14" class="card hidden" data-step="14">
+			<section id="step-14" class="card" data-step="14">
 				<h2>Step 14: Social History</h2>
 				<div class="form-group">
 					<label for="social-alcohol">Alcohol consumption</label>
@@ -701,7 +689,7 @@
 			</section>
 
 			<!-- ═══ STEP 15: Functional Capacity ═══ -->
-			<section id="step-15" class="card hidden" data-step="15">
+			<section id="step-15" class="card" data-step="15">
 				<h2>Step 15: Functional Capacity</h2>
 				<div class="form-group">
 					<label for="fc-exercise">Exercise tolerance</label>
@@ -735,7 +723,7 @@
 			</section>
 
 			<!-- ═══ STEP 16: Pregnancy ═══ -->
-			<section id="step-16" class="card hidden" data-step="16">
+			<section id="step-16" class="card" data-step="16">
 				<h2>Step 16: Pregnancy</h2>
 				<div class="form-group">
 					<label>Could you be pregnant?</label>
@@ -763,13 +751,10 @@
 
 		</div><!-- /step-container -->
 
-		<!-- Navigation -->
-		<div class="step-nav">
-			<button class="btn btn-secondary" id="btn-prev">Previous</button>
-			<button class="btn btn-primary" id="btn-next">Next</button>
-			<button class="btn btn-success hidden" id="btn-submit">Submit Assessment</button>
+		<div class="submit-row">
+			<button class="btn btn-success" id="btn-submit" type="button">Submit Assessment</button>
 		</div>
-	</div><!-- /assessment -->
+	</main>
 
 	<script type="module" src="js/app.js"></script>
 </body>

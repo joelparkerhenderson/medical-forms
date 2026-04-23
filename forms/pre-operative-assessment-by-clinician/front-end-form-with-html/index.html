@@ -18,22 +18,22 @@
       </p>
     </header>
 
-    <!-- Progress bar -->
-    <div class="mb-4 no-print">
-      <div class="w-full bg-slate-200 rounded-full h-2">
-        <div class="bg-blue-600 h-2 rounded-full transition-all"
-          :style="`width: ${(step / totalSteps) * 100}%`"></div>
-      </div>
-      <p class="text-xs text-slate-600 mt-1">
-        Step <span x-text="step"></span> of <span x-text="totalSteps"></span> —
-        <span x-text="stepTitles[step - 1]"></span>
-      </p>
-    </div>
+    <!-- Section nav -->
+    <nav aria-label="Sections" class="sticky top-0 z-10 bg-white border-b border-slate-200 py-2 mb-4 overflow-x-auto no-print">
+      <ol class="flex gap-3 text-sm">
+        <template x-for="(title, i) in stepTitles" :key="i">
+          <li>
+            <a :href="`#step-${i + 1}`" class="text-blue-700 hover:underline whitespace-nowrap"
+               x-text="`${i + 1}. ${title}`"></a>
+          </li>
+        </template>
+      </ol>
+    </nav>
 
-    <div class="bg-white p-6 rounded-lg shadow-sm">
+    <div class="space-y-6">
 
       <!-- STEP 1: Clinician -->
-      <section x-show="step === 1">
+      <section id="step-1" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 1 — Clinician identification</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <label class="block"><span class="text-sm">Name</span>
@@ -66,7 +66,7 @@
       </section>
 
       <!-- STEP 2: Patient -->
-      <section x-show="step === 2">
+      <section id="step-2" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 2 — Patient &amp; planned procedure</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <label class="block"><span class="text-sm">First name</span>
@@ -106,7 +106,7 @@
       </section>
 
       <!-- STEP 3: Vitals -->
-      <section x-show="step === 3">
+      <section id="step-3" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 3 — Vital signs</h2>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
           <label class="block"><span class="text-sm">SBP</span><input type="number" class="w-full border rounded px-2 py-1" x-model.number="data.vitals.sbp" /></label>
@@ -123,7 +123,7 @@
       </section>
 
       <!-- STEP 4: Airway -->
-      <section x-show="step === 4">
+      <section id="step-4" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 4 — Airway</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
           <label class="block"><span class="text-sm">Mallampati</span>
@@ -159,7 +159,7 @@
       </section>
 
       <!-- STEP 5: Cardiovascular -->
-      <section x-show="step === 5">
+      <section id="step-5" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 5 — Cardiovascular</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <label class="block"><span class="text-sm">Rhythm</span>
@@ -180,7 +180,7 @@
       </section>
 
       <!-- STEP 6: Respiratory -->
-      <section x-show="step === 6">
+      <section id="step-6" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 6 — Respiratory</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <label class="block"><span class="text-sm">Asthma</span>
@@ -212,7 +212,7 @@
       </section>
 
       <!-- STEP 7: Neurological -->
-      <section x-show="step === 7">
+      <section id="step-7" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 7 — Neurological</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <label class="block"><span class="text-sm">GCS (3–15)</span>
@@ -236,7 +236,7 @@
       </section>
 
       <!-- STEP 8: Renal & hepatic -->
-      <section x-show="step === 8">
+      <section id="step-8" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 8 — Renal &amp; hepatic</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
           <label class="block"><span class="text-sm">Creatinine (µmol/L)</span>
@@ -265,7 +265,7 @@
       </section>
 
       <!-- STEP 9: Haematology -->
-      <section x-show="step === 9">
+      <section id="step-9" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 9 — Haematology</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
           <label class="block"><span class="text-sm">Hb (g/L)</span>
@@ -289,7 +289,7 @@
       </section>
 
       <!-- STEP 10: Endocrine -->
-      <section x-show="step === 10">
+      <section id="step-10" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 10 — Endocrine</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
           <label class="block"><span class="text-sm">DM type</span>
@@ -316,7 +316,7 @@
       </section>
 
       <!-- STEP 11: GI -->
-      <section x-show="step === 11">
+      <section id="step-11" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 11 — Gastrointestinal</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <label class="block"><span class="text-sm">Reflux</span>
@@ -336,7 +336,7 @@
       </section>
 
       <!-- STEP 12: MSK -->
-      <section x-show="step === 12">
+      <section id="step-12" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 12 — Musculoskeletal &amp; skin</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <label class="block"><span class="text-sm">Spine</span>
@@ -363,7 +363,7 @@
       </section>
 
       <!-- STEP 13: Meds & allergies -->
-      <section x-show="step === 13">
+      <section id="step-13" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 13 — Medications &amp; allergies</h2>
         <div class="mb-4">
           <h3 class="font-semibold mb-2">Medications</h3>
@@ -394,7 +394,7 @@
       </section>
 
       <!-- STEP 14: Functional capacity -->
-      <section x-show="step === 14">
+      <section id="step-14" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 14 — Functional capacity &amp; frailty</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
           <label class="block"><span class="text-sm">METs</span>
@@ -414,7 +414,7 @@
       </section>
 
       <!-- STEP 15: Plan -->
-      <section x-show="step === 15">
+      <section id="step-15" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 15 — Anaesthesia &amp; post-op plan</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <label class="block"><span class="text-sm">Technique</span>
@@ -443,7 +443,7 @@
       </section>
 
       <!-- STEP 16: Summary -->
-      <section x-show="step === 16">
+      <section id="step-16" class="bg-white p-6 rounded-lg shadow-sm scroll-mt-20">
         <h2 class="text-xl font-semibold mb-4">Step 16 — Summary &amp; sign-off</h2>
         <div class="border-l-4 p-4 mb-4" :class="`risk-${result.risk}`">
           <p><strong>Computed ASA:</strong> <span x-text="result.asa + result.suffix"></span></p>
@@ -487,16 +487,8 @@
 
     </div>
 
-    <!-- Navigation -->
-    <div class="flex justify-between mt-6 no-print">
-      <button type="button" class="px-4 py-2 rounded border border-slate-300 disabled:opacity-50"
-        :disabled="step === 1" @click="back()">Back</button>
-      <div class="flex gap-2">
-        <button type="button" class="px-4 py-2 rounded border border-slate-300" @click="print()">Print / Save PDF</button>
-        <button type="button" class="px-4 py-2 rounded bg-blue-600 text-white"
-          :disabled="step === totalSteps" @click="next()"
-          x-text="step === totalSteps ? 'Finish' : 'Next'"></button>
-      </div>
+    <div class="flex justify-end gap-2 mt-6 no-print">
+      <button type="button" class="px-4 py-2 rounded border border-slate-300" @click="print()">Print / Save PDF</button>
     </div>
 
     <footer class="mt-8 text-xs text-slate-500 border-t pt-4">

@@ -1,6 +1,7 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte';
   import '../app.css';
-  let { children }: { children: () => unknown } = $props();
+  let { children }: { children: Snippet } = $props();
 </script>
 
 <div class="max-w-7xl mx-auto p-6">

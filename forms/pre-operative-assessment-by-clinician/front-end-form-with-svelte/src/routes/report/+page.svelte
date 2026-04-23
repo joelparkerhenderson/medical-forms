@@ -58,7 +58,7 @@
     <a href="/report/pdf" class="px-4 py-2 rounded bg-brand-600 text-white hover:bg-brand-700">
       Download PDF
     </a>
-    <a href="/assessment/16" class="px-4 py-2 rounded border border-slate-300 text-slate-700 hover:bg-slate-100">
+    <a href="/#step-16" class="px-4 py-2 rounded border border-slate-300 text-slate-700 hover:bg-slate-100">
       Back to summary
     </a>
   </div>

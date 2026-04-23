@@ -1,11 +1,9 @@
 // Pre-operative Assessment by Clinician — Alpine.js component
-// 16-step single-page wizard with ASA composite grading.
+// Single-page wizard with 16 sections and ASA composite grading.
 // Engine mirrors the SvelteKit version but is a subset.
 
 function assessment() {
   return {
-    step: 1,
-    totalSteps: 16,
     stepTitles: [
       'Clinician identification',
       'Patient & procedure',
@@ -65,10 +63,6 @@ function assessment() {
       },
       summary: { finalAsa: '', override: '', recommendation: '', notes: '' },
     },
-
-    next() { if (this.step < this.totalSteps) this.step++; },
-    back() { if (this.step > 1) this.step--; },
-    goto(n) { this.step = n; },
 
     addMed() {
       this.data.meds.push({ name: '', dose: '', freq: '', class: '', action: '', notes: '' });

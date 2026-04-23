@@ -1,15 +1,7 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 15: Functional Capacity</h2>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-group">
+<div class="form-group">
             <label for="exercise_tolerance">Exercise Tolerance</label>
             <select id="exercise_tolerance" name="functional_capacity.exercise_tolerance">
                 <option value="" {% if functional_capacity.exerciseTolerance == "" %}selected{% endif %}>Select...</option>
@@ -38,8 +30,4 @@
                 <label><input type="radio" name="functional_capacity.recent_decline" value="no" {% if functional_capacity.recentDecline == "no" %}checked{% endif %}> No</label>
             </div>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

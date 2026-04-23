@@ -1,14 +1,4 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
-<div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
-
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+<div class="card" x-data="{
         hypertension: '{{ cardiovascular.hypertension }}',
         ischemicHeartDisease: '{{ cardiovascular.ischemicHeartDisease }}',
         heartFailure: '{{ cardiovascular.heartFailure }}',
@@ -16,7 +6,9 @@
         arrhythmia: '{{ cardiovascular.arrhythmia }}',
         recentMI: '{{ cardiovascular.recentMI }}'
     }">
-        <div class="form-group">
+    <h2>Step 2: Cardiovascular</h2>
+
+<div class="form-group">
             <label>Hypertension</label>
             <div class="radio-group">
                 <label><input type="radio" name="cardiovascular.hypertension" value="yes" x-model="hypertension" {% if cardiovascular.hypertension == "yes" %}checked{% endif %}> Yes</label>
@@ -124,8 +116,4 @@
                        value="{{ cardiovascular.recentMIWeeks | default(value='') }}" min="0" step="1">
             </div>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

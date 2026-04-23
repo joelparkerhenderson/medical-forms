@@ -1,0 +1,368 @@
+{% extends "base.html.tera" %}
+
+{% block content %}
+<form method="POST" action="/submit" hx-boost="false" class="space-y-4">
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 1: Clinician identification</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div>
+        <label class="field-label" for="clinician_name">Clinician name</label>
+        <input class="field-input" id="clinician_name" name="clinicianName" value="{{ data.clinicianName }}">
+      </div>
+      <div>
+        <label class="field-label" for="clinician_role">Role</label>
+        <input class="field-input" id="clinician_role" name="clinicianRole" value="{{ data.clinicianRole }}" placeholder="e.g. anaesthetist">
+      </div>
+      <div>
+        <label class="field-label" for="clinician_registration">Registration number</label>
+        <input class="field-input" id="clinician_registration" name="clinicianRegistration" value="{{ data.clinicianRegistration }}" placeholder="GMC / NMC / HCPC">
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 2: Patient &amp; planned procedure</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div>
+        <label class="field-label" for="nhs_number">NHS number</label>
+        <input class="field-input" id="nhs_number" name="nhsNumber" value="{{ data.nhsNumber }}">
+      </div>
+      <div>
+        <label class="field-label" for="patient_name">Patient name</label>
+        <input class="field-input" id="patient_name" name="patientName" value="{{ data.patientName }}">
+      </div>
+      <div>
+        <label class="field-label" for="date_of_birth">Date of birth</label>
+        <input class="field-input" type="date" id="date_of_birth" name="dateOfBirth" value="{{ data.dateOfBirth }}">
+      </div>
+      <div>
+        <label class="field-label" for="sex">Sex</label>
+        <select class="field-input" id="sex" name="sex">
+          <option value="" {% if data.sex == "" %}selected{% endif %}>Select…</option>
+          <option value="female" {% if data.sex == "female" %}selected{% endif %}>Female</option>
+          <option value="male" {% if data.sex == "male" %}selected{% endif %}>Male</option>
+          <option value="other" {% if data.sex == "other" %}selected{% endif %}>Other</option>
+        </select>
+      </div>
+      <div>
+        <label class="field-label" for="weight_kg">Weight (kg)</label>
+        <input class="field-input" type="number" step="0.1" id="weight_kg" name="weightKg" value="{{ data.weightKg | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="height_cm">Height (cm)</label>
+        <input class="field-input" type="number" step="0.1" id="height_cm" name="heightCm" value="{{ data.heightCm | default(value='') }}">
+      </div>
+      <div class="md:col-span-2">
+        <label class="field-label" for="planned_procedure">Planned procedure</label>
+        <input class="field-input" id="planned_procedure" name="plannedProcedure" value="{{ data.plannedProcedure }}">
+      </div>
+      <div>
+        <label class="field-label" for="urgency">Urgency</label>
+        <select class="field-input" id="urgency" name="urgency">
+          <option value="" {% if data.urgency == "" %}selected{% endif %}>Select…</option>
+          <option value="elective" {% if data.urgency == "elective" %}selected{% endif %}>Elective</option>
+          <option value="urgent" {% if data.urgency == "urgent" %}selected{% endif %}>Urgent</option>
+          <option value="emergency" {% if data.urgency == "emergency" %}selected{% endif %}>Emergency</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 3: Vital signs</h2>
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+      <div>
+        <label class="field-label" for="systolic_bp">Systolic BP</label>
+        <input class="field-input" type="number" id="systolic_bp" name="systolicBp" value="{{ data.systolicBp | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="diastolic_bp">Diastolic BP</label>
+        <input class="field-input" type="number" id="diastolic_bp" name="diastolicBp" value="{{ data.diastolicBp | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="heart_rate">Heart rate</label>
+        <input class="field-input" type="number" id="heart_rate" name="heartRate" value="{{ data.heartRate | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="spo2">SpO₂ (%)</label>
+        <input class="field-input" type="number" id="spo2" name="spo2" value="{{ data.spo2 | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="temperature_c">Temp (°C)</label>
+        <input class="field-input" type="number" step="0.1" id="temperature_c" name="temperatureC" value="{{ data.temperatureC | default(value='') }}">
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 4: Airway</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div>
+        <label class="field-label" for="mallampati_class">Mallampati class (I–IV)</label>
+        <select class="field-input" id="mallampati_class" name="mallampatiClass">
+          <option value="" {% if not data.mallampatiClass %}selected{% endif %}>—</option>
+          {% for i in [1, 2, 3, 4] %}
+            <option value="{{ i }}" {% if data.mallampatiClass == i %}selected{% endif %}>{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <label class="field-label" for="difficult_intubation_history">Prior difficult intubation</label>
+        <select class="field-input" id="difficult_intubation_history" name="difficultIntubationHistory">
+          <option value="" {% if data.difficultIntubationHistory == "" %}selected{% endif %}>—</option>
+          <option value="no" {% if data.difficultIntubationHistory == "no" %}selected{% endif %}>No</option>
+          <option value="yes" {% if data.difficultIntubationHistory == "yes" %}selected{% endif %}>Yes</option>
+        </select>
+      </div>
+      <div>
+        <label class="field-label" for="stop_bang_score">STOP-BANG (0–8)</label>
+        <input class="field-input" type="number" min="0" max="8" id="stop_bang_score" name="stopBangScore" value="{{ data.stopBangScore | default(value='') }}">
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 5: Cardiovascular</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div>
+        <label class="field-label" for="echo_ef_percent">Echo EF (%)</label>
+        <input class="field-input" type="number" id="echo_ef_percent" name="echoEfPercent" value="{{ data.echoEfPercent | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="ischaemic_heart_disease">Ischaemic heart disease</label>
+        <select class="field-input" id="ischaemic_heart_disease" name="ischaemicHeartDisease">
+          <option value="" {% if data.ischaemicHeartDisease == "" %}selected{% endif %}>—</option>
+          <option value="no" {% if data.ischaemicHeartDisease == "no" %}selected{% endif %}>No</option>
+          <option value="yes" {% if data.ischaemicHeartDisease == "yes" %}selected{% endif %}>Yes</option>
+        </select>
+      </div>
+      <div>
+        <label class="field-label" for="heart_failure">Symptomatic heart failure</label>
+        <select class="field-input" id="heart_failure" name="heartFailure">
+          <option value="" {% if data.heartFailure == "" %}selected{% endif %}>—</option>
+          <option value="no" {% if data.heartFailure == "no" %}selected{% endif %}>No</option>
+          <option value="yes" {% if data.heartFailure == "yes" %}selected{% endif %}>Yes</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 6: Respiratory</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div>
+        <label class="field-label" for="recent_covid_weeks">Weeks since COVID-19 (blank = none)</label>
+        <input class="field-input" type="number" id="recent_covid_weeks" name="recentCovidWeeks" value="{{ data.recentCovidWeeks | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="copd">COPD</label>
+        <select class="field-input" id="copd" name="copd">
+          <option value="" {% if data.copd == "" %}selected{% endif %}>—</option>
+          <option value="no" {% if data.copd == "no" %}selected{% endif %}>No</option>
+          <option value="mild" {% if data.copd == "mild" %}selected{% endif %}>Mild</option>
+          <option value="severe" {% if data.copd == "severe" %}selected{% endif %}>Severe</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 7: Neurological</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div>
+        <label class="field-label" for="gcs">GCS (3–15)</label>
+        <input class="field-input" type="number" min="3" max="15" id="gcs" name="gcs" value="{{ data.gcs | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="stroke_or_tia">Stroke or TIA</label>
+        <select class="field-input" id="stroke_or_tia" name="strokeOrTia">
+          <option value="" {% if data.strokeOrTia == "" %}selected{% endif %}>—</option>
+          <option value="no" {% if data.strokeOrTia == "no" %}selected{% endif %}>No</option>
+          <option value="yes" {% if data.strokeOrTia == "yes" %}selected{% endif %}>Yes</option>
+        </select>
+      </div>
+      <div>
+        <label class="field-label" for="cognitive_impairment">Cognitive impairment</label>
+        <select class="field-input" id="cognitive_impairment" name="cognitiveImpairment">
+          <option value="" {% if data.cognitiveImpairment == "" %}selected{% endif %}>—</option>
+          <option value="no" {% if data.cognitiveImpairment == "no" %}selected{% endif %}>No</option>
+          <option value="yes" {% if data.cognitiveImpairment == "yes" %}selected{% endif %}>Yes</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 8: Renal &amp; hepatic</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div>
+        <label class="field-label" for="egfr">eGFR</label>
+        <input class="field-input" type="number" id="egfr" name="egfr" value="{{ data.egfr | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="bilirubin_umol">Bilirubin (μmol/L)</label>
+        <input class="field-input" type="number" id="bilirubin_umol" name="bilirubinUmol" value="{{ data.bilirubinUmol | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="albumin_g_per_l">Albumin (g/L)</label>
+        <input class="field-input" type="number" id="albumin_g_per_l" name="albuminGPerL" value="{{ data.albuminGPerL | default(value='') }}">
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 9: Haematology &amp; coagulation</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div>
+        <label class="field-label" for="haemoglobin_g_per_l">Hb (g/L)</label>
+        <input class="field-input" type="number" id="haemoglobin_g_per_l" name="haemoglobinGPerL" value="{{ data.haemoglobinGPerL | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="inr">INR</label>
+        <input class="field-input" type="number" step="0.1" id="inr" name="inr" value="{{ data.inr | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="on_anticoagulant">On anticoagulant</label>
+        <select class="field-input" id="on_anticoagulant" name="onAnticoagulant">
+          <option value="" {% if data.onAnticoagulant == "" %}selected{% endif %}>—</option>
+          <option value="no" {% if data.onAnticoagulant == "no" %}selected{% endif %}>No</option>
+          <option value="yes" {% if data.onAnticoagulant == "yes" %}selected{% endif %}>Yes</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 10: Endocrine</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div>
+        <label class="field-label" for="hba1c_percent">HbA1c (%)</label>
+        <input class="field-input" type="number" step="0.1" id="hba1c_percent" name="hba1cPercent" value="{{ data.hba1cPercent | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="diabetes">Diabetes</label>
+        <select class="field-input" id="diabetes" name="diabetes">
+          <option value="" {% if data.diabetes == "" %}selected{% endif %}>—</option>
+          <option value="no" {% if data.diabetes == "no" %}selected{% endif %}>No</option>
+          <option value="controlled" {% if data.diabetes == "controlled" %}selected{% endif %}>Controlled</option>
+          <option value="uncontrolled" {% if data.diabetes == "uncontrolled" %}selected{% endif %}>Uncontrolled</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 11: Gastrointestinal</h2>
+    <div>
+      <label class="field-label" for="adequately_fasted">Adequately fasted for anaesthesia</label>
+      <select class="field-input" id="adequately_fasted" name="adequatelyFasted">
+        <option value="" {% if data.adequatelyFasted == "" %}selected{% endif %}>—</option>
+        <option value="yes" {% if data.adequatelyFasted == "yes" %}selected{% endif %}>Yes</option>
+        <option value="no" {% if data.adequatelyFasted == "no" %}selected{% endif %}>No</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 12: Musculoskeletal &amp; integumentary</h2>
+    <div>
+      <label class="field-label" for="neuraxial_spine_feasible">Spine feasible for neuraxial</label>
+      <select class="field-input" id="neuraxial_spine_feasible" name="neuraxialSpineFeasible">
+        <option value="" {% if data.neuraxialSpineFeasible == "" %}selected{% endif %}>—</option>
+        <option value="yes" {% if data.neuraxialSpineFeasible == "yes" %}selected{% endif %}>Yes</option>
+        <option value="no" {% if data.neuraxialSpineFeasible == "no" %}selected{% endif %}>No</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 13: Medications &amp; allergies</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div>
+        <label class="field-label" for="known_allergies">Known allergies (free text)</label>
+        <input class="field-input" id="known_allergies" name="knownAllergies" value="{{ data.knownAllergies }}">
+      </div>
+      <div>
+        <label class="field-label" for="latex_allergy">Latex allergy</label>
+        <select class="field-input" id="latex_allergy" name="latexAllergy">
+          <option value="" {% if data.latexAllergy == "" %}selected{% endif %}>—</option>
+          <option value="no" {% if data.latexAllergy == "no" %}selected{% endif %}>No</option>
+          <option value="yes" {% if data.latexAllergy == "yes" %}selected{% endif %}>Yes</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 14: Functional capacity &amp; frailty</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div>
+        <label class="field-label" for="clinical_frailty_scale">Clinical Frailty Scale (1–9)</label>
+        <input class="field-input" type="number" min="1" max="9" id="clinical_frailty_scale" name="clinicalFrailtyScale" value="{{ data.clinicalFrailtyScale | default(value='') }}">
+      </div>
+      <div>
+        <label class="field-label" for="mets_estimate">METs estimate</label>
+        <input class="field-input" type="number" min="1" max="20" id="mets_estimate" name="metsEstimate" value="{{ data.metsEstimate | default(value='') }}">
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 15: Anaesthesia &amp; post-op plan</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div>
+        <label class="field-label" for="anaesthesia_technique">Technique</label>
+        <select class="field-input" id="anaesthesia_technique" name="anaesthesiaTechnique">
+          <option value="" {% if data.anaesthesiaTechnique == "" %}selected{% endif %}>—</option>
+          <option value="ga" {% if data.anaesthesiaTechnique == "ga" %}selected{% endif %}>General (GA)</option>
+          <option value="regional" {% if data.anaesthesiaTechnique == "regional" %}selected{% endif %}>Regional</option>
+          <option value="sedation" {% if data.anaesthesiaTechnique == "sedation" %}selected{% endif %}>Sedation</option>
+          <option value="combined" {% if data.anaesthesiaTechnique == "combined" %}selected{% endif %}>Combined</option>
+        </select>
+      </div>
+      <div>
+        <label class="field-label" for="post_op_disposition">Post-op disposition</label>
+        <select class="field-input" id="post_op_disposition" name="postOpDisposition">
+          <option value="" {% if data.postOpDisposition == "" %}selected{% endif %}>—</option>
+          <option value="ward" {% if data.postOpDisposition == "ward" %}selected{% endif %}>Ward</option>
+          <option value="enhanced" {% if data.postOpDisposition == "enhanced" %}selected{% endif %}>Enhanced care</option>
+          <option value="hdu" {% if data.postOpDisposition == "hdu" %}selected{% endif %}>HDU</option>
+          <option value="icu" {% if data.postOpDisposition == "icu" %}selected{% endif %}>ICU</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="text-lg font-semibold mb-3">Step 16: Summary, ASA &amp; sign-off</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div>
+        <label class="field-label" for="clinician_asa_override">Clinician ASA override (I–VI)</label>
+        <select class="field-input" id="clinician_asa_override" name="clinicianAsaOverride">
+          <option value="" {% if not data.clinicianAsaOverride %}selected{% endif %}>— computed</option>
+          {% for i in [1, 2, 3, 4, 5, 6] %}
+            <option value="{{ i }}" {% if data.clinicianAsaOverride == i %}selected{% endif %}>{{ i }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <label class="field-label" for="final_recommendation">Final recommendation</label>
+        <select class="field-input" id="final_recommendation" name="finalRecommendation">
+          <option value="" {% if data.finalRecommendation == "" %}selected{% endif %}>—</option>
+          <option value="proceed" {% if data.finalRecommendation == "proceed" %}selected{% endif %}>Proceed</option>
+          <option value="optimise" {% if data.finalRecommendation == "optimise" %}selected{% endif %}>Optimise first</option>
+          <option value="cancel" {% if data.finalRecommendation == "cancel" %}selected{% endif %}>Cancel</option>
+        </select>
+      </div>
+      <div class="md:col-span-2">
+        <label class="field-label" for="override_reason">Override reason</label>
+        <textarea class="field-input" id="override_reason" name="overrideReason" rows="2">{{ data.overrideReason }}</textarea>
+      </div>
+    </div>
+  </section>
+
+  <div class="flex justify-end pt-2">
+    <button class="btn-primary" type="submit">Grade &amp; generate report</button>
+  </div>
+</form>
+{% endblock %}
