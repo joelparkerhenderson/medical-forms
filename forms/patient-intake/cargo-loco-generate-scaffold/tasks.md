@@ -1,0 +1,23 @@
+# Tasks
+
+- [ ] Create fresh Loco project
+- [ ] Run `generate.sh`
+- [ ] Review scaffold for `patient`
+- [ ] Review scaffold for `assessment`
+- [ ] Review scaffold for `assessment_personal_information`
+- [ ] Review scaffold for `assessment_insurance_and_id`
+- [ ] Review scaffold for `assessment_reason_for_visit`
+- [ ] Review scaffold for `assessment_medical_history`
+- [ ] Review scaffold for `assessment_medications`
+- [ ] Review scaffold for `assessment_medication_item`
+- [ ] Review scaffold for `assessment_allergies`
+- [ ] Review scaffold for `assessment_allergy_item`
+- [ ] Review scaffold for `assessment_family_history`
+- [ ] Review scaffold for `assessment_social_history`
+- [ ] Review scaffold for `assessment_review_of_systems`
+- [ ] Review scaffold for `assessment_consent_preferences`
+- [ ] Review scaffold for `grading_result`
+- [ ] Review scaffold for `grading_fired_rule`
+- [ ] Review scaffold for `grading_additional_flag`
+- [ ] `cargo loco db migrate`
+- [ ] `cargo build && cargo test`

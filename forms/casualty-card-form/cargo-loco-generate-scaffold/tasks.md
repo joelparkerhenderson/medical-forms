@@ -1,0 +1,27 @@
+# Tasks
+
+- [ ] Create fresh Loco project
+- [ ] Run `generate.sh`
+- [ ] Review scaffold for `patient`
+- [ ] Review scaffold for `casualty_card`
+- [ ] Review scaffold for `casualty_card_demographics`
+- [ ] Review scaffold for `casualty_card_next_of_kin`
+- [ ] Review scaffold for `casualty_card_gp`
+- [ ] Review scaffold for `casualty_card_arrival_triage`
+- [ ] Review scaffold for `casualty_card_presenting_complaint`
+- [ ] Review scaffold for `casualty_card_pain_assessment`
+- [ ] Review scaffold for `casualty_card_medical_history`
+- [ ] Review scaffold for `casualty_card_medication`
+- [ ] Review scaffold for `casualty_card_allergy`
+- [ ] Review scaffold for `casualty_card_vital_signs`
+- [ ] Review scaffold for `casualty_card_primary_survey`
+- [ ] Review scaffold for `casualty_card_clinical_examination`
+- [ ] Review scaffold for `casualty_card_investigations`
+- [ ] Review scaffold for `casualty_card_treatment`
+- [ ] Review scaffold for `casualty_card_assessment_plan`
+- [ ] Review scaffold for `casualty_card_disposition`
+- [ ] Review scaffold for `casualty_card_safeguarding_consent`
+- [ ] Review scaffold for `news2_result`
+- [ ] Review scaffold for `flagged_issue`
+- [ ] `cargo loco db migrate`
+- [ ] `cargo build && cargo test`

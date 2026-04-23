@@ -1,0 +1,21 @@
+# Tasks
+
+- [ ] Create fresh Loco project
+- [ ] Run `generate.sh`
+- [ ] Review scaffold for `patient`
+- [ ] Review scaffold for `assessment`
+- [ ] Review scaffold for `assessment_demographics`
+- [ ] Review scaffold for `assessment_vaccination_history`
+- [ ] Review scaffold for `assessment_childhood_immunisations`
+- [ ] Review scaffold for `assessment_occupational_vaccines`
+- [ ] Review scaffold for `assessment_travel_vaccines`
+- [ ] Review scaffold for `assessment_covid19_vaccination`
+- [ ] Review scaffold for `assessment_influenza_vaccination`
+- [ ] Review scaffold for `assessment_contraindications_allergies`
+- [ ] Review scaffold for `assessment_serology_immunity_testing`
+- [ ] Review scaffold for `assessment_schedule_compliance`
+- [ ] Review scaffold for `grading_result`
+- [ ] Review scaffold for `grading_fired_rule`
+- [ ] Review scaffold for `grading_additional_flag`
+- [ ] `cargo loco db migrate`
+- [ ] `cargo build && cargo test`
