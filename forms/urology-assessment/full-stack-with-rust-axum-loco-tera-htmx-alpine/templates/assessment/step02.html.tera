@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Urinary Symptoms (IPSS) - Urology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Urinary Symptoms (IPSS)</h2>
+<h2>Urinary Symptoms (IPSS)</h2>
     <p class="hint">International Prostate Symptom Score. Rate each symptom from 0 (Not at all) to 5 (Almost always).</p>
 
     <div class="form-group">
@@ -114,8 +106,4 @@
         <option value="6" {% if urinary_symptoms.qualityOfLife == 6 %}selected{% endif %}>6 - Terrible</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

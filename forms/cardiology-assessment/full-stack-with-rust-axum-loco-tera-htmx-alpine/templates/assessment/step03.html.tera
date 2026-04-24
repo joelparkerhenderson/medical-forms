@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Symptoms Assessment - Cardiology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Symptoms Assessment</h2>
+<h2>Symptoms Assessment</h2>
     <p class="hint">Evaluate the patient's current cardiac symptoms and functional status.</p>
 
     <div class="form-row">
@@ -101,8 +93,4 @@
       <textarea id="exercise_tolerance" name="symptoms_assessment.exercise_tolerance"
                 rows="2" placeholder="e.g. Can walk 100m on flat before becoming breathless">{{ symptoms_assessment.exerciseTolerance }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

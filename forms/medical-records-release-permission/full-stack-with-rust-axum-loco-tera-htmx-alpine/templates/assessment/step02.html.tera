@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Requesting Party - Medical Records Release{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Requesting Party</h2>
+<h2>Requesting Party</h2>
     <p class="hint">Identify the individual or organization requesting the records.</p>
 
     <div class="form-row">
@@ -70,8 +62,4 @@
                placeholder="e.g. (555) 987-6544">
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

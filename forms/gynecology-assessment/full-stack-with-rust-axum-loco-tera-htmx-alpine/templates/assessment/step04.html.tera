@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Obstetric History - Gynecology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Obstetric History</h2>
+<h2>Obstetric History</h2>
     <p class="hint">Please provide details of pregnancies and delivery history.</p>
 
     <div class="form-row-4">
@@ -62,8 +54,4 @@
       <textarea id="complications" name="obstetric_history.complications"
                 placeholder="e.g. pre-eclampsia, gestational diabetes, postpartum haemorrhage">{{ obstetric_history.complications }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

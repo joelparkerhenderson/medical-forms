@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Pulmonary Function Tests - Pulmonology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Pulmonary Function Tests</h2>
+<h2>Pulmonary Function Tests</h2>
     <p class="hint">Record spirometry and lung function results. 1 = Severely reduced, 5 = Normal.</p>
 
     <div class="form-row">
@@ -103,8 +95,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

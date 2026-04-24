@@ -1,9 +1,208 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <cardiovascular_symptoms>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <tachycardia>yes</tachycardia>
+    <resting_heart_rate>1</resting_heart_rate>
+    <hypotension>yes</hypotension>
+    <systolic_bp>1</systolic_bp>
+    <diastolic_bp>1</diastolic_bp>
+    <presyncope>yes</presyncope>
+    <syncope>yes</syncope>
+    <syncope_frequency>daily</syncope_frequency>
+    <palpitations>yes</palpitations>
+    <chest_pain>yes</chest_pain>
+    <orthostatic_intolerance>yes</orthostatic_intolerance>
+    <anaphylaxis_history>yes</anaphylaxis_history>
+    <anaphylaxis_episode_count>2</anaphylaxis_episode_count>
+    <carries_adrenaline_auto_injector>yes</carries_adrenaline_auto_injector>
+    <cardiovascular_notes>Example text.</cardiovascular_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cardiovascular_symptoms>
+  <current_treatment>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <h1_antihistamine>yes</h1_antihistamine>
+    <h1_antihistamine_name>Example</h1_antihistamine_name>
+    <h1_antihistamine_dose>500mg</h1_antihistamine_dose>
+    <h2_antihistamine>yes</h2_antihistamine>
+    <h2_antihistamine_name>Example</h2_antihistamine_name>
+    <h2_antihistamine_dose>500mg</h2_antihistamine_dose>
+    <mast_cell_stabiliser>yes</mast_cell_stabiliser>
+    <mast_cell_stabiliser_name>Example</mast_cell_stabiliser_name>
+    <leukotriene_inhibitor>yes</leukotriene_inhibitor>
+    <leukotriene_inhibitor_name>Example</leukotriene_inhibitor_name>
+    <corticosteroids>yes</corticosteroids>
+    <corticosteroid_details>Example text.</corticosteroid_details>
+    <adrenaline_auto_injector_prescribed>yes</adrenaline_auto_injector_prescribed>
+    <omalizumab>yes</omalizumab>
+    <other_medications>Paracetamol</other_medications>
+    <low_histamine_diet>yes</low_histamine_diet>
+    <avoidance_strategies/>
+    <treatment_effectiveness>very-effective</treatment_effectiveness>
+    <treatment_notes>Example text.</treatment_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_treatment>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <occupation>Teacher</occupation>
+    <ethnicity>White British</ethnicity>
+    <contact_phone>07700900001</contact_phone>
+    <contact_email>07700900001</contact_email>
+    <emergency_contact_name>Example</emergency_contact_name>
+    <emergency_contact_phone>07700900001</emergency_contact_phone>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <dermatological_symptoms>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <flushing>yes</flushing>
+    <flushing_severity>1</flushing_severity>
+    <flushing_frequency>daily</flushing_frequency>
+    <urticaria>yes</urticaria>
+    <urticaria_severity>1</urticaria_severity>
+    <angioedema>yes</angioedema>
+    <angioedema_location>Example location</angioedema_location>
+    <pruritus>yes</pruritus>
+    <pruritus_severity>1</pruritus_severity>
+    <dermatographism>yes</dermatographism>
+    <skin_lesions/>
+    <dermatological_notes>Example text.</dermatological_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </dermatological_symptoms>
+  <gastrointestinal_symptoms>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <abdominal_pain>yes</abdominal_pain>
+    <abdominal_pain_severity>1</abdominal_pain_severity>
+    <nausea>yes</nausea>
+    <vomiting>yes</vomiting>
+    <diarrhoea>yes</diarrhoea>
+    <diarrhoea_frequency>daily</diarrhoea_frequency>
+    <bloating>yes</bloating>
+    <gastro_oesophageal_reflux>yes</gastro_oesophageal_reflux>
+    <dysphagia>yes</dysphagia>
+    <food_intolerances/>
+    <weight_change>gain</weight_change>
+    <weight_change_amount_kg>70.0</weight_change_amount_kg>
+    <gastrointestinal_notes>Example text.</gastrointestinal_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </gastrointestinal_symptoms>
+  <laboratory_results>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <serum_tryptase>0.0</serum_tryptase>
+    <serum_tryptase_date>2026-01-15</serum_tryptase_date>
+    <serum_tryptase_elevated>yes</serum_tryptase_elevated>
+    <plasma_histamine>0.0</plasma_histamine>
+    <plasma_histamine_date>2026-01-15</plasma_histamine_date>
+    <urine_n_methylhistamine>0.0</urine_n_methylhistamine>
+    <urine_n_methylhistamine_date>2026-01-15</urine_n_methylhistamine_date>
+    <urine_prostaglandin_d2>0.0</urine_prostaglandin_d2>
+    <urine_prostaglandin_d2_date>2026-01-15</urine_prostaglandin_d2_date>
+    <urine_leukotriene_e4>0.0</urine_leukotriene_e4>
+    <urine_leukotriene_e4_date>2026-01-15</urine_leukotriene_e4_date>
+    <chromogranin_a>0.0</chromogranin_a>
+    <chromogranin_a_date>2026-01-15</chromogranin_a_date>
+    <serum_ige_total>0.0</serum_ige_total>
+    <full_blood_count_notes>Example text.</full_blood_count_notes>
+    <bone_marrow_biopsy>yes</bone_marrow_biopsy>
+    <bone_marrow_biopsy_result>Normal</bone_marrow_biopsy_result>
+    <additional_lab_notes>Example text.</additional_lab_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </laboratory_results>
+  <neurological_symptoms>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <headaches>yes</headaches>
+    <headache_severity>1</headache_severity>
+    <headache_frequency>daily</headache_frequency>
+    <brain_fog>yes</brain_fog>
+    <brain_fog_severity>1</brain_fog_severity>
+    <dizziness>yes</dizziness>
+    <paraesthesia>yes</paraesthesia>
+    <paraesthesia_location>Example location</paraesthesia_location>
+    <insomnia>yes</insomnia>
+    <fatigue>yes</fatigue>
+    <fatigue_severity>1</fatigue_severity>
+    <anxiety>yes</anxiety>
+    <depression>yes</depression>
+    <neurological_notes>Example text.</neurological_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </neurological_symptoms>
+  <respiratory_symptoms>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <wheezing>yes</wheezing>
+    <dyspnoea>yes</dyspnoea>
+    <dyspnoea_severity>1</dyspnoea_severity>
+    <nasal_congestion>yes</nasal_congestion>
+    <rhinorrhoea>yes</rhinorrhoea>
+    <throat_tightness>yes</throat_tightness>
+    <stridor>yes</stridor>
+    <cough>yes</cough>
+    <cough_type>dry</cough_type>
+    <asthma_diagnosis>yes</asthma_diagnosis>
+    <peak_flow_lpm>1</peak_flow_lpm>
+    <respiratory_notes>Example text.</respiratory_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </respiratory_symptoms>
+  <symptom_overview>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <symptom_onset_date>2026-01-15</symptom_onset_date>
+    <symptom_duration>Fatigue</symptom_duration>
+    <symptom_pattern>episodic</symptom_pattern>
+    <symptom_frequency>daily</symptom_frequency>
+    <worst_symptom_description>Example text.</worst_symptom_description>
+    <overall_severity>1</overall_severity>
+    <previous_mcas_diagnosis>yes</previous_mcas_diagnosis>
+    <previous_mastocytosis_diagnosis>yes</previous_mastocytosis_diagnosis>
+    <family_history_mast_cell>yes</family_history_mast_cell>
+    <family_history_details>Example text.</family_history_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </symptom_overview>
+  <triggers_and_patterns>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <heat_trigger>yes</heat_trigger>
+    <cold_trigger>yes</cold_trigger>
+    <stress_trigger>yes</stress_trigger>
+    <exercise_trigger>yes</exercise_trigger>
+    <food_trigger>yes</food_trigger>
+    <food_trigger_details>Example text.</food_trigger_details>
+    <alcohol_trigger>yes</alcohol_trigger>
+    <medication_trigger>yes</medication_trigger>
+    <medication_trigger_details>Example text.</medication_trigger_details>
+    <fragrance_chemical_trigger>yes</fragrance_chemical_trigger>
+    <insect_sting_trigger>yes</insect_sting_trigger>
+    <hormonal_trigger>yes</hormonal_trigger>
+    <hormonal_trigger_details>Example text.</hormonal_trigger_details>
+    <infection_trigger>yes</infection_trigger>
+    <other_triggers/>
+    <diurnal_pattern>morning</diurnal_pattern>
+    <seasonal_pattern>yes</seasonal_pattern>
+    <seasonal_pattern_details>Example text.</seasonal_pattern_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </triggers_and_patterns>
 </assessment>

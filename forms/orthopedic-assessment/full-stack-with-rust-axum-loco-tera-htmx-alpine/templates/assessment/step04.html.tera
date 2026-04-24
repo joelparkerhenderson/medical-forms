@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Joint Examination - Orthopedic Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Joint Examination</h2>
+<h2>Joint Examination</h2>
     <p class="hint">Assess the affected joint. 1 = Normal/Intact, 5 = Severely Abnormal.</p>
 
     <div class="form-group">
@@ -98,8 +90,4 @@
       <textarea id="special_tests_result" name="joint_examination.special_tests_result"
                 rows="2" placeholder="e.g. Lachman +ve, McMurray -ve">{{ joint_examination.specialTestsResult }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

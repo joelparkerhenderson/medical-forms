@@ -208,7 +208,7 @@ CREATE TABLE patient (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TRIGGER trg_patient_updated_at
+CREATE TRIGGER trigger_patient_updated_at
     BEFORE UPDATE ON patient
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();
@@ -239,7 +239,7 @@ CREATE TABLE acknowledgment (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TRIGGER trg_acknowledgment_updated_at
+CREATE TRIGGER trigger_acknowledgment_updated_at
     BEFORE UPDATE ON acknowledgment
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();

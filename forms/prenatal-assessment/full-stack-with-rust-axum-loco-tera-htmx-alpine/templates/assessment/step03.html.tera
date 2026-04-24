@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Current Pregnancy - Prenatal Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Current Pregnancy</h2>
+<h2>Current Pregnancy</h2>
     <p class="hint">Details about the current pregnancy status and symptoms.</p>
 
     <div class="form-row">
@@ -94,8 +86,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

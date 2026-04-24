@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}ECG Findings - Cardiology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>ECG Findings</h2>
+<h2>ECG Findings</h2>
     <p class="hint">Record the 12-lead ECG interpretation.</p>
 
     <div class="form-row">
@@ -104,8 +96,4 @@
       <textarea id="ecg_interpretation" name="ecg_findings.ecg_interpretation"
                 rows="3" placeholder="e.g. Normal sinus rhythm, no acute ischaemic changes">{{ ecg_findings.ecgInterpretation }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Ocular Motility - Ophthalmology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Ocular Motility</h2>
+<h2>Ocular Motility</h2>
     <p class="hint">Record eye movement, pupil responses, and binocular function assessments.</p>
 
     <h3>Extraocular Movements</h3>
@@ -128,8 +120,4 @@
       <input type="text" id="stereopsis" name="ocular_motility.stereopsis"
              value="{{ ocular_motility.stereopsis }}" placeholder="e.g. 40 seconds of arc (Titmus)">
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

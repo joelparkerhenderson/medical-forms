@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Previous Assessment - Attention Deficit Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Previous Assessment</h2>
+<h2>Previous Assessment</h2>
     <p class="hint">Record any prior ADHD assessments or neuropsychological testing.</p>
 
     <div class="form-group">
@@ -73,8 +65,4 @@
       <textarea id="previous_diagnosis_other" name="previous_assessment.previous_diagnosis_other"
                 rows="2" placeholder="List any other diagnoses...">{{ previous_assessment.previousDiagnosisOther }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

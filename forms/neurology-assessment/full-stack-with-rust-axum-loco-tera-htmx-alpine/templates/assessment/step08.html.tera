@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Cognitive Screening - Neurology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Cognitive Screening</h2>
+<h2>Cognitive Screening</h2>
     <p class="hint">Brief cognitive assessment covering key domains and standardised scores.</p>
 
     <h3>Cognitive Domains</h3>
@@ -74,8 +66,4 @@
         <option value="comatose" {% if cognitive_screening.consciousnessLevel == "comatose" %}selected{% endif %}>Comatose</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

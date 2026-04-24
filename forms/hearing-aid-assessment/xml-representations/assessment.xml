@@ -1,9 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <audiogram_results>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <audiogram_date>2026-01-15</audiogram_date>
+    <left_pta_db>1</left_pta_db>
+    <right_pta_db>1</right_pta_db>
+    <left_hearing_loss_degree>normal</left_hearing_loss_degree>
+    <right_hearing_loss_degree>normal</right_hearing_loss_degree>
+    <left_hearing_loss_type>sensorineural</left_hearing_loss_type>
+    <right_hearing_loss_type>sensorineural</right_hearing_loss_type>
+    <left_hearing_loss_configuration>flat</left_hearing_loss_configuration>
+    <right_hearing_loss_configuration>flat</right_hearing_loss_configuration>
+    <speech_recognition_left_pct>1</speech_recognition_left_pct>
+    <speech_recognition_right_pct>1</speech_recognition_right_pct>
+    <tympanometry_left>type-a</tympanometry_left>
+    <tympanometry_right>type-a</tympanometry_right>
+    <asymmetric_hearing_loss>yes</asymmetric_hearing_loss>
+    <audiogram_notes>Example text.</audiogram_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </audiogram_results>
+  <communication_difficulties>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <difficulty_quiet_conversation>never</difficulty_quiet_conversation>
+    <difficulty_noisy_environment>never</difficulty_noisy_environment>
+    <difficulty_group_settings>never</difficulty_group_settings>
+    <difficulty_on_telephone>never</difficulty_on_telephone>
+    <difficulty_television>never</difficulty_television>
+    <difficulty_understanding_speech>never</difficulty_understanding_speech>
+    <asks_people_to_repeat>never</asks_people_to_repeat>
+    <lip_reading_reliance>never</lip_reading_reliance>
+    <social_withdrawal>yes</social_withdrawal>
+    <communication_partner_concerns>yes</communication_partner_concerns>
+    <communication_partner_details>Example text.</communication_partner_details>
+    <communication_notes>Example text.</communication_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </communication_difficulties>
+  <current_hearing_aids>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <currently_uses_hearing_aids>yes</currently_uses_hearing_aids>
+    <hearing_aid_side>left</hearing_aid_side>
+    <hearing_aid_type>bte</hearing_aid_type>
+    <hearing_aid_make/>
+    <hearing_aid_model/>
+    <hearing_aid_age_years>45</hearing_aid_age_years>
+    <daily_usage_hours>45</daily_usage_hours>
+    <satisfaction_with_current_aid>very-satisfied</satisfaction_with_current_aid>
+    <problems_with_current_aid>yes</problems_with_current_aid>
+    <problem_details>Example text.</problem_details>
+    <previous_hearing_aids>yes</previous_hearing_aids>
+    <previous_aid_details>Example text.</previous_aid_details>
+    <uses_assistive_listening_devices>yes</uses_assistive_listening_devices>
+    <assistive_device_details>Example text.</assistive_device_details>
+    <hearing_aid_notes>Example text.</hearing_aid_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_hearing_aids>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ethnicity>White British</ethnicity>
+    <primary_language>English</primary_language>
+    <interpreter_required>yes</interpreter_required>
+    <marital_status>single</marital_status>
+    <living_situation>alone</living_situation>
+    <occupation>Teacher</occupation>
+    <retired>yes</retired>
+    <emergency_contact_name>Example</emergency_contact_name>
+    <emergency_contact_phone>07700900001</emergency_contact_phone>
+    <emergency_contact_relationship>Spouse</emergency_contact_relationship>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <ear_examination>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <left_ear_canal>normal</left_ear_canal>
+    <left_ear_canal_details>Example text.</left_ear_canal_details>
+    <right_ear_canal>normal</right_ear_canal>
+    <right_ear_canal_details>Example text.</right_ear_canal_details>
+    <left_tympanic_membrane>normal</left_tympanic_membrane>
+    <left_tympanic_membrane_details>Example text.</left_tympanic_membrane_details>
+    <right_tympanic_membrane>normal</right_tympanic_membrane>
+    <right_tympanic_membrane_details>Example text.</right_tympanic_membrane_details>
+    <left_pinna>normal</left_pinna>
+    <left_pinna_details>Example text.</left_pinna_details>
+    <right_pinna>normal</right_pinna>
+    <right_pinna_details>Example text.</right_pinna_details>
+    <otoscopy_referral_needed>yes</otoscopy_referral_needed>
+    <ear_examination_notes>Example text.</ear_examination_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </ear_examination>
+  <expectations_and_goals>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <motivation_level>very-motivated</motivation_level>
+    <self_referral>yes</self_referral>
+    <referral_source/>
+    <primary_goal/>
+    <secondary_goal/>
+    <realistic_expectations>yes</realistic_expectations>
+    <willingness_to_wear_daily>yes</willingness_to_wear_daily>
+    <support_from_family>yes</support_from_family>
+    <previous_hearing_aid_experience>positive</previous_hearing_aid_experience>
+    <concerns_about_hearing_aids/>
+    <preferred_hearing_aid_style>bte</preferred_hearing_aid_style>
+    <follow_up_commitment>yes</follow_up_commitment>
+    <expectations_notes>Example text.</expectations_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </expectations_and_goals>
+  <hearing_history>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <onset_of_hearing_loss>sudden</onset_of_hearing_loss>
+    <duration_of_hearing_loss/>
+    <hearing_loss_laterality>left</hearing_loss_laterality>
+    <worse_ear>left</worse_ear>
+    <noise_exposure_history>yes</noise_exposure_history>
+    <noise_exposure_details>Example text.</noise_exposure_details>
+    <ototoxic_medication_history>yes</ototoxic_medication_history>
+    <ototoxic_medication_details>Example text.</ototoxic_medication_details>
+    <family_history_hearing_loss>yes</family_history_hearing_loss>
+    <family_hearing_loss_details>Example text.</family_hearing_loss_details>
+    <tinnitus>yes</tinnitus>
+    <tinnitus_laterality>left</tinnitus_laterality>
+    <tinnitus_severity>1</tinnitus_severity>
+    <vertigo_dizziness>yes</vertigo_dizziness>
+    <vertigo_details>Example text.</vertigo_details>
+    <ear_surgery_history>yes</ear_surgery_history>
+    <ear_surgery_details>Example text.</ear_surgery_details>
+    <hearing_history_notes>Example text.</hearing_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </hearing_history>
+  <hhies_questionnaire>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <s1_telephone_difficulty>1</s1_telephone_difficulty>
+    <s2_embarrassment>1</s2_embarrassment>
+    <s3_difficulty_group_conversation>1</s3_difficulty_group_conversation>
+    <s4_handicapped_feeling>1</s4_handicapped_feeling>
+    <s5_difficulty_visiting>1</s5_difficulty_visiting>
+    <s6_difficulty_religious_services>1</s6_difficulty_religious_services>
+    <s7_arguments_due_to_hearing>1</s7_arguments_due_to_hearing>
+    <s8_difficulty_tv_radio>1</s8_difficulty_tv_radio>
+    <s9_personal_social_life_affected>1</s9_personal_social_life_affected>
+    <s10_difficulty_restaurant>1</s10_difficulty_restaurant>
+    <hhies_total_score>5</hhies_total_score>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </hhies_questionnaire>
+  <lifestyle_and_needs>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <primary_listening_environment>quiet-home</primary_listening_environment>
+    <frequent_phone_use>yes</frequent_phone_use>
+    <frequent_music_listening>yes</frequent_music_listening>
+    <active_social_life>yes</active_social_life>
+    <exercises_regularly>yes</exercises_regularly>
+    <dexterity_issues>yes</dexterity_issues>
+    <dexterity_details>Example text.</dexterity_details>
+    <vision_issues>yes</vision_issues>
+    <vision_details>Example text.</vision_details>
+    <cognitive_concerns>yes</cognitive_concerns>
+    <technology_comfort>very-comfortable</technology_comfort>
+    <smartphone_use>yes</smartphone_use>
+    <bluetooth_connectivity_desired>yes</bluetooth_connectivity_desired>
+    <cosmetic_preference>discreet</cosmetic_preference>
+    <budget_considerations/>
+    <lifestyle_notes>Example text.</lifestyle_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </lifestyle_and_needs>
 </assessment>

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Mental Health Comorbidities - Autism Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Mental Health Comorbidities</h2>
+<h2>Mental Health Comorbidities</h2>
     <p class="hint">Assess co-occurring mental health conditions. Rate severity (0 = None, 3 = Severe).</p>
 
     <div class="likert-group">
@@ -77,8 +69,4 @@
         <label><input type="radio" name="mental_health_comorbidities.safeguarding_concerns" value="no" {% if mental_health_comorbidities.safeguardingConcerns == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

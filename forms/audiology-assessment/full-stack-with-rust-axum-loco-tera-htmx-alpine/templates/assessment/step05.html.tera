@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Audiometric Results - Audiology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Audiometric Results</h2>
+<h2>Audiometric Results</h2>
     <p class="hint">Enter pure-tone audiometry thresholds (dB HL), speech audiometry, and tympanometry results.</p>
 
     <h3>Air Conduction - Right Ear (dB HL)</h3>
@@ -202,8 +194,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

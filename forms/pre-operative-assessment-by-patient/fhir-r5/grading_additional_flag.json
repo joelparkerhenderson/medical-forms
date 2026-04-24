@@ -1,6 +1,6 @@
 {
   "resourceType": "DetectedIssue",
-  "id": "bb1e8400-e29b-41d4-a716-446655440015",
+  "id": "bb0e8400-e29b-41d4-a716-446655440006",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/StructureDefinition/DetectedIssue"
@@ -14,7 +14,7 @@
         {
           "system": "urn:medical-forms:pre-operative-assessment-by-patient",
           "code": "grading-additional-flag",
-          "display": "General"
+          "display": "difficult-airway"
         }
       ]
     }
@@ -28,7 +28,7 @@
       }
     ]
   },
-  "severity": "high",
+  "severity": "low",
   "subject": {
     "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
   },

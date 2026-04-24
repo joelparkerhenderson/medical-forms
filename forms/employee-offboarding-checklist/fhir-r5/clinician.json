@@ -1,0 +1,128 @@
+{
+  "resourceType": "Observation",
+  "id": "660e8400-e29b-41d4-a716-446655440001",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/Observation"
+    ],
+    "lastUpdated": "2026-04-09T10:00:00+00:00"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:medical-forms:employee-offboarding-checklist",
+        "code": "clinician",
+        "display": "Clinician"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
+  },
+  "encounter": {
+    "reference": "Encounter/770e8400-e29b-41d4-a716-446655440002"
+  },
+  "effectiveDateTime": "2026-04-09T10:00:00+00:00",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-offboarding-checklist",
+            "code": "deleted_at",
+            "display": "Deleted At"
+          }
+        ]
+      },
+      "valueDateTime": "2026-04-09T10:00:00+00:00"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-offboarding-checklist",
+            "code": "name",
+            "display": "Name"
+          }
+        ]
+      },
+      "valueString": "Example"
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-offboarding-checklist",
+            "code": "role",
+            "display": "Role"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-offboarding-checklist:role",
+            "code": "anaesthetist",
+            "display": "Anaesthetist"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-offboarding-checklist",
+            "code": "registration_body",
+            "display": "Registration Body"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-offboarding-checklist:registration_body",
+            "code": "GMC",
+            "display": "Gmc"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-offboarding-checklist",
+            "code": "registration_number",
+            "display": "Registration Number"
+          }
+        ]
+      },
+      "valueString": ""
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "urn:medical-forms:employee-offboarding-checklist",
+            "code": "united_kingdom_nhs_number",
+            "display": "United Kingdom Nhs Number"
+          }
+        ]
+      },
+      "valueString": "mg/dL"
+    }
+  ]
+}

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Overall Experience - Encounter Satisfaction{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Overall Experience</h2>
+<h2>Overall Experience</h2>
     <p class="hint">Rate your overall healthcare experience.</p>
 
     <div class="likert-group">
@@ -89,8 +81,4 @@
       <textarea id="worst_aspect" name="overall_experience.worst_aspect"
                 placeholder="What would you change about your experience?">{{ overall_experience.worstAspect }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

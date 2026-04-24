@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Clinical Review - Orthopedic Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Clinical Review</h2>
+<h2>Clinical Review</h2>
     <p class="hint">Final clinical summary and recommendations. 1 = Normal/Mild, 5 = Severe/Critical.</p>
 
     <div class="form-group">
@@ -84,8 +76,4 @@
       <textarea id="clinical_notes" name="clinical_review.clinical_notes"
                 rows="4" placeholder="Additional clinical notes and observations">{{ clinical_review.clinicalNotes }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

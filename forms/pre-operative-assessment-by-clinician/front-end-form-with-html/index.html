@@ -18,18 +18,6 @@
       </p>
     </header>
 
-    <!-- Section nav -->
-    <nav aria-label="Sections" class="sticky top-0 z-10 bg-white border-b border-slate-200 py-2 mb-4 overflow-x-auto no-print">
-      <ol class="flex gap-3 text-sm">
-        <template x-for="(title, i) in stepTitles" :key="i">
-          <li>
-            <a :href="`#step-${i + 1}`" class="text-blue-700 hover:underline whitespace-nowrap"
-               x-text="`${i + 1}. ${title}`"></a>
-          </li>
-        </template>
-      </ol>
-    </nav>
-
     <div class="space-y-6">
 
       <!-- STEP 1: Clinician -->

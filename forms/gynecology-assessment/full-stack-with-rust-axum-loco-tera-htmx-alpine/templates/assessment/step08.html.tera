@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Breast Health - Gynecology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Breast Health</h2>
+<h2>Breast Health</h2>
     <p class="hint">Please provide details about breast health and screening history.</p>
 
     <div class="form-row">
@@ -51,8 +43,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

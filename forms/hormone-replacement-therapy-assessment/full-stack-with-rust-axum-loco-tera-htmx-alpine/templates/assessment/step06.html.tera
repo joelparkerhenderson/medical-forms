@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Breast Health - HRT Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Breast Health</h2>
+<h2>Breast Health</h2>
     <p class="hint">Breast cancer risk assessment is essential before initiating HRT.</p>
 
     <div class="form-row">
@@ -83,8 +75,4 @@
       <textarea id="current_breast_symptoms" name="breast_health.current_breast_symptoms"
                 rows="3" placeholder="e.g. Lumps, nipple discharge, pain, or None">{{ breast_health.currentBreastSymptoms }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,16 +1,8 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 9: Healthcare Professional Review</h2>
     <p class="form-hint">A healthcare professional review is recommended but not legally required. It strengthens the validity of the ADRT.</p>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-row">
+<div class="form-row">
             <div class="form-group">
                 <label for="reviewed_by_clinician_name">Clinician Name</label>
                 <input type="text" id="reviewed_by_clinician_name" name="healthcare_professional_review.reviewed_by_clinician_name"
@@ -52,8 +44,4 @@
             </div>
         </div>
         {% endif %}
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

@@ -1,9 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <assessment_chief_complaint>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <chief_complaint/>
+    <onset_date>2026-01-15</onset_date>
+    <duration/>
+    <severity>mild</severity>
+    <pain_location>Example location</pain_location>
+    <pain_character>sharp</pain_character>
+    <aggravating_factors/>
+    <relieving_factors/>
+    <previous_treatment>Example treatment</previous_treatment>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </assessment_chief_complaint>
+  <current_medications>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <takes_anticoagulants>yes</takes_anticoagulants>
+    <anticoagulant_name>Example</anticoagulant_name>
+    <takes_antiplatelet>yes</takes_antiplatelet>
+    <antiplatelet_name>Example</antiplatelet_name>
+    <takes_bisphosphonates>yes</takes_bisphosphonates>
+    <bisphosphonate_name>Example</bisphosphonate_name>
+    <takes_immunosuppressants>yes</takes_immunosuppressants>
+    <immunosuppressant_name>Example</immunosuppressant_name>
+    <takes_steroids>yes</takes_steroids>
+    <steroid_name>Example</steroid_name>
+    <takes_antihypertensives>yes</takes_antihypertensives>
+    <antihypertensive_name>Example</antihypertensive_name>
+    <local_anaesthetic_allergy>yes</local_anaesthetic_allergy>
+    <anaesthetic_allergy_details>Example text.</anaesthetic_allergy_details>
+    <latex_allergy>yes</latex_allergy>
+    <antibiotic_allergy>yes</antibiotic_allergy>
+    <antibiotic_allergy_details>Example text.</antibiotic_allergy_details>
+    <other_medications>Paracetamol</other_medications>
+    <other_allergies/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <full_name>Example</full_name>
+    <date_of_birth>1965-06-15</date_of_birth>
+    <nhs_number>9434765919</nhs_number>
+    <address>123 Example Street</address>
+    <telephone>07700900000</telephone>
+    <email>jane.doe@example.com</email>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <dental_history>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <last_dental_visit>2026-01-15</last_dental_visit>
+    <visit_frequency>every_6_months</visit_frequency>
+    <previous_extractions>yes</previous_extractions>
+    <extraction_details>Example text.</extraction_details>
+    <previous_orthodontics>yes</previous_orthodontics>
+    <orthodontic_details>Example text.</orthodontic_details>
+    <previous_endodontics>yes</previous_endodontics>
+    <endodontic_details>Example text.</endodontic_details>
+    <previous_prosthetics>yes</previous_prosthetics>
+    <prosthetic_details>Example text.</prosthetic_details>
+    <oral_hygiene_routine/>
+    <brushing_frequency>twice_daily</brushing_frequency>
+    <flossing_frequency>daily</flossing_frequency>
+    <mouthwash_use>yes</mouthwash_use>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </dental_history>
+  <dmft>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <decayed_teeth>1</decayed_teeth>
+    <missing_teeth>1</missing_teeth>
+    <filled_teeth>1</filled_teeth>
+    <dmft_total>1</dmft_total>
+    <decayed_tooth_numbers/>
+    <missing_tooth_numbers/>
+    <filled_tooth_numbers/>
+    <caries_activity>active</caries_activity>
+    <notes>Example text.</notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </dmft>
+  <medical_history>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_cardiovascular_disease>yes</has_cardiovascular_disease>
+    <cardiovascular_details>Example text.</cardiovascular_details>
+    <has_diabetes>yes</has_diabetes>
+    <diabetes_type>type_1</diabetes_type>
+    <has_bleeding_disorder>yes</has_bleeding_disorder>
+    <bleeding_disorder_details>Example text.</bleeding_disorder_details>
+    <has_respiratory_disease>yes</has_respiratory_disease>
+    <respiratory_details>Example text.</respiratory_details>
+    <has_hepatitis>yes</has_hepatitis>
+    <hepatitis_type>a</hepatitis_type>
+    <has_hiv>yes</has_hiv>
+    <has_epilepsy>yes</has_epilepsy>
+    <has_osteoporosis>yes</has_osteoporosis>
+    <bisphosphonate_use>yes</bisphosphonate_use>
+    <has_immunosuppression>yes</has_immunosuppression>
+    <immunosuppression_details>Example text.</immunosuppression_details>
+    <is_pregnant>yes</is_pregnant>
+    <pregnancy_trimester>first</pregnancy_trimester>
+    <tobacco_use>current</tobacco_use>
+    <alcohol_use>none</alcohol_use>
+    <other_conditions/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_history>
+  <oral_examination>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <soft_tissue_status>normal</soft_tissue_status>
+    <soft_tissue_findings>Example text.</soft_tissue_findings>
+    <tongue_status>normal</tongue_status>
+    <tongue_findings>Example text.</tongue_findings>
+    <floor_of_mouth_status>normal</floor_of_mouth_status>
+    <floor_of_mouth_findings>Example text.</floor_of_mouth_findings>
+    <palate_status>normal</palate_status>
+    <palate_findings>Example text.</palate_findings>
+    <buccal_mucosa_status>normal</buccal_mucosa_status>
+    <buccal_mucosa_findings>Example text.</buccal_mucosa_findings>
+    <lymph_node_status>normal</lymph_node_status>
+    <lymph_node_findings>Example text.</lymph_node_findings>
+    <tmj_status>normal</tmj_status>
+    <tmj_findings>Example text.</tmj_findings>
+    <occlusion>class_i</occlusion>
+    <occlusion_notes>Example text.</occlusion_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </oral_examination>
+  <periodontal>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <gingival_status>healthy</gingival_status>
+    <bleeding_on_probing>yes</bleeding_on_probing>
+    <bleeding_sites>Example location</bleeding_sites>
+    <probing_depth_max>1</probing_depth_max>
+    <probing_depth_mean>0.0</probing_depth_mean>
+    <clinical_attachment_loss>none</clinical_attachment_loss>
+    <furcation_involvement>yes</furcation_involvement>
+    <furcation_details>Example text.</furcation_details>
+    <tooth_mobility>none</tooth_mobility>
+    <mobility_details>Example text.</mobility_details>
+    <plaque_index_score>5.0</plaque_index_score>
+    <calculus_present>yes</calculus_present>
+    <calculus_location>Example location</calculus_location>
+    <gingival_recession>yes</gingival_recession>
+    <recession_details>Example text.</recession_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </periodontal>
+  <radiographic_findings>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <radiographs_taken>yes</radiographs_taken>
+    <radiograph_type>periapical</radiograph_type>
+    <radiograph_date>2026-01-15</radiograph_date>
+    <periapical_pathology>yes</periapical_pathology>
+    <periapical_details>Example text.</periapical_details>
+    <bone_loss_pattern>none</bone_loss_pattern>
+    <bone_loss_severity>mild</bone_loss_severity>
+    <bone_loss_details>Example text.</bone_loss_details>
+    <impacted_teeth>yes</impacted_teeth>
+    <impacted_teeth_details>Example text.</impacted_teeth_details>
+    <caries_detected>yes</caries_detected>
+    <caries_details>Example text.</caries_details>
+    <root_resorption>yes</root_resorption>
+    <root_resorption_details>Example text.</root_resorption_details>
+    <other_pathology>yes</other_pathology>
+    <other_pathology_details>Example text.</other_pathology_details>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </radiographic_findings>
 </assessment>

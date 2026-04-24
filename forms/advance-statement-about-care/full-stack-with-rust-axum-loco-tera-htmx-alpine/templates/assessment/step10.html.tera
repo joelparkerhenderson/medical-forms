@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Signatures & Verification - Advance Statement{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Signatures & Verification</h2>
+<h2>Signatures & Verification</h2>
     <p class="hint">Confirm and sign the advance statement.</p>
 
     <h3>Patient Signature</h3>
@@ -55,8 +47,4 @@
         <label><input type="radio" name="signatures_verification.reviewed_with_patient" value="no" {% if signatures_verification.reviewedWithPatient == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

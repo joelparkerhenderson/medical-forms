@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Stroke Type & Classification - Stroke Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Stroke Type & Classification</h2>
+<h2>Stroke Type & Classification</h2>
     <p class="hint">Classify the stroke type using clinical and imaging findings.</p>
 
     <div class="form-row">
@@ -61,8 +53,4 @@
              value="{{ stroke_classification.territory }}"
              placeholder="e.g. MCA, ACA, PCA, basilar">
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

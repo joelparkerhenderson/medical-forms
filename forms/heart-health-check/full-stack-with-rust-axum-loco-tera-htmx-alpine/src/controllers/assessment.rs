@@ -4,7 +4,6 @@ use axum::{debug_handler, response::Redirect, Extension};
 use chrono::Utc;
 use loco_rs::prelude::*;
 use sea_orm::{ActiveValue, IntoActiveModel};
-use serde::Deserialize;
 use tera::{Context, Tera};
 use uuid::Uuid;
 
@@ -13,9 +12,9 @@ use crate::models::{
     _entities::assessments::ActiveModel,
     assessments::find_by_id,
 };
-use crate::views::assessment::build_step_context;
+use crate::views::assessment::build_assessment_context;
 
-/// POST /assessment/new -- create new assessment, redirect to step 1
+/// POST /assessment/new -- create new assessment, redirect to the single-page form
 #[debug_handler]
 async fn create_new(
     State(ctx): State<AppContext>,
@@ -24,35 +23,26 @@ async fn create_new(
         .map_err(|e| Error::BadRequest(format!("Failed to create assessment: {e}")))?;
     let item = item.insert(&ctx.db).await?;
     let id = item.id;
-    Ok(Redirect::to(&format!("/assessment/{id}/step/1")).into_response())
+    Ok(Redirect::to(&format!("/assessment/{id}")).into_response())
 }
 
-#[derive(Debug, Deserialize)]
-struct StepParams {
-    id: Uuid,
-    step: u32,
-}
-
-/// GET /assessment/{id}/step/{step} -- render step form
+/// GET /assessment/{id} -- render the single-page form
 #[debug_handler]
-async fn show_step(
-    Path(params): Path<StepParams>,
+async fn show_assessment(
+    Path(id): Path<Uuid>,
     State(ctx): State<AppContext>,
     Extension(tera): Extension<Arc<Tera>>,
 ) -> Result<Response> {
-    let item = find_by_id(&ctx.db, params.id)
+    let item = find_by_id(&ctx.db, id)
         .await?
         .ok_or_else(|| Error::NotFound)?;
 
-    let data: AssessmentData = item
-        .assessment_data()
-        .unwrap_or_default();
+    let data: AssessmentData = item.assessment_data().unwrap_or_default();
 
-    let context = build_step_context(&data, params.id, params.step);
-    let template_name = format!("assessment/step{:02}.html.tera", params.step);
+    let context = build_assessment_context(&data, id);
 
     let rendered = tera
-        .render(&template_name, &context)
+        .render("assessment.html.tera", &context)
         .map_err(|e| Error::BadRequest(format!("Template error: {e}")))?;
 
     Ok(Response::builder()
@@ -165,14 +155,14 @@ fn parse_field_value(json_field: &str, value: &serde_json::Value) -> serde_json:
     }
 }
 
-/// POST /assessment/{id}/step/{step} -- save step data, redirect to next step
+/// POST /assessment/{id} -- save all fields, redirect to report
 #[debug_handler]
-async fn save_step(
-    Path(params): Path<StepParams>,
+async fn save_assessment(
+    Path(id): Path<Uuid>,
     State(ctx): State<AppContext>,
     axum::extract::Form(form_data): axum::extract::Form<serde_json::Value>,
 ) -> Result<Response> {
-    let item = find_by_id(&ctx.db, params.id)
+    let item = find_by_id(&ctx.db, id)
         .await?
         .ok_or_else(|| Error::NotFound)?;
 
@@ -199,12 +189,7 @@ async fn save_step(
     active.updated_at = ActiveValue::Set(Utc::now().into());
     active.update(&ctx.db).await?;
 
-    let next_step = params.step + 1;
-    if next_step > 10 {
-        Ok(Redirect::to(&format!("/assessment/{}/report", params.id)).into_response())
-    } else {
-        Ok(Redirect::to(&format!("/assessment/{}/step/{next_step}", params.id)).into_response())
-    }
+    Ok(Redirect::to(&format!("/assessment/{id}/report")).into_response())
 }
 
 /// GET /assessment/{id}/report -- grade and render report
@@ -288,8 +273,8 @@ pub fn routes(tera: Arc<Tera>) -> Routes {
     Routes::new()
         .add("/", get(landing))
         .add("assessment/new", post(create_new))
-        .add("assessment/{id}/step/{step}", get(show_step))
-        .add("assessment/{id}/step/{step}", post(save_step))
+        .add("assessment/{id}", get(show_assessment))
+        .add("assessment/{id}", post(save_assessment))
         .add("assessment/{id}/report", get(show_report))
         .layer(Extension(tera))
 }

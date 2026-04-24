@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Spiritual & Cultural Wishes - Advance Statement{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Spiritual & Cultural Wishes</h2>
+<h2>Spiritual & Cultural Wishes</h2>
     <p class="hint">Your spiritual, religious, and cultural needs and preferences.</p>
 
     <div class="form-group">
@@ -49,8 +41,4 @@
         <label><input type="radio" name="spiritual_cultural.chaplain_visit" value="no" {% if spiritual_cultural.chaplainVisit == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

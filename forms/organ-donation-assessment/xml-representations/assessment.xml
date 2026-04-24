@@ -1,9 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <blood_group>A+</blood_group>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <referrer_name>Example</referrer_name>
+    <referrer_role/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <donor_type_registration>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <donor_type>living</donor_type>
+    <registered_donor>yes</registered_donor>
+    <organ_donor_register_checked>yes</organ_donor_register_checked>
+    <advance_directive>yes</advance_directive>
+    <advance_directive_details>Example text.</advance_directive_details>
+    <organs_offered/>
+    <relationship_to_recipient>spouse</relationship_to_recipient>
+    <cause_of_death>traumatic-brain-injury</cause_of_death>
+    <cause_of_death_details>Example text.</cause_of_death_details>
+    <time_of_death>2026-04-09T10:00:00Z</time_of_death>
+    <warm_ischaemia_minutes>1</warm_ischaemia_minutes>
+    <donor_type_notes>Example text.</donor_type_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </donor_type_registration>
+  <eligibility_allocation>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <eligibility>suitable</eligibility>
+    <expanded_criteria_donor>yes</expanded_criteria_donor>
+    <organs_approved/>
+    <organs_declined/>
+    <decline_reason>Example text.</decline_reason>
+    <nhsbt_referral_made>yes</nhsbt_referral_made>
+    <nhsbt_reference/>
+    <allocation_priority>super-urgent</allocation_priority>
+    <lead_clinician>Dr Smith</lead_clinician>
+    <decision_date>2026-01-15</decision_date>
+    <decision_notes>Example text.</decision_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </eligibility_allocation>
+  <ethical_legal>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <consent_type>donor-consent</consent_type>
+    <consent_obtained>yes</consent_obtained>
+    <consent_date>2026-01-15</consent_date>
+    <next_of_kin_consulted>yes</next_of_kin_consulted>
+    <next_of_kin_name>Example</next_of_kin_name>
+    <next_of_kin_relationship>Spouse</next_of_kin_relationship>
+    <coroner_notified>yes</coroner_notified>
+    <coroner_consent>yes</coroner_consent>
+    <hta_authorisation>yes</hta_authorisation>
+    <hta_reference/>
+    <independent_assessor_approved>yes</independent_assessor_approved>
+    <ethics_committee_review>yes</ethics_committee_review>
+    <legal_notes>Example text.</legal_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </ethical_legal>
+  <immunological>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hla_typing_completed>yes</hla_typing_completed>
+    <hla_a/>
+    <hla_b/>
+    <hla_dr/>
+    <hla_dq/>
+    <crossmatch_performed>yes</crossmatch_performed>
+    <crossmatch_result>negative</crossmatch_result>
+    <pra_percentage>50.0</pra_percentage>
+    <donor_specific_antibodies>yes</donor_specific_antibodies>
+    <donor_specific_antibodies_details>Example text.</donor_specific_antibodies_details>
+    <abo_compatibility>compatible</abo_compatibility>
+    <immunological_notes>Example text.</immunological_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </immunological>
+  <infectious_disease>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hiv_status>negative</hiv_status>
+    <hepatitis_b_surface_antigen>negative</hepatitis_b_surface_antigen>
+    <hepatitis_b_core_antibody>negative</hepatitis_b_core_antibody>
+    <hepatitis_c_antibody>negative</hepatitis_c_antibody>
+    <hepatitis_c_nat>negative</hepatitis_c_nat>
+    <cmv_status>negative</cmv_status>
+    <ebv_status>negative</ebv_status>
+    <syphilis_screen>negative</syphilis_screen>
+    <htlv_status>negative</htlv_status>
+    <toxoplasma_status>negative</toxoplasma_status>
+    <tuberculosis_screen>negative</tuberculosis_screen>
+    <mrsa_screen>negative</mrsa_screen>
+    <blood_cultures_taken>yes</blood_cultures_taken>
+    <blood_culture_result>negative</blood_culture_result>
+    <blood_culture_organism/>
+    <active_infection>yes</active_infection>
+    <active_infection_details>Example text.</active_infection_details>
+    <infectious_disease_notes>Example text.</infectious_disease_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </infectious_disease>
+  <medical_history>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hypertension>yes</hypertension>
+    <hypertension_duration_years>2026</hypertension_duration_years>
+    <diabetes>yes</diabetes>
+    <diabetes_type>type1</diabetes_type>
+    <diabetes_duration_years>2026</diabetes_duration_years>
+    <malignancy_history>yes</malignancy_history>
+    <malignancy_details>Example text.</malignancy_details>
+    <malignancy_remission_years>2026</malignancy_remission_years>
+    <autoimmune_disease>yes</autoimmune_disease>
+    <autoimmune_details>Example text.</autoimmune_details>
+    <smoking>current</smoking>
+    <smoking_pack_years>2026</smoking_pack_years>
+    <alcohol>none</alcohol>
+    <iv_drug_use>yes</iv_drug_use>
+    <previous_surgery>yes</previous_surgery>
+    <previous_surgery_details>Example text.</previous_surgery_details>
+    <medical_history_notes>Example text.</medical_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_history>
+  <organ_function>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <serum_creatinine>0.0</serum_creatinine>
+    <egfr>0.0</egfr>
+    <proteinuria>yes</proteinuria>
+    <renal_ultrasound_normal>yes</renal_ultrasound_normal>
+    <renal_ultrasound_findings>Example text.</renal_ultrasound_findings>
+    <alt>0.0</alt>
+    <ast>0.0</ast>
+    <bilirubin>0.0</bilirubin>
+    <albumin>0.0</albumin>
+    <inr>0.0</inr>
+    <liver_steatosis>none</liver_steatosis>
+    <ecg_normal>yes</ecg_normal>
+    <ecg_findings>Example text.</ecg_findings>
+    <echo_performed>yes</echo_performed>
+    <lvef>0.0</lvef>
+    <echo_findings>Example text.</echo_findings>
+    <troponin>0.0</troponin>
+    <pao2>0.0</pao2>
+    <fio2>0.0</fio2>
+    <pf_ratio>1.5</pf_ratio>
+    <chest_xray_normal>yes</chest_xray_normal>
+    <chest_xray_findings>Example text.</chest_xray_findings>
+    <bronchoscopy_performed>yes</bronchoscopy_performed>
+    <bronchoscopy_findings>Example text.</bronchoscopy_findings>
+    <organ_function_notes>Example text.</organ_function_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </organ_function>
+  <psychological>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <living_donor>yes</living_donor>
+    <independent_assessment_completed>yes</independent_assessment_completed>
+    <assessor_name>Example</assessor_name>
+    <assessor_role/>
+    <voluntary_consent>yes</voluntary_consent>
+    <coercion_concerns>yes</coercion_concerns>
+    <coercion_details>Example text.</coercion_details>
+    <understands_risks>yes</understands_risks>
+    <understands_alternatives>yes</understands_alternatives>
+    <mental_health_history>yes</mental_health_history>
+    <mental_health_details>Example text.</mental_health_details>
+    <capacity_to_consent>yes</capacity_to_consent>
+    <support_network_adequate>yes</support_network_adequate>
+    <financial_incentive>yes</financial_incentive>
+    <psychological_notes>Example text.</psychological_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </psychological>
+  <surgical>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <abdominal_anatomy_normal>yes</abdominal_anatomy_normal>
+    <abdominal_anatomy_findings>Example text.</abdominal_anatomy_findings>
+    <vascular_anatomy_normal>yes</vascular_anatomy_normal>
+    <vascular_anatomy_findings>Example text.</vascular_anatomy_findings>
+    <ct_angiogram_performed>yes</ct_angiogram_performed>
+    <ct_angiogram_findings>Example text.</ct_angiogram_findings>
+    <number_of_renal_arteries>1</number_of_renal_arteries>
+    <previous_abdominal_surgery>yes</previous_abdominal_surgery>
+    <previous_abdominal_surgery_details>Example text.</previous_abdominal_surgery_details>
+    <anaesthetic_risk>asa-1</anaesthetic_risk>
+    <surgical_fitness>fit</surgical_fitness>
+    <surgical_notes>Example text.</surgical_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </surgical>
 </assessment>

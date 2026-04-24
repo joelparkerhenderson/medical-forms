@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Clinical Review - Autism Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Clinical Review</h2>
+<h2>Clinical Review</h2>
     <p class="hint">Clinician observations, informant history, and follow-up planning.</p>
 
     <div class="form-group">
@@ -39,8 +31,4 @@
       <textarea id="additional_notes" name="clinical_review.additional_notes"
                 rows="4" placeholder="Any other relevant clinical notes...">{{ clinical_review.additionalNotes }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

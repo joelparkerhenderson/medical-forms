@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Goals & Priorities - Occupational Therapy Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Goals & Priorities</h2>
+<h2>Goals & Priorities</h2>
     <p class="hint">Document the patient's treatment goals, priorities, and potential barriers.</p>
 
     <div class="form-group">
@@ -53,8 +45,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

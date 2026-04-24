@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Support Needs - Autism Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Support Needs</h2>
+<h2>Support Needs</h2>
     <p class="hint">Identify areas where support is needed or currently provided.</p>
 
     <div class="form-group">
@@ -68,8 +60,4 @@
         <option value="level3" {% if support_needs.supportLevelNeeded == "level3" %}selected{% endif %}>Level 3 - Requiring very substantial support</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

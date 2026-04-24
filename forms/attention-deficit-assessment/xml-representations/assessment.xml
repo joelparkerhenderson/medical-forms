@@ -1,9 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <allergies>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_drug_allergies>yes</has_drug_allergies>
+    <drug_allergy_details>Example text.</drug_allergy_details>
+    <has_food_allergies>yes</has_food_allergies>
+    <food_allergy_details>Example text.</food_allergy_details>
+    <has_other_allergies>yes</has_other_allergies>
+    <other_allergy_details>Example text.</other_allergy_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </allergies>
+  <asrs_part_a>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <q1_wrapping_up_details>1</q1_wrapping_up_details>
+    <q2_difficulty_ordering>1</q2_difficulty_ordering>
+    <q3_remembering_appointments>1</q3_remembering_appointments>
+    <q4_avoiding_starting>1</q4_avoiding_starting>
+    <q5_fidgeting>1</q5_fidgeting>
+    <q6_feeling_overly_active>1</q6_feeling_overly_active>
+    <darkly_shaded_count>2</darkly_shaded_count>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </asrs_part_a>
+  <asrs_part_b>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <q7_careless_mistakes>1</q7_careless_mistakes>
+    <q8_difficulty_sustaining_attention>1</q8_difficulty_sustaining_attention>
+    <q9_difficulty_listening>1</q9_difficulty_listening>
+    <q10_difficulty_following_through>1</q10_difficulty_following_through>
+    <q11_difficulty_keeping_quiet>1</q11_difficulty_keeping_quiet>
+    <q12_finishing_others_sentences>1</q12_finishing_others_sentences>
+    <q13_difficulty_waiting_turn>1</q13_difficulty_waiting_turn>
+    <q14_interrupting_others>1</q14_interrupting_others>
+    <q15_always_on_the_go>1</q15_always_on_the_go>
+    <q16_difficulty_relaxing>1</q16_difficulty_relaxing>
+    <q17_talking_too_much>1</q17_talking_too_much>
+    <q18_losing_things>1</q18_losing_things>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </asrs_part_b>
+  <childhood_history>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <symptoms_present_before_age_12>yes</symptoms_present_before_age_12>
+    <childhood_academic_difficulties>yes</childhood_academic_difficulties>
+    <childhood_academic_details>Example text.</childhood_academic_details>
+    <childhood_behavioural_problems>yes</childhood_behavioural_problems>
+    <childhood_behavioural_details>Example text.</childhood_behavioural_details>
+    <childhood_social_difficulties>yes</childhood_social_difficulties>
+    <previous_adhd_assessment>yes</previous_adhd_assessment>
+    <previous_assessment_details>Example text.</previous_assessment_details>
+    <school_reports_available>yes</school_reports_available>
+    <informant_corroboration>yes</informant_corroboration>
+    <informant_details>Example text.</informant_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </childhood_history>
+  <comorbid_conditions>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_anxiety>yes</has_anxiety>
+    <has_depression>yes</has_depression>
+    <has_bipolar_disorder>yes</has_bipolar_disorder>
+    <has_autism_spectrum>yes</has_autism_spectrum>
+    <has_learning_disability>yes</has_learning_disability>
+    <has_substance_use_disorder>yes</has_substance_use_disorder>
+    <substance_use_details>Example text.</substance_use_details>
+    <has_sleep_disorder>yes</has_sleep_disorder>
+    <sleep_disorder_details>Example text.</sleep_disorder_details>
+    <has_personality_disorder>yes</has_personality_disorder>
+    <has_eating_disorder>yes</has_eating_disorder>
+    <has_tic_disorder>yes</has_tic_disorder>
+    <other_comorbidities/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </comorbid_conditions>
+  <current_medications>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <currently_on_adhd_medication>yes</currently_on_adhd_medication>
+    <adhd_medication_name>Example</adhd_medication_name>
+    <adhd_medication_dose>Paracetamol</adhd_medication_dose>
+    <adhd_medication_duration>Paracetamol</adhd_medication_duration>
+    <adhd_medication_response>good</adhd_medication_response>
+    <previous_adhd_medications>Paracetamol</previous_adhd_medications>
+    <previous_medication_side_effects>Paracetamol</previous_medication_side_effects>
+    <other_psychiatric_medications>Paracetamol</other_psychiatric_medications>
+    <other_regular_medications>Paracetamol</other_regular_medications>
+    <cardiovascular_history>yes</cardiovascular_history>
+    <cardiovascular_details>Example text.</cardiovascular_details>
+    <blood_pressure_checked>yes</blood_pressure_checked>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <age>45</age>
+    <sex>male</sex>
+    <ethnicity>White British</ethnicity>
+    <occupation>Teacher</occupation>
+    <education_level/>
+    <marital_status>single</marital_status>
+    <referring_clinician>Dr Smith</referring_clinician>
+    <referral_reason>Example text.</referral_reason>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <functional_impact>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <impact_on_work>none</impact_on_work>
+    <work_impact_details>Example text.</work_impact_details>
+    <impact_on_education>none</impact_on_education>
+    <education_impact_details>Example text.</education_impact_details>
+    <impact_on_relationships>none</impact_on_relationships>
+    <relationship_impact_details>Example text.</relationship_impact_details>
+    <impact_on_daily_tasks>none</impact_on_daily_tasks>
+    <daily_tasks_impact_details>Example text.</daily_tasks_impact_details>
+    <impact_on_finances>none</impact_on_finances>
+    <impact_on_self_esteem>none</impact_on_self_esteem>
+    <driving_concerns>yes</driving_concerns>
+    <overall_functional_impairment/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </functional_impact>
+  <medical_history>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_head_injury_history>yes</has_head_injury_history>
+    <head_injury_details>Example text.</head_injury_details>
+    <has_seizure_history>yes</has_seizure_history>
+    <seizure_details>Example text.</seizure_details>
+    <has_thyroid_disorder>yes</has_thyroid_disorder>
+    <thyroid_details>Example text.</thyroid_details>
+    <has_cardiac_conditions>yes</has_cardiac_conditions>
+    <cardiac_details>Example text.</cardiac_details>
+    <birth_complications>yes</birth_complications>
+    <birth_complication_details>Example text.</birth_complication_details>
+    <family_history_of_adhd>yes</family_history_of_adhd>
+    <family_adhd_details>Example text.</family_adhd_details>
+    <family_psychiatric_history>Example text.</family_psychiatric_history>
+    <other_medical_history>Example text.</other_medical_history>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_history>
+  <social_support>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <living_situation/>
+    <employment_status>employed</employment_status>
+    <has_support_network>yes</has_support_network>
+    <support_network_details>Example text.</support_network_details>
+    <coping_strategies/>
+    <risk_taking_behaviour>yes</risk_taking_behaviour>
+    <risk_behaviour_details>Example text.</risk_behaviour_details>
+    <legal_issues>yes</legal_issues>
+    <legal_details>Example text.</legal_details>
+    <caffeine_use/>
+    <alcohol_use/>
+    <recreational_drug_use>Paracetamol</recreational_drug_use>
+    <goals_for_treatment>Example treatment</goals_for_treatment>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </social_support>
 </assessment>

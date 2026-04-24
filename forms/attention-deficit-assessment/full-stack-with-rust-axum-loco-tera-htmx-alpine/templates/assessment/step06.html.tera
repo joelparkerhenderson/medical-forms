@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Functional Impact - Attention Deficit Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Functional Impact</h2>
+<h2>Functional Impact</h2>
     <p class="hint">Rate the extent to which attention/hyperactivity symptoms affect your daily life. (0 = Not at all, 4 = Very Severely)</p>
 
     <div class="likert-group">
@@ -113,8 +105,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

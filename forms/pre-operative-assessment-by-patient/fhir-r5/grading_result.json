@@ -1,6 +1,6 @@
 {
   "resourceType": "ClinicalImpression",
-  "id": "991e8400-e29b-41d4-a716-446655440013",
+  "id": "990e8400-e29b-41d4-a716-446655440004",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/StructureDefinition/ClinicalImpression"
@@ -12,10 +12,10 @@
     "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
   },
   "encounter": {
-    "reference": "Encounter/660e8400-e29b-41d4-a716-446655440001"
+    "reference": "Encounter/cc0e8400-e29b-41d4-a716-446655440007"
   },
   "effectiveDateTime": "2026-04-09T10:00:00+00:00",
   "date": "2026-04-09T10:00:00+00:00",
   "description": "Pre Operative Assessment By Patient grading result",
-  "summary": "Asa Grade: 1; Asa Grade Override: 1; Override Reason: Example text."
+  "summary": "Computed Asa Grade: I; Final Asa Grade: I; Asa Emergency Suffix: E; Override Reason: Example text.; Mallampati Class: I; Rcri Score: 5; Stopbang Score: 5; Frailty Scale: 1; Composite Risk: low; Recommendation: proceed; Clinician Notes: Example text.; Signed At: 2026-04-09T10:00:00+00:00"
 }

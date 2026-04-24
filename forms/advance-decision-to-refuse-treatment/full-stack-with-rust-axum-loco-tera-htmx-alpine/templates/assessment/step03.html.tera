@@ -1,16 +1,8 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 3: Circumstances</h2>
     <p class="form-hint">Describe the circumstances in which this advance decision should apply.</p>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-group">
+<div class="form-group">
             <label for="specific_circumstances">Specific Circumstances</label>
             <textarea id="specific_circumstances" name="circumstances.specific_circumstances"
                       placeholder="Describe the specific circumstances in which this ADRT applies (e.g. advanced dementia, terminal illness)">{{ circumstances.specificCircumstances }}</textarea>
@@ -27,8 +19,4 @@
             <textarea id="situations_description" name="circumstances.situations_description"
                       placeholder="Describe the situations or stages of illness when treatment should be refused">{{ circumstances.situationsDescription }}</textarea>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

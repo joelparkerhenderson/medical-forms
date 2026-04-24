@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Muscle Strength Testing - Kinesiology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Muscle Strength Testing</h2>
+<h2>Muscle Strength Testing</h2>
     <p class="hint">Rate each muscle group (1 = Very Weak / Grade 1, 5 = Normal Strength / Grade 5).</p>
 
     <div class="form-row">
@@ -96,8 +88,4 @@
         <option value="5" {% if muscle_strength_testing.functionalStrength == 5 %}selected{% endif %}>5 - Excellent</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

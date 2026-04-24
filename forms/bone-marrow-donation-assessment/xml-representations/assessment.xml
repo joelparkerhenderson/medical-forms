@@ -1,9 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <anaesthetic>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <asa_grade>I</asa_grade>
+    <previous_anaesthetic>yes</previous_anaesthetic>
+    <anaesthetic_complications>yes</anaesthetic_complications>
+    <complication_details>Example text.</complication_details>
+    <family_anaesthetic_problems>yes</family_anaesthetic_problems>
+    <family_problem_details>Example text.</family_problem_details>
+    <mallampati_score>I</mallampati_score>
+    <airway_concerns>yes</airway_concerns>
+    <airway_details>Example text.</airway_details>
+    <nil_by_mouth_confirmed>yes</nil_by_mouth_confirmed>
+    <smoking_status>current</smoking_status>
+    <alcohol_use>none</alcohol_use>
+    <anaesthetic_plan>general</anaesthetic_plan>
+    <anaesthetic_notes>Example text.</anaesthetic_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </anaesthetic>
+  <collection_method>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_method>pbsc</preferred_method>
+    <recipient_preference>pbsc</recipient_preference>
+    <final_collection_method>pbsc</final_collection_method>
+    <gcsf_eligible>yes</gcsf_eligible>
+    <gcsf_contraindications/>
+    <venous_access_suitable_for_apheresis>yes</venous_access_suitable_for_apheresis>
+    <central_line_required>yes</central_line_required>
+    <estimated_donor_weight_kg>70.0</estimated_donor_weight_kg>
+    <target_cd34_dose>10.0</target_cd34_dose>
+    <estimated_collection_days>1</estimated_collection_days>
+    <bone_marrow_harvest_volume_ml>1</bone_marrow_harvest_volume_ml>
+    <autologous_blood_donation>yes</autologous_blood_donation>
+    <collection_method_notes>Example text.</collection_method_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </collection_method>
+  <consent_eligibility>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <informed_consent_given>yes</informed_consent_given>
+    <consent_form_signed>yes</consent_form_signed>
+    <consent_date>2026-01-15</consent_date>
+    <witness_name>Example</witness_name>
+    <witness_role/>
+    <information_leaflet_provided>yes</information_leaflet_provided>
+    <questions_answered>yes</questions_answered>
+    <eligibility_decision>suitable</eligibility_decision>
+    <eligibility_conditions/>
+    <deferral_reason>Example text.</deferral_reason>
+    <deferral_duration>temporary</deferral_duration>
+    <assessor_name>Example</assessor_name>
+    <assessor_role/>
+    <assessment_date>2026-01-15</assessment_date>
+    <consent_eligibility_notes>Example text.</consent_eligibility_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </consent_eligibility>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <referrer_name>Example</referrer_name>
+    <referrer_role/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <donor_registration_hla_typing>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <donor_registry/>
+    <donor_registry_id>660e8400-e29b-41d4-a716-446655440001</donor_registry_id>
+    <registration_date>2026-01-15</registration_date>
+    <donation_type>allogeneic</donation_type>
+    <recipient_relationship>related</recipient_relationship>
+    <hla_a/>
+    <hla_b/>
+    <hla_c/>
+    <hla_drb1/>
+    <hla_dqb1/>
+    <hla_dpb1/>
+    <hla_match_level>10-of-10</hla_match_level>
+    <crossmatch_result>negative</crossmatch_result>
+    <previous_donation>yes</previous_donation>
+    <previous_donation_details>Example text.</previous_donation_details>
+    <hla_typing_notes>Example text.</hla_typing_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </donor_registration_hla_typing>
+  <haematological>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <haemoglobin>0.0</haemoglobin>
+    <white_cell_count>0.0</white_cell_count>
+    <platelet_count>2</platelet_count>
+    <neutrophil_count>0.0</neutrophil_count>
+    <lymphocyte_count>0.0</lymphocyte_count>
+    <haematocrit>0.0</haematocrit>
+    <mcv>0.0</mcv>
+    <blood_group>A+</blood_group>
+    <coagulation_screen>normal</coagulation_screen>
+    <coagulation_details>Example text.</coagulation_details>
+    <ferritin>0.0</ferritin>
+    <creatinine>0.0</creatinine>
+    <liver_function>normal</liver_function>
+    <liver_function_details>Example text.</liver_function_details>
+    <haematological_notes>Example text.</haematological_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </haematological>
+  <infectious_disease_screening>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hiv_status>negative</hiv_status>
+    <hepatitis_b_surface_antigen>negative</hepatitis_b_surface_antigen>
+    <hepatitis_b_core_antibody>negative</hepatitis_b_core_antibody>
+    <hepatitis_c_antibody>negative</hepatitis_c_antibody>
+    <htlv_status>negative</htlv_status>
+    <syphilis_screen>negative</syphilis_screen>
+    <cmv_status>negative</cmv_status>
+    <ebv_status>negative</ebv_status>
+    <toxoplasma_status>negative</toxoplasma_status>
+    <tuberculosis_screen>negative</tuberculosis_screen>
+    <recent_travel>yes</recent_travel>
+    <travel_details>Example text.</travel_details>
+    <recent_infection>yes</recent_infection>
+    <infection_details>Example text.</infection_details>
+    <vaccination_up_to_date>yes</vaccination_up_to_date>
+    <infectious_disease_notes>Example text.</infectious_disease_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </infectious_disease_screening>
+  <medical_history>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_autoimmune_disease>yes</has_autoimmune_disease>
+    <autoimmune_details>Example text.</autoimmune_details>
+    <has_malignancy>yes</has_malignancy>
+    <malignancy_details>Example text.</malignancy_details>
+    <has_cardiovascular_disease>yes</has_cardiovascular_disease>
+    <cardiovascular_details>Example text.</cardiovascular_details>
+    <has_respiratory_disease>yes</has_respiratory_disease>
+    <respiratory_details>Example text.</respiratory_details>
+    <has_renal_disease>yes</has_renal_disease>
+    <renal_details>Example text.</renal_details>
+    <has_hepatic_disease>yes</has_hepatic_disease>
+    <hepatic_details>Example text.</hepatic_details>
+    <has_bleeding_disorder>yes</has_bleeding_disorder>
+    <bleeding_disorder_details>Example text.</bleeding_disorder_details>
+    <has_neurological_condition>yes</has_neurological_condition>
+    <neurological_details>Example text.</neurological_details>
+    <current_medications>Paracetamol</current_medications>
+    <drug_allergies>Paracetamol</drug_allergies>
+    <previous_surgery>yes</previous_surgery>
+    <surgery_details>Example text.</surgery_details>
+    <medical_history_notes>Example text.</medical_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_history>
+  <physical_examination>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <blood_pressure_systolic>1</blood_pressure_systolic>
+    <blood_pressure_diastolic>1</blood_pressure_diastolic>
+    <heart_rate>1</heart_rate>
+    <temperature_celsius>0.0</temperature_celsius>
+    <respiratory_rate>1</respiratory_rate>
+    <oxygen_saturation>1</oxygen_saturation>
+    <general_appearance>well</general_appearance>
+    <cardiovascular_examination>normal</cardiovascular_examination>
+    <cardiovascular_findings>Example text.</cardiovascular_findings>
+    <respiratory_examination>normal</respiratory_examination>
+    <respiratory_findings>Example text.</respiratory_findings>
+    <abdominal_examination>normal</abdominal_examination>
+    <abdominal_findings>Example text.</abdominal_findings>
+    <venous_access_assessment>good</venous_access_assessment>
+    <venous_access_notes>Example text.</venous_access_notes>
+    <posterior_iliac_crest_assessment>suitable</posterior_iliac_crest_assessment>
+    <physical_examination_notes>Example text.</physical_examination_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </physical_examination>
+  <psychological_readiness>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <understands_procedure>yes</understands_procedure>
+    <understands_risks>yes</understands_risks>
+    <voluntary_decision>yes</voluntary_decision>
+    <coercion_concerns>yes</coercion_concerns>
+    <coercion_details>Example text.</coercion_details>
+    <anxiety_about_procedure>none</anxiety_about_procedure>
+    <previous_psychological_issues>yes</previous_psychological_issues>
+    <psychological_issue_details>Example text.</psychological_issue_details>
+    <support_network>yes</support_network>
+    <time_off_work_arranged>yes</time_off_work_arranged>
+    <donor_advocate_consulted>yes</donor_advocate_consulted>
+    <willing_to_proceed>yes</willing_to_proceed>
+    <psychological_readiness_notes>Example text.</psychological_readiness_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </psychological_readiness>
 </assessment>

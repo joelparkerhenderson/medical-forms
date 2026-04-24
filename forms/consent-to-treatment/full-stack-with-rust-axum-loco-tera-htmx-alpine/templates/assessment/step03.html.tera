@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Risks & Benefits - Consent to Treatment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Risks & Benefits</h2>
+<h2>Risks & Benefits</h2>
     <p class="hint">Document the risks and benefits discussed with the patient.</p>
 
     <div class="form-group">
@@ -79,8 +71,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

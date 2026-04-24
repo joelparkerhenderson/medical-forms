@@ -1,9 +1,224 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <childhood_immunisations>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <mmr_dose_1>yes</mmr_dose_1>
+    <mmr_dose_1_date>2026-01-15</mmr_dose_1_date>
+    <mmr_dose_2>yes</mmr_dose_2>
+    <mmr_dose_2_date>2026-01-15</mmr_dose_2_date>
+    <dtp_primary_course>yes</dtp_primary_course>
+    <dtp_primary_date>2026-01-15</dtp_primary_date>
+    <dtp_booster>yes</dtp_booster>
+    <dtp_booster_date>2026-01-15</dtp_booster_date>
+    <polio_primary_course>yes</polio_primary_course>
+    <polio_primary_date>2026-01-15</polio_primary_date>
+    <polio_booster>yes</polio_booster>
+    <polio_booster_date>2026-01-15</polio_booster_date>
+    <hib_vaccine>yes</hib_vaccine>
+    <hib_vaccine_date>2026-01-15</hib_vaccine_date>
+    <men_c_vaccine>yes</men_c_vaccine>
+    <men_c_vaccine_date>2026-01-15</men_c_vaccine_date>
+    <men_acwy_vaccine>yes</men_acwy_vaccine>
+    <men_acwy_vaccine_date>2026-01-15</men_acwy_vaccine_date>
+    <pcv_vaccine>yes</pcv_vaccine>
+    <pcv_vaccine_date>2026-01-15</pcv_vaccine_date>
+    <childhood_immunisations_notes>Example text.</childhood_immunisations_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </childhood_immunisations>
+  <contraindications_allergies>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <egg_allergy>yes</egg_allergy>
+    <egg_allergy_severity>mild</egg_allergy_severity>
+    <gelatin_allergy>yes</gelatin_allergy>
+    <neomycin_allergy>yes</neomycin_allergy>
+    <latex_allergy>yes</latex_allergy>
+    <yeast_allergy>yes</yeast_allergy>
+    <peg_polysorbate_allergy>yes</peg_polysorbate_allergy>
+    <other_vaccine_allergies/>
+    <history_of_gbs>yes</history_of_gbs>
+    <gbs_details>Example text.</gbs_details>
+    <on_immunosuppressants>yes</on_immunosuppressants>
+    <immunosuppressant_details>Example text.</immunosuppressant_details>
+    <on_blood_products_recent>yes</on_blood_products_recent>
+    <blood_products_details>Example text.</blood_products_details>
+    <live_vaccine_contraindicated>yes</live_vaccine_contraindicated>
+    <live_vaccine_contraindication_reason>Example text.</live_vaccine_contraindication_reason>
+    <contraindications_allergies_notes>Example text.</contraindications_allergies_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </contraindications_allergies>
+  <covid19_vaccination>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <covid_primary_course>yes</covid_primary_course>
+    <covid_primary_vaccine_type>pfizer</covid_primary_vaccine_type>
+    <covid_dose_1_date>2026-01-15</covid_dose_1_date>
+    <covid_dose_2_date>2026-01-15</covid_dose_2_date>
+    <covid_booster_1>yes</covid_booster_1>
+    <covid_booster_1_date>2026-01-15</covid_booster_1_date>
+    <covid_booster_1_type>pfizer</covid_booster_1_type>
+    <covid_booster_2>yes</covid_booster_2>
+    <covid_booster_2_date>2026-01-15</covid_booster_2_date>
+    <covid_booster_2_type>pfizer</covid_booster_2_type>
+    <covid_autumn_booster>yes</covid_autumn_booster>
+    <covid_autumn_booster_date>2026-01-15</covid_autumn_booster_date>
+    <total_covid_doses>1</total_covid_doses>
+    <covid_adverse_reaction>yes</covid_adverse_reaction>
+    <covid_adverse_reaction_details>Example text.</covid_adverse_reaction_details>
+    <covid19_vaccination_notes>Example text.</covid19_vaccination_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </covid19_vaccination>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <occupation>Teacher</occupation>
+    <occupation_category>healthcare</occupation_category>
+    <employer/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <influenza_vaccination>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <flu_vaccine_current_season>yes</flu_vaccine_current_season>
+    <flu_vaccine_current_date>2026-01-15</flu_vaccine_current_date>
+    <flu_vaccine_type>standard</flu_vaccine_type>
+    <flu_vaccine_previous_season>yes</flu_vaccine_previous_season>
+    <flu_vaccine_annual_recipient>yes</flu_vaccine_annual_recipient>
+    <flu_high_risk_group>yes</flu_high_risk_group>
+    <flu_high_risk_reason>age-65-plus</flu_high_risk_reason>
+    <flu_adverse_reaction>yes</flu_adverse_reaction>
+    <flu_adverse_reaction_details>Example text.</flu_adverse_reaction_details>
+    <influenza_vaccination_notes>Example text.</influenza_vaccination_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </influenza_vaccination>
+  <occupational_vaccines>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hepatitis_b_course>yes</hepatitis_b_course>
+    <hepatitis_b_course_date>2026-01-15</hepatitis_b_course_date>
+    <hepatitis_b_doses_received>1</hepatitis_b_doses_received>
+    <hepatitis_b_antibody_level>adequate</hepatitis_b_antibody_level>
+    <bcg_vaccine>yes</bcg_vaccine>
+    <bcg_vaccine_date>2026-01-15</bcg_vaccine_date>
+    <bcg_scar_present>yes</bcg_scar_present>
+    <varicella_vaccine>yes</varicella_vaccine>
+    <varicella_vaccine_date>2026-01-15</varicella_vaccine_date>
+    <varicella_history>yes</varicella_history>
+    <hepatitis_a_vaccine>yes</hepatitis_a_vaccine>
+    <hepatitis_a_vaccine_date>2026-01-15</hepatitis_a_vaccine_date>
+    <typhoid_vaccine>yes</typhoid_vaccine>
+    <typhoid_vaccine_date>2026-01-15</typhoid_vaccine_date>
+    <rabies_vaccine>yes</rabies_vaccine>
+    <rabies_vaccine_date>2026-01-15</rabies_vaccine_date>
+    <occupational_vaccines_notes>Example text.</occupational_vaccines_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </occupational_vaccines>
+  <schedule_compliance>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <compliance_status>fully-immunised</compliance_status>
+    <vaccines_due/>
+    <vaccines_overdue/>
+    <catch_up_plan_required>yes</catch_up_plan_required>
+    <catch_up_plan_details>Example text.</catch_up_plan_details>
+    <next_vaccination_date>2026-01-15</next_vaccination_date>
+    <next_vaccination_type>standard</next_vaccination_type>
+    <occupational_health_clearance>yes</occupational_health_clearance>
+    <occupational_health_clearance_date>2026-01-15</occupational_health_clearance_date>
+    <exposure_risk_level>low</exposure_risk_level>
+    <active_exposure_incident>yes</active_exposure_incident>
+    <active_exposure_details>Example text.</active_exposure_details>
+    <consent_for_vaccination>yes</consent_for_vaccination>
+    <consent_date>2026-01-15</consent_date>
+    <schedule_compliance_notes>Example text.</schedule_compliance_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </schedule_compliance>
+  <serology_immunity_testing>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hep_b_surface_antibody>positive</hep_b_surface_antibody>
+    <hep_b_surface_antibody_level>5.0</hep_b_surface_antibody_level>
+    <hep_b_surface_antibody_date>2026-01-15</hep_b_surface_antibody_date>
+    <varicella_igg>positive</varicella_igg>
+    <varicella_igg_date>2026-01-15</varicella_igg_date>
+    <measles_igg>positive</measles_igg>
+    <measles_igg_date>2026-01-15</measles_igg_date>
+    <rubella_igg>positive</rubella_igg>
+    <rubella_igg_date>2026-01-15</rubella_igg_date>
+    <mumps_igg>positive</mumps_igg>
+    <mumps_igg_date>2026-01-15</mumps_igg_date>
+    <hep_a_igg>positive</hep_a_igg>
+    <hep_a_igg_date>2026-01-15</hep_a_igg_date>
+    <tetanus_antibody>positive</tetanus_antibody>
+    <tetanus_antibody_date>2026-01-15</tetanus_antibody_date>
+    <tb_igra_result>positive</tb_igra_result>
+    <tb_igra_date>2026-01-15</tb_igra_date>
+    <mantoux_result>positive</mantoux_result>
+    <mantoux_induration_mm>1</mantoux_induration_mm>
+    <serology_immunity_testing_notes>Example text.</serology_immunity_testing_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </serology_immunity_testing>
+  <travel_vaccines>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <travel_planned>yes</travel_planned>
+    <travel_destination/>
+    <travel_departure_date>2026-01-15</travel_departure_date>
+    <travel_return_date>2026-01-15</travel_return_date>
+    <yellow_fever_vaccine>yes</yellow_fever_vaccine>
+    <yellow_fever_vaccine_date>2026-01-15</yellow_fever_vaccine_date>
+    <yellow_fever_certificate>yes</yellow_fever_certificate>
+    <japanese_encephalitis_vaccine>yes</japanese_encephalitis_vaccine>
+    <japanese_encephalitis_date>2026-01-15</japanese_encephalitis_date>
+    <tick_borne_encephalitis_vaccine>yes</tick_borne_encephalitis_vaccine>
+    <tick_borne_encephalitis_date>2026-01-15</tick_borne_encephalitis_date>
+    <cholera_vaccine>yes</cholera_vaccine>
+    <cholera_vaccine_date>2026-01-15</cholera_vaccine_date>
+    <meningococcal_acwy_travel>yes</meningococcal_acwy_travel>
+    <meningococcal_acwy_travel_date>2026-01-15</meningococcal_acwy_travel_date>
+    <malaria_prophylaxis>yes</malaria_prophylaxis>
+    <malaria_prophylaxis_drug>atovaquone-proguanil</malaria_prophylaxis_drug>
+    <travel_vaccines_notes>Example text.</travel_vaccines_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </travel_vaccines>
+  <vaccination_history>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_vaccination_record>yes</has_vaccination_record>
+    <record_source>red-book</record_source>
+    <record_source_other/>
+    <previous_adverse_reaction>yes</previous_adverse_reaction>
+    <adverse_reaction_details>Example text.</adverse_reaction_details>
+    <adverse_reaction_vaccine>Urticaria</adverse_reaction_vaccine>
+    <adverse_reaction_severity>mild</adverse_reaction_severity>
+    <immunocompromised>yes</immunocompromised>
+    <immunocompromised_details>Example text.</immunocompromised_details>
+    <pregnant_or_planning>yes</pregnant_or_planning>
+    <vaccination_history_notes>Example text.</vaccination_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </vaccination_history>
 </assessment>

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Chest Examination - Respirology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Chest Examination</h2>
+<h2>Chest Examination</h2>
     <p class="hint">Rate each finding (1 = Normal, 5 = Markedly abnormal).</p>
 
     <div class="form-group">
@@ -71,8 +63,4 @@
         <option value="kyphoscoliosis" {% if chest_examination.chestDeformity == "kyphoscoliosis" %}selected{% endif %}>Kyphoscoliosis</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

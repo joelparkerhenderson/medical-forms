@@ -1,13 +1,46 @@
-claude "
-update, upgrade, fix, harmonize, audit, test.
-improve every file:
-- index.md
-- AGENTS.md
-- AGENTS/front-end-with-sveltekit-tailwind-svar.md
-- AGENTS/full-stack-with-rust-axum-loco-htmx-alpine.md
-- AGENTS/sql-migrations.md
-- AGENTS/xml-representations.md
-- AGENTS/fhir-r5.md
-- plan.md
-- tasks.md
-"
+#!/bin/sh
+set -euf
+top="$(git rev-parse --show-toplevel)"
+
+update_pnpm() {
+    pnpm self-update
+    find "$top/forms" -depth 3 -name package.json -exec dirname {} \; |
+    while read IFS= -r dir; do
+        cd "$dir" &&
+        pnpm update &&
+        pnpm install &&
+        pnpm run test
+    done
+}
+
+update_rust() {
+    rustup upgrade
+    find "$top/forms" -depth 3 -name Cargo.toml -exec dirname {} \; |
+    while read IFS= -r dir; do
+        cd "$dir" &&
+        cargo update &&
+        cargo check &&
+        cargo build &&
+        cargo test
+    done
+}
+
+update_claude() {
+    claude "
+    update, upgrade, fix, harmonize, audit, test.
+    improve every file:
+    - index.md
+    - AGENTS.md
+    - AGENTS/fhir-r5.md
+    - AGENTS/front-end-with-sveltekit-tailwind-svar.md
+    - AGENTS/full-stack-with-rust-axum-loco-htmx-alpine.md
+    - AGENTS/sql-migrations.md
+    - AGENTS/xml-representations.md
+    - plan.md
+    - tasks.md
+    "
+}
+
+update_pnpm
+update_rust
+update_claude

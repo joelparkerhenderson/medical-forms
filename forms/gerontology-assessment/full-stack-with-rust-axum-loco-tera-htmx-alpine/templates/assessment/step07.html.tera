@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Mood Assessment - Gerontology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Mood Assessment</h2>
+<h2>Mood Assessment</h2>
     <p class="hint">Screen for depression using the Geriatric Depression Scale (GDS-15) and assess mood-related concerns.</p>
 
     <h3>GDS-15 Questions</h3>
@@ -198,8 +190,4 @@
                {% if mood_assessment.socialIsolation == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

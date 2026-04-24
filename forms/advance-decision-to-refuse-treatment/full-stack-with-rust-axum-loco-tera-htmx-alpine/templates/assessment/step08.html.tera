@@ -1,15 +1,7 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 8: Lasting Power of Attorney</h2>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-group">
+<div class="form-group">
             <label>Do you have a Lasting Power of Attorney (LPA)?</label>
             <div class="radio-group">
                 <label><input type="radio" name="lasting_power_of_attorney.has_lpa" value="yes" {% if lasting_power_of_attorney.hasLPA == "yes" %}checked{% endif %}> Yes</label>
@@ -56,8 +48,4 @@
             </div>
         </div>
         {% endif %}
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

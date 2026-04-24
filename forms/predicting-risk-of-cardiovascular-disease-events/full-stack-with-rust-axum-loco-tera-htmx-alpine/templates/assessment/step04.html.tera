@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Cholesterol & Lipids - AHA PREVENT{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Cholesterol & Lipids</h2>
+<h2>Cholesterol & Lipids</h2>
     <p class="hint">Enter the most recent lipid panel results (mg/dL).</p>
 
     <div class="form-row">
@@ -63,8 +55,4 @@
              value="{{ cholesterol_lipids.statinName }}"
              placeholder="e.g. Atorvastatin 40mg">
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

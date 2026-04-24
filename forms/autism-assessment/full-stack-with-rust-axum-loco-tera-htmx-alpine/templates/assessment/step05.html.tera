@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Sensory Processing - Autism Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Sensory Processing</h2>
+<h2>Sensory Processing</h2>
     <p class="hint">Rate sensory sensitivity levels (0 = Typical, 3 = Extreme sensitivity/seeking).</p>
 
     <div class="likert-group">
@@ -92,8 +84,4 @@
       <textarea id="sensory_coping_strategies" name="sensory_processing.sensory_coping_strategies"
                 rows="4" placeholder="Describe any strategies used to manage sensory input (e.g. ear defenders, sunglasses, fidget tools)...">{{ sensory_processing.sensoryCopingStrategies }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

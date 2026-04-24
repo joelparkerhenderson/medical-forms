@@ -1,9 +1,202 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <cardiovascular_risk>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hypertension>yes</hypertension>
+    <systolic_bp_mmhg>1</systolic_bp_mmhg>
+    <diastolic_bp_mmhg>1</diastolic_bp_mmhg>
+    <bp_controlled>yes</bp_controlled>
+    <ischaemic_heart_disease>yes</ischaemic_heart_disease>
+    <stroke_history>yes</stroke_history>
+    <valvular_heart_disease>yes</valvular_heart_disease>
+    <valvular_complications>yes</valvular_complications>
+    <hyperlipidaemia>yes</hyperlipidaemia>
+    <family_history_vte>yes</family_history_vte>
+    <family_history_cvd>yes</family_history_cvd>
+    <family_cvd_details>Example text.</family_cvd_details>
+    <cardiovascular_notes>Example text.</cardiovascular_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cardiovascular_risk>
+  <clinical_recommendation>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <recommended_method>coc</recommended_method>
+    <alternative_methods/>
+    <methods_contraindicated/>
+    <counselling_provided>yes</counselling_provided>
+    <counselling_topics/>
+    <follow_up_required>yes</follow_up_required>
+    <follow_up_interval>2-weeks</follow_up_interval>
+    <referral_required>yes</referral_required>
+    <referral_details>Example text.</referral_details>
+    <clinical_notes>Example text.</clinical_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </clinical_recommendation>
+  <contraceptive_history>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_contraception>yes</previous_contraception>
+    <previous_coc>yes</previous_coc>
+    <coc_details>Example text.</coc_details>
+    <previous_pop>yes</previous_pop>
+    <pop_details>Example text.</pop_details>
+    <previous_implant>yes</previous_implant>
+    <implant_details>Example text.</implant_details>
+    <previous_injection>yes</previous_injection>
+    <injection_details>Example text.</injection_details>
+    <previous_iud>yes</previous_iud>
+    <iud_details>Example text.</iud_details>
+    <previous_ius>yes</previous_ius>
+    <ius_details>Example text.</ius_details>
+    <previous_patch_ring>yes</previous_patch_ring>
+    <patch_ring_details>Example text.</patch_ring_details>
+    <previous_barrier>yes</previous_barrier>
+    <reason_for_change>Example text.</reason_for_change>
+    <adverse_effects/>
+    <contraceptive_history_notes>Example text.</contraceptive_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </contraceptive_history>
+  <contraceptive_preferences>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_method>coc</preferred_method>
+    <hormonal_acceptable>yes</hormonal_acceptable>
+    <long_acting_acceptable>yes</long_acting_acceptable>
+    <daily_pill_acceptable>yes</daily_pill_acceptable>
+    <intrauterine_acceptable>yes</intrauterine_acceptable>
+    <fertility_plans>within-1-year</fertility_plans>
+    <breastfeeding>yes</breastfeeding>
+    <postpartum_weeks>1</postpartum_weeks>
+    <concerns/>
+    <preference_notes>Example text.</preference_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </contraceptive_preferences>
+  <current_medications>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <on_enzyme_inducing_drugs>yes</on_enzyme_inducing_drugs>
+    <enzyme_inducing_details>Example text.</enzyme_inducing_details>
+    <on_anticoagulants>yes</on_anticoagulants>
+    <anticoagulant_details>Example text.</anticoagulant_details>
+    <on_antiepileptics>yes</on_antiepileptics>
+    <antiepileptic_details>Example text.</antiepileptic_details>
+    <on_antiretrovirals>yes</on_antiretrovirals>
+    <antiretroviral_details>Example text.</antiretroviral_details>
+    <on_antibiotics>yes</on_antibiotics>
+    <antibiotic_details>Example text.</antibiotic_details>
+    <on_ssri_snri>yes</on_ssri_snri>
+    <ssri_snri_details>Example text.</ssri_snri_details>
+    <herbal_remedies>yes</herbal_remedies>
+    <herbal_details>Example text.</herbal_details>
+    <other_medications>Paracetamol</other_medications>
+    <drug_allergies>yes</drug_allergies>
+    <drug_allergy_details>Example text.</drug_allergy_details>
+    <medication_notes>Example text.</medication_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>female</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <referrer_name>Example</referrer_name>
+    <referrer_role/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <lifestyle>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <smoking_status>current</smoking_status>
+    <cigarettes_per_day>1</cigarettes_per_day>
+    <age_over_35_smoker>yes</age_over_35_smoker>
+    <alcohol_consumption>none</alcohol_consumption>
+    <alcohol_units_per_week>1</alcohol_units_per_week>
+    <recreational_drug_use>yes</recreational_drug_use>
+    <recreational_drug_details>Example text.</recreational_drug_details>
+    <exercise_frequency>none</exercise_frequency>
+    <sexual_activity>yes</sexual_activity>
+    <number_of_partners>one</number_of_partners>
+    <pregnancy_risk_awareness>yes</pregnancy_risk_awareness>
+    <lifestyle_notes>Example text.</lifestyle_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </lifestyle>
+  <medical_history>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <migraine>yes</migraine>
+    <migraine_with_aura>yes</migraine_with_aura>
+    <migraine_frequency>rare</migraine_frequency>
+    <breast_cancer>current</breast_cancer>
+    <cervical_cancer>yes</cervical_cancer>
+    <liver_disease>active-hepatitis</liver_disease>
+    <gallbladder_disease>yes</gallbladder_disease>
+    <inflammatory_bowel_disease>yes</inflammatory_bowel_disease>
+    <systemic_lupus_erythematosus>yes</systemic_lupus_erythematosus>
+    <sle_antiphospholipid>yes</sle_antiphospholipid>
+    <epilepsy>yes</epilepsy>
+    <diabetes>type-1</diabetes>
+    <diabetes_complications>yes</diabetes_complications>
+    <sexually_transmitted_infection>yes</sexually_transmitted_infection>
+    <sti_details>Example text.</sti_details>
+    <pelvic_inflammatory_disease>yes</pelvic_inflammatory_disease>
+    <medical_history_notes>Example text.</medical_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_history>
+  <menstrual_history>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <menarche_age>45</menarche_age>
+    <cycle_regularity>regular</cycle_regularity>
+    <cycle_length_days>1</cycle_length_days>
+    <period_duration_days>1</period_duration_days>
+    <flow_heaviness>light</flow_heaviness>
+    <intermenstrual_bleeding>yes</intermenstrual_bleeding>
+    <postcoital_bleeding>yes</postcoital_bleeding>
+    <dysmenorrhoea>none</dysmenorrhoea>
+    <last_menstrual_period>2026-01-15</last_menstrual_period>
+    <amenorrhoea>yes</amenorrhoea>
+    <amenorrhoea_duration_months>1</amenorrhoea_duration_months>
+    <menstrual_notes>Example text.</menstrual_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </menstrual_history>
+  <thromboembolism_risk>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_dvt>yes</previous_dvt>
+    <dvt_details>Example text.</dvt_details>
+    <previous_pe>yes</previous_pe>
+    <pe_details>Example text.</pe_details>
+    <known_thrombophilia>yes</known_thrombophilia>
+    <thrombophilia_type>factor-v-leiden</thrombophilia_type>
+    <immobility_risk>yes</immobility_risk>
+    <immobility_details>Example text.</immobility_details>
+    <recent_major_surgery>yes</recent_major_surgery>
+    <surgery_details>Example text.</surgery_details>
+    <long_haul_travel>yes</long_haul_travel>
+    <varicose_veins>yes</varicose_veins>
+    <thromboembolism_notes>Example text.</thromboembolism_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </thromboembolism_risk>
 </assessment>

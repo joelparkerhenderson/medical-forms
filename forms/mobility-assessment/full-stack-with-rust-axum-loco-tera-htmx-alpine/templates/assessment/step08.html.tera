@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Assistive Devices - Mobility Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Assistive Devices</h2>
+<h2>Assistive Devices</h2>
     <p class="hint">Document current assistive device use and competence.</p>
 
     <div class="form-group">
@@ -85,8 +77,4 @@
         <option value="5" {% if assistive_devices.wheelchairSkills == 5 %}selected{% endif %}>5 - Fully competent</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

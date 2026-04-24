@@ -1,9 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <clinical_skills>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <basic_life_support>not-competent</basic_life_support>
+    <advanced_life_support>not-competent</advanced_life_support>
+    <airway_management>not-competent</airway_management>
+    <iv_cannulation>not-competent</iv_cannulation>
+    <drug_administration>not-competent</drug_administration>
+    <trauma_assessment>not-competent</trauma_assessment>
+    <immobilisation_splinting>not-competent</immobilisation_splinting>
+    <ecg_interpretation>not-competent</ecg_interpretation>
+    <patient_assessment>not-competent</patient_assessment>
+    <triage_competency>not-competent</triage_competency>
+    <paediatric_competency>not-competent</paediatric_competency>
+    <obstetric_competency>not-competent</obstetric_competency>
+    <clinical_skills_notes>Example text.</clinical_skills_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </clinical_skills>
+  <communication_skills>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <patient_communication>not-competent</patient_communication>
+    <relative_communication>not-competent</relative_communication>
+    <handover_competency>not-competent</handover_competency>
+    <documentation_competency>not-competent</documentation_competency>
+    <multidisciplinary_teamwork>not-competent</multidisciplinary_teamwork>
+    <conflict_resolution>not-competent</conflict_resolution>
+    <safeguarding_awareness>not-competent</safeguarding_awareness>
+    <breaking_bad_news>not-competent</breaking_bad_news>
+    <communication_notes>Example text.</communication_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </communication_skills>
+  <cpd_training>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <cpd_hours_last_year>0.0</cpd_hours_last_year>
+    <cpd_hours_required>0.0</cpd_hours_required>
+    <mandatory_training_complete>yes</mandatory_training_complete>
+    <bls_recertification_date>2026-01-15</bls_recertification_date>
+    <als_recertification_date>2026-01-15</als_recertification_date>
+    <manual_handling_recertification_date>2026-01-15</manual_handling_recertification_date>
+    <safeguarding_training_date>2026-01-15</safeguarding_training_date>
+    <infection_control_training_date>2026-01-15</infection_control_training_date>
+    <major_incident_training>yes</major_incident_training>
+    <major_incident_training_date>2026-01-15</major_incident_training_date>
+    <mentoring_capability>not-competent</mentoring_capability>
+    <clinical_supervision_attendance>yes</clinical_supervision_attendance>
+    <reflective_practice>not-competent</reflective_practice>
+    <cpd_training_notes>Example text.</cpd_training_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cpd_training>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <emergency_contact_name>Example</emergency_contact_name>
+    <emergency_contact_phone>07700900001</emergency_contact_phone>
+    <emergency_contact_relationship>Spouse</emergency_contact_relationship>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <equipment_vehicle>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <defibrillator_competency>not-competent</defibrillator_competency>
+    <monitor_competency>not-competent</monitor_competency>
+    <ventilator_competency>not-competent</ventilator_competency>
+    <suction_competency>not-competent</suction_competency>
+    <stretcher_competency>not-competent</stretcher_competency>
+    <scoop_competency>not-competent</scoop_competency>
+    <ambulance_driving>not-competent</ambulance_driving>
+    <emergency_driving>not-competent</emergency_driving>
+    <vehicle_daily_inspection>yes</vehicle_daily_inspection>
+    <equipment_check_competency>not-competent</equipment_check_competency>
+    <radio_communications>not-competent</radio_communications>
+    <equipment_vehicle_notes>Example text.</equipment_vehicle_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </equipment_vehicle>
+  <fitness_decision>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <overall_fitness>fit-for-duty</overall_fitness>
+    <restrictions_details>Example text.</restrictions_details>
+    <reassessment_required>yes</reassessment_required>
+    <reassessment_date>2026-01-15</reassessment_date>
+    <remedial_actions/>
+    <referrals_required/>
+    <assessor_name>Example</assessor_name>
+    <assessor_role/>
+    <assessor_registration/>
+    <assessment_date>2026-01-15</assessment_date>
+    <countersignature_name>Example</countersignature_name>
+    <countersignature_date>2026-01-15</countersignature_date>
+    <fitness_decision_notes>Example text.</fitness_decision_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </fitness_decision>
+  <occupational_health>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <vision_test>pass</vision_test>
+    <vision_corrected>yes</vision_corrected>
+    <hearing_test>pass</hearing_test>
+    <hearing_aid_required>yes</hearing_aid_required>
+    <immunisation_status>up-to-date</immunisation_status>
+    <hepatitis_b_immune>yes</hepatitis_b_immune>
+    <current_medications>Paracetamol</current_medications>
+    <substance_misuse_screen>negative</substance_misuse_screen>
+    <musculoskeletal_issues>yes</musculoskeletal_issues>
+    <musculoskeletal_details>Example text.</musculoskeletal_details>
+    <respiratory_issues>yes</respiratory_issues>
+    <respiratory_details>Example text.</respiratory_details>
+    <skin_conditions>yes</skin_conditions>
+    <skin_condition_details>Example text.</skin_condition_details>
+    <sickness_absence_days>1</sickness_absence_days>
+    <occupational_health_notes>Example text.</occupational_health_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </occupational_health>
+  <physical_fitness>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <cardiovascular_fitness>not-competent</cardiovascular_fitness>
+    <shuttle_run_level>1</shuttle_run_level>
+    <vo2_max>0.0</vo2_max>
+    <muscular_strength>not-competent</muscular_strength>
+    <grip_strength_kg>0.0</grip_strength_kg>
+    <manual_handling_competency>not-competent</manual_handling_competency>
+    <patient_carry_ability>yes</patient_carry_ability>
+    <flexibility_mobility>not-competent</flexibility_mobility>
+    <balance_coordination>not-competent</balance_coordination>
+    <resting_heart_rate_bpm>1</resting_heart_rate_bpm>
+    <blood_pressure_systolic>1</blood_pressure_systolic>
+    <blood_pressure_diastolic>1</blood_pressure_diastolic>
+    <physical_fitness_notes>Example text.</physical_fitness_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </physical_fitness>
+  <psychological_readiness>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <stress_management>not-competent</stress_management>
+    <resilience_level>low</resilience_level>
+    <ptsd_screening>yes</ptsd_screening>
+    <ptsd_screening_result>negative</ptsd_screening_result>
+    <critical_incident_exposure>yes</critical_incident_exposure>
+    <critical_incident_details>Example text.</critical_incident_details>
+    <critical_incident_debriefed>yes</critical_incident_debriefed>
+    <sleep_quality>good</sleep_quality>
+    <burnout_risk>low</burnout_risk>
+    <decision_making_under_pressure>not-competent</decision_making_under_pressure>
+    <emotional_regulation>not-competent</emotional_regulation>
+    <psychological_notes>Example text.</psychological_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </psychological_readiness>
+  <role_qualifications>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <role_type>paramedic</role_type>
+    <role_type_other>standard</role_type_other>
+    <employer_organisation/>
+    <station_base/>
+    <years_of_service>0.0</years_of_service>
+    <registration_number/>
+    <registration_body>hcpc</registration_body>
+    <registration_expiry_date>2026-01-15</registration_expiry_date>
+    <highest_qualification>certificate</highest_qualification>
+    <qualification_details>Example text.</qualification_details>
+    <driving_licence_category>c1</driving_licence_category>
+    <blue_light_trained>yes</blue_light_trained>
+    <role_notes>Example text.</role_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </role_qualifications>
 </assessment>

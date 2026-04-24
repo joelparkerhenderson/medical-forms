@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Visual Fields - Ophthalmology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Visual Fields</h2>
+<h2>Visual Fields</h2>
     <p class="hint">Record visual field examination findings for both eyes.</p>
 
     <h3>Confrontation Visual Fields</h3>
@@ -94,8 +86,4 @@
       <textarea id="visual_field_notes" name="visual_fields.visual_field_notes"
                 rows="3" placeholder="e.g. Arcuate scotoma, nasal step">{{ visual_fields.visualFieldNotes }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

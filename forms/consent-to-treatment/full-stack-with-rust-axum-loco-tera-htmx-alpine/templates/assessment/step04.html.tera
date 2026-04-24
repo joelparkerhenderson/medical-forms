@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Alternatives - Consent to Treatment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Alternative Treatments</h2>
+<h2>Alternative Treatments</h2>
     <p class="hint">Document the alternative treatments discussed with the patient.</p>
 
     <div class="form-group">
@@ -53,8 +45,4 @@
       <textarea id="reason_for_chosen_treatment" name="alternatives.reason_for_chosen_treatment"
                 placeholder="Patient's stated reason for choosing this treatment over alternatives">{{ alternatives.reasonForChosenTreatment }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

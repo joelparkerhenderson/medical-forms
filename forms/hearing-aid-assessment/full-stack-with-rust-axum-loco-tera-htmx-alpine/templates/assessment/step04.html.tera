@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Communication Needs - Hearing Aid Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Communication Needs</h2>
+<h2>Communication Needs</h2>
     <p class="hint">Rate the patient's difficulty in each communication situation (1 = Great Difficulty, 5 = No Difficulty).</p>
 
     <div class="likert-group">
@@ -87,8 +79,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Current Condition - Dermatology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Current Condition</h2>
+<h2>Current Condition</h2>
     <p class="hint">Describe the current state of the patient's skin condition.</p>
 
     <div class="form-row">
@@ -58,8 +50,4 @@
         </div>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

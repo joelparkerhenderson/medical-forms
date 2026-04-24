@@ -1,9 +1,235 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <bone_health>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_fracture>yes</previous_fracture>
+    <fracture_details>Example text.</fracture_details>
+    <fragility_fracture>yes</fragility_fracture>
+    <family_history_osteoporosis>yes</family_history_osteoporosis>
+    <family_history_hip_fracture>yes</family_history_hip_fracture>
+    <dexa_scan_performed>yes</dexa_scan_performed>
+    <dexa_scan_date>2026-01-15</dexa_scan_date>
+    <spine_t_score>5.0</spine_t_score>
+    <hip_t_score>5.0</hip_t_score>
+    <dexa_result>normal</dexa_result>
+    <calcium_intake>adequate</calcium_intake>
+    <vitamin_d_level>5.0</vitamin_d_level>
+    <vitamin_d_supplementation>yes</vitamin_d_supplementation>
+    <corticosteroid_use>yes</corticosteroid_use>
+    <corticosteroid_details>Example text.</corticosteroid_details>
+    <frax_score>5.0</frax_score>
+    <bone_health_notes>Example text.</bone_health_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </bone_health>
+  <breast_health>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <personal_history_breast_cancer>yes</personal_history_breast_cancer>
+    <breast_cancer_details>Example text.</breast_cancer_details>
+    <breast_cancer_treatment>Example treatment</breast_cancer_treatment>
+    <family_history_breast_cancer>yes</family_history_breast_cancer>
+    <family_breast_cancer_details>Example text.</family_breast_cancer_details>
+    <family_history_ovarian_cancer>yes</family_history_ovarian_cancer>
+    <known_brca_mutation>yes</known_brca_mutation>
+    <brca_mutation_type>brca1</brca_mutation_type>
+    <mammogram_up_to_date>yes</mammogram_up_to_date>
+    <last_mammogram_date>2026-01-15</last_mammogram_date>
+    <mammogram_result>normal</mammogram_result>
+    <breast_biopsy_history>yes</breast_biopsy_history>
+    <breast_biopsy_details>Example text.</breast_biopsy_details>
+    <breast_density>fatty</breast_density>
+    <current_breast_symptoms>yes</current_breast_symptoms>
+    <breast_symptom_details>Example text.</breast_symptom_details>
+    <breast_health_notes>Example text.</breast_health_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </breast_health>
+  <cardiovascular_risk>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_hypertension>yes</has_hypertension>
+    <systolic_bp_mmhg>1</systolic_bp_mmhg>
+    <diastolic_bp_mmhg>1</diastolic_bp_mmhg>
+    <on_antihypertensive>yes</on_antihypertensive>
+    <has_diabetes>yes</has_diabetes>
+    <diabetes_type>type-1</diabetes_type>
+    <hba1c>0.0</hba1c>
+    <total_cholesterol>0.0</total_cholesterol>
+    <hdl_cholesterol>0.0</hdl_cholesterol>
+    <ldl_cholesterol>0.0</ldl_cholesterol>
+    <triglycerides>0.0</triglycerides>
+    <on_statin>yes</on_statin>
+    <history_of_vte>yes</history_of_vte>
+    <vte_details>Example text.</vte_details>
+    <history_of_stroke_tia>yes</history_of_stroke_tia>
+    <history_of_mi>yes</history_of_mi>
+    <family_history_cvd>yes</family_history_cvd>
+    <qrisk3_score>5.0</qrisk3_score>
+    <cardiovascular_notes>Example text.</cardiovascular_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cardiovascular_risk>
+  <contraindications_screen>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <undiagnosed_vaginal_bleeding>yes</undiagnosed_vaginal_bleeding>
+    <known_or_suspected_breast_cancer>yes</known_or_suspected_breast_cancer>
+    <known_or_suspected_oestrogen_dependent_neoplasm>yes</known_or_suspected_oestrogen_dependent_neoplasm>
+    <active_or_recent_vte>yes</active_or_recent_vte>
+    <active_or_recent_arterial_thromboembolism>yes</active_or_recent_arterial_thromboembolism>
+    <untreated_endometrial_hyperplasia>yes</untreated_endometrial_hyperplasia>
+    <active_liver_disease>yes</active_liver_disease>
+    <porphyria>yes</porphyria>
+    <known_pregnancy>yes</known_pregnancy>
+    <history_of_endometrial_cancer>yes</history_of_endometrial_cancer>
+    <history_of_vte>yes</history_of_vte>
+    <thrombophilia>yes</thrombophilia>
+    <migraine_with_aura>yes</migraine_with_aura>
+    <gallbladder_disease>yes</gallbladder_disease>
+    <epilepsy>yes</epilepsy>
+    <sle>yes</sle>
+    <meningioma>yes</meningioma>
+    <absolute_contraindication_present>yes</absolute_contraindication_present>
+    <relative_contraindication_present>yes</relative_contraindication_present>
+    <contraindication_notes>Example text.</contraindication_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </contraindications_screen>
+  <current_medication_item>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <current_medications_id>660e8400-e29b-41d4-a716-446655440001</current_medications_id>
+    <medication_name>Example</medication_name>
+    <dose>500mg</dose>
+    <frequency>twice daily</frequency>
+    <indication/>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medication_item>
+  <current_medications>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <takes_regular_medications>yes</takes_regular_medications>
+    <current_hrt>yes</current_hrt>
+    <current_hrt_type>oestrogen-only</current_hrt_type>
+    <current_hrt_route>oral</current_hrt_route>
+    <current_hrt_duration/>
+    <previous_hrt>yes</previous_hrt>
+    <previous_hrt_details>Example text.</previous_hrt_details>
+    <reason_for_stopping_hrt>Example text.</reason_for_stopping_hrt>
+    <takes_herbal_supplements>yes</takes_herbal_supplements>
+    <herbal_supplement_details>Example text.</herbal_supplement_details>
+    <takes_anticoagulants>yes</takes_anticoagulants>
+    <anticoagulant_details>Example text.</anticoagulant_details>
+    <medication_notes>Example text.</medication_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ethnicity>White British</ethnicity>
+    <primary_language>English</primary_language>
+    <interpreter_required>yes</interpreter_required>
+    <marital_status>single</marital_status>
+    <occupation>Teacher</occupation>
+    <smoking_status>never</smoking_status>
+    <alcohol_units_per_week>1</alcohol_units_per_week>
+    <exercise_frequency>daily</exercise_frequency>
+    <emergency_contact_name>Example</emergency_contact_name>
+    <emergency_contact_phone>07700900001</emergency_contact_phone>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <menopause_status>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <menopausal_status>pre-menopausal</menopausal_status>
+    <age_at_menopause>45</age_at_menopause>
+    <premature_menopause>yes</premature_menopause>
+    <last_menstrual_period_date>2026-01-15</last_menstrual_period_date>
+    <menstrual_status>regular</menstrual_status>
+    <cycle_changes/>
+    <surgical_menopause_type>hysterectomy</surgical_menopause_type>
+    <surgical_menopause_date>2026-01-15</surgical_menopause_date>
+    <fsh_level>5.0</fsh_level>
+    <oestradiol_level>5.0</oestradiol_level>
+    <hormone_testing_date>2026-01-15</hormone_testing_date>
+    <menopause_duration_years>2026</menopause_duration_years>
+    <menopause_status_notes>Example text.</menopause_status_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </menopause_status>
+  <mrs_symptom_scale>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hot_flushes_sweating>1</hot_flushes_sweating>
+    <heart_discomfort>1</heart_discomfort>
+    <sleep_problems>1</sleep_problems>
+    <joint_muscle_discomfort>1</joint_muscle_discomfort>
+    <depressive_mood>1</depressive_mood>
+    <irritability>1</irritability>
+    <anxiety>1</anxiety>
+    <physical_mental_exhaustion>1</physical_mental_exhaustion>
+    <sexual_problems>1</sexual_problems>
+    <bladder_problems>1</bladder_problems>
+    <dryness_of_vagina>1</dryness_of_vagina>
+    <somatic_subscale_score>5</somatic_subscale_score>
+    <psychological_subscale_score>5</psychological_subscale_score>
+    <urogenital_subscale_score>5</urogenital_subscale_score>
+    <mrs_total_score>5</mrs_total_score>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </mrs_symptom_scale>
+  <treatment_preferences>
+    <id>220e8400-e29b-41d4-a716-44665544000c</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_hrt_route>oral</preferred_hrt_route>
+    <has_uterus>yes</has_uterus>
+    <combined_hrt_appropriate>yes</combined_hrt_appropriate>
+    <preferred_regimen>continuous-combined</preferred_regimen>
+    <interested_in_testosterone>yes</interested_in_testosterone>
+    <testosterone_details>Example text.</testosterone_details>
+    <interested_in_vaginal_oestrogen>yes</interested_in_vaginal_oestrogen>
+    <non_hormonal_alternatives_considered>yes</non_hormonal_alternatives_considered>
+    <non_hormonal_details>Example text.</non_hormonal_details>
+    <concerns_about_hrt/>
+    <duration_expectation>short-term</duration_expectation>
+    <follow_up_preference>3-months</follow_up_preference>
+    <informed_consent_discussed>yes</informed_consent_discussed>
+    <patient_information_provided>yes</patient_information_provided>
+    <treatment_preference_notes>Example text.</treatment_preference_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </treatment_preferences>
+  <vasomotor_symptoms>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hot_flushes_present>yes</hot_flushes_present>
+    <hot_flush_frequency>less-than-daily</hot_flush_frequency>
+    <hot_flush_severity>1</hot_flush_severity>
+    <hot_flush_duration_minutes>1</hot_flush_duration_minutes>
+    <night_sweats>yes</night_sweats>
+    <night_sweat_frequency>occasional</night_sweat_frequency>
+    <sleep_disruption>yes</sleep_disruption>
+    <sleep_disruption_severity>1</sleep_disruption_severity>
+    <palpitations>yes</palpitations>
+    <impact_on_work>none</impact_on_work>
+    <impact_on_social_life>none</impact_on_social_life>
+    <previous_vasomotor_treatment>yes</previous_vasomotor_treatment>
+    <previous_treatment_details>Example text.</previous_treatment_details>
+    <vasomotor_notes>Example text.</vasomotor_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </vasomotor_symptoms>
 </assessment>

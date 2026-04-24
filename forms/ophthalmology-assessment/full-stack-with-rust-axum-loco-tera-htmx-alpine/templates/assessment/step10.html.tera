@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Clinical Review - Ophthalmology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Clinical Review</h2>
+<h2>Clinical Review</h2>
     <p class="hint">Record diagnosis, management plan, and follow-up arrangements.</p>
 
     <div class="form-group">
@@ -90,8 +82,4 @@
       <textarea id="additional_notes" name="clinical_review.additional_notes"
                 rows="4" placeholder="Any additional clinical notes or observations">{{ clinical_review.additionalNotes }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

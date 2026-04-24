@@ -1,9 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>female</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <referrer_name>Example</referrer_name>
+    <referrer_role/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <fertility>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <trying_to_conceive>yes</trying_to_conceive>
+    <duration_trying_months>1</duration_trying_months>
+    <previous_pregnancies>1</previous_pregnancies>
+    <live_births>1</live_births>
+    <miscarriages>45</miscarriages>
+    <ectopic_pregnancies>1</ectopic_pregnancies>
+    <previous_fertility_treatment>yes</previous_fertility_treatment>
+    <fertility_treatment_details>Example text.</fertility_treatment_details>
+    <amh_level>5.0</amh_level>
+    <partner_semen_analysis>normal</partner_semen_analysis>
+    <future_fertility_concerns>yes</future_fertility_concerns>
+    <fertility_notes>Example text.</fertility_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </fertility>
+  <gastrointestinal_symptoms>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_gi_symptoms>yes</has_gi_symptoms>
+    <bloating>yes</bloating>
+    <bloating_cyclical>yes</bloating_cyclical>
+    <nausea>yes</nausea>
+    <constipation>yes</constipation>
+    <diarrhoea>yes</diarrhoea>
+    <alternating_bowel_habit>yes</alternating_bowel_habit>
+    <rectal_bleeding>yes</rectal_bleeding>
+    <rectal_bleeding_cyclical>yes</rectal_bleeding_cyclical>
+    <bowel_obstruction_symptoms>yes</bowel_obstruction_symptoms>
+    <gi_notes>Example text.</gi_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </gastrointestinal_symptoms>
+  <menstrual_history>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <age_at_menarche>45</age_at_menarche>
+    <cycle_regularity>regular</cycle_regularity>
+    <cycle_length_days>1</cycle_length_days>
+    <period_duration_days>1</period_duration_days>
+    <flow_heaviness>light</flow_heaviness>
+    <clots_present>yes</clots_present>
+    <intermenstrual_bleeding>yes</intermenstrual_bleeding>
+    <postcoital_bleeding>yes</postcoital_bleeding>
+    <dysmenorrhoea_severity>none</dysmenorrhoea_severity>
+    <days_off_work_per_cycle>1</days_off_work_per_cycle>
+    <current_contraception>none</current_contraception>
+    <menstrual_notes>Example text.</menstrual_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </menstrual_history>
+  <pain_assessment>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_pelvic_pain>yes</has_pelvic_pain>
+    <pelvic_pain_severity>1</pelvic_pain_severity>
+    <pelvic_pain_character>cramping</pelvic_pain_character>
+    <pelvic_pain_location>central</pelvic_pain_location>
+    <pelvic_pain_timing>menstrual</pelvic_pain_timing>
+    <dyspareunia>none</dyspareunia>
+    <dyspareunia_severity>1</dyspareunia_severity>
+    <dyschezia>yes</dyschezia>
+    <dyschezia_cyclical>yes</dyschezia_cyclical>
+    <back_pain>yes</back_pain>
+    <leg_pain>yes</leg_pain>
+    <pain_worse_with_activity>yes</pain_worse_with_activity>
+    <pain_notes>Example text.</pain_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </pain_assessment>
+  <previous_treatments>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <nsaids_tried>yes</nsaids_tried>
+    <nsaids_effective>effective</nsaids_effective>
+    <paracetamol_tried>yes</paracetamol_tried>
+    <opioids_tried>yes</opioids_tried>
+    <opioids_current>yes</opioids_current>
+    <combined_pill_tried>yes</combined_pill_tried>
+    <combined_pill_effective>effective</combined_pill_effective>
+    <progesterone_tried>yes</progesterone_tried>
+    <progesterone_type>standard</progesterone_type>
+    <gnrh_agonist_tried>yes</gnrh_agonist_tried>
+    <gnrh_agonist_duration_months>1</gnrh_agonist_duration_months>
+    <mirena_ius_tried>yes</mirena_ius_tried>
+    <other_treatments>Example treatment</other_treatments>
+    <treatment_notes>Example text.</treatment_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </previous_treatments>
+  <quality_of_life>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <pain_domain_score>5</pain_domain_score>
+    <control_powerlessness_score>5</control_powerlessness_score>
+    <emotional_wellbeing_score>5</emotional_wellbeing_score>
+    <social_support_score>5</social_support_score>
+    <self_image_score>5</self_image_score>
+    <work_impact>none</work_impact>
+    <relationship_impact>none</relationship_impact>
+    <sleep_impact>none</sleep_impact>
+    <mental_health_impact>none</mental_health_impact>
+    <exercise_impact>none</exercise_impact>
+    <qol_notes>Example text.</qol_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </quality_of_life>
+  <surgical_history>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_laparoscopy>yes</previous_laparoscopy>
+    <number_of_laparoscopies>2</number_of_laparoscopies>
+    <most_recent_laparoscopy_date>2026-01-15</most_recent_laparoscopy_date>
+    <endometriosis_confirmed_surgically>yes</endometriosis_confirmed_surgically>
+    <histological_confirmation>yes</histological_confirmation>
+    <asrm_stage_at_surgery>I</asrm_stage_at_surgery>
+    <sites_found>Example location</sites_found>
+    <excision_performed>yes</excision_performed>
+    <ablation_performed>yes</ablation_performed>
+    <adhesiolysis_performed>yes</adhesiolysis_performed>
+    <endometrioma_drained>yes</endometrioma_drained>
+    <bowel_surgery>yes</bowel_surgery>
+    <bladder_surgery>yes</bladder_surgery>
+    <other_pelvic_surgery>Example procedure</other_pelvic_surgery>
+    <surgical_complications/>
+    <surgical_notes>Example text.</surgical_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </surgical_history>
+  <treatment_planning>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <treatment_goals>Example treatment</treatment_goals>
+    <preferred_approach>conservative</preferred_approach>
+    <surgery_considered>yes</surgery_considered>
+    <surgery_type_considered>diagnostic-laparoscopy</surgery_type_considered>
+    <fertility_preservation_needed>yes</fertility_preservation_needed>
+    <mdt_referral_needed>yes</mdt_referral_needed>
+    <pain_management_referral>yes</pain_management_referral>
+    <psychology_referral>yes</psychology_referral>
+    <physiotherapy_referral>yes</physiotherapy_referral>
+    <fertility_clinic_referral>yes</fertility_clinic_referral>
+    <imaging_requested>none</imaging_requested>
+    <follow_up_interval>2-weeks</follow_up_interval>
+    <planning_notes>Example text.</planning_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </treatment_planning>
+  <urinary_symptoms>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_urinary_symptoms>yes</has_urinary_symptoms>
+    <frequency>yes</frequency>
+    <urgency>yes</urgency>
+    <dysuria>yes</dysuria>
+    <haematuria>yes</haematuria>
+    <haematuria_cyclical>yes</haematuria_cyclical>
+    <flank_pain>yes</flank_pain>
+    <urinary_obstruction_symptoms>yes</urinary_obstruction_symptoms>
+    <recurrent_utis>yes</recurrent_utis>
+    <urinary_notes>Example text.</urinary_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </urinary_symptoms>
 </assessment>

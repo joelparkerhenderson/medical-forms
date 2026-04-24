@@ -1,19 +1,11 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
-<div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
-
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+<div class="card" x-data="{
         haemorrhage: '{{ primary_survey.haemorrhage }}',
         ivAccess: '{{ primary_survey.ivAccess }}',
         cSpineImmobilised: '{{ primary_survey.cSpineImmobilised }}'
     }">
-        <h3>A - Airway</h3>
+    <h2>Step 8: Primary Survey (ABCDE)</h2>
+
+<h3>A - Airway</h3>
         <div class="form-row">
             <div class="form-group">
                 <label for="airway_status">Airway Status</label>
@@ -174,8 +166,4 @@
             <label for="log_roll_findings">Log Roll Findings</label>
             <textarea id="log_roll_findings" name="primary_survey.log_roll_findings">{{ primary_survey.logRollFindings }}</textarea>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

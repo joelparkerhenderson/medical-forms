@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Daily Living Preferences - Advance Statement{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Daily Living Preferences</h2>
+<h2>Daily Living Preferences</h2>
     <p class="hint">Your preferences for day-to-day care and routines.</p>
 
     <div class="form-group">
@@ -52,8 +44,4 @@
       <textarea id="pet_considerations" name="daily_living_preferences.pet_considerations"
                 placeholder="Do you have pets? Any arrangements needed?">{{ daily_living_preferences.petConsiderations }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

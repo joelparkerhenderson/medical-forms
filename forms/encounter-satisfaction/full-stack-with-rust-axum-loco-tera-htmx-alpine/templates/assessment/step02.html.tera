@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Wait Time & Access - Encounter Satisfaction{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Wait Time & Access</h2>
+<h2>Wait Time & Access</h2>
     <p class="hint">Rate your experience with scheduling and access to care.</p>
 
     <div class="likert-group">
@@ -86,8 +78,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

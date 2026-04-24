@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Medication & Treatment - Encounter Satisfaction{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Medication & Treatment</h2>
+<h2>Medication & Treatment</h2>
     <p class="hint">Rate your experience with medications and treatment during your visit.</p>
 
     <div class="likert-group">
@@ -86,8 +78,4 @@
                       {% if medication_treatment.medicationsProvided == "notApplicable" %}checked{% endif %}> Not Applicable</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

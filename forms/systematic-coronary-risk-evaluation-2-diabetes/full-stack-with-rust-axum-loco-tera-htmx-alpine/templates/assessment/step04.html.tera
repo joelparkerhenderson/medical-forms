@@ -1,15 +1,7 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 4: Blood Pressure</h2>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-row">
+<div class="form-row">
             <div class="form-group">
                 <label for="systolic_bp">Systolic Blood Pressure (mmHg)</label>
                 <input type="number" id="systolic_bp" name="blood_pressure.systolic_bp"
@@ -56,8 +48,4 @@
                 <label><input type="radio" name="blood_pressure.home_bp_monitoring" value="no" {% if blood_pressure.homeBpMonitoring == "no" %}checked{% endif %}> No</label>
             </div>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

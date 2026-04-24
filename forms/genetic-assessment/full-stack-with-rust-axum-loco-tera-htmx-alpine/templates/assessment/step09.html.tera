@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Psychological Impact - Genetic Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Psychological Impact</h2>
+<h2>Psychological Impact</h2>
     <p class="hint">Assess psychological readiness for testing, counselling history, and support needs.</p>
 
     <div class="form-group">
@@ -61,8 +53,4 @@
         <label><input type="radio" name="psychological_impact.support_needs" value="no" {% if psychological_impact.supportNeeds == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

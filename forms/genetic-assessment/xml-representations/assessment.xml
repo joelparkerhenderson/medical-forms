@@ -1,9 +1,214 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <cancer_history>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <family_cancer_history>yes</family_cancer_history>
+    <multiple_family_cancers>yes</multiple_family_cancers>
+    <early_onset_cancer>yes</early_onset_cancer>
+    <bilateral_cancer>yes</bilateral_cancer>
+    <rare_tumour_types>yes</rare_tumour_types>
+    <rare_tumour_details>Example text.</rare_tumour_details>
+    <known_cancer_syndrome>yes</known_cancer_syndrome>
+    <cancer_syndrome_details>Example text.</cancer_syndrome_details>
+    <cancer_risk_score>5</cancer_risk_score>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cancer_history>
+  <cancer_history_item>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <cancer_history_id>660e8400-e29b-41d4-a716-446655440001</cancer_history_id>
+    <relative_relationship>Spouse</relative_relationship>
+    <cancer_type>standard</cancer_type>
+    <age_at_diagnosis>45</age_at_diagnosis>
+    <outcome>alive</outcome>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cancer_history_item>
+  <cardiovascular_genetics>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <family_history_sudden_cardiac_death>yes</family_history_sudden_cardiac_death>
+    <sudden_cardiac_death_details>Example text.</sudden_cardiac_death_details>
+    <family_history_cardiomyopathy>yes</family_history_cardiomyopathy>
+    <cardiomyopathy_type>hypertrophic</cardiomyopathy_type>
+    <cardiomyopathy_details>Example text.</cardiomyopathy_details>
+    <family_history_aortopathy>yes</family_history_aortopathy>
+    <aortopathy_details>Example text.</aortopathy_details>
+    <family_history_arrhythmia>yes</family_history_arrhythmia>
+    <arrhythmia_type>standard</arrhythmia_type>
+    <family_history_familial_hypercholesterolaemia>yes</family_history_familial_hypercholesterolaemia>
+    <cholesterol_level_mmol_l>5.0</cholesterol_level_mmol_l>
+    <connective_tissue_disorder>yes</connective_tissue_disorder>
+    <connective_tissue_details>Example text.</connective_tissue_details>
+    <cardiovascular_risk_score>5</cardiovascular_risk_score>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cardiovascular_genetics>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ethnicity>White British</ethnicity>
+    <primary_language>English</primary_language>
+    <interpreter_required>yes</interpreter_required>
+    <marital_status>single</marital_status>
+    <occupation>Teacher</occupation>
+    <emergency_contact_name>Example</emergency_contact_name>
+    <emergency_contact_phone>07700900001</emergency_contact_phone>
+    <emergency_contact_relationship>Spouse</emergency_contact_relationship>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <ethnic_background_and_consanguinity>
+    <id>220e8400-e29b-41d4-a716-44665544000c</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <maternal_ethnic_background/>
+    <paternal_ethnic_background/>
+    <maternal_country_of_origin/>
+    <paternal_country_of_origin/>
+    <ashkenazi_jewish_ancestry>yes</ashkenazi_jewish_ancestry>
+    <ashkenazi_lineage>maternal</ashkenazi_lineage>
+    <consanguinity>yes</consanguinity>
+    <consanguinity_degree/>
+    <endogamous_community>yes</endogamous_community>
+    <endogamous_community_details>Example text.</endogamous_community_details>
+    <population_specific_conditions/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </ethnic_background_and_consanguinity>
+  <family_pedigree>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <total_first_degree_relatives>1</total_first_degree_relatives>
+    <total_second_degree_relatives>1</total_second_degree_relatives>
+    <consanguinity_in_family>yes</consanguinity_in_family>
+    <consanguinity_details>Example text.</consanguinity_details>
+    <adoption_status>not-adopted</adoption_status>
+    <pedigree_notes>Example text.</pedigree_notes>
+    <three_generation_pedigree_drawn>yes</three_generation_pedigree_drawn>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </family_pedigree>
+  <family_pedigree_member>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <family_pedigree_id>660e8400-e29b-41d4-a716-446655440001</family_pedigree_id>
+    <relationship>Spouse</relationship>
+    <sex>male</sex>
+    <age>45</age>
+    <alive>yes</alive>
+    <age_at_death>45</age_at_death>
+    <cause_of_death/>
+    <medical_conditions/>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </family_pedigree_member>
+  <genetic_testing_history>
+    <id>330e8400-e29b-41d4-a716-44665544000d</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_genetic_testing>yes</previous_genetic_testing>
+    <previous_chromosomal_analysis>yes</previous_chromosomal_analysis>
+    <chromosomal_analysis_result>Normal</chromosomal_analysis_result>
+    <previous_single_gene_test>yes</previous_single_gene_test>
+    <single_gene_test_details>Example text.</single_gene_test_details>
+    <previous_gene_panel>yes</previous_gene_panel>
+    <gene_panel_details>Example text.</gene_panel_details>
+    <previous_whole_exome_sequencing>yes</previous_whole_exome_sequencing>
+    <wes_result>Normal</wes_result>
+    <previous_whole_genome_sequencing>yes</previous_whole_genome_sequencing>
+    <wgs_result>Normal</wgs_result>
+    <previous_microarray>yes</previous_microarray>
+    <microarray_result>Normal</microarray_result>
+    <prenatal_testing_performed>yes</prenatal_testing_performed>
+    <prenatal_testing_details>Example text.</prenatal_testing_details>
+    <family_member_testing>yes</family_member_testing>
+    <family_member_testing_details>Example text.</family_member_testing_details>
+    <consent_for_further_testing>yes</consent_for_further_testing>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </genetic_testing_history>
+  <neurogenetics>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <family_history_huntington>yes</family_history_huntington>
+    <huntington_details>Example text.</huntington_details>
+    <family_history_early_onset_dementia>yes</family_history_early_onset_dementia>
+    <dementia_type>standard</dementia_type>
+    <dementia_age_at_onset>45</dementia_age_at_onset>
+    <family_history_motor_neurone_disease>yes</family_history_motor_neurone_disease>
+    <motor_neurone_details>Example text.</motor_neurone_details>
+    <family_history_hereditary_neuropathy>yes</family_history_hereditary_neuropathy>
+    <hereditary_neuropathy_details>Example text.</hereditary_neuropathy_details>
+    <family_history_epilepsy>yes</family_history_epilepsy>
+    <epilepsy_details>Example text.</epilepsy_details>
+    <family_history_ataxia>yes</family_history_ataxia>
+    <ataxia_details>Example text.</ataxia_details>
+    <neurogenetics_risk_score>5</neurogenetics_risk_score>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </neurogenetics>
+  <personal_medical_history>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_cancer_diagnosis>yes</has_cancer_diagnosis>
+    <cancer_type>standard</cancer_type>
+    <cancer_age_at_diagnosis>45</cancer_age_at_diagnosis>
+    <cancer_treatment_details>Example text.</cancer_treatment_details>
+    <has_cardiovascular_condition>yes</has_cardiovascular_condition>
+    <cardiovascular_details>Example text.</cardiovascular_details>
+    <has_neurological_condition>yes</has_neurological_condition>
+    <neurological_details>Example text.</neurological_details>
+    <has_congenital_anomalies>yes</has_congenital_anomalies>
+    <congenital_anomaly_details>Example text.</congenital_anomaly_details>
+    <has_intellectual_disability>yes</has_intellectual_disability>
+    <intellectual_disability_details>Example text.</intellectual_disability_details>
+    <other_significant_conditions/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </personal_medical_history>
+  <referral_information>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <referring_clinician_name>Example</referring_clinician_name>
+    <referring_clinician_role>Dr Smith</referring_clinician_role>
+    <referring_organisation/>
+    <referral_date>2026-01-15</referral_date>
+    <referral_reason>Example text.</referral_reason>
+    <referral_urgency>routine</referral_urgency>
+    <specialty_referred_to>cancer-genetics</specialty_referred_to>
+    <previous_genetic_referral>yes</previous_genetic_referral>
+    <previous_referral_details>Example text.</previous_referral_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </referral_information>
+  <reproductive_genetics>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <planning_pregnancy>yes</planning_pregnancy>
+    <currently_pregnant>yes</currently_pregnant>
+    <gestational_age_weeks>45</gestational_age_weeks>
+    <history_of_recurrent_miscarriage>yes</history_of_recurrent_miscarriage>
+    <number_of_miscarriages>45</number_of_miscarriages>
+    <history_of_stillbirth>yes</history_of_stillbirth>
+    <stillbirth_details>Example text.</stillbirth_details>
+    <history_of_neonatal_death>yes</history_of_neonatal_death>
+    <neonatal_death_details>Example text.</neonatal_death_details>
+    <child_with_congenital_anomaly>yes</child_with_congenital_anomaly>
+    <congenital_anomaly_details>Example text.</congenital_anomaly_details>
+    <known_carrier_status>yes</known_carrier_status>
+    <carrier_status_details>Example text.</carrier_status_details>
+    <partner_carrier_status>yes</partner_carrier_status>
+    <partner_carrier_details>Example text.</partner_carrier_details>
+    <assisted_reproduction>yes</assisted_reproduction>
+    <assisted_reproduction_details>Example text.</assisted_reproduction_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </reproductive_genetics>
 </assessment>

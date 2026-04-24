@@ -1,15 +1,7 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 10: Risk Assessment Summary</h2>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-group">
+<div class="form-group">
             <label for="risk_region">Risk Region</label>
             <p class="form-hint">Select the ESC cardiovascular risk region for the patient's country of origin</p>
             <select id="risk_region" name="risk_assessment_summary.risk_region">
@@ -59,6 +51,4 @@
             {% endif %}
             <button type="submit" class="btn btn-success">Submit Assessment</button>
         </div>
-    </form>
 </div>
-{% endblock %}

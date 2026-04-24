@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Clinical Review - Hearing Aid Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Clinical Review</h2>
+<h2>Clinical Review</h2>
     <p class="hint">Clinician's final assessment and recommendations.</p>
 
     <div class="likert-group">
@@ -80,8 +72,4 @@
         <option value="annual" {% if clinical_review.followUpPlan == "annual" %}selected{% endif %}>Annual review</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

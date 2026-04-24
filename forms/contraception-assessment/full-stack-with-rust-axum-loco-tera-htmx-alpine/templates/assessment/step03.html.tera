@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Medical History - Contraception Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Medical History</h2>
+<h2>Medical History</h2>
     <p class="hint">Record relevant medical conditions that may affect contraceptive eligibility.</p>
 
     <h3>Thromboembolism</h3>
@@ -154,8 +146,4 @@
         <label><input type="radio" name="medical_history.epilepsy" value="no" {% if medical_history.epilepsy == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

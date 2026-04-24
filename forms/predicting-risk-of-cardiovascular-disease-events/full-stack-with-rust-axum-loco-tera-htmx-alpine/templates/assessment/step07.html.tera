@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Smoking History - AHA PREVENT{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Smoking History</h2>
+<h2>Smoking History</h2>
     <p class="hint">Current smoking status is a key factor in CVD risk estimation.</p>
 
     <div class="form-group">
@@ -41,8 +33,4 @@
              value="{{ smoking_history.yearsSinceQuit }}"
              min="0" max="80" placeholder="e.g. 5">
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,114 +1,102 @@
-{% extends "base.html.tera" %}
+<section id="step-5" class="card scroll-mt-20">
+  <h2>5. Medical Conditions</h2>
+  <p class="hint">Indicate any existing medical conditions that affect cardiovascular risk.</p>
 
-{% block title %}Medical Conditions - Heart Health Check{% endblock %}
+  <div class="form-group">
+    <label>Diabetes</label>
+    <div class="radio-group">
+      <label><input type="radio" name="medical_conditions.has_diabetes" value="no"
+                    {% if medical_conditions.hasDiabetes == "no" %}checked{% endif %}> No</label>
+      <label><input type="radio" name="medical_conditions.has_diabetes" value="type1"
+                    {% if medical_conditions.hasDiabetes == "type1" %}checked{% endif %}> Type 1</label>
+      <label><input type="radio" name="medical_conditions.has_diabetes" value="type2"
+                    {% if medical_conditions.hasDiabetes == "type2" %}checked{% endif %}> Type 2</label>
+    </div>
+  </div>
 
-{% block content %}
-<div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Medical Conditions</h2>
-    <p class="hint">Indicate any existing medical conditions that affect cardiovascular risk.</p>
-
+  <div class="form-row">
     <div class="form-group">
-      <label>Diabetes</label>
+      <label>Atrial Fibrillation</label>
       <div class="radio-group">
-        <label><input type="radio" name="medical_conditions.has_diabetes" value="no"
-                      {% if medical_conditions.hasDiabetes == "no" %}checked{% endif %}> No</label>
-        <label><input type="radio" name="medical_conditions.has_diabetes" value="type1"
-                      {% if medical_conditions.hasDiabetes == "type1" %}checked{% endif %}> Type 1</label>
-        <label><input type="radio" name="medical_conditions.has_diabetes" value="type2"
-                      {% if medical_conditions.hasDiabetes == "type2" %}checked{% endif %}> Type 2</label>
+        <label><input type="radio" name="medical_conditions.has_atrial_fibrillation" value="yes"
+                      {% if medical_conditions.hasAtrialFibrillation == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_conditions.has_atrial_fibrillation" value="no"
+                      {% if medical_conditions.hasAtrialFibrillation == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label>Atrial Fibrillation</label>
-        <div class="radio-group">
-          <label><input type="radio" name="medical_conditions.has_atrial_fibrillation" value="yes"
-                        {% if medical_conditions.hasAtrialFibrillation == "yes" %}checked{% endif %}> Yes</label>
-          <label><input type="radio" name="medical_conditions.has_atrial_fibrillation" value="no"
-                        {% if medical_conditions.hasAtrialFibrillation == "no" %}checked{% endif %}> No</label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Rheumatoid Arthritis</label>
-        <div class="radio-group">
-          <label><input type="radio" name="medical_conditions.has_rheumatoid_arthritis" value="yes"
-                        {% if medical_conditions.hasRheumatoidArthritis == "yes" %}checked{% endif %}> Yes</label>
-          <label><input type="radio" name="medical_conditions.has_rheumatoid_arthritis" value="no"
-                        {% if medical_conditions.hasRheumatoidArthritis == "no" %}checked{% endif %}> No</label>
-        </div>
+    <div class="form-group">
+      <label>Rheumatoid Arthritis</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_conditions.has_rheumatoid_arthritis" value="yes"
+                      {% if medical_conditions.hasRheumatoidArthritis == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_conditions.has_rheumatoid_arthritis" value="no"
+                      {% if medical_conditions.hasRheumatoidArthritis == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
+  </div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label>Chronic Kidney Disease (stage 3-5)</label>
-        <div class="radio-group">
-          <label><input type="radio" name="medical_conditions.has_chronic_kidney_disease" value="yes"
-                        {% if medical_conditions.hasChronicKidneyDisease == "yes" %}checked{% endif %}> Yes</label>
-          <label><input type="radio" name="medical_conditions.has_chronic_kidney_disease" value="no"
-                        {% if medical_conditions.hasChronicKidneyDisease == "no" %}checked{% endif %}> No</label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Migraine</label>
-        <div class="radio-group">
-          <label><input type="radio" name="medical_conditions.has_migraine" value="yes"
-                        {% if medical_conditions.hasMigraine == "yes" %}checked{% endif %}> Yes</label>
-          <label><input type="radio" name="medical_conditions.has_migraine" value="no"
-                        {% if medical_conditions.hasMigraine == "no" %}checked{% endif %}> No</label>
-        </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Chronic Kidney Disease (stage 3-5)</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_conditions.has_chronic_kidney_disease" value="yes"
+                      {% if medical_conditions.hasChronicKidneyDisease == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_conditions.has_chronic_kidney_disease" value="no"
+                      {% if medical_conditions.hasChronicKidneyDisease == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label>Severe Mental Illness</label>
-        <div class="radio-group">
-          <label><input type="radio" name="medical_conditions.has_severe_mental_illness" value="yes"
-                        {% if medical_conditions.hasSevereMentalIllness == "yes" %}checked{% endif %}> Yes</label>
-          <label><input type="radio" name="medical_conditions.has_severe_mental_illness" value="no"
-                        {% if medical_conditions.hasSevereMentalIllness == "no" %}checked{% endif %}> No</label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Erectile Dysfunction (male only)</label>
-        <div class="radio-group">
-          <label><input type="radio" name="medical_conditions.has_erectile_dysfunction" value="yes"
-                        {% if medical_conditions.hasErectileDysfunction == "yes" %}checked{% endif %}> Yes</label>
-          <label><input type="radio" name="medical_conditions.has_erectile_dysfunction" value="no"
-                        {% if medical_conditions.hasErectileDysfunction == "no" %}checked{% endif %}> No</label>
-          <label><input type="radio" name="medical_conditions.has_erectile_dysfunction" value="na"
-                        {% if medical_conditions.hasErectileDysfunction == "na" %}checked{% endif %}> N/A</label>
-        </div>
+    <div class="form-group">
+      <label>Migraine</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_conditions.has_migraine" value="yes"
+                      {% if medical_conditions.hasMigraine == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_conditions.has_migraine" value="no"
+                      {% if medical_conditions.hasMigraine == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
+  </div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label>On Atypical Antipsychotic Medication</label>
-        <div class="radio-group">
-          <label><input type="radio" name="medical_conditions.on_atypical_antipsychotic" value="yes"
-                        {% if medical_conditions.onAtypicalAntipsychotic == "yes" %}checked{% endif %}> Yes</label>
-          <label><input type="radio" name="medical_conditions.on_atypical_antipsychotic" value="no"
-                        {% if medical_conditions.onAtypicalAntipsychotic == "no" %}checked{% endif %}> No</label>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>On Regular Corticosteroids</label>
-        <div class="radio-group">
-          <label><input type="radio" name="medical_conditions.on_corticosteroids" value="yes"
-                        {% if medical_conditions.onCorticosteroids == "yes" %}checked{% endif %}> Yes</label>
-          <label><input type="radio" name="medical_conditions.on_corticosteroids" value="no"
-                        {% if medical_conditions.onCorticosteroids == "no" %}checked{% endif %}> No</label>
-        </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Severe Mental Illness</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_conditions.has_severe_mental_illness" value="yes"
+                      {% if medical_conditions.hasSevereMentalIllness == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_conditions.has_severe_mental_illness" value="no"
+                      {% if medical_conditions.hasSevereMentalIllness == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
+    <div class="form-group">
+      <label>Erectile Dysfunction (male only)</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_conditions.has_erectile_dysfunction" value="yes"
+                      {% if medical_conditions.hasErectileDysfunction == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_conditions.has_erectile_dysfunction" value="no"
+                      {% if medical_conditions.hasErectileDysfunction == "no" %}checked{% endif %}> No</label>
+        <label><input type="radio" name="medical_conditions.has_erectile_dysfunction" value="na"
+                      {% if medical_conditions.hasErectileDysfunction == "na" %}checked{% endif %}> N/A</label>
+      </div>
+    </div>
+  </div>
 
-    {% include "assessment/_nav.html.tera" %}
-  </form>
-</div>
-{% endblock %}
+  <div class="form-row">
+    <div class="form-group">
+      <label>On Atypical Antipsychotic Medication</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_conditions.on_atypical_antipsychotic" value="yes"
+                      {% if medical_conditions.onAtypicalAntipsychotic == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_conditions.on_atypical_antipsychotic" value="no"
+                      {% if medical_conditions.onAtypicalAntipsychotic == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>On Regular Corticosteroids</label>
+      <div class="radio-group">
+        <label><input type="radio" name="medical_conditions.on_corticosteroids" value="yes"
+                      {% if medical_conditions.onCorticosteroids == "yes" %}checked{% endif %}> Yes</label>
+        <label><input type="radio" name="medical_conditions.on_corticosteroids" value="no"
+                      {% if medical_conditions.onCorticosteroids == "no" %}checked{% endif %}> No</label>
+      </div>
+    </div>
+  </div>
+</section>

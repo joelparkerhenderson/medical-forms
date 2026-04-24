@@ -1,9 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <care_preferences>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_place_of_care/>
+    <preferred_place_of_death/>
+    <daily_routine_preferences/>
+    <personal_care_preferences/>
+    <food_and_drink_preferences/>
+    <sleep_preferences/>
+    <clothing_preferences/>
+    <environment_preferences/>
+    <pet_care_wishes/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </care_preferences>
+  <communication_preferences>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_language>English</preferred_language>
+    <communication_aids/>
+    <how_to_share_information/>
+    <who_to_involve_in_decisions/>
+    <information_sharing_restrictions/>
+    <preferred_communication_style/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </communication_preferences>
+  <medical_treatment_wishes>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <pain_management_preferences/>
+    <attitude_to_hospital_admission>Example Hospital</attitude_to_hospital_admission>
+    <attitude_to_intensive_care/>
+    <attitude_to_artificial_nutrition/>
+    <attitude_to_artificial_hydration/>
+    <medication_preferences>Paracetamol</medication_preferences>
+    <complementary_therapy_preferences>Example treatment</complementary_therapy_preferences>
+    <other_treatment_wishes>Example treatment</other_treatment_wishes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_treatment_wishes>
+  <people_important_to_me>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <primary_contact_name>Example</primary_contact_name>
+    <primary_contact_relationship>Spouse</primary_contact_relationship>
+    <primary_contact_phone>07700900001</primary_contact_phone>
+    <primary_contact_email>07700900001</primary_contact_email>
+    <secondary_contact_name>Example</secondary_contact_name>
+    <secondary_contact_relationship>Spouse</secondary_contact_relationship>
+    <secondary_contact_phone>07700900001</secondary_contact_phone>
+    <people_who_should_visit/>
+    <people_who_should_not_visit/>
+    <support_network_details>Example text.</support_network_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </people_important_to_me>
+  <personal_information>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <full_name>Example</full_name>
+    <address>123 Example Street</address>
+    <postcode>SW1A 1AA</postcode>
+    <date_of_birth>1965-06-15</date_of_birth>
+    <nhs_number>9434765919</nhs_number>
+    <phone>07700900000</phone>
+    <email>jane.doe@example.com</email>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </personal_information>
+  <practical_matters>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <financial_arrangements/>
+    <property_arrangements/>
+    <insurance_details>Example text.</insurance_details>
+    <will_location>Example location</will_location>
+    <has_lasting_power_of_attorney>yes</has_lasting_power_of_attorney>
+    <lpa_details>Example text.</lpa_details>
+    <funeral_wishes/>
+    <burial_or_cremation>burial</burial_or_cremation>
+    <other_practical_matters/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </practical_matters>
+  <signatures_witnesses>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <maker_signature_obtained>yes</maker_signature_obtained>
+    <maker_signature_date>2026-01-15</maker_signature_date>
+    <witness_name>Example</witness_name>
+    <witness_address/>
+    <witness_signature_obtained>yes</witness_signature_obtained>
+    <witness_signature_date>2026-01-15</witness_signature_date>
+    <review_date>2026-01-15</review_date>
+    <review_notes>Example text.</review_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </signatures_witnesses>
+  <statement_context>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <reason_for_statement>Example text.</reason_for_statement>
+    <current_health_status>active</current_health_status>
+    <current_diagnoses/>
+    <has_discussed_with_family>yes</has_discussed_with_family>
+    <has_discussed_with_clinician>yes</has_discussed_with_clinician>
+    <discussion_details>Example text.</discussion_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </statement_context>
+  <values_beliefs>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <personal_values/>
+    <quality_of_life_priorities/>
+    <religious_beliefs/>
+    <spiritual_needs/>
+    <cultural_considerations/>
+    <fears_and_concerns/>
+    <things_that_matter_most/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </values_beliefs>
 </assessment>

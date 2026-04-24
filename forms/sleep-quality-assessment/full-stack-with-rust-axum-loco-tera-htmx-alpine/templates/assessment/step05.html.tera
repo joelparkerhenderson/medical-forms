@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Sleep Disturbances - Sleep Quality Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Sleep Disturbances</h2>
+<h2>Sleep Disturbances</h2>
     <p class="hint">How often have you experienced the following in the past month? (0 = not at all, 3 = three or more times per week)</p>
 
     <div class="likert-group">
@@ -113,8 +105,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

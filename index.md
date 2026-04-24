@@ -16,24 +16,24 @@ engine, and generates a clinical report with flagged issues.
 - Full-stack Rust implementation (axum + Loco + Tera + HTMX + Alpine.js)
 
 For the full list of form projects, see [`forms/AGENTS.md`](forms/AGENTS.md)
-or run `bin/list-forms`.
+or run `bin/list-forms-as-kebab-case`.
 
 ## Form categories
 
-| Category                 | Examples                                                                 |
-| ------------------------ | ------------------------------------------------------------------------ |
-| Risk scores & calculators | Framingham, QRISK3-based heart health check, PREVENT, SCORE2-Diabetes    |
-| Specialty assessments    | Cardiology (NYHA/CCS), Oncology (ECOG), Pulmonology (GOLD), Renal (KDIGO) |
-| Symptom scales           | PHQ-9, GAD-7, PCL-5, DLQI, PSQI, ESAS-r, SNOT-22, DHI                    |
-| Pre-op / peri-op         | Pre-operative assessment (ASA), Anesthesiology, Post-operative report    |
-| Safety & safeguarding    | Fall risk, Casualty card (NEWS2), Medical error report, Consent          |
-| Administrative           | Patient intake, Medical records release, Hospital discharge, Transfer    |
-| Donation & eligibility   | Blood donation (JPAC), Organ donation, Bone marrow, Semaglutide          |
-| Occupational & workplace | Workplace safety (HSE), Workplace stress, Workplace climate, Ergonomics  |
-| Training & certification | CPR training, First aid, EMT psychomotor, Medical language speaking      |
-| Privacy & legal          | Care privacy notice, Code of conduct notice, Research privacy notice     |
-| WHO referral & emergency | Acute referral, Counter-referral, Prehospital, Emergency unit forms      |
-| UK statutory             | DVLA B1/M1/V1, MAT B1 maternity certificate                              |
+| Category                  | Examples                                                                  |
+| ------------------------- | ------------------------------------------------------------------------- |
+| Risk scores & calculators | Framingham, QRISK3-based heart health check, PREVENT, SCORE2-Diabetes     |
+| Specialty assessments     | Cardiology (NYHA/CCS), Oncology (ECOG), Pulmonology (GOLD), Renal (KDIGO) |
+| Symptom scales            | PHQ-9, GAD-7, PCL-5, DLQI, PSQI, ESAS-r, SNOT-22, DHI                     |
+| Pre-op / peri-op          | Pre-operative assessment (ASA), Anesthesiology, Post-operative report     |
+| Safety & safeguarding     | Fall risk, Casualty card (NEWS2), Medical error report, Consent           |
+| Administrative            | Patient intake, Medical records release, Hospital discharge, Transfer     |
+| Donation & eligibility    | Blood donation (JPAC), Organ donation, Bone marrow, Semaglutide           |
+| Occupational & workplace  | Workplace safety (HSE), Workplace stress, Workplace climate, Ergonomics   |
+| Training & certification  | CPR training, First aid, EMT psychomotor, Medical language speaking       |
+| Privacy & legal           | Care privacy notice, Code of conduct notice, Research privacy notice      |
+| WHO referral & emergency  | Acute referral, Counter-referral, Prehospital, Emergency unit forms       |
+| UK statutory              | DVLA B1/M1/V1, MAT B1 maternity certificate                               |
 
 ## Repository structure
 
@@ -46,7 +46,7 @@ or run `bin/list-forms`.
 │   ├── sql-migrations.md
 │   ├── xml-representations.md
 │   └── fhir-r5.md
-├── bin/                            # Tools (list-forms, create-form, test, etc.)
+├── bin/                            # Tools (list-forms-as-kebab-case, create-form, test, etc.)
 ├── docs/                           # Repo-wide docs (specs, plans)
 ├── forms/                          # All form projects
 │   ├── AGENTS.md                   # Index of all forms
@@ -115,7 +115,7 @@ See the per-stack agent docs:
 
 ## Tools
 
-- `bin/list-forms` — list all form directory slugs
+- `bin/list-forms-as-kebab-case` — list all form directory slugs
 - `bin/create-form <slug>` — scaffold a new form directory
 - `bin/test` — validate structure of all forms
 - `bin/test-form <slug>` — validate one form
@@ -143,6 +143,32 @@ See the per-stack agent docs:
 
 ```sh
 claude mcp add -t stdio -s project svelte -- npx -y @sveltejs/mcp
+```
+
+### Rust full stack
+
+Loco:
+
+```sh
+cargo install loco
+cargo install sea-orm-cli
+```
+
+Create database default role:
+
+```sql
+CREATE USER loco PASSWORD 'loco';
+CREATE DATABASE pre_operative_assessment_by_clinician_development OWNER loco;
+CREATE DATABASE pre_operative_assessment_by_clinician_test OWNER loco;
+```
+
+Create languages:
+
+```txt
+assets/i18n/de-DE/main.ftl
+assets/i18n/en-US/main.ftl
+assets/i18n/en-GB/main.ftl
+assets/i18n/cy-GB/main.ftl
 ```
 
 ## Verify

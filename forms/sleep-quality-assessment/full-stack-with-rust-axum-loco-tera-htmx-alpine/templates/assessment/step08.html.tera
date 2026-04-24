@@ -1,20 +1,11 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Medical & Medications - Sleep Quality Assessment{% endblock %}
-
-{% block content %}
-<div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}"
-        x-data="{
+<div class="card" x-data="{
           sleepMedications: '{{ medical_medications.sleepMedications }}',
           mentalHealthCondition: '{{ medical_medications.mentalHealthCondition }}',
           chronicPainCondition: '{{ medical_medications.chronicPainCondition }}',
           respiratoryCondition: '{{ medical_medications.respiratoryCondition }}',
           shiftWork: '{{ medical_medications.shiftWork }}'
         }">
-    <h2>Medical & Medications</h2>
+<h2>Medical & Medications</h2>
     <p class="hint">Tell us about any medications and medical conditions that may affect your sleep.</p>
 
     <div class="form-group">
@@ -89,8 +80,4 @@
         <label><input type="radio" name="medical_medications.shift_work" value="no" x-model="shiftWork" {% if medical_medications.shiftWork == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

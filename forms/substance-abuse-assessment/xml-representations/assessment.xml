@@ -1,9 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <alcohol_use_audit>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <audit_q1_frequency>1</audit_q1_frequency>
+    <audit_q2_typical_quantity>1</audit_q2_typical_quantity>
+    <audit_q3_binge_frequency>1</audit_q3_binge_frequency>
+    <audit_q4_impaired_control>1</audit_q4_impaired_control>
+    <audit_q5_failed_expectations>1</audit_q5_failed_expectations>
+    <audit_q6_morning_drinking>1</audit_q6_morning_drinking>
+    <audit_q7_guilt>1</audit_q7_guilt>
+    <audit_q8_blackout>1</audit_q8_blackout>
+    <audit_q9_injury>1</audit_q9_injury>
+    <audit_q10_concern>1</audit_q10_concern>
+    <audit_total_score>5</audit_total_score>
+    <audit_risk_category>low-risk</audit_risk_category>
+    <alcohol_use_notes>Example text.</alcohol_use_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </alcohol_use_audit>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <referrer_name>Example</referrer_name>
+    <referrer_role/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <drug_use_dast>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <dast_q1_non_medical_use>yes</dast_q1_non_medical_use>
+    <dast_q2_poly_drug>yes</dast_q2_poly_drug>
+    <dast_q3_able_to_stop>yes</dast_q3_able_to_stop>
+    <dast_q4_blackouts>yes</dast_q4_blackouts>
+    <dast_q5_guilt>yes</dast_q5_guilt>
+    <dast_q6_complaints>yes</dast_q6_complaints>
+    <dast_q7_neglect>yes</dast_q7_neglect>
+    <dast_q8_illegal_activities>yes</dast_q8_illegal_activities>
+    <dast_q9_withdrawal>yes</dast_q9_withdrawal>
+    <dast_q10_medical_problems>yes</dast_q10_medical_problems>
+    <dast_total_score>5</dast_total_score>
+    <dast_risk_category>no-problems</dast_risk_category>
+    <drug_use_notes>Example text.</drug_use_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </drug_use_dast>
+  <mental_health_comorbidities>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <depression>yes</depression>
+    <depression_severity>mild</depression_severity>
+    <anxiety_disorder>yes</anxiety_disorder>
+    <anxiety_disorder_type>generalised</anxiety_disorder_type>
+    <ptsd>yes</ptsd>
+    <ptsd_details>Example text.</ptsd_details>
+    <bipolar_disorder>yes</bipolar_disorder>
+    <psychosis>yes</psychosis>
+    <personality_disorder>yes</personality_disorder>
+    <eating_disorder>yes</eating_disorder>
+    <adhd>yes</adhd>
+    <suicidal_ideation>yes</suicidal_ideation>
+    <suicidal_ideation_current>yes</suicidal_ideation_current>
+    <self_harm_history>yes</self_harm_history>
+    <previous_suicide_attempts>yes</previous_suicide_attempts>
+    <psychiatric_medication>yes</psychiatric_medication>
+    <psychiatric_medication_details>Example text.</psychiatric_medication_details>
+    <mental_health_notes>Example text.</mental_health_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </mental_health_comorbidities>
+  <physical_health_impact>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <liver_disease>yes</liver_disease>
+    <liver_disease_type>fatty-liver</liver_disease_type>
+    <hepatitis_b>yes</hepatitis_b>
+    <hepatitis_c>yes</hepatitis_c>
+    <hiv_status>positive</hiv_status>
+    <cardiovascular_issues>yes</cardiovascular_issues>
+    <cardiovascular_details>Example text.</cardiovascular_details>
+    <respiratory_issues>yes</respiratory_issues>
+    <respiratory_details>Example text.</respiratory_details>
+    <gastrointestinal_issues>yes</gastrointestinal_issues>
+    <gastrointestinal_details>Example text.</gastrointestinal_details>
+    <neurological_issues>yes</neurological_issues>
+    <neurological_details>Example text.</neurological_details>
+    <nutritional_deficiency>yes</nutritional_deficiency>
+    <chronic_pain>yes</chronic_pain>
+    <chronic_pain_details>Example text.</chronic_pain_details>
+    <overdose_history>yes</overdose_history>
+    <overdose_count>2</overdose_count>
+    <last_overdose_date>2026-01-15</last_overdose_date>
+    <physical_health_notes>Example text.</physical_health_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </physical_health_impact>
+  <assessment_previous_treatment>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_treatment>yes</previous_treatment>
+    <number_of_treatment_episodes>2</number_of_treatment_episodes>
+    <previous_detox>yes</previous_detox>
+    <detox_setting>inpatient</detox_setting>
+    <previous_rehab>yes</previous_rehab>
+    <rehab_type>residential</rehab_type>
+    <previous_counselling>yes</previous_counselling>
+    <counselling_type>cbt</counselling_type>
+    <previous_medication_assisted>yes</previous_medication_assisted>
+    <mat_medication>methadone</mat_medication>
+    <self_help_groups>yes</self_help_groups>
+    <self_help_group_type>aa</self_help_group_type>
+    <longest_period_abstinent>less-1-month</longest_period_abstinent>
+    <relapse_triggers/>
+    <treatment_history_notes>Example text.</treatment_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </assessment_previous_treatment>
+  <social_legal_impact>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <employment_status>employed</employment_status>
+    <occupation>Teacher</occupation>
+    <employment_affected>yes</employment_affected>
+    <housing_status>stable</housing_status>
+    <relationship_status>single</relationship_status>
+    <relationship_impact>none</relationship_impact>
+    <dependents>1</dependents>
+    <children_safeguarding_concerns>yes</children_safeguarding_concerns>
+    <social_support>good</social_support>
+    <criminal_record>yes</criminal_record>
+    <criminal_record_details>Example text.</criminal_record_details>
+    <current_legal_issues>yes</current_legal_issues>
+    <current_legal_details>Example text.</current_legal_details>
+    <dui_dwi_history>yes</dui_dwi_history>
+    <driving_status>driving</driving_status>
+    <financial_difficulties>yes</financial_difficulties>
+    <domestic_violence>yes</domestic_violence>
+    <domestic_violence_details>Example text.</domestic_violence_details>
+    <social_legal_notes>Example text.</social_legal_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </social_legal_impact>
+  <substance_use_history>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <age_first_alcohol_use>45</age_first_alcohol_use>
+    <age_first_drug_use>45</age_first_drug_use>
+    <primary_substance>alcohol</primary_substance>
+    <primary_substance_other/>
+    <secondary_substances/>
+    <route_of_administration>oral</route_of_administration>
+    <frequency_of_use>daily</frequency_of_use>
+    <duration_of_use>less-1-year</duration_of_use>
+    <last_use_date>2026-01-15</last_use_date>
+    <current_use_status>actively-using</current_use_status>
+    <iv_drug_use>yes</iv_drug_use>
+    <needle_sharing>yes</needle_sharing>
+    <substance_history_notes>Example text.</substance_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </substance_use_history>
+  <treatment_planning>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <treatment_goal>abstinence</treatment_goal>
+    <readiness_to_change>pre-contemplation</readiness_to_change>
+    <motivation_level>low</motivation_level>
+    <preferred_treatment_setting>inpatient</preferred_treatment_setting>
+    <interested_in_counselling>yes</interested_in_counselling>
+    <interested_in_medication>yes</interested_in_medication>
+    <interested_in_self_help>yes</interested_in_self_help>
+    <barriers_to_treatment>Example treatment</barriers_to_treatment>
+    <support_network_available>yes</support_network_available>
+    <support_network_details>Example text.</support_network_details>
+    <risk_of_relapse>low</risk_of_relapse>
+    <safety_plan_needed>yes</safety_plan_needed>
+    <naloxone_provided>yes</naloxone_provided>
+    <follow_up_plan>Example text.</follow_up_plan>
+    <treatment_planning_notes>Example text.</treatment_planning_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </treatment_planning>
+  <withdrawal>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <currently_in_withdrawal>yes</currently_in_withdrawal>
+    <withdrawal_substance>alcohol</withdrawal_substance>
+    <tremor>yes</tremor>
+    <sweating>yes</sweating>
+    <nausea_vomiting>yes</nausea_vomiting>
+    <anxiety>none</anxiety>
+    <agitation>none</agitation>
+    <seizure_history>yes</seizure_history>
+    <delirium_tremens_history>yes</delirium_tremens_history>
+    <hallucinations>yes</hallucinations>
+    <last_drink_drug_hours>1</last_drink_drug_hours>
+    <withdrawal_severity>none</withdrawal_severity>
+    <medically_supervised_detox_needed>yes</medically_supervised_detox_needed>
+    <withdrawal_notes>Example text.</withdrawal_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </withdrawal>
 </assessment>

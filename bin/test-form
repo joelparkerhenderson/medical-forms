@@ -1,8 +1,6 @@
 #!/bin/sh
 set -euf
 
-echo "here"
-
 # test-form: test one form directory in this project for implementation
 # 
 # Syntax: 
@@ -30,19 +28,23 @@ implemented_or_err() { if (grep -q -m 1 "Not yet implemented\." "$1"); then err 
 
 ai_exists_or_err() (
     # dir="$1"
-    directory_exists_or_err "$1"
     file_size_or_err "$1/index.md"
     symlink_exists_or_err "$1/README.md"
     file_size_or_err "$1/AGENTS.md" && implemented_or_err "$1/AGENTS.md"
     file_size_or_err "$1/CLAUDE.md" && implemented_or_err "$1/CLAUDE.md"
+)
+
+ai_planing_exists_or_err() (
+    # dir="$1"
     file_size_or_err "$1/plan.md" && implemented_or_err "$1/plan.md"
     task_exists_or_err "$1/tasks.md" && implemented_or_err "$1/tasks.md"
 )
 
 rust_crate_exists_or_err() (
     # dir="$1"
-    ai_exists_or_err "$1"
     directory_exists_or_err "$1"
+    ai_exists_or_err "$1"
+    ai_planning_exists_or_err "$1"
     file_size_or_err "$1/Cargo.toml"
     file_size_or_err "$1/.gitignore"
     directory_exists_or_err "$1/src"
@@ -61,38 +63,69 @@ top="$(git rev-parse --show-toplevel)"
 form="$1"
 form_dir="$top/forms/$form"
 
+test_form_cargo_loco_generate() {
+    dir="$1/cargo-loco-generate"
+    directory_exists_or_err "$dir"
+    ai_exists_or_err "$1"
+    @../../../AGENTS/cargo-loco-generate-scaffold.md
+}
+
+test_form_doc() {
+    dir="$1/doc"
+    directory_exists_or_err "$dir"
+    ai_exists_or_err "$1"
+}
+
+test_form_fhir_r5() {
+    dir="$1/fhir-r5"
+    directory_exists_or_err "$dir"
+    ai_exists_or_err "$1"
+}
+
+test_form_sql_migrations() {
+    dir="$1/sql-migrations"
+    directory_exists_or_err "$dir"
+    ai_exists_or_err "$1"
+    file_size_or_err "$dir/00_extensions.sql"
+    file_size_or_err "$dir/01_create_function_set_updated_at.sql"
+}
+
+test_form_xml_representations() {
+    dir="$1/xml-representations"
+    directory_exists_or_err "$dir"
+    ai_exists_or_err "$1"
+    #cd "$dir" && xmllint --valid --noout '\*.xml'
+}
+
 test_form() {
-    dir="$1"
-    echo "test_form $dir"
-    ai_exists_or_err "$dir"
-    directory_exists_or_err "$dir/doc"
-    directory_exists_or_err "$dir/fhir-r5"
-    directory_exists_or_err "$dir/sql-migrations"
-    directory_exists_or_err "$dir/xml-representations"
-    file_size_or_err "$dir/sql-migrations/00-extensions.sql"
-    ai_exists_or_err "$dir/front-end-form-with-html"
-    ai_exists_or_err "$dir/front-end-form-with-svelte"
-    ai_exists_or_err "$dir/front-end-dashboard-with-html"
-    ai_exists_or_err "$dir/front-end-dashboard-with-svelte"
+    form_dir="$1"
+    echo "test_form $form_dir"
+    ai_exists_or_err "$form_dir"
+    test_form_cargo_loco_generate "$form_dir"
+    test_form_doc "$form_dir"
+    test_form_fhir_r5 "$form_dir"
+    test_form_sql_migrations "$form_dir"
+    test_form_xml_representations "$form_dir"
+    ai_exists_or_err "$form_dir/front-end-form-with-html"
+    ai_exists_or_err "$form_dir/front-end-form-with-svelte"
+    ai_exists_or_err "$form_dir/front-end-dashboard-with-html"
+    ai_exists_or_err "$form_dir/front-end-dashboard-with-svelte"
     rust_crate_exists_or_err "$dir/full-stack-with-rust-axum-loco-tera-htmx-alpine"
 }
 
 test_dir_via_pnpm() {
     dir="$1"
-    echo "test_dir_via_pnpm $dir"
-    cd "$dir" && 
-    pnpm install && 
-    pnpm run check && 
-    pnpm run test
+    cd "$dir" || { err "test_dir_via_pnpm $dir cd"; return 0; }
+    pnpm install || { err "test_dir_via_pnpm $dir pnpm install"; return 0; }
+    pnpm run check || { err "test_dir_via_pnpm $dir pnpm run check"; return 0; }
 }
 
 test_dir_via_cargo() {
     dir="$1"
-    echo "test_dir_via_cargo $dir"
-    cd "$dir" &&
-    cargo build && 
-    cargo check && 
-    cargo test
+    cd "$dir" || { err "test_dir_via_cargo $dir cd"; return 0; }
+    cargo build || { err "test_dir_via_cargo $dir cargo build"; return 0; }
+    RUSTFLAGS=-Awarnings cargo check || { err "test_dir_via_cargo $dir cargo check"; return 0; }
+    cargo test || { err "test_dir_via_cargo $dir cargo test"; return 0; }
 }
 
 test_form "$form_dir"

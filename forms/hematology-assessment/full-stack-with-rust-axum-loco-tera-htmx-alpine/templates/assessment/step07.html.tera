@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Bone Marrow Assessment - Hematology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Bone Marrow Assessment</h2>
+<h2>Bone Marrow Assessment</h2>
     <p class="hint">Enter bone marrow aspirate and biopsy findings if applicable.</p>
 
     <div class="form-group">
@@ -53,8 +45,4 @@
       <textarea id="bone_marrow_comments" name="bone_marrow_assessment.bone_marrow_comments" rows="2"
                 placeholder="Any additional bone marrow findings">{{ bone_marrow_assessment.boneMarrowComments }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Clinical Review - Medical Records Release{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Clinical Review</h2>
+<h2>Clinical Review</h2>
     <p class="hint">For staff use: review and approve the records release request.</p>
 
     <div class="form-row">
@@ -71,8 +63,4 @@
       <textarea id="redaction_details" name="clinical_review.redaction_details"
                 rows="3" placeholder="Specify what needs to be redacted if applicable...">{{ clinical_review.redactionDetails }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,9 +1,0 @@
-<!ELEMENT assessment_range_of_motion (id,assessment_id,joint_assessed,side_assessed,overall_rom_status,range_of_motion_notes,created_at,updated_at)>
-<!ELEMENT id (#PCDATA)>
-<!ELEMENT assessment_id (#PCDATA)>
-<!ELEMENT joint_assessed (#PCDATA)>
-<!ELEMENT side_assessed (#PCDATA)>
-<!ELEMENT overall_rom_status (#PCDATA)>
-<!ELEMENT range_of_motion_notes (#PCDATA)>
-<!ELEMENT created_at (#PCDATA)>
-<!ELEMENT updated_at (#PCDATA)>

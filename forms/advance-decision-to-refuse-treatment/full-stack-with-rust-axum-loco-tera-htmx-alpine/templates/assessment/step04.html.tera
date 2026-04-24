@@ -1,16 +1,8 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 4: Treatments Refused - General</h2>
     <p class="form-hint">For each treatment below, indicate whether you wish to refuse it in the circumstances described.</p>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <!-- Antibiotics -->
+<!-- Antibiotics -->
         <div class="treatment-card">
             <h4>Antibiotics</h4>
             <div class="form-group">
@@ -174,8 +166,4 @@
                 <textarea name="other_treatments[{{ treatments_refused_general.otherTreatments | length }}].specification" placeholder="Specify conditions"></textarea>
             </div>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

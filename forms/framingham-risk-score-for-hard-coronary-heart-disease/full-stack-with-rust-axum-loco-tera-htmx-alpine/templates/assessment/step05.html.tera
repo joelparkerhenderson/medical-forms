@@ -1,68 +1,56 @@
-{% extends "base.html.tera" %}
+<section id="step-5" class="card scroll-mt-20">
+  <h2>5. Cholesterol</h2>
+  <p class="hint">Total cholesterol and HDL are required for the Framingham calculation. Values in mg/dL or mmol/L.</p>
 
-{% block title %}Cholesterol - Framingham Risk Score{% endblock %}
+  <div class="form-group">
+    <label for="cholesterol_unit">Cholesterol Unit</label>
+    <select id="cholesterol_unit" name="cholesterol.cholesterol_unit">
+      <option value="mgDl" {% if cholesterol.cholesterolUnit == "mgDl" %}selected{% endif %}>mg/dL</option>
+      <option value="mmolL" {% if cholesterol.cholesterolUnit == "mmolL" %}selected{% endif %}>mmol/L</option>
+    </select>
+  </div>
 
-{% block content %}
-<div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Cholesterol</h2>
-    <p class="hint">Total cholesterol and HDL are required for the Framingham calculation. Values in mg/dL or mmol/L.</p>
-
+  <div class="form-row">
     <div class="form-group">
-      <label for="cholesterol_unit">Cholesterol Unit</label>
-      <select id="cholesterol_unit" name="cholesterol.cholesterol_unit">
-        <option value="mgDl" {% if cholesterol.cholesterolUnit == "mgDl" %}selected{% endif %}>mg/dL</option>
-        <option value="mmolL" {% if cholesterol.cholesterolUnit == "mmolL" %}selected{% endif %}>mmol/L</option>
-      </select>
+      <label for="total_cholesterol">Total Cholesterol</label>
+      <input type="number" id="total_cholesterol" name="cholesterol.total_cholesterol"
+             step="0.1" min="0"
+             value="{{ cholesterol.totalCholesterol | default(value='') }}"
+             placeholder="e.g. 220">
     </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="total_cholesterol">Total Cholesterol</label>
-        <input type="number" id="total_cholesterol" name="cholesterol.total_cholesterol"
-               step="0.1" min="0"
-               value="{{ cholesterol.totalCholesterol | default(value='') }}"
-               placeholder="e.g. 220">
-      </div>
-      <div class="form-group">
-        <label for="hdl_cholesterol">HDL Cholesterol</label>
-        <input type="number" id="hdl_cholesterol" name="cholesterol.hdl_cholesterol"
-               step="0.1" min="0"
-               value="{{ cholesterol.hdlCholesterol | default(value='') }}"
-               placeholder="e.g. 50">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="ldl_cholesterol">LDL Cholesterol (optional)</label>
-        <input type="number" id="ldl_cholesterol" name="cholesterol.ldl_cholesterol"
-               step="0.1" min="0"
-               value="{{ cholesterol.ldlCholesterol | default(value='') }}"
-               placeholder="e.g. 140">
-      </div>
-      <div class="form-group">
-        <label for="triglycerides">Triglycerides (optional)</label>
-        <input type="number" id="triglycerides" name="cholesterol.triglycerides"
-               step="0.1" min="0"
-               value="{{ cholesterol.triglycerides | default(value='') }}"
-               placeholder="e.g. 150">
-      </div>
-    </div>
-
     <div class="form-group">
-      <label>Fasting Sample?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="cholesterol.fasting_sample" value="yes"
-                      {% if cholesterol.fastingSample == "yes" %}checked{% endif %}> Yes</label>
-        <label><input type="radio" name="cholesterol.fasting_sample" value="no"
-                      {% if cholesterol.fastingSample == "no" %}checked{% endif %}> No</label>
-      </div>
+      <label for="hdl_cholesterol">HDL Cholesterol</label>
+      <input type="number" id="hdl_cholesterol" name="cholesterol.hdl_cholesterol"
+             step="0.1" min="0"
+             value="{{ cholesterol.hdlCholesterol | default(value='') }}"
+             placeholder="e.g. 50">
     </div>
+  </div>
 
-    {% include "assessment/_nav.html.tera" %}
-  </form>
-</div>
-{% endblock %}
+  <div class="form-row">
+    <div class="form-group">
+      <label for="ldl_cholesterol">LDL Cholesterol (optional)</label>
+      <input type="number" id="ldl_cholesterol" name="cholesterol.ldl_cholesterol"
+             step="0.1" min="0"
+             value="{{ cholesterol.ldlCholesterol | default(value='') }}"
+             placeholder="e.g. 140">
+    </div>
+    <div class="form-group">
+      <label for="triglycerides">Triglycerides (optional)</label>
+      <input type="number" id="triglycerides" name="cholesterol.triglycerides"
+             step="0.1" min="0"
+             value="{{ cholesterol.triglycerides | default(value='') }}"
+             placeholder="e.g. 150">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Fasting Sample?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="cholesterol.fasting_sample" value="yes"
+                    {% if cholesterol.fastingSample == "yes" %}checked{% endif %}> Yes</label>
+      <label><input type="radio" name="cholesterol.fasting_sample" value="no"
+                    {% if cholesterol.fastingSample == "no" %}checked{% endif %}> No</label>
+    </div>
+  </div>
+</section>

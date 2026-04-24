@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Referral Reason - Genetic Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Referral Reason</h2>
+<h2>Referral Reason</h2>
     <p class="hint">Details of the referral for genetic assessment.</p>
 
     <div class="form-group">
@@ -49,8 +41,4 @@
         <option value="emergency" {% if referral_reason.urgency == "emergency" %}selected{% endif %}>Emergency</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

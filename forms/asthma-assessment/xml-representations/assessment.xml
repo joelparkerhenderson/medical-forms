@@ -1,9 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <allergies>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_atopic_history>yes</has_atopic_history>
+    <has_eczema>yes</has_eczema>
+    <has_allergic_rhinitis>yes</has_allergic_rhinitis>
+    <has_food_allergies>yes</has_food_allergies>
+    <food_allergy_details>Example text.</food_allergy_details>
+    <has_drug_allergies>yes</has_drug_allergies>
+    <drug_allergy_details>Example text.</drug_allergy_details>
+    <has_anaphylaxis_history>yes</has_anaphylaxis_history>
+    <anaphylaxis_details>Example text.</anaphylaxis_details>
+    <allergy_testing_done>yes</allergy_testing_done>
+    <allergy_testing_results>Normal</allergy_testing_results>
+    <total_ige_level>5.0</total_ige_level>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </allergies>
+  <comorbidities>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_gord>yes</has_gord>
+    <has_obesity>yes</has_obesity>
+    <has_obstructive_sleep_apnoea>yes</has_obstructive_sleep_apnoea>
+    <has_nasal_polyps>yes</has_nasal_polyps>
+    <has_anxiety>yes</has_anxiety>
+    <has_depression>yes</has_depression>
+    <has_vocal_cord_dysfunction>yes</has_vocal_cord_dysfunction>
+    <has_copd_overlap>yes</has_copd_overlap>
+    <has_bronchiectasis>yes</has_bronchiectasis>
+    <other_comorbidities/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </comorbidities>
+  <current_medications>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <uses_saba_reliever>yes</uses_saba_reliever>
+    <saba_name>Example</saba_name>
+    <saba_frequency>twice daily</saba_frequency>
+    <uses_ics_preventer>yes</uses_ics_preventer>
+    <ics_name>Example</ics_name>
+    <ics_dose>500mg</ics_dose>
+    <uses_laba>yes</uses_laba>
+    <laba_name>Example</laba_name>
+    <uses_ltra>yes</uses_ltra>
+    <ltra_name>Example</ltra_name>
+    <uses_biologic>yes</uses_biologic>
+    <biologic_name>Example</biologic_name>
+    <uses_oral_corticosteroid>yes</uses_oral_corticosteroid>
+    <oral_corticosteroid_details>Example text.</oral_corticosteroid_details>
+    <inhaler_technique_checked>yes</inhaler_technique_checked>
+    <adherence_self_rating>good</adherence_self_rating>
+    <other_medications>Paracetamol</other_medications>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <age>45</age>
+    <sex>male</sex>
+    <ethnicity>White British</ethnicity>
+    <occupation>Teacher</occupation>
+    <postcode>SW1A 1AA</postcode>
+    <age_at_diagnosis>45</age_at_diagnosis>
+    <referring_clinician>Dr Smith</referring_clinician>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <exacerbation_history>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <exacerbations_past_12_months>1</exacerbations_past_12_months>
+    <oral_steroid_courses_past_12_months>1</oral_steroid_courses_past_12_months>
+    <ed_visits_past_12_months>1</ed_visits_past_12_months>
+    <hospital_admissions_past_12_months>1</hospital_admissions_past_12_months>
+    <icu_admissions_ever>1</icu_admissions_ever>
+    <intubation_history>yes</intubation_history>
+    <worst_exacerbation_details>Example text.</worst_exacerbation_details>
+    <has_asthma_action_plan>yes</has_asthma_action_plan>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </exacerbation_history>
+  <lung_function>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <fev1_litres>0.0</fev1_litres>
+    <fev1_percent_predicted>50.0</fev1_percent_predicted>
+    <fvc_litres>0.0</fvc_litres>
+    <fev1_fvc_ratio>1.5</fev1_fvc_ratio>
+    <pef_litres_per_min>0.0</pef_litres_per_min>
+    <pef_percent_predicted>50.0</pef_percent_predicted>
+    <pef_variability_percent>50.0</pef_variability_percent>
+    <reversibility_test_done>yes</reversibility_test_done>
+    <reversibility_percent>50.0</reversibility_percent>
+    <spirometry_date>2026-01-15</spirometry_date>
+    <spirometry_notes>Example text.</spirometry_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </lung_function>
+  <social_history>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <smoking_status>never</smoking_status>
+    <pack_years>0.0</pack_years>
+    <vaping_status>never</vaping_status>
+    <passive_smoke_exposure>yes</passive_smoke_exposure>
+    <housing_type>standard</housing_type>
+    <housing_damp_or_mould>yes</housing_damp_or_mould>
+    <pets_in_home>yes</pets_in_home>
+    <pet_details>Example text.</pet_details>
+    <occupational_exposures>Teacher</occupational_exposures>
+    <exercise_frequency>twice daily</exercise_frequency>
+    <impact_on_daily_life/>
+    <days_missed_work_or_school>1</days_missed_work_or_school>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </social_history>
+  <symptom_frequency>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <act_q1_activity_limitation>1</act_q1_activity_limitation>
+    <act_q2_shortness_of_breath>1</act_q2_shortness_of_breath>
+    <act_q3_night_symptoms>1</act_q3_night_symptoms>
+    <act_q4_rescue_inhaler_use>1</act_q4_rescue_inhaler_use>
+    <act_q5_self_rated_control>1</act_q5_self_rated_control>
+    <daytime_symptom_frequency>none</daytime_symptom_frequency>
+    <nocturnal_symptom_frequency>none</nocturnal_symptom_frequency>
+    <exercise_induced_symptoms>yes</exercise_induced_symptoms>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </symptom_frequency>
+  <triggers>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <trigger_dust_mites>yes</trigger_dust_mites>
+    <trigger_pollen>yes</trigger_pollen>
+    <trigger_animal_dander>yes</trigger_animal_dander>
+    <trigger_mould>yes</trigger_mould>
+    <trigger_cold_air>yes</trigger_cold_air>
+    <trigger_exercise>yes</trigger_exercise>
+    <trigger_infections>yes</trigger_infections>
+    <trigger_tobacco_smoke>yes</trigger_tobacco_smoke>
+    <trigger_occupational>yes</trigger_occupational>
+    <occupational_trigger_details>Example text.</occupational_trigger_details>
+    <trigger_stress>yes</trigger_stress>
+    <trigger_nsaids>yes</trigger_nsaids>
+    <other_triggers/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </triggers>
 </assessment>

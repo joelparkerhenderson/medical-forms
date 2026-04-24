@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Sleep Habits - Sleep Quality Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Sleep Habits</h2>
+<h2>Sleep Habits</h2>
     <p class="hint">Tell us about your typical sleep patterns over the past month.</p>
 
     <div class="form-row">
@@ -72,8 +64,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

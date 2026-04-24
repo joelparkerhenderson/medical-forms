@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Family Pedigree - Genetic Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Family Pedigree</h2>
+<h2>Family Pedigree</h2>
     <p class="hint">Three-generation family history. Record conditions, cancers, ages at diagnosis, and vital status.</p>
 
     <h3>Maternal Grandmother</h3>
@@ -189,8 +181,4 @@
       <textarea id="children_details" name="family_pedigree.children_details" rows="3"
                 placeholder="e.g. Son age 12 - healthy; Daughter age 8 - developmental delay">{{ family_pedigree.childrenDetails }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

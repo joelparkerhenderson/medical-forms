@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Depression Screening (PHQ-9) - Mental Health Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Depression Screening (PHQ-9)</h2>
+<h2>Depression Screening (PHQ-9)</h2>
     <p class="hint">Over the last 2 weeks, how often have you been bothered by any of the following problems? (0 = Not at all, 1 = Several days, 2 = More than half the days, 3 = Nearly every day)</p>
 
     <div class="likert-group">
@@ -126,8 +118,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

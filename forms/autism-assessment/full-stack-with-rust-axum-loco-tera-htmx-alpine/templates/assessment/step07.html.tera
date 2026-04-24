@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Daily Living Skills - Autism Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Daily Living Skills</h2>
+<h2>Daily Living Skills</h2>
     <p class="hint">Rate the level of difficulty in each area (0 = No difficulty, 3 = Severe difficulty).</p>
 
     <div class="likert-group">
@@ -80,8 +72,4 @@
       <textarea id="executive_function_difficulties" name="daily_living_skills.executive_function_difficulties"
                 rows="4" placeholder="Planning, prioritising, task initiation, working memory...">{{ daily_living_skills.executiveFunctionDifficulties }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

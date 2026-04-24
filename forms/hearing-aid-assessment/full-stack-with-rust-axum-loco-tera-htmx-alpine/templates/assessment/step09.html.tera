@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Trial Period - Hearing Aid Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Trial Period</h2>
+<h2>Trial Period</h2>
     <p class="hint">Record observations from the hearing aid trial period.</p>
 
     <div class="form-group">
@@ -86,8 +78,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Developmental Milestones - Pediatric Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Developmental Milestones</h2>
+<h2>Developmental Milestones</h2>
     <p class="hint">Rate the child's developmental progress in each area. (1 = Significantly Delayed, 5 = Advanced)</p>
 
     <div class="form-row">
@@ -98,8 +90,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

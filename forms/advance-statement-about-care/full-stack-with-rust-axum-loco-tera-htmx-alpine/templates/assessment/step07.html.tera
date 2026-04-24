@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Nominated Persons - Advance Statement{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Nominated Persons</h2>
+<h2>Nominated Persons</h2>
     <p class="hint">People you would like to be involved in decisions about your care.</p>
 
     <h3>Primary Contact</h3>
@@ -70,8 +62,4 @@
       <textarea id="lpa_details" name="nominated_persons.lpa_details"
                 placeholder="Name of attorney, registration details...">{{ nominated_persons.lpaDetails }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

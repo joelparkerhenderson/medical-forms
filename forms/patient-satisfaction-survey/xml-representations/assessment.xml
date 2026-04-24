@@ -1,9 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <access_waiting_times>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ease_of_booking>1</ease_of_booking>
+    <waiting_time_for_appointment>1</waiting_time_for_appointment>
+    <waiting_time_on_day>1</waiting_time_on_day>
+    <reception_service>1</reception_service>
+    <signage_wayfinding>45</signage_wayfinding>
+    <parking_transport>1</parking_transport>
+    <actual_wait_minutes>1</actual_wait_minutes>
+    <access_notes>Example text.</access_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </access_waiting_times>
+  <clinical_care_quality>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <confidence_in_clinician>1</confidence_in_clinician>
+    <thoroughness_of_examination>1</thoroughness_of_examination>
+    <pain_management>45</pain_management>
+    <involvement_in_decisions>1</involvement_in_decisions>
+    <privacy_during_examination>1</privacy_during_examination>
+    <coordination_of_care>1</coordination_of_care>
+    <clinical_care_notes>Example text.</clinical_care_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </clinical_care_quality>
+  <comments_suggestions>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <what_went_well/>
+    <what_could_improve/>
+    <specific_staff_praise/>
+    <complaint_raised>yes</complaint_raised>
+    <complaint_details>Example text.</complaint_details>
+    <additional_comments>Example text.</additional_comments>
+    <consent_to_contact>yes</consent_to_contact>
+    <contact_email>07700900001</contact_email>
+    <contact_phone>07700900001</contact_phone>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </comments_suggestions>
+  <communication_information>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <explanation_of_condition>1</explanation_of_condition>
+    <explanation_of_treatment>1</explanation_of_treatment>
+    <opportunity_to_ask_questions>1</opportunity_to_ask_questions>
+    <listened_to>1</listened_to>
+    <informed_about_medication>1</informed_about_medication>
+    <written_information_quality>1</written_information_quality>
+    <communication_notes>Example text.</communication_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </communication_information>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <age_range>18-24</age_range>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <postcode_area>ABC123</postcode_area>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <discharge_follow_up>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <discharge_information>1</discharge_information>
+    <medication_explanation>1</medication_explanation>
+    <follow_up_arrangements>1</follow_up_arrangements>
+    <knew_who_to_contact>1</knew_who_to_contact>
+    <recovery_information>1</recovery_information>
+    <care_plan_clarity>1</care_plan_clarity>
+    <discharge_notes>Example text.</discharge_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </discharge_follow_up>
+  <environment_facilities>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <cleanliness>1</cleanliness>
+    <comfort>1</comfort>
+    <noise_levels>1</noise_levels>
+    <food_quality>1</food_quality>
+    <toilet_facilities>1</toilet_facilities>
+    <temperature_comfort>1</temperature_comfort>
+    <environment_notes>Example text.</environment_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </environment_facilities>
+  <overall_experience>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <overall_satisfaction>1</overall_satisfaction>
+    <would_recommend>1</would_recommend>
+    <met_expectations>1</met_expectations>
+    <felt_safe>1</felt_safe>
+    <would_return>1</would_return>
+    <nhs_rating>1</nhs_rating>
+    <overall_experience_notes>Example text.</overall_experience_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </overall_experience>
+  <staff_attitude>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <doctor_courtesy>1</doctor_courtesy>
+    <nurse_courtesy>1</nurse_courtesy>
+    <reception_courtesy>1</reception_courtesy>
+    <respect_for_dignity>1</respect_for_dignity>
+    <cultural_sensitivity>1</cultural_sensitivity>
+    <emotional_support>1</emotional_support>
+    <staff_attitude_notes>Example text.</staff_attitude_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </staff_attitude>
+  <visit_details>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <visit_date>2026-01-15</visit_date>
+    <visit_type>outpatient</visit_type>
+    <department/>
+    <hospital_site>Example location</hospital_site>
+    <length_of_stay_days>1</length_of_stay_days>
+    <referral_source>gp</referral_source>
+    <is_first_visit>yes</is_first_visit>
+    <visit_details_notes>Example text.</visit_details_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </visit_details>
 </assessment>

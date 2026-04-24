@@ -1,9 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <referrer_name>Example</referrer_name>
+    <referrer_role/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <developmental_history>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <birth_complications>yes</birth_complications>
+    <birth_complications_details>Example text.</birth_complications_details>
+    <speech_delay>yes</speech_delay>
+    <speech_delay_details>Example text.</speech_delay_details>
+    <motor_delay>yes</motor_delay>
+    <motor_delay_details>Example text.</motor_delay_details>
+    <family_history_dyslexia>yes</family_history_dyslexia>
+    <family_history_details>Example text.</family_history_details>
+    <family_history_other_learning_difficulties>yes</family_history_other_learning_difficulties>
+    <family_history_other_details>Example text.</family_history_other_details>
+    <hearing_concerns>yes</hearing_concerns>
+    <hearing_concerns_details>Example text.</hearing_concerns_details>
+    <vision_concerns>yes</vision_concerns>
+    <vision_concerns_details>Example text.</vision_concerns_details>
+    <developmental_notes>Example text.</developmental_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </developmental_history>
+  <educational_background>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <current_education_level>primary</current_education_level>
+    <school_name>Example</school_name>
+    <year_group/>
+    <previous_schools_count>2</previous_schools_count>
+    <school_attendance>regular</school_attendance>
+    <academic_performance>above-average</academic_performance>
+    <english_as_additional_language>yes</english_as_additional_language>
+    <additional_languages>English</additional_languages>
+    <sen_register>yes</sen_register>
+    <ehcp>yes</ehcp>
+    <ehcp_details>Example text.</ehcp_details>
+    <educational_notes>Example text.</educational_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </educational_background>
+  <emotional_behavioural>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <self_esteem>good</self_esteem>
+    <anxiety_about_learning>yes</anxiety_about_learning>
+    <anxiety_details>Example text.</anxiety_details>
+    <frustration_with_tasks>yes</frustration_with_tasks>
+    <frustration_details>Example text.</frustration_details>
+    <avoidance_behaviours>yes</avoidance_behaviours>
+    <avoidance_details>Example text.</avoidance_details>
+    <peer_relationships>good</peer_relationships>
+    <behavioural_concerns>yes</behavioural_concerns>
+    <behavioural_concerns_details>Example text.</behavioural_concerns_details>
+    <motivation_for_learning>high</motivation_for_learning>
+    <emotional_notes>Example text.</emotional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </emotional_behavioural>
+  <phonological_processing>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <phonological_awareness_score>5</phonological_awareness_score>
+    <phonological_memory_score>5</phonological_memory_score>
+    <rapid_naming_score>5</rapid_naming_score>
+    <rhyme_detection>intact</rhyme_detection>
+    <phoneme_segmentation>intact</phoneme_segmentation>
+    <phoneme_blending>intact</phoneme_blending>
+    <phoneme_manipulation>intact</phoneme_manipulation>
+    <rapid_naming_difficulty>yes</rapid_naming_difficulty>
+    <phonological_notes>Example text.</phonological_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </phonological_processing>
+  <previous_support>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_assessments>yes</previous_assessments>
+    <previous_assessments_details>Example text.</previous_assessments_details>
+    <previous_diagnosis>yes</previous_diagnosis>
+    <previous_diagnosis_details>Example text.</previous_diagnosis_details>
+    <school_interventions>yes</school_interventions>
+    <school_interventions_details>Example text.</school_interventions_details>
+    <speech_therapy>yes</speech_therapy>
+    <speech_therapy_details>Example text.</speech_therapy_details>
+    <occupational_therapy>yes</occupational_therapy>
+    <occupational_therapy_details>Example text.</occupational_therapy_details>
+    <assistive_technology>yes</assistive_technology>
+    <assistive_technology_details>Example text.</assistive_technology_details>
+    <exam_access_arrangements>yes</exam_access_arrangements>
+    <exam_access_details>Example text.</exam_access_details>
+    <support_notes>Example text.</support_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </previous_support>
+  <reading>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <reading_fluency_score>5</reading_fluency_score>
+    <reading_comprehension_score>5</reading_comprehension_score>
+    <single_word_reading_score>5</single_word_reading_score>
+    <nonword_reading_score>5</nonword_reading_score>
+    <reading_speed>above-average</reading_speed>
+    <reading_accuracy>above-average</reading_accuracy>
+    <reading_avoidance>yes</reading_avoidance>
+    <reading_fatigue>yes</reading_fatigue>
+    <reading_notes>Example text.</reading_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </reading>
+  <recommendations>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <specialist_teaching>yes</specialist_teaching>
+    <specialist_teaching_details>Example text.</specialist_teaching_details>
+    <classroom_accommodations>yes</classroom_accommodations>
+    <classroom_accommodations_details>Example text.</classroom_accommodations_details>
+    <assistive_technology_recommended>yes</assistive_technology_recommended>
+    <assistive_technology_recommended_details>Example text.</assistive_technology_recommended_details>
+    <exam_access_recommended>yes</exam_access_recommended>
+    <exam_access_recommended_details>Example text.</exam_access_recommended_details>
+    <further_referrals>yes</further_referrals>
+    <further_referrals_details>Example text.</further_referrals_details>
+    <review_date>2026-01-15</review_date>
+    <recommendations_notes>Example text.</recommendations_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </recommendations>
+  <working_memory_processing_speed>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <working_memory_score>5</working_memory_score>
+    <processing_speed_score>5</processing_speed_score>
+    <digit_span_forward>1</digit_span_forward>
+    <digit_span_backward>1</digit_span_backward>
+    <following_instructions>age-appropriate</following_instructions>
+    <task_completion_speed>above-average</task_completion_speed>
+    <organisational_skills>good</organisational_skills>
+    <concentration_difficulties>yes</concentration_difficulties>
+    <concentration_details>Example text.</concentration_details>
+    <working_memory_notes>Example text.</working_memory_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </working_memory_processing_speed>
+  <writing_spelling>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <spelling_score>5</spelling_score>
+    <written_expression_score>5</written_expression_score>
+    <handwriting_quality>legible</handwriting_quality>
+    <handwriting_speed>above-average</handwriting_speed>
+    <spelling_error_pattern>phonetic</spelling_error_pattern>
+    <sentence_structure>age-appropriate</sentence_structure>
+    <punctuation_use>age-appropriate</punctuation_use>
+    <writing_avoidance>yes</writing_avoidance>
+    <writing_notes>Example text.</writing_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </writing_spelling>
 </assessment>

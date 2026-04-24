@@ -1,16 +1,8 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 7: Other Wishes</h2>
     <p class="form-hint">These wishes are non-binding but help clinicians understand your preferences for care.</p>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-group">
+<div class="form-group">
             <label for="preferred_care_setting">Preferred Care Setting</label>
             <textarea id="preferred_care_setting" name="other_wishes.preferred_care_setting"
                       placeholder="Where would you prefer to receive care? (e.g. home, hospice)">{{ other_wishes.preferredCareSetting }}</textarea>
@@ -33,8 +25,4 @@
             <textarea id="other_preferences" name="other_wishes.other_preferences"
                       placeholder="Any other preferences or wishes">{{ other_wishes.otherPreferences }}</textarea>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

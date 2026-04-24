@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Clinical Verification - Consent to Treatment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Clinical Verification</h2>
+<h2>Clinical Verification</h2>
     <p class="hint">Clinician confirmation and verification of consent.</p>
 
     <div class="form-row">
@@ -79,8 +71,4 @@
       <textarea id="verification_notes" name="clinical_verification.verification_notes"
                 placeholder="Any additional notes regarding the consent process">{{ clinical_verification.verificationNotes }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

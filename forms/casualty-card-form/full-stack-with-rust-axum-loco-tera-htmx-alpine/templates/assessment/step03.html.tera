@@ -1,15 +1,7 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 3: Arrival & Triage</h2>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-row">
+<div class="form-row">
             <div class="form-group">
                 <label for="attendance_date">Attendance Date</label>
                 <input type="date" id="attendance_date" name="arrival_triage.attendance_date"
@@ -116,8 +108,4 @@
                        value="{{ arrival_triage.mtsDiscriminator }}">
             </div>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

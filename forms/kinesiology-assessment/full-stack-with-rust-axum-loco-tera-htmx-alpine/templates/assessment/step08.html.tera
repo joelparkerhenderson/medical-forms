@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Pain Assessment - Kinesiology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Pain Assessment</h2>
+<h2>Pain Assessment</h2>
     <p class="hint">Describe the patient's pain profile.</p>
 
     <div class="form-row">
@@ -93,8 +85,4 @@
                   placeholder="What makes it better?">{{ pain_assessment.relievingFactors }}</textarea>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,7 +1,7 @@
 #!/bin/sh
 set -euf
 
-cargo loco generate scaffold clinican \
+cargo loco generate scaffold clinician \
     name:string! \
     role:string! \
     registration_body:string! \

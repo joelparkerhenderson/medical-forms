@@ -1,9 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <attention_calculation>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <test_used>serial-7s</test_used>
+    <serial_7s_attempt_1>correct</serial_7s_attempt_1>
+    <serial_7s_attempt_2>correct</serial_7s_attempt_2>
+    <serial_7s_attempt_3>correct</serial_7s_attempt_3>
+    <serial_7s_attempt_4>correct</serial_7s_attempt_4>
+    <serial_7s_attempt_5>correct</serial_7s_attempt_5>
+    <world_letter_1>correct</world_letter_1>
+    <world_letter_2>correct</world_letter_2>
+    <world_letter_3>correct</world_letter_3>
+    <world_letter_4>correct</world_letter_4>
+    <world_letter_5>correct</world_letter_5>
+    <attention_score>5</attention_score>
+    <attention_notes>Example text.</attention_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </attention_calculation>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <education_level>none</education_level>
+    <years_of_education>2026</years_of_education>
+    <handedness>right</handedness>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <functional_history>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <managing_finances>independent</managing_finances>
+    <managing_medications>independent</managing_medications>
+    <using_telephone>independent</using_telephone>
+    <meal_preparation>independent</meal_preparation>
+    <shopping>independent</shopping>
+    <housekeeping>independent</housekeeping>
+    <transportation>independent</transportation>
+    <personal_care>independent</personal_care>
+    <driving_status>driving</driving_status>
+    <safety_concerns>yes</safety_concerns>
+    <safety_concern_details>Example text.</safety_concern_details>
+    <wandering_risk>yes</wandering_risk>
+    <carer_name>Example</carer_name>
+    <carer_relationship>Spouse</carer_relationship>
+    <carer_strain>none</carer_strain>
+    <functional_history_notes>Example text.</functional_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </functional_history>
+  <language>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <naming_object_1/>
+    <naming_object_1_correct>correct</naming_object_1_correct>
+    <naming_object_2/>
+    <naming_object_2_correct>correct</naming_object_2_correct>
+    <naming_score>5</naming_score>
+    <repetition_correct>correct</repetition_correct>
+    <repetition_score>5</repetition_score>
+    <language_notes>Example text.</language_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </language>
+  <orientation>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <orientation_year>correct</orientation_year>
+    <orientation_season>correct</orientation_season>
+    <orientation_month>correct</orientation_month>
+    <orientation_date>correct</orientation_date>
+    <orientation_day>correct</orientation_day>
+    <orientation_time_score>5</orientation_time_score>
+    <orientation_country>correct</orientation_country>
+    <orientation_county>correct</orientation_county>
+    <orientation_city>correct</orientation_city>
+    <orientation_building>correct</orientation_building>
+    <orientation_floor>correct</orientation_floor>
+    <orientation_place_score>5</orientation_place_score>
+    <orientation_notes>Example text.</orientation_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </orientation>
+  <recall>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <word_1_recalled>correct</word_1_recalled>
+    <word_2_recalled>correct</word_2_recalled>
+    <word_3_recalled>correct</word_3_recalled>
+    <recall_score>5</recall_score>
+    <cueing_required>yes</cueing_required>
+    <cueing_details>Example text.</cueing_details>
+    <recall_notes>Example text.</recall_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </recall>
+  <referral_information>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <referrer_name>Example</referrer_name>
+    <referrer_role/>
+    <referral_date>2026-01-15</referral_date>
+    <reason_for_referral>Example text.</reason_for_referral>
+    <presenting_complaint/>
+    <symptom_duration_months>1</symptom_duration_months>
+    <symptom_onset>gradual</symptom_onset>
+    <informant_name>Example</informant_name>
+    <informant_relationship>Spouse</informant_relationship>
+    <informant_available>yes</informant_available>
+    <referral_notes>Example text.</referral_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </referral_information>
+  <registration>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <word_1/>
+    <word_1_recalled>correct</word_1_recalled>
+    <word_2/>
+    <word_2_recalled>correct</word_2_recalled>
+    <word_3/>
+    <word_3_recalled>correct</word_3_recalled>
+    <registration_score>5</registration_score>
+    <number_of_trials>2</number_of_trials>
+    <registration_notes>Example text.</registration_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </registration>
+  <repetition_commands>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <command_take_paper>correct</command_take_paper>
+    <command_fold_paper>correct</command_fold_paper>
+    <command_put_on_floor>correct</command_put_on_floor>
+    <three_stage_command_score>5</three_stage_command_score>
+    <reading_instruction_followed>correct</reading_instruction_followed>
+    <reading_score>5</reading_score>
+    <writing_sentence_produced>correct</writing_sentence_produced>
+    <writing_score>5</writing_score>
+    <commands_notes>Example text.</commands_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </repetition_commands>
+  <visuospatial>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <pentagon_copy_correct>correct</pentagon_copy_correct>
+    <visuospatial_score>5</visuospatial_score>
+    <pentagon_quality>good</pentagon_quality>
+    <tremor_observed>yes</tremor_observed>
+    <visuospatial_notes>Example text.</visuospatial_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </visuospatial>
 </assessment>

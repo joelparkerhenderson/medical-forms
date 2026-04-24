@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Stone Disease - Urology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Stone Disease</h2>
+<h2>Stone Disease</h2>
     <p class="hint">Record urinary stone history and current presentation.</p>
 
     <div class="form-row">
@@ -70,8 +62,4 @@
         </div>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

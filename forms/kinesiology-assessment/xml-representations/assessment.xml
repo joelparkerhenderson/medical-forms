@@ -1,9 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <active_straight_leg_raise>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <left_raw_score>5</left_raw_score>
+    <right_raw_score>5</right_raw_score>
+    <pain_noted_left>yes</pain_noted_left>
+    <pain_noted_right>yes</pain_noted_right>
+    <final_score>5</final_score>
+    <malleolus_position_left/>
+    <malleolus_position_right/>
+    <opposite_leg_remains_flat>yes</opposite_leg_remains_flat>
+    <clinician_notes>Example text.</clinician_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </active_straight_leg_raise>
+  <deep_squat>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <raw_score>5</raw_score>
+    <pain_noted>yes</pain_noted>
+    <clearing_test_pain>yes</clearing_test_pain>
+    <final_score>5</final_score>
+    <upper_torso_alignment/>
+    <femur_below_horizontal>yes</femur_below_horizontal>
+    <knees_over_feet>yes</knees_over_feet>
+    <heels_on_floor>yes</heels_on_floor>
+    <dowel_overhead>yes</dowel_overhead>
+    <clinician_notes>Example text.</clinician_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </deep_squat>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <occupation>Teacher</occupation>
+    <sport_or_activity/>
+    <activity_level>sedentary</activity_level>
+    <dominant_side>left</dominant_side>
+    <contact_phone>07700900001</contact_phone>
+    <contact_email>07700900001</contact_email>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <hurdle_step>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <left_raw_score>5</left_raw_score>
+    <right_raw_score>5</right_raw_score>
+    <pain_noted_left>yes</pain_noted_left>
+    <pain_noted_right>yes</pain_noted_right>
+    <final_score>5</final_score>
+    <hip_knee_ankle_alignment_left/>
+    <hip_knee_ankle_alignment_right/>
+    <stance_leg_stable>yes</stance_leg_stable>
+    <dowel_position_maintained>yes</dowel_position_maintained>
+    <clinician_notes>Example text.</clinician_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </hurdle_step>
+  <in_line_lunge>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <left_raw_score>5</left_raw_score>
+    <right_raw_score>5</right_raw_score>
+    <pain_noted_left>yes</pain_noted_left>
+    <pain_noted_right>yes</pain_noted_right>
+    <final_score>5</final_score>
+    <dowel_contact_maintained>yes</dowel_contact_maintained>
+    <torso_remains_upright>yes</torso_remains_upright>
+    <knee_touches_board>yes</knee_touches_board>
+    <foot_alignment_maintained>yes</foot_alignment_maintained>
+    <clinician_notes>Example text.</clinician_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </in_line_lunge>
+  <movement_history>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <current_pain>yes</current_pain>
+    <pain_location>Example location</pain_location>
+    <pain_severity>1</pain_severity>
+    <pain_duration/>
+    <previous_injuries/>
+    <previous_surgeries/>
+    <chronic_conditions/>
+    <movement_limitations/>
+    <exercise_frequency>twice daily</exercise_frequency>
+    <exercise_type>standard</exercise_type>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </movement_history>
+  <referral_information>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <referring_clinician>Dr Smith</referring_clinician>
+    <referring_organisation/>
+    <referral_date>2026-01-15</referral_date>
+    <referral_reason>Example text.</referral_reason>
+    <previous_fms_assessment>yes</previous_fms_assessment>
+    <previous_fms_date>2026-01-15</previous_fms_date>
+    <previous_fms_score>5</previous_fms_score>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </referral_information>
+  <rotary_stability>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <left_raw_score>5</left_raw_score>
+    <right_raw_score>5</right_raw_score>
+    <pain_noted_left>yes</pain_noted_left>
+    <pain_noted_right>yes</pain_noted_right>
+    <clearing_test_pain>yes</clearing_test_pain>
+    <final_score>5</final_score>
+    <unilateral_pattern_achieved>yes</unilateral_pattern_achieved>
+    <diagonal_pattern_achieved>yes</diagonal_pattern_achieved>
+    <trunk_rotation_noted>yes</trunk_rotation_noted>
+    <clinician_notes>Example text.</clinician_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </rotary_stability>
+  <shoulder_mobility>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <left_raw_score>5</left_raw_score>
+    <right_raw_score>5</right_raw_score>
+    <pain_noted_left>yes</pain_noted_left>
+    <pain_noted_right>yes</pain_noted_right>
+    <clearing_test_pain_left>yes</clearing_test_pain_left>
+    <clearing_test_pain_right>yes</clearing_test_pain_right>
+    <final_score>5</final_score>
+    <hand_distance_cm>0.0</hand_distance_cm>
+    <hand_span_length_cm>0.0</hand_span_length_cm>
+    <clinician_notes>Example text.</clinician_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </shoulder_mobility>
+  <trunk_stability_push_up>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <raw_score>5</raw_score>
+    <pain_noted>yes</pain_noted>
+    <clearing_test_pain>yes</clearing_test_pain>
+    <final_score>5</final_score>
+    <hand_position/>
+    <body_lifts_as_unit>yes</body_lifts_as_unit>
+    <spine_sag_noted>yes</spine_sag_noted>
+    <clinician_notes>Example text.</clinician_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </trunk_stability_push_up>
 </assessment>

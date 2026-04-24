@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Monitoring Plan - Semaglutide Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Monitoring Plan</h2>
+<h2>Monitoring Plan</h2>
     <p class="hint">Define the monitoring and follow-up plan for semaglutide therapy.</p>
 
     <div class="form-row">
@@ -81,8 +73,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

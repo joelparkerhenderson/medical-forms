@@ -1,9 +1,212 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <allergies>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_drug_allergies>yes</has_drug_allergies>
+    <drug_allergy_details>Example text.</drug_allergy_details>
+    <contrast_dye_allergy>yes</contrast_dye_allergy>
+    <contrast_dye_allergy_details>Example text.</contrast_dye_allergy_details>
+    <latex_allergy>yes</latex_allergy>
+    <other_allergies/>
+    <previous_adverse_reactions>Urticaria</previous_adverse_reactions>
+    <allergy_notes>Example text.</allergy_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </allergies>
+  <arrhythmia_conduction>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_palpitations>yes</has_palpitations>
+    <palpitation_character>regular</palpitation_character>
+    <palpitation_frequency>daily</palpitation_frequency>
+    <known_atrial_fibrillation>yes</known_atrial_fibrillation>
+    <af_type>paroxysmal</af_type>
+    <history_of_syncope>yes</history_of_syncope>
+    <syncope_details>Example text.</syncope_details>
+    <history_of_presyncope>yes</history_of_presyncope>
+    <known_conduction_disorder>yes</known_conduction_disorder>
+    <conduction_disorder_type>lbbb</conduction_disorder_type>
+    <has_pacemaker>yes</has_pacemaker>
+    <has_icd>yes</has_icd>
+    <device_details>Example text.</device_details>
+    <arrhythmia_notes>Example text.</arrhythmia_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </arrhythmia_conduction>
+  <cardiac_history>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_mi>yes</previous_mi>
+    <mi_date>2026-01-15</mi_date>
+    <mi_details>Example text.</mi_details>
+    <previous_pci>yes</previous_pci>
+    <pci_date>2026-01-15</pci_date>
+    <pci_details>Example text.</pci_details>
+    <previous_cabg>yes</previous_cabg>
+    <cabg_date>2026-01-15</cabg_date>
+    <cabg_details>Example text.</cabg_details>
+    <previous_valve_surgery>yes</previous_valve_surgery>
+    <valve_surgery_details>Example text.</valve_surgery_details>
+    <known_heart_failure>yes</known_heart_failure>
+    <heart_failure_type>hfref</heart_failure_type>
+    <ejection_fraction_percent>50.0</ejection_fraction_percent>
+    <known_cardiomyopathy>yes</known_cardiomyopathy>
+    <cardiomyopathy_type>dilated</cardiomyopathy_type>
+    <cardiac_history_notes>Example text.</cardiac_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cardiac_history>
+  <chest_pain_angina>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_chest_pain>yes</has_chest_pain>
+    <chest_pain_character>crushing</chest_pain_character>
+    <chest_pain_character_other/>
+    <chest_pain_location>central</chest_pain_location>
+    <chest_pain_radiation>left-arm</chest_pain_radiation>
+    <chest_pain_duration_minutes>1</chest_pain_duration_minutes>
+    <chest_pain_trigger>exertion</chest_pain_trigger>
+    <relieved_by_rest>yes</relieved_by_rest>
+    <relieved_by_gtn>yes</relieved_by_gtn>
+    <ccs_angina_class>I</ccs_angina_class>
+    <angina_frequency>daily</angina_frequency>
+    <chest_pain_notes>Example text.</chest_pain_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </chest_pain_angina>
+  <current_medications>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <on_antiplatelet>yes</on_antiplatelet>
+    <antiplatelet_details>Example text.</antiplatelet_details>
+    <on_anticoagulant>yes</on_anticoagulant>
+    <anticoagulant_type>warfarin</anticoagulant_type>
+    <anticoagulant_details>Example text.</anticoagulant_details>
+    <on_beta_blocker>yes</on_beta_blocker>
+    <beta_blocker_details>Example text.</beta_blocker_details>
+    <on_ace_inhibitor_arb>yes</on_ace_inhibitor_arb>
+    <ace_arb_details>Example text.</ace_arb_details>
+    <on_statin>yes</on_statin>
+    <statin_details>Example text.</statin_details>
+    <on_diuretic>yes</on_diuretic>
+    <diuretic_details>Example text.</diuretic_details>
+    <on_calcium_channel_blocker>yes</on_calcium_channel_blocker>
+    <ccb_details>Example text.</ccb_details>
+    <on_nitrate>yes</on_nitrate>
+    <nitrate_details>Example text.</nitrate_details>
+    <other_cardiac_medications>Paracetamol</other_cardiac_medications>
+    <medication_adherence>good</medication_adherence>
+    <medication_notes>Example text.</medication_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <referrer_name>Example</referrer_name>
+    <referrer_role/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <diagnostic_results>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ecg_performed>yes</ecg_performed>
+    <ecg_date>2026-01-15</ecg_date>
+    <ecg_findings>Example text.</ecg_findings>
+    <ecg_rhythm>sinus</ecg_rhythm>
+    <echocardiogram_performed>yes</echocardiogram_performed>
+    <echocardiogram_date>2026-01-15</echocardiogram_date>
+    <echocardiogram_findings>Example text.</echocardiogram_findings>
+    <lvef_percent>50.0</lvef_percent>
+    <exercise_test_performed>yes</exercise_test_performed>
+    <exercise_test_date>2026-01-15</exercise_test_date>
+    <exercise_test_result>positive</exercise_test_result>
+    <exercise_test_details>Example text.</exercise_test_details>
+    <coronary_angiogram_performed>yes</coronary_angiogram_performed>
+    <coronary_angiogram_date>2026-01-15</coronary_angiogram_date>
+    <coronary_angiogram_findings>Example text.</coronary_angiogram_findings>
+    <ct_coronary_angiogram_performed>yes</ct_coronary_angiogram_performed>
+    <ct_coronary_angiogram_findings>Example text.</ct_coronary_angiogram_findings>
+    <bnp_pg_ml>0.0</bnp_pg_ml>
+    <troponin_ng_l>0.0</troponin_ng_l>
+    <diagnostic_notes>Example text.</diagnostic_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </diagnostic_results>
+  <heart_failure_symptoms>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_dyspnoea>yes</has_dyspnoea>
+    <dyspnoea_on_exertion>yes</dyspnoea_on_exertion>
+    <orthopnoea>yes</orthopnoea>
+    <pillows_required>1</pillows_required>
+    <paroxysmal_nocturnal_dyspnoea>yes</paroxysmal_nocturnal_dyspnoea>
+    <peripheral_oedema>yes</peripheral_oedema>
+    <oedema_location>ankles</oedema_location>
+    <fatigue_level>none</fatigue_level>
+    <weight_gain_recent>yes</weight_gain_recent>
+    <weight_gain_kg>70.0</weight_gain_kg>
+    <nyha_class>I</nyha_class>
+    <heart_failure_notes>Example text.</heart_failure_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </heart_failure_symptoms>
+  <risk_factors>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hypertension>yes</hypertension>
+    <systolic_bp_mmhg>1</systolic_bp_mmhg>
+    <diastolic_bp_mmhg>1</diastolic_bp_mmhg>
+    <diabetes>type-1</diabetes>
+    <hba1c_mmol_mol>0.0</hba1c_mmol_mol>
+    <hyperlipidaemia>yes</hyperlipidaemia>
+    <total_cholesterol_mmol>0.0</total_cholesterol_mmol>
+    <ldl_cholesterol_mmol>0.0</ldl_cholesterol_mmol>
+    <hdl_cholesterol_mmol>0.0</hdl_cholesterol_mmol>
+    <smoking_status>current</smoking_status>
+    <pack_years>0.0</pack_years>
+    <family_history_cvd>yes</family_history_cvd>
+    <family_cvd_details>Example text.</family_cvd_details>
+    <obesity>yes</obesity>
+    <chronic_kidney_disease>yes</chronic_kidney_disease>
+    <ckd_stage>1</ckd_stage>
+    <risk_factors_notes>Example text.</risk_factors_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </risk_factors>
+  <social_functional>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <exercise_capacity>unlimited</exercise_capacity>
+    <flights_of_stairs>1</flights_of_stairs>
+    <walking_distance_metres>1</walking_distance_metres>
+    <driving_status>driving</driving_status>
+    <employment_status>employed</employment_status>
+    <occupation>Teacher</occupation>
+    <physical_demands_of_work>sedentary</physical_demands_of_work>
+    <alcohol_consumption>none</alcohol_consumption>
+    <alcohol_units_per_week>1</alcohol_units_per_week>
+    <recreational_drug_use>yes</recreational_drug_use>
+    <recreational_drug_details>Example text.</recreational_drug_details>
+    <psychological_impact>none</psychological_impact>
+    <anxiety_depression_screen>yes</anxiety_depression_screen>
+    <social_functional_notes>Example text.</social_functional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </social_functional>
 </assessment>

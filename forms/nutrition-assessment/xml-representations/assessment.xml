@@ -1,9 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <anthropometric_measurements>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <current_weight_kg>70.0</current_weight_kg>
+    <usual_weight_kg>70.0</usual_weight_kg>
+    <height_cm>170.0</height_cm>
+    <bmi>24.2</bmi>
+    <mid_upper_arm_circumference_cm>0.0</mid_upper_arm_circumference_cm>
+    <waist_circumference_cm>0.0</waist_circumference_cm>
+    <unplanned_weight_loss>yes</unplanned_weight_loss>
+    <weight_loss_percent>70.0</weight_loss_percent>
+    <weight_loss_timeframe>1-month</weight_loss_timeframe>
+    <unable_to_weigh>yes</unable_to_weigh>
+    <unable_to_weigh_reason>Example text.</unable_to_weigh_reason>
+    <anthropometric_notes>Example text.</anthropometric_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </anthropometric_measurements>
+  <care_plan_monitoring>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <nutritional_goals/>
+    <weight_monitoring_frequency>daily</weight_monitoring_frequency>
+    <food_chart_required>yes</food_chart_required>
+    <fluid_balance_chart_required>yes</fluid_balance_chart_required>
+    <dietitian_referral>yes</dietitian_referral>
+    <salt_referral>yes</salt_referral>
+    <reassessment_date>2026-01-15</reassessment_date>
+    <reassessment_frequency>weekly</reassessment_frequency>
+    <escalation_plan>Example text.</escalation_plan>
+    <discharge_nutrition_plan>Example text.</discharge_nutrition_plan>
+    <patient_education_provided>yes</patient_education_provided>
+    <patient_education_details>Example text.</patient_education_details>
+    <care_plan_notes>Example text.</care_plan_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </care_plan_monitoring>
+  <current_nutritional_support>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <oral_diet>yes</oral_diet>
+    <oral_nutritional_supplements>yes</oral_nutritional_supplements>
+    <ons_type>standard</ons_type>
+    <ons_frequency>once-daily</ons_frequency>
+    <enteral_feeding>yes</enteral_feeding>
+    <enteral_route>nasogastric</enteral_route>
+    <enteral_feed_type>standard</enteral_feed_type>
+    <enteral_rate_ml_per_hour>1</enteral_rate_ml_per_hour>
+    <enteral_hours_per_day>1</enteral_hours_per_day>
+    <parenteral_nutrition>yes</parenteral_nutrition>
+    <parenteral_type>peripheral</parenteral_type>
+    <parenteral_details>Example text.</parenteral_details>
+    <food_fortification>yes</food_fortification>
+    <nutritional_support_notes>Example text.</nutritional_support_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_nutritional_support>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <referrer_name>Example</referrer_name>
+    <referrer_role/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <dietary_history>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <meals_per_day>1</meals_per_day>
+    <snacks_per_day>1</snacks_per_day>
+    <appetite>good</appetite>
+    <appetite_change>increased</appetite_change>
+    <fluid_intake_ml_per_day>1</fluid_intake_ml_per_day>
+    <diet_type>normal</diet_type>
+    <diet_type_other>standard</diet_type_other>
+    <texture_modification>normal</texture_modification>
+    <fluid_consistency>thin</fluid_consistency>
+    <meal_preparation>self</meal_preparation>
+    <dietary_restrictions/>
+    <dietary_history_notes>Example text.</dietary_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </dietary_history>
+  <food_allergies_intolerances>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_food_allergies>yes</has_food_allergies>
+    <has_food_intolerances>yes</has_food_intolerances>
+    <coeliac_disease>yes</coeliac_disease>
+    <lactose_intolerance>yes</lactose_intolerance>
+    <has_drug_allergies>yes</has_drug_allergies>
+    <anaphylaxis_history>yes</anaphylaxis_history>
+    <anaphylaxis_details>Example text.</anaphylaxis_details>
+    <epipen_available>yes</epipen_available>
+    <allergy_details>Example text.</allergy_details>
+    <intolerance_details>Example text.</intolerance_details>
+    <drug_allergy_details>Example text.</drug_allergy_details>
+    <food_allergy_notes>Example text.</food_allergy_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </food_allergies_intolerances>
+  <gastrointestinal_function>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <nausea>yes</nausea>
+    <vomiting>yes</vomiting>
+    <vomiting_frequency>occasional</vomiting_frequency>
+    <diarrhoea>yes</diarrhoea>
+    <diarrhoea_frequency>occasional</diarrhoea_frequency>
+    <constipation>yes</constipation>
+    <abdominal_pain>yes</abdominal_pain>
+    <abdominal_bloating>yes</abdominal_bloating>
+    <stoma>yes</stoma>
+    <stoma_type>colostomy</stoma_type>
+    <bowel_surgery>yes</bowel_surgery>
+    <bowel_surgery_details>Example text.</bowel_surgery_details>
+    <gi_function_notes>Example text.</gi_function_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </gastrointestinal_function>
+  <nutritional_requirements>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <estimated_energy_kcal_per_day>1</estimated_energy_kcal_per_day>
+    <estimated_protein_g_per_day>1</estimated_protein_g_per_day>
+    <estimated_fluid_ml_per_day>1</estimated_fluid_ml_per_day>
+    <fluid_restriction>yes</fluid_restriction>
+    <fluid_restriction_ml>1</fluid_restriction_ml>
+    <electrolyte_monitoring>yes</electrolyte_monitoring>
+    <refeeding_risk>yes</refeeding_risk>
+    <refeeding_risk_factors/>
+    <micronutrient_supplementation>yes</micronutrient_supplementation>
+    <micronutrient_details>Example text.</micronutrient_details>
+    <special_requirements/>
+    <nutritional_requirements_notes>Example text.</nutritional_requirements_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </nutritional_requirements>
+  <nutritional_screening>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <must_step1_bmi_score>5</must_step1_bmi_score>
+    <must_step2_weight_loss_score>5</must_step2_weight_loss_score>
+    <must_step3_acute_disease_score>5</must_step3_acute_disease_score>
+    <must_total_score>5</must_total_score>
+    <must_risk_category>low</must_risk_category>
+    <acutely_ill>yes</acutely_ill>
+    <no_nutritional_intake_days>1</no_nutritional_intake_days>
+    <screening_date>2026-01-15</screening_date>
+    <screened_by/>
+    <nutritional_screening_notes>Example text.</nutritional_screening_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </nutritional_screening>
+  <swallowing_oral_health>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <swallowing_difficulty>yes</swallowing_difficulty>
+    <dysphagia_severity>mild</dysphagia_severity>
+    <dysphagia_type>oropharyngeal</dysphagia_type>
+    <choking_episodes>yes</choking_episodes>
+    <coughing_during_meals>yes</coughing_during_meals>
+    <salt_referral>yes</salt_referral>
+    <dental_problems>yes</dental_problems>
+    <dental_problem_details>Example text.</dental_problem_details>
+    <dentures>yes</dentures>
+    <dentures_fit_well>yes</dentures_fit_well>
+    <oral_pain>yes</oral_pain>
+    <dry_mouth>yes</dry_mouth>
+    <oral_thrush>yes</oral_thrush>
+    <swallowing_oral_notes>Example text.</swallowing_oral_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </swallowing_oral_health>
 </assessment>

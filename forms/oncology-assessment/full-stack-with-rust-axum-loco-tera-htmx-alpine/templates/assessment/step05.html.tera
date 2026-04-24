@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Current Treatment - Oncology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Current Treatment</h2>
+<h2>Current Treatment</h2>
     <p class="hint">Document the current treatment plan and modifications.</p>
 
     <div class="form-row">
@@ -84,8 +76,4 @@
                value="{{ current_treatment.nextTreatmentDate }}">
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

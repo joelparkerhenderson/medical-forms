@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Affected Areas - Dermatology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Affected Areas</h2>
+<h2>Affected Areas</h2>
     <p class="hint">Rate the severity of involvement for each body area (0 = None, 1 = Mild, 2 = Moderate, 3 = Severe, 4 = Very Severe).</p>
 
     <div class="likert-group">
@@ -113,8 +105,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

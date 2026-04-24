@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}HRT Options & Counselling - HRT Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>HRT Options &amp; Counselling</h2>
+<h2>HRT Options &amp; Counselling</h2>
     <p class="hint">Document counselling provided and patient preferences.</p>
 
     <div class="form-row">
@@ -73,8 +65,4 @@
         <label><input type="radio" name="hrt_options_counselling.patient_preference_noted" value="no" {% if hrt_options_counselling.patientPreferenceNoted == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

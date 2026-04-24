@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Cognitive Screening - Gerontology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Cognitive Screening</h2>
+<h2>Cognitive Screening</h2>
     <p class="hint">Assess cognitive function using MMSE and 4AT delirium screening.</p>
 
     <h3>MMSE (Mini-Mental State Examination)</h3>
@@ -121,8 +113,4 @@
                {% if cognitive_screening.knownDementiaDiagnosis == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

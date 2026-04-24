@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Sensitive Information - Medical Records Release{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Sensitive Information</h2>
+<h2>Sensitive Information</h2>
     <p class="hint">Certain categories of health information require specific authorization. Indicate which categories, if any, should be included in the release.</p>
 
     <div class="form-group">
@@ -65,8 +57,4 @@
         <label><input type="radio" name="sensitive_information.sensitive_info_acknowledgement" value="no" {% if sensitive_information.sensitiveInfoAcknowledgement == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

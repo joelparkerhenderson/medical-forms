@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Musculoskeletal Symptoms - Ergonomic Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Musculoskeletal Symptoms</h2>
+<h2>Musculoskeletal Symptoms</h2>
     <p class="hint">Rate pain/discomfort at each body site (1 = None, 5 = Severe).</p>
 
     <div class="likert-group">
@@ -142,8 +134,4 @@
       <textarea id="pain_body_map_notes" name="musculoskeletal_symptoms.pain_body_map_notes"
                 placeholder="Describe pain locations, radiation patterns, aggravating factors">{{ musculoskeletal_symptoms.painBodyMapNotes }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

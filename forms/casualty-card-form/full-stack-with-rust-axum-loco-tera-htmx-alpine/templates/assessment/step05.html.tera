@@ -1,17 +1,9 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
-<div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
-
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+<div class="card" x-data="{
         painPresent: '{{ pain_assessment.painPresent }}'
     }">
-        <div class="form-group">
+    <h2>Step 5: Pain Assessment</h2>
+
+<div class="form-group">
             <label>Pain Present</label>
             <div class="radio-group">
                 <label><input type="radio" name="pain_assessment.pain_present" value="yes" x-model="painPresent" {% if pain_assessment.painPresent == "yes" %}checked{% endif %}> Yes</label>
@@ -56,8 +48,4 @@
                        value="{{ pain_assessment.painOnset }}" placeholder="e.g. Sudden, Gradual">
             </div>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

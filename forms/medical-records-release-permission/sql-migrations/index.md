@@ -1,0 +1,29 @@
+# medical-records-release-permission — sql-migrations
+
+PostgreSQL migrations for this form. See
+`AGENTS/sql-migrations.md` for conventions.
+
+## Canonical files
+
+- `00_extensions.sql` — required extensions (pgcrypto).
+- `01_create_function_set_updated_at.sql` — trigger function used by every `updated_at` column.
+- `02_create_table_patient.sql` — patient table.
+- `03_create_table_clinician.sql` — clinician table.
+
+## Form-specific tables
+
+- `release_form`
+- `authorized_recipient`
+- `records_to_release`
+- `purpose_of_release`
+- `authorization_period`
+- `restrictions_limitations`
+- `patient_rights`
+- `signature_consent`
+- `validation_result`
+- `validation_fired_rule`
+- `validation_additional_flag`
+
+## Derived artefacts
+
+- `schema.sql` — every migration concatenated (generated).

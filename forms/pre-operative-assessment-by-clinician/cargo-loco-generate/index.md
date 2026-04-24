@@ -15,7 +15,12 @@ assessment ...` call covers every questionnaire section.
 ## Tables
 
 - `patient`
-- `assessment`
+- `clinician`
+- `medicine`
+- `patient_medicine`
+- `allergy`
+- `patient_allergy`
+- `pre_operative_assessment_by_clinician`
 - `grading_result`
 - `grading_fired_rule`
 - `grading_additional_flag`

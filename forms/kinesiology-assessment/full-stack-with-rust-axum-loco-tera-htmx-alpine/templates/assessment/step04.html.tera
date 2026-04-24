@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Range of Motion - Kinesiology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Range of Motion</h2>
+<h2>Range of Motion</h2>
     <p class="hint">Rate each movement range (1 = Severely Restricted, 5 = Full / Normal Range).</p>
 
     <div class="form-row">
@@ -109,8 +101,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

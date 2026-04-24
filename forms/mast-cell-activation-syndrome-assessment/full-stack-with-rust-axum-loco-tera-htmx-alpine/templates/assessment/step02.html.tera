@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Symptom History - MCAS Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Symptom History</h2>
+<h2>Symptom History</h2>
     <p class="hint">Document the timeline, frequency, and overall severity of mast cell activation symptoms.</p>
 
     <div class="form-row">
@@ -95,8 +87,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

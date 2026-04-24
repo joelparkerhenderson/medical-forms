@@ -14,7 +14,7 @@ src/
 ├── app.rs                    # Loco hooks, Tera init, routes
 ├── controllers/
 │   ├── mod.rs                # Controller modules
-│   ├── assessment.rs         # Landing, step forms, report (POST/redirect/GET)
+│   ├── assessment.rs         # Landing, single-page form, submit, report
 │   └── dashboard.rs          # Dashboard with server-side filters
 ├── engine/
 │   ├── mod.rs
@@ -31,16 +31,15 @@ src/
 │       └── assessments.rs    # ORM entity definition
 └── views/
     ├── mod.rs
-    ├── assessment.rs         # build_step_context() for Tera context
+    ├── assessment.rs         # build_assessment_context() for single-page form
     └── dashboard.rs          # PatientRow from_model for dashboard
 
 templates/
 ├── base.html.tera            # Base layout (header, nav, footer, HTMX + Alpine CDN)
 ├── landing.html.tera         # Landing page with "Begin Assessment" button
+├── assessment.html.tera      # Single-page form wrapping all step partials
 ├── _dashboard_results.html.tera  # Dashboard results partial (HTMX target)
 ├── assessment/
-│   ├── _progress.html.tera   # Shared progress bar partial
-│   ├── _nav.html.tera        # Shared step navigation partial
 │   ├── step01.html.tera      # Patient Demographics
 │   ├── step02.html.tera      # Next of Kin & GP
 │   ├── step03.html.tera      # Arrival & Triage
@@ -69,28 +68,27 @@ tests/                        # 12 engine tests (5 NEWS2 + 7 flagged issues)
 
 ### Routes
 
-| Method | Endpoint                       | Description                          |
-| ------ | ------------------------------ | ------------------------------------ |
-| GET    | `/`                            | Landing page                         |
-| POST   | `/assessment/new`              | Create new assessment, redirect      |
-| GET    | `/assessment/{id}/step/{step}` | Render step form                     |
-| POST   | `/assessment/{id}/step/{step}` | Save step data, redirect to next     |
-| GET    | `/assessment/{id}/report`      | Grade and render report              |
-| GET    | `/dashboard`                   | Dashboard with filtered patient list |
+| Method | Endpoint                       | Description                                 |
+| ------ | ------------------------------ | ------------------------------------------- |
+| GET    | `/`                            | Landing page                                |
+| POST   | `/assessment/new`              | Create new assessment, redirect to the form |
+| GET    | `/assessment/{id}`             | Render the single-page form                 |
+| POST   | `/assessment/{id}/submit`      | Save all form data, redirect to report      |
+| GET    | `/assessment/{id}/report`      | Grade and render report                     |
+| GET    | `/dashboard`                   | Dashboard with filtered patient list        |
 
 ### Data Flow
 
-1. POST `/assessment/new` creates JSONB record with default AssessmentData
-2. Each step GET renders a Tera template pre-filled from JSONB data
-3. Each step POST merges form data into JSONB (snake_case → camelCase conversion)
-4. After step 14, redirects to report page
-5. Report page runs NEWS2 grading engine server-side, stores result
-6. Dashboard queries completed assessments with server-side filtering
+1. POST `/assessment/new` creates a JSONB record with default `AssessmentData`, redirects to `/assessment/{id}`
+2. GET `/assessment/{id}` renders `assessment.html.tera` which includes every `stepNN.html.tera` partial inside a single `<form>`, pre-filled from JSONB
+3. POST `/assessment/{id}/submit` receives every field in one request; the controller merges them into JSONB (snake_case → camelCase conversion) and redirects to the report
+4. Report page runs the NEWS2 grading engine server-side and stores the result
+5. Dashboard queries completed assessments with server-side filtering
 
 ### Key Design Decisions
 
-1. **POST/redirect/GET pattern**: Multi-page form avoids SPA complexity. Each step is a separate page load.
-2. **Tera templates**: Server-rendered HTML with shared base layout and partials for progress bar and navigation.
+1. **Single-page wizard**: One continuous page with all 14 sections rendered together, matching the project-wide `AGENTS.md` rule "the form must be one continuous single-page wizard".
+2. **Tera templates**: Server-rendered HTML with a shared base layout. Each `stepNN.html.tera` is a plain partial (no `{% extends %}` / `{% block %}`); `assessment.html.tera` is the top-level page that includes them.
 3. **NEWS2 scoring engine**: Calculates National Early Warning Score 2 from 7 vital sign parameters (RR, SpO2, SBP, HR, consciousness, temperature, supplemental O2) with clinical response thresholds (Low, Low-Medium, Medium, High).
 4. **Form field name conversion**: Forms use snake_case names; controller converts to camelCase for JSONB storage via `field_to_json()` with explicit handling for medical abbreviations (MTS, BP, GCS, GMC, IV).
 5. **Conditional fields**: Alpine.js `x-show` provides instant client-side toggle; Tera `checked`/`selected` attrs ensure correct initial state on server render. `x-cloak` CSS rule hides Alpine-managed elements until initialization.

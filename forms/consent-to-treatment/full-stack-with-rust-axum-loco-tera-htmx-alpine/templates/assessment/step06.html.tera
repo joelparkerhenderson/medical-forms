@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Patient Understanding - Consent to Treatment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Patient Understanding</h2>
+<h2>Patient Understanding</h2>
     <p class="hint">Verify the patient's understanding of the proposed procedure.</p>
 
     <div class="likert-group">
@@ -93,8 +85,4 @@
         <label><input type="radio" name="patient_understanding.second_opinion_offered" value="notNeeded" {% if patient_understanding.secondOpinionOffered == "notNeeded" %}checked{% endif %}> Not needed</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

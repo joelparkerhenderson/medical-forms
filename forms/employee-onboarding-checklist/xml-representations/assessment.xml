@@ -1,9 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<employee_id>550e8400-e29b-41d4-a716-446655440000</employee_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <employee_id>550e8400-e29b-41d4-a716-446655440000</employee_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <emergency_contact_name>Example</emergency_contact_name>
+    <emergency_contact_phone>07700900001</emergency_contact_phone>
+    <emergency_contact_relationship>Spouse</emergency_contact_relationship>
+    <address_line_1/>
+    <address_line_2/>
+    <city/>
+    <postcode>SW1A 1AA</postcode>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <induction_programme>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <corporate_induction_completed>yes</corporate_induction_completed>
+    <corporate_induction_date>2026-01-15</corporate_induction_date>
+    <local_induction_completed>yes</local_induction_completed>
+    <local_induction_date>2026-01-15</local_induction_date>
+    <department_tour_completed>yes</department_tour_completed>
+    <introduced_to_team>yes</introduced_to_team>
+    <emergency_procedures_briefed>yes</emergency_procedures_briefed>
+    <policies_handbook_received>yes</policies_handbook_received>
+    <buddy_assigned>yes</buddy_assigned>
+    <buddy_name>Example</buddy_name>
+    <induction_programme_notes>Example text.</induction_programme_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </induction_programme>
+  <it_systems_access>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <nhs_smartcard_issued>yes</nhs_smartcard_issued>
+    <nhs_smartcard_number/>
+    <email_account_created>yes</email_account_created>
+    <network_login_created>yes</network_login_created>
+    <clinical_system_access>yes</clinical_system_access>
+    <clinical_system_name>Example</clinical_system_name>
+    <clinical_system_training_completed>yes</clinical_system_training_completed>
+    <rostering_system_access>yes</rostering_system_access>
+    <phone_extension/>
+    <bleep_number/>
+    <it_access_notes>Example text.</it_access_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </it_systems_access>
+  <mandatory_training>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <fire_safety_completed>yes</fire_safety_completed>
+    <fire_safety_date>2026-01-15</fire_safety_date>
+    <manual_handling_completed>yes</manual_handling_completed>
+    <manual_handling_date>2026-01-15</manual_handling_date>
+    <infection_control_completed>yes</infection_control_completed>
+    <infection_control_date>2026-01-15</infection_control_date>
+    <safeguarding_adults_completed>yes</safeguarding_adults_completed>
+    <safeguarding_adults_level>level-1</safeguarding_adults_level>
+    <safeguarding_children_completed>yes</safeguarding_children_completed>
+    <safeguarding_children_level>level-1</safeguarding_children_level>
+    <information_governance_completed>yes</information_governance_completed>
+    <information_governance_date>2026-01-15</information_governance_date>
+    <basic_life_support_completed>yes</basic_life_support_completed>
+    <basic_life_support_date>2026-01-15</basic_life_support_date>
+    <equality_diversity_completed>yes</equality_diversity_completed>
+    <health_safety_completed>yes</health_safety_completed>
+    <conflict_resolution_completed>yes</conflict_resolution_completed>
+    <mandatory_training_notes>Example text.</mandatory_training_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </mandatory_training>
+  <occupational_health>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <oh_questionnaire_submitted>yes</oh_questionnaire_submitted>
+    <oh_clearance_received>yes</oh_clearance_received>
+    <oh_clearance_date>2026-01-15</oh_clearance_date>
+    <oh_restrictions>yes</oh_restrictions>
+    <oh_restriction_details>Example text.</oh_restriction_details>
+    <hepatitis_b_status>immune</hepatitis_b_status>
+    <tb_screening_status>not-required</tb_screening_status>
+    <immunisation_status>complete</immunisation_status>
+    <fit_to_work>yes</fit_to_work>
+    <occupational_health_notes>Example text.</occupational_health_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </occupational_health>
+  <pre_employment_checks>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <dbs_check_status>not-started</dbs_check_status>
+    <dbs_certificate_number/>
+    <dbs_check_date>2026-01-15</dbs_check_date>
+    <dbs_update_service_registered>yes</dbs_update_service_registered>
+    <right_to_work_verified>yes</right_to_work_verified>
+    <right_to_work_document_type>standard</right_to_work_document_type>
+    <right_to_work_expiry_date>2026-01-15</right_to_work_expiry_date>
+    <references_received>1</references_received>
+    <references_required>1</references_required>
+    <references_satisfactory>yes</references_satisfactory>
+    <identity_verified>yes</identity_verified>
+    <pre_employment_notes>Example text.</pre_employment_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </pre_employment_checks>
+  <probation_supervision>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <probation_period_months>1</probation_period_months>
+    <probation_start_date>2026-01-15</probation_start_date>
+    <probation_end_date>2026-01-15</probation_end_date>
+    <line_manager_name>Example</line_manager_name>
+    <line_manager_email/>
+    <supervisor_name>Example</supervisor_name>
+    <supervision_frequency>weekly</supervision_frequency>
+    <first_supervision_date>2026-01-15</first_supervision_date>
+    <objectives_set>yes</objectives_set>
+    <appraisal_date_agreed>yes</appraisal_date_agreed>
+    <appraisal_date>2026-01-15</appraisal_date>
+    <probation_supervision_notes>Example text.</probation_supervision_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </probation_supervision>
+  <professional_registration>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <registration_required>yes</registration_required>
+    <regulatory_body>nmc</regulatory_body>
+    <regulatory_body_other/>
+    <registration_number/>
+    <registration_verified>yes</registration_verified>
+    <registration_expiry_date>2026-01-15</registration_expiry_date>
+    <registration_conditions>yes</registration_conditions>
+    <registration_condition_details>Example text.</registration_condition_details>
+    <revalidation_date>2026-01-15</revalidation_date>
+    <indemnity_insurance>yes</indemnity_insurance>
+    <professional_registration_notes>Example text.</professional_registration_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </professional_registration>
+  <sign_off_compliance>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <confidentiality_agreement_signed>yes</confidentiality_agreement_signed>
+    <code_of_conduct_signed>yes</code_of_conduct_signed>
+    <social_media_policy_acknowledged>yes</social_media_policy_acknowledged>
+    <it_acceptable_use_signed>yes</it_acceptable_use_signed>
+    <gdpr_training_completed>yes</gdpr_training_completed>
+    <duty_of_candour_briefed>yes</duty_of_candour_briefed>
+    <whistleblowing_policy_briefed>yes</whistleblowing_policy_briefed>
+    <employee_signed_off>yes</employee_signed_off>
+    <employee_sign_off_date>2026-01-15</employee_sign_off_date>
+    <manager_signed_off>yes</manager_signed_off>
+    <manager_sign_off_date>2026-01-15</manager_sign_off_date>
+    <manager_sign_off_name>Example</manager_sign_off_name>
+    <sign_off_compliance_notes>Example text.</sign_off_compliance_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </sign_off_compliance>
+  <uniform_id_badge>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <uniform_required>yes</uniform_required>
+    <uniform_ordered>yes</uniform_ordered>
+    <uniform_received>yes</uniform_received>
+    <uniform_size/>
+    <id_badge_photo_taken>yes</id_badge_photo_taken>
+    <id_badge_issued>yes</id_badge_issued>
+    <id_badge_number/>
+    <access_card_issued>yes</access_card_issued>
+    <access_card_areas/>
+    <locker_allocated>yes</locker_allocated>
+    <locker_number/>
+    <uniform_id_notes>Example text.</uniform_id_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </uniform_id_badge>
 </assessment>

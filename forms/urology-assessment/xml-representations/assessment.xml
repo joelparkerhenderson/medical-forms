@@ -1,9 +1,194 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <chief_complaint>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <primary_complaint/>
+    <symptom_onset_date>2026-01-15</symptom_onset_date>
+    <symptom_duration_weeks>1</symptom_duration_weeks>
+    <symptom_progression>stable</symptom_progression>
+    <previous_urological_evaluation>yes</previous_urological_evaluation>
+    <previous_evaluation_details>Example text.</previous_evaluation_details>
+    <impact_on_quality_of_life>none</impact_on_quality_of_life>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </chief_complaint>
+  <current_medications>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <alpha_blocker_use>yes</alpha_blocker_use>
+    <alpha_blocker_name>Example</alpha_blocker_name>
+    <five_alpha_reductase_inhibitor>yes</five_alpha_reductase_inhibitor>
+    <five_ari_name>Example</five_ari_name>
+    <anticholinergic_use>yes</anticholinergic_use>
+    <anticholinergic_name>Example</anticholinergic_name>
+    <beta3_agonist_use>yes</beta3_agonist_use>
+    <beta3_agonist_name>Example</beta3_agonist_name>
+    <pde5_inhibitor_use>yes</pde5_inhibitor_use>
+    <diuretic_use>yes</diuretic_use>
+    <diuretic_name>Example</diuretic_name>
+    <antihypertensive_use>yes</antihypertensive_use>
+    <antihypertensive_details>Example text.</antihypertensive_details>
+    <anticoagulant_use>yes</anticoagulant_use>
+    <anticoagulant_name>Example</anticoagulant_name>
+    <other_medications>Paracetamol</other_medications>
+    <known_drug_allergies>Paracetamol</known_drug_allergies>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ethnicity>White British</ethnicity>
+    <occupation>Teacher</occupation>
+    <referring_physician>Dr Smith</referring_physician>
+    <referral_date>2026-01-15</referral_date>
+    <smoking_status>current</smoking_status>
+    <alcohol_use>none</alcohol_use>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <family_history>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <family_history_prostate_cancer>yes</family_history_prostate_cancer>
+    <prostate_cancer_relationship>Spouse</prostate_cancer_relationship>
+    <prostate_cancer_age_at_diagnosis>45</prostate_cancer_age_at_diagnosis>
+    <family_history_bladder_cancer>yes</family_history_bladder_cancer>
+    <family_history_kidney_cancer>yes</family_history_kidney_cancer>
+    <family_history_kidney_stones>yes</family_history_kidney_stones>
+    <family_history_bph>yes</family_history_bph>
+    <family_history_brca_mutation>yes</family_history_brca_mutation>
+    <family_history_breast_cancer>yes</family_history_breast_cancer>
+    <additional_family_history>Example text.</additional_family_history>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </family_history>
+  <ipss_questionnaire>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ipss_q1_incomplete_emptying>1</ipss_q1_incomplete_emptying>
+    <ipss_q2_frequency>1</ipss_q2_frequency>
+    <ipss_q3_intermittency>1</ipss_q3_intermittency>
+    <ipss_q4_urgency>1</ipss_q4_urgency>
+    <ipss_q5_weak_stream>1</ipss_q5_weak_stream>
+    <ipss_q6_straining>1</ipss_q6_straining>
+    <ipss_q7_nocturia>1</ipss_q7_nocturia>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </ipss_questionnaire>
+  <medical_history>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_urological_surgery>yes</previous_urological_surgery>
+    <urological_surgery_details>Example text.</urological_surgery_details>
+    <benign_prostatic_hyperplasia>yes</benign_prostatic_hyperplasia>
+    <prostate_cancer_history>yes</prostate_cancer_history>
+    <prostate_cancer_details>Example text.</prostate_cancer_details>
+    <bladder_cancer_history>yes</bladder_cancer_history>
+    <kidney_stones_history>yes</kidney_stones_history>
+    <kidney_stones_details>Example text.</kidney_stones_details>
+    <catheterisation_history>yes</catheterisation_history>
+    <diabetes>yes</diabetes>
+    <hypertension>yes</hypertension>
+    <cardiovascular_disease>yes</cardiovascular_disease>
+    <neurological_disease>yes</neurological_disease>
+    <neurological_disease_details>Example text.</neurological_disease_details>
+    <chronic_kidney_disease>yes</chronic_kidney_disease>
+    <previous_pelvic_surgery>yes</previous_pelvic_surgery>
+    <pelvic_surgery_details>Example text.</pelvic_surgery_details>
+    <previous_radiotherapy>yes</previous_radiotherapy>
+    <radiotherapy_details>Example text.</radiotherapy_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_history>
+  <quality_of_life>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ipss_qol_score>5</ipss_qol_score>
+    <sleep_disruption_from_nocturia>none</sleep_disruption_from_nocturia>
+    <social_activity_limitation>none</social_activity_limitation>
+    <anxiety_about_symptoms>yes</anxiety_about_symptoms>
+    <embarrassment_from_symptoms>yes</embarrassment_from_symptoms>
+    <travel_restriction>yes</travel_restriction>
+    <fluid_intake_restriction>yes</fluid_intake_restriction>
+    <overall_wellbeing>excellent</overall_wellbeing>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </quality_of_life>
+  <renal_function>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <creatinine_umol_l>0.0</creatinine_umol_l>
+    <egfr_ml_min>0.0</egfr_ml_min>
+    <urea_mmol_l>0.0</urea_mmol_l>
+    <psa_ng_ml>0.0</psa_ng_ml>
+    <psa_previous_value>5.0</psa_previous_value>
+    <psa_previous_date>2026-01-15</psa_previous_date>
+    <urinalysis_performed>yes</urinalysis_performed>
+    <urinalysis_leukocytes>negative</urinalysis_leukocytes>
+    <urinalysis_nitrites>negative</urinalysis_nitrites>
+    <urinalysis_blood>negative</urinalysis_blood>
+    <urinalysis_protein>negative</urinalysis_protein>
+    <post_void_residual_ml>1</post_void_residual_ml>
+    <uroflowmetry_performed>yes</uroflowmetry_performed>
+    <max_flow_rate_ml_s>72.0</max_flow_rate_ml_s>
+    <ultrasound_performed>yes</ultrasound_performed>
+    <ultrasound_findings>Example text.</ultrasound_findings>
+    <prostate_volume_ml>0.0</prostate_volume_ml>
+    <lab_date>2026-01-15</lab_date>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </renal_function>
+  <sexual_health>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <sexually_active>yes</sexually_active>
+    <erectile_dysfunction>yes</erectile_dysfunction>
+    <erectile_dysfunction_severity>mild</erectile_dysfunction_severity>
+    <erectile_dysfunction_duration_months>1</erectile_dysfunction_duration_months>
+    <iief5_score>5</iief5_score>
+    <ejaculatory_dysfunction>yes</ejaculatory_dysfunction>
+    <ejaculatory_dysfunction_type>premature</ejaculatory_dysfunction_type>
+    <decreased_libido>yes</decreased_libido>
+    <testosterone_level_nmol_l>5.0</testosterone_level_nmol_l>
+    <pde5_inhibitor_use>yes</pde5_inhibitor_use>
+    <pde5_inhibitor_name>Example</pde5_inhibitor_name>
+    <fertility_concerns>yes</fertility_concerns>
+    <fertility_details>Example text.</fertility_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </sexual_health>
+  <urinary_symptoms>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <urinary_frequency_daytime>1</urinary_frequency_daytime>
+    <urgency>yes</urgency>
+    <urge_incontinence>yes</urge_incontinence>
+    <stress_incontinence>yes</stress_incontinence>
+    <pad_use>yes</pad_use>
+    <pads_per_day>1</pads_per_day>
+    <hesitancy>yes</hesitancy>
+    <poor_stream>yes</poor_stream>
+    <terminal_dribbling>yes</terminal_dribbling>
+    <post_void_dribbling>yes</post_void_dribbling>
+    <feeling_of_incomplete_emptying>yes</feeling_of_incomplete_emptying>
+    <urinary_retention_history>yes</urinary_retention_history>
+    <haematuria>yes</haematuria>
+    <haematuria_type>gross</haematuria_type>
+    <dysuria>yes</dysuria>
+    <suprapubic_pain>yes</suprapubic_pain>
+    <loin_pain>yes</loin_pain>
+    <recurrent_utis>yes</recurrent_utis>
+    <uti_frequency_per_year>2026</uti_frequency_per_year>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </urinary_symptoms>
 </assessment>

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Inhaler & Medications - Respirology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Inhaler &amp; Medications</h2>
+<h2>Inhaler &amp; Medications</h2>
     <p class="hint">Rate each medication aspect (1 = Excellent, 5 = Very poor).</p>
 
     <div class="form-group">
@@ -61,8 +53,4 @@
       <textarea id="oral_medications" name="inhaler_medications.oral_medications" rows="3"
                 placeholder="List oral respiratory medications...">{{ inhaler_medications.oralMedications }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

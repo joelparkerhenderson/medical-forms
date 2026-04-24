@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Procedure Details - Consent to Treatment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Procedure Details</h2>
+<h2>Procedure Details</h2>
     <p class="hint">Provide details of the proposed procedure or treatment.</p>
 
     <div class="form-row">
@@ -102,8 +94,4 @@
         <option value="bilateral" {% if procedure_details.laterality == "bilateral" %}selected{% endif %}>Bilateral</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

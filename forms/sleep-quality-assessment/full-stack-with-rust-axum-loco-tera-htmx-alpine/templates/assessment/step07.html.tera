@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Sleep Hygiene - Sleep Quality Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Sleep Hygiene</h2>
+<h2>Sleep Hygiene</h2>
     <p class="hint">Tell us about your sleep-related habits and bedroom environment.</p>
 
     <div class="form-group">
@@ -84,8 +76,4 @@
         <label><input type="radio" name="sleep_hygiene.relaxation_technique" value="no" {% if sleep_hygiene.relaxationTechnique == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

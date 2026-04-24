@@ -8,13 +8,17 @@ engine, and generates a clinical report with flagged issues.
 
 ## Tools
 
-- `bin/list-forms` — list all form directory slugs
+- `bin/list-forms-as-kebab-case` — list all form directory slugs
 - `bin/test` — run all form validation tests
 - `bin/test-form <slug>` — test a single form by slug
 - `bin/create-form <slug>` — scaffold a new form directory
 - `bin/update` — update, upgrade, fix, harmonize, audit, test (via Claude Code)
+- `bin/migrate-sql-filenames.py` — one-shot migration of each form's sql-migrations/ to the canonical `NN_create_table_<name>.sql` layout
+- `bin/generate-sql-comments.py` — append missing `COMMENT ON TABLE` / `COMMENT ON COLUMN` to numbered SQL migrations
+- `bin/generate-sql-combined.py` — combine each form's numbered SQL migrations into `schema.sql`
 - `bin/generate-xml-representations.py` — generate XML and DTD from SQL migrations
 - `bin/generate-fhir-r5-representations.py` — generate FHIR HL7 R5 JSON from SQL migrations
+- `bin/generate-cargo-loco-scaffold.py` — generate Loco scaffold commands from SQL migrations (assessment_* children are merged into the assessment scaffold)
 
 ## Form index
 
@@ -43,6 +47,7 @@ forms/<slug>/
   front-end-dashboard-with-html/                   # Dashboard (HTML + table)
   front-end-dashboard-with-svelte/                 # Dashboard (SvelteKit + SVAR Grid)
   full-stack-with-rust-axum-loco-tera-htmx-alpine/ # Full-stack Rust backend
+  cargo-loco-generate/                             # Commands for loco.rs to create
 ```
 
 Generated FHIR HL7 R5 JSON resources live in `fhir-r5/`.
@@ -54,9 +59,10 @@ Generated FHIR HL7 R5 JSON resources live in `fhir-r5/`.
 3. Author SQL migrations in `forms/<slug>/sql-migrations/`
 4. Generate XML + DTD representations (`bin/generate-xml-representations.py`)
 5. Generate FHIR R5 JSON (`bin/generate-fhir-r5-representations.py`)
-6. Build the front-ends (form and dashboard, each in HTML and SvelteKit)
-7. Build the full-stack Rust implementation
-8. `bin/test-form <slug>` — validate structure
+6. Generate Loco scaffold commands (`bin/generate-cargo-loco-scaffold.py`)
+7. Build the front-ends (form and dashboard, each in HTML and SvelteKit)
+8. Build the full-stack Rust implementation
+9. `bin/test-form <slug>` — validate structure
 
 ## User interface
 
@@ -72,6 +78,7 @@ See the per-stack agent docs:
 - [SQL migrations](AGENTS/sql-migrations.md)
 - [XML representations](AGENTS/xml-representations.md)
 - [FHIR HL7 R5 representations](AGENTS/fhir-r5.md)
+- [cargo loco generate scaffold](AGENTS/cargo-loco-generate-scaffold.md)
 
 ## Conventions
 

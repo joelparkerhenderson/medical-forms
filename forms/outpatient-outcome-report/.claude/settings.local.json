@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/jph/git/joelparkerhenderson/medical-forms/docs/**)",
+      "Read(//Users/jph/git/joelparkerhenderson/medical-forms/docs/superpowers/**)"
+    ]
+  }
+}

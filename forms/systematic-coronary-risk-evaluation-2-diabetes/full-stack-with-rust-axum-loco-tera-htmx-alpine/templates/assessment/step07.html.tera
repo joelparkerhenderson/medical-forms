@@ -1,15 +1,7 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 7: Lifestyle Factors</h2>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <!-- Smoking Status -->
+<!-- Smoking Status -->
         <div class="form-group">
             <label>Smoking Status</label>
             <div class="radio-group">
@@ -87,8 +79,4 @@
                        value="{{ lifestyle_factors.waistCircumferenceCm | default(value='') }}" min="40" max="200" step="0.5">
             </div>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

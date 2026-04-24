@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Current Allergies - Allergy Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Current Allergies</h2>
+<h2>Current Allergies</h2>
     <p class="hint">Detail the primary allergen and current allergic reactions.</p>
 
     <div class="form-row">
@@ -75,8 +67,4 @@
       <input type="date" id="last_reaction" name="current_allergies.last_reaction"
              value="{{ current_allergies.lastReaction }}">
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

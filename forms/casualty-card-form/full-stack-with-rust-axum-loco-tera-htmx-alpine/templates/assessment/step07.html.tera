@@ -1,17 +1,9 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
-<div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
-
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+<div class="card" x-data="{
         supplementalOxygen: '{{ vital_signs.supplementalOxygen }}'
     }">
-        <p class="form-hint">Vital signs are used to auto-calculate the NEWS2 score in the report.</p>
+    <h2>Step 7: Vital Signs</h2>
+
+<p class="form-hint">Vital signs are used to auto-calculate the NEWS2 score in the report.</p>
 
         <div class="form-row">
             <div class="form-group">
@@ -129,8 +121,4 @@
             <input type="number" id="weight" name="vital_signs.weight"
                    value="{{ vital_signs.weight | default(value='') }}" min="0" step="0.1">
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

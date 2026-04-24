@@ -1,0 +1,22 @@
+{% extends "base.html.tera" %}
+
+{% block title %}Heart Health Check - Assessment{% endblock %}
+
+{% block content %}
+<form method="POST" action="/assessment/{{ id }}">
+  {% include "assessment/step01.html.tera" %}
+  {% include "assessment/step02.html.tera" %}
+  {% include "assessment/step03.html.tera" %}
+  {% include "assessment/step04.html.tera" %}
+  {% include "assessment/step05.html.tera" %}
+  {% include "assessment/step06.html.tera" %}
+  {% include "assessment/step07.html.tera" %}
+  {% include "assessment/step08.html.tera" %}
+  {% include "assessment/step09.html.tera" %}
+  {% include "assessment/step10.html.tera" %}
+
+  <div class="submit-row">
+    <button type="submit" class="btn btn-success">Calculate Risk</button>
+  </div>
+</form>
+{% endblock %}

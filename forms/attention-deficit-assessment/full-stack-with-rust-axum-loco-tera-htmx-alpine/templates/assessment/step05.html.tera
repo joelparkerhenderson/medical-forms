@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}ASRS Screener - Attention Deficit Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>ASRS Part A Screener</h2>
+<h2>ASRS Part A Screener</h2>
     <p class="hint">The Adult ADHD Self-Report Scale (ASRS-v1.1) Part A screener. Rate each item from 0 (Never) to 4 (Very Often). Four or more positive responses are highly consistent with adult ADHD.</p>
 
     <div class="likert-group">
@@ -87,8 +79,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

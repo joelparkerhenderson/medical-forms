@@ -1,9 +1,255 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <anterior_segment>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <lids_right>normal</lids_right>
+    <lids_right_details>Example text.</lids_right_details>
+    <lids_left>normal</lids_left>
+    <lids_left_details>Example text.</lids_left_details>
+    <conjunctiva_right>normal</conjunctiva_right>
+    <conjunctiva_right_details>Example text.</conjunctiva_right_details>
+    <conjunctiva_left>normal</conjunctiva_left>
+    <conjunctiva_left_details>Example text.</conjunctiva_left_details>
+    <cornea_right>clear</cornea_right>
+    <cornea_right_details>Example text.</cornea_right_details>
+    <cornea_left>clear</cornea_left>
+    <cornea_left_details>Example text.</cornea_left_details>
+    <anterior_chamber_right>deep-quiet</anterior_chamber_right>
+    <anterior_chamber_right_details>Example text.</anterior_chamber_right_details>
+    <anterior_chamber_left>deep-quiet</anterior_chamber_left>
+    <anterior_chamber_left_details>Example text.</anterior_chamber_left_details>
+    <iris_right>normal</iris_right>
+    <iris_right_details>Example text.</iris_right_details>
+    <iris_left>normal</iris_left>
+    <iris_left_details>Example text.</iris_left_details>
+    <lens_right>clear</lens_right>
+    <lens_right_details>Example text.</lens_right_details>
+    <lens_left>clear</lens_left>
+    <lens_left_details>Example text.</lens_left_details>
+    <iop_right_mmhg>0.0</iop_right_mmhg>
+    <iop_left_mmhg>0.0</iop_left_mmhg>
+    <iop_method>goldmann</iop_method>
+    <iop_time/>
+    <anterior_segment_notes>Example text.</anterior_segment_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </anterior_segment>
+  <chief_complaint>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <primary_complaint/>
+    <onset>sudden</onset>
+    <duration/>
+    <laterality>left</laterality>
+    <associated_symptoms>Fatigue</associated_symptoms>
+    <pain>yes</pain>
+    <pain_severity>1</pain_severity>
+    <pain_character>aching</pain_character>
+    <photophobia>yes</photophobia>
+    <discharge>yes</discharge>
+    <discharge_description>Example text.</discharge_description>
+    <flashes_or_floaters>yes</flashes_or_floaters>
+    <flashes_floaters_details>Example text.</flashes_floaters_details>
+    <vision_loss>yes</vision_loss>
+    <vision_loss_details>Example text.</vision_loss_details>
+    <chief_complaint_notes>Example text.</chief_complaint_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </chief_complaint>
+  <current_medications>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_ocular_medications>yes</has_ocular_medications>
+    <has_systemic_medications>yes</has_systemic_medications>
+    <medication_allergies>Paracetamol</medication_allergies>
+    <medications_notes>Example text.</medications_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <first_name>Jane</first_name>
+    <last_name>Doe</last_name>
+    <date_of_birth>1965-06-15</date_of_birth>
+    <sex>male</sex>
+    <phone>07700900000</phone>
+    <email>jane.doe@example.com</email>
+    <address>123 Example Street</address>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <optometrist_name>Example</optometrist_name>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <functional_impact>
+    <id>220e8400-e29b-41d4-a716-44665544000c</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <reading_difficulty>none</reading_difficulty>
+    <driving_ability>drives</driving_ability>
+    <dvla_notification_required>yes</dvla_notification_required>
+    <screen_use_difficulty>none</screen_use_difficulty>
+    <mobility_impact>none</mobility_impact>
+    <falls_risk>yes</falls_risk>
+    <work_impact>no-impact</work_impact>
+    <daily_living_impact>none</daily_living_impact>
+    <social_impact>none</social_impact>
+    <low_vision_aids_used/>
+    <low_vision_referral>yes</low_vision_referral>
+    <certificate_of_visual_impairment>not-applicable</certificate_of_visual_impairment>
+    <functional_impact_notes>Example text.</functional_impact_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </functional_impact>
+  <medication_item>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <current_medications_id>660e8400-e29b-41d4-a716-446655440001</current_medications_id>
+    <medication_name>Example</medication_name>
+    <dose>500mg</dose>
+    <frequency>twice daily</frequency>
+    <route>topical</route>
+    <eye>right</eye>
+    <indication/>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medication_item>
+  <ocular_history>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_glaucoma>yes</has_glaucoma>
+    <glaucoma_details>Example text.</glaucoma_details>
+    <has_cataract>yes</has_cataract>
+    <cataract_details>Example text.</cataract_details>
+    <has_macular_degeneration>yes</has_macular_degeneration>
+    <macular_degeneration_details>Example text.</macular_degeneration_details>
+    <has_diabetic_retinopathy>yes</has_diabetic_retinopathy>
+    <diabetic_retinopathy_details>Example text.</diabetic_retinopathy_details>
+    <has_retinal_detachment>yes</has_retinal_detachment>
+    <retinal_detachment_details>Example text.</retinal_detachment_details>
+    <has_strabismus>yes</has_strabismus>
+    <strabismus_details>Example text.</strabismus_details>
+    <has_amblyopia>yes</has_amblyopia>
+    <amblyopia_details>Example text.</amblyopia_details>
+    <previous_eye_surgery>yes</previous_eye_surgery>
+    <eye_surgery_details>Example text.</eye_surgery_details>
+    <previous_eye_trauma>yes</previous_eye_trauma>
+    <eye_trauma_details>Example text.</eye_trauma_details>
+    <family_eye_history>Example text.</family_eye_history>
+    <contact_lens_use>none</contact_lens_use>
+    <contact_lens_details>Example text.</contact_lens_details>
+    <ocular_history_notes>Example text.</ocular_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </ocular_history>
+  <posterior_segment>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <vitreous_right>clear</vitreous_right>
+    <vitreous_right_details>Example text.</vitreous_right_details>
+    <vitreous_left>clear</vitreous_left>
+    <vitreous_left_details>Example text.</vitreous_left_details>
+    <optic_disc_right>normal</optic_disc_right>
+    <optic_disc_right_details>Example text.</optic_disc_right_details>
+    <optic_disc_left>normal</optic_disc_left>
+    <optic_disc_left_details>Example text.</optic_disc_left_details>
+    <cup_disc_ratio_right>1.5</cup_disc_ratio_right>
+    <cup_disc_ratio_left>1.5</cup_disc_ratio_left>
+    <macula_right>normal</macula_right>
+    <macula_right_details>Example text.</macula_right_details>
+    <macula_left>normal</macula_left>
+    <macula_left_details>Example text.</macula_left_details>
+    <retinal_vessels_right>normal</retinal_vessels_right>
+    <retinal_vessels_right_details>Example text.</retinal_vessels_right_details>
+    <retinal_vessels_left>normal</retinal_vessels_left>
+    <retinal_vessels_left_details>Example text.</retinal_vessels_left_details>
+    <peripheral_retina_right>normal</peripheral_retina_right>
+    <peripheral_retina_right_details>Example text.</peripheral_retina_right_details>
+    <peripheral_retina_left>normal</peripheral_retina_left>
+    <peripheral_retina_left_details>Example text.</peripheral_retina_left_details>
+    <dilation_used>yes</dilation_used>
+    <dilating_agent/>
+    <posterior_segment_notes>Example text.</posterior_segment_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </posterior_segment>
+  <systemic_conditions>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_diabetes>yes</has_diabetes>
+    <diabetes_type>type-1</diabetes_type>
+    <diabetes_duration_years>2026</diabetes_duration_years>
+    <hba1c>0.0</hba1c>
+    <has_hypertension>yes</has_hypertension>
+    <hypertension_controlled>yes</hypertension_controlled>
+    <has_thyroid_disease>yes</has_thyroid_disease>
+    <thyroid_disease_details>Example text.</thyroid_disease_details>
+    <has_autoimmune_disease>yes</has_autoimmune_disease>
+    <autoimmune_disease_details>Example text.</autoimmune_disease_details>
+    <has_cardiovascular_disease>yes</has_cardiovascular_disease>
+    <cardiovascular_disease_details>Example text.</cardiovascular_disease_details>
+    <has_neurological_disease>yes</has_neurological_disease>
+    <neurological_disease_details>Example text.</neurological_disease_details>
+    <smoking_status>never</smoking_status>
+    <other_systemic_conditions/>
+    <systemic_conditions_notes>Example text.</systemic_conditions_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </systemic_conditions>
+  <visual_acuity>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <va_right_unaided/>
+    <va_left_unaided/>
+    <va_right_corrected/>
+    <va_left_corrected/>
+    <va_right_pinhole/>
+    <va_left_pinhole/>
+    <va_method>snellen</va_method>
+    <near_vision_right/>
+    <near_vision_left/>
+    <current_spectacle_prescription/>
+    <refraction_right/>
+    <refraction_left/>
+    <auto_refraction_right/>
+    <auto_refraction_left/>
+    <colour_vision>normal</colour_vision>
+    <colour_vision_details>Example text.</colour_vision_details>
+    <visual_acuity_notes>Example text.</visual_acuity_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </visual_acuity>
+  <visual_field_pupils>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <confrontation_field_right>full</confrontation_field_right>
+    <confrontation_field_right_details>Example text.</confrontation_field_right_details>
+    <confrontation_field_left>full</confrontation_field_left>
+    <confrontation_field_left_details>Example text.</confrontation_field_left_details>
+    <formal_perimetry_performed>yes</formal_perimetry_performed>
+    <perimetry_type>humphrey</perimetry_type>
+    <perimetry_right_result>Normal</perimetry_right_result>
+    <perimetry_left_result>Normal</perimetry_left_result>
+    <mean_deviation_right>0.0</mean_deviation_right>
+    <mean_deviation_left>0.0</mean_deviation_left>
+    <pupil_right_size_mm>0.0</pupil_right_size_mm>
+    <pupil_left_size_mm>0.0</pupil_left_size_mm>
+    <pupil_right_shape>round</pupil_right_shape>
+    <pupil_left_shape>round</pupil_left_shape>
+    <pupil_right_reaction>brisk</pupil_right_reaction>
+    <pupil_left_reaction>brisk</pupil_left_reaction>
+    <rapd>none</rapd>
+    <ocular_motility>full</ocular_motility>
+    <ocular_motility_details>Example text.</ocular_motility_details>
+    <visual_field_pupils_notes>Example text.</visual_field_pupils_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </visual_field_pupils>
 </assessment>

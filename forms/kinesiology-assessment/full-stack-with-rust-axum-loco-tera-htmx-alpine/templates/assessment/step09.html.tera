@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Exercise Prescription - Kinesiology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Exercise Prescription</h2>
+<h2>Exercise Prescription</h2>
     <p class="hint">Rate the patient's exercise capacity and readiness (1 = Very Poor, 5 = Excellent).</p>
 
     <div class="form-row">
@@ -90,8 +82,4 @@
                   placeholder="e.g. Return to running, improve mobility">{{ exercise_prescription.exerciseGoals }}</textarea>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

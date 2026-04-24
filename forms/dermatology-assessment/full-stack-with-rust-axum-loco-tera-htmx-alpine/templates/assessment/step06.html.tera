@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Quality of Life (DLQI) - Dermatology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Quality of Life (DLQI)</h2>
+<h2>Quality of Life (DLQI)</h2>
     <p class="hint">The Dermatology Life Quality Index. Over the <strong>last week</strong>, how much has your skin problem affected you? (0 = Not at all, 1 = A little, 2 = A lot, 3 = Very much)</p>
 
     <div class="likert-group">
@@ -139,8 +131,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

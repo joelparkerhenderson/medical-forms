@@ -1,9 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <allergies>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_drug_allergies>yes</has_drug_allergies>
+    <drug_allergy_details>Example text.</drug_allergy_details>
+    <methotrexate_intolerance>yes</methotrexate_intolerance>
+    <sulfa_allergy>yes</sulfa_allergy>
+    <nsaid_allergy>yes</nsaid_allergy>
+    <biologic_reaction_history>yes</biologic_reaction_history>
+    <biologic_reaction_details>Example text.</biologic_reaction_details>
+    <latex_allergy>yes</latex_allergy>
+    <other_allergies/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </allergies>
+  <chief_complaint>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <primary_complaint/>
+    <symptom_onset_date>2026-01-15</symptom_onset_date>
+    <symptom_duration_weeks>1</symptom_duration_weeks>
+    <symptom_pattern>constant</symptom_pattern>
+    <morning_stiffness_duration_minutes>1</morning_stiffness_duration_minutes>
+    <pain_severity>1</pain_severity>
+    <fatigue_severity>1</fatigue_severity>
+    <patient_global_assessment>1</patient_global_assessment>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </chief_complaint>
+  <comorbidities_social>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <cardiovascular_disease>yes</cardiovascular_disease>
+    <cardiovascular_details>Example text.</cardiovascular_details>
+    <diabetes>yes</diabetes>
+    <diabetes_type>type1</diabetes_type>
+    <hypertension>yes</hypertension>
+    <chronic_kidney_disease>yes</chronic_kidney_disease>
+    <hepatitis_b_or_c>yes</hepatitis_b_or_c>
+    <tuberculosis_history>yes</tuberculosis_history>
+    <osteoporosis>yes</osteoporosis>
+    <depression_anxiety>yes</depression_anxiety>
+    <malignancy_history>yes</malignancy_history>
+    <malignancy_details>Example text.</malignancy_details>
+    <lives_alone>yes</lives_alone>
+    <carer_support>yes</carer_support>
+    <exercise_frequency>daily</exercise_frequency>
+    <vaccination_status_up_to_date>yes</vaccination_status_up_to_date>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </comorbidities_social>
+  <current_medications>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <currently_on_dmard>yes</currently_on_dmard>
+    <dmard_names>Example</dmard_names>
+    <currently_on_biologic>yes</currently_on_biologic>
+    <biologic_name>Example</biologic_name>
+    <currently_on_corticosteroid>yes</currently_on_corticosteroid>
+    <corticosteroid_dose_mg>10.0</corticosteroid_dose_mg>
+    <nsaid_use>yes</nsaid_use>
+    <nsaid_name>Example</nsaid_name>
+    <analgesic_use>yes</analgesic_use>
+    <analgesic_details>Example text.</analgesic_details>
+    <folic_acid_supplementation>yes</folic_acid_supplementation>
+    <other_medications>Paracetamol</other_medications>
+    <medication_adherence>good</medication_adherence>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ethnicity>White British</ethnicity>
+    <occupation>Teacher</occupation>
+    <referring_physician>Dr Smith</referring_physician>
+    <referral_date>2026-01-15</referral_date>
+    <smoking_status>current</smoking_status>
+    <alcohol_use>none</alcohol_use>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <disease_history>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <diagnosis>rheumatoid_arthritis</diagnosis>
+    <diagnosis_other>Under investigation</diagnosis_other>
+    <diagnosis_date>2026-01-15</diagnosis_date>
+    <disease_duration_years>2026</disease_duration_years>
+    <rheumatoid_factor_positive>yes</rheumatoid_factor_positive>
+    <anti_ccp_positive>yes</anti_ccp_positive>
+    <previous_dmard_use>yes</previous_dmard_use>
+    <previous_dmard_details>Example text.</previous_dmard_details>
+    <previous_biologic_use>yes</previous_biologic_use>
+    <previous_biologic_details>Example text.</previous_biologic_details>
+    <joint_surgery_history>yes</joint_surgery_history>
+    <joint_surgery_details>Example text.</joint_surgery_details>
+    <flare_frequency>rare</flare_frequency>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </disease_history>
+  <extra_articular_features>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <rheumatoid_nodules>yes</rheumatoid_nodules>
+    <rheumatoid_nodules_location>Example location</rheumatoid_nodules_location>
+    <dry_eyes_or_mouth>yes</dry_eyes_or_mouth>
+    <skin_rash>yes</skin_rash>
+    <skin_rash_details>Example text.</skin_rash_details>
+    <raynauds_phenomenon>yes</raynauds_phenomenon>
+    <interstitial_lung_disease>yes</interstitial_lung_disease>
+    <vasculitis>yes</vasculitis>
+    <scleritis_episcleritis>yes</scleritis_episcleritis>
+    <peripheral_neuropathy>yes</peripheral_neuropathy>
+    <pleuritis_pericarditis>yes</pleuritis_pericarditis>
+    <constitutional_symptoms>Fatigue</constitutional_symptoms>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </extra_articular_features>
+  <functional_assessment>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <haq_dressing_grooming>1</haq_dressing_grooming>
+    <haq_arising>1</haq_arising>
+    <haq_eating>1</haq_eating>
+    <haq_walking>1</haq_walking>
+    <haq_hygiene>1</haq_hygiene>
+    <haq_reach>1</haq_reach>
+    <haq_grip>1</haq_grip>
+    <haq_activities>1</haq_activities>
+    <work_impact>none</work_impact>
+    <mobility_aid_use>yes</mobility_aid_use>
+    <mobility_aid_details>Example text.</mobility_aid_details>
+    <physiotherapy_current>yes</physiotherapy_current>
+    <occupational_therapy_current>yes</occupational_therapy_current>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </functional_assessment>
+  <joint_assessment>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <tender_joint_count_28>2</tender_joint_count_28>
+    <swollen_joint_count_28>2</swollen_joint_count_28>
+    <shoulders_involved>yes</shoulders_involved>
+    <elbows_involved>yes</elbows_involved>
+    <wrists_involved>yes</wrists_involved>
+    <mcp_joints_involved>yes</mcp_joints_involved>
+    <pip_joints_involved>yes</pip_joints_involved>
+    <knees_involved>yes</knees_involved>
+    <joint_deformity_present>yes</joint_deformity_present>
+    <joint_deformity_details>Example text.</joint_deformity_details>
+    <joint_pattern>symmetric</joint_pattern>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </joint_assessment>
+  <laboratory_results>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <esr_mm_hr>0.0</esr_mm_hr>
+    <crp_mg_l>0.0</crp_mg_l>
+    <rheumatoid_factor_iu_ml>0.0</rheumatoid_factor_iu_ml>
+    <anti_ccp_u_ml>0.0</anti_ccp_u_ml>
+    <ana_positive>yes</ana_positive>
+    <ana_titre/>
+    <haemoglobin_g_dl>0.0</haemoglobin_g_dl>
+    <white_cell_count>0.0</white_cell_count>
+    <platelet_count>2</platelet_count>
+    <creatinine_umol_l>0.0</creatinine_umol_l>
+    <alt_u_l>0.0</alt_u_l>
+    <lab_date>2026-01-15</lab_date>
+    <additional_results>Normal</additional_results>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </laboratory_results>
 </assessment>

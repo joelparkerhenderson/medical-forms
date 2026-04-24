@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Capacity Assessment - Consent to Treatment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Capacity Assessment</h2>
+<h2>Capacity Assessment</h2>
     <p class="hint">Assess whether the patient has capacity to consent to this procedure (Mental Capacity Act 2005).</p>
 
     <div class="form-group">
@@ -90,8 +82,4 @@
       <textarea id="capacity_notes" name="capacity_assessment.capacity_notes"
                 placeholder="Additional notes on capacity assessment">{{ capacity_assessment.capacityNotes }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

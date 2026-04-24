@@ -1,16 +1,7 @@
-{% extends "base.html.tera" %}
+<div class="card" x-data="{ advanceDirectives: '{{ consent_and_preferences.advanceDirectives }}' }">
+    <h2>Step 10: Consent & Preferences</h2>
 
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
-<div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
-
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}"
-          x-data="{ advanceDirectives: '{{ consent_and_preferences.advanceDirectives }}' }">
-        <div class="form-group">
+<div class="form-group">
             <label>Consent to Treatment</label>
             <p class="form-hint">I consent to receiving medical treatment and understand the information provided will be used for my care.</p>
             <div class="radio-group">
@@ -64,6 +55,4 @@
             {% endif %}
             <button type="submit" class="btn btn-success">Submit Assessment</button>
         </div>
-    </form>
 </div>
-{% endblock %}

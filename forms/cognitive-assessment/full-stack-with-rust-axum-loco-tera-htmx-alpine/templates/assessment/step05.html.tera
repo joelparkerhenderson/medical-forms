@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Recall - Cognitive Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Recall (3 points)</h2>
+<h2>Recall (3 points)</h2>
     <p class="hint">Ask the patient to recall the three words from Registration. Score 1 for each correct word.</p>
 
     <div class="score-group">
@@ -80,8 +72,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

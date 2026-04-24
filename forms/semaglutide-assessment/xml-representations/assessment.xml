@@ -1,9 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <body_composition>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <current_weight_kg>70.0</current_weight_kg>
+    <height_cm>170.0</height_cm>
+    <bmi>24.2</bmi>
+    <waist_circumference_cm>0.0</waist_circumference_cm>
+    <hip_circumference_cm>0.0</hip_circumference_cm>
+    <waist_hip_ratio>1.5</waist_hip_ratio>
+    <body_fat_percentage>50.0</body_fat_percentage>
+    <highest_lifetime_weight_kg>70.0</highest_lifetime_weight_kg>
+    <weight_change_last_6_months_kg>70.0</weight_change_last_6_months_kg>
+    <bmi_category>underweight</bmi_category>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </body_composition>
+  <cardiovascular_risk>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hypertension>yes</hypertension>
+    <systolic_bp_mmhg>1</systolic_bp_mmhg>
+    <diastolic_bp_mmhg>1</diastolic_bp_mmhg>
+    <resting_heart_rate_bpm>1</resting_heart_rate_bpm>
+    <history_of_mi>yes</history_of_mi>
+    <history_of_stroke>yes</history_of_stroke>
+    <peripheral_arterial_disease>yes</peripheral_arterial_disease>
+    <heart_failure>yes</heart_failure>
+    <heart_failure_nyha_class>I</heart_failure_nyha_class>
+    <atrial_fibrillation>yes</atrial_fibrillation>
+    <family_history_cvd>yes</family_history_cvd>
+    <family_history_cvd_details>Example text.</family_history_cvd_details>
+    <obstructive_sleep_apnoea>yes</obstructive_sleep_apnoea>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cardiovascular_risk>
+  <contraindications_screening>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <personal_medullary_thyroid_carcinoma>yes</personal_medullary_thyroid_carcinoma>
+    <family_medullary_thyroid_carcinoma>yes</family_medullary_thyroid_carcinoma>
+    <men2_syndrome>yes</men2_syndrome>
+    <type1_diabetes>yes</type1_diabetes>
+    <pregnancy>yes</pregnancy>
+    <breastfeeding>yes</breastfeeding>
+    <planning_pregnancy>yes</planning_pregnancy>
+    <history_of_pancreatitis>yes</history_of_pancreatitis>
+    <gallbladder_disease>yes</gallbladder_disease>
+    <severe_renal_impairment>yes</severe_renal_impairment>
+    <egfr_ml_min>0.0</egfr_ml_min>
+    <diabetic_retinopathy>yes</diabetic_retinopathy>
+    <history_of_eating_disorder>yes</history_of_eating_disorder>
+    <known_hypersensitivity_glp1>yes</known_hypersensitivity_glp1>
+    <additional_contraindications/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </contraindications_screening>
+  <current_medications>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <currently_on_insulin>yes</currently_on_insulin>
+    <insulin_type>standard</insulin_type>
+    <insulin_dose>500mg</insulin_dose>
+    <currently_on_sulfonylurea>yes</currently_on_sulfonylurea>
+    <sulfonylurea_name>Example</sulfonylurea_name>
+    <currently_on_metformin>yes</currently_on_metformin>
+    <metformin_dose_mg>1</metformin_dose_mg>
+    <currently_on_sglt2_inhibitor>yes</currently_on_sglt2_inhibitor>
+    <sglt2_inhibitor_name>Example</sglt2_inhibitor_name>
+    <currently_on_other_glp1>yes</currently_on_other_glp1>
+    <other_glp1_name>Example</other_glp1_name>
+    <antihypertensive_use>yes</antihypertensive_use>
+    <antihypertensive_details>Example text.</antihypertensive_details>
+    <statin_use>yes</statin_use>
+    <anticoagulant_use>yes</anticoagulant_use>
+    <oral_contraceptive_use>yes</oral_contraceptive_use>
+    <other_medications>Paracetamol</other_medications>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ethnicity>White British</ethnicity>
+    <occupation>Teacher</occupation>
+    <referring_physician>Dr Smith</referring_physician>
+    <referral_date>2026-01-15</referral_date>
+    <smoking_status>current</smoking_status>
+    <alcohol_use>none</alcohol_use>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <gi_history>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <history_of_nausea>yes</history_of_nausea>
+    <history_of_vomiting>yes</history_of_vomiting>
+    <chronic_diarrhoea>yes</chronic_diarrhoea>
+    <chronic_constipation>yes</chronic_constipation>
+    <gastroesophageal_reflux>yes</gastroesophageal_reflux>
+    <gastroparesis>yes</gastroparesis>
+    <inflammatory_bowel_disease>yes</inflammatory_bowel_disease>
+    <ibd_type>crohns</ibd_type>
+    <irritable_bowel_syndrome>yes</irritable_bowel_syndrome>
+    <previous_gi_surgery>yes</previous_gi_surgery>
+    <gi_surgery_details>Example text.</gi_surgery_details>
+    <previous_bariatric_surgery>yes</previous_bariatric_surgery>
+    <bariatric_surgery_type>Example procedure</bariatric_surgery_type>
+    <current_gi_symptoms>Fatigue</current_gi_symptoms>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </gi_history>
+  <indication_goals>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <primary_indication>weight_management</primary_indication>
+    <indication_other/>
+    <weight_loss_goal_kg>70.0</weight_loss_goal_kg>
+    <target_hba1c_percent>50.0</target_hba1c_percent>
+    <previous_weight_loss_attempts>yes</previous_weight_loss_attempts>
+    <previous_attempts_details>Example text.</previous_attempts_details>
+    <previous_glp1_use>yes</previous_glp1_use>
+    <previous_glp1_details>Example text.</previous_glp1_details>
+    <patient_motivation>high</patient_motivation>
+    <realistic_expectations_discussed>yes</realistic_expectations_discussed>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </indication_goals>
+  <mental_health_screening>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <history_of_depression>yes</history_of_depression>
+    <current_depression>yes</current_depression>
+    <depression_treatment>yes</depression_treatment>
+    <depression_treatment_details>Example text.</depression_treatment_details>
+    <history_of_anxiety>yes</history_of_anxiety>
+    <current_anxiety>yes</current_anxiety>
+    <suicidal_ideation_history>yes</suicidal_ideation_history>
+    <current_suicidal_ideation>yes</current_suicidal_ideation>
+    <history_of_eating_disorder>yes</history_of_eating_disorder>
+    <eating_disorder_type>anorexia</eating_disorder_type>
+    <eating_disorder_details>Example text.</eating_disorder_details>
+    <binge_eating_current>yes</binge_eating_current>
+    <body_image_concerns>yes</body_image_concerns>
+    <phq2_score>5</phq2_score>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </mental_health_screening>
+  <metabolic_profile>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <fasting_glucose_mmol_l>0.0</fasting_glucose_mmol_l>
+    <hba1c_percent>50.0</hba1c_percent>
+    <hba1c_mmol_mol>0.0</hba1c_mmol_mol>
+    <diabetes_diagnosis>yes</diabetes_diagnosis>
+    <diabetes_type>type1</diabetes_type>
+    <diabetes_duration_years>2026</diabetes_duration_years>
+    <total_cholesterol_mmol_l>0.0</total_cholesterol_mmol_l>
+    <ldl_cholesterol_mmol_l>0.0</ldl_cholesterol_mmol_l>
+    <hdl_cholesterol_mmol_l>0.0</hdl_cholesterol_mmol_l>
+    <triglycerides_mmol_l>0.0</triglycerides_mmol_l>
+    <insulin_resistance_suspected>yes</insulin_resistance_suspected>
+    <metabolic_syndrome>yes</metabolic_syndrome>
+    <thyroid_function_normal>yes</thyroid_function_normal>
+    <tsh_miu_l>0.0</tsh_miu_l>
+    <lab_date>2026-01-15</lab_date>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </metabolic_profile>
+  <treatment_plan>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <semaglutide_formulation>subcutaneous</semaglutide_formulation>
+    <brand_name>ozempic</brand_name>
+    <starting_dose>500mg</starting_dose>
+    <dose_escalation_plan>Example text.</dose_escalation_plan>
+    <injection_site_education>yes</injection_site_education>
+    <dietary_counselling_provided>yes</dietary_counselling_provided>
+    <exercise_plan_discussed>yes</exercise_plan_discussed>
+    <behavioural_support_referral>yes</behavioural_support_referral>
+    <monitoring_plan>Example text.</monitoring_plan>
+    <follow_up_interval_weeks>1</follow_up_interval_weeks>
+    <insulin_dose_adjustment_needed>yes</insulin_dose_adjustment_needed>
+    <sulfonylurea_dose_adjustment_needed>yes</sulfonylurea_dose_adjustment_needed>
+    <informed_consent_obtained>yes</informed_consent_obtained>
+    <side_effects_discussed>yes</side_effects_discussed>
+    <clinician_notes>Example text.</clinician_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </treatment_plan>
 </assessment>

@@ -1,9 +1,209 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <birth_plan>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_birth_location>hospital</preferred_birth_location>
+    <preferred_delivery_method>vaginal</preferred_delivery_method>
+    <pain_relief_preference>epidural</pain_relief_preference>
+    <birth_partner>yes</birth_partner>
+    <birth_partner_details>Example text.</birth_partner_details>
+    <skin_to_skin>yes</skin_to_skin>
+    <delayed_cord_clamping>yes</delayed_cord_clamping>
+    <infant_feeding_intention>breastfeed</infant_feeding_intention>
+    <vitamin_k_consent>yes</vitamin_k_consent>
+    <vitamin_k_route>injection</vitamin_k_route>
+    <cord_blood_banking>yes</cord_blood_banking>
+    <cultural_religious_needs/>
+    <special_requests/>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </birth_plan>
+  <current_symptoms>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <nausea_vomiting>none</nausea_vomiting>
+    <hyperemesis_gravidarum>yes</hyperemesis_gravidarum>
+    <vaginal_bleeding>yes</vaginal_bleeding>
+    <bleeding_details>Example text.</bleeding_details>
+    <abdominal_pain>yes</abdominal_pain>
+    <abdominal_pain_details>Example text.</abdominal_pain_details>
+    <headaches>none</headaches>
+    <visual_disturbances>yes</visual_disturbances>
+    <oedema>none</oedema>
+    <oedema_location>Example location</oedema_location>
+    <reduced_fetal_movement>yes</reduced_fetal_movement>
+    <urinary_symptoms>yes</urinary_symptoms>
+    <urinary_symptom_details>Example text.</urinary_symptom_details>
+    <pelvic_pain>yes</pelvic_pain>
+    <shortness_of_breath>yes</shortness_of_breath>
+    <additional_symptoms>Fatigue</additional_symptoms>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_symptoms>
+  <laboratory_results>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <haemoglobin_gdl>0.0</haemoglobin_gdl>
+    <haematocrit_pct>0.0</haematocrit_pct>
+    <platelet_count>2</platelet_count>
+    <white_blood_cell_count>0.0</white_blood_cell_count>
+    <blood_glucose_mmol>0.0</blood_glucose_mmol>
+    <hba1c_pct>0.0</hba1c_pct>
+    <gtt_result>normal</gtt_result>
+    <ferritin_ngml>0.0</ferritin_ngml>
+    <thyroid_tsh>0.0</thyroid_tsh>
+    <hiv_screening>negative</hiv_screening>
+    <hepatitis_b>negative</hepatitis_b>
+    <hepatitis_c>negative</hepatitis_c>
+    <syphilis_screening>negative</syphilis_screening>
+    <rubella_immunity>immune</rubella_immunity>
+    <group_b_strep>negative</group_b_strep>
+    <urine_culture>negative</urine_culture>
+    <urine_culture_organism/>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </laboratory_results>
+  <lifestyle_nutrition>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <smoking_status>never</smoking_status>
+    <cigarettes_per_day>1</cigarettes_per_day>
+    <smoking_cessation_advice>yes</smoking_cessation_advice>
+    <alcohol_use>none</alcohol_use>
+    <alcohol_units_per_week>1</alcohol_units_per_week>
+    <recreational_drug_use>yes</recreational_drug_use>
+    <drug_use_details>Example text.</drug_use_details>
+    <folic_acid_supplementation>yes</folic_acid_supplementation>
+    <folic_acid_dose>500mg</folic_acid_dose>
+    <vitamin_d_supplementation>yes</vitamin_d_supplementation>
+    <iron_supplementation>yes</iron_supplementation>
+    <dietary_restrictions/>
+    <exercise_frequency>daily</exercise_frequency>
+    <occupation>Teacher</occupation>
+    <occupational_hazards>yes</occupational_hazards>
+    <occupational_hazard_details>Example text.</occupational_hazard_details>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </lifestyle_nutrition>
+  <medical_history>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hypertension>yes</hypertension>
+    <diabetes>type-1</diabetes>
+    <thyroid_disorder>yes</thyroid_disorder>
+    <thyroid_disorder_details>Example text.</thyroid_disorder_details>
+    <autoimmune_conditions>yes</autoimmune_conditions>
+    <autoimmune_details>Example text.</autoimmune_details>
+    <epilepsy>yes</epilepsy>
+    <cardiac_conditions>yes</cardiac_conditions>
+    <cardiac_details>Example text.</cardiac_details>
+    <renal_conditions>yes</renal_conditions>
+    <renal_details>Example text.</renal_details>
+    <thrombophilia>yes</thrombophilia>
+    <previous_vte>yes</previous_vte>
+    <psychiatric_history>yes</psychiatric_history>
+    <psychiatric_details>Example text.</psychiatric_details>
+    <previous_surgeries>yes</previous_surgeries>
+    <surgery_details>Example text.</surgery_details>
+    <known_allergies>yes</known_allergies>
+    <allergy_details>Example text.</allergy_details>
+    <current_medications>Paracetamol</current_medications>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_history>
+  <mental_health>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_mental_health_condition>yes</previous_mental_health_condition>
+    <previous_condition_details>Example text.</previous_condition_details>
+    <previous_postnatal_depression>yes</previous_postnatal_depression>
+    <current_mood>good</current_mood>
+    <feeling_anxious>none</feeling_anxious>
+    <phq2_score>5</phq2_score>
+    <gad2_score>5</gad2_score>
+    <bonding_concerns>yes</bonding_concerns>
+    <domestic_abuse_screening>yes</domestic_abuse_screening>
+    <domestic_abuse_disclosed>yes</domestic_abuse_disclosed>
+    <social_support_adequate>yes</social_support_adequate>
+    <self_harm_thoughts>yes</self_harm_thoughts>
+    <current_mental_health_treatment>yes</current_mental_health_treatment>
+    <treatment_details>Example text.</treatment_details>
+    <referral_needed>yes</referral_needed>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </mental_health>
+  <obstetric_history>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <gravida>1</gravida>
+    <para>1</para>
+    <living_children>1</living_children>
+    <miscarriages>45</miscarriages>
+    <terminations>1</terminations>
+    <ectopic_pregnancies>1</ectopic_pregnancies>
+    <stillbirths>1</stillbirths>
+    <neonatal_deaths>1</neonatal_deaths>
+    <previous_caesarean>yes</previous_caesarean>
+    <caesarean_count>2</caesarean_count>
+    <previous_preterm_birth>yes</previous_preterm_birth>
+    <previous_preeclampsia>yes</previous_preeclampsia>
+    <previous_gestational_diabetes>yes</previous_gestational_diabetes>
+    <previous_postpartum_haemorrhage>yes</previous_postpartum_haemorrhage>
+    <previous_complications_details>Example text.</previous_complications_details>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </obstetric_history>
+  <pregnancy_details>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <estimated_due_date>2026-01-15</estimated_due_date>
+    <gestational_age_weeks>45</gestational_age_weeks>
+    <gestational_age_days>45</gestational_age_days>
+    <dating_method>lmp</dating_method>
+    <last_menstrual_period>2026-01-15</last_menstrual_period>
+    <pregnancy_type>singleton</pregnancy_type>
+    <conception_method>natural</conception_method>
+    <planned_pregnancy>yes</planned_pregnancy>
+    <booking_visit_completed>yes</booking_visit_completed>
+    <booking_visit_date>2026-01-15</booking_visit_date>
+    <blood_group>A+</blood_group>
+    <rhesus_status>positive</rhesus_status>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </pregnancy_details>
+  <vital_signs>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <systolic_bp_mmhg>1</systolic_bp_mmhg>
+    <diastolic_bp_mmhg>1</diastolic_bp_mmhg>
+    <heart_rate_bpm>1</heart_rate_bpm>
+    <temperature_celsius>0.0</temperature_celsius>
+    <respiratory_rate>1</respiratory_rate>
+    <oxygen_saturation_pct>1.5</oxygen_saturation_pct>
+    <weight_kg>70.0</weight_kg>
+    <pre_pregnancy_weight_kg>70.0</pre_pregnancy_weight_kg>
+    <weight_gain_kg>70.0</weight_gain_kg>
+    <fundal_height_cm>170.0</fundal_height_cm>
+    <fetal_heart_rate_bpm>1</fetal_heart_rate_bpm>
+    <fetal_lie>longitudinal</fetal_lie>
+    <fetal_presentation>cephalic</fetal_presentation>
+    <proteinuria>none</proteinuria>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </vital_signs>
 </assessment>

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Functional Assessment - Cognitive Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Functional Assessment</h2>
+<h2>Functional Assessment</h2>
     <p class="hint">Assess the patient's ability to perform instrumental activities of daily living (IADLs). Score 1 for independent, 0 for dependent/unable.</p>
 
     <div class="score-group">
@@ -121,8 +113,4 @@
         </label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

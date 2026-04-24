@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Lower Urinary Tract - Urology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Lower Urinary Tract</h2>
+<h2>Lower Urinary Tract</h2>
     <p class="hint">Assess lower urinary tract signs and symptoms.</p>
 
     <div class="form-row">
@@ -85,8 +77,4 @@
         <option value="5" {% if lower_urinary_tract.utiFrequencyPerYear == 5 %}selected{% endif %}>5+</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

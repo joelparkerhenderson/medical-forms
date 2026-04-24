@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Functional Assessment - Gerontology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Functional Assessment</h2>
+<h2>Functional Assessment</h2>
     <p class="hint">Assess the patient's ability to perform activities of daily living using the Barthel Index and Katz ADL scales.</p>
 
     <h3>Barthel Index (0 = Unable, 1 = Needs Help, 2 = Independent)</h3>
@@ -57,8 +49,4 @@
       </div>
     </div>
     {% endfor %}
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

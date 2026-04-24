@@ -1,14 +1,4 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
-<div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
-
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+<div class="card" x-data="{
         ecgPerformed: '{{ investigations.ecgPerformed }}',
         imaging: [
             {% for img in imaging %}
@@ -18,7 +8,9 @@
         addImaging() { this.imaging.push({ imaging_type: '', site: '', findings: '' }); },
         removeImaging(i) { this.imaging.splice(i, 1); }
     }">
-        <h3>Blood Tests</h3>
+    <h2>Step 10: Investigations</h2>
+
+<h3>Blood Tests</h3>
         <p class="form-hint">Select ordered blood tests.</p>
         <div class="checkbox-group" style="flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 1rem;">
             {% set blood_test_options = ["FBC", "U&E", "LFTs", "CRP", "Coagulation", "Troponin", "D-Dimer", "Blood Gas", "Lactate", "Amylase", "Group & Save", "Cross-match"] %}
@@ -92,8 +84,4 @@
             <label for="other_investigations">Other Investigations</label>
             <textarea id="other_investigations" name="investigations.other_investigations">{{ investigations.otherInvestigations }}</textarea>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

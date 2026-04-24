@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Cardiac History - Cardiology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Cardiac History</h2>
+<h2>Cardiac History</h2>
     <p class="hint">Document the patient's previous cardiac conditions and procedures.</p>
 
     <div class="form-row">
@@ -89,8 +81,4 @@
       <textarea id="family_cardiac_history" name="cardiac_history.family_cardiac_history"
                 rows="3" placeholder="Describe any relevant family cardiac history">{{ cardiac_history.familyCardiacHistory }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

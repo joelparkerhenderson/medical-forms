@@ -1,14 +1,197 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<weight>70.0</weight>
-<height>170.0</height>
-<bmi>24.2</bmi>
-<planned_procedure>Example text.</planned_procedure>
-<procedure_urgency>elective</procedure_urgency>
-<status>in_progress</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <weight>70.0</weight>
+  <height>170.0</height>
+  <bmi>24.2</bmi>
+  <planned_procedure>Example text.</planned_procedure>
+  <procedure_urgency>elective</procedure_urgency>
+  <status>in_progress</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <allergy>
+    <id>330e8400-e29b-41d4-a716-44665544000d</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <allergen>Peanuts</allergen>
+    <reaction>Urticaria</reaction>
+    <severity>mild</severity>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </allergy>
+  <cardiovascular>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hypertension>yes</hypertension>
+    <hypertension_controlled>yes</hypertension_controlled>
+    <ischemic_heart_disease>yes</ischemic_heart_disease>
+    <ihd_details>Example text.</ihd_details>
+    <heart_failure>yes</heart_failure>
+    <heart_failure_nyha>1</heart_failure_nyha>
+    <valvular_disease>yes</valvular_disease>
+    <valvular_details>Example text.</valvular_details>
+    <arrhythmia>yes</arrhythmia>
+    <arrhythmia_type>standard</arrhythmia_type>
+    <pacemaker>yes</pacemaker>
+    <recent_mi>yes</recent_mi>
+    <recent_mi_weeks>1</recent_mi_weeks>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cardiovascular>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <endocrine>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <diabetes>type1</diabetes>
+    <diabetes_control>well-controlled</diabetes_control>
+    <diabetes_on_insulin>yes</diabetes_on_insulin>
+    <thyroid_disease>yes</thyroid_disease>
+    <thyroid_type>hypothyroid</thyroid_type>
+    <adrenal_insufficiency>yes</adrenal_insufficiency>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </endocrine>
+  <functional_capacity>
+    <id>661e8400-e29b-41d4-a716-446655440010</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <exercise_tolerance>unable</exercise_tolerance>
+    <estimated_mets>0.0</estimated_mets>
+    <mobility_aids>yes</mobility_aids>
+    <recent_decline>yes</recent_decline>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </functional_capacity>
+  <gastrointestinal>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <gord>yes</gord>
+    <hiatus_hernia>yes</hiatus_hernia>
+    <nausea>yes</nausea>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </gastrointestinal>
+  <haematological>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <bleeding_disorder>yes</bleeding_disorder>
+    <bleeding_details>Example text.</bleeding_details>
+    <on_anticoagulants>yes</on_anticoagulants>
+    <anticoagulant_type>standard</anticoagulant_type>
+    <sickle_cell_disease>yes</sickle_cell_disease>
+    <sickle_cell_trait>yes</sickle_cell_trait>
+    <anaemia>yes</anaemia>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </haematological>
+  <hepatic>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <liver_disease>yes</liver_disease>
+    <cirrhosis>yes</cirrhosis>
+    <child_pugh_score>A</child_pugh_score>
+    <hepatitis>yes</hepatitis>
+    <hepatitis_type>standard</hepatitis_type>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </hepatic>
+  <medication>
+    <id>220e8400-e29b-41d4-a716-44665544000c</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <name>Example</name>
+    <dose>500mg</dose>
+    <frequency>twice daily</frequency>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medication>
+  <musculoskeletal_airway>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <rheumatoid_arthritis>yes</rheumatoid_arthritis>
+    <cervical_spine_issues>yes</cervical_spine_issues>
+    <limited_neck_movement>yes</limited_neck_movement>
+    <limited_mouth_opening>yes</limited_mouth_opening>
+    <dental_issues>yes</dental_issues>
+    <dental_details>Example text.</dental_details>
+    <previous_difficult_airway>yes</previous_difficult_airway>
+    <mallampati_score>1</mallampati_score>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </musculoskeletal_airway>
+  <neurological>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <stroke_or_tia>yes</stroke_or_tia>
+    <stroke_details>Example text.</stroke_details>
+    <epilepsy>yes</epilepsy>
+    <epilepsy_controlled>yes</epilepsy_controlled>
+    <neuromuscular_disease>yes</neuromuscular_disease>
+    <neuromuscular_details>Example text.</neuromuscular_details>
+    <raised_icp>yes</raised_icp>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </neurological>
+  <pregnancy>
+    <id>771e8400-e29b-41d4-a716-446655440011</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <possibly_pregnant>yes</possibly_pregnant>
+    <pregnancy_confirmed>yes</pregnancy_confirmed>
+    <gestation_weeks>1</gestation_weeks>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </pregnancy>
+  <assessment_previous_anaesthesia>
+    <id>440e8400-e29b-41d4-a716-44665544000e</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_anaesthesia>yes</previous_anaesthesia>
+    <anaesthesia_problems>yes</anaesthesia_problems>
+    <anaesthesia_problem_details>Example text.</anaesthesia_problem_details>
+    <family_mh_history>yes</family_mh_history>
+    <family_mh_details>Example text.</family_mh_details>
+    <ponv>yes</ponv>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </assessment_previous_anaesthesia>
+  <renal>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ckd>yes</ckd>
+    <ckd_stage>1</ckd_stage>
+    <dialysis>yes</dialysis>
+    <dialysis_type>haemodialysis</dialysis_type>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </renal>
+  <respiratory>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <asthma>yes</asthma>
+    <asthma_frequency>intermittent</asthma_frequency>
+    <copd>yes</copd>
+    <copd_severity>mild</copd_severity>
+    <osa>yes</osa>
+    <osa_cpap>yes</osa_cpap>
+    <smoking>current</smoking>
+    <smoking_pack_years>2026</smoking_pack_years>
+    <recent_urti>yes</recent_urti>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </respiratory>
+  <social_history>
+    <id>551e8400-e29b-41d4-a716-44665544000f</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <alcohol>none</alcohol>
+    <alcohol_units_per_week>1</alcohol_units_per_week>
+    <recreational_drugs>yes</recreational_drugs>
+    <drug_details>Example text.</drug_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </social_history>
 </assessment>

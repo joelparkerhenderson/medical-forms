@@ -1,19 +1,11 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 5: Treatments Refused - Life-Sustaining</h2>
     <p class="form-hint">
         <strong>Important:</strong> Under the Mental Capacity Act 2005, refusing life-sustaining treatment
         requires a written statement that the decision applies "even if life is at risk", plus a signature and witness.
     </p>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <!-- CPR -->
+<!-- CPR -->
         <div class="treatment-card">
             <h4>Cardiopulmonary Resuscitation (CPR)</h4>
             <div class="form-group">
@@ -149,8 +141,4 @@
                 <textarea name="other_life_sustaining[{{ treatments_refused_life_sustaining.otherLifeSustaining | length }}].specification" placeholder="Specify conditions"></textarea>
             </div>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

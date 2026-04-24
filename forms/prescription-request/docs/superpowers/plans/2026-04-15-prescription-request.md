@@ -91,7 +91,7 @@ CREATE TABLE patient (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-CREATE TRIGGER trg_patient_updated_at
+CREATE TRIGGER trigger_patient_updated_at
     BEFORE UPDATE ON patient
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();
@@ -127,7 +127,7 @@ CREATE TABLE clinician (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-CREATE TRIGGER trg_clinician_updated_at
+CREATE TRIGGER trigger_clinician_updated_at
     BEFORE UPDATE ON clinician
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();
@@ -164,7 +164,7 @@ CREATE TABLE prescription_request (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-CREATE TRIGGER trg_prescription_request_updated_at
+CREATE TRIGGER trigger_prescription_request_updated_at
     BEFORE UPDATE ON prescription_request
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();
@@ -202,7 +202,7 @@ CREATE TABLE prescription_details (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-CREATE TRIGGER trg_prescription_details_updated_at
+CREATE TRIGGER trigger_prescription_details_updated_at
     BEFORE UPDATE ON prescription_details
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();
@@ -242,7 +242,7 @@ CREATE TABLE prescription_substitution_options (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-CREATE TRIGGER trg_prescription_substitution_options_updated_at
+CREATE TRIGGER trigger_prescription_substitution_options_updated_at
     BEFORE UPDATE ON prescription_substitution_options
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();
@@ -278,7 +278,7 @@ CREATE TABLE prescription_request_type (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-CREATE TRIGGER trg_prescription_request_type_updated_at
+CREATE TRIGGER trigger_prescription_request_type_updated_at
     BEFORE UPDATE ON prescription_request_type
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();
@@ -313,7 +313,7 @@ CREATE TABLE grading_result (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-CREATE TRIGGER trg_grading_result_updated_at
+CREATE TRIGGER trigger_grading_result_updated_at
     BEFORE UPDATE ON grading_result
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();
@@ -348,7 +348,7 @@ CREATE TABLE grading_fired_rule (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-CREATE TRIGGER trg_grading_fired_rule_updated_at
+CREATE TRIGGER trigger_grading_fired_rule_updated_at
     BEFORE UPDATE ON grading_fired_rule
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();
@@ -384,7 +384,7 @@ CREATE TABLE grading_additional_flag (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
-CREATE TRIGGER trg_grading_additional_flag_updated_at
+CREATE TRIGGER trigger_grading_additional_flag_updated_at
     BEFORE UPDATE ON grading_additional_flag
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();

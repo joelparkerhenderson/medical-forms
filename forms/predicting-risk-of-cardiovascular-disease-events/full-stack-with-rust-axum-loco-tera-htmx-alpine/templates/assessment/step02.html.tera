@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Demographics - AHA PREVENT{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Demographics</h2>
+<h2>Demographics</h2>
     <p class="hint">Age and sex are required for risk calculation. Height and weight are used to calculate BMI.</p>
 
     <div class="form-row">
@@ -60,8 +52,4 @@
              value="{{ demographics.zipCode }}"
              placeholder="e.g. SW1A 1AA">
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

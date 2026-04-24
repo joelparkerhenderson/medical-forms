@@ -1,15 +1,7 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 2: Insurance & ID</h2>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-row">
+<div class="form-row">
             <div class="form-group">
                 <label for="insurance_provider">Insurance Provider</label>
                 <input type="text" id="insurance_provider" name="insurance_and_id.insurance_provider"
@@ -48,8 +40,4 @@
             <input type="tel" id="gp_phone" name="insurance_and_id.gp_phone"
                    value="{{ insurance_and_id.gpPhone }}">
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

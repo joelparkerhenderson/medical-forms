@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Reflexes & Coordination - Neurology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Reflexes & Coordination</h2>
+<h2>Reflexes & Coordination</h2>
     <p class="hint">Assess deep tendon reflexes, plantar response, and coordination tests.</p>
 
     <h3>Deep Tendon Reflexes</h3>
@@ -93,8 +85,4 @@
         </div>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

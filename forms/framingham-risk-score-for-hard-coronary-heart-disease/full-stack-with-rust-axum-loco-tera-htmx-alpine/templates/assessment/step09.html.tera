@@ -1,66 +1,54 @@
-{% extends "base.html.tera" %}
+<section id="step-9" class="card scroll-mt-20">
+  <h2>9. Current Medications</h2>
+  <p class="hint">Current medication use helps identify treatment gaps and informs clinical recommendations.</p>
 
-{% block title %}Current Medications - Framingham Risk Score{% endblock %}
-
-{% block content %}
-<div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Current Medications</h2>
-    <p class="hint">Current medication use helps identify treatment gaps and informs clinical recommendations.</p>
-
-    <div class="form-group">
-      <label>Currently on Statin Therapy?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="current_medications.on_statin" value="yes"
-                      {% if current_medications.onStatin == "yes" %}checked{% endif %}> Yes</label>
-        <label><input type="radio" name="current_medications.on_statin" value="no"
-                      {% if current_medications.onStatin == "no" %}checked{% endif %}> No</label>
-      </div>
+  <div class="form-group">
+    <label>Currently on Statin Therapy?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="current_medications.on_statin" value="yes"
+                    {% if current_medications.onStatin == "yes" %}checked{% endif %}> Yes</label>
+      <label><input type="radio" name="current_medications.on_statin" value="no"
+                    {% if current_medications.onStatin == "no" %}checked{% endif %}> No</label>
     </div>
+  </div>
 
-    <div class="form-group">
-      <label for="statin_name">Statin Name (if applicable)</label>
-      <input type="text" id="statin_name" name="current_medications.statin_name"
-             value="{{ current_medications.statinName }}"
-             placeholder="e.g. Atorvastatin 20mg">
+  <div class="form-group">
+    <label for="statin_name">Statin Name (if applicable)</label>
+    <input type="text" id="statin_name" name="current_medications.statin_name"
+           value="{{ current_medications.statinName }}"
+           placeholder="e.g. Atorvastatin 20mg">
+  </div>
+
+  <div class="form-group">
+    <label>Currently on Aspirin?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="current_medications.on_aspirin" value="yes"
+                    {% if current_medications.onAspirin == "yes" %}checked{% endif %}> Yes</label>
+      <label><input type="radio" name="current_medications.on_aspirin" value="no"
+                    {% if current_medications.onAspirin == "no" %}checked{% endif %}> No</label>
     </div>
+  </div>
 
-    <div class="form-group">
-      <label>Currently on Aspirin?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="current_medications.on_aspirin" value="yes"
-                      {% if current_medications.onAspirin == "yes" %}checked{% endif %}> Yes</label>
-        <label><input type="radio" name="current_medications.on_aspirin" value="no"
-                      {% if current_medications.onAspirin == "no" %}checked{% endif %}> No</label>
-      </div>
+  <div class="form-group">
+    <label>Currently on Antihypertensive?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="current_medications.on_antihypertensive" value="yes"
+                    {% if current_medications.onAntihypertensive == "yes" %}checked{% endif %}> Yes</label>
+      <label><input type="radio" name="current_medications.on_antihypertensive" value="no"
+                    {% if current_medications.onAntihypertensive == "no" %}checked{% endif %}> No</label>
     </div>
+  </div>
 
-    <div class="form-group">
-      <label>Currently on Antihypertensive?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="current_medications.on_antihypertensive" value="yes"
-                      {% if current_medications.onAntihypertensive == "yes" %}checked{% endif %}> Yes</label>
-        <label><input type="radio" name="current_medications.on_antihypertensive" value="no"
-                      {% if current_medications.onAntihypertensive == "no" %}checked{% endif %}> No</label>
-      </div>
-    </div>
+  <div class="form-group">
+    <label for="antihypertensive_name">Antihypertensive Name (if applicable)</label>
+    <input type="text" id="antihypertensive_name" name="current_medications.antihypertensive_name"
+           value="{{ current_medications.antihypertensiveName }}"
+           placeholder="e.g. Lisinopril 10mg">
+  </div>
 
-    <div class="form-group">
-      <label for="antihypertensive_name">Antihypertensive Name (if applicable)</label>
-      <input type="text" id="antihypertensive_name" name="current_medications.antihypertensive_name"
-             value="{{ current_medications.antihypertensiveName }}"
-             placeholder="e.g. Lisinopril 10mg">
-    </div>
-
-    <div class="form-group">
-      <label for="other_medications">Other Medications</label>
-      <textarea id="other_medications" name="current_medications.other_medications" rows="3"
-                placeholder="List any other current medications">{{ current_medications.otherMedications }}</textarea>
-    </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
-</div>
-{% endblock %}
+  <div class="form-group">
+    <label for="other_medications">Other Medications</label>
+    <textarea id="other_medications" name="current_medications.other_medications" rows="3"
+              placeholder="List any other current medications">{{ current_medications.otherMedications }}</textarea>
+  </div>
+</section>

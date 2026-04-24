@@ -1,16 +1,31 @@
-# Heart Health Check: SQL Migrations
+# heart-health-check — sql-migrations
 
-PostgreSQL schema migrations for the Heart Health Check assessment. 15 files creating a normalised relational schema.
+PostgreSQL migrations for this form. See
+`AGENTS/sql-migrations.md` for conventions.
 
-## Tables
+## Canonical files
 
-- **patient** - Demographics and contact details
-- **assessment** - Assessment header with status tracking
-- **demographics_ethnicity** through **review_calculate** - One-to-one section tables (steps 2–10)
-- **grading_result** - Risk category, 10-year risk %, heart age
-- **grading_fired_rule** - Individual fired risk rules
-- **grading_additional_flag** - Clinical safety flags
+- `00_extensions.sql` — required extensions (pgcrypto).
+- `01_create_function_set_updated_at.sql` — trigger function used by every `updated_at` column.
+- `02_create_table_patient.sql` — patient table.
+- `03_create_table_clinician.sql` — clinician table.
 
-## Status
+## Form-specific tables
 
-Implemented.
+- `assessment`
+- `demographics_ethnicity`
+- `blood_pressure`
+- `cholesterol`
+- `medical_conditions`
+- `family_history`
+- `smoking_alcohol`
+- `physical_activity_diet`
+- `body_measurements`
+- `review_calculate`
+- `grading_result`
+- `grading_fired_rule`
+- `grading_additional_flag`
+
+## Derived artefacts
+
+- `schema.sql` — every migration concatenated (generated).

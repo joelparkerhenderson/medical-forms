@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Medical History - Semaglutide Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Medical History</h2>
+<h2>Medical History</h2>
     <p class="hint">Record the patient's relevant comorbidities and medical conditions.</p>
 
     <div class="form-row">
@@ -93,8 +85,4 @@
                placeholder="List any other relevant conditions">
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

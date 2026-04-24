@@ -58,7 +58,7 @@ CREATE TABLE example (
 
 ## Required extensions
 
-The `00-extensions.sql` file enables every extension the form's schema depends
+The `00_extensions.sql` file enables every extension the form's schema depends
 on. The default minimum is `pgcrypto`:
 
 ```sql
@@ -88,6 +88,22 @@ CREATE TRIGGER trigger_set_updated_at
     FOR EACH ROW
     EXECUTE FUNCTION set_updated_at();
 ```
+
+
+## Comments
+
+Parse every CREATE TABLE and its columns.
+
+Scan the same file for existing COMMENT ON TABLE <name> and COMMENT ON COLUMN <name>.<col> entries.
+ 
+Appends only the missing comments at end of file — hand-crafted comments (e.g. framingham's clinically-accurate patient comments) are preserved exactly.
+
+Comment text comes from a heuristic, ordered by specificity:
+
+1. Known columns: id → "Primary key UUID, auto-generated.", created_at / updated_at / deleted_at / status → stock phrasing.
+2. FK columns: "Foreign key to the <target> table."
+3. CHECK IN (…) columns: humanized name + "One of: v1, v2, …."
+4. Fallback: humanized snake_case (with ~50 acronyms like NHS, GCS, ECG, COPD, SpO2 preserved in caps).
 
 ## Verify
 

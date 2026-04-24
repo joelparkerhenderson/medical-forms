@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Skin Manifestations - MCAS Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Skin Manifestations</h2>
+<h2>Skin Manifestations</h2>
     <p class="hint">Rate the severity of cutaneous symptoms (1=None/Minimal, 5=Severe/Constant).</p>
 
     <div class="form-row">
@@ -72,8 +64,4 @@
         <label><input type="radio" name="skin_manifestations.skin_lesions_present" value="no" {% if skin_manifestations.skinLesionsPresent == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

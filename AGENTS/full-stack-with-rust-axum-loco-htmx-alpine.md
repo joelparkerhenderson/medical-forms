@@ -28,6 +28,12 @@ Slug: full-stack-with-rust-axum-loco-tera-htmx-alpine
 
 Rust edition 2024 requires Rust 1.85 or newer.
 
+## Loco
+
+Create app: `loco new --name [form] --db postgres --bg async --assets serverside`
+
+Create scaffold: `cargo loco generate scaffold [model] [field]:[type] [field]:[type] [field]:[type]`
+
 ## Crate layout
 
 Each form's full-stack crate is a Cargo workspace with a `migration` sub-crate:
@@ -95,6 +101,29 @@ The `<body>` tag must use `hx-boost="true"` for HTMX-driven navigation:
 - SeaORM entities target PostgreSQL 18
 - Tera templates render server-side; HTMX swaps fragments for navigation
 - Alpine.js provides declarative conditional-field logic inside templates
+
+## Form pattern
+
+Every form is a **single-page wizard** (per the monorepo rule). The Rust
+controller exposes three routes for the data-entry flow:
+
+| Method | Route                       | Handler               | Purpose                                              |
+| ------ | --------------------------- | --------------------- | ---------------------------------------------------- |
+| GET    | `/assessment/{id}`          | `show_assessment`     | Render `assessment.html.tera` with all sections      |
+| POST   | `/assessment/{id}/submit`   | `submit_assessment`   | Merge every field into JSONB, redirect to report     |
+| GET    | `/assessment/{id}/report`   | `show_report`         | Run grading engine, render `report.html.tera`        |
+
+The top-level `templates/assessment.html.tera` extends `base.html.tera`,
+opens one `<form method="POST" action="/assessment/{id}/submit">`, and
+`{% include %}`s every `assessment/stepNN.html.tera` partial. Each partial
+is plain markup (no `{% extends %}`, no form wrapper, no inter-step
+navigation). There are no `_progress.html.tera` or `_nav.html.tera`
+partials.
+
+The view helper that builds the template context is
+`build_assessment_context(data, id)`, which inserts `data`, the id, and
+every top-level section field into the Tera context. There is no
+per-step / progress-bar / prev-next context state.
 
 ## Commands
 

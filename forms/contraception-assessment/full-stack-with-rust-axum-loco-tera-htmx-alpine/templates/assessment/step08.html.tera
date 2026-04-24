@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}UKMEC Eligibility - Contraception Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>UKMEC Eligibility</h2>
+<h2>UKMEC Eligibility</h2>
     <p class="hint">Assign UKMEC categories (1-4) for each contraceptive method based on the patient's medical profile. 1 = No restriction, 2 = Advantages &gt; risks, 3 = Risks &gt; advantages, 4 = Unacceptable risk.</p>
 
     <div class="form-row">
@@ -107,8 +99,4 @@
       <textarea id="clinician_override_notes" name="ukmec_eligibility.clinician_override_notes"
                 rows="3" placeholder="Justification for any category overrides or special considerations">{{ ukmec_eligibility.clinicianOverrideNotes }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

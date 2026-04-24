@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Review & Assessment - Allergy Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Review & Assessment</h2>
+<h2>Review & Assessment</h2>
     <p class="hint">Clinician review and overall assessment summary.</p>
 
     <div class="form-row">
@@ -65,8 +57,4 @@
         </div>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Cardiovascular Risk - Diabetes Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Cardiovascular Risk</h2>
+<h2>Cardiovascular Risk</h2>
     <p class="hint">Assess cardiovascular risk factors and current management.</p>
 
     <div class="form-row">
@@ -85,8 +77,4 @@
              value="{{ cardiovascular_risk.qriskScore }}"
              step="0.1" min="0" max="100" placeholder="e.g. 15.2">
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

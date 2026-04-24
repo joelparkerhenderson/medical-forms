@@ -1,9 +1,275 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <allergies>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_drug_allergies>yes</has_drug_allergies>
+    <has_food_allergies>yes</has_food_allergies>
+    <has_environmental_allergies>yes</has_environmental_allergies>
+    <has_latex_allergy>yes</has_latex_allergy>
+    <has_contrast_allergy>yes</has_contrast_allergy>
+    <has_anaesthetic_allergy>yes</has_anaesthetic_allergy>
+    <history_of_anaphylaxis>yes</history_of_anaphylaxis>
+    <carries_epipen>yes</carries_epipen>
+    <allergies_notes>Example text.</allergies_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </allergies>
+  <allergy_item>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <allergies_id>660e8400-e29b-41d4-a716-446655440001</allergies_id>
+    <allergen>Peanuts</allergen>
+    <allergy_type>drug</allergy_type>
+    <reaction>Urticaria</reaction>
+    <severity>mild</severity>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </allergy_item>
+  <consent_preferences>
+    <id>330e8400-e29b-41d4-a716-44665544000d</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <consent_to_treatment>yes</consent_to_treatment>
+    <consent_to_share_records>yes</consent_to_share_records>
+    <consent_to_research>yes</consent_to_research>
+    <consent_to_contact_sms>yes</consent_to_contact_sms>
+    <consent_to_contact_email>yes</consent_to_contact_email>
+    <consent_to_contact_phone>yes</consent_to_contact_phone>
+    <preferred_contact_method>phone</preferred_contact_method>
+    <preferred_appointment_time>morning</preferred_appointment_time>
+    <advance_directive>yes</advance_directive>
+    <advance_directive_details>Example text.</advance_directive_details>
+    <power_of_attorney>yes</power_of_attorney>
+    <power_of_attorney_details>Example text.</power_of_attorney_details>
+    <accessibility_needs/>
+    <special_requirements/>
+    <patient_signature_date>2026-01-15</patient_signature_date>
+    <consent_notes>Example text.</consent_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </consent_preferences>
+  <family_history>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <family_history_heart_disease>yes</family_history_heart_disease>
+    <family_history_stroke>yes</family_history_stroke>
+    <family_history_diabetes>yes</family_history_diabetes>
+    <family_history_cancer>yes</family_history_cancer>
+    <family_cancer_details>Example text.</family_cancer_details>
+    <family_history_hypertension>yes</family_history_hypertension>
+    <family_history_mental_health>yes</family_history_mental_health>
+    <family_mental_health_details>Example text.</family_mental_health_details>
+    <family_history_autoimmune>yes</family_history_autoimmune>
+    <family_history_kidney_disease>yes</family_history_kidney_disease>
+    <family_history_lung_disease>yes</family_history_lung_disease>
+    <family_history_genetic>yes</family_history_genetic>
+    <family_genetic_details>Example text.</family_genetic_details>
+    <other_family_history>Example text.</other_family_history>
+    <family_history_notes>Example text.</family_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </family_history>
+  <insurance_and_id>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <nhs_number>9434765919</nhs_number>
+    <hospital_number>Example Hospital</hospital_number>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <gp_address/>
+    <gp_phone/>
+    <has_private_insurance>yes</has_private_insurance>
+    <insurance_provider>Dr Smith</insurance_provider>
+    <insurance_policy_number/>
+    <insurance_group_number/>
+    <insurance_phone/>
+    <photo_id_verified>yes</photo_id_verified>
+    <photo_id_type>passport</photo_id_type>
+    <insurance_notes>Example text.</insurance_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </insurance_and_id>
+  <medical_history>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_chronic_conditions>yes</has_chronic_conditions>
+    <has_diabetes>yes</has_diabetes>
+    <diabetes_type>type-1</diabetes_type>
+    <has_hypertension>yes</has_hypertension>
+    <has_heart_disease>yes</has_heart_disease>
+    <heart_disease_details>Example text.</heart_disease_details>
+    <has_lung_disease>yes</has_lung_disease>
+    <lung_disease_details>Example text.</lung_disease_details>
+    <has_kidney_disease>yes</has_kidney_disease>
+    <has_liver_disease>yes</has_liver_disease>
+    <has_cancer>yes</has_cancer>
+    <cancer_details>Example text.</cancer_details>
+    <has_stroke>yes</has_stroke>
+    <has_epilepsy>yes</has_epilepsy>
+    <has_mental_health_condition>yes</has_mental_health_condition>
+    <mental_health_details>Example text.</mental_health_details>
+    <has_autoimmune_disease>yes</has_autoimmune_disease>
+    <autoimmune_disease_details>Example text.</autoimmune_disease_details>
+    <has_previous_surgeries>yes</has_previous_surgeries>
+    <surgery_details>Example text.</surgery_details>
+    <has_hospitalisations>yes</has_hospitalisations>
+    <hospitalisation_details>Example text.</hospitalisation_details>
+    <other_conditions/>
+    <medical_history_notes>Example text.</medical_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_history>
+  <medication_item>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <medications_id>660e8400-e29b-41d4-a716-446655440001</medications_id>
+    <medication_name>Example</medication_name>
+    <dose>500mg</dose>
+    <frequency>twice daily</frequency>
+    <route>oral</route>
+    <prescriber/>
+    <reason>Example text.</reason>
+    <start_date>2026-01-15</start_date>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medication_item>
+  <medications>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <takes_medications>yes</takes_medications>
+    <takes_over_the_counter>yes</takes_over_the_counter>
+    <takes_supplements>yes</takes_supplements>
+    <supplement_details>Example text.</supplement_details>
+    <medication_adherence>good</medication_adherence>
+    <pharmacy_name>Example</pharmacy_name>
+    <pharmacy_phone/>
+    <medications_notes>Example text.</medications_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medications>
+  <personal_information>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <first_name>Jane</first_name>
+    <middle_name>Example</middle_name>
+    <last_name>Doe</last_name>
+    <preferred_name>Example</preferred_name>
+    <date_of_birth>1965-06-15</date_of_birth>
+    <sex>male</sex>
+    <gender_identity>man</gender_identity>
+    <pronouns>he-him</pronouns>
+    <marital_status>single</marital_status>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_needed>yes</interpreter_needed>
+    <phone_home/>
+    <phone_mobile/>
+    <phone_work/>
+    <email>jane.doe@example.com</email>
+    <address_line_1/>
+    <address_line_2/>
+    <city/>
+    <county/>
+    <postcode>SW1A 1AA</postcode>
+    <emergency_contact_name>Example</emergency_contact_name>
+    <emergency_contact_phone>07700900001</emergency_contact_phone>
+    <emergency_contact_relationship>Spouse</emergency_contact_relationship>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </personal_information>
+  <reason_for_visit>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <visit_type>new-patient</visit_type>
+    <primary_reason>Example text.</primary_reason>
+    <symptom_onset>Fatigue</symptom_onset>
+    <symptom_duration>Fatigue</symptom_duration>
+    <symptom_severity>1</symptom_severity>
+    <symptoms_worsening>yes</symptoms_worsening>
+    <previous_treatment_for_this>Example treatment</previous_treatment_for_this>
+    <referring_provider>Dr Smith</referring_provider>
+    <referral_reason>Example text.</referral_reason>
+    <patient_goals/>
+    <reason_for_visit_notes>Example text.</reason_for_visit_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </reason_for_visit>
+  <review_of_systems>
+    <id>220e8400-e29b-41d4-a716-44665544000c</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <constitutional_fever>yes</constitutional_fever>
+    <constitutional_weight_loss>yes</constitutional_weight_loss>
+    <constitutional_fatigue>yes</constitutional_fatigue>
+    <constitutional_night_sweats>yes</constitutional_night_sweats>
+    <heent_headache>yes</heent_headache>
+    <heent_vision_changes>yes</heent_vision_changes>
+    <heent_hearing_changes>yes</heent_hearing_changes>
+    <heent_sore_throat>yes</heent_sore_throat>
+    <cardiovascular_chest_pain>yes</cardiovascular_chest_pain>
+    <cardiovascular_palpitations>yes</cardiovascular_palpitations>
+    <cardiovascular_oedema>yes</cardiovascular_oedema>
+    <cardiovascular_dyspnoea>yes</cardiovascular_dyspnoea>
+    <respiratory_cough>yes</respiratory_cough>
+    <respiratory_wheezing>yes</respiratory_wheezing>
+    <respiratory_shortness_of_breath>yes</respiratory_shortness_of_breath>
+    <gi_nausea>yes</gi_nausea>
+    <gi_vomiting>yes</gi_vomiting>
+    <gi_abdominal_pain>yes</gi_abdominal_pain>
+    <gi_diarrhoea>yes</gi_diarrhoea>
+    <gi_constipation>yes</gi_constipation>
+    <gu_frequency>yes</gu_frequency>
+    <gu_urgency>yes</gu_urgency>
+    <gu_dysuria>yes</gu_dysuria>
+    <msk_joint_pain>yes</msk_joint_pain>
+    <msk_muscle_pain>yes</msk_muscle_pain>
+    <msk_swelling>yes</msk_swelling>
+    <msk_stiffness>yes</msk_stiffness>
+    <neuro_numbness>yes</neuro_numbness>
+    <neuro_tingling>yes</neuro_tingling>
+    <neuro_weakness>yes</neuro_weakness>
+    <neuro_dizziness>yes</neuro_dizziness>
+    <neuro_seizures>yes</neuro_seizures>
+    <psych_depression>yes</psych_depression>
+    <psych_anxiety>yes</psych_anxiety>
+    <psych_sleep_disturbance>yes</psych_sleep_disturbance>
+    <skin_rash>yes</skin_rash>
+    <skin_itching>yes</skin_itching>
+    <skin_lesions>yes</skin_lesions>
+    <additional_symptoms>Fatigue</additional_symptoms>
+    <review_of_systems_notes>Example text.</review_of_systems_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </review_of_systems>
+  <social_history>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <smoking_status>never</smoking_status>
+    <smoking_pack_years>0.0</smoking_pack_years>
+    <smoking_quit_date>2026-01-15</smoking_quit_date>
+    <alcohol_use>none</alcohol_use>
+    <alcohol_units_per_week>0.0</alcohol_units_per_week>
+    <recreational_drug_use>yes</recreational_drug_use>
+    <recreational_drug_details>Example text.</recreational_drug_details>
+    <caffeine_intake>none</caffeine_intake>
+    <exercise_frequency>daily</exercise_frequency>
+    <exercise_type>standard</exercise_type>
+    <diet_description>balanced</diet_description>
+    <diet_details>Example text.</diet_details>
+    <occupation>Teacher</occupation>
+    <employment_status>employed</employment_status>
+    <occupational_hazards>Teacher</occupational_hazards>
+    <living_situation>alone</living_situation>
+    <housing_type>house</housing_type>
+    <sexual_health_concerns>yes</sexual_health_concerns>
+    <travel_history>Example text.</travel_history>
+    <social_history_notes>Example text.</social_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </social_history>
 </assessment>

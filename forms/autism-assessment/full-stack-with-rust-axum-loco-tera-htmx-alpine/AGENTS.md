@@ -12,7 +12,7 @@ src/
   lib.rs                   # Module declarations
   app.rs                   # Tera init, routes registration
   controllers/
-    assessment.rs          # Landing, step forms (10 steps), report
+    assessment.rs          # Landing, single-page form, submit, report
     dashboard.rs           # Dashboard with filters
   engine/
     types.rs               # AssessmentData and all autism-specific types
@@ -24,14 +24,13 @@ src/
     assessments.rs         # DB queries (find_by_id, list_completed)
     _entities/assessments.rs # SeaORM entity
   views/
-    assessment.rs          # build_step_context() for 10 steps
+    assessment.rs          # build_assessment_context() for single-page form
     dashboard.rs           # PatientRow with autism-specific fields
 templates/
   base.html.tera           # Base layout
   landing.html.tera        # Landing page
+  assessment.html.tera     # Single-page form wrapping all step partials
   assessment/
-    _progress.html.tera    # Progress bar partial
-    _nav.html.tera         # Step navigation partial
     step01-step10.html.tera # 10 step forms
   report.html.tera         # Assessment report with AQ-10, rules, flags, notes
   dashboard.html.tera      # Dashboard
@@ -45,10 +44,11 @@ tests/
 ## Assessment Flow
 
 1. **Landing** (`GET /`) -- Describes assessment purpose, begin button
-2. **Create** (`POST /assessment/new`) -- Creates draft, redirects to step 1
-3. **Steps 1-10** (`GET/POST /assessment/{id}/step/{step}`) -- Form wizard
-4. **Report** (`GET /assessment/{id}/report`) -- Grades and displays results
-5. **Dashboard** (`GET /dashboard`) -- Lists completed assessments with filters
+2. **Create** (`POST /assessment/new`) -- Creates draft, redirects to the single-page form
+3. **Form** (`GET /assessment/{id}`) -- Renders all sections on one page
+4. **Submit** (`POST /assessment/{id}/submit`) -- Saves all form data, redirects to the report
+5. **Report** (`GET /assessment/{id}/report`) -- Grades and displays results
+6. **Dashboard** (`GET /dashboard`) -- Lists completed assessments with filters
 
 ## 10 Assessment Steps
 

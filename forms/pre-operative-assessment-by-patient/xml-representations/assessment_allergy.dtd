@@ -1,9 +1,0 @@
-<!ELEMENT assessment_allergy (id,assessment_id,allergen,reaction,severity,sort_order,created_at,updated_at)>
-<!ELEMENT id (#PCDATA)>
-<!ELEMENT assessment_id (#PCDATA)>
-<!ELEMENT allergen (#PCDATA)>
-<!ELEMENT reaction (#PCDATA)>
-<!ELEMENT severity (#PCDATA)>
-<!ELEMENT sort_order (#PCDATA)>
-<!ELEMENT created_at (#PCDATA)>
-<!ELEMENT updated_at (#PCDATA)>

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Comorbidities - Asthma Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Comorbidities</h2>
+<h2>Comorbidities</h2>
     <p class="hint">Record comorbid conditions that may affect asthma control.</p>
 
     <div class="form-row">
@@ -72,8 +64,4 @@
         <option value="multiple" {% if comorbidities.allergyCoexistence == "multiple" %}selected{% endif %}>Multiple</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

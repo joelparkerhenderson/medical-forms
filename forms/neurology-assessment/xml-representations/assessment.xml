@@ -1,9 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <assessment_chief_complaint>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <chief_complaint/>
+    <symptom_onset_date>2026-01-15</symptom_onset_date>
+    <symptom_onset_time>Fatigue</symptom_onset_time>
+    <onset_type>sudden</onset_type>
+    <symptom_duration>Fatigue</symptom_duration>
+    <symptom_laterality>left</symptom_laterality>
+    <headache>yes</headache>
+    <weakness>yes</weakness>
+    <numbness>yes</numbness>
+    <speech_difficulty>yes</speech_difficulty>
+    <vision_changes>yes</vision_changes>
+    <dizziness>yes</dizziness>
+    <seizure>yes</seizure>
+    <loss_of_consciousness>yes</loss_of_consciousness>
+    <previous_neurological_history>Example text.</previous_neurological_history>
+    <chief_complaint_notes>Example text.</chief_complaint_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </assessment_chief_complaint>
+  <cognitive>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <cognitive_complaint>yes</cognitive_complaint>
+    <cognitive_complaint_details>Example text.</cognitive_complaint_details>
+    <orientation_person>yes</orientation_person>
+    <orientation_place>yes</orientation_place>
+    <orientation_time>yes</orientation_time>
+    <attention_intact>yes</attention_intact>
+    <memory_immediate>intact</memory_immediate>
+    <memory_delayed>intact</memory_delayed>
+    <language_fluency>fluent</language_fluency>
+    <naming>intact</naming>
+    <comprehension>intact</comprehension>
+    <repetition>intact</repetition>
+    <reading>intact</reading>
+    <writing>intact</writing>
+    <visuospatial>intact</visuospatial>
+    <executive_function>intact</executive_function>
+    <mmse_score>5</mmse_score>
+    <moca_score>5</moca_score>
+    <cognitive_notes>Example text.</cognitive_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cognitive>
+  <current_medications>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <taking_neurological_medication>yes</taking_neurological_medication>
+    <anticonvulsants>yes</anticonvulsants>
+    <anticonvulsant_details>Example text.</anticonvulsant_details>
+    <anticoagulants>yes</anticoagulants>
+    <anticoagulant_name>Example</anticoagulant_name>
+    <antiplatelets>yes</antiplatelets>
+    <antiplatelet_name>Example</antiplatelet_name>
+    <analgesics/>
+    <triptans>yes</triptans>
+    <migraine_prophylaxis/>
+    <antihypertensives>yes</antihypertensives>
+    <statins>yes</statins>
+    <other_medications>Paracetamol</other_medications>
+    <medication_adherence>good</medication_adherence>
+    <medication_notes>Example text.</medication_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <occupation>Teacher</occupation>
+    <ethnicity>White British</ethnicity>
+    <handedness>left</handedness>
+    <contact_phone>07700900001</contact_phone>
+    <contact_email>07700900001</contact_email>
+    <emergency_contact_name>Example</emergency_contact_name>
+    <emergency_contact_phone>07700900001</emergency_contact_phone>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <diagnostic_results>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ct_head>yes</ct_head>
+    <ct_head_date>2026-01-15</ct_head_date>
+    <ct_head_result>Normal</ct_head_result>
+    <mri_brain>yes</mri_brain>
+    <mri_brain_date>2026-01-15</mri_brain_date>
+    <mri_brain_result>Normal</mri_brain_result>
+    <ct_angiography>yes</ct_angiography>
+    <ct_angiography_result>Normal</ct_angiography_result>
+    <mr_angiography>yes</mr_angiography>
+    <mr_angiography_result>Normal</mr_angiography_result>
+    <eeg>yes</eeg>
+    <eeg_date>2026-01-15</eeg_date>
+    <eeg_result>Normal</eeg_result>
+    <emg_nerve_conduction>yes</emg_nerve_conduction>
+    <emg_result>Normal</emg_result>
+    <lumbar_puncture>yes</lumbar_puncture>
+    <lumbar_puncture_result>Normal</lumbar_puncture_result>
+    <carotid_doppler>yes</carotid_doppler>
+    <carotid_doppler_result>Normal</carotid_doppler_result>
+    <blood_tests_relevant/>
+    <diagnostic_notes>Example text.</diagnostic_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </diagnostic_results>
+  <functional_and_social>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <modified_rankin_score>5</modified_rankin_score>
+    <barthel_index>1</barthel_index>
+    <daily_functioning>independent</daily_functioning>
+    <employment_status>employed</employment_status>
+    <driving_status>driving</driving_status>
+    <mobility_level>independent</mobility_level>
+    <social_support>strong</social_support>
+    <carer_support>yes</carer_support>
+    <carer_details>Example text.</carer_details>
+    <mood_impact>none</mood_impact>
+    <quality_of_life_score>5</quality_of_life_score>
+    <rehabilitation_needs/>
+    <functional_social_notes>Example text.</functional_social_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </functional_and_social>
+  <assessment_headache>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <headache_present>yes</headache_present>
+    <headache_type>tension</headache_type>
+    <headache_severity>1</headache_severity>
+    <headache_location>frontal</headache_location>
+    <headache_side>left</headache_side>
+    <headache_frequency>daily</headache_frequency>
+    <headache_duration/>
+    <aura>yes</aura>
+    <aura_type>standard</aura_type>
+    <photophobia>yes</photophobia>
+    <phonophobia>yes</phonophobia>
+    <nausea_with_headache>yes</nausea_with_headache>
+    <neck_stiffness>yes</neck_stiffness>
+    <worst_headache_ever>yes</worst_headache_ever>
+    <headache_triggers/>
+    <headache_notes>Example text.</headache_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </assessment_headache>
+  <motor_and_sensory_exam>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <upper_limb_power_left>1</upper_limb_power_left>
+    <upper_limb_power_right>1</upper_limb_power_right>
+    <lower_limb_power_left>1</lower_limb_power_left>
+    <lower_limb_power_right>1</lower_limb_power_right>
+    <grip_strength_left>1</grip_strength_left>
+    <grip_strength_right>1</grip_strength_right>
+    <upper_limb_tone_left>normal</upper_limb_tone_left>
+    <upper_limb_tone_right>normal</upper_limb_tone_right>
+    <lower_limb_tone_left>normal</lower_limb_tone_left>
+    <lower_limb_tone_right>normal</lower_limb_tone_right>
+    <biceps_reflex_left>1</biceps_reflex_left>
+    <biceps_reflex_right>1</biceps_reflex_right>
+    <knee_reflex_left>1</knee_reflex_left>
+    <knee_reflex_right>1</knee_reflex_right>
+    <ankle_reflex_left>1</ankle_reflex_left>
+    <ankle_reflex_right>1</ankle_reflex_right>
+    <plantar_response_left>flexor</plantar_response_left>
+    <plantar_response_right>flexor</plantar_response_right>
+    <light_touch_intact>yes</light_touch_intact>
+    <light_touch_deficit_area/>
+    <pinprick_intact>yes</pinprick_intact>
+    <pinprick_deficit_area/>
+    <proprioception_intact>yes</proprioception_intact>
+    <vibration_sense_intact>yes</vibration_sense_intact>
+    <finger_nose_test_left>normal</finger_nose_test_left>
+    <finger_nose_test_right>normal</finger_nose_test_right>
+    <heel_shin_test_left>normal</heel_shin_test_left>
+    <heel_shin_test_right>normal</heel_shin_test_right>
+    <romberg_test>negative</romberg_test>
+    <motor_sensory_notes>Example text.</motor_sensory_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </motor_and_sensory_exam>
+  <nihss>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <q1a_level_of_consciousness>1</q1a_level_of_consciousness>
+    <q1b_loc_questions>1</q1b_loc_questions>
+    <q1c_loc_commands>1</q1c_loc_commands>
+    <q2_best_gaze>1</q2_best_gaze>
+    <q3_visual_fields>1</q3_visual_fields>
+    <q4_facial_palsy>1</q4_facial_palsy>
+    <q5a_motor_left_arm>1</q5a_motor_left_arm>
+    <q5b_motor_right_arm>1</q5b_motor_right_arm>
+    <q6a_motor_left_leg>1</q6a_motor_left_leg>
+    <q6b_motor_right_leg>1</q6b_motor_right_leg>
+    <q7_limb_ataxia>1</q7_limb_ataxia>
+    <q8_sensory>1</q8_sensory>
+    <q9_best_language>45</q9_best_language>
+    <q10_dysarthria>1</q10_dysarthria>
+    <q11_extinction_inattention>1</q11_extinction_inattention>
+    <nihss_total_score>5</nihss_total_score>
+    <assessment_datetime>2026-04-09T10:00:00Z</assessment_datetime>
+    <nihss_notes>Example text.</nihss_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </nihss>
+  <assessment_seizure_history>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <seizure_history>yes</seizure_history>
+    <epilepsy_diagnosis>yes</epilepsy_diagnosis>
+    <seizure_type>focal-aware</seizure_type>
+    <seizure_frequency>daily</seizure_frequency>
+    <last_seizure_date>2026-01-15</last_seizure_date>
+    <seizure_duration_typical/>
+    <seizure_triggers/>
+    <aura_before_seizure>yes</aura_before_seizure>
+    <aura_description>Example text.</aura_description>
+    <postictal_symptoms>Fatigue</postictal_symptoms>
+    <status_epilepticus_history>yes</status_epilepticus_history>
+    <febrile_seizures_childhood>yes</febrile_seizures_childhood>
+    <family_history_epilepsy>yes</family_history_epilepsy>
+    <driving_status>driving</driving_status>
+    <seizure_notes>Example text.</seizure_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </assessment_seizure_history>
 </assessment>

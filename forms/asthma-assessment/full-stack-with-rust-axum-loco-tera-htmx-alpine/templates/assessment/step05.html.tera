@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Triggers & Exacerbations - Asthma Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Triggers & Exacerbations</h2>
+<h2>Triggers & Exacerbations</h2>
     <p class="hint">Identify known triggers and record exacerbation history over the past 12 months.</p>
 
     <h3>Known Triggers</h3>
@@ -77,8 +69,4 @@
              value="{{ triggers_exacerbations.emergencyVisits }}" min="0"
              placeholder="e.g. 0">
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

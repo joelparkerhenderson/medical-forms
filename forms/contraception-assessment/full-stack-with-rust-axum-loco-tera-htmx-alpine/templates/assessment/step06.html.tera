@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Smoking & BMI - Contraception Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Smoking & BMI</h2>
+<h2>Smoking & BMI</h2>
     <p class="hint">Assess lifestyle factors that influence contraceptive eligibility.</p>
 
     <h3>Smoking Status</h3>
@@ -70,8 +62,4 @@
         </div>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

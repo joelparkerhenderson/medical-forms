@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Motor & Sensory - Occupational Therapy Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Motor & Sensory Function</h2>
+<h2>Motor & Sensory Function</h2>
     <p class="hint">Rate the patient's motor and sensory abilities.
       1 = Severely Impaired, 2 = Moderately Impaired, 3 = Mildly Impaired, 4 = Functional, 5 = Intact</p>
 
@@ -36,8 +28,4 @@
       </div>
     </div>
     {% endfor %}
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

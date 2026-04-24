@@ -1,9 +1,0 @@
-<!ELEMENT assessment_functional_capacity (id,assessment_id,exercise_tolerance,estimated_mets,mobility_aids,recent_decline,created_at,updated_at)>
-<!ELEMENT id (#PCDATA)>
-<!ELEMENT assessment_id (#PCDATA)>
-<!ELEMENT exercise_tolerance (#PCDATA)>
-<!ELEMENT estimated_mets (#PCDATA)>
-<!ELEMENT mobility_aids (#PCDATA)>
-<!ELEMENT recent_decline (#PCDATA)>
-<!ELEMENT created_at (#PCDATA)>
-<!ELEMENT updated_at (#PCDATA)>

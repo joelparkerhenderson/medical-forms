@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Social & Functional Status - Mental Health Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Social & Functional Status</h2>
+<h2>Social & Functional Status</h2>
     <p class="hint">Assess the patient's social circumstances and functional capacity.</p>
 
     <div class="form-row">
@@ -111,8 +103,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

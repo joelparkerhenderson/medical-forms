@@ -1,9 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <daytime_dysfunction>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <trouble_staying_awake>1</trouble_staying_awake>
+    <lack_of_enthusiasm>1</lack_of_enthusiasm>
+    <daytime_sleepiness_severity>1</daytime_sleepiness_severity>
+    <epworth_sleepiness_score>5</epworth_sleepiness_score>
+    <concentration_difficulty>yes</concentration_difficulty>
+    <memory_problems>yes</memory_problems>
+    <irritability>yes</irritability>
+    <morning_headaches>yes</morning_headaches>
+    <drowsy_driving>yes</drowsy_driving>
+    <work_performance_impact>none</work_performance_impact>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </daytime_dysfunction>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ethnicity>White British</ethnicity>
+    <occupation>Teacher</occupation>
+    <shift_worker>yes</shift_worker>
+    <shift_pattern>day</shift_pattern>
+    <referring_physician>Dr Smith</referring_physician>
+    <referral_date>2026-01-15</referral_date>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <medical_lifestyle_factors>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <obstructive_sleep_apnoea>yes</obstructive_sleep_apnoea>
+    <cpap_use>yes</cpap_use>
+    <chronic_pain>yes</chronic_pain>
+    <chronic_pain_details>Example text.</chronic_pain_details>
+    <depression>yes</depression>
+    <anxiety>yes</anxiety>
+    <ptsd>yes</ptsd>
+    <thyroid_disorder>yes</thyroid_disorder>
+    <respiratory_disease>yes</respiratory_disease>
+    <cardiac_disease>yes</cardiac_disease>
+    <neurological_condition>yes</neurological_condition>
+    <neurological_details>Example text.</neurological_details>
+    <exercise_frequency>daily</exercise_frequency>
+    <exercise_timing>morning</exercise_timing>
+    <smoking_status>current</smoking_status>
+    <alcohol_frequency>daily</alcohol_frequency>
+    <stress_level>low</stress_level>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_lifestyle_factors>
+  <sleep_disturbances>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <wake_middle_of_night>1</wake_middle_of_night>
+    <bathroom_use>1</bathroom_use>
+    <breathing_difficulty>1</breathing_difficulty>
+    <cough_or_snore>1</cough_or_snore>
+    <feel_too_cold>1</feel_too_cold>
+    <feel_too_hot>1</feel_too_hot>
+    <bad_dreams>1</bad_dreams>
+    <pain>1</pain>
+    <other_disturbance>1</other_disturbance>
+    <other_disturbance_description>Example text.</other_disturbance_description>
+    <restless_legs>yes</restless_legs>
+    <sleep_talking>yes</sleep_talking>
+    <sleep_walking>yes</sleep_walking>
+    <teeth_grinding>yes</teeth_grinding>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </sleep_disturbances>
+  <sleep_duration>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <actual_sleep_hours>0.0</actual_sleep_hours>
+    <sleep_duration_weekday_hours>1.5</sleep_duration_weekday_hours>
+    <sleep_duration_weekend_hours>1.5</sleep_duration_weekend_hours>
+    <sleep_duration_variability>consistent</sleep_duration_variability>
+    <perceived_sleep_need_hours>0.0</perceived_sleep_need_hours>
+    <sleep_debt_present>yes</sleep_debt_present>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </sleep_duration>
+  <sleep_efficiency>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <sleep_efficiency_percent>50.0</sleep_efficiency_percent>
+    <time_awake_in_bed_minutes>1</time_awake_in_bed_minutes>
+    <number_of_awakenings>2</number_of_awakenings>
+    <time_to_return_to_sleep_minutes>1</time_to_return_to_sleep_minutes>
+    <early_morning_awakening>yes</early_morning_awakening>
+    <early_awakening_time/>
+    <difficulty_returning_to_sleep>yes</difficulty_returning_to_sleep>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </sleep_efficiency>
+  <sleep_habits>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <usual_bedtime/>
+    <usual_wake_time/>
+    <time_in_bed_hours>0.0</time_in_bed_hours>
+    <nap_frequency>daily</nap_frequency>
+    <nap_duration_minutes>1</nap_duration_minutes>
+    <sleep_environment_noise>quiet</sleep_environment_noise>
+    <sleep_environment_light>dark</sleep_environment_light>
+    <sleep_environment_temperature>cool</sleep_environment_temperature>
+    <screen_use_before_bed>yes</screen_use_before_bed>
+    <screen_use_duration_minutes>1</screen_use_duration_minutes>
+    <bed_partner>yes</bed_partner>
+    <bed_partner_sleep_issues/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </sleep_habits>
+  <sleep_latency>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <time_to_fall_asleep_minutes>1</time_to_fall_asleep_minutes>
+    <cannot_sleep_within_30_min>1</cannot_sleep_within_30_min>
+    <racing_thoughts_at_bedtime>yes</racing_thoughts_at_bedtime>
+    <physical_discomfort_at_bedtime>yes</physical_discomfort_at_bedtime>
+    <anxiety_at_bedtime>yes</anxiety_at_bedtime>
+    <difficulty_relaxing>yes</difficulty_relaxing>
+    <sleep_onset_strategies/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </sleep_latency>
+  <sleep_medication_use>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <sleep_medication_frequency>1</sleep_medication_frequency>
+    <prescribed_sleep_medication>yes</prescribed_sleep_medication>
+    <prescribed_medication_names>Example</prescribed_medication_names>
+    <prescribed_medication_dose>Paracetamol</prescribed_medication_dose>
+    <prescribed_medication_duration_months>1</prescribed_medication_duration_months>
+    <over_the_counter_sleep_aids>yes</over_the_counter_sleep_aids>
+    <otc_sleep_aid_details>Example text.</otc_sleep_aid_details>
+    <melatonin_use>yes</melatonin_use>
+    <melatonin_dose_mg>10.0</melatonin_dose_mg>
+    <herbal_supplements>yes</herbal_supplements>
+    <herbal_supplement_details>Example text.</herbal_supplement_details>
+    <caffeine_daily_intake>none</caffeine_daily_intake>
+    <caffeine_last_intake_time/>
+    <alcohol_as_sleep_aid>yes</alcohol_as_sleep_aid>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </sleep_medication_use>
 </assessment>

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Demographics & Comments - Encounter Satisfaction{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Demographics & Comments</h2>
+<h2>Demographics & Comments</h2>
     <p class="hint">Optional demographic information helps us analyse satisfaction across patient groups. All fields are voluntary.</p>
 
     <div class="form-row">
@@ -89,8 +81,4 @@
       <textarea id="compliments" name="demographics_comments.compliments"
                 rows="4" placeholder="Is there anything or anyone you would like to commend?">{{ demographics_comments.compliments }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

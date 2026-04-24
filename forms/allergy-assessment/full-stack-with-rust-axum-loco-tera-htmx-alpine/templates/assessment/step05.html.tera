@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Environmental Triggers - Allergy Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Environmental Triggers</h2>
+<h2>Environmental Triggers</h2>
     <p class="hint">Rate sensitivity to environmental allergens (1 = No sensitivity, 5 = Severe sensitivity).</p>
 
     <div class="likert-group">
@@ -85,8 +77,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

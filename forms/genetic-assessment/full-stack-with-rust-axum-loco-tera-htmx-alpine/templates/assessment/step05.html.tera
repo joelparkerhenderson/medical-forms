@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Cancer Risk Assessment - Genetic Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Cancer Risk Assessment</h2>
+<h2>Cancer Risk Assessment</h2>
     <p class="hint">Cancer gene panel results, BRCA1/2, Lynch syndrome, and Manchester scoring.</p>
 
     <div class="form-group">
@@ -59,8 +51,4 @@
                placeholder="e.g. 2" min="0" max="20">
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

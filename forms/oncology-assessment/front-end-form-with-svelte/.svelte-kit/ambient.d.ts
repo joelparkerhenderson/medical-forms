@@ -59,6 +59,7 @@ declare module '$env/static/private' {
 	export const MIX_ARCHIVES: string;
 	export const STDOUT_COLOR_START: string;
 	export const USER: string;
+	export const LD_LIBRARY_PATH: string;
 	export const OPENAI_API_KEY: string;
 	export const COMMAND_MODE: string;
 	export const SDKMAN_CANDIDATES_API: string;
@@ -76,11 +77,11 @@ declare module '$env/static/private' {
 	export const __MISE_WATCH: string;
 	export const STDOUT_COLOR_STOP: string;
 	export const PATH: string;
-	export const LaunchInstanceID: string;
 	export const GHOSTTY_SHELL_FEATURES: string;
 	export const npm_package_json: string;
 	export const __CFBundleIdentifier: string;
 	export const SDKMAN_BROKER_API: string;
+	export const RUSTC_WRAPPER: string;
 	export const DOTNET_ROOT: string;
 	export const PWD: string;
 	export const npm_command: string;
@@ -92,6 +93,7 @@ declare module '$env/static/private' {
 	export const NODE_PATH: string;
 	export const XPC_FLAGS: string;
 	export const MIX_HOME: string;
+	export const SCCACHE_CACHE_SIZE: string;
 	export const npm_config_node_gyp: string;
 	export const XPC_SERVICE_NAME: string;
 	export const npm_package_version: string;
@@ -100,6 +102,7 @@ declare module '$env/static/private' {
 	export const SHLVL: string;
 	export const __MISE_ORIG_PATH: string;
 	export const TERMINFO: string;
+	export const CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING: string;
 	export const STDERR_COLOR_STOP: string;
 	export const AVO_LICENSE_KEY: string;
 	export const GIT: string;
@@ -112,6 +115,7 @@ declare module '$env/static/private' {
 	export const npm_lifecycle_script: string;
 	export const XDG_DATA_DIRS: string;
 	export const GHOSTTY_BIN_DIR: string;
+	export const PGDATA: string;
 	export const __MISE_DIR: string;
 	export const npm_config_user_agent: string;
 	export const SDKMAN_CANDIDATES_DIR: string;
@@ -119,11 +123,9 @@ declare module '$env/static/private' {
 	export const GITHUB_PERSONAL_ACCESS_TOKEN: string;
 	export const OSLogRateLimit: string;
 	export const RUBYLIB: string;
-	export const SECURITYSESSIONID: string;
 	export const AIRFLOW_HOME: string;
 	export const COLORTERM: string;
 	export const npm_node_execpath: string;
-	export const NODE_ENV: string;
 }
 
 /**
@@ -231,6 +233,7 @@ declare module '$env/dynamic/private' {
 		MIX_ARCHIVES: string;
 		STDOUT_COLOR_START: string;
 		USER: string;
+		LD_LIBRARY_PATH: string;
 		OPENAI_API_KEY: string;
 		COMMAND_MODE: string;
 		SDKMAN_CANDIDATES_API: string;
@@ -248,11 +251,11 @@ declare module '$env/dynamic/private' {
 		__MISE_WATCH: string;
 		STDOUT_COLOR_STOP: string;
 		PATH: string;
-		LaunchInstanceID: string;
 		GHOSTTY_SHELL_FEATURES: string;
 		npm_package_json: string;
 		__CFBundleIdentifier: string;
 		SDKMAN_BROKER_API: string;
+		RUSTC_WRAPPER: string;
 		DOTNET_ROOT: string;
 		PWD: string;
 		npm_command: string;
@@ -264,6 +267,7 @@ declare module '$env/dynamic/private' {
 		NODE_PATH: string;
 		XPC_FLAGS: string;
 		MIX_HOME: string;
+		SCCACHE_CACHE_SIZE: string;
 		npm_config_node_gyp: string;
 		XPC_SERVICE_NAME: string;
 		npm_package_version: string;
@@ -272,6 +276,7 @@ declare module '$env/dynamic/private' {
 		SHLVL: string;
 		__MISE_ORIG_PATH: string;
 		TERMINFO: string;
+		CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING: string;
 		STDERR_COLOR_STOP: string;
 		AVO_LICENSE_KEY: string;
 		GIT: string;
@@ -284,6 +289,7 @@ declare module '$env/dynamic/private' {
 		npm_lifecycle_script: string;
 		XDG_DATA_DIRS: string;
 		GHOSTTY_BIN_DIR: string;
+		PGDATA: string;
 		__MISE_DIR: string;
 		npm_config_user_agent: string;
 		SDKMAN_CANDIDATES_DIR: string;
@@ -291,11 +297,9 @@ declare module '$env/dynamic/private' {
 		GITHUB_PERSONAL_ACCESS_TOKEN: string;
 		OSLogRateLimit: string;
 		RUBYLIB: string;
-		SECURITYSESSIONID: string;
 		AIRFLOW_HOME: string;
 		COLORTERM: string;
 		npm_node_execpath: string;
-		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}

@@ -1,15 +1,7 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 9: Clinical Examination</h2>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-group">
+<div class="form-group">
             <label for="general_appearance">General Appearance</label>
             <textarea id="general_appearance" name="clinical_examination.general_appearance">{{ clinical_examination.generalAppearance }}</textarea>
         </div>
@@ -73,8 +65,4 @@
             <label for="body_diagram_notes">Body Diagram Notes</label>
             <textarea id="body_diagram_notes" name="clinical_examination.body_diagram_notes">{{ clinical_examination.bodyDiagramNotes }}</textarea>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

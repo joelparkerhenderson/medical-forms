@@ -1,66 +1,54 @@
-{% extends "base.html.tera" %}
+<section id="step-7" class="card scroll-mt-20">
+  <h2>7. Smoking &amp; Alcohol</h2>
+  <p class="hint">Smoking is a major modifiable cardiovascular risk factor. Alcohol consumption also affects your risk.</p>
 
-{% block title %}Smoking & Alcohol - Heart Health Check{% endblock %}
+  <div class="form-group">
+    <label>Smoking Status</label>
+    <div class="radio-group">
+      <label><input type="radio" name="smoking_alcohol.smoking_status" value="nonSmoker"
+                    {% if smoking_alcohol.smokingStatus == "nonSmoker" %}checked{% endif %}> Non-smoker</label>
+      <label><input type="radio" name="smoking_alcohol.smoking_status" value="exSmoker"
+                    {% if smoking_alcohol.smokingStatus == "exSmoker" %}checked{% endif %}> Ex-smoker</label>
+      <label><input type="radio" name="smoking_alcohol.smoking_status" value="lightSmoker"
+                    {% if smoking_alcohol.smokingStatus == "lightSmoker" %}checked{% endif %}> Light (&lt;10/day)</label>
+      <label><input type="radio" name="smoking_alcohol.smoking_status" value="moderateSmoker"
+                    {% if smoking_alcohol.smokingStatus == "moderateSmoker" %}checked{% endif %}> Moderate (10-19/day)</label>
+      <label><input type="radio" name="smoking_alcohol.smoking_status" value="heavySmoker"
+                    {% if smoking_alcohol.smokingStatus == "heavySmoker" %}checked{% endif %}> Heavy (20+/day)</label>
+    </div>
+  </div>
 
-{% block content %}
-<div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Smoking & Alcohol</h2>
-    <p class="hint">Smoking is a major modifiable cardiovascular risk factor. Alcohol consumption also affects your risk.</p>
-
+  <div class="form-row">
     <div class="form-group">
-      <label>Smoking Status</label>
-      <div class="radio-group">
-        <label><input type="radio" name="smoking_alcohol.smoking_status" value="nonSmoker"
-                      {% if smoking_alcohol.smokingStatus == "nonSmoker" %}checked{% endif %}> Non-smoker</label>
-        <label><input type="radio" name="smoking_alcohol.smoking_status" value="exSmoker"
-                      {% if smoking_alcohol.smokingStatus == "exSmoker" %}checked{% endif %}> Ex-smoker</label>
-        <label><input type="radio" name="smoking_alcohol.smoking_status" value="lightSmoker"
-                      {% if smoking_alcohol.smokingStatus == "lightSmoker" %}checked{% endif %}> Light (&lt;10/day)</label>
-        <label><input type="radio" name="smoking_alcohol.smoking_status" value="moderateSmoker"
-                      {% if smoking_alcohol.smokingStatus == "moderateSmoker" %}checked{% endif %}> Moderate (10-19/day)</label>
-        <label><input type="radio" name="smoking_alcohol.smoking_status" value="heavySmoker"
-                      {% if smoking_alcohol.smokingStatus == "heavySmoker" %}checked{% endif %}> Heavy (20+/day)</label>
-      </div>
+      <label for="cigarettes_per_day">Cigarettes Per Day (if smoker)</label>
+      <input type="number" id="cigarettes_per_day" name="smoking_alcohol.cigarettes_per_day"
+             value="{{ smoking_alcohol.cigarettesPerDay }}"
+             min="0" max="100" placeholder="e.g. 15">
     </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="cigarettes_per_day">Cigarettes Per Day (if smoker)</label>
-        <input type="number" id="cigarettes_per_day" name="smoking_alcohol.cigarettes_per_day"
-               value="{{ smoking_alcohol.cigarettesPerDay }}"
-               min="0" max="100" placeholder="e.g. 15">
-      </div>
-      <div class="form-group">
-        <label for="years_since_quit">Years Since Quitting (if ex-smoker)</label>
-        <input type="number" id="years_since_quit" name="smoking_alcohol.years_since_quit"
-               value="{{ smoking_alcohol.yearsSinceQuit }}"
-               min="0" max="80" placeholder="e.g. 5">
-      </div>
+    <div class="form-group">
+      <label for="years_since_quit">Years Since Quitting (if ex-smoker)</label>
+      <input type="number" id="years_since_quit" name="smoking_alcohol.years_since_quit"
+             value="{{ smoking_alcohol.yearsSinceQuit }}"
+             min="0" max="80" placeholder="e.g. 5">
     </div>
+  </div>
 
-    <div class="form-row">
-      <div class="form-group">
-        <label for="alcohol_units_per_week">Alcohol Units Per Week</label>
-        <input type="number" id="alcohol_units_per_week" name="smoking_alcohol.alcohol_units_per_week"
-               value="{{ smoking_alcohol.alcoholUnitsPerWeek }}"
-               step="0.5" min="0" max="200" placeholder="e.g. 14">
-      </div>
-      <div class="form-group">
-        <label for="alcohol_frequency">Drinking Frequency</label>
-        <select id="alcohol_frequency" name="smoking_alcohol.alcohol_frequency">
-          <option value="">-- Select --</option>
-          <option value="never" {% if smoking_alcohol.alcoholFrequency == "never" %}selected{% endif %}>Never</option>
-          <option value="monthly" {% if smoking_alcohol.alcoholFrequency == "monthly" %}selected{% endif %}>Monthly or less</option>
-          <option value="weekly" {% if smoking_alcohol.alcoholFrequency == "weekly" %}selected{% endif %}>2-4 times per week</option>
-          <option value="daily" {% if smoking_alcohol.alcoholFrequency == "daily" %}selected{% endif %}>Daily or almost daily</option>
-        </select>
-      </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="alcohol_units_per_week">Alcohol Units Per Week</label>
+      <input type="number" id="alcohol_units_per_week" name="smoking_alcohol.alcohol_units_per_week"
+             value="{{ smoking_alcohol.alcoholUnitsPerWeek }}"
+             step="0.5" min="0" max="200" placeholder="e.g. 14">
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
-</div>
-{% endblock %}
+    <div class="form-group">
+      <label for="alcohol_frequency">Drinking Frequency</label>
+      <select id="alcohol_frequency" name="smoking_alcohol.alcohol_frequency">
+        <option value="">-- Select --</option>
+        <option value="never" {% if smoking_alcohol.alcoholFrequency == "never" %}selected{% endif %}>Never</option>
+        <option value="monthly" {% if smoking_alcohol.alcoholFrequency == "monthly" %}selected{% endif %}>Monthly or less</option>
+        <option value="weekly" {% if smoking_alcohol.alcoholFrequency == "weekly" %}selected{% endif %}>2-4 times per week</option>
+        <option value="daily" {% if smoking_alcohol.alcoholFrequency == "daily" %}selected{% endif %}>Daily or almost daily</option>
+      </select>
+    </div>
+  </div>
+</section>

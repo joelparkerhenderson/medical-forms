@@ -51,7 +51,7 @@ test_repository() {
 
 test_forms() {
     echo "test_forms $top"
-    for x in $("$top/bin/list-forms"); do
+    for x in $("$top/bin/list-forms-as-kebab-case"); do
         "$top/bin/test-form" "$x"
     done
 }

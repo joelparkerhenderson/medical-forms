@@ -1,44 +1,32 @@
-{% extends "base.html.tera" %}
+<section id="step-10" class="card scroll-mt-20">
+  <h2>10. Review &amp; Calculate</h2>
+  <p class="hint">Review and add clinician details before calculating the cardiovascular risk score.</p>
 
-{% block title %}Review & Calculate - Heart Health Check{% endblock %}
-
-{% block content %}
-<div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Review & Calculate</h2>
-    <p class="hint">Review and add clinician details before calculating the cardiovascular risk score.</p>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="clinician_name">Clinician Name</label>
-        <input type="text" id="clinician_name" name="review_calculate.clinician_name"
-               value="{{ review_calculate.clinicianName }}"
-               placeholder="e.g. Dr Williams">
-      </div>
-      <div class="form-group">
-        <label for="review_date">Review Date</label>
-        <input type="date" id="review_date" name="review_calculate.review_date"
-               value="{{ review_calculate.reviewDate }}">
-      </div>
-    </div>
-
+  <div class="form-row">
     <div class="form-group">
-      <label for="audit_score">AUDIT Score (0-40)</label>
-      <input type="number" id="audit_score" name="review_calculate.audit_score"
-             value="{{ review_calculate.auditScore }}"
-             min="0" max="40" placeholder="e.g. 6">
-      <span class="hint">Alcohol Use Disorders Identification Test. 0-7 = low risk, 8-15 = increasing risk, 16-19 = higher risk, 20+ = possible dependence.</span>
+      <label for="clinician_name">Clinician Name</label>
+      <input type="text" id="clinician_name" name="review_calculate.clinician_name"
+             value="{{ review_calculate.clinicianName }}"
+             placeholder="e.g. Dr Williams">
     </div>
-
     <div class="form-group">
-      <label for="clinical_notes">Clinical Notes</label>
-      <textarea id="clinical_notes" name="review_calculate.clinical_notes"
-                rows="4" placeholder="Any additional clinical observations or notes...">{{ review_calculate.clinicalNotes }}</textarea>
+      <label for="review_date">Review Date</label>
+      <input type="date" id="review_date" name="review_calculate.review_date"
+             value="{{ review_calculate.reviewDate }}">
     </div>
+  </div>
 
-    {% include "assessment/_nav.html.tera" %}
-  </form>
-</div>
-{% endblock %}
+  <div class="form-group">
+    <label for="audit_score">AUDIT Score (0-40)</label>
+    <input type="number" id="audit_score" name="review_calculate.audit_score"
+           value="{{ review_calculate.auditScore }}"
+           min="0" max="40" placeholder="e.g. 6">
+    <span class="hint">Alcohol Use Disorders Identification Test. 0-7 = low risk, 8-15 = increasing risk, 16-19 = higher risk, 20+ = possible dependence.</span>
+  </div>
+
+  <div class="form-group">
+    <label for="clinical_notes">Clinical Notes</label>
+    <textarea id="clinical_notes" name="review_calculate.clinical_notes"
+              rows="4" placeholder="Any additional clinical observations or notes...">{{ review_calculate.clinicalNotes }}</textarea>
+  </div>
+</section>

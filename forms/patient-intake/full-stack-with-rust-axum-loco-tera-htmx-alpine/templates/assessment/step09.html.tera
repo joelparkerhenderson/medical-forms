@@ -1,15 +1,7 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 9: Review of Systems</h2>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <p class="form-hint">For each body system, describe any current symptoms or concerns. Leave blank if no symptoms.</p>
+<p class="form-hint">For each body system, describe any current symptoms or concerns. Leave blank if no symptoms.</p>
 
         <div class="form-group">
             <label for="constitutional">Constitutional</label>
@@ -80,8 +72,4 @@
             <textarea id="skin" name="review_of_systems.skin"
                       placeholder="Describe any skin symptoms">{{ review_of_systems.skin }}</textarea>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

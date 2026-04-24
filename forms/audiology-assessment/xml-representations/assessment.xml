@@ -1,9 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <audiometric_results>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <right_ac_250hz>0.0</right_ac_250hz>
+    <right_ac_500hz>0.0</right_ac_500hz>
+    <right_ac_1000hz>0.0</right_ac_1000hz>
+    <right_ac_2000hz>0.0</right_ac_2000hz>
+    <right_ac_4000hz>0.0</right_ac_4000hz>
+    <right_ac_8000hz>0.0</right_ac_8000hz>
+    <left_ac_250hz>0.0</left_ac_250hz>
+    <left_ac_500hz>0.0</left_ac_500hz>
+    <left_ac_1000hz>0.0</left_ac_1000hz>
+    <left_ac_2000hz>0.0</left_ac_2000hz>
+    <left_ac_4000hz>0.0</left_ac_4000hz>
+    <left_ac_8000hz>0.0</left_ac_8000hz>
+    <right_bc_500hz>0.0</right_bc_500hz>
+    <right_bc_1000hz>0.0</right_bc_1000hz>
+    <right_bc_2000hz>0.0</right_bc_2000hz>
+    <right_bc_4000hz>0.0</right_bc_4000hz>
+    <left_bc_500hz>0.0</left_bc_500hz>
+    <left_bc_1000hz>0.0</left_bc_1000hz>
+    <left_bc_2000hz>0.0</left_bc_2000hz>
+    <left_bc_4000hz>0.0</left_bc_4000hz>
+    <right_pta_db>0.0</right_pta_db>
+    <left_pta_db>0.0</left_pta_db>
+    <right_hearing_type>sensorineural</right_hearing_type>
+    <left_hearing_type>sensorineural</left_hearing_type>
+    <right_srt_db>0.0</right_srt_db>
+    <left_srt_db>0.0</left_srt_db>
+    <right_word_recognition_percent>50.0</right_word_recognition_percent>
+    <left_word_recognition_percent>50.0</left_word_recognition_percent>
+    <right_tympanogram_type>A</right_tympanogram_type>
+    <left_tympanogram_type>A</left_tympanogram_type>
+    <test_date>2026-01-15</test_date>
+    <audiologist_name>Example</audiologist_name>
+    <audiometric_notes>Example text.</audiometric_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </audiometric_results>
+  <chief_complaint>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <primary_complaint/>
+    <complaint_duration/>
+    <onset_type>sudden</onset_type>
+    <laterality>left</laterality>
+    <ear_most_affected>left</ear_most_affected>
+    <difficulty_in_noise>yes</difficulty_in_noise>
+    <difficulty_on_phone>yes</difficulty_on_phone>
+    <difficulty_with_television>yes</difficulty_with_television>
+    <asks_others_to_repeat>yes</asks_others_to_repeat>
+    <additional_concerns/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </chief_complaint>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <age>45</age>
+    <sex>male</sex>
+    <ethnicity>White British</ethnicity>
+    <occupation>Teacher</occupation>
+    <postcode>SW1A 1AA</postcode>
+    <referring_clinician>Dr Smith</referring_clinician>
+    <referral_source/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <functional_communication>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <communication_difficulty_rating>none</communication_difficulty_rating>
+    <impact_on_work>none</impact_on_work>
+    <impact_on_social_life>none</impact_on_social_life>
+    <impact_on_relationships>none</impact_on_relationships>
+    <impact_on_mental_health>none</impact_on_mental_health>
+    <uses_hearing_aid>yes</uses_hearing_aid>
+    <hearing_aid_type>standard</hearing_aid_type>
+    <hearing_aid_satisfaction>very_satisfied</hearing_aid_satisfaction>
+    <uses_assistive_devices>yes</uses_assistive_devices>
+    <assistive_device_details>Example text.</assistive_device_details>
+    <communication_strategies_used/>
+    <patient_goals/>
+    <referral_recommendations>Example text.</referral_recommendations>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </functional_communication>
+  <hearing_history>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_hearing_test>yes</previous_hearing_test>
+    <previous_test_date>2026-01-15</previous_test_date>
+    <previous_test_results>Normal</previous_test_results>
+    <noise_exposure_history>yes</noise_exposure_history>
+    <noise_exposure_details>Example text.</noise_exposure_details>
+    <occupational_noise_exposure>yes</occupational_noise_exposure>
+    <recreational_noise_exposure>yes</recreational_noise_exposure>
+    <uses_hearing_protection>yes</uses_hearing_protection>
+    <military_service>yes</military_service>
+    <ear_infections_history>yes</ear_infections_history>
+    <ear_surgery_history>yes</ear_surgery_history>
+    <ear_surgery_details>Example text.</ear_surgery_details>
+    <ototoxic_medication_exposure>yes</ototoxic_medication_exposure>
+    <ototoxic_medication_details>Example text.</ototoxic_medication_details>
+    <family_history_hearing_loss>yes</family_history_hearing_loss>
+    <family_hearing_loss_details>Example text.</family_hearing_loss_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </hearing_history>
+  <medical_history>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_diabetes>yes</has_diabetes>
+    <has_cardiovascular_disease>yes</has_cardiovascular_disease>
+    <has_autoimmune_condition>yes</has_autoimmune_condition>
+    <autoimmune_details>Example text.</autoimmune_details>
+    <has_kidney_disease>yes</has_kidney_disease>
+    <has_neurological_condition>yes</has_neurological_condition>
+    <neurological_details>Example text.</neurological_details>
+    <current_medications>Paracetamol</current_medications>
+    <ototoxic_medications>Paracetamol</ototoxic_medications>
+    <has_drug_allergies>yes</has_drug_allergies>
+    <drug_allergy_details>Example text.</drug_allergy_details>
+    <other_medical_history>Example text.</other_medical_history>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_history>
+  <otoscopic_findings>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <right_ear_canal>normal</right_ear_canal>
+    <right_ear_canal_notes>Example text.</right_ear_canal_notes>
+    <right_tympanic_membrane>normal</right_tympanic_membrane>
+    <right_tympanic_membrane_notes>Example text.</right_tympanic_membrane_notes>
+    <right_cerumen>none</right_cerumen>
+    <left_ear_canal>normal</left_ear_canal>
+    <left_ear_canal_notes>Example text.</left_ear_canal_notes>
+    <left_tympanic_membrane>normal</left_tympanic_membrane>
+    <left_tympanic_membrane_notes>Example text.</left_tympanic_membrane_notes>
+    <left_cerumen>none</left_cerumen>
+    <otoscopy_notes>Example text.</otoscopy_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </otoscopic_findings>
+  <tinnitus>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_tinnitus>yes</has_tinnitus>
+    <tinnitus_laterality>left</tinnitus_laterality>
+    <tinnitus_type>ringing</tinnitus_type>
+    <tinnitus_description>Example text.</tinnitus_description>
+    <tinnitus_onset>sudden</tinnitus_onset>
+    <tinnitus_duration/>
+    <tinnitus_constancy>constant</tinnitus_constancy>
+    <tinnitus_severity>1</tinnitus_severity>
+    <tinnitus_impact_on_sleep>none</tinnitus_impact_on_sleep>
+    <tinnitus_impact_on_concentration>none</tinnitus_impact_on_concentration>
+    <tinnitus_impact_on_mood>none</tinnitus_impact_on_mood>
+    <tinnitus_management/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </tinnitus>
+  <vestibular_symptoms>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_dizziness>yes</has_dizziness>
+    <has_vertigo>yes</has_vertigo>
+    <vertigo_type>spinning</vertigo_type>
+    <vertigo_duration/>
+    <vertigo_frequency>twice daily</vertigo_frequency>
+    <vertigo_triggers/>
+    <has_balance_problems>yes</has_balance_problems>
+    <has_falls>yes</has_falls>
+    <falls_frequency>twice daily</falls_frequency>
+    <has_nausea_with_dizziness>yes</has_nausea_with_dizziness>
+    <has_aural_fullness>yes</has_aural_fullness>
+    <suspected_meniere_disease>yes</suspected_meniere_disease>
+    <vestibular_notes>Example text.</vestibular_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </vestibular_symptoms>
 </assessment>

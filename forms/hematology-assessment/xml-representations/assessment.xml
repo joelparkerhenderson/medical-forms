@@ -1,9 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>in_progress</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>in_progress</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <blood_count_analysis>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hemoglobin>0.0</hemoglobin>
+    <hematocrit>0.0</hematocrit>
+    <red_blood_cell_count>0.0</red_blood_cell_count>
+    <white_blood_cell_count>0.0</white_blood_cell_count>
+    <platelet_count>0.0</platelet_count>
+    <mean_corpuscular_volume>0.0</mean_corpuscular_volume>
+    <mean_corpuscular_hemoglobin>0.0</mean_corpuscular_hemoglobin>
+    <red_cell_distribution_width>0.0</red_cell_distribution_width>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </blood_count_analysis>
+  <bone_marrow_assessment>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <aspirate_findings>Example text.</aspirate_findings>
+    <biopsy_findings>Example text.</biopsy_findings>
+    <cellularity>1</cellularity>
+    <cytogenetics_results>Normal</cytogenetics_results>
+    <flow_cytometry_results>Normal</flow_cytometry_results>
+    <bone_marrow_comments>Example text.</bone_marrow_comments>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </bone_marrow_assessment>
+  <clinical_review>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <clinical_summary>Example text.</clinical_summary>
+    <diagnosis>Under investigation</diagnosis>
+    <follow_up_plan>Example text.</follow_up_plan>
+    <urgency_level>1</urgency_level>
+    <reviewer_name>Example</reviewer_name>
+    <review_date>2026-01-15</review_date>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </clinical_review>
+  <coagulation_studies>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <prothrombin_time>0.0</prothrombin_time>
+    <inr>0.0</inr>
+    <activated_partial_thromboplastin_time>0.0</activated_partial_thromboplastin_time>
+    <fibrinogen>0.0</fibrinogen>
+    <d_dimer>0.0</d_dimer>
+    <bleeding_time>0.0</bleeding_time>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </coagulation_studies>
+  <hemoglobinopathy_screening>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hemoglobin_electrophoresis/>
+    <sickle_cell_screen>positive</sickle_cell_screen>
+    <thalassemia_screen>positive</thalassemia_screen>
+    <hplc_results>Normal</hplc_results>
+    <genetic_testing_notes>Example text.</genetic_testing_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </hemoglobinopathy_screening>
+  <iron_studies>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <serum_iron>0.0</serum_iron>
+    <total_iron_binding_capacity>0.0</total_iron_binding_capacity>
+    <transferrin_saturation>1.5</transferrin_saturation>
+    <serum_ferritin>0.0</serum_ferritin>
+    <reticulocyte_count>0.0</reticulocyte_count>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </iron_studies>
+  <patient_information>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <patient_name>Example</patient_name>
+    <date_of_birth>1965-06-15</date_of_birth>
+    <medical_record_number/>
+    <referring_physician>Dr Smith</referring_physician>
+    <clinical_indication>Example Hospital</clinical_indication>
+    <specimen_date>2026-01-15</specimen_date>
+    <specimen_type>standard</specimen_type>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </patient_information>
+  <peripheral_blood_film>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <red_cell_morphology/>
+    <white_blood_cell_differential/>
+    <platelet_morphology/>
+    <abnormal_cell_morphology/>
+    <film_quality>1</film_quality>
+    <film_comments>Example text.</film_comments>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </peripheral_blood_film>
+  <transfusion_history>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_transfusions/>
+    <transfusion_reactions>Urticaria</transfusion_reactions>
+    <blood_group_type>standard</blood_group_type>
+    <antibody_screen/>
+    <crossmatch_results>Normal</crossmatch_results>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </transfusion_history>
+  <treatment_medications>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <current_medications>Paracetamol</current_medications>
+    <chemotherapy_regimen>Example treatment</chemotherapy_regimen>
+    <anticoagulant_therapy>Example treatment</anticoagulant_therapy>
+    <iron_therapy>Example treatment</iron_therapy>
+    <treatment_response>Example treatment</treatment_response>
+    <adverse_effects/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </treatment_medications>
 </assessment>

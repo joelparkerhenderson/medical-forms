@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Disease Activity - Rheumatology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Disease Activity</h2>
+<h2>Disease Activity</h2>
     <p class="hint">Record disease activity measures including global assessments and pain scores.</p>
 
     <div class="form-row">
@@ -58,8 +50,4 @@
         <small>Disease Activity Score (28 joints)</small>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

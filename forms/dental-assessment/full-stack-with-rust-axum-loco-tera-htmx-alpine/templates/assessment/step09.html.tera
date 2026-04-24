@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Treatment Needs - Dental Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Treatment Needs</h2>
+<h2>Treatment Needs</h2>
     <p class="hint">Document the required treatments and their urgency.</p>
 
     <div class="form-row-4">
@@ -66,8 +58,4 @@
                   placeholder="Alignment, crowding, spacing, etc.">{{ treatment_needs.orthodonticNeeds }}</textarea>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

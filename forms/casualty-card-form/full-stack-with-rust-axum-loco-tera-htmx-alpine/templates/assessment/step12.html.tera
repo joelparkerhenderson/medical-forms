@@ -1,15 +1,7 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 12: Assessment & Plan</h2>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-group">
+<div class="form-group">
             <label for="working_diagnosis">Working Diagnosis</label>
             <textarea id="working_diagnosis" name="assessment_plan.working_diagnosis">{{ assessment_plan.workingDiagnosis }}</textarea>
         </div>
@@ -28,8 +20,4 @@
             <label for="risk_stratification">Risk Stratification</label>
             <textarea id="risk_stratification" name="assessment_plan.risk_stratification">{{ assessment_plan.riskStratification }}</textarea>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

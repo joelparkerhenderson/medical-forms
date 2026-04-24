@@ -358,7 +358,9 @@ def process_form(form_dir):
     xml_dir = form_dir / "xml-representations"
 
     # Read all SQL files in order
-    sql_files = sorted(sql_dir.glob("*.sql"))
+    # Only process numbered migration files; skip the combined schema.sql
+    # produced by bin/generate-sql-combined.py.
+    sql_files = sorted(f for f in sql_dir.glob("*.sql") if f.name[:1].isdigit())
     if not sql_files:
         return 0
 

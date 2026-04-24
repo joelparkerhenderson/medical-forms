@@ -1,9 +1,209 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <cognitive_screen>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <mmse_score>5</mmse_score>
+    <moca_score>5</moca_score>
+    <clock_drawing_score>5</clock_drawing_score>
+    <orientation_to_time>intact</orientation_to_time>
+    <orientation_to_place>intact</orientation_to_place>
+    <short_term_memory>intact</short_term_memory>
+    <long_term_memory>intact</long_term_memory>
+    <executive_function>intact</executive_function>
+    <language_function>intact</language_function>
+    <known_dementia_diagnosis>yes</known_dementia_diagnosis>
+    <dementia_type>standard</dementia_type>
+    <delirium_screen>positive</delirium_screen>
+    <cognitive_decline_reported_by>patient</cognitive_decline_reported_by>
+    <cognitive_notes>Example text.</cognitive_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cognitive_screen>
+  <comorbidities>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_hypertension>yes</has_hypertension>
+    <has_diabetes>yes</has_diabetes>
+    <diabetes_type>type-1</diabetes_type>
+    <has_heart_failure>yes</has_heart_failure>
+    <has_atrial_fibrillation>yes</has_atrial_fibrillation>
+    <has_copd>yes</has_copd>
+    <has_osteoporosis>yes</has_osteoporosis>
+    <has_osteoarthritis>yes</has_osteoarthritis>
+    <has_chronic_kidney_disease>yes</has_chronic_kidney_disease>
+    <ckd_stage>1</ckd_stage>
+    <has_stroke_history>yes</has_stroke_history>
+    <has_parkinson_disease>yes</has_parkinson_disease>
+    <has_cancer>yes</has_cancer>
+    <cancer_details>Example text.</cancer_details>
+    <charlson_comorbidity_index>1</charlson_comorbidity_index>
+    <other_comorbidities/>
+    <comorbidity_notes>Example text.</comorbidity_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </comorbidities>
+  <continence_and_skin>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <urinary_incontinence>yes</urinary_incontinence>
+    <urinary_incontinence_type>stress</urinary_incontinence_type>
+    <urinary_frequency>normal</urinary_frequency>
+    <nocturia>1</nocturia>
+    <catheter_in_situ>yes</catheter_in_situ>
+    <faecal_incontinence>yes</faecal_incontinence>
+    <constipation>yes</constipation>
+    <bowel_pattern>regular</bowel_pattern>
+    <skin_integrity>intact</skin_integrity>
+    <pressure_ulcer>yes</pressure_ulcer>
+    <pressure_ulcer_grade>1</pressure_ulcer_grade>
+    <pressure_ulcer_location>Example location</pressure_ulcer_location>
+    <waterlow_score>5</waterlow_score>
+    <skin_tears>yes</skin_tears>
+    <leg_ulcers>yes</leg_ulcers>
+    <moisture_associated_skin_damage>yes</moisture_associated_skin_damage>
+    <continence_skin_notes>Example text.</continence_skin_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </continence_and_skin>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ethnicity>White British</ethnicity>
+    <primary_language>English</primary_language>
+    <interpreter_required>yes</interpreter_required>
+    <marital_status>single</marital_status>
+    <living_situation>alone</living_situation>
+    <next_of_kin_name>Example</next_of_kin_name>
+    <next_of_kin_phone/>
+    <next_of_kin_relationship>Spouse</next_of_kin_relationship>
+    <has_lasting_power_of_attorney>yes</has_lasting_power_of_attorney>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <functional_assessment>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <bathing_independence>independent</bathing_independence>
+    <dressing_independence>independent</dressing_independence>
+    <toileting_independence>independent</toileting_independence>
+    <transferring_independence>independent</transferring_independence>
+    <feeding_independence>independent</feeding_independence>
+    <continence_status>continent</continence_status>
+    <cooking_ability>independent</cooking_ability>
+    <shopping_ability>independent</shopping_ability>
+    <housework_ability>independent</housework_ability>
+    <medication_management>independent</medication_management>
+    <telephone_use>independent</telephone_use>
+    <finances_management>independent</finances_management>
+    <barthel_index_score>5</barthel_index_score>
+    <additional_functional_notes>Example text.</additional_functional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </functional_assessment>
+  <mobility_and_falls>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <mobility_level>fully-mobile</mobility_level>
+    <mobility_aid_type>walking-stick</mobility_aid_type>
+    <gait_abnormality>yes</gait_abnormality>
+    <gait_abnormality_details>Example text.</gait_abnormality_details>
+    <timed_up_and_go_seconds>0.0</timed_up_and_go_seconds>
+    <history_of_falls>yes</history_of_falls>
+    <falls_in_last_12_months>1</falls_in_last_12_months>
+    <fall_related_injury>yes</fall_related_injury>
+    <fall_injury_details>Example text.</fall_injury_details>
+    <fear_of_falling>yes</fear_of_falling>
+    <balance_impairment>yes</balance_impairment>
+    <postural_hypotension>yes</postural_hypotension>
+    <home_hazards_identified>yes</home_hazards_identified>
+    <home_hazard_details>Example text.</home_hazard_details>
+    <mobility_notes>Example text.</mobility_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </mobility_and_falls>
+  <nutrition>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <unintentional_weight_loss>yes</unintentional_weight_loss>
+    <weight_loss_amount_kg>70.0</weight_loss_amount_kg>
+    <weight_loss_duration_months>1</weight_loss_duration_months>
+    <appetite>good</appetite>
+    <meals_per_day>1</meals_per_day>
+    <meal_preparation>self</meal_preparation>
+    <dietary_restrictions/>
+    <swallowing_difficulty>yes</swallowing_difficulty>
+    <swallowing_details>Example text.</swallowing_details>
+    <denture_status>none</denture_status>
+    <hydration_status>adequate</hydration_status>
+    <must_score>5</must_score>
+    <nutritional_supplement>yes</nutritional_supplement>
+    <supplement_details>Example text.</supplement_details>
+    <nutrition_notes>Example text.</nutrition_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </nutrition>
+  <polypharmacy_review>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <total_regular_medications>1</total_regular_medications>
+    <total_prn_medications>1</total_prn_medications>
+    <polypharmacy_flag>yes</polypharmacy_flag>
+    <medication_review_date>2026-01-15</medication_review_date>
+    <falls_risk_medications>yes</falls_risk_medications>
+    <falls_risk_medication_details>Example text.</falls_risk_medication_details>
+    <anticholinergic_burden>low</anticholinergic_burden>
+    <drug_interactions_identified>yes</drug_interactions_identified>
+    <drug_interaction_details>Example text.</drug_interaction_details>
+    <adherence_concerns>yes</adherence_concerns>
+    <adherence_details>Example text.</adherence_details>
+    <stopp_start_review_done>yes</stopp_start_review_done>
+    <deprescribing_opportunities>mg/dL</deprescribing_opportunities>
+    <polypharmacy_notes>Example text.</polypharmacy_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </polypharmacy_review>
+  <polypharmacy_review_medication>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <polypharmacy_review_id>660e8400-e29b-41d4-a716-446655440001</polypharmacy_review_id>
+    <medication_name>Example</medication_name>
+    <dose>500mg</dose>
+    <frequency>twice daily</frequency>
+    <route>oral</route>
+    <indication/>
+    <is_prn>yes</is_prn>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </polypharmacy_review_medication>
+  <psychosocial>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <mood_screen>normal</mood_screen>
+    <geriatric_depression_scale_score>5</geriatric_depression_scale_score>
+    <anxiety_present>yes</anxiety_present>
+    <social_isolation>yes</social_isolation>
+    <loneliness>yes</loneliness>
+    <social_activities_participation>regular</social_activities_participation>
+    <carer_available>yes</carer_available>
+    <carer_relationship>Spouse</carer_relationship>
+    <carer_stress>yes</carer_stress>
+    <carer_stress_details>Example text.</carer_stress_details>
+    <bereavement>yes</bereavement>
+    <bereavement_details>Example text.</bereavement_details>
+    <financial_concerns>yes</financial_concerns>
+    <elder_abuse_concerns>yes</elder_abuse_concerns>
+    <safeguarding_referral_needed>yes</safeguarding_referral_needed>
+    <psychosocial_notes>Example text.</psychosocial_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </psychosocial>
 </assessment>

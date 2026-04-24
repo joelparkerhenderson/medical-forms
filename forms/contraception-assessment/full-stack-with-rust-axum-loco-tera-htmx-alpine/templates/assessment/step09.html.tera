@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Counselling - Contraception Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Counselling</h2>
+<h2>Counselling</h2>
     <p class="hint">Document the counselling provided to the patient.</p>
 
     <div class="form-row">
@@ -85,8 +77,4 @@
         <label><input type="radio" name="counselling.consent_obtained" value="no" {% if counselling.consentObtained == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

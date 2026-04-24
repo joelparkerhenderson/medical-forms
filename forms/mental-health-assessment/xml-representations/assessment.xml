@@ -1,9 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <current_medication_item>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <current_medications_id>660e8400-e29b-41d4-a716-446655440001</current_medications_id>
+    <medication_name>Example</medication_name>
+    <dose>500mg</dose>
+    <frequency>twice daily</frequency>
+    <prescriber/>
+    <start_date>2026-01-15</start_date>
+    <medication_class>antidepressant</medication_class>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medication_item>
+  <current_medications>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <taking_psychotropic_medication>yes</taking_psychotropic_medication>
+    <medication_adherence>good</medication_adherence>
+    <side_effects>yes</side_effects>
+    <side_effects_details>Example text.</side_effects_details>
+    <over_the_counter_medications>Paracetamol</over_the_counter_medications>
+    <supplements/>
+    <medication_notes>Example text.</medication_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <occupation>Teacher</occupation>
+    <marital_status>single</marital_status>
+    <living_situation>alone</living_situation>
+    <ethnicity>White British</ethnicity>
+    <contact_phone>07700900001</contact_phone>
+    <contact_email>07700900001</contact_email>
+    <emergency_contact_name>Example</emergency_contact_name>
+    <emergency_contact_phone>07700900001</emergency_contact_phone>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <gad7_anxiety_screen>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <q1_feeling_nervous>1</q1_feeling_nervous>
+    <q2_uncontrollable_worrying>1</q2_uncontrollable_worrying>
+    <q3_worrying_too_much>1</q3_worrying_too_much>
+    <q4_trouble_relaxing>1</q4_trouble_relaxing>
+    <q5_restlessness>1</q5_restlessness>
+    <q6_easily_annoyed>1</q6_easily_annoyed>
+    <q7_feeling_afraid>1</q7_feeling_afraid>
+    <gad7_total_score>5</gad7_total_score>
+    <difficulty_level>not-difficult</difficulty_level>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </gad7_anxiety_screen>
+  <mood_and_affect>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <current_mood>euthymic</current_mood>
+    <mood_stability>stable</mood_stability>
+    <affect>congruent</affect>
+    <sleep_quality>good</sleep_quality>
+    <sleep_hours_per_night>0.0</sleep_hours_per_night>
+    <appetite>normal</appetite>
+    <energy_level>normal</energy_level>
+    <motivation_level>normal</motivation_level>
+    <anhedonia>yes</anhedonia>
+    <irritability>yes</irritability>
+    <psychomotor_changes>retardation</psychomotor_changes>
+    <mood_notes>Example text.</mood_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </mood_and_affect>
+  <phq9_depression_screen>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <q1_little_interest>1</q1_little_interest>
+    <q2_feeling_down>1</q2_feeling_down>
+    <q3_sleep_problems>1</q3_sleep_problems>
+    <q4_feeling_tired>1</q4_feeling_tired>
+    <q5_appetite_changes>1</q5_appetite_changes>
+    <q6_feeling_bad_about_self>1</q6_feeling_bad_about_self>
+    <q7_trouble_concentrating>1</q7_trouble_concentrating>
+    <q8_moving_slowly_or_fidgety>1</q8_moving_slowly_or_fidgety>
+    <q9_thoughts_of_self_harm>1</q9_thoughts_of_self_harm>
+    <phq9_total_score>5</phq9_total_score>
+    <difficulty_level>not-difficult</difficulty_level>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </phq9_depression_screen>
+  <risk_assessment>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <suicidal_ideation>yes</suicidal_ideation>
+    <suicidal_ideation_frequency>rarely</suicidal_ideation_frequency>
+    <suicidal_plan>yes</suicidal_plan>
+    <suicidal_intent>yes</suicidal_intent>
+    <previous_suicide_attempts>yes</previous_suicide_attempts>
+    <previous_attempt_count>2</previous_attempt_count>
+    <previous_attempt_details>Example text.</previous_attempt_details>
+    <self_harm>yes</self_harm>
+    <self_harm_type>standard</self_harm_type>
+    <harm_to_others>yes</harm_to_others>
+    <harm_to_others_details>Example text.</harm_to_others_details>
+    <access_to_means>yes</access_to_means>
+    <access_to_means_details>Example text.</access_to_means_details>
+    <protective_factors/>
+    <overall_risk_level>low</overall_risk_level>
+    <safety_plan_in_place>yes</safety_plan_in_place>
+    <risk_notes>Example text.</risk_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </risk_assessment>
+  <social_and_functional>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <employment_status>employed</employment_status>
+    <employment_impact/>
+    <social_support>strong</social_support>
+    <social_isolation>yes</social_isolation>
+    <relationship_difficulties>yes</relationship_difficulties>
+    <relationship_details>Example text.</relationship_details>
+    <financial_difficulties>yes</financial_difficulties>
+    <housing_issues>yes</housing_issues>
+    <housing_details>Example text.</housing_details>
+    <caring_responsibilities>yes</caring_responsibilities>
+    <caring_details>Example text.</caring_details>
+    <daily_functioning>independent</daily_functioning>
+    <hobbies_and_interests/>
+    <exercise_frequency>daily</exercise_frequency>
+    <social_functional_notes>Example text.</social_functional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </social_and_functional>
+  <substance_use>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <alcohol_use>none</alcohol_use>
+    <alcohol_units_per_week>1</alcohol_units_per_week>
+    <alcohol_concern>yes</alcohol_concern>
+    <tobacco_use>never</tobacco_use>
+    <tobacco_per_day>1</tobacco_per_day>
+    <cannabis_use>never</cannabis_use>
+    <recreational_drug_use>yes</recreational_drug_use>
+    <recreational_drug_details>Example text.</recreational_drug_details>
+    <prescription_misuse>yes</prescription_misuse>
+    <prescription_misuse_details>Example text.</prescription_misuse_details>
+    <caffeine_intake>none</caffeine_intake>
+    <previous_substance_treatment>yes</previous_substance_treatment>
+    <previous_substance_treatment_details>Example text.</previous_substance_treatment_details>
+    <substance_use_notes>Example text.</substance_use_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </substance_use>
+  <treatment_history>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_psychiatric_diagnosis>yes</previous_psychiatric_diagnosis>
+    <previous_diagnoses/>
+    <previous_therapy>yes</previous_therapy>
+    <therapy_type>cbt</therapy_type>
+    <therapy_details>Example text.</therapy_details>
+    <previous_psychiatric_admission>yes</previous_psychiatric_admission>
+    <admission_count>2</admission_count>
+    <admission_details>Example text.</admission_details>
+    <crisis_team_involvement>yes</crisis_team_involvement>
+    <sectioned_under_mental_health_act>yes</sectioned_under_mental_health_act>
+    <section_details>Example text.</section_details>
+    <electroconvulsive_therapy>yes</electroconvulsive_therapy>
+    <treatment_response>Example treatment</treatment_response>
+    <treatment_history_notes>Example text.</treatment_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </treatment_history>
 </assessment>

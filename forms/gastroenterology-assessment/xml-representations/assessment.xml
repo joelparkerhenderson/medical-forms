@@ -1,9 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <abdominal_pain>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_abdominal_pain>yes</has_abdominal_pain>
+    <pain_location>epigastric</pain_location>
+    <pain_character>cramping</pain_character>
+    <pain_severity>1</pain_severity>
+    <pain_radiation/>
+    <pain_onset>sudden</pain_onset>
+    <pain_duration/>
+    <pain_aggravating_factors/>
+    <pain_relieving_factors/>
+    <relation_to_meals>worse_with_food</relation_to_meals>
+    <relation_to_defecation>better_after</relation_to_defecation>
+    <nocturnal_pain>yes</nocturnal_pain>
+    <associated_weight_loss>yes</associated_weight_loss>
+    <weight_loss_amount_kg>70.0</weight_loss_amount_kg>
+    <weight_loss_duration/>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </abdominal_pain>
+  <allergies_and_diet>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_drug_allergies>yes</has_drug_allergies>
+    <drug_allergy_details>Example text.</drug_allergy_details>
+    <has_food_allergies>yes</has_food_allergies>
+    <food_allergy_details>Example text.</food_allergy_details>
+    <has_food_intolerances>yes</has_food_intolerances>
+    <food_intolerance_details>Example text.</food_intolerance_details>
+    <lactose_intolerance>yes</lactose_intolerance>
+    <gluten_sensitivity>yes</gluten_sensitivity>
+    <fructose_intolerance>yes</fructose_intolerance>
+    <dietary_restrictions/>
+    <diet_type>omnivore</diet_type>
+    <diet_type_other>standard</diet_type_other>
+    <fibre_intake>low</fibre_intake>
+    <fluid_intake_litres>0.0</fluid_intake_litres>
+    <caffeine_intake>none</caffeine_intake>
+    <nutritional_supplements/>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </allergies_and_diet>
+  <assessment_chief_complaint>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <chief_complaint/>
+    <onset_date>2026-01-15</onset_date>
+    <duration/>
+    <symptom_pattern>continuous</symptom_pattern>
+    <severity>mild</severity>
+    <impact_on_daily_life>none</impact_on_daily_life>
+    <previous_investigations/>
+    <previous_treatment>Example treatment</previous_treatment>
+    <previous_treatment_response>resolved</previous_treatment_response>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </assessment_chief_complaint>
+  <current_medications>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <takes_ppi>yes</takes_ppi>
+    <ppi_name>Example</ppi_name>
+    <takes_h2_blocker>yes</takes_h2_blocker>
+    <h2_blocker_name>Example</h2_blocker_name>
+    <takes_antacids>yes</takes_antacids>
+    <takes_laxatives>yes</takes_laxatives>
+    <laxative_type>osmotic</laxative_type>
+    <takes_antidiarrhoeals>yes</takes_antidiarrhoeals>
+    <takes_nsaids>yes</takes_nsaids>
+    <nsaid_name>Example</nsaid_name>
+    <takes_anticoagulants>yes</takes_anticoagulants>
+    <anticoagulant_name>Example</anticoagulant_name>
+    <takes_immunosuppressants>yes</takes_immunosuppressants>
+    <immunosuppressant_name>Example</immunosuppressant_name>
+    <takes_biologics>yes</takes_biologics>
+    <biologic_name>Example</biologic_name>
+    <takes_antibiotics>yes</takes_antibiotics>
+    <antibiotic_name>Example</antibiotic_name>
+    <takes_probiotics>yes</takes_probiotics>
+    <other_medications>Paracetamol</other_medications>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <full_name>Example</full_name>
+    <date_of_birth>1965-06-15</date_of_birth>
+    <nhs_number>9434765919</nhs_number>
+    <address>123 Example Street</address>
+    <telephone>07700900000</telephone>
+    <email>jane.doe@example.com</email>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <liver_and_pancreas>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <jaundice>yes</jaundice>
+    <jaundice_duration/>
+    <dark_urine>yes</dark_urine>
+    <pale_stools>yes</pale_stools>
+    <pruritus>yes</pruritus>
+    <hepatomegaly>yes</hepatomegaly>
+    <ascites>yes</ascites>
+    <history_of_hepatitis>yes</history_of_hepatitis>
+    <hepatitis_type>a</hepatitis_type>
+    <history_of_liver_disease>yes</history_of_liver_disease>
+    <liver_disease_details>Example text.</liver_disease_details>
+    <alcohol_consumption>none</alcohol_consumption>
+    <alcohol_units_per_week>1</alcohol_units_per_week>
+    <history_of_pancreatitis>yes</history_of_pancreatitis>
+    <pancreatitis_type>acute</pancreatitis_type>
+    <history_of_gallstones>yes</history_of_gallstones>
+    <cholecystectomy_performed>yes</cholecystectomy_performed>
+    <liver_function_tests_available>yes</liver_function_tests_available>
+    <lft_notes>Example text.</lft_notes>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </liver_and_pancreas>
+  <lower_gi_symptoms>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <altered_bowel_habit>yes</altered_bowel_habit>
+    <bowel_habit_change_type>diarrhoea</bowel_habit_change_type>
+    <stool_frequency_per_day>1</stool_frequency_per_day>
+    <bristol_stool_type>1</bristol_stool_type>
+    <rectal_bleeding>yes</rectal_bleeding>
+    <bleeding_colour>bright_red</bleeding_colour>
+    <melaena>yes</melaena>
+    <mucus_in_stool>yes</mucus_in_stool>
+    <tenesmus>yes</tenesmus>
+    <urgency>yes</urgency>
+    <incontinence>yes</incontinence>
+    <flatulence>normal</flatulence>
+    <abdominal_distension>yes</abdominal_distension>
+    <perianal_symptoms>yes</perianal_symptoms>
+    <perianal_details>Example text.</perianal_details>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </lower_gi_symptoms>
+  <previous_gi_history>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_ibs>yes</has_ibs>
+    <ibs_subtype>ibs_c</ibs_subtype>
+    <has_ibd>yes</has_ibd>
+    <ibd_type>crohns</ibd_type>
+    <has_coeliac_disease>yes</has_coeliac_disease>
+    <has_peptic_ulcer>yes</has_peptic_ulcer>
+    <helicobacter_pylori_status>positive</helicobacter_pylori_status>
+    <has_gord>yes</has_gord>
+    <has_barretts_oesophagus>yes</has_barretts_oesophagus>
+    <has_gi_malignancy>yes</has_gi_malignancy>
+    <gi_malignancy_details>Example text.</gi_malignancy_details>
+    <has_polyps>yes</has_polyps>
+    <polyp_details>Example text.</polyp_details>
+    <previous_endoscopy>yes</previous_endoscopy>
+    <endoscopy_date>2026-01-15</endoscopy_date>
+    <endoscopy_findings>Example text.</endoscopy_findings>
+    <previous_colonoscopy>yes</previous_colonoscopy>
+    <colonoscopy_date>2026-01-15</colonoscopy_date>
+    <colonoscopy_findings>Example text.</colonoscopy_findings>
+    <previous_gi_surgery>yes</previous_gi_surgery>
+    <gi_surgery_details>Example text.</gi_surgery_details>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </previous_gi_history>
+  <red_flags_and_social>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <unintentional_weight_loss>yes</unintentional_weight_loss>
+    <progressive_dysphagia>yes</progressive_dysphagia>
+    <gi_bleeding>yes</gi_bleeding>
+    <iron_deficiency_anaemia>yes</iron_deficiency_anaemia>
+    <persistent_vomiting>yes</persistent_vomiting>
+    <palpable_abdominal_mass>yes</palpable_abdominal_mass>
+    <new_onset_symptoms_over_50>yes</new_onset_symptoms_over_50>
+    <family_history_gi_cancer>yes</family_history_gi_cancer>
+    <family_gi_cancer_details>Example text.</family_gi_cancer_details>
+    <night_sweats>yes</night_sweats>
+    <fever>yes</fever>
+    <tobacco_use>current</tobacco_use>
+    <alcohol_use>none</alcohol_use>
+    <recreational_drug_use>yes</recreational_drug_use>
+    <occupation>Teacher</occupation>
+    <travel_history>Example text.</travel_history>
+    <stress_level>low</stress_level>
+    <psychological_impact/>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </red_flags_and_social>
+  <upper_gi_symptoms>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <dysphagia>yes</dysphagia>
+    <dysphagia_type>solids</dysphagia_type>
+    <dysphagia_progression>stable</dysphagia_progression>
+    <odynophagia>yes</odynophagia>
+    <heartburn>yes</heartburn>
+    <heartburn_frequency>daily</heartburn_frequency>
+    <acid_regurgitation>yes</acid_regurgitation>
+    <nausea>yes</nausea>
+    <nausea_frequency>daily</nausea_frequency>
+    <vomiting>yes</vomiting>
+    <vomiting_frequency>daily</vomiting_frequency>
+    <haematemesis>yes</haematemesis>
+    <early_satiety>yes</early_satiety>
+    <bloating>yes</bloating>
+    <epigastric_pain>yes</epigastric_pain>
+    <epigastric_pain_relation_to_meals>worse_with_food</epigastric_pain_relation_to_meals>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </upper_gi_symptoms>
 </assessment>

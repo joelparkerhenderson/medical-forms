@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Cardiac Genetic Risk - Genetic Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Cardiac Genetic Risk</h2>
+<h2>Cardiac Genetic Risk</h2>
     <p class="hint">Family history and testing for inherited cardiac conditions.</p>
 
     <div class="form-group">
@@ -66,8 +58,4 @@
       <textarea id="cardiovascular_details" name="cardiac_genetic_risk.cardiovascular_details" rows="3"
                 placeholder="Any additional cardiac family history or clinical details">{{ cardiac_genetic_risk.cardiovascularDetails }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

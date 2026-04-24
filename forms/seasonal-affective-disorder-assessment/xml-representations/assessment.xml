@@ -1,9 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <appetite_weight>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <appetite_change>increased</appetite_change>
+    <carbohydrate_craving>yes</carbohydrate_craving>
+    <carbohydrate_craving_severity>mild</carbohydrate_craving_severity>
+    <chocolate_craving>yes</chocolate_craving>
+    <weight_change>gained</weight_change>
+    <weight_change_kg>70.0</weight_change_kg>
+    <weight_change_period>last-month</weight_change_period>
+    <seasonal_weight_pattern>yes</seasonal_weight_pattern>
+    <appetite_weight_notes>Example text.</appetite_weight_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </appetite_weight>
+  <current_mood>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <phq9_interest>1</phq9_interest>
+    <phq9_feeling_down>1</phq9_feeling_down>
+    <phq9_sleep>1</phq9_sleep>
+    <phq9_tired>1</phq9_tired>
+    <phq9_appetite>1</phq9_appetite>
+    <phq9_feeling_bad>1</phq9_feeling_bad>
+    <phq9_concentration>1</phq9_concentration>
+    <phq9_moving_slowly>1</phq9_moving_slowly>
+    <phq9_self_harm>1</phq9_self_harm>
+    <phq9_total>1</phq9_total>
+    <current_mood_notes>Example text.</current_mood_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_mood>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <referrer_name>Example</referrer_name>
+    <referrer_role/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <light_exposure>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <daily_outdoor_minutes>1</daily_outdoor_minutes>
+    <outdoor_time_of_day>morning</outdoor_time_of_day>
+    <workplace_natural_light>good</workplace_natural_light>
+    <home_natural_light>good</home_natural_light>
+    <latitude_awareness>yes</latitude_awareness>
+    <uses_light_therapy>yes</uses_light_therapy>
+    <light_therapy_details>Example text.</light_therapy_details>
+    <light_therapy_duration_minutes>1</light_therapy_duration_minutes>
+    <light_therapy_lux>1</light_therapy_lux>
+    <dawn_simulator>yes</dawn_simulator>
+    <light_exposure_notes>Example text.</light_exposure_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </light_exposure>
+  <previous_treatments>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_sad_diagnosis>yes</previous_sad_diagnosis>
+    <previous_depression_diagnosis>yes</previous_depression_diagnosis>
+    <on_antidepressant>yes</on_antidepressant>
+    <antidepressant_details>Example text.</antidepressant_details>
+    <previous_antidepressant>yes</previous_antidepressant>
+    <previous_antidepressant_details>Example text.</previous_antidepressant_details>
+    <previous_light_therapy>yes</previous_light_therapy>
+    <light_therapy_response>good</light_therapy_response>
+    <previous_cbt>yes</previous_cbt>
+    <cbt_response>good</cbt_response>
+    <previous_other_therapy>yes</previous_other_therapy>
+    <other_therapy_details>Example text.</other_therapy_details>
+    <vitamin_d_supplementation>yes</vitamin_d_supplementation>
+    <medication_adherence>good</medication_adherence>
+    <treatment_notes>Example text.</treatment_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </previous_treatments>
+  <risk_assessment>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <suicidal_ideation>yes</suicidal_ideation>
+    <suicidal_ideation_frequency>rarely</suicidal_ideation_frequency>
+    <suicidal_plan>yes</suicidal_plan>
+    <suicidal_intent>yes</suicidal_intent>
+    <previous_self_harm>yes</previous_self_harm>
+    <previous_self_harm_details>Example text.</previous_self_harm_details>
+    <previous_suicide_attempt>yes</previous_suicide_attempt>
+    <previous_attempt_details>Example text.</previous_attempt_details>
+    <hopelessness>none</hopelessness>
+    <protective_factors/>
+    <risk_level>low</risk_level>
+    <safety_plan_in_place>yes</safety_plan_in_place>
+    <risk_assessment_notes>Example text.</risk_assessment_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </risk_assessment>
+  <seasonal_pattern_history>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <worst_month>january</worst_month>
+    <best_month>january</best_month>
+    <years_of_seasonal_symptoms>2026</years_of_seasonal_symptoms>
+    <gss_sleep_length>1</gss_sleep_length>
+    <gss_social_activity>1</gss_social_activity>
+    <gss_mood>1</gss_mood>
+    <gss_weight>1</gss_weight>
+    <gss_appetite>1</gss_appetite>
+    <gss_energy>1</gss_energy>
+    <gss_total>1</gss_total>
+    <seasonal_pattern_is_problem>no</seasonal_pattern_is_problem>
+    <seasonal_pattern_notes>Example text.</seasonal_pattern_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </seasonal_pattern_history>
+  <sleep_energy>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <average_sleep_hours>0.0</average_sleep_hours>
+    <sleep_quality>good</sleep_quality>
+    <difficulty_waking>yes</difficulty_waking>
+    <hypersomnia>yes</hypersomnia>
+    <hypersomnia_hours>0.0</hypersomnia_hours>
+    <daytime_sleepiness>none</daytime_sleepiness>
+    <energy_level>normal</energy_level>
+    <energy_worst_time>morning</energy_worst_time>
+    <fatigue_impact>none</fatigue_impact>
+    <sleep_energy_notes>Example text.</sleep_energy_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </sleep_energy>
+  <social_occupational>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <social_withdrawal>none</social_withdrawal>
+    <relationship_impact>none</relationship_impact>
+    <work_performance>normal</work_performance>
+    <days_missed_work>1</days_missed_work>
+    <daily_activities_impact>none</daily_activities_impact>
+    <hobbies_interest>normal</hobbies_interest>
+    <employment_status>employed</employment_status>
+    <occupation>Teacher</occupation>
+    <social_occupational_notes>Example text.</social_occupational_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </social_occupational>
+  <treatment_plan>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <light_therapy_recommended>yes</light_therapy_recommended>
+    <light_therapy_prescription>Example treatment</light_therapy_prescription>
+    <antidepressant_recommended>yes</antidepressant_recommended>
+    <antidepressant_prescription/>
+    <cbt_recommended>yes</cbt_recommended>
+    <exercise_recommended>yes</exercise_recommended>
+    <exercise_details>Example text.</exercise_details>
+    <lifestyle_advice/>
+    <vitamin_d_recommended>yes</vitamin_d_recommended>
+    <follow_up_interval>1-week</follow_up_interval>
+    <follow_up_date>2026-01-15</follow_up_date>
+    <referral_required>yes</referral_required>
+    <referral_to/>
+    <crisis_plan>Example text.</crisis_plan>
+    <treatment_plan_notes>Example text.</treatment_plan_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </treatment_plan>
 </assessment>

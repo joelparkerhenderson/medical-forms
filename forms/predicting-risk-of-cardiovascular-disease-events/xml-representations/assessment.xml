@@ -1,9 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>in_progress</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>in_progress</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <blood_pressure>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <systolic_bp>0.0</systolic_bp>
+    <diastolic_bp>0.0</diastolic_bp>
+    <on_antihypertensive>yes</on_antihypertensive>
+    <number_of_bp_medications>2</number_of_bp_medications>
+    <bp_at_target>yes</bp_at_target>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </blood_pressure>
+  <cholesterol_lipids>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <total_cholesterol>0.0</total_cholesterol>
+    <hdl_cholesterol>0.0</hdl_cholesterol>
+    <ldl_cholesterol>0.0</ldl_cholesterol>
+    <triglycerides>0.0</triglycerides>
+    <non_hdl_cholesterol>0.0</non_hdl_cholesterol>
+    <on_statin>yes</on_statin>
+    <statin_name>Example</statin_name>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cholesterol_lipids>
+  <current_medications>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <on_antihypertensive_detail>yes</on_antihypertensive_detail>
+    <on_statin_detail>yes</on_statin_detail>
+    <on_aspirin>yes</on_aspirin>
+    <on_anticoagulant>yes</on_anticoagulant>
+    <on_diabetes_medication>yes</on_diabetes_medication>
+    <other_medications>Paracetamol</other_medications>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <age>45</age>
+    <sex>male</sex>
+    <ethnicity>white</ethnicity>
+    <height_cm>170.0</height_cm>
+    <weight_kg>70.0</weight_kg>
+    <zip_code>ABC123</zip_code>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <medical_history>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_known_cvd>yes</has_known_cvd>
+    <previous_mi>yes</previous_mi>
+    <previous_stroke>yes</previous_stroke>
+    <heart_failure>yes</heart_failure>
+    <peripheral_arterial_disease>yes</peripheral_arterial_disease>
+    <atrial_fibrillation>yes</atrial_fibrillation>
+    <family_cvd_history>yes</family_cvd_history>
+    <family_cvd_details>Example text.</family_cvd_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_history>
+  <metabolic_health>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_diabetes>yes</has_diabetes>
+    <diabetes_type>type1</diabetes_type>
+    <hba1c_value>5.0</hba1c_value>
+    <hba1c_unit>percent</hba1c_unit>
+    <fasting_glucose>0.0</fasting_glucose>
+    <bmi>24.2</bmi>
+    <waist_circumference_cm>0.0</waist_circumference_cm>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </metabolic_health>
+  <renal_function>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <egfr>0.0</egfr>
+    <creatinine>0.0</creatinine>
+    <urine_acr>0.0</urine_acr>
+    <ckd_stage>1</ckd_stage>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </renal_function>
+  <review_calculate>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <model_type>base</model_type>
+    <clinician_name>Example</clinician_name>
+    <review_date>2026-01-15</review_date>
+    <clinical_notes>Example text.</clinical_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </review_calculate>
+  <smoking_history>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <smoking_status>never</smoking_status>
+    <cigarettes_per_day>1</cigarettes_per_day>
+    <years_smoked>2026</years_smoked>
+    <years_since_quit>2026</years_since_quit>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </smoking_history>
 </assessment>

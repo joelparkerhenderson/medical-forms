@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Imaging & Investigations - Orthopedic Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Imaging & Investigations</h2>
+<h2>Imaging & Investigations</h2>
     <p class="hint">Record imaging findings and investigation results.</p>
 
     <div class="form-row">
@@ -72,8 +64,4 @@
         <label><input type="radio" name="imaging_investigations.further_imaging_needed" value="no" {% if imaging_investigations.furtherImagingNeeded == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

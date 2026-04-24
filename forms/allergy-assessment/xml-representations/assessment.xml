@@ -1,9 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <allergy_history>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <age_of_onset>45</age_of_onset>
+    <known_allergens>Peanuts</known_allergens>
+    <family_history_of_atopy>yes</family_history_of_atopy>
+    <family_atopy_details>Example text.</family_atopy_details>
+    <family_history_of_allergy>yes</family_history_of_allergy>
+    <family_allergy_details>Example text.</family_allergy_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </allergy_history>
+  <anaphylaxis_episode>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <anaphylaxis_history_id>660e8400-e29b-41d4-a716-446655440001</anaphylaxis_history_id>
+    <trigger_description>Example text.</trigger_description>
+    <symptoms>Fatigue</symptoms>
+    <treatment_required>Example treatment</treatment_required>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </anaphylaxis_episode>
+  <anaphylaxis_history>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_anaphylaxis_history>yes</has_anaphylaxis_history>
+    <number_of_episodes>2</number_of_episodes>
+    <adrenaline_auto_injector_prescribed>yes</adrenaline_auto_injector_prescribed>
+    <action_plan_in_place>yes</action_plan_in_place>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </anaphylaxis_history>
+  <comorbidities>
+    <id>440e8400-e29b-41d4-a716-44665544000e</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <asthma>yes</asthma>
+    <asthma_severity>mild</asthma_severity>
+    <eczema>yes</eczema>
+    <eczema_severity>mild</eczema_severity>
+    <rhinitis>yes</rhinitis>
+    <rhinitis_severity>mild</rhinitis_severity>
+    <eosinophilic_oesophagitis>yes</eosinophilic_oesophagitis>
+    <mast_cell_disorders>yes</mast_cell_disorders>
+    <mast_cell_details>Example text.</mast_cell_details>
+    <mental_health_impact>yes</mental_health_impact>
+    <mental_health_details>Example text.</mental_health_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </comorbidities>
+  <current_management>
+    <id>220e8400-e29b-41d4-a716-44665544000c</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <antihistamines>yes</antihistamines>
+    <antihistamine_details>Example text.</antihistamine_details>
+    <nasal_steroids>yes</nasal_steroids>
+    <adrenaline_auto_injector>yes</adrenaline_auto_injector>
+    <immunotherapy>yes</immunotherapy>
+    <immunotherapy_details>Example text.</immunotherapy_details>
+    <biologics>yes</biologics>
+    <biologic_details>Example text.</biologic_details>
+    <allergen_avoidance_strategies>Peanuts</allergen_avoidance_strategies>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_management>
+  <drug_allergies>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_drug_allergies>yes</has_drug_allergies>
+    <cross_reactivity_concerns/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </drug_allergies>
+  <drug_allergy_item>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <drug_allergies_id>660e8400-e29b-41d4-a716-446655440001</drug_allergies_id>
+    <allergen>Peanuts</allergen>
+    <reaction_type>Urticaria</reaction_type>
+    <severity>mild</severity>
+    <timing/>
+    <alternatives_tolerated/>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </drug_allergy_item>
+  <environmental_allergies>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <pollen_allergy>yes</pollen_allergy>
+    <dust_mite_allergy>yes</dust_mite_allergy>
+    <mould_allergy>yes</mould_allergy>
+    <animal_dander_allergy>yes</animal_dander_allergy>
+    <latex_allergy>yes</latex_allergy>
+    <insect_sting_allergy>yes</insect_sting_allergy>
+    <insect_sting_severity>mild</insect_sting_severity>
+    <seasonal_pattern>perennial</seasonal_pattern>
+    <other_environmental_allergens>Peanuts</other_environmental_allergens>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </environmental_allergies>
+  <food_allergies>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_food_allergies>yes</has_food_allergies>
+    <ige_type>IgE-mediated</ige_type>
+    <oral_allergy_syndrome>yes</oral_allergy_syndrome>
+    <dietary_restrictions/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </food_allergies>
+  <food_allergy_item>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <food_allergies_id>660e8400-e29b-41d4-a716-446655440001</food_allergies_id>
+    <allergen>Peanuts</allergen>
+    <reaction_type>Urticaria</reaction_type>
+    <severity>mild</severity>
+    <timing/>
+    <alternatives_tolerated/>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </food_allergy_item>
+  <impact_action_plan>
+    <id>551e8400-e29b-41d4-a716-44665544000f</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <quality_of_life_score>5</quality_of_life_score>
+    <school_work_impact>yes</school_work_impact>
+    <school_work_impact_details>Example text.</school_work_impact_details>
+    <emergency_action_plan_status>in-place</emergency_action_plan_status>
+    <training_provided>yes</training_provided>
+    <training_details>Example text.</training_details>
+    <follow_up_schedule/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </impact_action_plan>
+  <other_medication>
+    <id>330e8400-e29b-41d4-a716-44665544000d</id>
+    <current_management_id>660e8400-e29b-41d4-a716-446655440001</current_management_id>
+    <medication_name>Example</medication_name>
+    <dose>500mg</dose>
+    <frequency>twice daily</frequency>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </other_medication>
+  <test_result_item>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <testing_results_id>660e8400-e29b-41d4-a716-446655440001</testing_results_id>
+    <test_type>standard</test_type>
+    <allergen>Peanuts</allergen>
+    <result>Normal</result>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </test_result_item>
+  <testing_results>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <skin_prick_tests_done>yes</skin_prick_tests_done>
+    <specific_ige_done>yes</specific_ige_done>
+    <component_resolved_diagnostics_done>yes</component_resolved_diagnostics_done>
+    <challenge_tests_done>yes</challenge_tests_done>
+    <patch_tests_done>yes</patch_tests_done>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </testing_results>
 </assessment>

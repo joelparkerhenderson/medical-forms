@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Balance Assessment - Mobility Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Balance Assessment</h2>
+<h2>Balance Assessment</h2>
     <p class="hint">Rate each balance component from 1 (Unable/Very Poor) to 5 (Normal/Excellent).</p>
 
     <div class="form-group">
@@ -81,8 +73,4 @@
         <option value="5" {% if balance_assessment.tandemStance == 5 %}selected{% endif %}>5 - Greater than 30 seconds</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

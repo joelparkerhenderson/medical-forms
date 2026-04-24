@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Growth & Development - Pediatric Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Growth & Development</h2>
+<h2>Growth & Development</h2>
     <p class="hint">Rate the child's current growth parameters. (1 = Very Low/Concerning, 5 = Excellent/On Track)</p>
 
     <div class="form-row">
@@ -83,8 +75,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

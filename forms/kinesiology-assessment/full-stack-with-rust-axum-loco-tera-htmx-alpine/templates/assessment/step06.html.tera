@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Gait Analysis - Kinesiology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Gait Analysis</h2>
+<h2>Gait Analysis</h2>
     <p class="hint">Rate each gait parameter (1 = Very Poor / Abnormal, 5 = Excellent / Normal).</p>
 
     <div class="form-row">
@@ -96,8 +88,4 @@
         <option value="wheelchair" {% if gait_analysis.assistiveDeviceUsed == "wheelchair" %}selected{% endif %}>Wheelchair</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

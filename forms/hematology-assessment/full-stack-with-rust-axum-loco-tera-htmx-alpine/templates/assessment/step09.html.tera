@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Treatment & Medications - Hematology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Treatment & Medications</h2>
+<h2>Treatment & Medications</h2>
     <p class="hint">Document current treatments, medications, and response to therapy.</p>
 
     <div class="form-group">
@@ -58,8 +50,4 @@
       <textarea id="adverse_effects" name="treatment_medications.adverse_effects" rows="2"
                 placeholder="Document any treatment-related adverse effects">{{ treatment_medications.adverseEffects }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

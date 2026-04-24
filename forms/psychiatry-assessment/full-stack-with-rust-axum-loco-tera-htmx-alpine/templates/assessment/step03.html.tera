@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Psychiatric History - Psychiatry Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Psychiatric History</h2>
+<h2>Psychiatric History</h2>
     <p class="hint">Document the patient's prior psychiatric diagnoses and treatment history.</p>
 
     <div class="form-group">
@@ -70,8 +62,4 @@
         <option value="multiple" {% if psychiatric_history.therapyHistory == "multiple" %}selected{% endif %}>Multiple modalities</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

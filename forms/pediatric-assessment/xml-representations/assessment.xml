@@ -1,9 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <birth_history>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <gestational_age_weeks>45</gestational_age_weeks>
+    <birth_weight_grams>1</birth_weight_grams>
+    <delivery_method>vaginal</delivery_method>
+    <apgar_score_1min>5</apgar_score_1min>
+    <apgar_score_5min>5</apgar_score_5min>
+    <nicu_admission>yes</nicu_admission>
+    <nicu_duration_days>1</nicu_duration_days>
+    <birth_complications/>
+    <maternal_complications/>
+    <preterm>yes</preterm>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </birth_history>
+  <current_medications>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <takes_regular_medications>yes</takes_regular_medications>
+    <takes_over_the_counter>yes</takes_over_the_counter>
+    <over_the_counter_details>Example text.</over_the_counter_details>
+    <takes_supplements>yes</takes_supplements>
+    <supplement_details>Example text.</supplement_details>
+    <medication_adherence>good</medication_adherence>
+    <adverse_drug_reactions>Paracetamol</adverse_drug_reactions>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <developmental_milestones>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <gross_motor_status>age-appropriate</gross_motor_status>
+    <gross_motor_details>Example text.</gross_motor_details>
+    <fine_motor_status>age-appropriate</fine_motor_status>
+    <fine_motor_details>Example text.</fine_motor_details>
+    <speech_language_status>age-appropriate</speech_language_status>
+    <speech_language_details>Example text.</speech_language_details>
+    <social_emotional_status>age-appropriate</social_emotional_status>
+    <social_emotional_details>Example text.</social_emotional_details>
+    <cognitive_status>age-appropriate</cognitive_status>
+    <cognitive_details>Example text.</cognitive_details>
+    <self_care_status>age-appropriate</self_care_status>
+    <self_care_details>Example text.</self_care_details>
+    <developmental_screening_tool/>
+    <developmental_screening_score>5</developmental_screening_score>
+    <previous_developmental_concerns>yes</previous_developmental_concerns>
+    <previous_concern_details>Example text.</previous_concern_details>
+    <early_intervention_referral>yes</early_intervention_referral>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </developmental_milestones>
+  <family_history>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <family_history_significant>yes</family_history_significant>
+    <consanguinity>yes</consanguinity>
+    <genetic_conditions>yes</genetic_conditions>
+    <genetic_condition_details>Example text.</genetic_condition_details>
+    <developmental_delays_family>yes</developmental_delays_family>
+    <developmental_delay_details>Example text.</developmental_delay_details>
+    <mental_health_family>yes</mental_health_family>
+    <mental_health_details>Example text.</mental_health_details>
+    <chronic_disease_family>yes</chronic_disease_family>
+    <chronic_disease_details>Example text.</chronic_disease_details>
+    <sudden_infant_death>yes</sudden_infant_death>
+    <childhood_cancer_family>yes</childhood_cancer_family>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </family_history>
+  <growth_nutrition>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <current_weight_kg>70.0</current_weight_kg>
+    <current_height_cm>170.0</current_height_cm>
+    <head_circumference_cm>0.0</head_circumference_cm>
+    <weight_percentile>1</weight_percentile>
+    <height_percentile>1</height_percentile>
+    <bmi_percentile>1</bmi_percentile>
+    <feeding_method>breastfed</feeding_method>
+    <dietary_concerns/>
+    <appetite>good</appetite>
+    <nutritional_supplements>yes</nutritional_supplements>
+    <supplement_details>Example text.</supplement_details>
+    <growth_concerns>yes</growth_concerns>
+    <growth_concern_details>Example text.</growth_concern_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </growth_nutrition>
+  <immunization_status>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <immunization_up_to_date>yes</immunization_up_to_date>
+    <immunization_schedule>uk-nhs</immunization_schedule>
+    <missed_vaccinations/>
+    <vaccine_adverse_reactions>yes</vaccine_adverse_reactions>
+    <adverse_reaction_details>Example text.</adverse_reaction_details>
+    <vaccine_exemptions>yes</vaccine_exemptions>
+    <exemption_reason>Example text.</exemption_reason>
+    <bcg_given>yes</bcg_given>
+    <influenza_vaccine>yes</influenza_vaccine>
+    <covid_vaccine>yes</covid_vaccine>
+    <last_vaccination_date>2026-01-15</last_vaccination_date>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </immunization_status>
+  <medical_history>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <chronic_conditions/>
+    <previous_hospitalizations>yes</previous_hospitalizations>
+    <hospitalization_details>Example text.</hospitalization_details>
+    <previous_surgeries>yes</previous_surgeries>
+    <surgery_details>Example text.</surgery_details>
+    <known_allergies>yes</known_allergies>
+    <allergy_details>Example text.</allergy_details>
+    <congenital_conditions>yes</congenital_conditions>
+    <congenital_condition_details>Example text.</congenital_condition_details>
+    <hearing_screen_passed>yes</hearing_screen_passed>
+    <vision_screen_passed>yes</vision_screen_passed>
+    <recurrent_infections>yes</recurrent_infections>
+    <recurrent_infection_details>Example text.</recurrent_infection_details>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_history>
+  <medication_item>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <current_medications_id>660e8400-e29b-41d4-a716-446655440001</current_medications_id>
+    <medication_name>Example</medication_name>
+    <dose>500mg</dose>
+    <frequency>twice daily</frequency>
+    <route>oral</route>
+    <indication/>
+    <prescribing_clinician>Dr Smith</prescribing_clinician>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medication_item>
+  <social_environmental>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <living_arrangement>two-parents</living_arrangement>
+    <living_arrangement_details>Example text.</living_arrangement_details>
+    <number_of_siblings>2</number_of_siblings>
+    <childcare_type>nursery</childcare_type>
+    <school_type>mainstream</school_type>
+    <school_performance>above-average</school_performance>
+    <behavioural_concerns>yes</behavioural_concerns>
+    <behavioural_concern_details>Example text.</behavioural_concern_details>
+    <social_services_involved>yes</social_services_involved>
+    <safeguarding_concerns>yes</safeguarding_concerns>
+    <safeguarding_details>Example text.</safeguarding_details>
+    <household_smoking>yes</household_smoking>
+    <housing_concerns>yes</housing_concerns>
+    <housing_concern_details>Example text.</housing_concern_details>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </social_environmental>
 </assessment>

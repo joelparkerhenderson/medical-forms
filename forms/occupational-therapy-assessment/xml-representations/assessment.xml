@@ -1,9 +1,204 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <first_name>Jane</first_name>
+    <last_name>Doe</last_name>
+    <date_of_birth>1965-06-15</date_of_birth>
+    <sex>male</sex>
+    <phone>07700900000</phone>
+    <email>jane.doe@example.com</email>
+    <address>123 Example Street</address>
+    <occupation>Teacher</occupation>
+    <employer/>
+    <living_situation>alone</living_situation>
+    <primary_hand>left</primary_hand>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <environmental_factors>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <home_type>house</home_type>
+    <home_type_details>Example text.</home_type_details>
+    <number_of_floors>2</number_of_floors>
+    <stairs_access>yes</stairs_access>
+    <stair_rail_present>yes</stair_rail_present>
+    <bathroom_accessibility>fully-accessible</bathroom_accessibility>
+    <kitchen_accessibility>fully-accessible</kitchen_accessibility>
+    <bedroom_location>ground-floor</bedroom_location>
+    <home_modifications_in_place/>
+    <home_modifications_recommended/>
+    <transport_access/>
+    <community_resources>mg/dL</community_resources>
+    <social_support_network/>
+    <environmental_barriers/>
+    <environmental_facilitators/>
+    <environmental_notes>Example text.</environmental_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </environmental_factors>
+  <goals_priorities>
+    <id>330e8400-e29b-41d4-a716-44665544000d</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <patient_identified_priorities/>
+    <short_term_goals/>
+    <long_term_goals/>
+    <expected_outcomes/>
+    <intervention_plan>Example text.</intervention_plan>
+    <estimated_treatment_duration>Example treatment</estimated_treatment_duration>
+    <treatment_frequency>twice daily</treatment_frequency>
+    <discharge_criteria/>
+    <patient_agreement>yes</patient_agreement>
+    <carer_involvement>yes</carer_involvement>
+    <carer_involvement_details>Example text.</carer_involvement_details>
+    <onward_referrals/>
+    <goals_notes>Example text.</goals_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </goals_priorities>
+  <leisure_activities>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <quiet_recreation/>
+    <active_recreation/>
+    <socialisation/>
+    <hobbies_and_interests/>
+    <leisure_participation_level>full</leisure_participation_level>
+    <barriers_to_leisure/>
+    <previous_leisure_activities/>
+    <activities_given_up/>
+    <leisure_satisfaction>very-satisfied</leisure_satisfaction>
+    <leisure_concerns/>
+    <leisure_notes>Example text.</leisure_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </leisure_activities>
+  <performance_rating_item>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <performance_ratings_id>660e8400-e29b-41d4-a716-446655440001</performance_ratings_id>
+    <occupational_issue>Teacher</occupational_issue>
+    <domain>self-care</domain>
+    <importance_score>5</importance_score>
+    <performance_score>5</performance_score>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </performance_rating_item>
+  <performance_ratings>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <overall_performance_score>5.0</overall_performance_score>
+    <self_care_performance_score>5.0</self_care_performance_score>
+    <productivity_performance_score>5.0</productivity_performance_score>
+    <leisure_performance_score>5.0</leisure_performance_score>
+    <performance_notes>Example text.</performance_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </performance_ratings>
+  <physical_cognitive_status>
+    <id>220e8400-e29b-41d4-a716-44665544000c</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <upper_limb_function>normal</upper_limb_function>
+    <lower_limb_function>normal</lower_limb_function>
+    <grip_strength_left_kg>0.0</grip_strength_left_kg>
+    <grip_strength_right_kg>0.0</grip_strength_right_kg>
+    <pinch_strength_left_kg>0.0</pinch_strength_left_kg>
+    <pinch_strength_right_kg>0.0</pinch_strength_right_kg>
+    <balance_sitting>normal</balance_sitting>
+    <balance_standing>normal</balance_standing>
+    <endurance_level>normal</endurance_level>
+    <pain_level>1</pain_level>
+    <pain_location>Example location</pain_location>
+    <sensation>intact</sensation>
+    <cognition_orientation>fully-orientated</cognition_orientation>
+    <cognition_memory>normal</cognition_memory>
+    <cognition_attention>normal</cognition_attention>
+    <cognition_executive_function>normal</cognition_executive_function>
+    <cognition_perception>normal</cognition_perception>
+    <vision>normal</vision>
+    <hearing>normal</hearing>
+    <physical_cognitive_notes>Example text.</physical_cognitive_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </physical_cognitive_status>
+  <productivity_activities>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <employment_status>employed-full-time</employment_status>
+    <work_duties_description>Example text.</work_duties_description>
+    <work_limitations/>
+    <household_management>independent</household_management>
+    <meal_preparation>independent</meal_preparation>
+    <financial_management>independent</financial_management>
+    <community_access>independent</community_access>
+    <driving_status>drives</driving_status>
+    <childcare_responsibilities>yes</childcare_responsibilities>
+    <childcare_details>Example text.</childcare_details>
+    <productivity_concerns/>
+    <productivity_notes>Example text.</productivity_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </productivity_activities>
+  <referral_information>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <referral_source>gp</referral_source>
+    <referral_source_details>Example text.</referral_source_details>
+    <referring_clinician_name>Example</referring_clinician_name>
+    <referring_clinician_role>Dr Smith</referring_clinician_role>
+    <referral_date>2026-01-15</referral_date>
+    <referral_reason>Example text.</referral_reason>
+    <primary_diagnosis>Under investigation</primary_diagnosis>
+    <secondary_diagnoses/>
+    <precautions/>
+    <previous_ot_involvement>yes</previous_ot_involvement>
+    <previous_ot_details>Example text.</previous_ot_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </referral_information>
+  <satisfaction_rating_item>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <satisfaction_ratings_id>660e8400-e29b-41d4-a716-446655440001</satisfaction_ratings_id>
+    <occupational_issue>Teacher</occupational_issue>
+    <domain>self-care</domain>
+    <satisfaction_score>5</satisfaction_score>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </satisfaction_rating_item>
+  <satisfaction_ratings>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <overall_satisfaction_score>5.0</overall_satisfaction_score>
+    <self_care_satisfaction_score>5.0</self_care_satisfaction_score>
+    <productivity_satisfaction_score>5.0</productivity_satisfaction_score>
+    <leisure_satisfaction_score>5.0</leisure_satisfaction_score>
+    <satisfaction_notes>Example text.</satisfaction_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </satisfaction_ratings>
+  <self_care_activities>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <personal_care_independence>independent</personal_care_independence>
+    <dressing_ability>independent</dressing_ability>
+    <bathing_ability>independent</bathing_ability>
+    <feeding_ability>independent</feeding_ability>
+    <toileting_ability>independent</toileting_ability>
+    <mobility_indoors>independent</mobility_indoors>
+    <medication_management>independent</medication_management>
+    <self_care_concerns/>
+    <assistive_devices_used/>
+    <self_care_notes>Example text.</self_care_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </self_care_activities>
 </assessment>

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Reproductive Genetics - Genetic Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Reproductive Genetics</h2>
+<h2>Reproductive Genetics</h2>
     <p class="hint">Consanguinity, carrier status, reproductive history, and prenatal testing.</p>
 
     <div class="form-group">
@@ -64,8 +56,4 @@
         <label><input type="radio" name="reproductive_genetics.prenatal_testing_wishes" value="undecided" {% if reproductive_genetics.prenatalTestingWishes == "undecided" %}checked{% endif %}> Undecided</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

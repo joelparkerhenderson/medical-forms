@@ -1,9 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <alternative_treatments>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <alternatives_discussed>yes</alternatives_discussed>
+    <conservative_management_discussed>yes</conservative_management_discussed>
+    <conservative_management_details>Example text.</conservative_management_details>
+    <alternative_procedures_discussed>yes</alternative_procedures_discussed>
+    <alternative_procedures_details>Example text.</alternative_procedures_details>
+    <no_treatment_option_discussed>yes</no_treatment_option_discussed>
+    <no_treatment_consequences>Example treatment</no_treatment_consequences>
+    <patient_preference/>
+    <reason_for_chosen_treatment>Example text.</reason_for_chosen_treatment>
+    <alternative_treatments_notes>Example text.</alternative_treatments_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </alternative_treatments>
+  <anesthesia_information>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <anesthesia_required>yes</anesthesia_required>
+    <anesthesia_type>general</anesthesia_type>
+    <anesthesia_details>Example text.</anesthesia_details>
+    <anesthesia_risks_explained>yes</anesthesia_risks_explained>
+    <anesthesia_specific_risks/>
+    <fasting_instructions_given>yes</fasting_instructions_given>
+    <fasting_from_time/>
+    <previous_anesthesia_problems>yes</previous_anesthesia_problems>
+    <previous_anesthesia_problem_details>Example text.</previous_anesthesia_problem_details>
+    <family_anesthesia_problems>yes</family_anesthesia_problems>
+    <family_anesthesia_problem_details>Example text.</family_anesthesia_problem_details>
+    <anesthetist_name>Example</anesthetist_name>
+    <anesthesia_notes>Example text.</anesthesia_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </anesthesia_information>
+  <patient_information>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <address>123 Example Street</address>
+    <telephone>07700900000</telephone>
+    <email>jane.doe@example.com</email>
+    <nhs_number>9434765919</nhs_number>
+    <hospital_number>Example Hospital</hospital_number>
+    <ward_department/>
+    <consultant_name>Example</consultant_name>
+    <interpreter_required>yes</interpreter_required>
+    <interpreter_language>English</interpreter_language>
+    <next_of_kin_name>Example</next_of_kin_name>
+    <next_of_kin_relationship>Spouse</next_of_kin_relationship>
+    <next_of_kin_telephone/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </patient_information>
+  <patient_rights>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <right_to_withdraw_explained>yes</right_to_withdraw_explained>
+    <right_to_second_opinion_explained>yes</right_to_second_opinion_explained>
+    <confidentiality_explained>yes</confidentiality_explained>
+    <data_use_explained>yes</data_use_explained>
+    <consent_to_photography>yes</consent_to_photography>
+    <consent_to_teaching>yes</consent_to_teaching>
+    <consent_to_tissue_storage>yes</consent_to_tissue_storage>
+    <advance_directive_in_place>yes</advance_directive_in_place>
+    <advance_directive_details>Example text.</advance_directive_details>
+    <lasting_power_of_attorney>yes</lasting_power_of_attorney>
+    <lpa_details>Example text.</lpa_details>
+    <patient_rights_notes>Example text.</patient_rights_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </patient_rights>
+  <procedure_details>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <procedure_name>Example</procedure_name>
+    <procedure_description>Example text.</procedure_description>
+    <procedure_site>left</procedure_site>
+    <procedure_site_details>Example text.</procedure_site_details>
+    <intended_benefit/>
+    <urgency>elective</urgency>
+    <planned_date>2026-01-15</planned_date>
+    <estimated_duration_minutes>1</estimated_duration_minutes>
+    <performing_clinician>Dr Smith</performing_clinician>
+    <performing_clinician_role>Dr Smith</performing_clinician_role>
+    <supervised_by/>
+    <additional_procedures>Example procedure</additional_procedures>
+    <procedure_notes>Example text.</procedure_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </procedure_details>
+  <questions_understanding>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <patient_had_opportunity_to_ask_questions>yes</patient_had_opportunity_to_ask_questions>
+    <patient_questions/>
+    <questions_answered_satisfactorily>yes</questions_answered_satisfactorily>
+    <patient_understands_procedure>yes</patient_understands_procedure>
+    <patient_understands_risks>yes</patient_understands_risks>
+    <patient_understands_alternatives>yes</patient_understands_alternatives>
+    <information_leaflet_provided>yes</information_leaflet_provided>
+    <leaflet_reference/>
+    <additional_information_requested>yes</additional_information_requested>
+    <additional_information_details>Example text.</additional_information_details>
+    <time_to_consider_given>yes</time_to_consider_given>
+    <understanding_notes>Example text.</understanding_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </questions_understanding>
+  <risks_benefits>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <common_risks/>
+    <uncommon_risks/>
+    <rare_risks/>
+    <specific_risks_to_patient/>
+    <risk_of_not_having_treatment>Example treatment</risk_of_not_having_treatment>
+    <expected_benefits/>
+    <success_rate_discussed>yes</success_rate_discussed>
+    <success_rate_details>Example text.</success_rate_details>
+    <recovery_time_discussed>yes</recovery_time_discussed>
+    <expected_recovery_details>Example text.</expected_recovery_details>
+    <limitations_after_procedure>Example procedure</limitations_after_procedure>
+    <follow_up_required>yes</follow_up_required>
+    <follow_up_details>Example text.</follow_up_details>
+    <risks_benefits_notes>Example text.</risks_benefits_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </risks_benefits>
+  <signature_consent>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <patient_has_capacity>yes</patient_has_capacity>
+    <capacity_assessment_details>Example text.</capacity_assessment_details>
+    <consent_given_by>patient</consent_given_by>
+    <consent_given_by_name>Example</consent_given_by_name>
+    <consent_given_by_relationship>Spouse</consent_given_by_relationship>
+    <patient_signature_obtained>yes</patient_signature_obtained>
+    <patient_signature_date>2026-01-15</patient_signature_date>
+    <patient_signature_time/>
+    <clinician_signature_obtained>yes</clinician_signature_obtained>
+    <clinician_name>Example</clinician_name>
+    <clinician_role>Dr Smith</clinician_role>
+    <clinician_gmc_number>Dr Smith</clinician_gmc_number>
+    <clinician_signature_date>2026-01-15</clinician_signature_date>
+    <witness_required>yes</witness_required>
+    <witness_name>Example</witness_name>
+    <witness_role/>
+    <witness_signature_date>2026-01-15</witness_signature_date>
+    <consent_form_copy_given>yes</consent_form_copy_given>
+    <signature_consent_notes>Example text.</signature_consent_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </signature_consent>
 </assessment>

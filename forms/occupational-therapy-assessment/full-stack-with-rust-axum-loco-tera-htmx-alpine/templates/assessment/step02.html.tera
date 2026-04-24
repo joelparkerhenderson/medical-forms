@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Occupational Profile - Occupational Therapy Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Occupational Profile</h2>
+<h2>Occupational Profile</h2>
     <p class="hint">Describe the patient's roles, routines, and current functional concerns.</p>
 
     <div class="form-group">
@@ -58,8 +50,4 @@
       <textarea id="support_system" name="occupational_profile.support_system"
                 rows="2" placeholder="e.g. Spouse, adult children, home health aide">{{ occupational_profile.supportSystem }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

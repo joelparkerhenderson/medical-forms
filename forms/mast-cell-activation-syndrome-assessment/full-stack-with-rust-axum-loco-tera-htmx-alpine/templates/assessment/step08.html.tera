@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Trigger Identification - MCAS Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Trigger Identification</h2>
+<h2>Trigger Identification</h2>
     <p class="hint">Rate the significance of each trigger in provoking mast cell activation episodes (1=Not a trigger, 5=Major trigger).</p>
 
     <div class="form-row">
@@ -79,8 +71,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

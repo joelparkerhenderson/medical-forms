@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Neurological History - Neurology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Neurological History</h2>
+<h2>Neurological History</h2>
     <p class="hint">Document the patient's neurological history and presenting complaint.</p>
 
     <div class="form-group">
@@ -77,8 +69,4 @@
                placeholder="e.g. epilepsy in sibling">
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

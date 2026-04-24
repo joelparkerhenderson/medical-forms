@@ -1,15 +1,4 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
-<div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
-
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}"
-          x-data="{
+<div class="card" x-data="{
               heartDisease: '{{ family_history.heartDisease }}',
               cancer: '{{ family_history.cancer }}',
               diabetes: '{{ family_history.diabetes }}',
@@ -17,7 +6,9 @@
               mentalIllness: '{{ family_history.mentalIllness }}',
               geneticConditions: '{{ family_history.geneticConditions }}'
           }">
-        <p class="form-hint">Indicate whether any immediate family members have been diagnosed with the following conditions.</p>
+    <h2>Step 7: Family History</h2>
+
+<p class="form-hint">Indicate whether any immediate family members have been diagnosed with the following conditions.</p>
 
         <!-- Heart Disease -->
         <div class="form-group">
@@ -120,8 +111,4 @@
                           placeholder="e.g. Sickle cell trait in family">{{ family_history.geneticConditionsDetails }}</textarea>
             </div>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

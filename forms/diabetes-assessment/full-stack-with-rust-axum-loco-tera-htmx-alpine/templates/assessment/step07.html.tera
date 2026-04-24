@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Self-Care & Lifestyle - Diabetes Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Self-Care & Lifestyle</h2>
+<h2>Self-Care & Lifestyle</h2>
     <p class="hint">Assess diet, exercise, and self-management behaviours.</p>
 
     <div class="likert-group">
@@ -86,8 +78,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

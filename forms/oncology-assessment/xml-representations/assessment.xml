@@ -1,9 +1,223 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <cancer_diagnosis>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <cancer_type>standard</cancer_type>
+    <cancer_site>Example location</cancer_site>
+    <histology/>
+    <histology_other/>
+    <date_of_diagnosis>2026-01-15</date_of_diagnosis>
+    <stage>0</stage>
+    <tnm_t/>
+    <tnm_n/>
+    <tnm_m/>
+    <grade>well-differentiated</grade>
+    <laterality>left</laterality>
+    <metastatic_sites>Example location</metastatic_sites>
+    <biomarkers/>
+    <genetic_mutations/>
+    <diagnosis_notes>Example text.</diagnosis_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cancer_diagnosis>
+  <current_medications>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <polypharmacy_concern>yes</polypharmacy_concern>
+    <drug_interactions_identified>yes</drug_interactions_identified>
+    <drug_interaction_details>Example text.</drug_interaction_details>
+    <complementary_medicines>yes</complementary_medicines>
+    <complementary_medicine_details>Example text.</complementary_medicine_details>
+    <medication_adherence>good</medication_adherence>
+    <medications_notes>Example text.</medications_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <current_treatment>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <treatment_intent>curative</treatment_intent>
+    <current_regimen/>
+    <cycle_number>2</cycle_number>
+    <total_planned_cycles>1</total_planned_cycles>
+    <last_treatment_date>2026-01-15</last_treatment_date>
+    <next_treatment_date>2026-01-15</next_treatment_date>
+    <treatment_modifications>Example treatment</treatment_modifications>
+    <dose_reductions>yes</dose_reductions>
+    <dose_reduction_details>Example text.</dose_reduction_details>
+    <treatment_delays>yes</treatment_delays>
+    <treatment_delay_details>Example text.</treatment_delay_details>
+    <current_response>complete-response</current_response>
+    <supportive_care/>
+    <current_treatment_notes>Example text.</current_treatment_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_treatment>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <first_name>Jane</first_name>
+    <last_name>Doe</last_name>
+    <date_of_birth>1965-06-15</date_of_birth>
+    <sex>male</sex>
+    <phone>07700900000</phone>
+    <email>jane.doe@example.com</email>
+    <address>123 Example Street</address>
+    <emergency_contact_name>Example</emergency_contact_name>
+    <emergency_contact_phone>07700900001</emergency_contact_phone>
+    <emergency_contact_relationship>Spouse</emergency_contact_relationship>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <functional_nutritional>
+    <id>220e8400-e29b-41d4-a716-44665544000c</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <ecog_performance_status>1</ecog_performance_status>
+    <karnofsky_score>5</karnofsky_score>
+    <mobility_level>fully-mobile</mobility_level>
+    <adl_independence>independent</adl_independence>
+    <weight_change>stable</weight_change>
+    <weight_kg>70.0</weight_kg>
+    <height_cm>170.0</height_cm>
+    <bmi>24.2</bmi>
+    <nutritional_risk>low</nutritional_risk>
+    <oral_intake>normal</oral_intake>
+    <nutritional_support>none</nutritional_support>
+    <dietitian_referral>yes</dietitian_referral>
+    <functional_nutritional_notes>Example text.</functional_nutritional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </functional_nutritional>
+  <laboratory_results>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <lab_date>2026-01-15</lab_date>
+    <haemoglobin>0.0</haemoglobin>
+    <white_cell_count>0.0</white_cell_count>
+    <neutrophil_count>0.0</neutrophil_count>
+    <platelet_count>2</platelet_count>
+    <creatinine>0.0</creatinine>
+    <egfr>0.0</egfr>
+    <bilirubin>0.0</bilirubin>
+    <alt>0.0</alt>
+    <ast>0.0</ast>
+    <alkaline_phosphatase>0.0</alkaline_phosphatase>
+    <albumin>0.0</albumin>
+    <ldh>0.0</ldh>
+    <tumour_markers/>
+    <other_results>Normal</other_results>
+    <laboratory_notes>Example text.</laboratory_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </laboratory_results>
+  <medication_item>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <current_medications_id>660e8400-e29b-41d4-a716-446655440001</current_medications_id>
+    <medication_name>Example</medication_name>
+    <dose>500mg</dose>
+    <frequency>twice daily</frequency>
+    <route>oral</route>
+    <indication/>
+    <start_date>2026-01-15</start_date>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medication_item>
+  <psychosocial>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <anxiety_level>none</anxiety_level>
+    <depression_level>none</depression_level>
+    <distress_thermometer_score>5</distress_thermometer_score>
+    <coping_ability>coping-well</coping_ability>
+    <social_support>strong</social_support>
+    <financial_concerns>yes</financial_concerns>
+    <financial_concerns_details>Example text.</financial_concerns_details>
+    <employment_impact>no-impact</employment_impact>
+    <relationship_impact>no-impact</relationship_impact>
+    <spiritual_concerns>yes</spiritual_concerns>
+    <spiritual_concerns_details>Example text.</spiritual_concerns_details>
+    <psychological_support_in_place>yes</psychological_support_in_place>
+    <psychological_support_details>Example text.</psychological_support_details>
+    <advance_care_planning_discussed>yes</advance_care_planning_discussed>
+    <psychosocial_notes>Example text.</psychosocial_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </psychosocial>
+  <side_effects>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_haematological_toxicity>yes</has_haematological_toxicity>
+    <neutropenia_grade>1</neutropenia_grade>
+    <anaemia_grade>1</anaemia_grade>
+    <thrombocytopenia_grade>1</thrombocytopenia_grade>
+    <has_dermatological_toxicity>yes</has_dermatological_toxicity>
+    <dermatological_details>Example text.</dermatological_details>
+    <has_neuropathy>yes</has_neuropathy>
+    <neuropathy_grade>1</neuropathy_grade>
+    <neuropathy_details>Example text.</neuropathy_details>
+    <has_hepatotoxicity>yes</has_hepatotoxicity>
+    <hepatotoxicity_details>Example text.</hepatotoxicity_details>
+    <has_nephrotoxicity>yes</has_nephrotoxicity>
+    <nephrotoxicity_details>Example text.</nephrotoxicity_details>
+    <has_cardiotoxicity>yes</has_cardiotoxicity>
+    <cardiotoxicity_details>Example text.</cardiotoxicity_details>
+    <has_mucositis>yes</has_mucositis>
+    <mucositis_grade>1</mucositis_grade>
+    <alopecia>yes</alopecia>
+    <other_side_effects/>
+    <side_effects_notes>Example text.</side_effects_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </side_effects>
+  <symptom_assessment>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <pain_severity>1</pain_severity>
+    <pain_location>Example location</pain_location>
+    <pain_character/>
+    <fatigue_severity>1</fatigue_severity>
+    <nausea_severity>1</nausea_severity>
+    <vomiting_frequency>none</vomiting_frequency>
+    <appetite_level>normal</appetite_level>
+    <dyspnoea_severity>1</dyspnoea_severity>
+    <constipation_severity>1</constipation_severity>
+    <diarrhoea_severity>1</diarrhoea_severity>
+    <insomnia_severity>1</insomnia_severity>
+    <cognitive_changes>yes</cognitive_changes>
+    <cognitive_changes_details>Example text.</cognitive_changes_details>
+    <other_symptoms>Fatigue</other_symptoms>
+    <symptom_notes>Example text.</symptom_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </symptom_assessment>
+  <treatment_history>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_prior_surgery>yes</has_prior_surgery>
+    <surgery_details>Example text.</surgery_details>
+    <has_prior_radiation>yes</has_prior_radiation>
+    <radiation_details>Example text.</radiation_details>
+    <has_prior_chemotherapy>yes</has_prior_chemotherapy>
+    <chemotherapy_details>Example text.</chemotherapy_details>
+    <has_prior_immunotherapy>yes</has_prior_immunotherapy>
+    <immunotherapy_details>Example text.</immunotherapy_details>
+    <has_prior_hormone_therapy>yes</has_prior_hormone_therapy>
+    <hormone_therapy_details>Example text.</hormone_therapy_details>
+    <has_prior_targeted_therapy>yes</has_prior_targeted_therapy>
+    <targeted_therapy_details>Example text.</targeted_therapy_details>
+    <has_clinical_trial_participation>yes</has_clinical_trial_participation>
+    <clinical_trial_details>Example text.</clinical_trial_details>
+    <best_response>complete-response</best_response>
+    <treatment_history_notes>Example text.</treatment_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </treatment_history>
 </assessment>

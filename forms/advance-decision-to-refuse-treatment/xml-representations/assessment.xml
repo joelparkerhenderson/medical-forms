@@ -1,9 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <capacity_declaration>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_mental_capacity>yes</has_mental_capacity>
+    <understands_consequences>yes</understands_consequences>
+    <made_voluntarily>yes</made_voluntarily>
+    <capacity_assessment_date>2026-01-15</capacity_assessment_date>
+    <capacity_assessor_name>Example</capacity_assessor_name>
+    <capacity_assessor_role/>
+    <capacity_notes>Example text.</capacity_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </capacity_declaration>
+  <circumstances>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <circumstances_description>Example text.</circumstances_description>
+    <specific_conditions/>
+    <applies_if_terminally_ill>yes</applies_if_terminally_ill>
+    <applies_if_permanently_unconscious>yes</applies_if_permanently_unconscious>
+    <applies_if_severely_brain_damaged>yes</applies_if_severely_brain_damaged>
+    <applies_if_advanced_dementia>yes</applies_if_advanced_dementia>
+    <other_circumstances/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </circumstances>
+  <exceptions_conditions>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_exceptions>yes</has_exceptions>
+    <exception_details>Example text.</exception_details>
+    <pain_management_wishes/>
+    <comfort_care_wishes/>
+    <emergency_exception_details>Example text.</emergency_exception_details>
+    <condition_specific_exceptions/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </exceptions_conditions>
+  <healthcare_professional_review>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <reviewed_by_healthcare_professional>yes</reviewed_by_healthcare_professional>
+    <reviewer_name>Example</reviewer_name>
+    <reviewer_role/>
+    <reviewer_registration_number/>
+    <review_date>2026-01-15</review_date>
+    <reviewer_confirms_capacity>yes</reviewer_confirms_capacity>
+    <reviewer_confirms_informed>yes</reviewer_confirms_informed>
+    <clinical_notes>Example text.</clinical_notes>
+    <concerns_raised/>
+    <reviewer_signature_obtained>yes</reviewer_signature_obtained>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </healthcare_professional_review>
+  <lasting_power_of_attorney>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_health_welfare_lpa>yes</has_health_welfare_lpa>
+    <lpa_registered_with_opg>yes</lpa_registered_with_opg>
+    <lpa_registration_date>2026-01-15</lpa_registration_date>
+    <attorney_name>Example</attorney_name>
+    <attorney_address/>
+    <attorney_phone/>
+    <replacement_attorney_name>Example</replacement_attorney_name>
+    <lpa_authority_scope/>
+    <lpa_conflicts_with_adrt>yes</lpa_conflicts_with_adrt>
+    <lpa_conflict_details>Example text.</lpa_conflict_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </lasting_power_of_attorney>
+  <legal_signatures>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <maker_signature_obtained>yes</maker_signature_obtained>
+    <maker_signature_date>2026-01-15</maker_signature_date>
+    <witness_name>Example</witness_name>
+    <witness_address/>
+    <witness_signature_obtained>yes</witness_signature_obtained>
+    <witness_signature_date>2026-01-15</witness_signature_date>
+    <second_witness_name>Example</second_witness_name>
+    <second_witness_signature_obtained>yes</second_witness_signature_obtained>
+    <declaration_statement_agreed>yes</declaration_statement_agreed>
+    <legal_notes>Example text.</legal_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </legal_signatures>
+  <assessment_other_wishes>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_place_of_care/>
+    <preferred_place_of_death/>
+    <spiritual_or_religious_wishes/>
+    <organ_donation_wishes>yes</organ_donation_wishes>
+    <organ_donation_details>Example text.</organ_donation_details>
+    <other_wishes/>
+    <people_to_notify/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </assessment_other_wishes>
+  <personal_information>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <full_name>Example</full_name>
+    <address>123 Example Street</address>
+    <postcode>SW1A 1AA</postcode>
+    <date_of_birth>1965-06-15</date_of_birth>
+    <nhs_number>9434765919</nhs_number>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <gp_address/>
+    <gp_phone/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </personal_information>
+  <treatments_refused_general>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <refuses_cardiopulmonary_resuscitation>yes</refuses_cardiopulmonary_resuscitation>
+    <refuses_mechanical_ventilation>yes</refuses_mechanical_ventilation>
+    <refuses_artificial_nutrition>yes</refuses_artificial_nutrition>
+    <refuses_artificial_hydration>yes</refuses_artificial_hydration>
+    <refuses_antibiotics>yes</refuses_antibiotics>
+    <refuses_blood_transfusion>yes</refuses_blood_transfusion>
+    <refuses_dialysis>yes</refuses_dialysis>
+    <other_treatments_refused>Example treatment</other_treatments_refused>
+    <treatment_refusal_details>Example text.</treatment_refusal_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </treatments_refused_general>
+  <treatments_refused_life_sustaining>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <includes_life_sustaining_treatment>yes</includes_life_sustaining_treatment>
+    <understands_may_result_in_death>yes</understands_may_result_in_death>
+    <life_sustaining_treatments_specified>Example treatment</life_sustaining_treatments_specified>
+    <is_written_and_signed>yes</is_written_and_signed>
+    <is_witnessed>yes</is_witnessed>
+    <witness_confirmation/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </treatments_refused_life_sustaining>
 </assessment>

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Sexual Health - Gynecology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Sexual Health</h2>
+<h2>Sexual Health</h2>
     <p class="hint">This section covers sensitive topics. All information is confidential and used to ensure appropriate care.</p>
 
     <div class="form-row">
@@ -53,8 +45,4 @@
         </div>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

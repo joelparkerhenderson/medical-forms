@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Patient Information - Ophthalmology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Patient Information</h2>
+<h2>Patient Information</h2>
     <p class="hint">Please provide patient demographics and clinical history.</p>
 
     <div class="form-row">
@@ -86,8 +78,4 @@
                   rows="2" placeholder="e.g. Sulfonamides, NKDA">{{ patient_information.allergies }}</textarea>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Contraception & Fertility - Gynecology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Contraception & Fertility</h2>
+<h2>Contraception & Fertility</h2>
     <p class="hint">Please provide details about contraception use and fertility wishes.</p>
 
     <div class="form-row">
@@ -68,8 +60,4 @@
         <option value="planned" {% if contraception_fertility.ivfHistory == "planned" %}selected{% endif %}>Planned</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

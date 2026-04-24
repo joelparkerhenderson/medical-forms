@@ -17,11 +17,5 @@
     }
   ],
   "birthDate": "1965-06-15",
-  "gender": "male",
-  "extension": [
-    {
-      "url": "http://hl7.org/fhir/StructureDefinition/patient-occupation",
-      "valueString": "Teacher"
-    }
-  ]
+  "gender": "unknown"
 }

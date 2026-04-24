@@ -1,9 +1,235 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <chief_complaint>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <primary_complaint/>
+    <affected_region>shoulder</affected_region>
+    <affected_side>left</affected_side>
+    <onset_type>acute-traumatic</onset_type>
+    <onset_date>2026-01-15</onset_date>
+    <mechanism_of_injury/>
+    <duration/>
+    <aggravating_factors/>
+    <relieving_factors/>
+    <previous_episodes>yes</previous_episodes>
+    <previous_episode_details>Example text.</previous_episode_details>
+    <work_related>yes</work_related>
+    <sport_related>yes</sport_related>
+    <chief_complaint_notes>Example text.</chief_complaint_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </chief_complaint>
+  <current_treatment>
+    <id>330e8400-e29b-41d4-a716-44665544000d</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_physiotherapy>yes</has_physiotherapy>
+    <physiotherapy_details>Example text.</physiotherapy_details>
+    <has_occupational_therapy>yes</has_occupational_therapy>
+    <occupational_therapy_details>Example text.</occupational_therapy_details>
+    <has_injection_therapy>yes</has_injection_therapy>
+    <injection_details>Example text.</injection_details>
+    <has_splinting_bracing>yes</has_splinting_bracing>
+    <splinting_bracing_details>Example text.</splinting_bracing_details>
+    <current_medications>Paracetamol</current_medications>
+    <has_alternative_therapy>yes</has_alternative_therapy>
+    <alternative_therapy_details>Example text.</alternative_therapy_details>
+    <treatment_effectiveness>effective</treatment_effectiveness>
+    <current_treatment_notes>Example text.</current_treatment_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_treatment>
+  <dash_questionnaire>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <q01_open_jar>1</q01_open_jar>
+    <q02_write>1</q02_write>
+    <q03_turn_key>1</q03_turn_key>
+    <q04_prepare_meal>1</q04_prepare_meal>
+    <q05_push_door>1</q05_push_door>
+    <q06_place_object_shelf>1</q06_place_object_shelf>
+    <q07_heavy_household>1</q07_heavy_household>
+    <q08_garden_yard>1</q08_garden_yard>
+    <q09_make_bed>1</q09_make_bed>
+    <q10_carry_bag>1</q10_carry_bag>
+    <q11_carry_heavy>1</q11_carry_heavy>
+    <q12_overhead>1</q12_overhead>
+    <q13_wash_back>1</q13_wash_back>
+    <q14_use_knife>1</q14_use_knife>
+    <q15_recreational_force>1</q15_recreational_force>
+    <q16_recreational_arm>1</q16_recreational_arm>
+    <q17_transportation>1</q17_transportation>
+    <q18_sexual_activity>1</q18_sexual_activity>
+    <q19_family_care>1</q19_family_care>
+    <q20_social_activity>1</q20_social_activity>
+    <q21_limited_work>1</q21_limited_work>
+    <q22_usual_work>1</q22_usual_work>
+    <q23_arm_pain>1</q23_arm_pain>
+    <q24_arm_pain_activity>1</q24_arm_pain_activity>
+    <q25_tingling>1</q25_tingling>
+    <q26_weakness>1</q26_weakness>
+    <q27_stiffness>1</q27_stiffness>
+    <q28_sleep_difficulty>1</q28_sleep_difficulty>
+    <q29_less_capable>1</q29_less_capable>
+    <q30_less_confident>1</q30_less_confident>
+    <items_answered>1</items_answered>
+    <dash_score>5.0</dash_score>
+    <dash_notes>Example text.</dash_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </dash_questionnaire>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <first_name>Jane</first_name>
+    <last_name>Doe</last_name>
+    <date_of_birth>1965-06-15</date_of_birth>
+    <sex>male</sex>
+    <phone>07700900000</phone>
+    <email>jane.doe@example.com</email>
+    <address>123 Example Street</address>
+    <occupation>Teacher</occupation>
+    <dominant_hand>left</dominant_hand>
+    <sport_activity_level>sedentary</sport_activity_level>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <functional_limitations>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <dressing_difficulty>none</dressing_difficulty>
+    <washing_difficulty>none</washing_difficulty>
+    <eating_difficulty>none</eating_difficulty>
+    <work_difficulty>none</work_difficulty>
+    <household_difficulty>none</household_difficulty>
+    <lifting_difficulty>none</lifting_difficulty>
+    <sleep_difficulty>none</sleep_difficulty>
+    <recreation_difficulty>none</recreation_difficulty>
+    <driving_difficulty>none</driving_difficulty>
+    <walking_difficulty>none</walking_difficulty>
+    <stair_difficulty>none</stair_difficulty>
+    <aids_in_use/>
+    <functional_limitations_notes>Example text.</functional_limitations_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </functional_limitations>
+  <imaging_history>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_previous_imaging>yes</has_previous_imaging>
+    <imaging_requested>yes</imaging_requested>
+    <imaging_requested_details>Example text.</imaging_requested_details>
+    <imaging_notes>Example text.</imaging_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </imaging_history>
+  <imaging_item>
+    <id>220e8400-e29b-41d4-a716-44665544000c</id>
+    <imaging_history_id>660e8400-e29b-41d4-a716-446655440001</imaging_history_id>
+    <modality>x-ray</modality>
+    <body_region/>
+    <date_performed>2026-01-15</date_performed>
+    <findings>Example text.</findings>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </imaging_item>
+  <pain_assessment>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <pain_at_rest>1</pain_at_rest>
+    <pain_with_activity>1</pain_with_activity>
+    <pain_at_night>1</pain_at_night>
+    <worst_pain>1</worst_pain>
+    <pain_character>sharp</pain_character>
+    <pain_pattern>constant</pain_pattern>
+    <pain_location>Example location</pain_location>
+    <pain_radiation/>
+    <night_waking>yes</night_waking>
+    <morning_stiffness>yes</morning_stiffness>
+    <morning_stiffness_duration_minutes>1</morning_stiffness_duration_minutes>
+    <current_analgesia/>
+    <analgesia_effectiveness>effective</analgesia_effectiveness>
+    <pain_notes>Example text.</pain_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </pain_assessment>
+  <range_of_motion>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <joint_assessed>shoulder</joint_assessed>
+    <side_assessed>left</side_assessed>
+    <overall_rom_status>full</overall_rom_status>
+    <range_of_motion_notes>Example text.</range_of_motion_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </range_of_motion>
+  <rom_measurement>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <range_of_motion_id>660e8400-e29b-41d4-a716-446655440001</range_of_motion_id>
+    <movement/>
+    <active_degrees>1</active_degrees>
+    <passive_degrees>1</passive_degrees>
+    <normal_degrees>1</normal_degrees>
+    <end_feel>firm</end_feel>
+    <pain_on_movement>yes</pain_on_movement>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </rom_measurement>
+  <strength_test_item>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <strength_testing_id>660e8400-e29b-41d4-a716-446655440001</strength_testing_id>
+    <muscle_group/>
+    <movement/>
+    <mrc_grade>1</mrc_grade>
+    <pain_on_testing>yes</pain_on_testing>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </strength_test_item>
+  <strength_testing>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <grip_strength_affected_kg>0.0</grip_strength_affected_kg>
+    <grip_strength_unaffected_kg>0.0</grip_strength_unaffected_kg>
+    <overall_strength_status>normal</overall_strength_status>
+    <strength_testing_notes>Example text.</strength_testing_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </strength_testing>
+  <surgery_item>
+    <id>551e8400-e29b-41d4-a716-44665544000f</id>
+    <surgical_history_id>660e8400-e29b-41d4-a716-446655440001</surgical_history_id>
+    <procedure_name>Example</procedure_name>
+    <date_performed>2026-01-15</date_performed>
+    <surgeon/>
+    <hospital>Example Hospital</hospital>
+    <outcome>good</outcome>
+    <outcome_details>Example text.</outcome_details>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </surgery_item>
+  <surgical_history>
+    <id>440e8400-e29b-41d4-a716-44665544000e</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_previous_surgery>yes</has_previous_surgery>
+    <surgery_considered>yes</surgery_considered>
+    <surgery_considered_details>Example text.</surgery_considered_details>
+    <patient_preference>conservative</patient_preference>
+    <comorbidities_affecting_surgery>Example procedure</comorbidities_affecting_surgery>
+    <anaesthetic_risk>low</anaesthetic_risk>
+    <anticoagulant_use>yes</anticoagulant_use>
+    <anticoagulant_details>Example text.</anticoagulant_details>
+    <surgical_history_notes>Example text.</surgical_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </surgical_history>
 </assessment>

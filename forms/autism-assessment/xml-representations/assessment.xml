@@ -1,9 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <aq10_questionnaire>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <q01_notice_small_sounds>definitely_agree</q01_notice_small_sounds>
+    <q02_concentrate_whole_picture>definitely_agree</q02_concentrate_whole_picture>
+    <q03_easy_multitask>definitely_agree</q03_easy_multitask>
+    <q04_easy_go_back_and_forth>definitely_agree</q04_easy_go_back_and_forth>
+    <q05_easy_read_between_lines>definitely_agree</q05_easy_read_between_lines>
+    <q06_easy_detect_feeling_bored>definitely_agree</q06_easy_detect_feeling_bored>
+    <q07_easy_work_out_intentions>definitely_agree</q07_easy_work_out_intentions>
+    <q08_easy_imagine_as_character>definitely_agree</q08_easy_imagine_as_character>
+    <q09_find_social_situations_easy>definitely_agree</q09_find_social_situations_easy>
+    <q10_difficult_work_out_friends>definitely_agree</q10_difficult_work_out_friends>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </aq10_questionnaire>
+  <current_support>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <receiving_mental_health_support>yes</receiving_mental_health_support>
+    <mental_health_support_details>Example text.</mental_health_support_details>
+    <current_medications>Paracetamol</current_medications>
+    <receiving_occupational_therapy>yes</receiving_occupational_therapy>
+    <receiving_speech_therapy>yes</receiving_speech_therapy>
+    <receiving_behavioural_support>yes</receiving_behavioural_support>
+    <social_care_involvement>yes</social_care_involvement>
+    <social_care_details>Example text.</social_care_details>
+    <employment_status>employed</employment_status>
+    <employment_support_needs/>
+    <independent_living>fully-independent</independent_living>
+    <current_support_notes>Example text.</current_support_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_support>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <preferred_name>Example</preferred_name>
+    <gender_identity>male</gender_identity>
+    <ethnicity>White British</ethnicity>
+    <preferred_language>English</preferred_language>
+    <interpreter_required>yes</interpreter_required>
+    <gp_name>Example</gp_name>
+    <gp_practice/>
+    <referrer_name>Example</referrer_name>
+    <referrer_role/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <developmental_history>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <age_first_words_months>45</age_first_words_months>
+    <age_first_sentences_months>45</age_first_sentences_months>
+    <speech_delay>yes</speech_delay>
+    <motor_milestone_delay>yes</motor_milestone_delay>
+    <motor_milestone_details>Example text.</motor_milestone_details>
+    <toilet_training_delay>yes</toilet_training_delay>
+    <educational_support_history>Example text.</educational_support_history>
+    <ehcp_or_statement>yes</ehcp_or_statement>
+    <school_type>mainstream</school_type>
+    <learning_difficulties>yes</learning_difficulties>
+    <learning_difficulties_details>Example text.</learning_difficulties_details>
+    <developmental_regression>yes</developmental_regression>
+    <developmental_regression_details>Example text.</developmental_regression_details>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </developmental_history>
+  <family_history>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <family_history_of_autism>yes</family_history_of_autism>
+    <family_autism_details>Example text.</family_autism_details>
+    <family_history_of_adhd>yes</family_history_of_adhd>
+    <family_adhd_details>Example text.</family_adhd_details>
+    <family_history_of_learning_disability>yes</family_history_of_learning_disability>
+    <family_learning_disability_details>Example text.</family_learning_disability_details>
+    <family_history_of_mental_health>yes</family_history_of_mental_health>
+    <family_mental_health_details>Example text.</family_mental_health_details>
+    <family_history_of_epilepsy>yes</family_history_of_epilepsy>
+    <consanguinity>yes</consanguinity>
+    <family_history_notes>Example text.</family_history_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </family_history>
+  <repetitive_behaviors>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <repetitive_movements>never</repetitive_movements>
+    <repetitive_movement_details>Example text.</repetitive_movement_details>
+    <insistence_on_sameness>never</insistence_on_sameness>
+    <distress_with_change>never</distress_with_change>
+    <rigid_routines>never</rigid_routines>
+    <rigid_routine_details>Example text.</rigid_routine_details>
+    <special_interests>yes</special_interests>
+    <special_interest_details>Example text.</special_interest_details>
+    <special_interest_intensity>mild</special_interest_intensity>
+    <echolalia>never</echolalia>
+    <repetitive_behaviors_notes>Example text.</repetitive_behaviors_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </repetitive_behaviors>
+  <screening_purpose>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <reason_for_referral>Example text.</reason_for_referral>
+    <who_requested_screening>self</who_requested_screening>
+    <who_requested_screening_other/>
+    <previous_autism_assessment>yes</previous_autism_assessment>
+    <previous_assessment_details>Example text.</previous_assessment_details>
+    <previous_assessment_date>2026-01-15</previous_assessment_date>
+    <main_concerns/>
+    <impact_on_daily_life/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </screening_purpose>
+  <sensory_profile>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <hypersensitivity_sound>none</hypersensitivity_sound>
+    <hypersensitivity_light>none</hypersensitivity_light>
+    <hypersensitivity_touch>none</hypersensitivity_touch>
+    <hypersensitivity_taste_smell>none</hypersensitivity_taste_smell>
+    <hyposensitivity_pain>none</hyposensitivity_pain>
+    <hyposensitivity_temperature>none</hyposensitivity_temperature>
+    <sensory_seeking_behaviors>yes</sensory_seeking_behaviors>
+    <sensory_seeking_details>Example text.</sensory_seeking_details>
+    <sensory_avoidance_behaviors>yes</sensory_avoidance_behaviors>
+    <sensory_avoidance_details>Example text.</sensory_avoidance_details>
+    <sensory_overload_frequency>never</sensory_overload_frequency>
+    <sensory_profile_notes>Example text.</sensory_profile_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </sensory_profile>
+  <social_communication>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <eye_contact_difficulty>never</eye_contact_difficulty>
+    <understanding_sarcasm>never</understanding_sarcasm>
+    <difficulty_starting_conversations>never</difficulty_starting_conversations>
+    <difficulty_maintaining_conversations>never</difficulty_maintaining_conversations>
+    <literal_interpretation>never</literal_interpretation>
+    <difficulty_reading_body_language>never</difficulty_reading_body_language>
+    <difficulty_making_friends>never</difficulty_making_friends>
+    <preference_for_solitary_activities>never</preference_for_solitary_activities>
+    <social_communication_notes>Example text.</social_communication_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </social_communication>
 </assessment>

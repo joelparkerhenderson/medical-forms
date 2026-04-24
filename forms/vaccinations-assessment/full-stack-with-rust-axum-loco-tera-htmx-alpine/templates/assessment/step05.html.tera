@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Travel Vaccinations - Vaccinations Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Travel Vaccinations</h2>
+<h2>Travel Vaccinations</h2>
     <p class="hint">Record travel plans and associated vaccination status.</p>
 
     <div class="form-row">
@@ -85,8 +77,4 @@
         <option value="2" {% if travel_vaccinations.japaneseEncephalitis == 2 %}selected{% endif %}>Complete</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

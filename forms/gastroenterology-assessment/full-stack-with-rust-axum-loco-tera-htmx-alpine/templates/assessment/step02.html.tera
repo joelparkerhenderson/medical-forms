@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}GI History - Gastroenterology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>GI History</h2>
+<h2>GI History</h2>
     <p class="hint">Record the patient's gastrointestinal history including family history and previous investigations.</p>
 
     <div class="form-group">
@@ -68,8 +60,4 @@
       <textarea id="surgical_history" name="gi_history.surgical_history"
                 placeholder="e.g. Appendicectomy 2015, cholecystectomy 2019">{{ gi_history.surgicalHistory }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

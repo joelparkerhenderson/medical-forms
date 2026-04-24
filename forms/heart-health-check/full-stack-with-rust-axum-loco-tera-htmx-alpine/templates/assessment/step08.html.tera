@@ -1,66 +1,54 @@
-{% extends "base.html.tera" %}
+<section id="step-8" class="card scroll-mt-20">
+  <h2>8. Physical Activity &amp; Diet</h2>
+  <p class="hint">Physical activity and diet are important modifiable risk factors for cardiovascular health.</p>
 
-{% block title %}Physical Activity & Diet - Heart Health Check{% endblock %}
-
-{% block content %}
-<div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Physical Activity & Diet</h2>
-    <p class="hint">Physical activity and diet are important modifiable risk factors for cardiovascular health.</p>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="physical_activity_minutes_per_week">Minutes of Physical Activity Per Week</label>
-        <input type="number" id="physical_activity_minutes_per_week" name="physical_activity_diet.physical_activity_minutes_per_week"
-               value="{{ physical_activity_diet.physicalActivityMinutesPerWeek }}"
-               min="0" max="2000" placeholder="e.g. 150">
-        <span class="hint">NHS recommends at least 150 minutes of moderate activity per week.</span>
-      </div>
-      <div class="form-group">
-        <label for="activity_intensity">Usual Activity Intensity</label>
-        <select id="activity_intensity" name="physical_activity_diet.activity_intensity">
-          <option value="">-- Select --</option>
-          <option value="sedentary" {% if physical_activity_diet.activityIntensity == "sedentary" %}selected{% endif %}>Sedentary</option>
-          <option value="light" {% if physical_activity_diet.activityIntensity == "light" %}selected{% endif %}>Light (walking)</option>
-          <option value="moderate" {% if physical_activity_diet.activityIntensity == "moderate" %}selected{% endif %}>Moderate (brisk walking, cycling)</option>
-          <option value="vigorous" {% if physical_activity_diet.activityIntensity == "vigorous" %}selected{% endif %}>Vigorous (running, sport)</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="fruit_veg_portions_per_day">Fruit & Vegetable Portions Per Day</label>
-        <input type="number" id="fruit_veg_portions_per_day" name="physical_activity_diet.fruit_veg_portions_per_day"
-               value="{{ physical_activity_diet.fruitVegPortionsPerDay }}"
-               min="0" max="20" placeholder="e.g. 5">
-        <span class="hint">NHS recommends at least 5 portions per day.</span>
-      </div>
-      <div class="form-group">
-        <label for="diet_quality">Overall Diet Quality</label>
-        <select id="diet_quality" name="physical_activity_diet.diet_quality">
-          <option value="">-- Select --</option>
-          <option value="poor" {% if physical_activity_diet.dietQuality == "poor" %}selected{% endif %}>Poor</option>
-          <option value="fair" {% if physical_activity_diet.dietQuality == "fair" %}selected{% endif %}>Fair</option>
-          <option value="good" {% if physical_activity_diet.dietQuality == "good" %}selected{% endif %}>Good</option>
-          <option value="excellent" {% if physical_activity_diet.dietQuality == "excellent" %}selected{% endif %}>Excellent</option>
-        </select>
-      </div>
-    </div>
-
+  <div class="form-row">
     <div class="form-group">
-      <label for="salt_intake">Salt Intake</label>
-      <select id="salt_intake" name="physical_activity_diet.salt_intake">
+      <label for="physical_activity_minutes_per_week">Minutes of Physical Activity Per Week</label>
+      <input type="number" id="physical_activity_minutes_per_week" name="physical_activity_diet.physical_activity_minutes_per_week"
+             value="{{ physical_activity_diet.physicalActivityMinutesPerWeek }}"
+             min="0" max="2000" placeholder="e.g. 150">
+      <span class="hint">NHS recommends at least 150 minutes of moderate activity per week.</span>
+    </div>
+    <div class="form-group">
+      <label for="activity_intensity">Usual Activity Intensity</label>
+      <select id="activity_intensity" name="physical_activity_diet.activity_intensity">
         <option value="">-- Select --</option>
-        <option value="low" {% if physical_activity_diet.saltIntake == "low" %}selected{% endif %}>Low (rarely add salt)</option>
-        <option value="moderate" {% if physical_activity_diet.saltIntake == "moderate" %}selected{% endif %}>Moderate</option>
-        <option value="high" {% if physical_activity_diet.saltIntake == "high" %}selected{% endif %}>High (frequently add salt, processed foods)</option>
+        <option value="sedentary" {% if physical_activity_diet.activityIntensity == "sedentary" %}selected{% endif %}>Sedentary</option>
+        <option value="light" {% if physical_activity_diet.activityIntensity == "light" %}selected{% endif %}>Light (walking)</option>
+        <option value="moderate" {% if physical_activity_diet.activityIntensity == "moderate" %}selected{% endif %}>Moderate (brisk walking, cycling)</option>
+        <option value="vigorous" {% if physical_activity_diet.activityIntensity == "vigorous" %}selected{% endif %}>Vigorous (running, sport)</option>
       </select>
     </div>
+  </div>
 
-    {% include "assessment/_nav.html.tera" %}
-  </form>
-</div>
-{% endblock %}
+  <div class="form-row">
+    <div class="form-group">
+      <label for="fruit_veg_portions_per_day">Fruit &amp; Vegetable Portions Per Day</label>
+      <input type="number" id="fruit_veg_portions_per_day" name="physical_activity_diet.fruit_veg_portions_per_day"
+             value="{{ physical_activity_diet.fruitVegPortionsPerDay }}"
+             min="0" max="20" placeholder="e.g. 5">
+      <span class="hint">NHS recommends at least 5 portions per day.</span>
+    </div>
+    <div class="form-group">
+      <label for="diet_quality">Overall Diet Quality</label>
+      <select id="diet_quality" name="physical_activity_diet.diet_quality">
+        <option value="">-- Select --</option>
+        <option value="poor" {% if physical_activity_diet.dietQuality == "poor" %}selected{% endif %}>Poor</option>
+        <option value="fair" {% if physical_activity_diet.dietQuality == "fair" %}selected{% endif %}>Fair</option>
+        <option value="good" {% if physical_activity_diet.dietQuality == "good" %}selected{% endif %}>Good</option>
+        <option value="excellent" {% if physical_activity_diet.dietQuality == "excellent" %}selected{% endif %}>Excellent</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="salt_intake">Salt Intake</label>
+    <select id="salt_intake" name="physical_activity_diet.salt_intake">
+      <option value="">-- Select --</option>
+      <option value="low" {% if physical_activity_diet.saltIntake == "low" %}selected{% endif %}>Low (rarely add salt)</option>
+      <option value="moderate" {% if physical_activity_diet.saltIntake == "moderate" %}selected{% endif %}>Moderate</option>
+      <option value="high" {% if physical_activity_diet.saltIntake == "high" %}selected{% endif %}>High (frequently add salt, processed foods)</option>
+    </select>
+  </div>
+</section>

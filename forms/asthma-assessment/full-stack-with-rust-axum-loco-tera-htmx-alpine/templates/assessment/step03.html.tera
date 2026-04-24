@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Symptom Assessment - Asthma Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Symptom Assessment</h2>
+<h2>Symptom Assessment</h2>
     <p class="hint">Assess symptoms over the past 4 weeks using GINA criteria. These four questions determine asthma control level.</p>
 
     <div class="likert-group">
@@ -107,8 +99,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,9 +1,262 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <capacity_and_consent>
+    <id>220e8400-e29b-41d4-a716-44665544000c</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <capacity_assessed>yes</capacity_assessed>
+    <has_capacity>yes</has_capacity>
+    <understands_information>yes</understands_information>
+    <retains_information>yes</retains_information>
+    <weighs_information>yes</weighs_information>
+    <communicates_decision>yes</communicates_decision>
+    <capacity_details>Example text.</capacity_details>
+    <advance_directive>yes</advance_directive>
+    <advance_directive_details>Example text.</advance_directive_details>
+    <lasting_power_of_attorney>yes</lasting_power_of_attorney>
+    <lpa_details>Example text.</lpa_details>
+    <mental_health_act_status>informal</mental_health_act_status>
+    <mha_details>Example text.</mha_details>
+    <consent_to_treatment>given</consent_to_treatment>
+    <consent_to_share_information>given</consent_to_share_information>
+    <nearest_relative/>
+    <nearest_relative_informed>yes</nearest_relative_informed>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </capacity_and_consent>
+  <current_medications>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <takes_psychiatric_medications>yes</takes_psychiatric_medications>
+    <takes_other_medications>yes</takes_other_medications>
+    <medication_adherence>good</medication_adherence>
+    <adherence_barriers/>
+    <side_effects/>
+    <clozapine_registered>yes</clozapine_registered>
+    <depot_injection>yes</depot_injection>
+    <depot_details>Example text.</depot_details>
+    <adverse_drug_reactions>Paracetamol</adverse_drug_reactions>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <medical_history>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <chronic_conditions/>
+    <neurological_conditions>yes</neurological_conditions>
+    <neurological_details>Example text.</neurological_details>
+    <endocrine_conditions>yes</endocrine_conditions>
+    <endocrine_details>Example text.</endocrine_details>
+    <cardiovascular_conditions>yes</cardiovascular_conditions>
+    <cardiovascular_details>Example text.</cardiovascular_details>
+    <head_injuries>yes</head_injuries>
+    <head_injury_details>Example text.</head_injury_details>
+    <seizure_history>yes</seizure_history>
+    <known_allergies>yes</known_allergies>
+    <allergy_details>Example text.</allergy_details>
+    <recent_blood_tests>yes</recent_blood_tests>
+    <blood_test_results>Normal</blood_test_results>
+    <physical_health_screening>yes</physical_health_screening>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medical_history>
+  <medication_item>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <current_medications_id>660e8400-e29b-41d4-a716-446655440001</current_medications_id>
+    <medication_name>Example</medication_name>
+    <dose>500mg</dose>
+    <frequency>twice daily</frequency>
+    <medication_type>antidepressant</medication_type>
+    <indication/>
+    <prescribing_clinician>Dr Smith</prescribing_clinician>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medication_item>
+  <mental_status_exam>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <appearance/>
+    <behaviour>cooperative</behaviour>
+    <psychomotor_activity>normal</psychomotor_activity>
+    <speech_rate>normal</speech_rate>
+    <speech_volume>normal</speech_volume>
+    <speech_quality>normal</speech_quality>
+    <mood_subjective/>
+    <affect>euthymic</affect>
+    <affect_congruence>congruent</affect_congruence>
+    <thought_form>normal</thought_form>
+    <thought_content/>
+    <delusions>yes</delusions>
+    <delusion_details>Example text.</delusion_details>
+    <hallucinations>yes</hallucinations>
+    <hallucination_type>auditory</hallucination_type>
+    <hallucination_details>Example text.</hallucination_details>
+    <orientation_time>yes</orientation_time>
+    <orientation_place>yes</orientation_place>
+    <orientation_person>yes</orientation_person>
+    <concentration>normal</concentration>
+    <memory_short_term>normal</memory_short_term>
+    <memory_long_term>normal</memory_long_term>
+    <insight>good</insight>
+    <judgement>good</judgement>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </mental_status_exam>
+  <mood_and_anxiety>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <phq9_score>5</phq9_score>
+    <gad7_score>5</gad7_score>
+    <depressed_mood>none</depressed_mood>
+    <anhedonia>none</anhedonia>
+    <sleep_disturbance>none</sleep_disturbance>
+    <appetite_change>none</appetite_change>
+    <energy_level>normal</energy_level>
+    <concentration_difficulty>none</concentration_difficulty>
+    <psychomotor_changes>none</psychomotor_changes>
+    <guilt_worthlessness>none</guilt_worthlessness>
+    <panic_attacks>yes</panic_attacks>
+    <panic_frequency>twice daily</panic_frequency>
+    <phobias>yes</phobias>
+    <phobia_details>Example text.</phobia_details>
+    <obsessions>yes</obsessions>
+    <compulsions>yes</compulsions>
+    <ocd_details>Example text.</ocd_details>
+    <ptsd_symptoms>yes</ptsd_symptoms>
+    <ptsd_details>Example text.</ptsd_details>
+    <manic_episodes>yes</manic_episodes>
+    <manic_episode_details>Example text.</manic_episode_details>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </mood_and_anxiety>
+  <presenting_complaint>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <chief_complaint/>
+    <onset_date>2026-01-15</onset_date>
+    <onset_description>acute</onset_description>
+    <duration/>
+    <severity>mild</severity>
+    <precipitating_factors/>
+    <aggravating_factors/>
+    <relieving_factors/>
+    <previous_episodes>yes</previous_episodes>
+    <previous_episode_details>Example text.</previous_episode_details>
+    <referral_source>gp</referral_source>
+    <referral_reason>Example text.</referral_reason>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </presenting_complaint>
+  <psychiatric_history>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <previous_diagnoses/>
+    <age_first_contact>45</age_first_contact>
+    <previous_inpatient_admissions>yes</previous_inpatient_admissions>
+    <inpatient_admission_count>2</inpatient_admission_count>
+    <inpatient_details>Example text.</inpatient_details>
+    <previous_sectioning>yes</previous_sectioning>
+    <sectioning_details>Example text.</sectioning_details>
+    <previous_ect>yes</previous_ect>
+    <previous_therapy>yes</previous_therapy>
+    <therapy_types>Example treatment</therapy_types>
+    <therapy_response>good</therapy_response>
+    <previous_medication_trials>Paracetamol</previous_medication_trials>
+    <treatment_adherence>good</treatment_adherence>
+    <longest_period_of_wellness/>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </psychiatric_history>
+  <risk_assessment>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <suicidal_ideation>none</suicidal_ideation>
+    <suicidal_ideation_details>Example text.</suicidal_ideation_details>
+    <suicidal_plan>yes</suicidal_plan>
+    <suicidal_plan_details>Example text.</suicidal_plan_details>
+    <suicidal_intent>yes</suicidal_intent>
+    <access_to_means>yes</access_to_means>
+    <means_details>Example text.</means_details>
+    <previous_suicide_attempts>yes</previous_suicide_attempts>
+    <attempt_count>2</attempt_count>
+    <attempt_details>Example text.</attempt_details>
+    <self_harm_current>yes</self_harm_current>
+    <self_harm_details>Example text.</self_harm_details>
+    <risk_to_others>none</risk_to_others>
+    <risk_to_others_details>Example text.</risk_to_others_details>
+    <violence_history>yes</violence_history>
+    <violence_details>Example text.</violence_details>
+    <vulnerability>none</vulnerability>
+    <vulnerability_details>Example text.</vulnerability_details>
+    <safeguarding_concerns>yes</safeguarding_concerns>
+    <safeguarding_details>Example text.</safeguarding_details>
+    <protective_factors/>
+    <overall_risk_level>low</overall_risk_level>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </risk_assessment>
+  <social_history>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <living_arrangement>alone</living_arrangement>
+    <living_arrangement_details>Example text.</living_arrangement_details>
+    <relationship_status>single</relationship_status>
+    <dependants>yes</dependants>
+    <dependant_details>Example text.</dependant_details>
+    <employment_status>employed</employment_status>
+    <occupation>Teacher</occupation>
+    <financial_difficulties>yes</financial_difficulties>
+    <benefits_received/>
+    <forensic_history>yes</forensic_history>
+    <forensic_details>Example text.</forensic_details>
+    <current_legal_issues>yes</current_legal_issues>
+    <legal_details>Example text.</legal_details>
+    <immigration_status>citizen</immigration_status>
+    <social_support/>
+    <hobbies_interests/>
+    <spiritual_beliefs/>
+    <childhood_adversity>yes</childhood_adversity>
+    <childhood_adversity_details>Example text.</childhood_adversity_details>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </social_history>
+  <substance_use>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <alcohol_use>none</alcohol_use>
+    <alcohol_units_per_week>1</alcohol_units_per_week>
+    <audit_score>5</audit_score>
+    <tobacco_use>never</tobacco_use>
+    <cigarettes_per_day>1</cigarettes_per_day>
+    <cannabis_use>never</cannabis_use>
+    <stimulant_use>yes</stimulant_use>
+    <stimulant_details>Example text.</stimulant_details>
+    <opioid_use>yes</opioid_use>
+    <opioid_details>Example text.</opioid_details>
+    <benzodiazepine_misuse>yes</benzodiazepine_misuse>
+    <novel_psychoactive_substances>yes</novel_psychoactive_substances>
+    <iv_drug_use>yes</iv_drug_use>
+    <previous_detox>yes</previous_detox>
+    <previous_detox_details>Example text.</previous_detox_details>
+    <substance_use_impact/>
+    <motivation_to_change>pre-contemplation</motivation_to_change>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </substance_use>
 </assessment>

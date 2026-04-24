@@ -1,6 +1,6 @@
 {
   "resourceType": "DetectedIssue",
-  "id": "aa1e8400-e29b-41d4-a716-446655440014",
+  "id": "aa0e8400-e29b-41d4-a716-446655440005",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/StructureDefinition/DetectedIssue"
@@ -14,7 +14,7 @@
         {
           "system": "urn:medical-forms:pre-operative-assessment-by-patient",
           "code": "grading-fired-rule",
-          "display": "Grading Fired Rule"
+          "display": "General"
         }
       ]
     }
@@ -33,5 +33,5 @@
     "reference": "Patient/550e8400-e29b-41d4-a716-446655440000"
   },
   "identifiedDateTime": "2026-04-09T10:00:00+00:00",
-  "detail": "Example grading rule that evaluated to true during assessment scoring."
+  "detail": "Example text."
 }

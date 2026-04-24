@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Manual Handling - Ergonomic Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Manual Handling</h2>
+<h2>Manual Handling</h2>
     <p class="hint">Assess manual handling requirements and risk factors.</p>
 
     <div class="form-group">
@@ -85,8 +77,4 @@
         <label><input type="radio" name="manual_handling.mechanical_aids_available" value="no" {% if manual_handling.mechanicalAidsAvailable == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

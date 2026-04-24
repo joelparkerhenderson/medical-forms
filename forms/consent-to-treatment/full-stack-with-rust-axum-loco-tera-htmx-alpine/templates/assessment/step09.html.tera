@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Signatures - Consent to Treatment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Signatures</h2>
+<h2>Signatures</h2>
     <p class="hint">Patient declaration and signatures for consent.</p>
 
     <div class="card" style="background: var(--gray-50); border: 1px solid var(--gray-200);">
@@ -101,8 +93,4 @@
                value="{{ signatures.parentGuardianSignatureDate }}">
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

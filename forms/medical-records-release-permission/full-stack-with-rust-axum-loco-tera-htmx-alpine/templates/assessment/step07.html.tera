@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Duration & Expiry - Medical Records Release{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Duration & Expiry</h2>
+<h2>Duration & Expiry</h2>
     <p class="hint">Specify the time period for which this authorization is valid.</p>
 
     <div class="form-row">
@@ -58,8 +50,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

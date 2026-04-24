@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Current Treatment - MCAS Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Current Treatment</h2>
+<h2>Current Treatment</h2>
     <p class="hint">Rate the response to current medications (1=No Response, 5=Excellent Response).</p>
 
     <div class="form-row">
@@ -79,8 +71,4 @@
                placeholder="e.g. cromolyn sodium, omalizumab">
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

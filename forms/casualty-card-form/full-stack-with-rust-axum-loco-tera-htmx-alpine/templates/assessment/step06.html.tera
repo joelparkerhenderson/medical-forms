@@ -1,14 +1,4 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
-<div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
-
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}" x-data="{
+<div class="card" x-data="{
         medications: [
             {% for med in medications %}
             { name: '{{ med.name }}', dose: '{{ med.dose }}', frequency: '{{ med.frequency }}' }{% if not loop.last %},{% endif %}
@@ -24,7 +14,9 @@
         addAllergy() { this.allergies.push({ allergen: '', reaction: '', severity: '' }); },
         removeAllergy(i) { this.allergies.splice(i, 1); }
     }">
-        <div class="form-group">
+    <h2>Step 6: Medical History</h2>
+
+<div class="form-group">
             <label for="past_medical_history">Past Medical History</label>
             <textarea id="past_medical_history" name="medical_history.past_medical_history">{{ medical_history.pastMedicalHistory }}</textarea>
         </div>
@@ -133,8 +125,4 @@
                        value="{{ medical_history.lastOralIntake }}" placeholder="Time and what was consumed">
             </div>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

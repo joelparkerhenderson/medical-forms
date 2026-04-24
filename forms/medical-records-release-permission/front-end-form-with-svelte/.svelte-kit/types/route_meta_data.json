@@ -1,7 +1,6 @@
 {
 	"/": [],
 	"/assessment": [],
-	"/assessment/[step=step]": [],
 	"/report": [],
 	"/report/pdf": [
 		"src/routes/report/pdf/+server.ts"

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Reproductive History - Contraception Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Reproductive History</h2>
+<h2>Reproductive History</h2>
     <p class="hint">Record the patient's reproductive and obstetric history.</p>
 
     <div class="form-row">
@@ -74,8 +66,4 @@
       <input type="date" id="last_sti_screen_date" name="reproductive_history.last_sti_screen_date"
              value="{{ reproductive_history.lastStiScreenDate }}">
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

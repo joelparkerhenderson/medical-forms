@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Lower GI Symptoms - Gastroenterology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Lower GI Symptoms</h2>
+<h2>Lower GI Symptoms</h2>
     <p class="hint">Record lower gastrointestinal symptoms including bowel habit changes and rectal symptoms.</p>
 
     <div class="form-row">
@@ -111,8 +103,4 @@
         </div>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

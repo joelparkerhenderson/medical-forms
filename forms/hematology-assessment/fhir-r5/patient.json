@@ -17,22 +17,5 @@
     }
   ],
   "birthDate": "1965-06-15",
-  "gender": "unknown",
-  "telecom": [
-    {
-      "system": "email",
-      "value": "jane.doe@example.com"
-    },
-    {
-      "system": "phone",
-      "value": "07700900000"
-    }
-  ],
-  "address": [
-    {
-      "line": [
-        "123 Example Street"
-      ]
-    }
-  ]
+  "gender": "unknown"
 }

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Lifestyle & Environment - Asthma Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Lifestyle & Environment</h2>
+<h2>Lifestyle & Environment</h2>
     <p class="hint">Record lifestyle factors and environmental exposures that may affect asthma control.</p>
 
     <div class="form-row">
@@ -80,8 +72,4 @@
         <option value="never" {% if lifestyle_environment.exerciseFrequency == "never" %}selected{% endif %}>Never</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,15 +1,7 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 3: Reason for Visit</h2>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-group">
+<div class="form-group">
             <label for="primary_reason">Primary Reason for Visit</label>
             <textarea id="primary_reason" name="reason_for_visit.primary_reason"
                       placeholder="Describe the main reason for your visit">{{ reason_for_visit.primaryReason }}</textarea>
@@ -43,8 +35,4 @@
             <textarea id="additional_details" name="reason_for_visit.additional_details"
                       placeholder="Any additional information about your visit">{{ reason_for_visit.additionalDetails }}</textarea>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

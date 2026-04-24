@@ -7,12 +7,6 @@
     ],
     "lastUpdated": "2026-04-09T10:00:00+00:00"
   },
-  "identifier": [
-    {
-      "system": "https://fhir.nhs.uk/Id/nhs-number",
-      "value": "9434765919"
-    }
-  ],
   "name": [
     {
       "use": "official",
@@ -23,15 +17,5 @@
     }
   ],
   "birthDate": "1965-06-15",
-  "gender": "unknown",
-  "telecom": [
-    {
-      "system": "email",
-      "value": "jane.doe@example.com"
-    },
-    {
-      "system": "phone",
-      "value": "07700900000"
-    }
-  ]
+  "gender": "unknown"
 }

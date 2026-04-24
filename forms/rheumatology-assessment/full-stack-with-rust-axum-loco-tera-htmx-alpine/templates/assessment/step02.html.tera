@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Joint Assessment - Rheumatology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Joint Assessment</h2>
+<h2>Joint Assessment</h2>
     <p class="hint">Evaluate the patient's joint status including swollen and tender joint counts.</p>
 
     <div class="form-row">
@@ -60,8 +52,4 @@
         <small>1 = Full range, 10 = Severely restricted</small>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

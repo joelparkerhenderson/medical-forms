@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Alarm Features - Gastroenterology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Alarm Features</h2>
+<h2>Alarm Features</h2>
     <p class="hint">Record the presence of red flag symptoms that may require urgent investigation.</p>
 
     <div class="form-row">
@@ -106,8 +98,4 @@
         <label><input type="radio" name="alarm_features.age_over_50_new_symptoms" value="no" {% if alarm_features.ageOver50NewSymptoms == "no" %}checked{% endif %}> No</label>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

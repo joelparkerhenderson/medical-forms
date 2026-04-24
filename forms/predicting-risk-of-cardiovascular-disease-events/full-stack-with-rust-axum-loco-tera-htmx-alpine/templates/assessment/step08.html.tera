@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Medical History - AHA PREVENT{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Medical History</h2>
+<h2>Medical History</h2>
     <p class="hint">PREVENT is for primary prevention. Known CVD will be flagged.</p>
 
     <div class="form-group">
@@ -87,8 +79,4 @@
       <textarea id="family_cvd_details" name="medical_history.family_cvd_details"
                 rows="3" placeholder="e.g. Father had MI at age 52">{{ medical_history.familyCvdDetails }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

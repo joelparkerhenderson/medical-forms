@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Presenting Concerns - Mental Health Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Presenting Concerns</h2>
+<h2>Presenting Concerns</h2>
     <p class="hint">Describe the patient's main concerns and current symptoms.</p>
 
     <div class="form-group">
@@ -82,8 +74,4 @@
         <option value="fluctuating" {% if presenting_concerns.appetiteChange == "fluctuating" %}selected{% endif %}>Fluctuating</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

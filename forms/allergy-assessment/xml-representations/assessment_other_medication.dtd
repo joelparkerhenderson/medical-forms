@@ -1,9 +1,0 @@
-<!ELEMENT assessment_other_medication (id,current_management_id,medication_name,dose,frequency,sort_order,created_at,updated_at)>
-<!ELEMENT id (#PCDATA)>
-<!ELEMENT current_management_id (#PCDATA)>
-<!ELEMENT medication_name (#PCDATA)>
-<!ELEMENT dose (#PCDATA)>
-<!ELEMENT frequency (#PCDATA)>
-<!ELEMENT sort_order (#PCDATA)>
-<!ELEMENT created_at (#PCDATA)>
-<!ELEMENT updated_at (#PCDATA)>

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Clinical Review - Semaglutide Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Clinical Review</h2>
+<h2>Clinical Review</h2>
     <p class="hint">Provide your clinical assessment of the patient's suitability for semaglutide. Rate each on a scale of 1 (Very Poor) to 5 (Excellent).</p>
 
     <div class="form-group">
@@ -92,8 +84,4 @@
       <textarea id="clinician_notes" name="clinical_review.clinician_notes"
                 rows="4" placeholder="Any additional clinical observations or notes...">{{ clinical_review.clinicianNotes }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Comorbidities - Attention Deficit Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Comorbidities</h2>
+<h2>Comorbidities</h2>
     <p class="hint">Screen for conditions commonly co-occurring with ADHD. Accurate identification improves differential diagnosis and treatment planning.</p>
 
     <div class="form-row">
@@ -106,8 +98,4 @@
       <textarea id="other_psychiatric_conditions" name="comorbidities.other_psychiatric_conditions"
                 rows="2" placeholder="List any other relevant conditions...">{{ comorbidities.otherPsychiatricConditions }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

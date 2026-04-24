@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Nutritional Assessment - Gastroenterology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Nutritional Assessment</h2>
+<h2>Nutritional Assessment</h2>
     <p class="hint">Record the patient's nutritional status including anthropometrics and screening scores.</p>
 
     <div class="form-row">
@@ -78,8 +70,4 @@
         {% endfor %}
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

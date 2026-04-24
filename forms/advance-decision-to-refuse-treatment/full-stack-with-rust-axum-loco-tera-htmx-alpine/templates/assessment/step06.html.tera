@@ -1,15 +1,7 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Step {{ step }} - {{ step_title }}{% endblock %}
-
-{% block content %}
-{% include "assessment/_progress.html.tera" %}
-
 <div class="card">
-    <h2>Step {{ step }}: {{ step_title }}</h2>
+    <h2>Step 6: Exceptions & Conditions</h2>
 
-    <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-        <div class="form-group">
+<div class="form-group">
             <label>Are there any exceptions to your treatment refusals?</label>
             <div class="radio-group">
                 <label><input type="radio" name="exceptions_conditions.has_exceptions" value="yes" {% if exceptions_conditions.hasExceptions == "yes" %}checked{% endif %}> Yes</label>
@@ -50,8 +42,4 @@
             <textarea id="invalidating_conditions" name="exceptions_conditions.invalidating_conditions"
                       placeholder="Describe any conditions or changes that would invalidate this advance decision (e.g. new treatment becomes available)">{{ exceptions_conditions.invalidatingConditions }}</textarea>
         </div>
-
-        {% include "assessment/_nav.html.tera" %}
-    </form>
 </div>
-{% endblock %}

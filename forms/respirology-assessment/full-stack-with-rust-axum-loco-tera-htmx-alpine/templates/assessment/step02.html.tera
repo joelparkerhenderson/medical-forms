@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Respiratory Symptoms - Respirology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Respiratory Symptoms</h2>
+<h2>Respiratory Symptoms</h2>
     <p class="hint">Rate the severity of each symptom (1 = None/Minimal, 5 = Severe).</p>
 
     <div class="form-group">
@@ -71,8 +63,4 @@
         <option value="moreThan1Year" {% if respiratory_symptoms.symptomDuration == "moreThan1Year" %}selected{% endif %}>More than 1 year</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Fitting Requirements - Hearing Aid Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Fitting Requirements</h2>
+<h2>Fitting Requirements</h2>
     <p class="hint">Determine the appropriate hearing aid fitting parameters.</p>
 
     <div class="form-row">
@@ -79,8 +71,4 @@
         </select>
       </div>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

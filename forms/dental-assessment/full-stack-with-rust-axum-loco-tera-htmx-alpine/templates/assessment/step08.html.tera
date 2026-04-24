@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Radiographic Findings - Dental Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Radiographic Findings</h2>
+<h2>Radiographic Findings</h2>
     <p class="hint">Record radiographic examination results and findings.</p>
 
     <div class="form-row">
@@ -69,8 +61,4 @@
       <textarea id="other_findings" name="radiographic_findings.other_findings"
                 placeholder="Describe any additional radiographic findings">{{ radiographic_findings.otherFindings }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

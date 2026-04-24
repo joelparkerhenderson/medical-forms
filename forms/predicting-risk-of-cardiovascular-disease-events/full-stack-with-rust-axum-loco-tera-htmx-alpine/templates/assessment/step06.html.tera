@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Renal Function - AHA PREVENT{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Renal Function</h2>
+<h2>Renal Function</h2>
     <p class="hint">Kidney function markers are key inputs for the PREVENT risk model.</p>
 
     <div class="form-row">
@@ -45,8 +37,4 @@
         <option value="stage5" {% if renal_function.ckdStage == "stage5" %}selected{% endif %}>Stage 5 (eGFR &lt; 15)</option>
       </select>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

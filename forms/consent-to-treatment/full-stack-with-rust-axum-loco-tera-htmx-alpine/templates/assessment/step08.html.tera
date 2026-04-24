@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Interpreter Requirements - Consent to Treatment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Interpreter Requirements</h2>
+<h2>Interpreter Requirements</h2>
     <p class="hint">Record any interpretation or communication support needs.</p>
 
     <div class="form-group">
@@ -58,8 +50,4 @@
       <textarea id="communication_aids_details" name="interpreter_requirements.communication_aids_details"
                 placeholder="Describe any communication aids required (e.g. hearing loop, large print, easy read)">{{ interpreter_requirements.communicationAidsDetails }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}

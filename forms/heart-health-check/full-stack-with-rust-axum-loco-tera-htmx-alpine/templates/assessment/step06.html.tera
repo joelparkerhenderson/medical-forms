@@ -1,50 +1,38 @@
-{% extends "base.html.tera" %}
+<section id="step-6" class="card scroll-mt-20">
+  <h2>6. Family History</h2>
+  <p class="hint">Family history of cardiovascular disease significantly affects your risk score.</p>
 
-{% block title %}Family History - Heart Health Check{% endblock %}
-
-{% block content %}
-<div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Family History</h2>
-    <p class="hint">Family history of cardiovascular disease significantly affects your risk score.</p>
-
-    <div class="form-group">
-      <label>First-degree relative with CVD under age 60?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="family_history.family_cvd_under_60" value="yes"
-                      {% if family_history.familyCvdUnder60 == "yes" %}checked{% endif %}> Yes</label>
-        <label><input type="radio" name="family_history.family_cvd_under_60" value="no"
-                      {% if family_history.familyCvdUnder60 == "no" %}checked{% endif %}> No</label>
-        <label><input type="radio" name="family_history.family_cvd_under_60" value="unknown"
-                      {% if family_history.familyCvdUnder60 == "unknown" %}checked{% endif %}> Unknown</label>
-      </div>
+  <div class="form-group">
+    <label>First-degree relative with CVD under age 60?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="family_history.family_cvd_under_60" value="yes"
+                    {% if family_history.familyCvdUnder60 == "yes" %}checked{% endif %}> Yes</label>
+      <label><input type="radio" name="family_history.family_cvd_under_60" value="no"
+                    {% if family_history.familyCvdUnder60 == "no" %}checked{% endif %}> No</label>
+      <label><input type="radio" name="family_history.family_cvd_under_60" value="unknown"
+                    {% if family_history.familyCvdUnder60 == "unknown" %}checked{% endif %}> Unknown</label>
     </div>
+  </div>
 
-    <div class="form-group">
-      <label for="family_cvd_relationship">Relationship (if applicable)</label>
-      <select id="family_cvd_relationship" name="family_history.family_cvd_relationship">
-        <option value="">-- Select --</option>
-        <option value="parent" {% if family_history.familyCvdRelationship == "parent" %}selected{% endif %}>Parent</option>
-        <option value="sibling" {% if family_history.familyCvdRelationship == "sibling" %}selected{% endif %}>Sibling</option>
-        <option value="both" {% if family_history.familyCvdRelationship == "both" %}selected{% endif %}>Both Parent and Sibling</option>
-      </select>
+  <div class="form-group">
+    <label for="family_cvd_relationship">Relationship (if applicable)</label>
+    <select id="family_cvd_relationship" name="family_history.family_cvd_relationship">
+      <option value="">-- Select --</option>
+      <option value="parent" {% if family_history.familyCvdRelationship == "parent" %}selected{% endif %}>Parent</option>
+      <option value="sibling" {% if family_history.familyCvdRelationship == "sibling" %}selected{% endif %}>Sibling</option>
+      <option value="both" {% if family_history.familyCvdRelationship == "both" %}selected{% endif %}>Both Parent and Sibling</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Family history of diabetes?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="family_history.family_diabetes_history" value="yes"
+                    {% if family_history.familyDiabetesHistory == "yes" %}checked{% endif %}> Yes</label>
+      <label><input type="radio" name="family_history.family_diabetes_history" value="no"
+                    {% if family_history.familyDiabetesHistory == "no" %}checked{% endif %}> No</label>
+      <label><input type="radio" name="family_history.family_diabetes_history" value="unknown"
+                    {% if family_history.familyDiabetesHistory == "unknown" %}checked{% endif %}> Unknown</label>
     </div>
-
-    <div class="form-group">
-      <label>Family history of diabetes?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="family_history.family_diabetes_history" value="yes"
-                      {% if family_history.familyDiabetesHistory == "yes" %}checked{% endif %}> Yes</label>
-        <label><input type="radio" name="family_history.family_diabetes_history" value="no"
-                      {% if family_history.familyDiabetesHistory == "no" %}checked{% endif %}> No</label>
-        <label><input type="radio" name="family_history.family_diabetes_history" value="unknown"
-                      {% if family_history.familyDiabetesHistory == "unknown" %}checked{% endif %}> Unknown</label>
-      </div>
-    </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
-</div>
-{% endblock %}
+  </div>
+</section>

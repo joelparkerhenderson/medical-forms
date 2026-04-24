@@ -1,9 +1,216 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <allergies>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <has_drug_allergies>yes</has_drug_allergies>
+    <drug_allergy_details>Example text.</drug_allergy_details>
+    <has_environmental_allergies>yes</has_environmental_allergies>
+    <environmental_allergy_details>Example text.</environmental_allergy_details>
+    <atopic_history>yes</atopic_history>
+    <eczema>yes</eczema>
+    <allergic_rhinitis>yes</allergic_rhinitis>
+    <food_allergies>yes</food_allergies>
+    <food_allergy_details>Example text.</food_allergy_details>
+    <aspirin_sensitivity>yes</aspirin_sensitivity>
+    <allergy_testing_performed>yes</allergy_testing_performed>
+    <allergy_test_results>Normal</allergy_test_results>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </allergies>
+  <assessment_chief_complaint>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <chief_complaint/>
+    <onset>acute</onset>
+    <duration/>
+    <severity>mild</severity>
+    <dyspnoea>yes</dyspnoea>
+    <cough>yes</cough>
+    <wheeze>yes</wheeze>
+    <chest_pain>yes</chest_pain>
+    <haemoptysis>yes</haemoptysis>
+    <recurrent_respiratory_infections>yes</recurrent_respiratory_infections>
+    <weight_loss>yes</weight_loss>
+    <night_sweats>yes</night_sweats>
+    <fever>yes</fever>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </assessment_chief_complaint>
+  <cough_assessment>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <cough_present>yes</cough_present>
+    <cough_duration>acute</cough_duration>
+    <cough_duration_weeks>1</cough_duration_weeks>
+    <cough_type>dry</cough_type>
+    <cough_timing>morning</cough_timing>
+    <sputum_production>yes</sputum_production>
+    <sputum_volume>minimal</sputum_volume>
+    <sputum_colour>clear</sputum_colour>
+    <sputum_odour>none</sputum_odour>
+    <haemoptysis>yes</haemoptysis>
+    <haemoptysis_volume>streaks</haemoptysis_volume>
+    <cough_triggers/>
+    <cough_impact_on_sleep>none</cough_impact_on_sleep>
+    <cough_impact_on_daily_life>none</cough_impact_on_daily_life>
+    <post_nasal_drip>yes</post_nasal_drip>
+    <gastro_oesophageal_reflux>yes</gastro_oesophageal_reflux>
+    <ace_inhibitor_use>yes</ace_inhibitor_use>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </cough_assessment>
+  <current_medications>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <takes_respiratory_medications>yes</takes_respiratory_medications>
+    <inhaler_use>yes</inhaler_use>
+    <inhaler_technique_assessed>yes</inhaler_technique_assessed>
+    <inhaler_technique_adequate>yes</inhaler_technique_adequate>
+    <long_term_oxygen_therapy>yes</long_term_oxygen_therapy>
+    <nebuliser_use>yes</nebuliser_use>
+    <takes_other_medications>yes</takes_other_medications>
+    <medication_adherence>good</medication_adherence>
+    <adverse_drug_reactions>Paracetamol</adverse_drug_reactions>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </current_medications>
+  <dyspnoea_assessment>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <mrc_dyspnoea_grade>1</mrc_dyspnoea_grade>
+    <dyspnoea_at_rest>yes</dyspnoea_at_rest>
+    <dyspnoea_on_exertion>yes</dyspnoea_on_exertion>
+    <orthopnoea>yes</orthopnoea>
+    <paroxysmal_nocturnal_dyspnoea>yes</paroxysmal_nocturnal_dyspnoea>
+    <dyspnoea_onset>gradual</dyspnoea_onset>
+    <dyspnoea_triggers/>
+    <dyspnoea_relieving_factors/>
+    <exercise_limitation>none</exercise_limitation>
+    <walking_distance_metres>1</walking_distance_metres>
+    <flights_of_stairs>1</flights_of_stairs>
+    <borg_dyspnoea_score>5</borg_dyspnoea_score>
+    <oxygen_requirement>yes</oxygen_requirement>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </dyspnoea_assessment>
+  <medication_item>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <current_medications_id>660e8400-e29b-41d4-a716-446655440001</current_medications_id>
+    <medication_name>Example</medication_name>
+    <dose>500mg</dose>
+    <frequency>twice daily</frequency>
+    <route>inhaled</route>
+    <indication/>
+    <sort_order>0</sort_order>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </medication_item>
+  <pulmonary_function>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <spirometry_performed>yes</spirometry_performed>
+    <test_date>2026-01-15</test_date>
+    <fev1_litres>0.0</fev1_litres>
+    <fev1_predicted_pct>0.0</fev1_predicted_pct>
+    <fvc_litres>0.0</fvc_litres>
+    <fvc_predicted_pct>0.0</fvc_predicted_pct>
+    <fev1_fvc_ratio>1.5</fev1_fvc_ratio>
+    <peak_flow_lmin>1</peak_flow_lmin>
+    <peak_flow_variability_pct>0.0</peak_flow_variability_pct>
+    <dlco_pct>0.0</dlco_pct>
+    <total_lung_capacity_pct>0.0</total_lung_capacity_pct>
+    <residual_volume_pct>0.0</residual_volume_pct>
+    <bronchodilator_reversibility>yes</bronchodilator_reversibility>
+    <methacholine_challenge>positive</methacholine_challenge>
+    <oxygen_saturation_rest>1.5</oxygen_saturation_rest>
+    <arterial_blood_gas_performed>yes</arterial_blood_gas_performed>
+    <pao2_kpa>0.0</pao2_kpa>
+    <paco2_kpa>0.0</paco2_kpa>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </pulmonary_function>
+  <respiratory_history>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <asthma>yes</asthma>
+    <asthma_age_of_onset>45</asthma_age_of_onset>
+    <copd>yes</copd>
+    <copd_diagnosis_year>2026</copd_diagnosis_year>
+    <bronchiectasis>yes</bronchiectasis>
+    <interstitial_lung_disease>yes</interstitial_lung_disease>
+    <ild_type>standard</ild_type>
+    <tuberculosis_history>yes</tuberculosis_history>
+    <tb_treatment_completed>yes</tb_treatment_completed>
+    <pneumothorax_history>yes</pneumothorax_history>
+    <pulmonary_embolism>yes</pulmonary_embolism>
+    <lung_surgery>yes</lung_surgery>
+    <lung_surgery_details>Example text.</lung_surgery_details>
+    <chest_trauma>yes</chest_trauma>
+    <previous_hospitalisations>1</previous_hospitalisations>
+    <previous_intubation>yes</previous_intubation>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </respiratory_history>
+  <sleep_functional>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <sleep_quality>good</sleep_quality>
+    <snoring>yes</snoring>
+    <witnessed_apnoeas>yes</witnessed_apnoeas>
+    <daytime_sleepiness>none</daytime_sleepiness>
+    <epworth_sleepiness_score>5</epworth_sleepiness_score>
+    <sleep_study_performed>yes</sleep_study_performed>
+    <osa_diagnosed>yes</osa_diagnosed>
+    <cpap_use>yes</cpap_use>
+    <cpap_compliance>good</cpap_compliance>
+    <adl_independence>independent</adl_independence>
+    <mobility_level>unrestricted</mobility_level>
+    <employment_impact>none</employment_impact>
+    <exercise_tolerance/>
+    <quality_of_life_impact>none</quality_of_life_impact>
+    <pulmonary_rehabilitation>completed</pulmonary_rehabilitation>
+    <advance_care_planning>yes</advance_care_planning>
+    <advance_care_details>Example text.</advance_care_details>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </sleep_functional>
+  <smoking_exposures>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <smoking_status>never</smoking_status>
+    <pack_years>0.0</pack_years>
+    <cigarettes_per_day>1</cigarettes_per_day>
+    <age_started_smoking>45</age_started_smoking>
+    <age_stopped_smoking>45</age_stopped_smoking>
+    <vaping>yes</vaping>
+    <vaping_details>Example text.</vaping_details>
+    <cannabis_smoking>yes</cannabis_smoking>
+    <passive_smoke_exposure>yes</passive_smoke_exposure>
+    <occupational_exposures>yes</occupational_exposures>
+    <occupational_exposure_details>Example text.</occupational_exposure_details>
+    <asbestos_exposure>yes</asbestos_exposure>
+    <silica_exposure>yes</silica_exposure>
+    <biomass_fuel_exposure>yes</biomass_fuel_exposure>
+    <indoor_air_quality_concerns>yes</indoor_air_quality_concerns>
+    <air_quality_details>Example text.</air_quality_details>
+    <smoking_cessation_advice>yes</smoking_cessation_advice>
+    <additional_notes>Example text.</additional_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </smoking_exposures>
 </assessment>

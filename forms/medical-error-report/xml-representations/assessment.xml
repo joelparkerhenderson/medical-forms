@@ -1,9 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE assessment SYSTEM "assessment.dtd">
 <assessment>
-<id>660e8400-e29b-41d4-a716-446655440001</id>
-<patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
-<status>draft</status>
-<created_at>2026-04-09T10:00:00Z</created_at>
-<updated_at>2026-04-09T10:00:00Z</updated_at>
+  <id>660e8400-e29b-41d4-a716-446655440001</id>
+  <patient_id>550e8400-e29b-41d4-a716-446655440000</patient_id>
+  <status>draft</status>
+  <created_at>2026-04-09T10:00:00Z</created_at>
+  <updated_at>2026-04-09T10:00:00Z</updated_at>
+  <contributing_factors>
+    <id>bb0e8400-e29b-41d4-a716-446655440006</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <staff_fatigue>yes</staff_fatigue>
+    <inadequate_training>yes</inadequate_training>
+    <communication_failure>yes</communication_failure>
+    <communication_failure_details>Example text.</communication_failure_details>
+    <handover_failure>yes</handover_failure>
+    <equipment_failure>yes</equipment_failure>
+    <equipment_failure_details>Example text.</equipment_failure_details>
+    <environmental_factors>yes</environmental_factors>
+    <environmental_details>Example text.</environmental_details>
+    <policy_not_followed>yes</policy_not_followed>
+    <policy_details>Example text.</policy_details>
+    <workload_pressure>yes</workload_pressure>
+    <patient_factors>yes</patient_factors>
+    <patient_factors_details>Example text.</patient_factors_details>
+    <other_factors/>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </contributing_factors>
+  <corrective_actions>
+    <id>ff0e8400-e29b-41d4-a716-44665544000a</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <immediate_corrective_actions/>
+    <long_term_corrective_actions/>
+    <policy_change_required>yes</policy_change_required>
+    <policy_change_details>Example text.</policy_change_details>
+    <training_required>yes</training_required>
+    <training_details>Example text.</training_details>
+    <equipment_change_required>yes</equipment_change_required>
+    <equipment_change_details>Example text.</equipment_change_details>
+    <process_redesign_required>yes</process_redesign_required>
+    <process_redesign_details>Example text.</process_redesign_details>
+    <responsible_person/>
+    <target_completion_date>2026-01-15</target_completion_date>
+    <actions_status>planned</actions_status>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </corrective_actions>
+  <demographics>
+    <id>770e8400-e29b-41d4-a716-446655440002</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <reporter_first_name>Example</reporter_first_name>
+    <reporter_last_name>Example</reporter_last_name>
+    <reporter_role>doctor</reporter_role>
+    <reporter_department/>
+    <reporter_contact_phone>07700900001</reporter_contact_phone>
+    <reporter_contact_email>07700900001</reporter_contact_email>
+    <facility_name>Example</facility_name>
+    <facility_ward>Example Hospital</facility_ward>
+    <report_date>2026-01-15</report_date>
+    <anonymous_report>yes</anonymous_report>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </demographics>
+  <error_classification>
+    <id>aa0e8400-e29b-41d4-a716-446655440005</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <error_type>medication</error_type>
+    <error_type_details>Example text.</error_type_details>
+    <medication_error_stage>prescribing</medication_error_stage>
+    <who_severity>near-miss</who_severity>
+    <ncc_merp_category>A</ncc_merp_category>
+    <preventability>clearly-preventable</preventability>
+    <recurrence_likelihood>very-likely</recurrence_likelihood>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </error_classification>
+  <immediate_actions>
+    <id>cc0e8400-e29b-41d4-a716-446655440007</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <patient_assessed>yes</patient_assessed>
+    <treatment_provided>yes</treatment_provided>
+    <treatment_details>Example text.</treatment_details>
+    <error_contained>yes</error_contained>
+    <containment_details>Example text.</containment_details>
+    <senior_staff_notified>yes</senior_staff_notified>
+    <senior_staff_name>Example</senior_staff_name>
+    <senior_staff_role/>
+    <risk_team_notified>yes</risk_team_notified>
+    <additional_monitoring>yes</additional_monitoring>
+    <monitoring_details>Example text.</monitoring_details>
+    <immediate_actions_summary>Example text.</immediate_actions_summary>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </immediate_actions>
+  <incident_details>
+    <id>880e8400-e29b-41d4-a716-446655440003</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <incident_date>2026-01-15</incident_date>
+    <incident_time/>
+    <discovery_date>2026-01-15</discovery_date>
+    <discovery_time/>
+    <location_type>inpatient-ward</location_type>
+    <location_details>Example text.</location_details>
+    <incident_summary>Example text.</incident_summary>
+    <incident_witnessed>yes</incident_witnessed>
+    <witness_details>Example text.</witness_details>
+    <shift_type>day</shift_type>
+    <staffing_level>adequate</staffing_level>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </incident_details>
+  <patient_involvement>
+    <id>990e8400-e29b-41d4-a716-446655440004</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <patient_involved>yes</patient_involved>
+    <patient_first_name>Example</patient_first_name>
+    <patient_last_name>Example</patient_last_name>
+    <patient_nhs_number/>
+    <patient_date_of_birth>2026-01-15</patient_date_of_birth>
+    <patient_sex>male</patient_sex>
+    <patient_age_at_incident>45</patient_age_at_incident>
+    <patient_informed>yes</patient_informed>
+    <patient_informed_date>2026-01-15</patient_informed_date>
+    <patient_informed_by/>
+    <duty_of_candour_applies>yes</duty_of_candour_applies>
+    <duty_of_candour_completed>yes</duty_of_candour_completed>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </patient_involvement>
+  <patient_outcome>
+    <id>dd0e8400-e29b-41d4-a716-446655440008</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <harm_reached_patient>yes</harm_reached_patient>
+    <harm_level>none</harm_level>
+    <harm_description>Example text.</harm_description>
+    <additional_treatment_required>yes</additional_treatment_required>
+    <additional_treatment_details>Example text.</additional_treatment_details>
+    <extended_hospital_stay>yes</extended_hospital_stay>
+    <extra_days>1</extra_days>
+    <readmission_required>yes</readmission_required>
+    <permanent_disability>yes</permanent_disability>
+    <disability_details>Example text.</disability_details>
+    <patient_died>yes</patient_died>
+    <death_date>2026-01-15</death_date>
+    <outcome_notes>Example text.</outcome_notes>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </patient_outcome>
+  <reporting_followup>
+    <id>110e8400-e29b-41d4-a716-44665544000b</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <internal_reference/>
+    <reported_to_datix>yes</reported_to_datix>
+    <datix_reference/>
+    <reported_to_nrls>yes</reported_to_nrls>
+    <nrls_reference/>
+    <reported_to_cqc>yes</reported_to_cqc>
+    <reported_to_hsib>yes</reported_to_hsib>
+    <reported_to_coroner>yes</reported_to_coroner>
+    <safeguarding_referral>yes</safeguarding_referral>
+    <lessons_learned/>
+    <shared_with_team>yes</shared_with_team>
+    <follow_up_review_date>2026-01-15</follow_up_review_date>
+    <follow_up_reviewer/>
+    <final_status>open</final_status>
+    <closure_date>2026-01-15</closure_date>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </reporting_followup>
+  <root_cause_analysis>
+    <id>ee0e8400-e29b-41d4-a716-446655440009</id>
+    <assessment_id>660e8400-e29b-41d4-a716-446655440001</assessment_id>
+    <rca_conducted>yes</rca_conducted>
+    <rca_date>2026-01-15</rca_date>
+    <rca_lead/>
+    <rca_team_members/>
+    <root_cause_category>human-error</root_cause_category>
+    <root_cause_description>Example text.</root_cause_description>
+    <five_whys_analysis/>
+    <fishbone_factors/>
+    <system_vulnerabilities/>
+    <similar_incidents>yes</similar_incidents>
+    <similar_incidents_details>Example text.</similar_incidents_details>
+    <rca_findings_summary>Example text.</rca_findings_summary>
+    <created_at>2026-04-09T10:00:00Z</created_at>
+    <updated_at>2026-04-09T10:00:00Z</updated_at>
+  </root_cause_analysis>
 </assessment>

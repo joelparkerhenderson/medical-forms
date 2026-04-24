@@ -1,13 +1,5 @@
-{% extends "base.html.tera" %}
-
-{% block title %}Clinical Review - Gastroenterology Assessment{% endblock %}
-
-{% block content %}
 <div class="card">
-  {% include "assessment/_progress.html.tera" %}
-
-  <form method="POST" action="/assessment/{{ id }}/step/{{ step }}">
-    <h2>Clinical Review</h2>
+<h2>Clinical Review</h2>
     <p class="hint">Final clinical assessment including disease activity, quality of life impact, and follow-up planning.</p>
 
     <div class="likert-group">
@@ -92,8 +84,4 @@
       <textarea id="follow_up_plan" name="clinical_review.follow_up_plan"
                 rows="4" placeholder="e.g. Review in 6 weeks, repeat bloods, arrange endoscopy">{{ clinical_review.followUpPlan }}</textarea>
     </div>
-
-    {% include "assessment/_nav.html.tera" %}
-  </form>
 </div>
-{% endblock %}
