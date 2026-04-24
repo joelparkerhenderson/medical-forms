@@ -1,6 +1,8 @@
 CREATE TABLE employee (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
     date_of_birth DATE NOT NULL,
@@ -9,10 +11,7 @@ CREATE TABLE employee (
     phone VARCHAR(30) NOT NULL DEFAULT '',
     job_title VARCHAR(255) NOT NULL DEFAULT '',
     department VARCHAR(255) NOT NULL DEFAULT '',
-    start_date DATE,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    start_date DATE
 );
 
 CREATE TRIGGER trigger_employee_updated_at
@@ -22,8 +21,6 @@ CREATE TRIGGER trigger_employee_updated_at
 
 COMMENT ON TABLE employee IS
     'Employee demographic information for healthcare staff onboarding.';
-COMMENT ON COLUMN employee.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN employee.first_name IS
     'Employee given name.';
 COMMENT ON COLUMN employee.last_name IS
@@ -43,7 +40,11 @@ COMMENT ON COLUMN employee.department IS
 COMMENT ON COLUMN employee.start_date IS
     'Agreed start date for the role.';
 
+COMMENT ON COLUMN employee.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN employee.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN employee.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN employee.deleted_at IS
+    'Timestamp when this row was deleted.';

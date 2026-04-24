@@ -1,9 +1,10 @@
 CREATE TABLE assessment_current_medications (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     takes_regular_medications VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (takes_regular_medications IN ('yes', 'no', '')),
     takes_over_the_counter VARCHAR(5) NOT NULL DEFAULT ''
@@ -14,10 +15,7 @@ CREATE TABLE assessment_current_medications (
     hormone_therapy VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (hormone_therapy IN ('yes', 'no', '')),
     hormone_therapy_details TEXT NOT NULL DEFAULT '',
-    medication_notes TEXT NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    medication_notes TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_assessment_current_medications_updated_at
@@ -29,8 +27,6 @@ CREATE TRIGGER trigger_assessment_current_medications_updated_at
 
 COMMENT ON TABLE assessment_current_medications IS
     'Assessment current medications.';
-COMMENT ON COLUMN assessment_current_medications.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_current_medications.assessment_id IS
     'Foreign key to the assessment table.';
 COMMENT ON COLUMN assessment_current_medications.takes_regular_medications IS
@@ -47,7 +43,11 @@ COMMENT ON COLUMN assessment_current_medications.hormone_therapy_details IS
     'Hormone therapy details.';
 COMMENT ON COLUMN assessment_current_medications.medication_notes IS
     'Medication notes.';
+COMMENT ON COLUMN assessment_current_medications.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_current_medications.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_current_medications.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_current_medications.deleted_at IS
+    'Timestamp when this row was deleted.';

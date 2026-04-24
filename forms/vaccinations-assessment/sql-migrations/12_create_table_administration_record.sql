@@ -1,9 +1,10 @@
 CREATE TABLE administration_record (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     vaccine_name VARCHAR(255) NOT NULL DEFAULT '',
     batch_number VARCHAR(50) NOT NULL DEFAULT '',
     expiry_date DATE,
@@ -14,10 +15,7 @@ CREATE TABLE administration_record (
     dose_number VARCHAR(10) NOT NULL DEFAULT ''
         CHECK (dose_number IN ('1', '2', '3', 'booster', '')),
     administered_by VARCHAR(255) NOT NULL DEFAULT '',
-    administration_date DATE,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    administration_date DATE
 );
 
 CREATE TRIGGER trigger_administration_record_updated_at
@@ -28,8 +26,6 @@ CREATE TRIGGER trigger_administration_record_updated_at
 COMMENT ON TABLE administration_record IS
     'Vaccine administration details including batch, site, and route. One-to-one child of assessment.';
 
-COMMENT ON COLUMN administration_record.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN administration_record.assessment_id IS
     'Foreign key to the assessment table.';
 COMMENT ON COLUMN administration_record.vaccine_name IS
@@ -48,7 +44,11 @@ COMMENT ON COLUMN administration_record.administered_by IS
     'Administered by.';
 COMMENT ON COLUMN administration_record.administration_date IS
     'Administration date.';
+COMMENT ON COLUMN administration_record.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN administration_record.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN administration_record.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN administration_record.deleted_at IS
+    'Timestamp when this row was deleted.';

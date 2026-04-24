@@ -1,17 +1,15 @@
 CREATE TABLE prescription_request_type (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     prescription_request_id UUID NOT NULL UNIQUE
         REFERENCES prescription_request(id) ON DELETE CASCADE,
-
     is_new_prescription VARCHAR(3) NOT NULL DEFAULT ''
         CHECK (is_new_prescription IN ('yes', 'no', '')),
     is_emergency VARCHAR(3) NOT NULL DEFAULT ''
         CHECK (is_emergency IN ('yes', 'no', '')),
-    additional_notes TEXT NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    additional_notes TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_prescription_request_type_updated_at
@@ -26,11 +24,13 @@ COMMENT ON COLUMN prescription_request_type.is_emergency IS 'Whether this is an 
 COMMENT ON COLUMN prescription_request_type.additional_notes IS 'Additional notes about the request.';
 --rollback DROP TABLE prescription_request_type;
 
-COMMENT ON COLUMN prescription_request_type.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN prescription_request_type.prescription_request_id IS
     'Foreign key to the prescription_request table.';
+COMMENT ON COLUMN prescription_request_type.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN prescription_request_type.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN prescription_request_type.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN prescription_request_type.deleted_at IS
+    'Timestamp when this row was deleted.';

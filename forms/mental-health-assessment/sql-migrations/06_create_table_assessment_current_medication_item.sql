@@ -1,9 +1,10 @@
 CREATE TABLE assessment_current_medication_item (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     current_medications_id UUID NOT NULL
         REFERENCES assessment_current_medications(id) ON DELETE CASCADE,
-
     medication_name VARCHAR(255) NOT NULL DEFAULT '',
     dose VARCHAR(100) NOT NULL DEFAULT '',
     frequency VARCHAR(100) NOT NULL DEFAULT '',
@@ -11,10 +12,7 @@ CREATE TABLE assessment_current_medication_item (
     start_date DATE,
     medication_class VARCHAR(50) NOT NULL DEFAULT ''
         CHECK (medication_class IN ('antidepressant', 'anxiolytic', 'antipsychotic', 'mood-stabiliser', 'hypnotic', 'stimulant', 'other', '')),
-    sort_order INTEGER NOT NULL DEFAULT 0,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    sort_order INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TRIGGER trigger_assessment_current_medication_item_updated_at
@@ -60,14 +58,16 @@ COMMENT ON COLUMN assessment_current_medications.id IS
 COMMENT ON COLUMN assessment_current_medications.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_current_medications.updated_at IS
-    'Timestamp when this row was last updated.';
-COMMENT ON COLUMN assessment_current_medication_item.id IS
-    'Primary key UUID, auto-generated.';
+    'Timestamp when this row was updated.';
 COMMENT ON COLUMN assessment_current_medication_item.current_medications_id IS
     'Foreign key to the assessment_current_medications table.';
 COMMENT ON COLUMN assessment_current_medication_item.sort_order IS
     'Sort order.';
+COMMENT ON COLUMN assessment_current_medication_item.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_current_medication_item.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_current_medication_item.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_current_medication_item.deleted_at IS
+    'Timestamp when this row was deleted.';

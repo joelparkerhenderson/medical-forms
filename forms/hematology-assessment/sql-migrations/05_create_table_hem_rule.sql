@@ -1,15 +1,14 @@
 CREATE TABLE hem_rule (
-    -- Rule identifier (e.g. HEM-001)
-    id              TEXT PRIMARY KEY,
-
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
+    -- Human-readable rule code (e.g. 'DM-001'). Stable identifier.
+    code TEXT NOT NULL UNIQUE,
     -- Rule metadata
     category        TEXT NOT NULL,
     description     TEXT NOT NULL,
-    concern_level   TEXT NOT NULL CHECK (concern_level IN ('high', 'medium', 'low')),
-
-    -- Audit timestamps
-    created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    concern_level   TEXT NOT NULL CHECK (concern_level IN ('high', 'medium', 'low'))
 );
 
 -- Auto-update updated_at on every row change
@@ -22,7 +21,7 @@ CREATE TRIGGER trigger_hem_rule_updated_at
 -- ──────────────────────────────────────────────────────────────
 
 -- HIGH CONCERN (HEM-001 to HEM-005)
-INSERT INTO hem_rule (id, category, description, concern_level) VALUES
+INSERT INTO hem_rule (code, category, description, concern_level) VALUES
     ('HEM-001', 'Blood Count',  'Critical hemoglobin level (<7 g/dL) - severe anemia',                          'high'),
     ('HEM-002', 'Blood Count',  'Severe thrombocytopenia (platelets <20 x10^9/L) - bleeding risk',              'high'),
     ('HEM-003', 'Blood Count',  'Severe leukocytosis (WBC >30 x10^9/L) - possible malignancy',                 'high'),
@@ -30,7 +29,7 @@ INSERT INTO hem_rule (id, category, description, concern_level) VALUES
     ('HEM-005', 'Coagulation',  'Severely low fibrinogen (<100 mg/dL) - DIC risk',                              'high');
 
 -- MEDIUM CONCERN (HEM-006 to HEM-014)
-INSERT INTO hem_rule (id, category, description, concern_level) VALUES
+INSERT INTO hem_rule (code, category, description, concern_level) VALUES
     ('HEM-006', 'Blood Count',  'Moderate anemia (hemoglobin 7-10 g/dL)',                                       'medium'),
     ('HEM-007', 'Blood Count',  'Moderate thrombocytopenia (platelets 20-50 x10^9/L)',                          'medium'),
     ('HEM-008', 'Blood Count',  'Leukopenia (WBC <4.0 x10^9/L) - infection risk',                              'medium'),
@@ -42,7 +41,7 @@ INSERT INTO hem_rule (id, category, description, concern_level) VALUES
     ('HEM-014', 'Iron Studies', 'Iron overload (ferritin >500 ng/mL) - hemochromatosis risk',                   'medium');
 
 -- LOW CONCERN (HEM-015 to HEM-020)
-INSERT INTO hem_rule (id, category, description, concern_level) VALUES
+INSERT INTO hem_rule (code, category, description, concern_level) VALUES
     ('HEM-015', 'Blood Count',  'Mild anemia (hemoglobin 10-12 g/dL)',                                          'low'),
     ('HEM-016', 'Blood Count',  'Mild thrombocytopenia (platelets 100-150 x10^9/L)',                            'low'),
     ('HEM-017', 'Blood Count',  'Mild leukocytosis (WBC 11-15 x10^9/L)',                                       'low'),
@@ -52,15 +51,19 @@ INSERT INTO hem_rule (id, category, description, concern_level) VALUES
 
 COMMENT ON TABLE hem_rule IS
     'Catalogue of 20 hematology rules evaluated during grading.';
-COMMENT ON COLUMN hem_rule.id IS
-    'Rule identifier (e.g. HEM-001). Application-defined, not auto-generated.';
+COMMENT ON COLUMN hem_rule.code IS
+    'Human-readable rule code (e.g. DM-001). UNIQUE stable identifier used by application code and audit records.';
 COMMENT ON COLUMN hem_rule.category IS
     'Clinical category (e.g. Blood Count, Coagulation, Iron Studies).';
 COMMENT ON COLUMN hem_rule.description IS
     'Human-readable description of the rule condition.';
 COMMENT ON COLUMN hem_rule.concern_level IS
     'Concern level: high, medium, or low.';
+COMMENT ON COLUMN hem_rule.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN hem_rule.created_at IS
-    'Row creation timestamp.';
+    'Timestamp when this row was created.';
 COMMENT ON COLUMN hem_rule.updated_at IS
-    'Last modification timestamp, auto-updated by trigger.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN hem_rule.deleted_at IS
+    'Timestamp when this row was deleted.';

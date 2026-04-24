@@ -1,17 +1,15 @@
 CREATE TABLE additional_flag (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     grading_result_id UUID NOT NULL
         REFERENCES grading_result(id) ON DELETE CASCADE,
-
     flag_id VARCHAR(30) NOT NULL,
     category VARCHAR(50) NOT NULL DEFAULT '',
     message TEXT NOT NULL DEFAULT '',
     priority VARCHAR(10) NOT NULL DEFAULT 'low'
-        CHECK (priority IN ('high', 'medium', 'low')),
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        CHECK (priority IN ('high', 'medium', 'low'))
 );
 
 CREATE TRIGGER trigger_additional_flag_updated_at
@@ -30,11 +28,13 @@ COMMENT ON COLUMN additional_flag.message IS
 COMMENT ON COLUMN additional_flag.priority IS
     'Flag priority: high, medium, or low.';
 
-COMMENT ON COLUMN additional_flag.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN additional_flag.grading_result_id IS
     'Foreign key to the grading_result table.';
+COMMENT ON COLUMN additional_flag.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN additional_flag.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN additional_flag.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN additional_flag.deleted_at IS
+    'Timestamp when this row was deleted.';

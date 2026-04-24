@@ -1,9 +1,10 @@
 CREATE TABLE blood_pressure (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     systolic_bp SMALLINT
         CHECK (systolic_bp IS NULL OR (systolic_bp >= 50 AND systolic_bp <= 300)),
     systolic_bp_sd NUMERIC(5, 2),
@@ -12,10 +13,7 @@ CREATE TABLE blood_pressure (
     on_bp_treatment VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (on_bp_treatment IN ('yes', 'no', '')),
     number_of_bp_medications SMALLINT
-        CHECK (number_of_bp_medications IS NULL OR (number_of_bp_medications >= 0 AND number_of_bp_medications <= 20)),
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        CHECK (number_of_bp_medications IS NULL OR (number_of_bp_medications >= 0 AND number_of_bp_medications <= 20))
 );
 
 CREATE TRIGGER trigger_blood_pressure_updated_at
@@ -36,11 +34,13 @@ COMMENT ON COLUMN blood_pressure.on_bp_treatment IS
 COMMENT ON COLUMN blood_pressure.number_of_bp_medications IS
     'Number of concurrent BP medications.';
 
-COMMENT ON COLUMN blood_pressure.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN blood_pressure.assessment_id IS
     'Foreign key to the assessment table.';
+COMMENT ON COLUMN blood_pressure.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN blood_pressure.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN blood_pressure.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN blood_pressure.deleted_at IS
+    'Timestamp when this row was deleted.';

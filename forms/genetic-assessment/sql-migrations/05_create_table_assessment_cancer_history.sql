@@ -1,9 +1,10 @@
 CREATE TABLE assessment_cancer_history (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     family_cancer_history VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (family_cancer_history IN ('yes', 'no', '')),
     multiple_family_cancers VARCHAR(5) NOT NULL DEFAULT ''
@@ -19,10 +20,7 @@ CREATE TABLE assessment_cancer_history (
         CHECK (known_cancer_syndrome IN ('yes', 'no', '')),
     cancer_syndrome_details TEXT NOT NULL DEFAULT '',
     cancer_risk_score INTEGER
-        CHECK (cancer_risk_score IS NULL OR (cancer_risk_score >= 0 AND cancer_risk_score <= 10)),
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        CHECK (cancer_risk_score IS NULL OR (cancer_risk_score >= 0 AND cancer_risk_score <= 10))
 );
 
 CREATE TRIGGER trigger_assessment_cancer_history_updated_at
@@ -34,8 +32,6 @@ CREATE TRIGGER trigger_assessment_cancer_history_updated_at
 
 COMMENT ON TABLE assessment_cancer_history IS
     'Assessment cancer history.';
-COMMENT ON COLUMN assessment_cancer_history.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_cancer_history.assessment_id IS
     'Foreign key to the assessment table.';
 COMMENT ON COLUMN assessment_cancer_history.family_cancer_history IS
@@ -56,7 +52,11 @@ COMMENT ON COLUMN assessment_cancer_history.cancer_syndrome_details IS
     'Cancer syndrome details.';
 COMMENT ON COLUMN assessment_cancer_history.cancer_risk_score IS
     'Cancer risk score.';
+COMMENT ON COLUMN assessment_cancer_history.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_cancer_history.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_cancer_history.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_cancer_history.deleted_at IS
+    'Timestamp when this row was deleted.';

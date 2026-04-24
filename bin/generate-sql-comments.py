@@ -44,7 +44,7 @@ ACRONYMS = {
 KNOWN_COLUMNS = {
     "id": "Primary key UUID, auto-generated.",
     "created_at": "Timestamp when this row was created.",
-    "updated_at": "Timestamp when this row was last updated.",
+    "updated_at": "Timestamp when this row was updated.",
     "deleted_at": "Soft-delete timestamp; NULL when the row is live.",
     "status": "Lifecycle status of this row.",
 }

@@ -1,19 +1,17 @@
 CREATE TABLE prescription_details (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     prescription_request_id UUID NOT NULL UNIQUE
         REFERENCES prescription_request(id) ON DELETE CASCADE,
-
     request_date DATE NOT NULL DEFAULT CURRENT_DATE,
     medication_name VARCHAR(500) NOT NULL DEFAULT '',
     dosage VARCHAR(255) NOT NULL DEFAULT '',
     frequency VARCHAR(255) NOT NULL DEFAULT '',
     route_of_administration VARCHAR(100) NOT NULL DEFAULT ''
         CHECK (route_of_administration IN ('oral', 'topical', 'intravenous', 'intramuscular', 'subcutaneous', 'inhaled', 'rectal', 'sublingual', 'transdermal', 'other', '')),
-    treatment_instructions TEXT NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    treatment_instructions TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_prescription_details_updated_at
@@ -31,11 +29,13 @@ COMMENT ON COLUMN prescription_details.route_of_administration IS 'Route: oral, 
 COMMENT ON COLUMN prescription_details.treatment_instructions IS 'Free-text treatment instructions for the patient.';
 --rollback DROP TABLE prescription_details;
 
-COMMENT ON COLUMN prescription_details.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN prescription_details.prescription_request_id IS
     'Foreign key to the prescription_request table.';
+COMMENT ON COLUMN prescription_details.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN prescription_details.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN prescription_details.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN prescription_details.deleted_at IS
+    'Timestamp when this row was deleted.';

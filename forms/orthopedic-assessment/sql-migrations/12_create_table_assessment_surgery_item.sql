@@ -1,9 +1,10 @@
 CREATE TABLE assessment_surgery_item (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     surgical_history_id UUID NOT NULL
         REFERENCES assessment_surgical_history(id) ON DELETE CASCADE,
-
     procedure_name VARCHAR(255) NOT NULL DEFAULT '',
     date_performed DATE,
     surgeon VARCHAR(255) NOT NULL DEFAULT '',
@@ -11,10 +12,7 @@ CREATE TABLE assessment_surgery_item (
     outcome VARCHAR(20) NOT NULL DEFAULT ''
         CHECK (outcome IN ('good', 'fair', 'poor', 'complication', '')),
     outcome_details TEXT NOT NULL DEFAULT '',
-    sort_order INTEGER NOT NULL DEFAULT 0,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    sort_order INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TRIGGER trigger_assessment_surgery_item_updated_at
@@ -44,12 +42,14 @@ COMMENT ON COLUMN assessment_surgical_history.id IS
 COMMENT ON COLUMN assessment_surgical_history.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_surgical_history.updated_at IS
-    'Timestamp when this row was last updated.';
-COMMENT ON COLUMN assessment_surgery_item.id IS
-    'Primary key UUID, auto-generated.';
+    'Timestamp when this row was updated.';
 COMMENT ON COLUMN assessment_surgery_item.surgical_history_id IS
     'Foreign key to the assessment_surgical_history table.';
+COMMENT ON COLUMN assessment_surgery_item.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_surgery_item.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_surgery_item.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_surgery_item.deleted_at IS
+    'Timestamp when this row was deleted.';

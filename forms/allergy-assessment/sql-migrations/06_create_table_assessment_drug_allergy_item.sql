@@ -1,19 +1,17 @@
 CREATE TABLE assessment_drug_allergy_item (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     drug_allergies_id UUID NOT NULL
         REFERENCES assessment_drug_allergies(id) ON DELETE CASCADE,
-
     allergen VARCHAR(255) NOT NULL DEFAULT '',
     reaction_type VARCHAR(255) NOT NULL DEFAULT '',
     severity VARCHAR(20) NOT NULL DEFAULT ''
         CHECK (severity IN ('mild', 'moderate', 'severe', 'anaphylaxis', '')),
     timing VARCHAR(255) NOT NULL DEFAULT '',
     alternatives_tolerated TEXT NOT NULL DEFAULT '',
-    sort_order INTEGER NOT NULL DEFAULT 0,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    sort_order INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TRIGGER trigger_assessment_drug_allergy_item_updated_at
@@ -37,9 +35,7 @@ COMMENT ON COLUMN assessment_drug_allergies.cross_reactivity_concerns IS
 COMMENT ON COLUMN assessment_drug_allergies.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_drug_allergies.updated_at IS
-    'Timestamp when this row was last updated.';
-COMMENT ON COLUMN assessment_drug_allergy_item.id IS
-    'Primary key UUID, auto-generated.';
+    'Timestamp when this row was updated.';
 COMMENT ON COLUMN assessment_drug_allergy_item.drug_allergies_id IS
     'Foreign key to the assessment_drug_allergies table.';
 COMMENT ON COLUMN assessment_drug_allergy_item.allergen IS
@@ -52,7 +48,11 @@ COMMENT ON COLUMN assessment_drug_allergy_item.alternatives_tolerated IS
     'Alternatives tolerated.';
 COMMENT ON COLUMN assessment_drug_allergy_item.sort_order IS
     'Sort order.';
+COMMENT ON COLUMN assessment_drug_allergy_item.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_drug_allergy_item.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_drug_allergy_item.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_drug_allergy_item.deleted_at IS
+    'Timestamp when this row was deleted.';

@@ -1,9 +1,10 @@
 CREATE TABLE assessment_satisfaction_ratings (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     overall_satisfaction_score NUMERIC(3,1)
         CHECK (overall_satisfaction_score IS NULL OR (overall_satisfaction_score >= 1.0 AND overall_satisfaction_score <= 10.0)),
     self_care_satisfaction_score NUMERIC(3,1)
@@ -12,10 +13,7 @@ CREATE TABLE assessment_satisfaction_ratings (
         CHECK (productivity_satisfaction_score IS NULL OR (productivity_satisfaction_score >= 1.0 AND productivity_satisfaction_score <= 10.0)),
     leisure_satisfaction_score NUMERIC(3,1)
         CHECK (leisure_satisfaction_score IS NULL OR (leisure_satisfaction_score >= 1.0 AND leisure_satisfaction_score <= 10.0)),
-    satisfaction_notes TEXT NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    satisfaction_notes TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_assessment_satisfaction_ratings_updated_at
@@ -38,11 +36,13 @@ COMMENT ON COLUMN assessment_satisfaction_ratings.leisure_satisfaction_score IS
 COMMENT ON COLUMN assessment_satisfaction_ratings.satisfaction_notes IS
     'Additional notes on satisfaction ratings and observations.';
 
--- Individual satisfaction rating items for specific occupational issues (one-to-many child)
-
 COMMENT ON COLUMN assessment_satisfaction_ratings.id IS
     'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_satisfaction_ratings.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_satisfaction_ratings.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_satisfaction_ratings.deleted_at IS
+    'Timestamp when this row was deleted.';
+-- Individual satisfaction rating items for specific occupational issues (one-to-many child)
+

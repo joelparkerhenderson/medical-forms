@@ -318,7 +318,7 @@ COMMENT ON COLUMN assessment.status IS
 COMMENT ON COLUMN assessment.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 2: Commit**
@@ -380,7 +380,7 @@ COMMENT ON COLUMN assessment_encounter.appointment_type IS
 COMMENT ON COLUMN assessment_encounter.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_encounter.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 2: Commit**
@@ -450,7 +450,7 @@ COMMENT ON COLUMN assessment_operational.nhs_attendance_outcome IS
 COMMENT ON COLUMN assessment_operational.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_operational.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 2: Commit**
@@ -515,7 +515,7 @@ COMMENT ON COLUMN assessment_clinical.outcome_classification IS
 COMMENT ON COLUMN assessment_clinical.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_clinical.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 2: Commit**
@@ -598,7 +598,7 @@ COMMENT ON COLUMN assessment_prom_eq5d5l.after_vas IS
 COMMENT ON COLUMN assessment_prom_eq5d5l.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_prom_eq5d5l.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 2: Commit**
@@ -651,7 +651,7 @@ COMMENT ON COLUMN assessment_prom_grc.self_rated_health IS
 COMMENT ON COLUMN assessment_prom_grc.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_prom_grc.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 2: Commit**
@@ -736,7 +736,7 @@ COMMENT ON COLUMN assessment_prom_promis.global_mental_health_t_score IS
 COMMENT ON COLUMN assessment_prom_promis.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_prom_promis.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 2: Commit**
@@ -796,7 +796,7 @@ COMMENT ON COLUMN assessment_prem_fft.fft_comment IS
 COMMENT ON COLUMN assessment_prem_fft.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_prem_fft.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 2: Commit**
@@ -860,7 +860,7 @@ COMMENT ON COLUMN assessment_followup.followup_notes IS
 COMMENT ON COLUMN assessment_followup.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_followup.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 2: Commit**
@@ -917,7 +917,7 @@ COMMENT ON COLUMN assessment_signoff.signed_off_at IS
 COMMENT ON COLUMN assessment_signoff.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_signoff.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 2: Commit**
@@ -991,7 +991,7 @@ COMMENT ON COLUMN grading_result.graded_at IS
 COMMENT ON COLUMN grading_result.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN grading_result.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 2: Write `15_create_table_grading_fired_rule.sql`** — copy pattern from `hospital-discharge/sql-migrations/06_create_table_grading_fired_rule.sql` verbatim (contents below)
@@ -1035,7 +1035,7 @@ COMMENT ON COLUMN grading_fired_rule.severity_level IS
 COMMENT ON COLUMN grading_fired_rule.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN grading_fired_rule.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 3: Write `16_create_table_grading_additional_flag.sql`** — copy pattern from `hospital-discharge/sql-migrations/07_create_table_grading_additional_flag.sql` verbatim
@@ -1082,7 +1082,7 @@ COMMENT ON COLUMN grading_additional_flag.priority IS
 COMMENT ON COLUMN grading_additional_flag.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN grading_additional_flag.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 ```
 
 - [ ] **Step 4: Write `sql-migrations/index.md`** (short stub)

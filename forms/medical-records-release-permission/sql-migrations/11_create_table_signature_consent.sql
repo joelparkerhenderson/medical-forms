@@ -1,9 +1,10 @@
 CREATE TABLE signature_consent (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     release_form_id UUID NOT NULL UNIQUE
         REFERENCES release_form(id) ON DELETE CASCADE,
-
     patient_signature_confirmed VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (patient_signature_confirmed IN ('yes', 'no', '')),
     signature_date DATE,
@@ -11,10 +12,7 @@ CREATE TABLE signature_consent (
     witness_signature_confirmed VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (witness_signature_confirmed IN ('yes', 'no', '')),
     witness_date DATE,
-    parent_guardian_name VARCHAR(255) NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    parent_guardian_name VARCHAR(255) NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_signature_consent_updated_at
@@ -24,8 +22,6 @@ CREATE TRIGGER trigger_signature_consent_updated_at
 
 COMMENT ON TABLE signature_consent IS
     'Signature and consent confirmations for the release form. One-to-one child of release_form.';
-COMMENT ON COLUMN signature_consent.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN signature_consent.release_form_id IS
     'Foreign key to the parent release form (unique, enforcing 1:1).';
 COMMENT ON COLUMN signature_consent.patient_signature_confirmed IS
@@ -41,7 +37,11 @@ COMMENT ON COLUMN signature_consent.witness_date IS
 COMMENT ON COLUMN signature_consent.parent_guardian_name IS
     'Name of parent or guardian if patient is a minor or lacks capacity.';
 
+COMMENT ON COLUMN signature_consent.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN signature_consent.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN signature_consent.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN signature_consent.deleted_at IS
+    'Timestamp when this row was deleted.';

@@ -1,9 +1,10 @@
 CREATE TABLE assessment_surgical_history (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     has_previous_surgery VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (has_previous_surgery IN ('yes', 'no', '')),
     surgery_considered VARCHAR(5) NOT NULL DEFAULT ''
@@ -17,10 +18,7 @@ CREATE TABLE assessment_surgical_history (
     anticoagulant_use VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (anticoagulant_use IN ('yes', 'no', '')),
     anticoagulant_details TEXT NOT NULL DEFAULT '',
-    surgical_history_notes TEXT NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    surgical_history_notes TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_assessment_surgical_history_updated_at
@@ -51,11 +49,13 @@ COMMENT ON COLUMN assessment_surgical_history.anticoagulant_details IS
 COMMENT ON COLUMN assessment_surgical_history.surgical_history_notes IS
     'Additional clinician notes on surgical history and candidacy.';
 
--- Individual previous surgery items (one-to-many child)
-
 COMMENT ON COLUMN assessment_surgical_history.id IS
     'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_surgical_history.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_surgical_history.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_surgical_history.deleted_at IS
+    'Timestamp when this row was deleted.';
+-- Individual previous surgery items (one-to-many child)
+

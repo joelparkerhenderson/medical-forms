@@ -1,9 +1,10 @@
 CREATE TABLE smoking_alcohol (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     smoking_status VARCHAR(20) NOT NULL DEFAULT ''
         CHECK (smoking_status IN ('nonSmoker', 'exSmoker', 'lightSmoker', 'moderateSmoker', 'heavySmoker', '')),
     cigarettes_per_day SMALLINT
@@ -13,10 +14,7 @@ CREATE TABLE smoking_alcohol (
     alcohol_units_per_week NUMERIC(6, 2)
         CHECK (alcohol_units_per_week IS NULL OR (alcohol_units_per_week >= 0 AND alcohol_units_per_week <= 500)),
     alcohol_frequency VARCHAR(30) NOT NULL DEFAULT ''
-        CHECK (alcohol_frequency IN ('never', 'monthly', 'twoToFourPerMonth', 'twoToThreePerWeek', 'fourOrMorePerWeek', '')),
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        CHECK (alcohol_frequency IN ('never', 'monthly', 'twoToFourPerMonth', 'twoToThreePerWeek', 'fourOrMorePerWeek', ''))
 );
 
 CREATE TRIGGER trigger_smoking_alcohol_updated_at
@@ -37,11 +35,13 @@ COMMENT ON COLUMN smoking_alcohol.alcohol_units_per_week IS
 COMMENT ON COLUMN smoking_alcohol.alcohol_frequency IS
     'Frequency of alcohol consumption.';
 
-COMMENT ON COLUMN smoking_alcohol.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN smoking_alcohol.assessment_id IS
     'Foreign key to the assessment table.';
+COMMENT ON COLUMN smoking_alcohol.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN smoking_alcohol.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN smoking_alcohol.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN smoking_alcohol.deleted_at IS
+    'Timestamp when this row was deleted.';

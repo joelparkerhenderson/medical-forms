@@ -1,19 +1,17 @@
 CREATE TABLE assessment_strength_testing (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     grip_strength_affected_kg NUMERIC(5,1)
         CHECK (grip_strength_affected_kg IS NULL OR grip_strength_affected_kg >= 0),
     grip_strength_unaffected_kg NUMERIC(5,1)
         CHECK (grip_strength_unaffected_kg IS NULL OR grip_strength_unaffected_kg >= 0),
     overall_strength_status VARCHAR(20) NOT NULL DEFAULT ''
         CHECK (overall_strength_status IN ('normal', 'mildly-reduced', 'moderately-reduced', 'severely-reduced', '')),
-    strength_testing_notes TEXT NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    strength_testing_notes TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_assessment_strength_testing_updated_at
@@ -34,11 +32,13 @@ COMMENT ON COLUMN assessment_strength_testing.overall_strength_status IS
 COMMENT ON COLUMN assessment_strength_testing.strength_testing_notes IS
     'Additional notes on strength testing.';
 
--- Individual muscle strength tests (one-to-many child)
-
 COMMENT ON COLUMN assessment_strength_testing.id IS
     'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_strength_testing.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_strength_testing.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_strength_testing.deleted_at IS
+    'Timestamp when this row was deleted.';
+-- Individual muscle strength tests (one-to-many child)
+

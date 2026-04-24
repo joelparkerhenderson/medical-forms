@@ -1,18 +1,16 @@
 CREATE TABLE family_history (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     family_cvd_under_60 VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (family_cvd_under_60 IN ('yes', 'no', '')),
     family_cvd_relationship VARCHAR(20) NOT NULL DEFAULT ''
         CHECK (family_cvd_relationship IN ('parent', 'sibling', 'child', 'multiple', '')),
     family_diabetes_history VARCHAR(5) NOT NULL DEFAULT ''
-        CHECK (family_diabetes_history IN ('yes', 'no', '')),
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        CHECK (family_diabetes_history IN ('yes', 'no', ''))
 );
 
 CREATE TRIGGER trigger_family_history_updated_at
@@ -29,11 +27,13 @@ COMMENT ON COLUMN family_history.family_cvd_relationship IS
 COMMENT ON COLUMN family_history.family_diabetes_history IS
     'Whether there is a family history of diabetes.';
 
-COMMENT ON COLUMN family_history.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN family_history.assessment_id IS
     'Foreign key to the assessment table.';
+COMMENT ON COLUMN family_history.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN family_history.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN family_history.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN family_history.deleted_at IS
+    'Timestamp when this row was deleted.';

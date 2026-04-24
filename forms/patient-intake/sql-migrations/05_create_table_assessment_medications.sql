@@ -1,9 +1,10 @@
 CREATE TABLE assessment_medications (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     takes_medications VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (takes_medications IN ('yes', 'no', '')),
     takes_over_the_counter VARCHAR(5) NOT NULL DEFAULT ''
@@ -15,10 +16,7 @@ CREATE TABLE assessment_medications (
         CHECK (medication_adherence IN ('good', 'partial', 'poor', '')),
     pharmacy_name VARCHAR(255) NOT NULL DEFAULT '',
     pharmacy_phone VARCHAR(50) NOT NULL DEFAULT '',
-    medications_notes TEXT NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    medications_notes TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_assessment_medications_updated_at
@@ -47,11 +45,13 @@ COMMENT ON COLUMN assessment_medications.pharmacy_phone IS
 COMMENT ON COLUMN assessment_medications.medications_notes IS
     'Additional notes on medications.';
 
--- Individual medication items (one-to-many child)
-
 COMMENT ON COLUMN assessment_medications.id IS
     'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_medications.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_medications.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_medications.deleted_at IS
+    'Timestamp when this row was deleted.';
+-- Individual medication items (one-to-many child)
+

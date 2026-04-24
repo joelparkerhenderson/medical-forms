@@ -85,7 +85,7 @@ COMMENT ON COLUMN patient.id IS
 COMMENT ON COLUMN patient.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN patient.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 COMMENT ON COLUMN patient.deleted_at IS
     'Soft-delete timestamp; NULL when the row is live.';
 COMMENT ON COLUMN patient.name IS
@@ -142,7 +142,7 @@ COMMENT ON COLUMN clinician.id IS
 COMMENT ON COLUMN clinician.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN clinician.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
 COMMENT ON COLUMN clinician.deleted_at IS
     'Soft-delete timestamp; NULL when the row is live.';
 COMMENT ON COLUMN clinician.name IS

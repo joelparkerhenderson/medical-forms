@@ -1,16 +1,14 @@
 CREATE TABLE assessment_anaphylaxis_episode (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     anaphylaxis_history_id UUID NOT NULL
         REFERENCES assessment_anaphylaxis_history(id) ON DELETE CASCADE,
-
     trigger_description TEXT NOT NULL DEFAULT '',
     symptoms TEXT NOT NULL DEFAULT '',
     treatment_required TEXT NOT NULL DEFAULT '',
-    sort_order INTEGER NOT NULL DEFAULT 0,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    sort_order INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TRIGGER trigger_assessment_anaphylaxis_episode_updated_at
@@ -36,9 +34,7 @@ COMMENT ON COLUMN assessment_anaphylaxis_history.action_plan_in_place IS
 COMMENT ON COLUMN assessment_anaphylaxis_history.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_anaphylaxis_history.updated_at IS
-    'Timestamp when this row was last updated.';
-COMMENT ON COLUMN assessment_anaphylaxis_episode.id IS
-    'Primary key UUID, auto-generated.';
+    'Timestamp when this row was updated.';
 COMMENT ON COLUMN assessment_anaphylaxis_episode.anaphylaxis_history_id IS
     'Foreign key to the assessment_anaphylaxis_history table.';
 COMMENT ON COLUMN assessment_anaphylaxis_episode.trigger_description IS
@@ -49,7 +45,11 @@ COMMENT ON COLUMN assessment_anaphylaxis_episode.treatment_required IS
     'Treatment required.';
 COMMENT ON COLUMN assessment_anaphylaxis_episode.sort_order IS
     'Sort order.';
+COMMENT ON COLUMN assessment_anaphylaxis_episode.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_anaphylaxis_episode.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_anaphylaxis_episode.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_anaphylaxis_episode.deleted_at IS
+    'Timestamp when this row was deleted.';

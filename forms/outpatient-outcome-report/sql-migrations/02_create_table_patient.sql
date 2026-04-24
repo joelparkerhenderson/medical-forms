@@ -3,7 +3,6 @@ CREATE TABLE patient (
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     deleted_at TIMESTAMPTZ DEFAULT NULL,
-
     name VARCHAR(255) NOT NULL DEFAULT '',
     birth_date DATE,
     united_kingdom_nhs_number VARCHAR(20) UNIQUE,
@@ -22,14 +21,7 @@ CREATE TRIGGER trg_patient_updated_at
 
 COMMENT ON TABLE patient IS
     'Patient demographic information.';
-COMMENT ON COLUMN patient.id IS
-    'Primary key UUID, auto-generated.';
-COMMENT ON COLUMN patient.created_at IS
-    'Timestamp when this row was created.';
-COMMENT ON COLUMN patient.updated_at IS
-    'Timestamp when this row was last updated.';
-COMMENT ON COLUMN patient.deleted_at IS
-    'Soft-delete timestamp; NULL when the row is live.';
+NULL when the row is live.';
 COMMENT ON COLUMN patient.name IS
     'Patient name.';
 COMMENT ON COLUMN patient.birth_date IS
@@ -48,3 +40,11 @@ COMMENT ON COLUMN patient.waist_height_ratio IS
     'Patient waist-to-height ratio (WHR).';
 COMMENT ON COLUMN patient.vo2_max IS
     'Patient VO2 max (cardiorespiratory fitness proxy).';
+COMMENT ON COLUMN patient.id IS
+    'Primary key UUID, auto-generated.';
+COMMENT ON COLUMN patient.created_at IS
+    'Timestamp when this row was created.';
+COMMENT ON COLUMN patient.updated_at IS
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN patient.deleted_at IS
+    'Timestamp when this row was deleted.';

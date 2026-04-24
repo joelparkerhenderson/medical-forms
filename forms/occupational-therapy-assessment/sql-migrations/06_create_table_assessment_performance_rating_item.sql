@@ -1,9 +1,10 @@
 CREATE TABLE assessment_performance_rating_item (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     performance_ratings_id UUID NOT NULL
         REFERENCES assessment_performance_ratings(id) ON DELETE CASCADE,
-
     occupational_issue VARCHAR(255) NOT NULL DEFAULT '',
     domain VARCHAR(20) NOT NULL DEFAULT ''
         CHECK (domain IN ('self-care', 'productivity', 'leisure', '')),
@@ -11,10 +12,7 @@ CREATE TABLE assessment_performance_rating_item (
         CHECK (importance_score IS NULL OR (importance_score >= 1 AND importance_score <= 10)),
     performance_score INTEGER
         CHECK (performance_score IS NULL OR (performance_score >= 1 AND performance_score <= 10)),
-    sort_order INTEGER NOT NULL DEFAULT 0,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    sort_order INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TRIGGER trigger_assessment_performance_rating_item_updated_at
@@ -40,12 +38,14 @@ COMMENT ON COLUMN assessment_performance_ratings.id IS
 COMMENT ON COLUMN assessment_performance_ratings.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_performance_ratings.updated_at IS
-    'Timestamp when this row was last updated.';
-COMMENT ON COLUMN assessment_performance_rating_item.id IS
-    'Primary key UUID, auto-generated.';
+    'Timestamp when this row was updated.';
 COMMENT ON COLUMN assessment_performance_rating_item.performance_ratings_id IS
     'Foreign key to the assessment_performance_ratings table.';
+COMMENT ON COLUMN assessment_performance_rating_item.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_performance_rating_item.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_performance_rating_item.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_performance_rating_item.deleted_at IS
+    'Timestamp when this row was deleted.';

@@ -1,9 +1,10 @@
 CREATE TABLE assessment_current_medications (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     inhaler_use VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (inhaler_use IN ('yes', 'no', '')),
     inhaler_technique_assessed VARCHAR(5) NOT NULL DEFAULT ''
@@ -30,10 +31,7 @@ CREATE TABLE assessment_current_medications (
     oral_medications TEXT NOT NULL DEFAULT '',
     medication_adherence VARCHAR(20) NOT NULL DEFAULT ''
         CHECK (medication_adherence IN ('good', 'fair', 'poor', '')),
-    additional_notes TEXT NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    additional_notes TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_assessment_current_medications_updated_at
@@ -70,8 +68,6 @@ COMMENT ON COLUMN assessment_current_medications.medication_adherence IS
 
 -- Individual medication items (one-to-many child)
 
-COMMENT ON COLUMN assessment_current_medications.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_current_medications.saba_frequency IS
     'Saba frequency.';
 COMMENT ON COLUMN assessment_current_medications.oxygen_hours_per_day IS
@@ -80,7 +76,11 @@ COMMENT ON COLUMN assessment_current_medications.oral_medications IS
     'Oral medications.';
 COMMENT ON COLUMN assessment_current_medications.additional_notes IS
     'Additional notes.';
+COMMENT ON COLUMN assessment_current_medications.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_current_medications.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_current_medications.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_current_medications.deleted_at IS
+    'Timestamp when this row was deleted.';

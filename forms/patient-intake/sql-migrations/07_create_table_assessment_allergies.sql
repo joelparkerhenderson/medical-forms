@@ -1,9 +1,10 @@
 CREATE TABLE assessment_allergies (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     has_drug_allergies VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (has_drug_allergies IN ('yes', 'no', '')),
     has_food_allergies VARCHAR(5) NOT NULL DEFAULT ''
@@ -20,10 +21,7 @@ CREATE TABLE assessment_allergies (
         CHECK (history_of_anaphylaxis IN ('yes', 'no', '')),
     carries_epipen VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (carries_epipen IN ('yes', 'no', '')),
-    allergies_notes TEXT NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    allergies_notes TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_assessment_allergies_updated_at
@@ -54,11 +52,13 @@ COMMENT ON COLUMN assessment_allergies.carries_epipen IS
 COMMENT ON COLUMN assessment_allergies.allergies_notes IS
     'Additional notes on allergies.';
 
--- Individual allergy items (one-to-many child)
-
 COMMENT ON COLUMN assessment_allergies.id IS
     'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_allergies.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_allergies.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_allergies.deleted_at IS
+    'Timestamp when this row was deleted.';
+-- Individual allergy items (one-to-many child)
+

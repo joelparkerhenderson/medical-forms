@@ -2,12 +2,12 @@ CREATE TABLE clinician (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     name TEXT NOT NULL,
     role TEXT NOT NULL DEFAULT '' CHECK (clinician_role IN ( 'anaesthetist', 'surgeon', 'preop-nurse', 'perioperative-physician', 'geriatrician', 'pharmacist', 'other', '' )),
     registration_body TEXT NOT NULL DEFAULT '' CHECK (registration_body IN ('GMC', 'NMC', 'HCPC', 'GPhC', 'other', '')),
     registration_number TEXT NOT NULL DEFAULT '',
-    united_kingdom_nhs_number CHAR(12) UNIQUE,
+    united_kingdom_nhs_number CHAR(12) UNIQUE
 );
 
 CREATE TRIGGER trigger_clinician_updated_at
@@ -17,12 +17,6 @@ CREATE TRIGGER trigger_clinician_updated_at
 
 COMMENT ON TABLE clinician IS
     'Clinician';
-COMMENT ON COLUMN clinician.id IS
-    'Primary key UUID, auto-generated.';
-COMMENT ON COLUMN clinician.created_at IS
-    'Timestamp when the record was created.';
-COMMENT ON COLUMN clinician.updated_at IS
-    'Timestamp when the record was updated most-recently.';
 COMMENT ON COLUMN clinician.name IS
     'Clinician name.';
 COMMENT ON COLUMN clinician.role IS
@@ -33,3 +27,11 @@ COMMENT ON COLUMN clinician.registration_number IS
     'Clinician registration number.';
 COMMENT ON COLUMN clinician.united_kingdom_nhs_number IS
     'Clinician United Kingdom NHS number, unique per person.';
+COMMENT ON COLUMN clinician.id IS
+    'Primary key UUID, auto-generated.';
+COMMENT ON COLUMN clinician.created_at IS
+    'Timestamp when this row was created.';
+COMMENT ON COLUMN clinician.updated_at IS
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN clinician.deleted_at IS
+    'Timestamp when this row was deleted.';

@@ -1,19 +1,16 @@
 CREATE TABLE asa_rule (
-    -- Primary key: the rule code (e.g. CV-001)
-    id          TEXT PRIMARY KEY,
-
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
+    -- Human-readable rule code (e.g. 'DM-001'). Stable identifier.
+    code TEXT NOT NULL UNIQUE,
     -- Body system the rule belongs to
     system      TEXT NOT NULL,
-
     -- Human-readable description of the condition
     description TEXT NOT NULL,
-
     -- ASA grade this rule assigns (1-5)
-    grade       INTEGER NOT NULL CHECK (grade BETWEEN 1 AND 5),
-
-    -- Audit timestamps
-    created_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    grade       INTEGER NOT NULL CHECK (grade BETWEEN 1 AND 5)
 );
 
 -- Auto-update updated_at on every row change
@@ -23,24 +20,27 @@ CREATE TRIGGER trigger_asa_rule_updated_at
 
 COMMENT ON TABLE asa_rule IS
     'Reference table of ASA grading rules. Seed data mirrors asa-rules.ts. Used for audit trail.';
-COMMENT ON COLUMN asa_rule.id IS
-    'Rule code (e.g. CV-001). Stable identifier shared with application code.';
+COMMENT ON COLUMN asa_rule.code IS
+    'Human-readable rule code (e.g. DM-001). UNIQUE stable identifier used by application code and audit records.';
 COMMENT ON COLUMN asa_rule.system IS
     'Body system or category (e.g. Cardiovascular, Respiratory).';
 COMMENT ON COLUMN asa_rule.description IS
     'Human-readable condition description (e.g. Controlled hypertension).';
 COMMENT ON COLUMN asa_rule.grade IS
     'ASA grade assigned when this rule fires: 1 (healthy) to 5 (moribund).';
+COMMENT ON COLUMN asa_rule.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN asa_rule.created_at IS
-    'Row creation timestamp.';
+    'Timestamp when this row was created.';
 COMMENT ON COLUMN asa_rule.updated_at IS
-    'Last modification timestamp, auto-updated by trigger.';
-
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN asa_rule.deleted_at IS
+    'Timestamp when this row was deleted.';
 -- ──────────────────────────────────────────────────────────────
 -- Seed data: all 42 ASA rules from asa-rules.ts
 -- ──────────────────────────────────────────────────────────────
 
-INSERT INTO asa_rule (id, system, description, grade) VALUES
+INSERT INTO asa_rule (code, system, description, grade) VALUES
     -- Cardiovascular (10 rules)
     ('CV-001', 'Cardiovascular',      'Controlled hypertension',                   2),
     ('CV-002', 'Cardiovascular',      'Uncontrolled hypertension',                 3),

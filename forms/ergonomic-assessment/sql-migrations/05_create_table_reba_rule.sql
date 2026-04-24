@@ -1,23 +1,22 @@
 CREATE TABLE reba_rule (
-    -- Rule identifier (e.g. NECK-001, TRUNK-003)
-    id              TEXT PRIMARY KEY,
-
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
+    -- Human-readable rule code (e.g. 'DM-001'). Stable identifier.
+    code TEXT NOT NULL UNIQUE,
     -- Body system or category
     system          TEXT NOT NULL,
-
     -- Human-readable description
     description     TEXT NOT NULL,
-
     -- Score contribution when rule fires
-    score           INTEGER NOT NULL CHECK (score >= 0 AND score <= 15),
-
-    created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    score           INTEGER NOT NULL CHECK (score >= 0 AND score <= 15)
 );
 
 COMMENT ON TABLE reba_rule IS
     'Reference table of REBA scoring rules. Each rule has an ID, system, description, and score contribution.';
-COMMENT ON COLUMN reba_rule.id IS
-    'Rule identifier, e.g. NECK-001, TRUNK-003, WS-002.';
+COMMENT ON COLUMN reba_rule.code IS
+    'Human-readable rule code (e.g. DM-001). UNIQUE stable identifier used by application code and audit records.';
 COMMENT ON COLUMN reba_rule.system IS
     'Body system or assessment category, e.g. Neck, Trunk, Workstation, Repetition, Manual Handling.';
 COMMENT ON COLUMN reba_rule.description IS
@@ -25,8 +24,16 @@ COMMENT ON COLUMN reba_rule.description IS
 COMMENT ON COLUMN reba_rule.score IS
     'REBA score contribution when the rule fires (0-15).';
 
+COMMENT ON COLUMN reba_rule.id IS
+    'Primary key UUID, auto-generated.';
+COMMENT ON COLUMN reba_rule.created_at IS
+    'Timestamp when this row was created.';
+COMMENT ON COLUMN reba_rule.updated_at IS
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN reba_rule.deleted_at IS
+    'Timestamp when this row was deleted.';
 -- ─── Seed REBA rules ─────────────────────────────────────
-INSERT INTO reba_rule (id, system, description, score) VALUES
+INSERT INTO reba_rule (code, system, description, score) VALUES
     ('NECK-001', 'Neck', 'Neck flexed 0-20 degrees', 1),
     ('NECK-002', 'Neck', 'Neck flexed >20 degrees', 2),
     ('NECK-003', 'Neck', 'Neck extended', 2),
@@ -64,5 +71,3 @@ INSERT INTO reba_rule (id, system, description, score) VALUES
     ('SYM-003', 'Symptoms', 'Unable to work due to symptoms', 3),
     ('SYM-004', 'Symptoms', 'Severe impact on work', 2);
 
-COMMENT ON COLUMN reba_rule.created_at IS
-    'Timestamp when this row was created.';

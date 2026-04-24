@@ -1,16 +1,14 @@
 CREATE TABLE assessment_other_medication (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     current_management_id UUID NOT NULL
         REFERENCES assessment_current_management(id) ON DELETE CASCADE,
-
     medication_name VARCHAR(255) NOT NULL DEFAULT '',
     dose VARCHAR(255) NOT NULL DEFAULT '',
     frequency VARCHAR(255) NOT NULL DEFAULT '',
-    sort_order INTEGER NOT NULL DEFAULT 0,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    sort_order INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TRIGGER trigger_assessment_other_medication_updated_at
@@ -46,9 +44,7 @@ COMMENT ON COLUMN assessment_current_management.allergen_avoidance_strategies IS
 COMMENT ON COLUMN assessment_current_management.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_current_management.updated_at IS
-    'Timestamp when this row was last updated.';
-COMMENT ON COLUMN assessment_other_medication.id IS
-    'Primary key UUID, auto-generated.';
+    'Timestamp when this row was updated.';
 COMMENT ON COLUMN assessment_other_medication.current_management_id IS
     'Foreign key to the assessment_current_management table.';
 COMMENT ON COLUMN assessment_other_medication.medication_name IS
@@ -59,7 +55,11 @@ COMMENT ON COLUMN assessment_other_medication.frequency IS
     'Frequency.';
 COMMENT ON COLUMN assessment_other_medication.sort_order IS
     'Sort order.';
+COMMENT ON COLUMN assessment_other_medication.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_other_medication.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_other_medication.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_other_medication.deleted_at IS
+    'Timestamp when this row was deleted.';

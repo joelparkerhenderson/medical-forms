@@ -37,4 +37,4 @@ COMMENT ON COLUMN grading_fired_rule.id IS
 COMMENT ON COLUMN grading_fired_rule.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN grading_fired_rule.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';

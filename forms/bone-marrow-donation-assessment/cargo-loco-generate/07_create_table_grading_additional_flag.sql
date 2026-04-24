@@ -37,4 +37,4 @@ COMMENT ON COLUMN grading_additional_flag.id IS
 COMMENT ON COLUMN grading_additional_flag.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN grading_additional_flag.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';

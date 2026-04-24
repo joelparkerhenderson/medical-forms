@@ -1,9 +1,10 @@
 CREATE TABLE clinical_review (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     post_vaccination_observation SMALLINT CHECK (post_vaccination_observation IS NULL OR post_vaccination_observation BETWEEN 1 AND 5),
     immediate_reaction VARCHAR(10) NOT NULL DEFAULT ''
         CHECK (immediate_reaction IN ('yes', 'no', '')),
@@ -14,10 +15,7 @@ CREATE TABLE clinical_review (
     referral_needed VARCHAR(10) NOT NULL DEFAULT ''
         CHECK (referral_needed IN ('yes', 'no', '')),
     clinician_notes TEXT NOT NULL DEFAULT '',
-    reviewing_clinician VARCHAR(255) NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    reviewing_clinician VARCHAR(255) NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_clinical_review_updated_at
@@ -28,8 +26,6 @@ CREATE TRIGGER trigger_clinical_review_updated_at
 COMMENT ON TABLE clinical_review IS
     'Clinical review including post-vaccination observation and referral needs. One-to-one child of assessment.';
 
-COMMENT ON COLUMN clinical_review.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN clinical_review.assessment_id IS
     'Foreign key to the assessment table.';
 COMMENT ON COLUMN clinical_review.post_vaccination_observation IS
@@ -48,7 +44,11 @@ COMMENT ON COLUMN clinical_review.clinician_notes IS
     'Clinician notes.';
 COMMENT ON COLUMN clinical_review.reviewing_clinician IS
     'Reviewing clinician.';
+COMMENT ON COLUMN clinical_review.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN clinical_review.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN clinical_review.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN clinical_review.deleted_at IS
+    'Timestamp when this row was deleted.';

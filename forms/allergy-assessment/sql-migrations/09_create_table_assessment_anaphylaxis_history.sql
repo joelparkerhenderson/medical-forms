@@ -1,9 +1,10 @@
 CREATE TABLE assessment_anaphylaxis_history (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     has_anaphylaxis_history VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (has_anaphylaxis_history IN ('yes', 'no', '')),
     number_of_episodes INTEGER
@@ -11,10 +12,7 @@ CREATE TABLE assessment_anaphylaxis_history (
     adrenaline_auto_injector_prescribed VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (adrenaline_auto_injector_prescribed IN ('yes', 'no', '')),
     action_plan_in_place VARCHAR(5) NOT NULL DEFAULT ''
-        CHECK (action_plan_in_place IN ('yes', 'no', '')),
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        CHECK (action_plan_in_place IN ('yes', 'no', ''))
 );
 
 CREATE TRIGGER trigger_assessment_anaphylaxis_history_updated_at
@@ -27,8 +25,6 @@ COMMENT ON TABLE assessment_anaphylaxis_history IS
 
 -- Individual anaphylaxis episode items (one-to-many child)
 
-COMMENT ON COLUMN assessment_anaphylaxis_history.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_anaphylaxis_history.assessment_id IS
     'Foreign key to the assessment table.';
 COMMENT ON COLUMN assessment_anaphylaxis_history.has_anaphylaxis_history IS
@@ -39,7 +35,11 @@ COMMENT ON COLUMN assessment_anaphylaxis_history.adrenaline_auto_injector_prescr
     'Adrenaline auto injector prescribed. One of: yes, no.';
 COMMENT ON COLUMN assessment_anaphylaxis_history.action_plan_in_place IS
     'Action plan in place. One of: yes, no.';
+COMMENT ON COLUMN assessment_anaphylaxis_history.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_anaphylaxis_history.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_anaphylaxis_history.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_anaphylaxis_history.deleted_at IS
+    'Timestamp when this row was deleted.';

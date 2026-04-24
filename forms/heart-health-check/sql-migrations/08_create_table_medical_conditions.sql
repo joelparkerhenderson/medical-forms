@@ -1,9 +1,10 @@
 CREATE TABLE medical_conditions (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     has_diabetes VARCHAR(10) NOT NULL DEFAULT ''
         CHECK (has_diabetes IN ('no', 'type1', 'type2', '')),
     has_atrial_fibrillation VARCHAR(5) NOT NULL DEFAULT ''
@@ -21,10 +22,7 @@ CREATE TABLE medical_conditions (
     on_atypical_antipsychotic VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (on_atypical_antipsychotic IN ('yes', 'no', '')),
     on_corticosteroids VARCHAR(5) NOT NULL DEFAULT ''
-        CHECK (on_corticosteroids IN ('yes', 'no', '')),
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        CHECK (on_corticosteroids IN ('yes', 'no', ''))
 );
 
 CREATE TRIGGER trigger_medical_conditions_updated_at
@@ -47,8 +45,6 @@ COMMENT ON COLUMN medical_conditions.on_atypical_antipsychotic IS
 COMMENT ON COLUMN medical_conditions.on_corticosteroids IS
     'Whether patient is on regular corticosteroids.';
 
-COMMENT ON COLUMN medical_conditions.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN medical_conditions.assessment_id IS
     'Foreign key to the assessment table.';
 COMMENT ON COLUMN medical_conditions.has_rheumatoid_arthritis IS
@@ -57,7 +53,11 @@ COMMENT ON COLUMN medical_conditions.has_migraine IS
     'Has migraine. One of: yes, no.';
 COMMENT ON COLUMN medical_conditions.has_severe_mental_illness IS
     'Has severe mental illness. One of: yes, no.';
+COMMENT ON COLUMN medical_conditions.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN medical_conditions.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN medical_conditions.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN medical_conditions.deleted_at IS
+    'Timestamp when this row was deleted.';

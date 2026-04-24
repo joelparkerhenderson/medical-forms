@@ -1,9 +1,10 @@
 CREATE TABLE assessment_family_pedigree (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     total_first_degree_relatives INTEGER
         CHECK (total_first_degree_relatives IS NULL OR total_first_degree_relatives >= 0),
     total_second_degree_relatives INTEGER
@@ -15,10 +16,7 @@ CREATE TABLE assessment_family_pedigree (
         CHECK (adoption_status IN ('not-adopted', 'adopted-known-history', 'adopted-unknown-history', '')),
     pedigree_notes TEXT NOT NULL DEFAULT '',
     three_generation_pedigree_drawn VARCHAR(5) NOT NULL DEFAULT ''
-        CHECK (three_generation_pedigree_drawn IN ('yes', 'no', '')),
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        CHECK (three_generation_pedigree_drawn IN ('yes', 'no', ''))
 );
 
 CREATE TRIGGER trigger_assessment_family_pedigree_updated_at
@@ -30,8 +28,6 @@ CREATE TRIGGER trigger_assessment_family_pedigree_updated_at
 
 COMMENT ON TABLE assessment_family_pedigree IS
     'Assessment family pedigree.';
-COMMENT ON COLUMN assessment_family_pedigree.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_family_pedigree.assessment_id IS
     'Foreign key to the assessment table.';
 COMMENT ON COLUMN assessment_family_pedigree.total_first_degree_relatives IS
@@ -48,7 +44,11 @@ COMMENT ON COLUMN assessment_family_pedigree.pedigree_notes IS
     'Pedigree notes.';
 COMMENT ON COLUMN assessment_family_pedigree.three_generation_pedigree_drawn IS
     'Three generation pedigree drawn. One of: yes, no.';
+COMMENT ON COLUMN assessment_family_pedigree.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_family_pedigree.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_family_pedigree.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_family_pedigree.deleted_at IS
+    'Timestamp when this row was deleted.';

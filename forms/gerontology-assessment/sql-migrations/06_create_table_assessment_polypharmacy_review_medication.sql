@@ -1,9 +1,10 @@
 CREATE TABLE assessment_polypharmacy_review_medication (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     polypharmacy_review_id UUID NOT NULL
         REFERENCES assessment_polypharmacy_review(id) ON DELETE CASCADE,
-
     medication_name VARCHAR(255) NOT NULL DEFAULT '',
     dose VARCHAR(100) NOT NULL DEFAULT '',
     frequency VARCHAR(100) NOT NULL DEFAULT '',
@@ -12,10 +13,7 @@ CREATE TABLE assessment_polypharmacy_review_medication (
     indication VARCHAR(255) NOT NULL DEFAULT '',
     is_prn VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (is_prn IN ('yes', 'no', '')),
-    sort_order INTEGER NOT NULL DEFAULT 0,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    sort_order INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TRIGGER trigger_assessment_polypharmacy_review_medication_updated_at
@@ -77,12 +75,14 @@ COMMENT ON COLUMN assessment_polypharmacy_review.id IS
 COMMENT ON COLUMN assessment_polypharmacy_review.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_polypharmacy_review.updated_at IS
-    'Timestamp when this row was last updated.';
-COMMENT ON COLUMN assessment_polypharmacy_review_medication.id IS
-    'Primary key UUID, auto-generated.';
+    'Timestamp when this row was updated.';
 COMMENT ON COLUMN assessment_polypharmacy_review_medication.polypharmacy_review_id IS
     'Foreign key to the assessment_polypharmacy_review table.';
+COMMENT ON COLUMN assessment_polypharmacy_review_medication.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_polypharmacy_review_medication.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_polypharmacy_review_medication.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_polypharmacy_review_medication.deleted_at IS
+    'Timestamp when this row was deleted.';

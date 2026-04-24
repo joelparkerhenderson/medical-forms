@@ -1,9 +1,10 @@
 CREATE TABLE physical_activity_diet (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     physical_activity_minutes_per_week SMALLINT
         CHECK (physical_activity_minutes_per_week IS NULL OR (physical_activity_minutes_per_week >= 0 AND physical_activity_minutes_per_week <= 5000)),
     activity_intensity VARCHAR(10) NOT NULL DEFAULT ''
@@ -13,10 +14,7 @@ CREATE TABLE physical_activity_diet (
     diet_quality VARCHAR(10) NOT NULL DEFAULT ''
         CHECK (diet_quality IN ('poor', 'fair', 'good', 'excellent', '')),
     salt_intake VARCHAR(10) NOT NULL DEFAULT ''
-        CHECK (salt_intake IN ('low', 'moderate', 'high', '')),
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        CHECK (salt_intake IN ('low', 'moderate', 'high', ''))
 );
 
 CREATE TRIGGER trigger_physical_activity_diet_updated_at
@@ -37,11 +35,13 @@ COMMENT ON COLUMN physical_activity_diet.diet_quality IS
 COMMENT ON COLUMN physical_activity_diet.salt_intake IS
     'Self-reported salt intake level.';
 
-COMMENT ON COLUMN physical_activity_diet.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN physical_activity_diet.assessment_id IS
     'Foreign key to the assessment table.';
+COMMENT ON COLUMN physical_activity_diet.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN physical_activity_diet.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN physical_activity_diet.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN physical_activity_diet.deleted_at IS
+    'Timestamp when this row was deleted.';

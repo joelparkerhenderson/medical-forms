@@ -1,5 +1,8 @@
 CREATE TABLE pre_operative_assessment_by_patient (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     patient_id UUID NOT NULL REFERENCES patient(id) ON DELETE CASCADE,
     weight NUMERIC(5,1) CHECK (weight IS NULL OR weight > 0),
     height NUMERIC(5,1) CHECK (height IS NULL OR height > 0),
@@ -7,8 +10,6 @@ CREATE TABLE pre_operative_assessment_by_patient (
     planned_procedure TEXT NOT NULL DEFAULT '',
     procedure_urgency TEXT NOT NULL DEFAULT '' CHECK (procedure_urgency IN ('elective', 'urgent', 'emergency', '')),
     status TEXT NOT NULL DEFAULT 'in_progress' CHECK (status IN ('in_progress', 'completed', 'reviewed')),
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     hypertension TEXT NOT NULL DEFAULT '' CHECK (hypertension IN ('yes', 'no', '')),
     hypertension_controlled TEXT NOT NULL DEFAULT '' CHECK (hypertension_controlled IN ('yes', 'no', '')),
     ischemic_heart_disease TEXT NOT NULL DEFAULT '' CHECK (ischemic_heart_disease IN ('yes', 'no', '')),
@@ -126,8 +127,6 @@ COMMENT ON TABLE assessment IS
 
 COMMENT ON TABLE pre_operative_assessment_by_patient IS
     'Pre operative assessment by patient.';
-COMMENT ON COLUMN pre_operative_assessment_by_patient.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN pre_operative_assessment_by_patient.patient_id IS
     'Foreign key to the patient table.';
 COMMENT ON COLUMN pre_operative_assessment_by_patient.weight IS
@@ -142,10 +141,6 @@ COMMENT ON COLUMN pre_operative_assessment_by_patient.procedure_urgency IS
     'Procedure urgency. One of: elective, urgent, emergency.';
 COMMENT ON COLUMN pre_operative_assessment_by_patient.status IS
     'Lifecycle status of this row.';
-COMMENT ON COLUMN pre_operative_assessment_by_patient.created_at IS
-    'Timestamp when this row was created.';
-COMMENT ON COLUMN pre_operative_assessment_by_patient.updated_at IS
-    'Timestamp when this row was last updated.';
 COMMENT ON COLUMN pre_operative_assessment_by_patient.hypertension IS
     'Hypertension. One of: yes, no.';
 COMMENT ON COLUMN pre_operative_assessment_by_patient.hypertension_controlled IS
@@ -320,3 +315,11 @@ COMMENT ON COLUMN pre_operative_assessment_by_patient.pregnancy_confirmed IS
     'Pregnancy confirmed. One of: yes, no.';
 COMMENT ON COLUMN pre_operative_assessment_by_patient.gestation_weeks IS
     'Gestation weeks.';
+COMMENT ON COLUMN pre_operative_assessment_by_patient.id IS
+    'Primary key UUID, auto-generated.';
+COMMENT ON COLUMN pre_operative_assessment_by_patient.created_at IS
+    'Timestamp when this row was created.';
+COMMENT ON COLUMN pre_operative_assessment_by_patient.updated_at IS
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN pre_operative_assessment_by_patient.deleted_at IS
+    'Timestamp when this row was deleted.';

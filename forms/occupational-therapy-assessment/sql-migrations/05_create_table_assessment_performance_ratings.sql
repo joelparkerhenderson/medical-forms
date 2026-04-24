@@ -1,9 +1,10 @@
 CREATE TABLE assessment_performance_ratings (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     overall_performance_score NUMERIC(3,1)
         CHECK (overall_performance_score IS NULL OR (overall_performance_score >= 1.0 AND overall_performance_score <= 10.0)),
     self_care_performance_score NUMERIC(3,1)
@@ -12,10 +13,7 @@ CREATE TABLE assessment_performance_ratings (
         CHECK (productivity_performance_score IS NULL OR (productivity_performance_score >= 1.0 AND productivity_performance_score <= 10.0)),
     leisure_performance_score NUMERIC(3,1)
         CHECK (leisure_performance_score IS NULL OR (leisure_performance_score >= 1.0 AND leisure_performance_score <= 10.0)),
-    performance_notes TEXT NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    performance_notes TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_assessment_performance_ratings_updated_at
@@ -38,11 +36,13 @@ COMMENT ON COLUMN assessment_performance_ratings.leisure_performance_score IS
 COMMENT ON COLUMN assessment_performance_ratings.performance_notes IS
     'Additional notes on performance ratings and observations.';
 
--- Individual performance rating items for specific occupational issues (one-to-many child)
-
 COMMENT ON COLUMN assessment_performance_ratings.id IS
     'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_performance_ratings.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_performance_ratings.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_performance_ratings.deleted_at IS
+    'Timestamp when this row was deleted.';
+-- Individual performance rating items for specific occupational issues (one-to-many child)
+

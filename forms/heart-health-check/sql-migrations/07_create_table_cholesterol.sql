@@ -1,9 +1,10 @@
 CREATE TABLE cholesterol (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     total_cholesterol NUMERIC(5, 2)
         CHECK (total_cholesterol IS NULL OR (total_cholesterol >= 0 AND total_cholesterol <= 20)),
     hdl_cholesterol NUMERIC(5, 2)
@@ -11,10 +12,7 @@ CREATE TABLE cholesterol (
     total_hdl_ratio NUMERIC(5, 2)
         CHECK (total_hdl_ratio IS NULL OR (total_hdl_ratio >= 0 AND total_hdl_ratio <= 30)),
     on_statin VARCHAR(5) NOT NULL DEFAULT ''
-        CHECK (on_statin IN ('yes', 'no', '')),
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        CHECK (on_statin IN ('yes', 'no', ''))
 );
 
 CREATE TRIGGER trigger_cholesterol_updated_at
@@ -33,11 +31,13 @@ COMMENT ON COLUMN cholesterol.total_hdl_ratio IS
 COMMENT ON COLUMN cholesterol.on_statin IS
     'Whether the patient is currently on statin therapy.';
 
-COMMENT ON COLUMN cholesterol.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN cholesterol.assessment_id IS
     'Foreign key to the assessment table.';
+COMMENT ON COLUMN cholesterol.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN cholesterol.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN cholesterol.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN cholesterol.deleted_at IS
+    'Timestamp when this row was deleted.';

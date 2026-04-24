@@ -39,4 +39,4 @@ COMMENT ON COLUMN grading_result.id IS
 COMMENT ON COLUMN grading_result.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN grading_result.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';

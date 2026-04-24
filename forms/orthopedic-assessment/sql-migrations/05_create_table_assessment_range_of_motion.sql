@@ -1,19 +1,17 @@
 CREATE TABLE assessment_range_of_motion (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     joint_assessed VARCHAR(30) NOT NULL DEFAULT ''
         CHECK (joint_assessed IN ('shoulder', 'elbow', 'wrist', 'hand', 'hip', 'knee', 'ankle', 'spine-cervical', 'spine-lumbar', 'other', '')),
     side_assessed VARCHAR(10) NOT NULL DEFAULT ''
         CHECK (side_assessed IN ('left', 'right', 'bilateral', '')),
     overall_rom_status VARCHAR(20) NOT NULL DEFAULT ''
         CHECK (overall_rom_status IN ('full', 'mildly-restricted', 'moderately-restricted', 'severely-restricted', '')),
-    range_of_motion_notes TEXT NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    range_of_motion_notes TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_assessment_range_of_motion_updated_at
@@ -34,11 +32,13 @@ COMMENT ON COLUMN assessment_range_of_motion.overall_rom_status IS
 COMMENT ON COLUMN assessment_range_of_motion.range_of_motion_notes IS
     'Additional notes on range of motion assessment.';
 
--- Individual ROM measurements (one-to-many child)
-
 COMMENT ON COLUMN assessment_range_of_motion.id IS
     'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_range_of_motion.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_range_of_motion.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_range_of_motion.deleted_at IS
+    'Timestamp when this row was deleted.';
+-- Individual ROM measurements (one-to-many child)
+

@@ -1,9 +1,10 @@
 CREATE TABLE assessment_family_pedigree_member (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     family_pedigree_id UUID NOT NULL
         REFERENCES assessment_family_pedigree(id) ON DELETE CASCADE,
-
     relationship VARCHAR(50) NOT NULL DEFAULT '',
     sex VARCHAR(10) NOT NULL DEFAULT ''
         CHECK (sex IN ('male', 'female', 'other', '')),
@@ -15,10 +16,7 @@ CREATE TABLE assessment_family_pedigree_member (
         CHECK (age_at_death IS NULL OR (age_at_death >= 0 AND age_at_death <= 120)),
     cause_of_death VARCHAR(255) NOT NULL DEFAULT '',
     medical_conditions TEXT NOT NULL DEFAULT '',
-    sort_order INTEGER NOT NULL DEFAULT 0,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    sort_order INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TRIGGER trigger_assessment_family_pedigree_member_updated_at
@@ -68,12 +66,14 @@ COMMENT ON COLUMN assessment_family_pedigree.id IS
 COMMENT ON COLUMN assessment_family_pedigree.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_family_pedigree.updated_at IS
-    'Timestamp when this row was last updated.';
-COMMENT ON COLUMN assessment_family_pedigree_member.id IS
-    'Primary key UUID, auto-generated.';
+    'Timestamp when this row was updated.';
 COMMENT ON COLUMN assessment_family_pedigree_member.family_pedigree_id IS
     'Foreign key to the assessment_family_pedigree table.';
+COMMENT ON COLUMN assessment_family_pedigree_member.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_family_pedigree_member.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_family_pedigree_member.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_family_pedigree_member.deleted_at IS
+    'Timestamp when this row was deleted.';

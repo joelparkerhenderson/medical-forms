@@ -3,7 +3,6 @@ CREATE TABLE clinician (
     created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
     deleted_at TIMESTAMPTZ DEFAULT NULL,
-
     name TEXT NOT NULL DEFAULT '',
     role TEXT NOT NULL DEFAULT ''
         CHECK (role IN (
@@ -24,14 +23,7 @@ CREATE TRIGGER trg_clinician_updated_at
 
 COMMENT ON TABLE clinician IS
     'Clinician who operated or authored this record.';
-COMMENT ON COLUMN clinician.id IS
-    'Primary key UUID, auto-generated.';
-COMMENT ON COLUMN clinician.created_at IS
-    'Timestamp when this row was created.';
-COMMENT ON COLUMN clinician.updated_at IS
-    'Timestamp when this row was last updated.';
-COMMENT ON COLUMN clinician.deleted_at IS
-    'Soft-delete timestamp; NULL when the row is live.';
+NULL when the row is live.';
 COMMENT ON COLUMN clinician.name IS
     'Clinician name.';
 COMMENT ON COLUMN clinician.role IS
@@ -42,3 +34,11 @@ COMMENT ON COLUMN clinician.registration_number IS
     'Registration number with the regulator.';
 COMMENT ON COLUMN clinician.united_kingdom_nhs_number IS
     'Clinician UK NHS number, unique per person.';
+COMMENT ON COLUMN clinician.id IS
+    'Primary key UUID, auto-generated.';
+COMMENT ON COLUMN clinician.created_at IS
+    'Timestamp when this row was created.';
+COMMENT ON COLUMN clinician.updated_at IS
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN clinician.deleted_at IS
+    'Timestamp when this row was deleted.';

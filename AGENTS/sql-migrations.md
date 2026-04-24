@@ -13,14 +13,15 @@ Two-digit, zero-padded sequence numbers with hyphen-separated descriptions:
 
 ```
 sql-migrations/
-  00-extensions.sql          # Required PostgreSQL extensions (pgcrypto, etc.)
-  01-patient.sql             # Shared patient table
-  02-assessment.sql          # Assessment header / encounter
-  03-assessment-<section>.sql # One table per questionnaire section
+  00_extensions.sql          # Required PostgreSQL extensions (pgcrypto, etc.)
+  01_create_function_set_updated_at.sql          # Create function set_updated_at
+  02_create_table_patient.sql             # Shared patient table
+  03_create_table_clinician.sql          # Assessment header / encounter
+  04_create_table_[form_snake_case].sql          # Assessment header / encounter
   ...
-  NN-grading-result.sql      # Computed scoring / grading result
-  NN-grading-fired-rule.sql  # Rules that fired during grading
-  NN-grading-additional-flag.sql # Safety-critical flags
+  90_create_table_grading_result.sql      # Computed scoring / grading result
+  91_create_table_grading_fired_rule.sql  # Rules that fired during grading
+  92_create_table_grading_additional_flag.sql # Safety-critical flags
 ```
 
 Each form must have `00-extensions.sql` as the first migration so that
@@ -30,6 +31,8 @@ Each form must have `00-extensions.sql` as the first migration so that
 ## Schema conventions
 
 - UUIDv4 primary keys via `gen_random_uuid()` (from `pgcrypto`)
+
+
 - `created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()`
 - `updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()`, maintained by the `set_updated_at()` trigger
 - Foreign keys cascade on delete (`ON DELETE CASCADE`) within a form's own schema; foreign keys to shared tables use `ON DELETE RESTRICT`
@@ -38,6 +41,28 @@ Each form must have `00-extensions.sql` as the first migration so that
 - snake_case column names, matching the Rust/SeaORM entity fields
 - Strings use `TEXT`; avoid `VARCHAR(n)` unless a hard length constraint is enforced
 - Monetary values use `NUMERIC`, never `FLOAT`
+
+Canonical first four fields:
+
+```sql
+id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+deleted_at TIMESTAMPTZ DEFAULT NULL,
+```
+
+Canonical comments:
+
+```shl
+COMMENT ON COLUMN grading_additional_flag.id IS
+    'Primary key UUID, auto-generated.';
+COMMENT ON COLUMN grading_additional_flag.created_at IS
+    'Timestamp when this row was created.';
+COMMENT ON COLUMN grading_additional_flag.updated_at IS
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN grading_additional_flag.deleted_at IS
+    'Timestamp when this row was deleted.';
+```
 
 ## Liquibase SQL format
 
@@ -51,7 +76,8 @@ line and a matching `--rollback` for every change:
 CREATE TABLE example (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
 );
 --rollback DROP TABLE example;
 ```

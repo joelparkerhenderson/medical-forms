@@ -1,19 +1,17 @@
 CREATE TABLE assessment_strength_test_item (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     strength_testing_id UUID NOT NULL
         REFERENCES assessment_strength_testing(id) ON DELETE CASCADE,
-
     muscle_group VARCHAR(100) NOT NULL DEFAULT '',
     movement VARCHAR(100) NOT NULL DEFAULT '',
     mrc_grade INTEGER
         CHECK (mrc_grade IS NULL OR (mrc_grade >= 0 AND mrc_grade <= 5)),
     pain_on_testing VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (pain_on_testing IN ('yes', 'no', '')),
-    sort_order INTEGER NOT NULL DEFAULT 0,
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    sort_order INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TRIGGER trigger_assessment_strength_test_item_updated_at
@@ -39,12 +37,14 @@ COMMENT ON COLUMN assessment_strength_testing.id IS
 COMMENT ON COLUMN assessment_strength_testing.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_strength_testing.updated_at IS
-    'Timestamp when this row was last updated.';
-COMMENT ON COLUMN assessment_strength_test_item.id IS
-    'Primary key UUID, auto-generated.';
+    'Timestamp when this row was updated.';
 COMMENT ON COLUMN assessment_strength_test_item.strength_testing_id IS
     'Foreign key to the assessment_strength_testing table.';
+COMMENT ON COLUMN assessment_strength_test_item.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_strength_test_item.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_strength_test_item.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_strength_test_item.deleted_at IS
+    'Timestamp when this row was deleted.';

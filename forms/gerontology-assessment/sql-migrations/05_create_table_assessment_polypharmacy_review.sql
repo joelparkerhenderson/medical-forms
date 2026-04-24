@@ -1,9 +1,10 @@
 CREATE TABLE assessment_polypharmacy_review (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL,
     assessment_id UUID NOT NULL UNIQUE
         REFERENCES assessment(id) ON DELETE CASCADE,
-
     total_regular_medications INTEGER
         CHECK (total_regular_medications IS NULL OR total_regular_medications >= 0),
     total_prn_medications INTEGER
@@ -25,10 +26,7 @@ CREATE TABLE assessment_polypharmacy_review (
     stopp_start_review_done VARCHAR(5) NOT NULL DEFAULT ''
         CHECK (stopp_start_review_done IN ('yes', 'no', '')),
     deprescribing_opportunities TEXT NOT NULL DEFAULT '',
-    polypharmacy_notes TEXT NOT NULL DEFAULT '',
-
-    created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    polypharmacy_notes TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TRIGGER trigger_assessment_polypharmacy_review_updated_at
@@ -40,8 +38,6 @@ CREATE TRIGGER trigger_assessment_polypharmacy_review_updated_at
 
 COMMENT ON TABLE assessment_polypharmacy_review IS
     'Assessment polypharmacy review.';
-COMMENT ON COLUMN assessment_polypharmacy_review.id IS
-    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_polypharmacy_review.assessment_id IS
     'Foreign key to the assessment table.';
 COMMENT ON COLUMN assessment_polypharmacy_review.total_regular_medications IS
@@ -72,7 +68,11 @@ COMMENT ON COLUMN assessment_polypharmacy_review.deprescribing_opportunities IS
     'Deprescribing opportunities.';
 COMMENT ON COLUMN assessment_polypharmacy_review.polypharmacy_notes IS
     'Polypharmacy notes.';
+COMMENT ON COLUMN assessment_polypharmacy_review.id IS
+    'Primary key UUID, auto-generated.';
 COMMENT ON COLUMN assessment_polypharmacy_review.created_at IS
     'Timestamp when this row was created.';
 COMMENT ON COLUMN assessment_polypharmacy_review.updated_at IS
-    'Timestamp when this row was last updated.';
+    'Timestamp when this row was updated.';
+COMMENT ON COLUMN assessment_polypharmacy_review.deleted_at IS
+    'Timestamp when this row was deleted.';

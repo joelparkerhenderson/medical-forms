@@ -1,0 +1,21 @@
+#!/bin/sh
+set -euf
+
+top="$(git rev-parse --show-toplevel)"
+
+"$top/bin/list-forms-as-kebab-case" | 
+while read -r form; do
+
+    sub="cargo-loco-generate"
+    find "$top/etc/skel/$sub" -name '*.sh' -type f -exec basename {} \; | 
+    while IFS= read -r file; do
+        test -e "$top/forms/$form/$sub/$file" && rsync -av "$top/etc/skel/$sub/$file" "$top/forms/$form/$sub/$file"
+    done
+
+    sub="sql-migrations"
+    find "$top/etc/skel/$sub" -name '*.sh' -type f -exec basename {} \; | 
+    while IFS= read -r file; do
+        test -e "$top/forms/$form/$sub/$file" && rsync -av "$top/etc/skel/$sub/$file" "$top/forms/$form/$sub/$file"
+    done
+
+done
