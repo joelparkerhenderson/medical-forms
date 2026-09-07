@@ -40,6 +40,8 @@ In scope: the schema, scoring engine, four front-ends (form + dashboard, each in
 
 See [`index.md`](../index.md) for the scoring instrument, ranges, and categories applicable to this form.
 
+`hasAnyAbnormalFinding`-equivalent `hasAbnormalResult` (Axis A's classification predicate) did not look at a deviating structured band (eGFR CKD stage or HbA1c band), so a report with only that kind of finding classified `normal` on Axis A while Axis B graded it independently. Fixed via a new, separate `hasAnyClassifiableAbnormality` predicate used only by `classifyResult` — deliberately **not** folded into `hasAbnormalResult` itself, since `gradeSeverity` calls the narrower predicate first for its own 'moderate' tier and folding the structured-band check in directly would have made its dedicated 'minor' branch unreachable dead code (caught by a real Vitest regression during the fix, not by inspection). Fixed 2026-09-06; previously verified and documented (not silently patched) in `examples/personas.json`.
+
 ## 4. Inputs and outputs
 
 **Inputs.** A typed assessment object whose shape mirrors the SQL schema in `sql/` (8 migration files). Unanswered text and enum fields default to `''`; unanswered numeric, date, and time fields default to `null`.

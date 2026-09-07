@@ -40,6 +40,8 @@ In scope: the schema, scoring engine, four front-ends (form + dashboard, each in
 
 See [`index.md`](../index.md) for the scoring instrument, ranges, and categories applicable to this form.
 
+`hasAnyAbnormalFinding`-equivalent `hasToxicResult` (Axis A's classification predicate) did not check lithium, carboxyhaemoglobin, or salicylate against their toxic thresholds, so any of those alone classified `normal` on Axis A while Axis B graded it independently. Fixed via the already-present-but-dead `isCriticalResult` helper, widened and wired into `classifyResult` and three flags (`F-CRITICAL-RESULT-001`, `F-ABNORMAL-ACTION-001`'s exclusion, `F-UNEXPECTED-FINDING-001`; salicylate also added to `F-URGENT-REFERRAL-001`) — deliberately **not** folded into `hasToxicResult` itself, since `gradeSeverity` calls the narrower predicate first for its own major-severity tier (caught by a real Vitest regression during the fix, not by inspection). Fixed 2026-09-06; previously verified and documented (not silently patched) in `examples/personas.json`.
+
 ## 4. Inputs and outputs
 
 **Inputs.** A typed assessment object whose shape mirrors the SQL schema in `sql/` (8 migration files). Unanswered text and enum fields default to `''`; unanswered numeric, date, and time fields default to `null`.

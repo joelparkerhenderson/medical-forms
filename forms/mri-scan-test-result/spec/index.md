@@ -38,6 +38,8 @@ In scope: the schema, scoring engine, four front-ends (form + dashboard, each in
 
 See [`index.md`](../index.md) for the scoring instrument, ranges, and categories applicable to this form.
 
+`hasAnyAbnormalFinding` (Axis A's classification predicate) did not check lesion size, so a study with a lesion >= 30 mm and no other structured finding classified `normal` on Axis A while Axis B graded it independently. Fixed by adding that condition to `hasAnyAbnormalFinding` in both `js/rules.js` and `src/lib/engine/utils.ts`. Fixed 2026-09-06; previously verified and documented (not silently patched) in `examples/personas.json`.
+
 ## 4. Inputs and outputs
 
 **Inputs.** A typed assessment object whose shape mirrors the SQL schema in `sql/` (8 migration files). Unanswered text and enum fields default to `''`; unanswered numeric, date, and time fields default to `null`.

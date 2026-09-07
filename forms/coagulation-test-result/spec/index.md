@@ -39,6 +39,8 @@ In scope: the schema, scoring engine, four front-ends (form + dashboard, each in
 
 See [`index.md`](../index.md) for the scoring instrument, ranges, and categories applicable to this form.
 
+`gradeFollowUp`'s isolated-APTT-prolongation branch (R-FU-RECOMMENDED-03, the more specific mixing-studies/factor-work-up recommendation) was dead code: `gradeSeverity` always grades an isolated APTT prolongation 'moderate', so the generic `severity === 'moderate'` branch (R-FU-RECOMMENDED-01) was checked first in `gradeFollowUp` and always intercepted before the dedicated branch could run. Fixed by reordering the isolated-APTT check ahead of the generic moderate-severity check in both `js/rules.js` and `src/lib/engine/follow-up-rules.ts`. Fixed 2026-09-06; previously verified and documented (not silently patched) in `examples/personas.json`.
+
 ## 4. Inputs and outputs
 
 **Inputs.** A typed assessment object whose shape mirrors the SQL schema in `sql/` (8 migration files). Unanswered text and enum fields default to `''`; unanswered numeric, date, and time fields default to `null`.

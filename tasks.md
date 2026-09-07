@@ -2392,11 +2392,47 @@ updating that form's `spec/index.md`, then the engine in **all three stacks**
 
 ### Spec-driven follow-through
 
-- [ ] **Promote persona-note findings into `spec/index.md`.** Every quirk
-      above currently lives only in a `personas.json` `note`. Add a
-      "Verified engine behaviour" subsection to each affected form's living
-      spec so the behaviour is either spec'd or spec'd-as-a-bug, per the
-      update-specs-before-code rule.
+- [x] **Promote persona-note findings into `spec/index.md`.** DONE
+      2026-09-07. Scoped down from "every quirk above" (which would have
+      meant all 352 forms with personas) to the enumerable, actually-
+      relevant set: every form touched by a Phase 13 engine-*fix* (not
+      every form with a persona note — most notes just describe intended
+      behaviour, not a bug). Reconstructed that set from every `- [x]`
+      bullet under tasks.md's "### Engine correctness" section (the 12
+      individually-fixed forms) plus the 16-form `*-test-result` sweep's
+      consolidated entry: 27 forms total. Checked each for an existing
+      spec note (the `... in \`examples/personas.json\`.` closing
+      sentence the earlier fixes already used, not a literal "Verified
+      engine behaviour" heading — matched on that instead of assuming the
+      exact heading text, which caught `perioperative-optimization`
+      already having one under a differently-named §4 that a naive
+      heading-string check would have missed). 7 of 27 already had one
+      (`pre-operative-assessment-by-clinician`, `perioperative-
+      optimization`, `diabetes-assessment`, `hernia-diagnostic-evaluation`,
+      `tumor-marker-test-request`, `tumor-marker-test-result`,
+      `neurodiversity-adjustment-response` — the last three from this
+      session's own engine-gap fixes above). Added a short paragraph to
+      the other 20: `holter-monitor-test-result`, `coagulation-test-result`,
+      `microbiology-culture-test-result`, `nuclear-medicine-test-result`,
+      and the 16 `*-test-result` sweep forms
+      (`ambulatory-blood-pressure-test-result`, `angiography-test-result`,
+      `blood-cross-match-test-result`, `blood-test-result`,
+      `echocardiogram-test-result`, `electroencephalogram-test-result`,
+      `eye-vision-test-result`, `hearing-test-result`,
+      `mri-scan-test-result`, `pet-scan-test-result`,
+      `pulmonary-function-test-result`, `sleep-study-test-result`,
+      `toxicology-test-result`, `ultrasound-test-result`,
+      `urinalysis-test-result`, `x-ray-test-result`). Each
+      paragraph names the exact predicate/flag fixed, the file(s) touched
+      in both stacks, and ends with the same "Fixed 2026-09-06; previously
+      verified and documented (not silently patched) in
+      `examples/personas.json`." sentence the earlier, hand-written notes
+      already used, for a consistent fleet-wide voice. Pure documentation
+      — no code, test, or persona changes; `bin/generate-spec.py --check`
+      (355/356, only the pre-existing unrelated
+      `diabetes-podiatry-assessment` gap), `bin/test-tutorials`, and
+      `bin/test-form` on a 4-form sample all pass; `git status` scoped to
+      exactly the 20 intended `spec/index.md` files.
 - [x] **Seed dashboards from personas.** — DONE 2026-09-06.
       `bin/generate-persona-dashboard-samples.py [--check] [--all|<slug>…]`
       regenerates each `*-test-result` form's clinician-dashboard sample

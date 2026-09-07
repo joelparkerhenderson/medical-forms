@@ -39,6 +39,8 @@ In scope: the schema, scoring engine, four front-ends (form + dashboard, each in
 
 See [`index.md`](../index.md) for the scoring instrument, ranges, and categories applicable to this form.
 
+`R-COMP-SENSITIVITIES-01` required non-empty `antibioticSensitivities` text even when `cultureResult === 'no-growth'` (nothing to be sensitive to), silently capping an otherwise-complete no-growth report at 80% completeness. Fixed by treating the section as present whenever `cultureResult === 'no-growth'`, in both `js/rules.js` and `src/lib/engine/completeness-rules.ts`. Fixed 2026-09-06; previously verified and documented (not silently patched) in `examples/personas.json`.
+
 ## 4. Inputs and outputs
 
 **Inputs.** A typed assessment object whose shape mirrors the SQL schema in `sql/` (8 migration files). Unanswered text and enum fields default to `''`; unanswered numeric, date, and time fields default to `null`.
