@@ -467,7 +467,7 @@ jobs:
         shard: [0, 1, 2, 3, 4, 5, 6, 7]
     steps:
       - uses: actions/checkout@v7
-      - uses: dtolnay/rust-toolchain@1.96
+      - uses: dtolnay/rust-toolchain@1.120
       - uses: Swatinem/rust-cache@v2
         with:
           shared-key: msrv-shard-${{ matrix.shard }}
