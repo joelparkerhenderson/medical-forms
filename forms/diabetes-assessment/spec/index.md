@@ -32,6 +32,18 @@ In scope: the schema, scoring engine, four front-ends (form + dashboard, each in
   severity but share its referral urgency, not `background`'s routine one.
   Fixed 2026-09-06; previously verified and documented (not silently
   patched) in `examples/personas.json`.
+- **Additional-flag priority is always `high`/`medium`/`low`**: matching
+  the SQL `grade_flag.priority` CHECK constraint and the SvelteKit
+  reference's `FlagPriority` type — this form has no `urgent` tier (unlike
+  a handful of other forms in the monorepo whose own `grade_flag` schema
+  does allow one). `front-end-with-html/js/flagged-issues.js` used the
+  out-of-schema `priority: 'urgent'` for FLAG-HBA1C-001, FLAG-HYPO-002,
+  FLAG-FOOT-001, and FLAG-EYE-001 (4 flags — a "6 of 18 flags" figure
+  recorded elsewhere was inflated); fixed 2026-09-07 to `'high'`, matching
+  the Svelte reference's pre-existing value for the same 4 flag IDs.
+  Separately, FLAG-CVD-002 (current smoker) and FLAG-CVD-003 (systolic BP
+  ≥ 140) existed only in the HTML engine and had never been ported to the
+  Svelte reference; ported in the same pass, verbatim.
 
 ## 4. Inputs and outputs
 

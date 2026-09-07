@@ -157,7 +157,7 @@
  * @property {string} id
  * @property {string} category
  * @property {string} message
- * @property {'urgent' | 'high' | 'medium' | 'low'} priority
+ * @property {'high' | 'medium' | 'low'} priority
  */
 
 /**

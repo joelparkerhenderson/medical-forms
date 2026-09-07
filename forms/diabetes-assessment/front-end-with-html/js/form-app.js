@@ -1262,7 +1262,6 @@ function renderErrorSummary(errors) {
 
 function priorityClass(priority) {
   switch (priority) {
-    case 'urgent': return 'flag-urgent';
     case 'high': return 'flag-high';
     case 'medium': return 'flag-medium';
     case 'low': return 'flag-low';

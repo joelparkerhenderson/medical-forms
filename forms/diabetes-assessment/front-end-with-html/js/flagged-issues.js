@@ -4,10 +4,11 @@ import { hba1cMmolMol } from './types.js';
 // score; raises clinician-facing alerts for HbA1c extremes, hypoglycaemia,
 // foot, eye, renal, cardiovascular, psychological, and self-care risks.
 //
-// Mirrors `src/lib/engine/flagged-issues.ts` from the Svelte reference, but
-// also uses an "urgent" priority for the most safety-critical findings so
-// the report can render the standard urgent / high / medium / low ladder
-// used elsewhere in the monorepo.
+// Mirrors `src/lib/engine/flagged-issues.ts` from the Svelte reference.
+// priority is restricted to high / medium / low, matching the schema's
+// grade_flag.priority CHECK constraint and the SvelteKit reference's
+// FlagPriority type — this form has no "urgent" tier (unlike a handful of
+// other forms in the monorepo whose own grade_flag schema does allow one).
 
 /**
  * @typedef {import('./types.js').AssessmentData} AssessmentData
@@ -29,7 +30,7 @@ function detectAdditionalFlags(data) {
       id: 'FLAG-HBA1C-001',
       category: 'Glycaemic Control',
       message: 'HbA1c critically elevated (>= 97 mmol/mol / >= 11%) - urgent review required',
-      priority: 'urgent'
+      priority: 'high'
     });
   }
 
@@ -67,7 +68,7 @@ function detectAdditionalFlags(data) {
       id: 'FLAG-HYPO-002',
       category: 'Hypoglycaemia',
       message: 'Possible hypoglycaemia unawareness - consider specialist referral',
-      priority: 'urgent'
+      priority: 'high'
     });
   }
 
@@ -77,7 +78,7 @@ function detectAdditionalFlags(data) {
       id: 'FLAG-FOOT-001',
       category: 'Foot',
       message: 'Active foot ulcer - urgent podiatry referral required',
-      priority: 'urgent'
+      priority: 'high'
     });
   }
 
@@ -97,16 +98,11 @@ function detectAdditionalFlags(data) {
       id: 'FLAG-EYE-001',
       category: 'Eye',
       message: 'Proliferative retinopathy - urgent ophthalmology referral',
-      priority: 'urgent'
+      priority: 'high'
     });
   }
 
   // ─── Pre-proliferative retinopathy ────────────────────
-  // priority is 'high', not 'urgent': the schema's grade_flag.priority
-  // CHECK constraint (and the SvelteKit reference's FlagPriority type)
-  // only allow high/medium/low. FLAG-EYE-001 above uses the out-of-schema
-  // 'urgent' — a separate, pre-existing divergence from the Svelte
-  // reference (which uses 'high' there), not repeated here.
   if (data.complicationsScreening.retinopathyStatus === 'preProliferative') {
     flags.push({
       id: 'FLAG-EYE-003',
@@ -243,8 +239,8 @@ function detectAdditionalFlags(data) {
     });
   }
 
-  // Sort: urgent > high > medium > low
-  const priorityOrder = { urgent: 0, high: 1, medium: 2, low: 3 };
+  // Sort: high > medium > low
+  const priorityOrder = { high: 0, medium: 1, low: 2 };
   flags.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
 
   return flags;

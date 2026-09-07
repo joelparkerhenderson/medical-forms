@@ -125,3 +125,54 @@ describe('Retinopathy rules and flags', () => {
     expect(flags.some((f) => f.id === 'FLAG-EYE-004' && f.priority === 'high')).toBe(true);
   });
 });
+
+describe('Cardiovascular flags (ported from the HTML reference)', () => {
+  // FLAG-CVD-002 and FLAG-CVD-003 existed in front-end-with-html's
+  // flagged-issues.js but had never been ported to this Svelte reference --
+  // a real, verified stack-parity gap found while fixing the HTML side's
+  // out-of-schema 'urgent' priority values below.
+  it('raises FLAG-CVD-002 (high) for a current smoker', () => {
+    const data = createDefaultAssessment();
+    data.cardiovascularRisk.smokingStatus = 'currentSmoker';
+    const flags = detectAdditionalFlags(data);
+    expect(flags.some((f) => f.id === 'FLAG-CVD-002' && f.priority === 'high')).toBe(true);
+  });
+
+  it('raises FLAG-CVD-003 (medium) for systolic BP at or above 140', () => {
+    const data = createDefaultAssessment();
+    data.cardiovascularRisk.systolicBp = 150;
+    const flags = detectAdditionalFlags(data);
+    expect(flags.some((f) => f.id === 'FLAG-CVD-003' && f.priority === 'medium')).toBe(true);
+  });
+
+  it('does not raise FLAG-CVD-003 below the 140 mmHg threshold', () => {
+    const data = createDefaultAssessment();
+    data.cardiovascularRisk.systolicBp = 130;
+    const flags = detectAdditionalFlags(data);
+    expect(flags.some((f) => f.id === 'FLAG-CVD-003')).toBe(false);
+  });
+});
+
+describe('Flag priority is always schema-valid', () => {
+  // grade_flag.priority's SQL CHECK constraint (and this file's own
+  // AdditionalFlag.priority type) only allow high/medium/low -- the HTML
+  // reference's flagged-issues.js used an out-of-schema 'urgent' for 4 of
+  // its flags until this was fixed; assert every flag this engine can raise
+  // stays in schema, across every rule at once.
+  it('never raises a flag outside high/medium/low', () => {
+    const data = createDefaultAssessment();
+    data.glycaemicControl.hba1cValue = 100;
+    data.glycaemicControl.hba1cUnit = 'mmolMol';
+    data.glycaemicControl.severeHypoglycaemia = 'yes';
+    data.glycaemicControl.hypoglycaemiaFrequency = 'daily';
+    data.footAssessment.ulcerPresent = 'yes';
+    data.complicationsScreening.retinopathyStatus = 'proliferative';
+    data.cardiovascularRisk.smokingStatus = 'currentSmoker';
+    data.cardiovascularRisk.systolicBp = 150;
+    const flags = detectAdditionalFlags(data);
+    expect(flags.length).toBeGreaterThan(0);
+    for (const f of flags) {
+      expect(['high', 'medium', 'low']).toContain(f.priority);
+    }
+  });
+});

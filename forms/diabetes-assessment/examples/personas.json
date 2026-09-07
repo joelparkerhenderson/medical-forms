@@ -2,7 +2,7 @@
   "engine": "front-end-with-html",
   "graderHint": "calculateControl",
   "flagsHint": "detectAdditionalFlags",
-  "note": "Four hand-authored personas for the NICE-aligned diabetes review grader. calculateControl short-circuits to controlLevel 'draft' (score 0, no rules) whenever fewer than 2 of the 8 scored Likert/percentage items are answered AND no HbA1c is entered; otherwise controlScore is a weighted-average composite (HbA1c band 0/20/40/60/80/100 seeded as the base with weight 4, then medication adherence, diet adherence, and time-in-range each folded in at weight 1, then a complication penalty of min(5 x count, 30) subtracted) and controlLevel bands on that score (<=20 veryPoor, <=40 poor, <65 suboptimal, else wellControlled). detectAdditionalFlags is a split engine (mirrors form-app.js's own call: detectAdditionalFlags(state)) so its output is pinned here via flagsHint. FIXED 2026-09-06 (was a VERIFIED ENGINE GAP, documented rather than silently patched at the time): retinopathyStatus has five options (none, background, preProliferative, proliferative, maculopathy) but only 'background' (DM-008, medium) and 'proliferative' (DM-004, high; FLAG-EYE-001) used to have a dedicated rule or flag — 'preProliferative' and 'maculopathy' correctly counted toward countComplications() (so they still depressed the composite score and correctly suppressed DM-017's 'no complications' rule) but raised no eye-specific rule or flag at all, so a clinician reading only the fired-rules/flags list saw no signal that a sight-threatening finding was recorded. Fixed by adding DM-021 (pre-proliferative, high concern) and DM-022 (maculopathy, high concern) to the rule catalogue (`sql/09_insert_diabetes_rule_dm021_dm022.sql` seeds the reference table), and FLAG-EYE-003 / FLAG-EYE-004 (both 'high' priority) to the flag detector — both graded 'high', matching DM-004/proliferative's urgency, per the National Diabetic Eye Screening Programme's R1/R2/R3 grading and NICE NG28 (both pre-proliferative and maculopathy warrant the same urgent ophthalmology referral pathway as proliferative retinopathy, not routine annual re-screening). Separately noted, NOT fixed here (a distinct, pre-existing bug found while implementing this): FLAG-EYE-001 and five other flags in the HTML engine use `priority: 'urgent'`, a value the SQL `grade_flag.priority` CHECK constraint and the SvelteKit reference's `FlagPriority` type both reject (only high/medium/low are valid) — the two new flags added here correctly use 'high', not 'urgent', so they do not repeat it. The second and third personas below (renamed from 'the invisible-eye-finding edge case') now demonstrate the fixed behaviour for preProliferative and maculopathy respectively. Regenerate 'expected' with: bin/test-personas diabetes-assessment --update",
+  "note": "Four hand-authored personas for the NICE-aligned diabetes review grader. calculateControl short-circuits to controlLevel 'draft' (score 0, no rules) whenever fewer than 2 of the 8 scored Likert/percentage items are answered AND no HbA1c is entered; otherwise controlScore is a weighted-average composite (HbA1c band 0/20/40/60/80/100 seeded as the base with weight 4, then medication adherence, diet adherence, and time-in-range each folded in at weight 1, then a complication penalty of min(5 x count, 30) subtracted) and controlLevel bands on that score (<=20 veryPoor, <=40 poor, <65 suboptimal, else wellControlled). detectAdditionalFlags is a split engine (mirrors form-app.js's own call: detectAdditionalFlags(state)) so its output is pinned here via flagsHint. FIXED 2026-09-06 (was a VERIFIED ENGINE GAP, documented rather than silently patched at the time): retinopathyStatus has five options (none, background, preProliferative, proliferative, maculopathy) but only 'background' (DM-008, medium) and 'proliferative' (DM-004, high; FLAG-EYE-001) used to have a dedicated rule or flag — 'preProliferative' and 'maculopathy' correctly counted toward countComplications() (so they still depressed the composite score and correctly suppressed DM-017's 'no complications' rule) but raised no eye-specific rule or flag at all, so a clinician reading only the fired-rules/flags list saw no signal that a sight-threatening finding was recorded. Fixed by adding DM-021 (pre-proliferative, high concern) and DM-022 (maculopathy, high concern) to the rule catalogue (`sql/09_insert_diabetes_rule_dm021_dm022.sql` seeds the reference table), and FLAG-EYE-003 / FLAG-EYE-004 (both 'high' priority) to the flag detector — both graded 'high', matching DM-004/proliferative's urgency, per the National Diabetic Eye Screening Programme's R1/R2/R3 grading and NICE NG28 (both pre-proliferative and maculopathy warrant the same urgent ophthalmology referral pathway as proliferative retinopathy, not routine annual re-screening). FIXED 2026-09-07: FLAG-EYE-001 and 3 other flags (FLAG-HBA1C-001, FLAG-HYPO-002, FLAG-FOOT-001) in the HTML engine's flagged-issues.js used priority: 'urgent' -- a value the SQL grade_flag.priority CHECK constraint and the SvelteKit reference's FlagPriority type both reject (only high/medium/low are valid; verified by grep against the actual file before fixing -- 4 flags, not the '6 of 18'/'five other flags' figure this note and tasks.md previously carried). All 4 now use 'high', matching the Svelte reference's pre-existing value for the same 4 flag IDs exactly, so the fix required no new clinical judgement -- Svelte had already made the correct call. Separate, pre-existing stack-parity gap found while verifying the Svelte side and fixed in the same pass: FLAG-CVD-002 (current smoker) and FLAG-CVD-003 (systolic BP >= 140) existed only in the HTML engine and had never been ported to front-end-with-svelte/src/lib/engine/flagged-issues.ts; ported verbatim (both use the same 'high'/'medium' priorities in both stacks, so this did not interact with the priority fix). The 'Critical' persona below (the only one exercising FLAG-HBA1C-001 / FLAG-HYPO-002 / FLAG-FOOT-001 / FLAG-EYE-001 / FLAG-CVD-002 / FLAG-CVD-003 all at once) had its `expected.additionalFlags` regenerated via bin/test-personas diabetes-assessment --update; the flag set and every other field are unchanged, only the 4 priority strings and their consequent sort position.",
   "personas": [
     {
       "name": "Well-controlled type 2, engaged and physically active",
@@ -612,30 +612,30 @@
             "id": "FLAG-HBA1C-001",
             "category": "Glycaemic Control",
             "message": "HbA1c critically elevated (>= 97 mmol/mol / >= 11%) - urgent review required",
-            "priority": "urgent"
-          },
-          {
-            "id": "FLAG-HYPO-002",
-            "category": "Hypoglycaemia",
-            "message": "Possible hypoglycaemia unawareness - consider specialist referral",
-            "priority": "urgent"
-          },
-          {
-            "id": "FLAG-FOOT-001",
-            "category": "Foot",
-            "message": "Active foot ulcer - urgent podiatry referral required",
-            "priority": "urgent"
-          },
-          {
-            "id": "FLAG-EYE-001",
-            "category": "Eye",
-            "message": "Proliferative retinopathy - urgent ophthalmology referral",
-            "priority": "urgent"
+            "priority": "high"
           },
           {
             "id": "FLAG-HYPO-001",
             "category": "Hypoglycaemia",
             "message": "Severe hypoglycaemia reported - review insulin/sulfonylurea dosing",
+            "priority": "high"
+          },
+          {
+            "id": "FLAG-HYPO-002",
+            "category": "Hypoglycaemia",
+            "message": "Possible hypoglycaemia unawareness - consider specialist referral",
+            "priority": "high"
+          },
+          {
+            "id": "FLAG-FOOT-001",
+            "category": "Foot",
+            "message": "Active foot ulcer - urgent podiatry referral required",
+            "priority": "high"
+          },
+          {
+            "id": "FLAG-EYE-001",
+            "category": "Eye",
+            "message": "Proliferative retinopathy - urgent ophthalmology referral",
             "priority": "high"
           },
           {

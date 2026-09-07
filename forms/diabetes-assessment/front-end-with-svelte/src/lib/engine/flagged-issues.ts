@@ -211,6 +211,30 @@ export function detectAdditionalFlags(data: AssessmentData): AdditionalFlag[] {
 		});
 	}
 
+	// ─── FLAG-CVD-002: Current smoker ────────────────────────
+	if (data.cardiovascularRisk.smokingStatus === 'currentSmoker') {
+		flags.push({
+			id: 'FLAG-CVD-002',
+			category: 'Cardiovascular',
+			message:
+				'Current smoker - smoking cessation critical for cardiovascular risk reduction',
+			priority: 'high'
+		});
+	}
+
+	// ─── FLAG-CVD-003: Hypertension reading ──────────────────
+	if (
+		data.cardiovascularRisk.systolicBp !== null &&
+		data.cardiovascularRisk.systolicBp >= 140
+	) {
+		flags.push({
+			id: 'FLAG-CVD-003',
+			category: 'Cardiovascular',
+			message: `Systolic BP ${data.cardiovascularRisk.systolicBp} mmHg - above NICE target for diabetes`,
+			priority: 'medium'
+		});
+	}
+
 	// Sort: high > medium > low
 	const priorityOrder: Record<string, number> = { high: 0, medium: 1, low: 2 };
 	flags.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);

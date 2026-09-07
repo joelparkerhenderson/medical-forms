@@ -1447,9 +1447,9 @@ updating that form's `spec/index.md`, then the engine in **all three stacks**
       the full migration set applies cleanly on a fresh scratch Postgres
       18.4 (rows confirmed present with `concern_level = 'high'`).
       **Separate, pre-existing bug found and documented while implementing
-      (not fixed — out of this item's scope):** the HTML engine's
-      `flagged-issues.js` uses `priority: 'urgent'` for 6 of its 18 flags
-      (including the existing FLAG-EYE-001), a value the SQL
+      (not fixed at the time — out of this item's scope):** the HTML
+      engine's `flagged-issues.js` uses `priority: 'urgent'` for 6 of its
+      18 flags (including the existing FLAG-EYE-001), a value the SQL
       `grade_flag.priority` CHECK constraint and the SvelteKit reference's
       `FlagPriority` type both reject (only high/medium/low valid) — the
       two new flags added here correctly use 'high' throughout, not
@@ -1464,6 +1464,41 @@ updating that form's `spec/index.md`, then the engine in **all three stacks**
       diabetes-assessment` 2/2 passed; `bin/test-form diabetes-assessment`
       PASS. Fleet: `bin/test-personas` forms 352/352 PASS, personas
       1176/1176 PASS, 0 FAIL.
+      **The `'urgent'` priority bug above: FIXED 2026-09-07.** Re-grepped
+      the actual file before touching it: the real count was **4** flags
+      (FLAG-HBA1C-001, FLAG-HYPO-002, FLAG-FOOT-001, FLAG-EYE-001), not 6 —
+      the "6 of 18" figure above was inflated and is corrected here. All 4
+      changed `'urgent'` → `'high'`, matching the Svelte reference's
+      pre-existing value for those same 4 flag IDs exactly (confirmed via
+      a scratch script against the real HTML engine before and after), so
+      the fix needed no new clinical judgement call — Svelte had already
+      made it. Also fixed the same file's misleading header comment
+      (claimed the 'urgent' tier was intentional "to render the standard
+      urgent/high/medium/low ladder used elsewhere in the monorepo" — true
+      of 4 *other* forms' schemas, but not this one's) and `types.js`'s
+      JSDoc `AdditionalFlag.priority` typedef (dropped `'urgent'`), and
+      removed the now-dead `case 'urgent':` branch from `form-app.js`'s
+      `priorityClass()`. **Separate stack-parity gap found while verifying
+      the Svelte side (fixed in the same pass, not left for later):**
+      FLAG-CVD-002 (current smoker, high) and FLAG-CVD-003 (systolic BP ≥
+      140, medium) existed only in the HTML engine — 18 flags there vs. 16
+      in `front-end-with-svelte/.../flagged-issues.ts` — and had never been
+      ported; ported verbatim, with 3 new Vitest boundary tests plus a
+      4th asserting every flag this engine can raise stays in
+      high/medium/low across every rule at once (20/20 passed, up from
+      16); `pnpm check` clean (0 errors). Regenerated the one persona that
+      exercises all 6 of these flags together (`Critical - very poor
+      control...`) via `bin/test-personas diabetes-assessment --update`
+      (4/4 PASS); diff confirmed to touch only the 4 priority strings and
+      their consequent sort-order, nothing else. Updated `spec/index.md`
+      §3 and the persona file's top-level `note` (correcting the inflated
+      flag count there too). `bin/test-e2e --html diabetes-assessment`
+      2/2 passed; `bin/test-form diabetes-assessment` PASS. Fleet:
+      `bin/test-personas` forms 352/352 PASS, personas 1176/1176 PASS, 0
+      FAIL (unchanged — no persona count drift elsewhere); fleet-wide
+      `bin/test-form` shows only the one pre-existing, unrelated failure
+      (`diabetes-podiatry-assessment`, a foundation-depth-only form never
+      in scope for any front-end gate).
 - [x] **hernia-diagnostic-evaluation: doubled red-flag rule IDs.** FIXED
       2026-09-06. `screenRedFlags` built IDs as
       `` `R-RED-FLAG-${key…toUpperCase()}` `` but every key already started
