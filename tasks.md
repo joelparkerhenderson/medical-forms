@@ -1661,6 +1661,48 @@ updating that form's `spec/index.md`, then the engine in **all three stacks**
       unreachable. Left alone here — deciding when a tumour-marker request
       should be outright rejected (vs. queried or redirected) is a product/
       clinical judgement call, not a mechanical reorder like the fix above.
+      **FIXED 2026-09-07.** Judgement call made: `scoreAppropriateness`
+      returns `appropriatenessScore === 1` on exactly one path — its early
+      return when zero markers are selected at all
+      (`R-APPROP-NO-MARKER-SELECTED`) — distinct from a marker/indication
+      mismatch (score 2 or 5, stays `query-referrer`) and from screening
+      misuse (score 3, stays `redirect`). No marker selected means nothing
+      was actually requested, so there is no marker choice to query or
+      reconsider; the vetting desk rejects the request outright instead.
+      `deriveRecommendation` now takes `appropriatenessScore` as a 4th
+      argument (in both `js/grader.js` and `src/lib/engine/grader.ts`) and
+      checks `appropriatenessScore === 1` first, before the generic
+      `usually-not-appropriate` branch that would otherwise intercept it —
+      same shadowing hazard as the `redirect` fix above, and confirmed via
+      a scratch script against the real HTML engine both that the new
+      branch fires correctly and that the screening-misuse /
+      all-mismatched routes are untouched. Both stacks' downstream label
+      and colour helpers (`RECOMMENDATION_LABELS`, `recommendationLabel`,
+      `recommendationColor`, and the HTML dashboard's `.rec-reject` CSS)
+      already had full `reject` support — this really was only a missing
+      trigger, nothing else. Updated the existing `grader.test.ts`
+      boundary test (which exercised the no-marker-selected scenario but
+      had never asserted `recommendation`) to expect `reject`, and added 2
+      more tests proving the screening-misuse and all-mismatched routes
+      still resolve to `redirect`/`query-referrer` (14/14 passed, up from
+      12); `pnpm check` clean. Added a 4th persona
+      (`no-marker-selected-otherwise-complete-reject`) via
+      `bin/test-personas tumor-marker-test-request --update` (4/4 PASS, up
+      from 3 — none of the 3 pre-existing personas exercised this path, so
+      none of their `expected` values changed). Documented the full
+      recommendation ladder in a new "Overall recommendation" subsection of
+      `spec/index.md` §3, and updated the persona file's top-level `note`.
+      `bin/test-e2e --html tumor-marker-test-request` 2/2 passed;
+      `bin/test-form tumor-marker-test-request` PASS. Both stacks' sample
+      dashboard data checked and found not to need updating: the Svelte
+      side (`sample-reports.ts`) computes its rows by calling the real
+      `calculateGrade` live, so it already reflects the fix automatically;
+      the HTML side's row shape (`data.js`) doesn't carry a
+      `recommendation` field at all. Fleet: `bin/test-personas` forms
+      352/352 PASS, personas 1177/1177 PASS, 0 FAIL; fleet-wide
+      `bin/test-form` shows only the one pre-existing, unrelated failure
+      (`diabetes-podiatry-assessment`, a foundation-depth-only form never
+      in scope for any front-end gate).
 - [x] **microbiology-culture-test-result: completeness penalises a
       no-growth culture.** FIXED 2026-09-06. `R-COMP-SENSITIVITIES-01`
       required `antibioticSensitivities` text even when `cultureResult` was

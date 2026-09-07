@@ -98,13 +98,36 @@ describe('Tumor marker request four-axis vetting engine', () => {
 		expect(g.flags.some((f) => f.category === 'marker-indication-mismatch')).toBe(true);
 	});
 
-	it('flags no marker selected as high priority and usually-not-appropriate', () => {
+	it('flags no marker selected as high priority, usually-not-appropriate, and rejects', () => {
 		const r = createMonitoringRequest();
 		r.markers.carcinoembryonicAntigenCea = false;
 		const g = calculateGrade(r);
+		expect(g.appropriatenessScore).toBe(1);
 		expect(g.appropriatenessBand).toBe('usually-not-appropriate');
 		expect(g.flags.some((f) => f.category === 'no-marker-selected')).toBe(true);
 		expect(g.firedRules.some((r) => r.ruleId === 'R-APPROP-NO-MARKER-SELECTED')).toBe(true);
+		// No marker was requested at all -- nothing to query or redirect, so
+		// the vetting desk rejects the request outright. Distinct from the
+		// "all selected markers mismatched" and "screening misuse" routes to
+		// the same usually-not-appropriate band, which stay query-referrer /
+		// redirect respectively (see the tests below).
+		expect(g.recommendation).toBe('reject');
+	});
+
+	it('still recommends redirect (not reject) for screening misuse', () => {
+		const r = createMonitoringRequest();
+		r.context.primaryIndication = 'screening-high-risk';
+		const g = calculateGrade(r);
+		expect(g.appropriatenessScore).toBe(3);
+		expect(g.recommendation).toBe('redirect');
+	});
+
+	it('still recommends query-referrer (not reject) when every selected marker mismatches', () => {
+		const r = createMonitoringRequest();
+		r.context.primaryIndication = 'suspected-malignancy';
+		const g = calculateGrade(r);
+		expect(g.appropriatenessScore).toBe(2);
+		expect(g.recommendation).toBe('query-referrer');
 	});
 
 	it('computes weighted partial completeness when high-weight fields are missing', () => {

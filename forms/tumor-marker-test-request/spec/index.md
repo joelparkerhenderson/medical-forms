@@ -46,6 +46,30 @@ can still be incomplete or carry interpretation risk.
 > symptoms scores low. Treat it as clinical decision support, not a validated
 > diagnostic instrument.
 
+### Overall recommendation
+
+`deriveRecommendation` resolves the four axes to one vetting-desk
+recommendation, least-alarming wins only when nothing escalates, checked
+in this order:
+
+1. **`reject`** — `appropriatenessScore === 1`: no tumour marker was
+   selected at all (`R-APPROP-NO-MARKER-SELECTED`). Nothing was actually
+   requested, so there is no marker choice to query or reconsider; the
+   vetting desk rejects the request outright. Must be checked before step
+   3 below, since this case also bands `usually-not-appropriate`.
+2. **`redirect`** — `interpretationBand === 'misuse-risk'` (broad
+   screening use of a poor screening marker). Must be checked before step
+   3, since `scoreAppropriateness` forces `usually-not-appropriate`
+   whenever it forces `misuse-risk`.
+3. **`query-referrer`** — `appropriatenessBand === 'usually-not-appropriate'`
+   via the other route (every selected marker mismatches the recorded
+   indication, with no screening misuse), or `completenessPercent < 50`.
+4. **`accept`** — otherwise.
+
+Fixed 2026-09-06 (redirect ordering) and 2026-09-07 (`reject` trigger);
+previously verified and documented (not silently patched) in
+`examples/personas.json`.
+
 ### Marker-to-indication reference
 
 | Marker | Established appropriate use |

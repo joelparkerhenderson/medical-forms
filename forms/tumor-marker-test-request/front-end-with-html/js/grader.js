@@ -12,7 +12,18 @@ import { scoreAppropriateness, scoreCompleteness, scoreInterpretation, scoreTria
  * Derive an overall recommendation for the laboratory vetting desk from the
  * four axes. Least-alarming wins only when nothing escalates.
  */
-function deriveRecommendation(appropriatenessBand, interpretationBand, completenessPercent) {
+function deriveRecommendation(appropriatenessBand, interpretationBand, completenessPercent, appropriatenessScore) {
+  // `reject`: no tumour marker was selected at all (scoreAppropriateness's
+  // R-APPROP-NO-MARKER-SELECTED early-return, the only path that scores 1).
+  // Distinct from a marker/indication mismatch (query-referrer) or
+  // screening misuse (redirect): there is no marker choice to question or
+  // reconsider — nothing was actually requested, so the lab vetting desk
+  // rejects the request outright rather than querying or redirecting it.
+  // Must run BEFORE the generic appropriateness check below, since a
+  // no-marker-selected request also bands 'usually-not-appropriate' and
+  // would otherwise always be intercepted by that broader, less specific
+  // check first.
+  if (appropriatenessScore === 1) return 'reject';
   // `misuse-risk` is set if and only if scoreAppropriateness's own
   // screeningMisuse flag was true, and that same flag unconditionally forces
   // appropriatenessBand to 'usually-not-appropriate' too — so this check
@@ -75,7 +86,8 @@ function calculateGrade(data) {
   const recommendation = deriveRecommendation(
     appr.band,
     interp.band,
-    completeness.percent
+    completeness.percent,
+    appr.score
   );
 
   const flags = detectFlags(data, {

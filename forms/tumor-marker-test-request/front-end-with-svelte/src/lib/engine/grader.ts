@@ -37,8 +37,20 @@ export const RECOMMENDATION_LABELS: Record<string, string> = {
 export function deriveRecommendation(
 	appropriatenessBand: AppropriatenessBand,
 	interpretationBand: InterpretationBand,
-	completenessPercent: number
+	completenessPercent: number,
+	appropriatenessScore: number
 ): Recommendation {
+	// `reject`: no tumour marker was selected at all (scoreAppropriateness's
+	// R-APPROP-NO-MARKER-SELECTED early-return, the only path that scores 1).
+	// Distinct from a marker/indication mismatch (query-referrer) or
+	// screening misuse (redirect): there is no marker choice to question or
+	// reconsider — nothing was actually requested, so the lab vetting desk
+	// rejects the request outright rather than querying or redirecting it.
+	// Must run BEFORE the generic appropriateness check below, since a
+	// no-marker-selected request also bands 'usually-not-appropriate' and
+	// would otherwise always be intercepted by that broader, less specific
+	// check first.
+	if (appropriatenessScore === 1) return 'reject';
 	// `misuse-risk` is set if and only if scoreAppropriateness's own
 	// screeningMisuse flag was true, and that same flag unconditionally
 	// forces appropriatenessBand to 'usually-not-appropriate' too — so this
@@ -73,7 +85,7 @@ export function calculateGrade(data: TumorMarkerRequest): GradingResult {
 	const triage = scoreTriage(data);
 	for (const r of triage.firedRules) firedRules.push(r);
 
-	const recommendation = deriveRecommendation(appr.band, interp.band, completeness.percent);
+	const recommendation = deriveRecommendation(appr.band, interp.band, completeness.percent, appr.score);
 
 	const flags = detectFlags(data, {
 		triageTier: triage.tier,

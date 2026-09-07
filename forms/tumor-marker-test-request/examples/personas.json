@@ -1,7 +1,7 @@
 {
   "engine": "front-end-with-html",
   "graderHint": "calculateGrade",
-  "note": "Realistic filled-in states in the scoring engine's shape. `expected` is computed by `bin/test-personas --update` and verified by `bin/test-personas`. FIXED 2026-09-06: `deriveRecommendation`'s `redirect` recommendation (interpretationBand === 'misuse-risk') used to be unreachable in practice — `scoreAppropriateness` forces `usually-not-appropriate` in the exact same screening-misuse case that `scoreInterpretation` forces `misuse-risk`, and `deriveRecommendation` checked the appropriateness band first, so screening misuse always resolved to query-referrer, never redirect. Fixed by checking `misuse-risk` first in both `js/grader.js` and `src/lib/engine/grader.ts`; the other route to `usually-not-appropriate` (every selected marker mismatched, no screening misuse involved) is unaffected and still resolves to query-referrer. The third persona below (renamed from its old `query-referrer-...` name) now correctly recommends `redirect`. Separately noted, NOT fixed here (out of this specific finding's scope, and needs a product decision this session isn't positioned to make unilaterally): the `reject` recommendation in `RECOMMENDATION_LABELS` has no trigger anywhere in `deriveRecommendation` either, so it is equally unreachable — see tasks.md Phase 13.",
+  "note": "Realistic filled-in states in the scoring engine's shape. `expected` is computed by `bin/test-personas --update` and verified by `bin/test-personas`. FIXED 2026-09-06: `deriveRecommendation`'s `redirect` recommendation (interpretationBand === 'misuse-risk') used to be unreachable in practice — `scoreAppropriateness` forces `usually-not-appropriate` in the exact same screening-misuse case that `scoreInterpretation` forces `misuse-risk`, and `deriveRecommendation` checked the appropriateness band first, so screening misuse always resolved to query-referrer, never redirect. Fixed by checking `misuse-risk` first in both `js/grader.js` and `src/lib/engine/grader.ts`; the other route to `usually-not-appropriate` (every selected marker mismatched, no screening misuse involved) is unaffected and still resolves to query-referrer. The third persona below (renamed from its old `query-referrer-...` name) now correctly recommends `redirect`. FIXED 2026-09-07: the `reject` recommendation was unreachable because nothing in `deriveRecommendation` ever triggered it. Decided the clinical judgement call this needed (per tasks.md Phase 13's framing): `scoreAppropriateness` returns `appropriatenessScore === 1` on exactly one path -- its early return when zero markers are selected at all (R-APPROP-NO-MARKER-SELECTED) -- distinct from a marker/indication mismatch (score 2 or 5, still query-referrer) and from screening misuse (score 3, still redirect). No marker selected means nothing was actually requested, so there is no marker choice to query or reconsider; the vetting desk rejects the request outright instead. `deriveRecommendation` now takes `appropriatenessScore` as a 4th argument and checks `appropriatenessScore === 1` first, before the generic `usually-not-appropriate` branch that would otherwise intercept it (same shadowing hazard as the redirect fix above -- verified via a scratch script against the real HTML engine, plus 2 new boundary tests proving the screening-misuse and all-mismatched routes still resolve to redirect/query-referrer, not reject). Added the 4th persona below (`no-marker-selected-otherwise-complete-reject`) to demonstrate it; `bin/test-personas --update` 4/4 PASS. Vitest 14/14 passed (up from 12); `pnpm check` clean.",
   "personas": [
     {
       "name": "routine-cancer-monitoring-ca15-3-with-baseline-complete",
@@ -289,6 +289,99 @@
             "priority": "medium",
             "description": "No clinical details / supporting history recorded.",
             "suggestedAction": "Query the referrer for clinical details; markers cannot be interpreted without context."
+          }
+        ]
+      }
+    },
+    {
+      "name": "no-marker-selected-otherwise-complete-reject",
+      "description": "Fully completed referral in every other respect — clinician, patient, indication, clinical details, and triage all present — but no tumour marker checkbox was ticked at all, so there is nothing for the lab to test. Distinct from a marker/indication mismatch (query-referrer) or screening misuse (redirect): nothing was actually requested, so the vetting desk rejects the request outright rather than querying or redirecting it. Expect appropriatenessScore 1, usually-not-appropriate, and reject.",
+      "state": {
+        "clinician": {
+          "clinicianName": "Dr Priya Anand",
+          "clinicianRole": "oncologist",
+          "registrationBody": "GMC",
+          "registrationNumber": "7123456",
+          "requesterContact": "p.anand@example.nhs.uk",
+          "supervisingConsultant": "",
+          "siteName": "Riverbank Oncology Centre",
+          "referralDate": "2026-08-20"
+        },
+        "patient": {
+          "firstName": "Susan",
+          "lastName": "Whitfield",
+          "dateOfBirth": "1968-04-22",
+          "nhsNumber": "943 476 5922"
+        },
+        "markers": {
+          "psa": false,
+          "ca125": false,
+          "ca19_9": false,
+          "carcinoembryonicAntigenCea": false,
+          "alphaFetoproteinAfp": false,
+          "betaHcg": false,
+          "ca15_3": false,
+          "lactateDehydrogenaseLdh": false,
+          "calcitonin": false,
+          "chromograninA": false
+        },
+        "context": {
+          "primaryIndication": "cancer-monitoring",
+          "clinicalDetails": "Known breast cancer, 18 months post-treatment — routine monitoring bloods requested, but the requesting form did not tick any tumour marker.",
+          "knownCancerSite": "Breast",
+          "onTreatment": false,
+          "previousMarkerValue": 22,
+          "previousMarkerDate": "2026-05-20"
+        },
+        "triage": {
+          "urgency": "routine",
+          "requestedByDate": "2026-09-15",
+          "setting": "outpatient",
+          "notes": "Routine 3-monthly oncology follow-up bloods."
+        }
+      },
+      "expected": {
+        "appropriatenessScore": 1,
+        "appropriatenessBand": "usually-not-appropriate",
+        "interpretationBand": "ok",
+        "completenessPercent": 80,
+        "triageTier": "routine",
+        "targetTimeframe": "Within 4-6 weeks",
+        "recommendation": "reject",
+        "recommendationLabel": "Reject",
+        "firedRules": [
+          {
+            "ruleId": "R-APPROP-NO-MARKER-SELECTED",
+            "axis": "appropriateness",
+            "category": "no-marker-selected",
+            "description": "No tumour marker has been selected; the request cannot be actioned."
+          },
+          {
+            "ruleId": "R-INTERP-OK",
+            "axis": "interpretation",
+            "category": "ok",
+            "description": "No interpretation-safety concerns identified."
+          },
+          {
+            "ruleId": "R-COMPLETE-MARKER",
+            "axis": "completeness",
+            "category": "missing-field",
+            "description": "Missing at least one marker."
+          },
+          {
+            "ruleId": "R-TRIAGE-REQUESTED",
+            "axis": "urgency",
+            "category": "requested",
+            "description": "No escalation; triage follows the requested urgency (routine)."
+          }
+        ],
+        "flags": [
+          {
+            "flagId": "F-NO-MARKER-SELECTED-001",
+            "category": "no-marker-selected",
+            "priority": "high",
+            "description": "No tumour marker has been selected on the request.",
+            "suggestedAction": "Reject or query the referrer; specify at least one marker before processing."
           }
         ]
       }
