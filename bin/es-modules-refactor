@@ -54,6 +54,8 @@ STANDALONE = {
     "locale-select.js",
     "text-size-picker.js",
     "share-picker.js",
+    "form-export.js",
+    "form-import.js",
 }
 
 

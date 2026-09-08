@@ -324,6 +324,21 @@ The dashboard (`front-end-with-html/dashboard.html`) follows the analogous
 `js/data.js`, `js/api.js`), plus the standalone `js/table-export.js`. The
 wizard and dashboard cross-link in their page headers.
 
+Where wired, the wizard also loads two standalone modules right after
+`js/form-app.js`: `js/form-export.js` (self-injects a toolbar at the top of
+`<main>` with Download JSON/XML/CSV/TSV buttons for the current, possibly
+in-progress, form state) and `js/form-import.js` (adds an "Import JSON"
+control to that same toolbar that re-populates the wizard from an uploaded
+export). Both are form-agnostic and read a small cross-module contract each
+form's own `form-app.js` sets — `window.__FORM_STATE__ = { slug, getState,
+setState }` — mirroring the existing `window.__A11Y_DRAFT_KEY__` pattern
+rather than importing the wizard's private state directly. `setState` must
+merge the incoming object onto a fresh default state (the same tolerant
+merge `loadState()` already does for localStorage) and re-render the whole
+form, not just assign and hope the shape matches. Reference implementation:
+`pre-operative-assessment-by-clinician`; fleet rollout is tracked
+separately in `tasks.md`.
+
 **Structural rule:** the `<main>` tag does not have an inner `<header>` tag.
 `.page-header` is always a sibling that precedes `<main>`, never nested
 inside it. `.page-footer` is likewise always a sibling that *follows*
