@@ -37,30 +37,41 @@ const STEPS = [
 ];
 const TOTAL_STEPS = STEPS.length;
 
+// Merge a possibly-partial or foreign-shaped object onto a fresh default
+// state, keeping only known fields. Shared by localStorage restore
+// (loadState) and JSON import (js/form-import.js, via
+// window.__FORM_STATE__.setState) so both paths tolerate the same
+// drift -- an older export, a hand-edited file, or a differently-
+// shaped upload.
+function mergeIntoDefaults(parsed) {
+  const fresh = emptyLpa();
+
+  // Shallow-merge top-level keys; nested objects merged one level deep so
+  // additive future fields keep their fresh defaults.
+  for (const key of Object.keys(fresh)) {
+    const v = parsed && parsed[key];
+    if (v === undefined || v === null) continue;
+    if (Array.isArray(fresh[key])) {
+      fresh[key] = Array.isArray(v) ? v : fresh[key];
+    } else if (typeof fresh[key] === 'object') {
+      fresh[key] = { ...fresh[key], ...v };
+    } else {
+      fresh[key] = v;
+    }
+  }
+  // certificateProvider may be null in a fresh LPA but an object in storage.
+  if (parsed && parsed.certificateProvider && typeof parsed.certificateProvider === 'object') {
+    fresh.certificateProvider = parsed.certificateProvider;
+  }
+  return fresh;
+}
+
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return emptyLpa();
     const parsed = JSON.parse(raw);
-    const fresh = emptyLpa();
-    // Shallow-merge top-level keys; nested objects merged one level deep so
-    // additive future fields keep their fresh defaults.
-    for (const key of Object.keys(fresh)) {
-      const v = parsed && parsed[key];
-      if (v === undefined || v === null) continue;
-      if (Array.isArray(fresh[key])) {
-        fresh[key] = Array.isArray(v) ? v : fresh[key];
-      } else if (typeof fresh[key] === 'object') {
-        fresh[key] = { ...fresh[key], ...v };
-      } else {
-        fresh[key] = v;
-      }
-    }
-    // certificateProvider may be null in a fresh LPA but an object in storage.
-    if (parsed && parsed.certificateProvider && typeof parsed.certificateProvider === 'object') {
-      fresh.certificateProvider = parsed.certificateProvider;
-    }
-    return fresh;
+    return mergeIntoDefaults(parsed);
   } catch (e) {
     console.warn('Could not parse saved LPA; starting fresh.', e);
     return emptyLpa();
@@ -89,6 +100,26 @@ function clearState() {
 
 let state = loadState();
 let lastResult = null;
+
+// Uniform, minimal cross-module contract for the shared js/form-export.js and
+// js/form-import.js snippets (mirrors the existing window.__A11Y_DRAFT_KEY__
+// pattern above) -- keeps the actual export/import logic in one form-agnostic
+// module while each form-app.js owns its own private `state`.
+window.__FORM_STATE__ = {
+  slug: 'united-kingdom-lasting-power-of-attorney-for-financial-decisions',
+  getState: () => state,
+  setState: (raw) => {
+    state = mergeIntoDefaults(raw);
+    saveState(state);
+    lastResult = null;
+    const report = document.getElementById('report');
+    if (report) report.innerHTML = '<p class="empty-message">Submit the form to see the validation report.</p>';
+    renderErrorSummary([]);
+    renderForm();
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
 function esc(s) {
   return String(s ?? '')

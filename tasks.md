@@ -201,8 +201,15 @@ Design each feature on the reference forms
       `pre-operative-assessment-by-clinician` (HTML) and `cardiology-request`
       (Svelte). Filenames `<slug>-<date>.<ext>`; JSON/XML/CSV/TSV download,
       JSON upload re-populates the wizard, E2E round-trip test on the HTML
-      side. Fleet-wide mechanical rollout across the other ~350 forms is
-      separate, not-yet-started follow-on work.
+      side. **Fleet-wide HTML rollout DONE 2026-09-08** via the new
+      `bin/form-export-import-refactor` (263/350 forms; see Phase 11 below
+      for the full writeup) — the mechanical "roll out ... with a
+      `--check` tool" half of this item is now complete for HTML. Svelte's
+      fleet rollout is still separate, not-yet-started follow-on work (no
+      equivalent mechanical tool built yet — the Svelte reference form's
+      state architecture and reactivity pitfall make this a harder
+      mechanical target than HTML's regex-extractable `loadState`/
+      `startOver` shape).
 - [ ] **Autosave**: localStorage persistence keyed by slug, restore banner
       on load, clear-on-submit + explicit clear control; both front-ends.
       E2E test: fill half, reload, assert restored. HTML reference form
@@ -949,6 +956,72 @@ personas. Once the oracle exists, persona scaffolding + fill is mechanical
       including the reactivity pitfall generally (not just for this
       feature) in case the same `const d = store.data` capture pattern
       exists in other forms' step components — not audited fleet-wide.
+
+      **Fleet-wide HTML rollout: DONE 2026-09-08.** New
+      `bin/form-export-import-refactor`, a mechanical, idempotent,
+      `--check`-gated tool that reproduces the hand-written reference
+      change for every OTHER HTML front-end matching the fleet's
+      dominant `form-app.js` shape — `let state = loadState();` +
+      `let lastResult = null;` at module scope, a `loadState()` with a
+      `const fresh = X(); <merge loop>; return fresh;` try-block, and a
+      `startOver()` with a `state = X();` line. Deliberately does NOT
+      reimplement any per-form logic: `loadState()`'s merge loop (which
+      varies per form — some check `typeof`, some handle arrays, one
+      form's toxicology engine has a `NUMERIC_FIELD_SET`-driven variant)
+      is extracted verbatim into a new `mergeIntoDefaults()`, and
+      `startOver()`'s exact post-reset tail (whatever per-form
+      render/refresh functions that specific form calls, in whatever
+      order) is reused verbatim as the JSON-import re-render sequence —
+      so a mechanical pass never has to *guess* which functions a given
+      form defines. Forms not matching the idioms are left untouched and
+      reported under `SKIP (needs manual handling)`, the same escape
+      hatch `bin/es-modules-refactor` / `bin/lily-html-refactor` use.
+      Reconnaissance before writing the tool found the idioms hold for
+      263/350 forms (a `let state = loadState();` gate at 277/350, minus
+      14 forms — including the already-hand-migrated reference form
+      itself — whose `loadState()` shape doesn't cleanly match, verified
+      by direct regex reconnaissance against the real fleet before
+      committing to the approach, not assumed).
+
+      Two real regex bugs caught and fixed before applying fleet-wide,
+      both the same root cause: `^(\s*)` / `\s*$` for a "same-line
+      whitespace" capture is wrong wherever `\s` includes `\n` — the
+      pattern greedily walks backward/forward through *blank lines*
+      (which are also whitespace), matching from an earlier or later
+      line than intended. First surfaced as doubled blank lines around
+      the injected `<script>` tags on the very first test form; fixed by
+      switching every same-line indent/trailing-whitespace group to
+      `[ \t]*`. A second, subtler instance of the same class then showed
+      up as a missing blank line before the `window.__FORM_STATE__`
+      block and a doubled one after it on a *different* test form (an
+      indentation/spacing management bug in the block-builder itself,
+      not the regex) — fixed by having `build_form_state_block()` return
+      content with no leading/trailing blank lines and having the one
+      caller that inserts it own all spacing explicitly, rather than
+      three different code paths each guessing at what was already
+      around their own insertion point.
+
+      Verified before applying fleet-wide: `node --check` on a
+      hand-picked diverse batch of 4 forms (a `*-test-result`, a
+      `*-test-request`, a WHO trauma form, and a calculator with a
+      nested-array merge case) plus `html-smoke` + `dashboard-export` +
+      a newly-generalised `form-export-import` E2E round-trip (the
+      reference-form version only worked for its own field ids; rewrote
+      it to fill the first visible free-text input with a marker and
+      assert the marker survives export → reset → import, working for
+      any form's field shape) — all green. After applying to all 263:
+      `node --check` on every changed file (0 failures), `bin/
+      es-modules-refactor --check --all` and `bin/lily-html-refactor
+      --check --all` both clean fleet-wide, the full E2E suite
+      (`html-smoke` + `dashboard-export` + `form-export-import`) —
+      974 tests — 974/974 passed, fleet-wide `bin/test-form` shows only
+      the one pre-existing, unrelated failure
+      (`diabetes-podiatry-assessment`). `js/form-export.js` and
+      `js/form-import.js` confirmed byte-identical across all 263 forms
+      (`cmp` against the reference form), matching the existing
+      `js/table-export.js` vendoring convention. Documented in
+      `forms/AGENTS-front-end-html.md` and `AGENTS.md`'s Generators
+      catalogue + Verify section; `docs/tools.md` regenerated.
 - [ ] Loco: per-crate seeder from `examples/` + serve `combined/openapi.yaml`
       at `/api/openapi.yaml` (second half of serve-OpenAPI).
 - [x] **Personas: COMPLETE.** This entry's own incremental tracking stopped

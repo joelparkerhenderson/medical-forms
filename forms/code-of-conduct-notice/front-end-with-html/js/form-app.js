@@ -19,19 +19,30 @@ const STORAGE_KEY = 'code-of-conduct-notice.front-end-form-with-html.v1';
 const TOTAL_STEPS = 3;
 
 /** @returns {import('./types.js').AssessmentData} */
+// Merge a possibly-partial or foreign-shaped object onto a fresh default
+// state, keeping only known fields. Shared by localStorage restore
+// (loadState) and JSON import (js/form-import.js, via
+// window.__FORM_STATE__.setState) so both paths tolerate the same
+// drift -- an older export, a hand-edited file, or a differently-
+// shaped upload.
+function mergeIntoDefaults(parsed) {
+  // Merge over a fresh empty so any newly-added fields default correctly.
+  const fresh = emptyAssessment();
+
+  for (const key of Object.keys(fresh)) {
+    if (parsed && typeof parsed[key] === 'object' && parsed[key] !== null) {
+      fresh[key] = { ...fresh[key], ...parsed[key] };
+    }
+  }
+  return fresh;
+}
+
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return emptyAssessment();
     const parsed = JSON.parse(raw);
-    // Merge over a fresh empty so any newly-added fields default correctly.
-    const fresh = emptyAssessment();
-    for (const key of Object.keys(fresh)) {
-      if (parsed && typeof parsed[key] === 'object' && parsed[key] !== null) {
-        fresh[key] = { ...fresh[key], ...parsed[key] };
-      }
-    }
-    return fresh;
+    return mergeIntoDefaults(parsed);
   } catch (e) {
     console.warn('Could not parse saved acknowledgement; starting fresh.', e);
     return emptyAssessment();
@@ -64,6 +75,32 @@ let state = loadState();
 
 /** @type {import('./types.js').GradingResult | null} */
 let lastResult = null;
+
+// Uniform, minimal cross-module contract for the shared js/form-export.js and
+// js/form-import.js snippets (mirrors the existing window.__A11Y_DRAFT_KEY__
+// pattern above) -- keeps the actual export/import logic in one form-agnostic
+// module while each form-app.js owns its own private `state`.
+window.__FORM_STATE__ = {
+  slug: 'code-of-conduct-notice',
+  getState: () => state,
+  setState: (raw) => {
+    state = mergeIntoDefaults(raw);
+    saveState(state);
+    // Repopulate today's date so step 3 is pre-filled like the Svelte version.
+    state.acknowledgementSignature.recipientTypedDate =
+      new Date().toISOString().slice(0, 10);
+    saveState(state);
+    lastResult = null;
+    document.getElementById('report').innerHTML =
+      '<p class="empty-message">Submit the form to see the report.</p>';
+    renderErrorSummary([]);
+    renderForm();
+    updateProgress();
+    updateConditionalSections();
+    updateCheckboxVisual();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
 // Auto-populate today's date if not yet set (mirrors Step3 Svelte logic).
 if (!state.acknowledgementSignature.recipientTypedDate) {

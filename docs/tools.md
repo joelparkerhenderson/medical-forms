@@ -2,7 +2,7 @@
 
 Auto-generated from each tool's source header by `bin/generate-tools-doc.py` — do not hand-edit. Run the generator after adding or re-documenting a tool.
 
-84 tools.
+85 tools.
 
 - [`bin/clean`](#clean)
 - [`bin/consolidate-front-end-html`](#consolidate-front-end-html)
@@ -10,6 +10,7 @@ Auto-generated from each tool's source header by `bin/generate-tools-doc.py` —
 - [`bin/es-modules-decomment`](#es-modules-decomment)
 - [`bin/es-modules-refactor`](#es-modules-refactor)
 - [`bin/fill-full-stack-stubs.py`](#fill-full-stack-stubspy)
+- [`bin/form-export-import-refactor`](#form-export-import-refactor)
 - [`bin/forms-as-kebab-case`](#forms-as-kebab-case)
 - [`bin/forms-as-pascal-case`](#forms-as-pascal-case)
 - [`bin/forms-as-snake-case`](#forms-as-snake-case)
@@ -173,6 +174,59 @@ forms.
 Replaces files that contain the placeholder phrase "Not yet implemented." with
 templated content describing the planned Rust JSON API back-end. Each form's
 root index.md is read to extract the form's title and one-line description.
+```
+
+<h2 id="form-export-import-refactor"><code>bin/form-export-import-refactor</code></h2>
+
+```text
+bin/form-export-import-refactor — mechanically roll out wizard-level
+JSON/XML/CSV/TSV export and JSON import to every HTML front-end that
+matches the fleet's dominant `form-app.js` shape.
+
+Reference implementation: forms/pre-operative-assessment-by-clinician
+(see forms/AGENTS-front-end-html.md "Where wired..." for the contract).
+This tool reproduces that hand-written change mechanically for every
+other form whose form-app.js/index.html match the same idioms:
+
+  1. `js/form-app.js` declares `let state = loadState();` and
+     `let lastResult = null;` at module scope.
+  2. `loadState()` has the shape
+     `const fresh = <emptyFn>(); <merge loop>; return fresh;` inside its
+     try block — the merge loop varies per form (some check typeof,
+     some check arrays, some have field-specific logic) and is extracted
+     verbatim, not reimplemented.
+  3. `startOver()` has a `state = <emptyFn>();` line, and everything
+     after it (in whatever order and whatever per-form functions that
+     specific form calls) is the exact re-render sequence a fresh
+     import should also run — extracted verbatim, not reimplemented.
+  4. `index.html` has an exact
+     `<script type="module" src="js/form-app.js"></script>` line.
+
+Forms not matching all four idioms are left untouched and reported
+under "SKIP (needs manual handling)" — the same escape hatch
+bin/es-modules-refactor and bin/lily-html-refactor use for idioms a
+mechanical pass should not guess at.
+
+For each matched form, this tool:
+  - Extracts loadState()'s merge loop into a new, separate
+    `mergeIntoDefaults(parsed)` function (also used by JSON import, so
+    both restore paths tolerate the same partial/foreign-shaped input);
+    rewrites loadState() to call it.
+  - Inserts a `window.__FORM_STATE__ = { slug, getState, setState }`
+    block after `let lastResult = null;`, whose `setState` reuses
+    startOver()'s exact post-reset tail.
+  - Vendors js/form-export.js and js/form-import.js (byte-identical
+    across every form, like js/table-export.js) into the form's js/.
+  - Adds the two forms' <script type="module"> tags to index.html,
+    right after the form-app.js entry tag.
+
+Usage:
+    bin/form-export-import-refactor [--check] [--dry-run] [--all|<slug>...]
+
+--check reports which forms would change / are skipped, and exits
+non-zero if any change is pending (CI drift detector). --dry-run shows
+per-form status without writing. Default (no flags): apply. Idempotent:
+a form already carrying `window.__FORM_STATE__` is left alone.
 ```
 
 <h2 id="forms-as-kebab-case"><code>bin/forms-as-kebab-case</code></h2>

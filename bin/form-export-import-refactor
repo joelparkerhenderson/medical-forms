@@ -1,0 +1,309 @@
+#!/usr/bin/env python3
+"""bin/form-export-import-refactor — mechanically roll out wizard-level
+JSON/XML/CSV/TSV export and JSON import to every HTML front-end that
+matches the fleet's dominant `form-app.js` shape.
+
+Reference implementation: forms/pre-operative-assessment-by-clinician
+(see forms/AGENTS-front-end-html.md "Where wired..." for the contract).
+This tool reproduces that hand-written change mechanically for every
+other form whose form-app.js/index.html match the same idioms:
+
+  1. `js/form-app.js` declares `let state = loadState();` and
+     `let lastResult = null;` at module scope.
+  2. `loadState()` has the shape
+     `const fresh = <emptyFn>(); <merge loop>; return fresh;` inside its
+     try block — the merge loop varies per form (some check typeof,
+     some check arrays, some have field-specific logic) and is extracted
+     verbatim, not reimplemented.
+  3. `startOver()` has a `state = <emptyFn>();` line, and everything
+     after it (in whatever order and whatever per-form functions that
+     specific form calls) is the exact re-render sequence a fresh
+     import should also run — extracted verbatim, not reimplemented.
+  4. `index.html` has an exact
+     `<script type="module" src="js/form-app.js"></script>` line.
+
+Forms not matching all four idioms are left untouched and reported
+under "SKIP (needs manual handling)" — the same escape hatch
+bin/es-modules-refactor and bin/lily-html-refactor use for idioms a
+mechanical pass should not guess at.
+
+For each matched form, this tool:
+  - Extracts loadState()'s merge loop into a new, separate
+    `mergeIntoDefaults(parsed)` function (also used by JSON import, so
+    both restore paths tolerate the same partial/foreign-shaped input);
+    rewrites loadState() to call it.
+  - Inserts a `window.__FORM_STATE__ = { slug, getState, setState }`
+    block after `let lastResult = null;`, whose `setState` reuses
+    startOver()'s exact post-reset tail.
+  - Vendors js/form-export.js and js/form-import.js (byte-identical
+    across every form, like js/table-export.js) into the form's js/.
+  - Adds the two forms' <script type="module"> tags to index.html,
+    right after the form-app.js entry tag.
+
+Usage:
+    bin/form-export-import-refactor [--check] [--dry-run] [--all|<slug>...]
+
+--check reports which forms would change / are skipped, and exits
+non-zero if any change is pending (CI drift detector). --dry-run shows
+per-form status without writing. Default (no flags): apply. Idempotent:
+a form already carrying `window.__FORM_STATE__` is left alone.
+"""
+
+import argparse
+import re
+import sys
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+FORMS_DIR = REPO_ROOT / "forms"
+REFERENCE_FORM = "pre-operative-assessment-by-clinician"
+
+# [ \t]*, never \s*, for any same-line leading/trailing-whitespace group:
+# \s matches newlines too, so ^(\s*) greedily walks backward through blank
+# lines (matching from an *earlier* blank line's start) and a trailing
+# \s*$ walks forward the same way -- verified live (produced doubled blank
+# lines around the injected <script> tags) before fixing, not assumed.
+STATE_DECL_RE = re.compile(r"^let state = loadState\(\);[ \t]*$", re.MULTILINE)
+LAST_RESULT_RE = re.compile(r"^let lastResult = null;[ \t]*$", re.MULTILINE)
+LOAD_STATE_RE = re.compile(r"function loadState\(\) \{\n(.*?)\n\}\n", re.DOTALL)
+START_OVER_RE = re.compile(r"function startOver\(\) \{\n(.*?)\n\}\n", re.DOTALL)
+FRESH_LINE_RE = re.compile(r"^([ \t]*)const fresh = (\w+)\(\);[ \t]*$", re.MULTILINE)
+RETURN_FRESH_RE = re.compile(r"^[ \t]*return fresh;[ \t]*$", re.MULTILINE)
+STATE_ASSIGN_RE = re.compile(r"^([ \t]*)state = (\w+)\(\);[ \t]*$", re.MULTILINE)
+SCRIPT_TAG_RE = re.compile(r'^([ \t]*)<script type="module" src="js/form-app\.js"></script>[ \t]*$', re.MULTILINE)
+
+FORM_EXPORT_SRC = (Path(__file__).resolve().parent.parent / "forms" / REFERENCE_FORM
+                   / "front-end-with-html" / "js" / "form-export.js")
+FORM_IMPORT_SRC = (Path(__file__).resolve().parent.parent / "forms" / REFERENCE_FORM
+                    / "front-end-with-html" / "js" / "form-import.js")
+
+
+class Skip(Exception):
+    """Raised to skip a form whose idioms this tool doesn't recognise."""
+
+
+def dedent_lines(text: str, spaces: int) -> str:
+    """Remove up to `spaces` leading spaces from each non-blank line."""
+    prefix = " " * spaces
+    return "\n".join(
+        (ln[spaces:] if ln.startswith(prefix) else ln.lstrip(" ")) if ln.strip() else ln
+        for ln in text.split("\n")
+    )
+
+
+def indent_lines(text: str, spaces: int) -> str:
+    """Add `spaces` leading spaces to each non-blank line."""
+    prefix = " " * spaces
+    return "\n".join((prefix + ln) if ln.strip() else ln for ln in text.split("\n"))
+
+
+def build_merge_function(load_state_body: str) -> tuple[str, str, str]:
+    """Returns (empty_fn_name, merge_function_text, rewritten_load_state_body)."""
+    fresh_m = FRESH_LINE_RE.search(load_state_body)
+    return_m = RETURN_FRESH_RE.search(load_state_body)
+    if not fresh_m or not return_m or return_m.start() < fresh_m.end():
+        raise Skip("loadState() has no clean 'const fresh = emptyX(); ... return fresh;' shape")
+    orig_indent = fresh_m.group(1)  # loadState()'s try-body indent (typically 4 spaces)
+    empty_fn = fresh_m.group(2)
+    merge_loop = load_state_body[fresh_m.end():return_m.start()]
+    if not merge_loop.strip():
+        raise Skip("loadState()'s merge loop is empty")
+    # mergeIntoDefaults() has one less nesting level than loadState()'s try
+    # block (no surrounding try{}), so dedent the copied loop by one level.
+    dedent_amount = len(orig_indent) - 2
+    if dedent_amount > 0:
+        merge_loop = dedent_lines(merge_loop, dedent_amount)
+
+    # Any comments between "const parsed = ..." and "const fresh = ..."
+    # explain the merge strategy below -- carry them into mergeIntoDefaults
+    # rather than silently dropping them.
+    parsed_m = re.search(r"^([ \t]*)const parsed = JSON\.parse\(raw\);[ \t]*$", load_state_body, re.MULTILINE)
+    if not parsed_m:
+        raise Skip("loadState() has no 'const parsed = JSON.parse(raw);' line")
+    between = load_state_body[parsed_m.end():fresh_m.start()]
+    carried_comments = "".join(
+        ln.strip() + "\n" for ln in between.split("\n") if ln.strip().startswith("//")
+    )
+    if carried_comments:
+        carried_comments = indent_lines(carried_comments.rstrip("\n"), 2) + "\n"
+
+    merge_fn = (
+        "// Merge a possibly-partial or foreign-shaped object onto a fresh default\n"
+        "// state, keeping only known fields. Shared by localStorage restore\n"
+        "// (loadState) and JSON import (js/form-import.js, via\n"
+        "// window.__FORM_STATE__.setState) so both paths tolerate the same\n"
+        "// drift -- an older export, a hand-edited file, or a differently-\n"
+        "// shaped upload.\n"
+        f"function mergeIntoDefaults(parsed) {{\n"
+        f"{carried_comments}"
+        f"  const fresh = {empty_fn}();\n"
+        f"{merge_loop}"
+        f"  return fresh;\n"
+        f"}}\n"
+    )
+
+    # Rewrite loadState()'s body: everything from "const parsed = ..." up to
+    # (and including) the final "return fresh;" collapses to one call.
+    new_body = (
+        load_state_body[: parsed_m.end()]
+        + f"\n{parsed_m.group(1)}return mergeIntoDefaults(parsed);"
+        + load_state_body[return_m.end():]
+    )
+    return empty_fn, merge_fn, new_body
+
+
+def build_form_state_block(slug: str, start_over_body: str) -> str:
+    m = STATE_ASSIGN_RE.search(start_over_body)
+    if not m:
+        raise Skip("startOver() has no 'state = emptyX();' line")
+    tail = start_over_body[m.end():]
+    if not tail.strip():
+        raise Skip("startOver()'s post-reset tail is empty")
+    # The tail is copied from startOver()'s top-level function body (2-space
+    # indent) into setState's arrow-function body, one nesting level deeper
+    # (4-space indent) -- add exactly 2 spaces to every line, preserving each
+    # line's own relative indentation (e.g. a wrapped statement's continuation).
+    reindented = indent_lines(tail.strip("\n"), 2)
+
+    # No leading/trailing blank lines here -- the caller controls spacing
+    # around this block explicitly, rather than this function guessing at
+    # what was already around the insertion point (which varies per form
+    # and, handled wrong, produces doubled or missing blank lines -- verified
+    # live before fixing, not assumed).
+    return (
+        "// Uniform, minimal cross-module contract for the shared js/form-export.js and\n"
+        "// js/form-import.js snippets (mirrors the existing window.__A11Y_DRAFT_KEY__\n"
+        "// pattern above) -- keeps the actual export/import logic in one form-agnostic\n"
+        "// module while each form-app.js owns its own private `state`.\n"
+        "window.__FORM_STATE__ = {\n"
+        f"  slug: '{slug}',\n"
+        "  getState: () => state,\n"
+        "  setState: (raw) => {\n"
+        "    state = mergeIntoDefaults(raw);\n"
+        "    saveState(state);\n"
+        f"{reindented}\n"
+        "  }\n"
+        "};"
+    )
+
+
+def process_form(slug: str) -> tuple[bool, str]:
+    """Returns (changed, status_message)."""
+    form_dir = FORMS_DIR / slug / "front-end-with-html"
+    js_path = form_dir / "js" / "form-app.js"
+    html_path = form_dir / "index.html"
+    if not js_path.is_file() or not html_path.is_file():
+        return False, "no front-end-with-html"
+
+    js_text = js_path.read_text()
+    html_text = html_path.read_text()
+
+    if "__FORM_STATE__" in js_text or "js/form-export.js" in html_text:
+        return False, "already migrated"
+    if not STATE_DECL_RE.search(js_text):
+        return False, "SKIP (needs manual handling): no 'let state = loadState();'"
+    if not LAST_RESULT_RE.search(js_text):
+        return False, "SKIP (needs manual handling): no 'let lastResult = null;'"
+
+    load_m = LOAD_STATE_RE.search(js_text)
+    if not load_m:
+        return False, "SKIP (needs manual handling): no loadState() found"
+    over_m = START_OVER_RE.search(js_text)
+    if not over_m:
+        return False, "SKIP (needs manual handling): no startOver() found"
+    if not SCRIPT_TAG_RE.search(html_text):
+        return False, "SKIP (needs manual handling): no form-app.js <script> tag in index.html"
+
+    try:
+        build_merge_function(load_m.group(1))
+        build_form_state_block(slug, over_m.group(1))
+    except Skip as e:
+        return False, f"SKIP (needs manual handling): {e}"
+
+    return True, "changed"
+
+
+def write_form(slug: str) -> None:
+    form_dir = FORMS_DIR / slug / "front-end-with-html"
+    js_path = form_dir / "js" / "form-app.js"
+    html_path = form_dir / "index.html"
+
+    js_text = js_path.read_text()
+    html_text = html_path.read_text()
+
+    load_m = LOAD_STATE_RE.search(js_text)
+    over_m = START_OVER_RE.search(js_text)
+    empty_fn, merge_fn, new_load_body = build_merge_function(load_m.group(1))
+    form_state_block = build_form_state_block(slug, over_m.group(1))
+
+    new_js = js_text[: load_m.start()] + merge_fn + "\n" + js_text[load_m.start():]
+    load_m2 = LOAD_STATE_RE.search(new_js)
+    new_js = new_js[: load_m2.start(1)] + new_load_body + new_js[load_m2.end(1):]
+    lr_m = LAST_RESULT_RE.search(new_js)
+    prefix = new_js[: lr_m.end()]
+    suffix = new_js[lr_m.end():].lstrip("\n")
+    new_js = f"{prefix}\n\n{form_state_block}\n\n{suffix}"
+    js_path.write_text(new_js)
+
+    tag_m = SCRIPT_TAG_RE.search(html_text)
+    indent = tag_m.group(1)
+    insertion = (
+        f'{indent}<script type="module" src="js/form-export.js"></script>\n'
+        f'{indent}<script type="module" src="js/form-import.js"></script>'
+    )
+    new_html = html_text[: tag_m.end()] + "\n" + insertion + html_text[tag_m.end():]
+    html_path.write_text(new_html)
+
+    (form_dir / "js" / "form-export.js").write_text(FORM_EXPORT_SRC.read_text())
+    (form_dir / "js" / "form-import.js").write_text(FORM_IMPORT_SRC.read_text())
+
+
+def iter_candidate_slugs():
+    for js in sorted(FORMS_DIR.glob("*/front-end-with-html/js/form-app.js")):
+        yield js.parts[-4]
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("slugs", nargs="*", help="form slugs (default: every form)")
+    parser.add_argument("--all", action="store_true", help="same as no slugs: every form")
+    parser.add_argument("--check", action="store_true", help="report drift; exit 1 if any pending; don't write")
+    parser.add_argument("--dry-run", action="store_true", help="show status per form; don't write")
+    args = parser.parse_args()
+
+    if args.slugs:
+        slugs = args.slugs
+    else:
+        slugs = list(iter_candidate_slugs())
+
+    dry = args.check or args.dry_run
+    changed = []
+    skipped = []
+    for slug in slugs:
+        if slug == REFERENCE_FORM:
+            continue  # already hand-written; the tool's own source of truth
+        will_change, status = process_form(slug)
+        if will_change:
+            changed.append(slug)
+            if not dry:
+                write_form(slug)
+        elif status.startswith("SKIP"):
+            skipped.append((slug, status))
+
+    if args.check:
+        print(f"form-export-import-refactor [CHECK]: {len(changed)} form(s) pending, "
+              f"{len(skipped)} SKIP (needs manual handling)")
+        for slug in changed:
+            print(f"  would change: {slug}")
+        return 1 if changed else 0
+
+    verb = "would change" if dry else "changed"
+    print(f"form-export-import-refactor: {len(changed)} form(s) {verb}, "
+          f"{len(skipped)} SKIP (needs manual handling)")
+    for slug, status in skipped:
+        print(f"  {slug}: {status}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

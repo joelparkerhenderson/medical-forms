@@ -24,25 +24,36 @@ const STORAGE_KEY = 'holter-monitor-test-result.front-end-with-html.v1';
 const NUMERIC_FIELD_SET = new Set(NUMERIC_FIELDS);
 
 /** @returns {import('./types.js').HolterMonitorResult} */
+// Merge a possibly-partial or foreign-shaped object onto a fresh default
+// state, keeping only known fields. Shared by localStorage restore
+// (loadState) and JSON import (js/form-import.js, via
+// window.__FORM_STATE__.setState) so both paths tolerate the same
+// drift -- an older export, a hand-edited file, or a differently-
+// shaped upload.
+function mergeIntoDefaults(parsed) {
+  // Merge over a fresh empty so any newly-added fields default correctly.
+  // Numeric fields default to null, so they need a null-safe merge (a
+  // plain typeof comparison would reject every stored number).
+  const fresh = emptyResult();
+
+  for (const key of Object.keys(fresh)) {
+    if (!parsed || !(key in parsed)) continue;
+    const value = parsed[key];
+    if (NUMERIC_FIELD_SET.has(key)) {
+      if (value === null || typeof value === 'number') fresh[key] = value;
+    } else if (typeof value === typeof fresh[key]) {
+      fresh[key] = value;
+    }
+  }
+  return fresh;
+}
+
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return emptyResult();
     const parsed = JSON.parse(raw);
-    // Merge over a fresh empty so any newly-added fields default correctly.
-    // Numeric fields default to null, so they need a null-safe merge (a
-    // plain typeof comparison would reject every stored number).
-    const fresh = emptyResult();
-    for (const key of Object.keys(fresh)) {
-      if (!parsed || !(key in parsed)) continue;
-      const value = parsed[key];
-      if (NUMERIC_FIELD_SET.has(key)) {
-        if (value === null || typeof value === 'number') fresh[key] = value;
-      } else if (typeof value === typeof fresh[key]) {
-        fresh[key] = value;
-      }
-    }
-    return fresh;
+    return mergeIntoDefaults(parsed);
   } catch (e) {
     console.warn('Could not parse saved report; starting fresh.', e);
     return emptyResult();
@@ -75,6 +86,28 @@ let state = loadState();
 
 /** @type {import('./types.js').GradingResult | null} */
 let lastResult = null;
+
+// Uniform, minimal cross-module contract for the shared js/form-export.js and
+// js/form-import.js snippets (mirrors the existing window.__A11Y_DRAFT_KEY__
+// pattern above) -- keeps the actual export/import logic in one form-agnostic
+// module while each form-app.js owns its own private `state`.
+window.__FORM_STATE__ = {
+  slug: 'holter-monitor-test-result',
+  getState: () => state,
+  setState: (raw) => {
+    state = mergeIntoDefaults(raw);
+    saveState(state);
+    lastResult = null;
+    const _rep = document.getElementById('report');
+    if (_rep) _rep.innerHTML = '<p class="empty-message">Submit the form to see the structured report.</p>';
+    renderErrorSummary([]);
+    renderForm();
+    updateProgress();
+    updateConditionalAlerts();
+    refreshLivePreview();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
 const TOTAL_STEPS = 7;
 

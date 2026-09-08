@@ -22,31 +22,42 @@ import { abnormalitySeverityClass, abnormalitySeverityLabel, bronchodilatorRever
 const STORAGE_KEY = 'pulmonary-function-test-result.front-end-with-html.v1';
 
 /** @returns {import('./types.js').PulmonaryFunctionResult} */
+// Merge a possibly-partial or foreign-shaped object onto a fresh default
+// state, keeping only known fields. Shared by localStorage restore
+// (loadState) and JSON import (js/form-import.js, via
+// window.__FORM_STATE__.setState) so both paths tolerate the same
+// drift -- an older export, a hand-edited file, or a differently-
+// shaped upload.
+function mergeIntoDefaults(parsed) {
+  // Merge over a fresh empty so any newly-added fields default correctly.
+  // Numeric fields default to null, so a plain typeof comparison would
+  // reject saved numbers — accept a saved value when it has the same type
+  // as the default, or when either side is null (numeric '' -> null).
+  const fresh = emptyResult();
+
+  if (parsed && typeof parsed === 'object') {
+    for (const key of Object.keys(fresh)) {
+      if (!Object.prototype.hasOwnProperty.call(parsed, key)) continue;
+      const value = parsed[key];
+      if (fresh[key] === null) {
+        // Numeric slot: accept a finite number or null.
+        if (value === null || typeof value === 'number') fresh[key] = value;
+      } else if (value === null && typeof fresh[key] === 'number') {
+        fresh[key] = null;
+      } else if (typeof value === typeof fresh[key]) {
+        fresh[key] = value;
+      }
+    }
+  }
+  return fresh;
+}
+
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return emptyResult();
     const parsed = JSON.parse(raw);
-    // Merge over a fresh empty so any newly-added fields default correctly.
-    // Numeric fields default to null, so a plain typeof comparison would
-    // reject saved numbers — accept a saved value when it has the same type
-    // as the default, or when either side is null (numeric '' -> null).
-    const fresh = emptyResult();
-    if (parsed && typeof parsed === 'object') {
-      for (const key of Object.keys(fresh)) {
-        if (!Object.prototype.hasOwnProperty.call(parsed, key)) continue;
-        const value = parsed[key];
-        if (fresh[key] === null) {
-          // Numeric slot: accept a finite number or null.
-          if (value === null || typeof value === 'number') fresh[key] = value;
-        } else if (value === null && typeof fresh[key] === 'number') {
-          fresh[key] = null;
-        } else if (typeof value === typeof fresh[key]) {
-          fresh[key] = value;
-        }
-      }
-    }
-    return fresh;
+    return mergeIntoDefaults(parsed);
   } catch (e) {
     console.warn('Could not parse saved report; starting fresh.', e);
     return emptyResult();
@@ -79,6 +90,28 @@ let state = loadState();
 
 /** @type {import('./types.js').GradingResult | null} */
 let lastResult = null;
+
+// Uniform, minimal cross-module contract for the shared js/form-export.js and
+// js/form-import.js snippets (mirrors the existing window.__A11Y_DRAFT_KEY__
+// pattern above) -- keeps the actual export/import logic in one form-agnostic
+// module while each form-app.js owns its own private `state`.
+window.__FORM_STATE__ = {
+  slug: 'pulmonary-function-test-result',
+  getState: () => state,
+  setState: (raw) => {
+    state = mergeIntoDefaults(raw);
+    saveState(state);
+    lastResult = null;
+    const _rep = document.getElementById('report');
+    if (_rep) _rep.innerHTML = '<p class="empty-message">Submit the form to see the structured report.</p>';
+    renderErrorSummary([]);
+    renderForm();
+    updateProgress();
+    updateConditionalAlerts();
+    refreshLivePreview();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
 const TOTAL_STEPS = 7;
 

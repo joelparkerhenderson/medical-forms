@@ -23,24 +23,35 @@ import { adherenceLabel, anticholinergicBandLabel, burdenBandClass, burdenBandLa
 const STORAGE_KEY = 'structured-medication-review.front-end-with-html.v1';
 
 /** @returns {import('./types.js').ReviewData} */
+// Merge a possibly-partial or foreign-shaped object onto a fresh default
+// state, keeping only known fields. Shared by localStorage restore
+// (loadState) and JSON import (js/form-import.js, via
+// window.__FORM_STATE__.setState) so both paths tolerate the same
+// drift -- an older export, a hand-edited file, or a differently-
+// shaped upload.
+function mergeIntoDefaults(parsed) {
+  const fresh = emptyReview();
+
+  for (const key of Object.keys(fresh)) {
+    if (key === 'medicines') continue;
+    if (parsed && typeof parsed[key] === 'object' && parsed[key] !== null) {
+      fresh[key] = { ...fresh[key], ...parsed[key] };
+    }
+  }
+  // Rehydrate the medicine list, merging each row over a fresh empty so any
+  // newly-added medicine fields default correctly.
+  if (parsed && Array.isArray(parsed.medicines)) {
+    fresh.medicines = parsed.medicines.map((m) => ({ ...emptyMedicine(), ...m }));
+  }
+  return fresh;
+}
+
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return emptyReview();
     const parsed = JSON.parse(raw);
-    const fresh = emptyReview();
-    for (const key of Object.keys(fresh)) {
-      if (key === 'medicines') continue;
-      if (parsed && typeof parsed[key] === 'object' && parsed[key] !== null) {
-        fresh[key] = { ...fresh[key], ...parsed[key] };
-      }
-    }
-    // Rehydrate the medicine list, merging each row over a fresh empty so any
-    // newly-added medicine fields default correctly.
-    if (parsed && Array.isArray(parsed.medicines)) {
-      fresh.medicines = parsed.medicines.map((m) => ({ ...emptyMedicine(), ...m }));
-    }
-    return fresh;
+    return mergeIntoDefaults(parsed);
   } catch (e) {
     console.warn('Could not parse saved review; starting fresh.', e);
     return emptyReview();
@@ -73,6 +84,28 @@ let state = loadState();
 
 /** @type {import('./types.js').GradingResult | null} */
 let lastResult = null;
+
+// Uniform, minimal cross-module contract for the shared js/form-export.js and
+// js/form-import.js snippets (mirrors the existing window.__A11Y_DRAFT_KEY__
+// pattern above) -- keeps the actual export/import logic in one form-agnostic
+// module while each form-app.js owns its own private `state`.
+window.__FORM_STATE__ = {
+  slug: 'structured-medication-review',
+  getState: () => state,
+  setState: (raw) => {
+    state = mergeIntoDefaults(raw);
+    saveState(state);
+    lastResult = null;
+    const _rep = document.getElementById('report');
+    if (_rep) _rep.innerHTML = '<p class="empty-message">Submit the form to see the report.</p>';
+    renderErrorSummary([]);
+    renderForm();
+    updateProgress();
+    updateConditionalSections();
+    refreshLiveSummary();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
 const TOTAL_STEPS = 8;
 

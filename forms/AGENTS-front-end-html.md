@@ -336,8 +336,13 @@ rather than importing the wizard's private state directly. `setState` must
 merge the incoming object onto a fresh default state (the same tolerant
 merge `loadState()` already does for localStorage) and re-render the whole
 form, not just assign and hope the shape matches. Reference implementation:
-`pre-operative-assessment-by-clinician`; fleet rollout is tracked
-separately in `tasks.md`.
+`pre-operative-assessment-by-clinician`; rolled out mechanically to 263/350
+other HTML front-ends by `bin/form-export-import-refactor` — `--check` is
+its CI drift detector. The remaining 87 (non-wizard forms with a
+different state pattern entirely — waiting-list cards, trackers,
+checklists — plus 13 wizards whose `loadState()`/`startOver()` shape was
+too irregular to extract safely) are left for manual handling; see the
+tool's own `SKIP` output for the current list.
 
 **Structural rule:** the `<main>` tag does not have an inner `<header>` tag.
 `.page-header` is always a sibling that precedes `<main>`, never nested

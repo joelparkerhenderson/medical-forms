@@ -17,19 +17,30 @@ import { emptyAssessment, hearingGradeClass, hearingGradeLabel } from './types.j
 
 const STORAGE_KEY = 'audiology-assessment.front-end-form-with-html.v1';
 
+// Merge a possibly-partial or foreign-shaped object onto a fresh default
+// state, keeping only known fields. Shared by localStorage restore
+// (loadState) and JSON import (js/form-import.js, via
+// window.__FORM_STATE__.setState) so both paths tolerate the same
+// drift -- an older export, a hand-edited file, or a differently-
+// shaped upload.
+function mergeIntoDefaults(parsed) {
+  // Merge over a fresh empty so any newly-added fields default correctly.
+  const fresh = emptyAssessment();
+
+  for (const key of Object.keys(fresh)) {
+    if (parsed && typeof parsed[key] === 'object' && parsed[key] !== null) {
+      fresh[key] = Object.assign({}, fresh[key], parsed[key]);
+    }
+  }
+  return fresh;
+}
+
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return emptyAssessment();
     const parsed = JSON.parse(raw);
-    // Merge over a fresh empty so any newly-added fields default correctly.
-    const fresh = emptyAssessment();
-    for (const key of Object.keys(fresh)) {
-      if (parsed && typeof parsed[key] === 'object' && parsed[key] !== null) {
-        fresh[key] = Object.assign({}, fresh[key], parsed[key]);
-      }
-    }
-    return fresh;
+    return mergeIntoDefaults(parsed);
   } catch (e) {
     console.warn('Could not parse saved assessment; starting fresh.', e);
     return emptyAssessment();
@@ -58,6 +69,27 @@ function clearState() {
 
 let state = loadState();
 let lastResult = null;
+
+// Uniform, minimal cross-module contract for the shared js/form-export.js and
+// js/form-import.js snippets (mirrors the existing window.__A11Y_DRAFT_KEY__
+// pattern above) -- keeps the actual export/import logic in one form-agnostic
+// module while each form-app.js owns its own private `state`.
+window.__FORM_STATE__ = {
+  slug: 'audiology-assessment',
+  getState: () => state,
+  setState: (raw) => {
+    state = mergeIntoDefaults(raw);
+    saveState(state);
+    lastResult = null;
+    const report = document.getElementById('report');
+    if (report) report.innerHTML = '<p class="empty-message">Submit the form to see the report.</p>';
+    renderErrorSummary([]);
+    renderForm();
+    updateProgress();
+    updateConditionalSections();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
 function setField(section, field, value) {
   state[section][field] = value;

@@ -22,27 +22,38 @@ import { abnormalitySeverityClass, abnormalitySeverityLabel, csfAppearanceLabel,
 const STORAGE_KEY = 'lumbar-puncture-test-result.front-end-with-html.v1';
 
 /** @returns {import('./types.js').LumbarPunctureResult} */
+// Merge a possibly-partial or foreign-shaped object onto a fresh default
+// state, keeping only known fields. Shared by localStorage restore
+// (loadState) and JSON import (js/form-import.js, via
+// window.__FORM_STATE__.setState) so both paths tolerate the same
+// drift -- an older export, a hand-edited file, or a differently-
+// shaped upload.
+function mergeIntoDefaults(parsed) {
+  // Merge over a fresh empty so any newly-added fields default correctly.
+  // Numeric fields are `number | null`, so accept null (typeof null ===
+  // 'object') as well as numbers for those keys — a null-safe rehydration.
+  const fresh = emptyResult();
+
+  for (const key of Object.keys(fresh)) {
+    if (parsed == null || !(key in parsed)) continue;
+    const freshVal = fresh[key];
+    const savedVal = parsed[key];
+    if (freshVal === null) {
+      // numeric field: accept a number or null.
+      if (savedVal === null || typeof savedVal === 'number') fresh[key] = savedVal;
+    } else if (typeof savedVal === typeof freshVal) {
+      fresh[key] = savedVal;
+    }
+  }
+  return fresh;
+}
+
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return emptyResult();
     const parsed = JSON.parse(raw);
-    // Merge over a fresh empty so any newly-added fields default correctly.
-    // Numeric fields are `number | null`, so accept null (typeof null ===
-    // 'object') as well as numbers for those keys — a null-safe rehydration.
-    const fresh = emptyResult();
-    for (const key of Object.keys(fresh)) {
-      if (parsed == null || !(key in parsed)) continue;
-      const freshVal = fresh[key];
-      const savedVal = parsed[key];
-      if (freshVal === null) {
-        // numeric field: accept a number or null.
-        if (savedVal === null || typeof savedVal === 'number') fresh[key] = savedVal;
-      } else if (typeof savedVal === typeof freshVal) {
-        fresh[key] = savedVal;
-      }
-    }
-    return fresh;
+    return mergeIntoDefaults(parsed);
   } catch (e) {
     console.warn('Could not parse saved report; starting fresh.', e);
     return emptyResult();
@@ -75,6 +86,28 @@ let state = loadState();
 
 /** @type {import('./types.js').GradingResult | null} */
 let lastResult = null;
+
+// Uniform, minimal cross-module contract for the shared js/form-export.js and
+// js/form-import.js snippets (mirrors the existing window.__A11Y_DRAFT_KEY__
+// pattern above) -- keeps the actual export/import logic in one form-agnostic
+// module while each form-app.js owns its own private `state`.
+window.__FORM_STATE__ = {
+  slug: 'lumbar-puncture-test-result',
+  getState: () => state,
+  setState: (raw) => {
+    state = mergeIntoDefaults(raw);
+    saveState(state);
+    lastResult = null;
+    const _rep = document.getElementById('report');
+    if (_rep) _rep.innerHTML = '<p class="empty-message">Submit the form to see the structured report.</p>';
+    renderErrorSummary([]);
+    renderForm();
+    updateProgress();
+    updateConditionalAlerts();
+    refreshLivePreview();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
 const TOTAL_STEPS = 7;
 

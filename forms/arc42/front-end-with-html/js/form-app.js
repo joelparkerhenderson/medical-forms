@@ -20,24 +20,35 @@ import { SECTION_NAMES, completeSectionCount, completenessLabel, emptyDocumentat
 const STORAGE_KEY = 'arc42.front-end-with-html.v1';
 const TOTAL_STEPS = 12;
 
+// Merge a possibly-partial or foreign-shaped object onto a fresh default
+// state, keeping only known fields. Shared by localStorage restore
+// (loadState) and JSON import (js/form-import.js, via
+// window.__FORM_STATE__.setState) so both paths tolerate the same
+// drift -- an older export, a hand-edited file, or a differently-
+// shaped upload.
+function mergeIntoDefaults(parsed) {
+  const fresh = emptyDocumentation();
+
+  for (const key of Object.keys(fresh)) {
+    const v = parsed && parsed[key];
+    if (v === undefined || v === null) continue;
+    if (Array.isArray(fresh[key])) {
+      if (Array.isArray(v)) fresh[key] = v;
+    } else if (fresh[key] && typeof fresh[key] === 'object') {
+      if (typeof v === 'object' && !Array.isArray(v)) fresh[key] = { ...fresh[key], ...v };
+    } else {
+      fresh[key] = v;
+    }
+  }
+  return fresh;
+}
+
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return emptyDocumentation();
     const parsed = JSON.parse(raw);
-    const fresh = emptyDocumentation();
-    for (const key of Object.keys(fresh)) {
-      const v = parsed && parsed[key];
-      if (v === undefined || v === null) continue;
-      if (Array.isArray(fresh[key])) {
-        if (Array.isArray(v)) fresh[key] = v;
-      } else if (fresh[key] && typeof fresh[key] === 'object') {
-        if (typeof v === 'object' && !Array.isArray(v)) fresh[key] = { ...fresh[key], ...v };
-      } else {
-        fresh[key] = v;
-      }
-    }
-    return fresh;
+    return mergeIntoDefaults(parsed);
   } catch (e) {
     console.warn('Could not parse saved documentation; starting fresh.', e);
     return emptyDocumentation();
@@ -67,6 +78,26 @@ function clearState() {
 let state = loadState();
 /** @type {ReturnType<typeof calculateMaturity> | null} */
 let lastResult = null;
+
+// Uniform, minimal cross-module contract for the shared js/form-export.js and
+// js/form-import.js snippets (mirrors the existing window.__A11Y_DRAFT_KEY__
+// pattern above) -- keeps the actual export/import logic in one form-agnostic
+// module while each form-app.js owns its own private `state`.
+window.__FORM_STATE__ = {
+  slug: 'arc42',
+  getState: () => state,
+  setState: (raw) => {
+    state = mergeIntoDefaults(raw);
+    saveState(state);
+    lastResult = null;
+    document.getElementById('report').innerHTML =
+      '<p class="empty-message">Submit the form to see the maturity report.</p>';
+    renderErrorSummary([]);
+    renderForm();
+    refreshProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
 function esc(s) {
   return String(s == null ? '' : s)

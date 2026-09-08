@@ -25,21 +25,32 @@ import {
 const STORAGE_KEY = 'health-screening-questionnaire.front-end-with-html.v1';
 const TOTAL_STEPS = 14;
 
+// Merge a possibly-partial or foreign-shaped object onto a fresh default
+// state, keeping only known fields. Shared by localStorage restore
+// (loadState) and JSON import (js/form-import.js, via
+// window.__FORM_STATE__.setState) so both paths tolerate the same
+// drift -- an older export, a hand-edited file, or a differently-
+// shaped upload.
+function mergeIntoDefaults(parsed) {
+  const fresh = emptyQuestionnaire();
+
+  for (const key of Object.keys(fresh)) {
+    const v = parsed && parsed[key];
+    if (v && typeof v === 'object' && !Array.isArray(v)) {
+      fresh[key] = { ...fresh[key], ...v };
+    } else if (key === 'status' && typeof v === 'string') {
+      fresh.status = v;
+    }
+  }
+  return fresh;
+}
+
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return emptyQuestionnaire();
     const parsed = JSON.parse(raw);
-    const fresh = emptyQuestionnaire();
-    for (const key of Object.keys(fresh)) {
-      const v = parsed && parsed[key];
-      if (v && typeof v === 'object' && !Array.isArray(v)) {
-        fresh[key] = { ...fresh[key], ...v };
-      } else if (key === 'status' && typeof v === 'string') {
-        fresh.status = v;
-      }
-    }
-    return fresh;
+    return mergeIntoDefaults(parsed);
   } catch (e) {
     console.warn('Could not parse the saved questionnaire; starting fresh.', e);
     return emptyQuestionnaire();
@@ -69,6 +80,28 @@ function clearState() {
 let state = loadState();
 /** @type {ReturnType<typeof calculateHealthScreening> & {timestamp:string} | null} */
 let lastResult = null;
+
+// Uniform, minimal cross-module contract for the shared js/form-export.js and
+// js/form-import.js snippets (mirrors the existing window.__A11Y_DRAFT_KEY__
+// pattern above) -- keeps the actual export/import logic in one form-agnostic
+// module while each form-app.js owns its own private `state`.
+window.__FORM_STATE__ = {
+  slug: 'health-screening-questionnaire',
+  getState: () => state,
+  setState: (raw) => {
+    state = mergeIntoDefaults(raw);
+    saveState(state);
+    lastResult = null;
+    document.getElementById('report').innerHTML =
+      '<p class="empty-message">Submit the form to see the health screening report.</p>';
+    renderErrorSummary([]);
+    renderForm();
+    updateDerived();
+    updateProgress();
+    updateConditionalSections();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+};
 
 function setField(section, field, value) {
   state[section][field] = value;
