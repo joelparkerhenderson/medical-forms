@@ -66,6 +66,18 @@ function clearState() {
 // State
 // ----------------------------------------------------------------------
 
+// Captured before loadState() reads it, so js/restore-banner.js can tell
+// "a previous draft was restored" apart from "this is a blank first visit"
+// without needing to know the STORAGE_KEY itself (its exact naming isn't
+// uniform fleet-wide -- some forms still carry the pre-consolidation
+// `.front-end-form-with-html.v1` suffix).
+let hadDraftAtLoad = false;
+try {
+  hadDraftAtLoad = localStorage.getItem(STORAGE_KEY) !== null;
+} catch (e) {
+  // Ignore; loadState() below will hit the same failure and fall back safely.
+}
+
 let state = loadState();
 let lastResult = null;
 
@@ -75,6 +87,7 @@ let lastResult = null;
 // module while each form-app.js owns its own private `state`.
 window.__FORM_STATE__ = {
   slug: 'renal-assessment',
+  hadDraftAtLoad,
   getState: () => state,
   setState: (raw) => {
     state = mergeIntoDefaults(raw);

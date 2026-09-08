@@ -2,7 +2,7 @@
 
 Auto-generated from each tool's source header by `bin/generate-tools-doc.py` — do not hand-edit. Run the generator after adding or re-documenting a tool.
 
-85 tools.
+86 tools.
 
 - [`bin/clean`](#clean)
 - [`bin/consolidate-front-end-html`](#consolidate-front-end-html)
@@ -11,6 +11,7 @@ Auto-generated from each tool's source header by `bin/generate-tools-doc.py` —
 - [`bin/es-modules-refactor`](#es-modules-refactor)
 - [`bin/fill-full-stack-stubs.py`](#fill-full-stack-stubspy)
 - [`bin/form-export-import-refactor`](#form-export-import-refactor)
+- [`bin/form-restore-banner-refactor`](#form-restore-banner-refactor)
 - [`bin/forms-as-kebab-case`](#forms-as-kebab-case)
 - [`bin/forms-as-pascal-case`](#forms-as-pascal-case)
 - [`bin/forms-as-snake-case`](#forms-as-snake-case)
@@ -227,6 +228,43 @@ Usage:
 non-zero if any change is pending (CI drift detector). --dry-run shows
 per-form status without writing. Default (no flags): apply. Idempotent:
 a form already carrying `window.__FORM_STATE__` is left alone.
+```
+
+<h2 id="form-restore-banner-refactor"><code>bin/form-restore-banner-refactor</code></h2>
+
+```text
+bin/form-restore-banner-refactor — mechanically roll out the wizard
+restore banner (js/restore-banner.js) to every HTML front-end already
+migrated by bin/form-export-import-refactor.
+
+Reference implementation: forms/pre-operative-assessment-by-clinician.
+The restore banner tells the user a previous draft was restored from
+localStorage on page load, rather than silently repopulating fields with
+no explanation ("restore banner on load", the still-open half of
+tasks.md's Autosave item). It reads window.__FORM_STATE__.hadDraftAtLoad,
+so it depends on that contract already existing — this tool only targets
+forms bin/form-export-import-refactor has already touched (detected by
+`__FORM_STATE__` being present in form-app.js).
+
+For each matched form, this tool:
+  - Inserts a `hadDraftAtLoad` boolean, captured from localStorage before
+    loadState() reads it, right before `let state = loadState();`.
+  - Adds `hadDraftAtLoad,` to the `window.__FORM_STATE__` object literal,
+    right after its `slug:` line.
+  - Vendors js/restore-banner.js (byte-identical across every form, like
+    js/form-export.js) into the form's js/.
+  - Adds `<script type="module" src="js/restore-banner.js"></script>` to
+    index.html, right after the js/form-import.js entry.
+
+Forms not already carrying `window.__FORM_STATE__`, or already carrying
+`restore-banner.js`, are left untouched.
+
+Usage:
+    bin/form-restore-banner-refactor [--check] [--dry-run] [--all|<slug>...]
+
+--check reports which forms would change, and exits non-zero if any
+change is pending (CI drift detector). --dry-run shows per-form status
+without writing. Default (no flags): apply. Idempotent.
 ```
 
 <h2 id="forms-as-kebab-case"><code>bin/forms-as-kebab-case</code></h2>

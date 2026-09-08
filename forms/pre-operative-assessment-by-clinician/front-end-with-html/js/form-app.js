@@ -67,16 +67,30 @@ function clearState() {
 // State
 // ----------------------------------------------------------------------
 
+// Captured before loadState() reads it, so js/restore-banner.js can tell
+// "a previous draft was restored" apart from "this is a blank first visit"
+// without needing to know the STORAGE_KEY itself (its exact naming isn't
+// uniform fleet-wide — some forms still carry the pre-consolidation
+// `.front-end-form-with-html.v1` suffix).
+let hadDraftAtLoad = false;
+try {
+  hadDraftAtLoad = localStorage.getItem(STORAGE_KEY) !== null;
+} catch (e) {
+  // Ignore; loadState() below will hit the same failure and fall back safely.
+}
+
 let state = loadState();
 /** @type {ReturnType<typeof calculateASA> | null} */
 let lastResult = null;
 
-// Uniform, minimal cross-module contract for the shared js/form-export.js and
-// js/form-import.js snippets (mirrors the existing window.__A11Y_DRAFT_KEY__
-// pattern above) — keeps the actual export/import logic in one form-agnostic
-// module while each form-app.js owns its own private `state`.
+// Uniform, minimal cross-module contract for the shared js/form-export.js,
+// js/form-import.js, and js/restore-banner.js snippets (mirrors the existing
+// window.__A11Y_DRAFT_KEY__ pattern above) — keeps the actual export/import/
+// restore-banner logic in one form-agnostic module while each form-app.js
+// owns its own private `state`.
 window.__FORM_STATE__ = {
   slug: 'pre-operative-assessment-by-clinician',
+  hadDraftAtLoad,
   getState: () => state,
   setState: (raw) => {
     state = mergeIntoDefaults(raw);

@@ -56,6 +56,7 @@ STANDALONE = {
     "share-picker.js",
     "form-export.js",
     "form-import.js",
+    "restore-banner.js",
 }
 
 

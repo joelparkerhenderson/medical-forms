@@ -216,9 +216,22 @@ Design each feature on the reference forms
       already had working autosave/restore (verified, unaffected by the
       2026-09-08 Export/Import work). The Svelte reference form's
       autosave/restore was found BROKEN while building Export/Import
-      there (see Phase 11) and fixed as part of that item — no restore
-      banner or explicit clear control yet on either stack, and the fleet
-      rollout is still not started.
+      there (see Phase 11) and fixed as part of that item.
+      **Restore banner: DONE on HTML, 2026-09-08** — reference form +
+      fleet rollout to all 263 already-`__FORM_STATE__`-migrated forms
+      via the new `bin/form-restore-banner-refactor` (see Phase 11 below
+      for the full writeup); E2E test (`e2e/tests/restore-banner.spec.ts`)
+      fleet-wide, 264/264 passed. "Explicit clear control" is satisfied
+      by the pre-existing `#reset-btn` ("Start over"), which the banner's
+      "Discard and start over" delegates to rather than reimplementing.
+      "Clear-on-submit" is deliberately NOT implemented: `submitForm()`
+      never called `clearState()` before this work either, and changing
+      that now is a real, ambiguous product-behaviour question (does
+      reloading after submit lose the just-computed report, which
+      `lastResult` was never persisted for either way?) rather than a
+      mechanical gap — flagged, not guessed at. Still not done: the
+      Svelte side's restore banner (no reference implementation yet),
+      and the Svelte fleet rollout in general.
 - [x] **Print CSS (HTML)**: added a shared, idempotent `@media print` block
       (`print-report-styles v1`) to every HTML front-end — hides wizard chrome
       (buttons, progress, step-list, theme switcher), flattens colours/shadows
@@ -1022,6 +1035,53 @@ personas. Once the oracle exists, persona scaffolding + fill is mechanical
       `js/table-export.js` vendoring convention. Documented in
       `forms/AGENTS-front-end-html.md` and `AGENTS.md`'s Generators
       catalogue + Verify section; `docs/tools.md` regenerated.
+
+- [x] **Restore banner rollout (HTML): DONE 2026-09-08.** New
+      `bin/form-restore-banner-refactor`, targeting every form
+      `bin/form-export-import-refactor` already migrated (detected via
+      `window.__FORM_STATE__`) — 263/263, 0 skipped, since the precondition
+      is exactly "already has that contract". Adds a `hadDraftAtLoad`
+      boolean (captured from localStorage *before* `loadState()` reads it,
+      so the banner module never needs to know the exact `STORAGE_KEY`
+      string, which isn't uniform fleet-wide — 89/351 forms use the
+      current `.front-end-with-html.v1` suffix, the rest still carry the
+      pre-consolidation `.front-end-form-with-html.v1`), wired into the
+      `__FORM_STATE__` object next to `slug`; vendors the byte-identical
+      `js/restore-banner.js`.
+
+      One real bug caught and fixed while writing the tool: a naive
+      insertion before `let state = loadState();` split that declaration
+      from its own preceding JSDoc comment (`/** @type {...} */`),
+      leaving the annotation attached to the new code instead — fixed by
+      detecting a single-line JSDoc comment immediately above the
+      insertion point and inserting before it instead.
+
+      The E2E test (`e2e/tests/restore-banner.spec.ts`) needed two rounds
+      of fleet-wide fixing after the first full run surfaced 6 real
+      failures (of 1238 total) — genuine test gaps, not product bugs:
+      (1) 3 forms with no free-text field at all (consent/acknowledgement
+      documents — privacy notices, a code of conduct) timed out on
+      `textInput.fill()` against a zero-match locator; fixed by adding a
+      checkbox fallback and a "nothing fillable" bail-out path, mirroring
+      the guard `form-export-import.spec.ts`'s generic test already used.
+      (2) The same 3 forms then failed a *different* assertion (banner
+      still present after "Discard and start over" + reload) once the
+      checkbox fallback got them past step 1 — root-caused to those
+      specific forms' own `startOver()` intentionally *re-saving* a fresh
+      default immediately (e.g. pre-filling today's date on a consent
+      acknowledgement), so localStorage is genuinely non-null again right
+      after a real discard — not a bug in the banner feature, a real
+      product nuance of "was there a draft" being a blunt proxy wherever
+      a form's own "empty" state isn't actually empty. Fixed by checking
+      whether any remaining localStorage entry is JSON-object-shaped (the
+      draft) rather than a plain preference string (theme/locale/text-size
+      pickers all write plain strings) before asserting the banner must be
+      gone. Re-ran the full 1238-test suite fleet-wide after both fixes:
+      1238/1238 passed. `bin/es-modules-refactor --check --all` and
+      `bin/form-restore-banner-refactor --check` both clean. Documented in
+      `forms/AGENTS-front-end-html.md` and `AGENTS.md`'s Generators
+      catalogue + Verify section; `docs/tools.md` regenerated.
+
 - [ ] Loco: per-crate seeder from `examples/` + serve `combined/openapi.yaml`
       at `/api/openapi.yaml` (second half of serve-OpenAPI).
 - [x] **Personas: COMPLETE.** This entry's own incremental tracking stopped

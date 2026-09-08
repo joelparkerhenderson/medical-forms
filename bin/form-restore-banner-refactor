@@ -1,0 +1,182 @@
+#!/usr/bin/env python3
+"""bin/form-restore-banner-refactor — mechanically roll out the wizard
+restore banner (js/restore-banner.js) to every HTML front-end already
+migrated by bin/form-export-import-refactor.
+
+Reference implementation: forms/pre-operative-assessment-by-clinician.
+The restore banner tells the user a previous draft was restored from
+localStorage on page load, rather than silently repopulating fields with
+no explanation ("restore banner on load", the still-open half of
+tasks.md's Autosave item). It reads window.__FORM_STATE__.hadDraftAtLoad,
+so it depends on that contract already existing — this tool only targets
+forms bin/form-export-import-refactor has already touched (detected by
+`__FORM_STATE__` being present in form-app.js).
+
+For each matched form, this tool:
+  - Inserts a `hadDraftAtLoad` boolean, captured from localStorage before
+    loadState() reads it, right before `let state = loadState();`.
+  - Adds `hadDraftAtLoad,` to the `window.__FORM_STATE__` object literal,
+    right after its `slug:` line.
+  - Vendors js/restore-banner.js (byte-identical across every form, like
+    js/form-export.js) into the form's js/.
+  - Adds `<script type="module" src="js/restore-banner.js"></script>` to
+    index.html, right after the js/form-import.js entry.
+
+Forms not already carrying `window.__FORM_STATE__`, or already carrying
+`restore-banner.js`, are left untouched.
+
+Usage:
+    bin/form-restore-banner-refactor [--check] [--dry-run] [--all|<slug>...]
+
+--check reports which forms would change, and exits non-zero if any
+change is pending (CI drift detector). --dry-run shows per-form status
+without writing. Default (no flags): apply. Idempotent.
+"""
+
+import argparse
+import re
+import sys
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+FORMS_DIR = REPO_ROOT / "forms"
+REFERENCE_FORM = "pre-operative-assessment-by-clinician"
+
+STATE_DECL_RE = re.compile(r"^let state = loadState\(\);[ \t]*$", re.MULTILINE)
+SLUG_LINE_RE = re.compile(r"^([ \t]*)slug: '[^']*',[ \t]*$", re.MULTILINE)
+IMPORT_TAG_RE = re.compile(
+    r'^([ \t]*)<script type="module" src="js/form-import\.js"></script>[ \t]*$', re.MULTILINE
+)
+
+RESTORE_BANNER_SRC = (
+    REPO_ROOT / "forms" / REFERENCE_FORM / "front-end-with-html" / "js" / "restore-banner.js"
+)
+
+
+class Skip(Exception):
+    pass
+
+
+def build_had_draft_block() -> str:
+    return (
+        "// Captured before loadState() reads it, so js/restore-banner.js can tell\n"
+        '// "a previous draft was restored" apart from "this is a blank first visit"\n'
+        "// without needing to know the STORAGE_KEY itself (its exact naming isn't\n"
+        "// uniform fleet-wide -- some forms still carry the pre-consolidation\n"
+        "// `.front-end-form-with-html.v1` suffix).\n"
+        "let hadDraftAtLoad = false;\n"
+        "try {\n"
+        "  hadDraftAtLoad = localStorage.getItem(STORAGE_KEY) !== null;\n"
+        "} catch (e) {\n"
+        "  // Ignore; loadState() below will hit the same failure and fall back safely.\n"
+        "}"
+    )
+
+
+def process_form(slug: str) -> tuple[bool, str]:
+    form_dir = FORMS_DIR / slug / "front-end-with-html"
+    js_path = form_dir / "js" / "form-app.js"
+    html_path = form_dir / "index.html"
+    if not js_path.is_file() or not html_path.is_file():
+        return False, "no front-end-with-html"
+
+    js_text = js_path.read_text()
+    html_text = html_path.read_text()
+
+    if "__FORM_STATE__" not in js_text:
+        return False, "not yet migrated by bin/form-export-import-refactor"
+    if "hadDraftAtLoad" in js_text or "restore-banner.js" in html_text:
+        return False, "already migrated"
+    if not STATE_DECL_RE.search(js_text):
+        return False, "SKIP (needs manual handling): no 'let state = loadState();'"
+    if not SLUG_LINE_RE.search(js_text):
+        return False, "SKIP (needs manual handling): no 'slug: ...,' line in __FORM_STATE__"
+    if not IMPORT_TAG_RE.search(html_text):
+        return False, "SKIP (needs manual handling): no form-import.js <script> tag in index.html"
+
+    return True, "changed"
+
+
+def write_form(slug: str) -> None:
+    form_dir = FORMS_DIR / slug / "front-end-with-html"
+    js_path = form_dir / "js" / "form-app.js"
+    html_path = form_dir / "index.html"
+
+    js_text = js_path.read_text()
+    html_text = html_path.read_text()
+
+    state_m = STATE_DECL_RE.search(js_text)
+    insert_at = state_m.start()
+    # A single-line JSDoc comment directly above `let state = loadState();`
+    # annotates that declaration -- insert before the comment, not between
+    # it and the declaration it describes.
+    before = js_text[:insert_at]
+    lines = before.split("\n")
+    if len(lines) >= 2 and re.match(r"^\s*/\*\*.*\*/\s*$", lines[-2]):
+        insert_at -= len(lines[-2]) + 1  # + the newline that followed it
+    prefix = js_text[:insert_at].rstrip("\n")
+    suffix = js_text[insert_at:]
+    js_text = f"{prefix}\n\n{build_had_draft_block()}\n\n{suffix}"
+
+    slug_m = SLUG_LINE_RE.search(js_text)
+    js_text = js_text[: slug_m.end()] + "\n  hadDraftAtLoad," + js_text[slug_m.end():]
+    js_path.write_text(js_text)
+
+    tag_m = IMPORT_TAG_RE.search(html_text)
+    indent = tag_m.group(1)
+    html_text = (
+        html_text[: tag_m.end()]
+        + f'\n{indent}<script type="module" src="js/restore-banner.js"></script>'
+        + html_text[tag_m.end():]
+    )
+    html_path.write_text(html_text)
+
+    (form_dir / "js" / "restore-banner.js").write_text(RESTORE_BANNER_SRC.read_text())
+
+
+def iter_candidate_slugs():
+    for js in sorted(FORMS_DIR.glob("*/front-end-with-html/js/form-app.js")):
+        yield js.parts[-4]
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("slugs", nargs="*", help="form slugs (default: every form)")
+    parser.add_argument("--all", action="store_true", help="same as no slugs: every form")
+    parser.add_argument("--check", action="store_true", help="report drift; exit 1 if any pending; don't write")
+    parser.add_argument("--dry-run", action="store_true", help="show status per form; don't write")
+    args = parser.parse_args()
+
+    slugs = args.slugs if args.slugs else list(iter_candidate_slugs())
+    dry = args.check or args.dry_run
+
+    changed = []
+    skipped = []
+    for slug in slugs:
+        if slug == REFERENCE_FORM:
+            continue
+        will_change, status = process_form(slug)
+        if will_change:
+            changed.append(slug)
+            if not dry:
+                write_form(slug)
+        elif status.startswith("SKIP"):
+            skipped.append((slug, status))
+
+    if args.check:
+        print(f"form-restore-banner-refactor [CHECK]: {len(changed)} form(s) pending, "
+              f"{len(skipped)} SKIP (needs manual handling)")
+        for slug in changed:
+            print(f"  would change: {slug}")
+        return 1 if changed else 0
+
+    verb = "would change" if dry else "changed"
+    print(f"form-restore-banner-refactor: {len(changed)} form(s) {verb}, "
+          f"{len(skipped)} SKIP (needs manual handling)")
+    for slug, status in skipped:
+        print(f"  {slug}: {status}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

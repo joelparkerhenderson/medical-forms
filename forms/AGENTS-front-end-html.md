@@ -344,6 +344,21 @@ checklists — plus 13 wizards whose `loadState()`/`startOver()` shape was
 too irregular to extract safely) are left for manual handling; see the
 tool's own `SKIP` output for the current list.
 
+Where wired, the wizard also loads `js/restore-banner.js` right after
+`js/form-import.js`: self-injects a dismissible `.alert[data-type="info"]`
+banner at the top of `<main>` (above the export/import toolbar) when
+`window.__FORM_STATE__.hadDraftAtLoad` is true — telling the user a
+previous draft was restored from localStorage rather than silently
+repopulating fields with no explanation. "Dismiss" just hides the banner
+(the draft stays); "Discard and start over" delegates to the wizard's own
+`#reset-btn` rather than reimplementing clearing logic. `hadDraftAtLoad`
+is captured before `loadState()` reads it (so the banner module never
+needs to know the exact `STORAGE_KEY` string, which isn't uniform
+fleet-wide) and added to the `__FORM_STATE__` object alongside `slug`.
+Reference implementation: `pre-operative-assessment-by-clinician`; rolled
+out mechanically to all 263 already-`__FORM_STATE__`-migrated forms by
+`bin/form-restore-banner-refactor` — `--check` is its CI drift detector.
+
 **Structural rule:** the `<main>` tag does not have an inner `<header>` tag.
 `.page-header` is always a sibling that precedes `<main>`, never nested
 inside it. `.page-footer` is likewise always a sibling that *follows*
