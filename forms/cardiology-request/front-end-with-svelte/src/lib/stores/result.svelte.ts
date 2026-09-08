@@ -79,15 +79,39 @@ class RequestStore {
 	data = $state<CardiologyRequest>(createDefaultRequest());
 	result = $state<GradingResult | null>(null);
 	currentStep = $state(1);
-	/** The id of the referral currently loaded into the store (`new` for a fresh draft). */
-	id = $state('new');
+	/**
+	 * The id of the referral currently loaded into the store (`new` for a
+	 * fresh draft). Starts as `''`, not `'new'`: the wizard page only calls
+	 * loadForId() when `requestStore.id !== id`, so if this defaulted to the
+	 * literal string `'new'` the very first visit to the (very common)
+	 * `/new` route would never call loadForId() at all -- the saved-draft-
+	 * takes-precedence restore loadForId() documents would silently never
+	 * run for that route. `''` never collides with a real route id.
+	 */
+	id = $state('');
+	// True once loadForId() has run for the first time. Guards the
+	// persistence effect below: without it, the effect's very first
+	// (immediate) run persists the *blank* initial `data` before
+	// loadForId() ever gets a chance to read a previously-saved draft from
+	// localStorage -- silently clobbering it with blank data on every
+	// fresh page load. Verified live (a filled field, reloaded, came back
+	// empty; localStorage itself had already been overwritten) before
+	// fixing, not assumed.
+	#loaded = false;
 
 	constructor() {
 		if (browser) {
-			// Persist on every change, keyed by the current referral id.
+			// Persist on every change, keyed by the current referral id. Reads
+			// `this.id`/`this.data` unconditionally (before the #loaded guard)
+			// so both stay tracked dependencies even while the guard is
+			// suppressing the actual write -- otherwise this effect would stop
+			// re-running for their *later* changes too, once #loaded flips.
 			$effect.root(() => {
 				$effect(() => {
-					localStorage.setItem(storageKey(this.id), JSON.stringify(this.data));
+					const key = storageKey(this.id);
+					const snapshot = JSON.stringify(this.data);
+					if (!this.#loaded) return;
+					localStorage.setItem(key, snapshot);
 				});
 			});
 		}
@@ -118,6 +142,7 @@ class RequestStore {
 
 		const base = seed ?? createDefaultRequest();
 		this.data = draft ? { ...base, ...draft } : { ...base };
+		this.#loaded = true;
 	}
 
 	reset() {
@@ -127,6 +152,20 @@ class RequestStore {
 		if (browser) {
 			localStorage.removeItem(storageKey(this.id));
 		}
+	}
+
+	/**
+	 * Replace the current draft with an imported object, tolerating a
+	 * partial or foreign-shaped file the same way `loadForId`'s saved-draft
+	 * restore already does (shallow-merged onto a fresh default request --
+	 * this form's state has no nested sections, unlike some others'), and
+	 * resetting any derived/result state. Used by
+	 * `#lib/components/ui/FormDataTransfer.svelte`'s JSON import.
+	 */
+	importData(raw: Record<string, unknown>) {
+		this.data = { ...createDefaultRequest(), ...(raw as Partial<CardiologyRequest>) };
+		this.result = null;
+		this.currentStep = 1;
 	}
 }
 

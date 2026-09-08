@@ -12,6 +12,7 @@
 	import StepList from '#lib/components/ui/StepList.svelte';
 	import StepListItem from '#lib/components/ui/StepListItem.svelte';
 	import ErrorSummary from '#lib/components/ui/ErrorSummary.svelte';
+	import FormDataTransfer from '#lib/components/ui/FormDataTransfer.svelte';
 
 	import Step1ReferringClinician from '#lib/components/steps/Step1ReferringClinician.svelte';
 	import Step2PatientIdentification from '#lib/components/steps/Step2PatientIdentification.svelte';
@@ -84,6 +85,12 @@
 	<p class="mt-1 text-sm text-base-content/70">
 		Complete the eight sections; the four-axis vetting grade is computed on submit.
 	</p>
+	<FormDataTransfer
+		slug="cardiology-request"
+		getState={() => requestStore.data}
+		setState={(parsed) => requestStore.importData(parsed)}
+	/>
+
 	<Progress label="Referral sections" value={TOTAL_STEPS} max={TOTAL_STEPS} />
 	<StepList label="Referral sections" current={TOTAL_STEPS}>
 		{#each steps as step (step.number)}

@@ -196,14 +196,22 @@ Design each feature on the reference forms
 (`pre-operative-assessment-by-clinician` HTML,
 `cardiology-request` Svelte), spot-check, then batch-roll to all forms.
 
-- [ ] **Export**: JSON / XML / CSV / TSV download of a completed form —
-      HTML front-end (vanilla JS shared snippet) and Svelte front-end
-      (shared `src/lib/` module). Filenames `<slug>-<date>.<ext>`.
-- [ ] **Import**: JSON upload re-populates the wizard (both front-ends);
-      round-trip test in the E2E harness (export → import → same report).
+- [x] **Export** / **Import**: DONE on both reference forms 2026-09-08 (see
+      Phase 11 below for the full writeup) —
+      `pre-operative-assessment-by-clinician` (HTML) and `cardiology-request`
+      (Svelte). Filenames `<slug>-<date>.<ext>`; JSON/XML/CSV/TSV download,
+      JSON upload re-populates the wizard, E2E round-trip test on the HTML
+      side. Fleet-wide mechanical rollout across the other ~350 forms is
+      separate, not-yet-started follow-on work.
 - [ ] **Autosave**: localStorage persistence keyed by slug, restore banner
       on load, clear-on-submit + explicit clear control; both front-ends.
-      E2E test: fill half, reload, assert restored.
+      E2E test: fill half, reload, assert restored. HTML reference form
+      already had working autosave/restore (verified, unaffected by the
+      2026-09-08 Export/Import work). The Svelte reference form's
+      autosave/restore was found BROKEN while building Export/Import
+      there (see Phase 11) and fixed as part of that item — no restore
+      banner or explicit clear control yet on either stack, and the fleet
+      rollout is still not started.
 - [x] **Print CSS (HTML)**: added a shared, idempotent `@media print` block
       (`print-report-styles v1`) to every HTML front-end — hides wizard chrome
       (buttons, progress, step-list, theme switcher), flattens colours/shadows
@@ -839,11 +847,121 @@ personas. Once the oracle exists, persona scaffolding + fill is mechanical
 
 ## Phase 11 — R3 functionality carry-overs (from Phases 3/6)
 
-- [ ] Form export/import (JSON/XML/CSV/TSV) — design on the reference forms,
-      roll out mechanically with a `--check` tool (Conventions promise).
+- [ ] **Form export/import (JSON/XML/CSV/TSV) — design on the reference
+      forms, roll out mechanically with a `--check` tool (Conventions
+      promise).** Reference-form design DONE 2026-09-08 on both stacks;
+      fleet rollout across the other ~350 forms NOT started (that's the
+      "roll out mechanically" half of this item, still open).
+
+      **HTML** (`pre-operative-assessment-by-clinician`): two new
+      standalone, self-injecting ES modules, `js/form-export.js` and
+      `js/form-import.js`, matching the existing `js/table-export.js`
+      "no per-form knowledge required" design. Each form's own
+      `form-app.js` sets a small cross-module contract —
+      `window.__FORM_STATE__ = { slug, getState, setState }` — mirroring
+      the pre-existing `window.__A11Y_DRAFT_KEY__` pattern, rather than
+      the shared modules reaching into a wizard's private state directly.
+      Export serialises the current (possibly in-progress) state to
+      `<slug>-<date>.<ext>`: JSON, a generic recursive object->XML walk
+      (field names are already valid XML element names, being camelCase
+      identifiers), and CSV/TSV flattened to one header row of
+      dot/bracket field paths + one data row (a filled form is a single
+      record, unlike a dashboard's row-list export). Import reads an
+      uploaded JSON file and calls `setState`, which merges it onto a
+      fresh default state via the same tolerant merge `loadState()`
+      already uses for localStorage restore (extracted into a shared
+      `mergeIntoDefaults` helper), not a blind assign, then re-renders
+      the whole form via the exact sequence `startOver()` already uses.
+      Fixed a real drift-detector bug found while verifying:
+      `bin/es-modules-refactor`'s `STANDALONE` set didn't know about the
+      two new files, so its `--apply` would have silently deleted their
+      `<script>` tags (`rewrite_html` drops any local script not in
+      `STANDALONE` or the chosen entry point) — added both;
+      `--check --all` clean fleet-wide (0/356). New E2E test
+      (`e2e/tests/form-export-import.spec.ts`, scoped to forms with
+      `form-export.js` wired): fills two fields, downloads JSON
+      (asserting the exact filename pattern and that content round-trips
+      the filled values), sanity-checks XML/CSV/TSV each download and
+      carry the value, clicks Start over, imports the JSON back via
+      `setInputFiles`, and asserts the fields are restored — passes,
+      alongside the existing `html-smoke` (a11y) and `dashboard-export`
+      tests for this form. `bin/test-form` and `bin/lily-html-refactor
+      --check` also clean. Documented in `forms/AGENTS-front-end-html.md`.
+
+      **Svelte** (`cardiology-request`): a shared, form-agnostic
+      `src/lib/components/ui/FormDataTransfer.svelte` component (props:
+      `slug`, `getState: () => unknown`, `setState`) wired into the
+      wizard route, backed by pure serialisation functions in
+      `src/lib/utils/form-data-transfer.ts` ported verbatim from the
+      HTML implementation (same output shapes, same filenames, so the
+      two stacks' exports are interchangeable). `RequestStore` gained an
+      `importData()` method mirroring `loadForId()`'s tolerant merge.
+      **Found and fixed two real, verified, pre-existing bugs while
+      building and testing this** (not introduced by this item, but
+      exposed by it and left broken would have made Import silently
+      not work):
+      1. Every step component captured `const d = requestStore.data;` —
+         a plain, non-reactive reference. In-place edits kept working
+         (mutating the same object the store still pointed to), but any
+         wholesale reassignment of `.data` (`reset()`, and now
+         `importData()`) left already-mounted step components pointing
+         at the discarded old object, so the UI silently stopped
+         reflecting the store — verified live: clicking `Start over`
+         correctly cleared `requestStore.data`, but every field kept
+         showing its old value. Fixed by changing all 8 step components'
+         capture to `let d = $derived(requestStore.data);`, which
+         re-tracks on reassignment.
+      2. `RequestStore.id` defaulted to the literal string `'new'`, the
+         same value the wizard's own `/new` route resolves to — so the
+         route page's own `if (requestStore.id !== id) loadForId(...)`
+         guard was always false on the very first visit, meaning
+         `loadForId()` (and its "a saved draft takes precedence" restore)
+         never ran at all for that route. Separately, the store's
+         localStorage-persist `$effect` fires immediately on construction,
+         before any restore logic runs — so even where `loadForId()` was
+         reachable, its first write persisted the process's still-blank
+         initial state, clobbering any real saved draft before it could
+         ever be read back. Verified live (filled a field, reloaded,
+         field came back empty; localStorage itself had already been
+         overwritten) before fixing, not assumed. Fixed by defaulting
+         `id` to `''` (never collides with a real route id) and gating
+         the persist effect on a `#loaded` flag set at the end of
+         `loadForId()` — the effect still reads `this.id`/`this.data`
+         *before* the guard, so both stay tracked dependencies once
+         `#loaded` flips. This is Phase 3's Autosave item's Svelte half
+         of "restore banner on load": restore itself was completely
+         non-functional on this reference form until this fix; no
+         restore *banner* UI yet on either stack.
+      Verified via `pnpm check` (0 errors) + `pnpm test` (12/12,
+      unaffected) + `bin/test-e2e --svelte cardiology-request` (a real
+      production build, 1/1 passed) + extensive manual browser
+      verification with real Playwright button clicks and a real file
+      chooser (not just direct API calls) on a freshly-restarted dev
+      server, covering: fill -> export JSON -> Start over (fields
+      genuinely clear now) -> click "Import JSON" -> native file chooser
+      -> fields restored; and separately, fill -> full page reload ->
+      field restored from localStorage. No automated regression test
+      exists yet for the two store-level fixes specifically (Svelte
+      rune-level store testing needs test infrastructure this project
+      doesn't have yet — a real gap, flagged rather than silently
+      skipped). `bin/test-form` and `bin/lily-svelte-refactor --check`
+      also clean. Documented in `forms/AGENTS-front-end-svelte.md`,
+      including the reactivity pitfall generally (not just for this
+      feature) in case the same `const d = store.data` capture pattern
+      exists in other forms' step components — not audited fleet-wide.
 - [ ] Loco: per-crate seeder from `examples/` + serve `combined/openapi.yaml`
       at `/api/openapi.yaml` (second half of serve-OpenAPI).
-- [ ] Personas: **225/355 verified** (`bin/test-personas` ground truth,
+- [x] **Personas: COMPLETE.** This entry's own incremental tracking stopped
+      at 289/355 (2026-09-03); the persona backlog finished under Phase 13's
+      own tracking after that point. Current ground truth (`bin/test-personas`,
+      re-verified 2026-09-07): 352/352 forms with an actionable engine PASS,
+      1177/1177 personas PASS, 0 FAIL. The only forms without personas are
+      the 3 engine-less-by-design forms (`architecture-decision-record`,
+      `legal-requirements-privacy-notice`, `screening-program-privacy-notice`)
+      and 1 foundation-depth-only form with no built front-end yet
+      (`diabetes-podiatry-assessment`) — none ever in scope. History below,
+      kept for the record:
+- [x] Personas: **225/355 verified** (`bin/test-personas` ground truth,
       not hand-tracked — the incrementally-tracked count in this entry had
       drifted from it; was 109). 2026-08-26: the whole
       `*-waiting-list-card` family (56 forms) done in one batch — the family

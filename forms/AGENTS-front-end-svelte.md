@@ -369,6 +369,48 @@ title, description, `Progress`, or `StepList` above the page body.
 - Persistence key: `<slug>.front-end-with-svelte.v1` (mirrors the HTML
   convention to allow draft portability across stacks).
 
+**Reactivity pitfall — never capture a store's `$state` object in a plain
+`const`.** A step component reading `const d = someStore.data;` and then
+`bind:value={d.field}` binds to *that specific object*. It keeps working
+for in-place edits (`d.field = x` mutates the same object the store still
+points to), but the moment the store *reassigns* `.data` to a new object —
+`reset()`, a JSON import, or `loadForId()` picking up a different draft —
+every already-mounted step component's `d` still points at the old,
+discarded object, so the UI silently stops reflecting the store at all.
+Verified live in `cardiology-request` (2026-09-08): `Start over` correctly
+cleared the store's `data` but every field kept displaying its old value,
+and — since `id = $state('new')` defaulted to the same string the wizard's
+own `/new` route resolves to — a saved draft was never even reloaded after
+a page refresh, because `loadForId()` is only called when
+`store.id !== id`. Fix: capture the reference reactively —
+`let d = $derived(someStore.data);` — so it re-tracks whenever the store
+reassigns `.data`; and never default an id field to a literal value a real
+route id can collide with (use `''`, which `id || 'new'`-style fallbacks
+already treat as "unset"). Also route a store's localStorage-persist
+`$effect` through an explicit "have I loaded yet" guard (read the reactive
+fields *before* the guard, so they stay tracked dependencies even while
+suppressed) — without it, the effect's first, immediate run persists the
+process's still-blank initial state before any restore logic gets a
+chance to run, silently overwriting a previously-saved draft on every
+fresh page load.
+
+**Wizard-level export/import.** Where wired, a wizard's route page
+includes `#lib/components/ui/FormDataTransfer.svelte` (props: `slug`,
+`getState: () => unknown`, `setState: (parsed) => void`) — the Svelte
+counterpart to the HTML front-end's `js/form-export.js` +
+`js/form-import.js` pair, same `<slug>-<date>.<ext>` JSON/XML/CSV/TSV
+output, same filenames, same shared serialisation logic
+(`#lib/utils/form-data-transfer.ts`, ported verbatim from the HTML
+implementation so the two stacks' exports are interchangeable). A
+consuming page passes `getState={() => someStore.data}` and
+`setState={(parsed) => someStore.importData(parsed)}`; `importData` must
+merge the parsed object onto a fresh default state (the same tolerant
+shallow-merge `loadForId()`'s saved-draft restore already uses) and reset
+derived/result state, then reassign the store's `.data` — safe as long as
+every step component reads that field via `$derived`, per the pitfall
+above. Reference implementation: `cardiology-request`; fleet rollout is
+tracked separately in `tasks.md`.
+
 ## 7. Validation pattern
 
 On Next / Submit:

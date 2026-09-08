@@ -6,7 +6,7 @@
 	import DateInput from '#lib/components/ui/DateInput.svelte';
 	import { requestStore } from '#lib/stores/result.svelte.js';
 
-	const d = requestStore.data;
+	let d = $derived(requestStore.data);
 </script>
 
 <Fieldset legend="7. Triage">

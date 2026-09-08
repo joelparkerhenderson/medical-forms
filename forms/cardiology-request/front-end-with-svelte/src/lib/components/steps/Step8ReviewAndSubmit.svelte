@@ -17,7 +17,7 @@
 		recommendationColor
 	} from '#lib/engine/utils.js';
 
-	const d = requestStore.data;
+	let d = $derived(requestStore.data);
 
 	// Live preview of the four-axis vetting grade as the referral is edited.
 	const preview = $derived(calculateGrade(d));

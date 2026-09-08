@@ -8,7 +8,7 @@
 	import Alert from '#lib/components/ui/Alert.svelte';
 	import { requestStore } from '#lib/stores/result.svelte.js';
 
-	const d = requestStore.data;
+	let d = $derived(requestStore.data);
 </script>
 
 <Fieldset legend="5. Red Flags and Investigations">

@@ -6,7 +6,7 @@
 	import CheckboxInput from '#lib/components/ui/CheckboxInput.svelte';
 	import { requestStore } from '#lib/stores/result.svelte.js';
 
-	const d = requestStore.data;
+	let d = $derived(requestStore.data);
 </script>
 
 <Fieldset legend="4. Symptoms">

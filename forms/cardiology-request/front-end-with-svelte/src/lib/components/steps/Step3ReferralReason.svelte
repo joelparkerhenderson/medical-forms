@@ -5,7 +5,7 @@
 	import TextAreaInput from '#lib/components/ui/TextAreaInput.svelte';
 	import { requestStore } from '#lib/stores/result.svelte.js';
 
-	const d = requestStore.data;
+	let d = $derived(requestStore.data);
 </script>
 
 <Fieldset legend="3. Referral Reason">
