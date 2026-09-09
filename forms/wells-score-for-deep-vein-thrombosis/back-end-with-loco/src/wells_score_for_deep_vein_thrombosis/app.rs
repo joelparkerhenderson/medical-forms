@@ -47,6 +47,7 @@ impl Hooks for App {
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
+            .add_route(crate::controllers::openapi::routes())
             .add_route(controllers::wells_score_for_deep_vein_thrombosis_grade_flag::routes())
             .add_route(controllers::wells_score_for_deep_vein_thrombosis_grade_rule::routes())
             .add_route(controllers::wells_score_for_deep_vein_thrombosis_grade::routes())

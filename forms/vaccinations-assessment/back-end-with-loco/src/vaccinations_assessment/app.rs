@@ -47,6 +47,7 @@ impl Hooks for App {
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
+            .add_route(crate::controllers::openapi::routes())
             .add_route(controllers::clinical_review::routes())
             .add_route(controllers::administration_record::routes())
             .add_route(controllers::consent_information::routes())

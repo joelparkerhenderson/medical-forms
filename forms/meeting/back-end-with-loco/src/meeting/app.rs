@@ -47,6 +47,7 @@ impl Hooks for App {
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
+            .add_route(crate::controllers::openapi::routes())
             .add_route(controllers::meeting_output::routes())
             .add_route(controllers::action_item::routes())
             .add_route(controllers::recurring_rule::routes())

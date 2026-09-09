@@ -1,4 +1,5 @@
 pub mod auth;
+pub mod openapi;
 
 pub mod organization;
 pub mod respondent;

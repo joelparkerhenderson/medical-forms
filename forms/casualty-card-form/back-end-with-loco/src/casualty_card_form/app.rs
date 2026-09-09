@@ -47,6 +47,7 @@ impl Hooks for App {
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
+            .add_route(crate::controllers::openapi::routes())
             .add_route(controllers::flagged_issue::routes())
             .add_route(controllers::news2_result::routes())
             .add_route(controllers::casualty_card_safeguarding_consent::routes())

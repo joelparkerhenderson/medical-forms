@@ -47,6 +47,7 @@ impl Hooks for App {
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
+            .add_route(crate::controllers::openapi::routes())
             .add_route(controllers::smoking_alcohol::routes())
             .add_route(controllers::family_history::routes())
             .add_route(controllers::medical_conditions::routes())

@@ -47,6 +47,7 @@ impl Hooks for App {
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
+            .add_route(crate::controllers::openapi::routes())
             .add_route(controllers::grace_score_for_acute_coronary_syndrome_grade_flag::routes())
             .add_route(controllers::grace_score_for_acute_coronary_syndrome_grade_rule::routes())
             .add_route(controllers::grace_score_for_acute_coronary_syndrome_grade::routes())

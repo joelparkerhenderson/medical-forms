@@ -47,6 +47,7 @@ impl Hooks for App {
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
+            .add_route(crate::controllers::openapi::routes())
             .add_route(controllers::four_a_test_for_delirium_grade_flag::routes())
             .add_route(controllers::four_a_test_for_delirium_grade_rule::routes())
             .add_route(controllers::four_a_test_for_delirium_grade::routes())

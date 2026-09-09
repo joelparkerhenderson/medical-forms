@@ -47,6 +47,7 @@ impl Hooks for App {
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
+            .add_route(crate::controllers::openapi::routes())
             .add_route(controllers::outpatient_outcome_followup::routes())
             .add_route(controllers::outpatient_outcome_prem_fft::routes())
             .add_route(controllers::outpatient_outcome_prom_promis::routes())

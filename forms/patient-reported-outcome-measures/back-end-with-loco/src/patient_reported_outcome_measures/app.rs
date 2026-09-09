@@ -50,6 +50,7 @@ impl Hooks for App {
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
+            .add_route(crate::controllers::openapi::routes())
             .add_route(controllers::patient_reported_outcome_measures_score::routes())
             .add_route(controllers::patient_reported_outcome_measures::routes())
             .add_route(controllers::auth::routes())

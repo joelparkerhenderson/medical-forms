@@ -1,4 +1,5 @@
 pub mod auth;
+pub mod openapi;
 
 pub mod respondent;
 pub mod agile_checklist;

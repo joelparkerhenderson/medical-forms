@@ -462,8 +462,12 @@ Design each feature on the reference forms
       cleanup never touches it. All 286 validate; wired into the CI drift
       regenerate + `--check` + recursive OpenAPI validation. Useful directly
       for Swagger UI / client codegen.
-- [ ] **Serve OpenAPI**: static route in each crate serving its
-      `openapi/*.yaml` at `/api/openapi.yaml`.
+- [x] **Serve OpenAPI: DONE 2026-09-09.** New `bin/loco-serve-openapi-refactor`
+      (see Phase 11 below for the full writeup) adds `GET /api/openapi.yaml`
+      to 349/355 crates, serving the *combined* spec from the item just
+      above rather than the raw per-entity `openapi/*.yaml` files (one
+      complete document per form, matching "useful directly for Swagger UI
+      / client codegen" above).
 - [i] **Svelte build audit (2026-07-13): CLEAN.** Sampled `npm run build`
       across diverse forms (incl. the re-ported Lily forms + a test-request
       form) → all build; `npm run check` + `vitest` also green on the sample.
@@ -1082,8 +1086,60 @@ personas. Once the oracle exists, persona scaffolding + fill is mechanical
       `forms/AGENTS-front-end-html.md` and `AGENTS.md`'s Generators
       catalogue + Verify section; `docs/tools.md` regenerated.
 
-- [ ] Loco: per-crate seeder from `examples/` + serve `combined/openapi.yaml`
-      at `/api/openapi.yaml` (second half of serve-OpenAPI).
+- [ ] Loco: per-crate seeder from `examples/`.
+      **Serve `combined/openapi.yaml` at `/api/openapi.yaml`: DONE
+      2026-09-09.** New `bin/loco-serve-openapi-refactor`, targeting every
+      Loco crate (355 found via `back-end-with-loco/src/*/controllers/
+      mod.rs`). A byte-identical `controllers/openapi.rs` (it depends only
+      on the uniform 4-level directory nesting to reach
+      `openapi/combined/openapi.yaml` via `include_str!`, not on the form's
+      own name) is wired in via two mechanical insertions: `pub mod
+      openapi;` in `controllers/mod.rs` right after the existing `pub mod
+      auth;` line, and `.add_route(crate::controllers::openapi::routes())`
+      in `app.rs` right after `AppRoutes::with_default_routes()`. Serves
+      via Loco's own built-in `format::yaml()` helper (its doc example is
+      literally an OpenAPI-serving handler) rather than hand-rolling a
+      response builder.
+
+      349/355 crates done; 6 skipped (`architecture-decision-record`,
+      `cardiology-request`, `cardiology-response`,
+      `neurodiversity-adjustment-{request,response,review}` — no `pub mod
+      auth;` anchor to insert after, needs manual handling).
+
+      Two real bugs caught and fixed while writing the tool, both before
+      the first fleet-wide apply reached more than 1 crate: (1) the
+      `AppRoutes::with_default_routes()` anchor regex required the line to
+      end in only whitespace, but 347/355 crates carry a trailing `//
+      controller routes below` comment on that exact line — a `--check`
+      run against the real fleet immediately showed 353/354 unexpectedly
+      SKIPped, caught before ever applying anything at scale. (2) Once
+      that was fixed, the *first* successful apply revealed the new
+      `.add_route(...)` line was inserted at the wrong indent — it matched
+      `AppRoutes::with_default_routes()`'s own indent instead of the
+      chained calls' one-level-deeper continuation indent immediately
+      below it. Caught by inspecting the actual diff before running
+      `cargo check` on it, not after; both fixes verified together on the
+      reference crate (`medical-operation-note`) before re-applying
+      fleet-wide.
+
+      Verified: `cargo check` and `cargo clippy --all-targets -- -D
+      warnings` clean on a diverse 6-crate sample (`medical-operation-note`,
+      `tumor-marker-test-request`, `diabetes-assessment`,
+      `nuclear-medicine-test-result`, `apgar-score`,
+      `who-surgical-safety-checklist`, `blood-test-result`); `cargo test`
+      green on 2 of those (70/70 tests, unaffected); and, on 2 crates, a
+      real running server (scratch Postgres 18.4, recipe as usual) hit
+      with a real `curl` returned `HTTP/1.1 200`, `content-type:
+      application/yaml`, and a `content-length` matching the source
+      file's exact byte size. Full fleet-wide compilation of all 349
+      crates was NOT attempted — Rust compile times make that
+      impractical in one sitting — so this is a sampling-based
+      verification, not a full-fleet one; CI's existing sharded
+      `cargo check`/`clippy`/`test` job will catch anything the sample
+      missed. Vendored `controllers/openapi.rs` confirmed byte-identical
+      across all 349 crates via `cmp`. Documented in
+      `AGENTS/back-end-with-loco.md` and `AGENTS.md`'s Generators
+      catalogue + Verify section; `docs/tools.md` regenerated.
 - [x] **Personas: COMPLETE.** This entry's own incremental tracking stopped
       at 289/355 (2026-09-03); the persona backlog finished under Phase 13's
       own tracking after that point. Current ground truth (`bin/test-personas`,

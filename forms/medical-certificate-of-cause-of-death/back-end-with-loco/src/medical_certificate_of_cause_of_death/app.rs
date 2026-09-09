@@ -47,6 +47,7 @@ impl Hooks for App {
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
+            .add_route(crate::controllers::openapi::routes())
             .add_route(controllers::medical_certificate_of_cause_of_death_grade_flag::routes())
             .add_route(controllers::medical_certificate_of_cause_of_death_grade_rule::routes())
             .add_route(controllers::medical_certificate_of_cause_of_death_grade::routes())

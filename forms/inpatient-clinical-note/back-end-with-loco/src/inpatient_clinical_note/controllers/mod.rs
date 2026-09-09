@@ -1,6 +1,7 @@
 //! HTTP controllers for the JSON API.
 
 pub mod auth;
+pub mod openapi;
 
 pub mod patient;
 pub mod clinician;

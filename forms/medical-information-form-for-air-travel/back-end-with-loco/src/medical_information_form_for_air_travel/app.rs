@@ -47,6 +47,7 @@ impl Hooks for App {
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
+            .add_route(crate::controllers::openapi::routes())
             .add_route(controllers::medical_information_form_for_air_travel_grade_flag::routes())
             .add_route(controllers::medical_information_form_for_air_travel_grade_rule::routes())
             .add_route(controllers::medical_information_form_for_air_travel_grade::routes())

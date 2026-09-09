@@ -47,6 +47,7 @@ impl Hooks for App {
 
     fn routes(_ctx: &AppContext) -> AppRoutes {
         AppRoutes::with_default_routes() // controller routes below
+            .add_route(crate::controllers::openapi::routes())
             .add_route(controllers::centor_score_for_streptococcal_pharyngitis_grade_flag::routes())
             .add_route(controllers::centor_score_for_streptococcal_pharyngitis_grade_rule::routes())
             .add_route(controllers::centor_score_for_streptococcal_pharyngitis_grade::routes())
