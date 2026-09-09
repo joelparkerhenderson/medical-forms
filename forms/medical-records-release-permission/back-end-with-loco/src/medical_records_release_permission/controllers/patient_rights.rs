@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::patient_rights::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub deleted_at: Option<DateTimeWithTimeZone>,
     pub release_form_id: i64,

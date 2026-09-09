@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::united_kingdom_statement_of_fitness_for_works::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub deleted_at: Option<DateTimeWithTimeZone>,
     pub patient_id: i64,

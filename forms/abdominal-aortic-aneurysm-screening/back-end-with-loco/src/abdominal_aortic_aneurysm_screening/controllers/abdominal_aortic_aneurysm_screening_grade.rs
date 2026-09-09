@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::abdominal_aortic_aneurysm_screening_grades::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub abdominal_aortic_aneurysm_screening_id: i64,
     pub category: String,

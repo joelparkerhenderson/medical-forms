@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::recognition_of_stroke_in_the_emergency_room_grade_flags::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub recognition_of_stroke_in_the_emergency_room_grade_id: i64,
     pub flag_id: String,

@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 
 /// Model.
 #[derive(Clone, Debug, PartialEq, DeriveEntityModel, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 #[sea_orm(table_name = "medical_operation_notes")]
 pub struct Model {
     /// Created at.

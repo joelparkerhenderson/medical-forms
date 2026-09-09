@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::cage_alcohol_questionnaire_grades::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub cage_alcohol_questionnaire_id: i64,
     pub cut_down_point: Option<i32>,

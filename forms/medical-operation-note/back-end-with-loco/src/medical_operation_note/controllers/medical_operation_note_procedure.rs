@@ -9,6 +9,7 @@ use crate::models::_entities::medical_operation_note_procedures::{ActiveModel, E
 
 /// Parameters accepted when creating or updating a medical operation note procedure record.
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     /// Role.
     pub role: String,

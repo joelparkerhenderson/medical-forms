@@ -9,6 +9,7 @@ use crate::models::_entities::medical_operation_note_implants::{ActiveModel, Ent
 
 /// Parameters accepted when creating or updating a medical operation note implant record.
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     /// Category.
     pub category: String,

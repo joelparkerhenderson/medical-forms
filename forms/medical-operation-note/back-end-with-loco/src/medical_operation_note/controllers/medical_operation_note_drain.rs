@@ -9,6 +9,7 @@ use crate::models::_entities::medical_operation_note_drains::{ActiveModel, Entit
 
 /// Parameters accepted when creating or updating a medical operation note drain record.
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     /// Device type.
     pub device_type: String,

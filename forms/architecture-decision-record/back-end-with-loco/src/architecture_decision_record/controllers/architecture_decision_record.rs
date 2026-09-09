@@ -23,6 +23,7 @@ use crate::models::_entities::{
 };
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 struct Params {
     author_id: i64,
     organization_id: i64,

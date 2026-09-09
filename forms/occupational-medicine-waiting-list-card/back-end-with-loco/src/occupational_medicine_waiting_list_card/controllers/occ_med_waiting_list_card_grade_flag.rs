@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::occ_med_waiting_list_card_grade_flags::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub deleted_at: Option<DateTimeWithTimeZone>,
     pub occ_med_waiting_list_card_grade_id: i64,

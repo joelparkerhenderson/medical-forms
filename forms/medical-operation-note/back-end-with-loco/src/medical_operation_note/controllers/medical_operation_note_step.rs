@@ -9,6 +9,7 @@ use crate::models::_entities::medical_operation_note_steps::{ActiveModel, Entity
 
 /// Parameters accepted when creating or updating a medical operation note step record.
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     /// Step number.
     pub step_number: i32,

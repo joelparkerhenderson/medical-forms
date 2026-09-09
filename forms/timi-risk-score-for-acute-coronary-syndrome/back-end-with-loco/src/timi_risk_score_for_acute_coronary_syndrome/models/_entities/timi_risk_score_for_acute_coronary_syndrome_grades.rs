@@ -4,6 +4,7 @@ use sea_orm::entity::prelude::*;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, PartialEq, DeriveEntityModel, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 #[sea_orm(table_name = "timi_risk_score_for_acute_coronary_syndrome_grades")]
 pub struct Model {
     pub created_at: DateTimeWithTimeZone,

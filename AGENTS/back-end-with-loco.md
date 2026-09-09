@@ -152,6 +152,15 @@ Rolled out mechanically by `bin/loco-serve-openapi-refactor`
 (`--check` is its CI drift detector); 349/355 crates done as of
 2026-09-09.
 
+Every domain controller `Params` struct and domain entity `Model` struct
+carries `#[serde(rename_all = "camelCase")]` — the `cargo loco generate
+scaffold` output never adds this on its own, so a form built straight from
+the scaffold serves/accepts snake_case until this attribute is added.
+Rolled out mechanically by `bin/loco-camel-case-json-refactor`
+(`--check` is its CI drift detector); 346/355 crates changed 2026-09-09 (9
+already had full coverage). Never applied to the Loco-scaffolded
+`auth.rs`/`users.rs`, which stay on Loco's own default shape.
+
 ## Commands
 
 ```sh

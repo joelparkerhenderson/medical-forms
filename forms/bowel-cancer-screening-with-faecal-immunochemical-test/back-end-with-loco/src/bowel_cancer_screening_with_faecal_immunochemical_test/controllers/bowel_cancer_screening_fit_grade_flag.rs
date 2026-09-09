@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::bowel_cancer_screening_fit_grade_flags::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub bowel_cancer_screening_fit_grade_id: i64,
     pub flag_id: String,

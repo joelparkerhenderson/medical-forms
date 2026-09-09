@@ -2,7 +2,7 @@
 
 Auto-generated from each tool's source header by `bin/generate-tools-doc.py` — do not hand-edit. Run the generator after adding or re-documenting a tool.
 
-87 tools.
+88 tools.
 
 - [`bin/clean`](#clean)
 - [`bin/consolidate-front-end-html`](#consolidate-front-end-html)
@@ -39,6 +39,7 @@ Auto-generated from each tool's source header by `bin/generate-tools-doc.py` —
 - [`bin/lily-svelte-sync`](#lily-svelte-sync)
 - [`bin/lily-svelte-theme-locale-select-refactor`](#lily-svelte-theme-locale-select-refactor)
 - [`bin/lily-sync`](#lily-sync)
+- [`bin/loco-camel-case-json-refactor`](#loco-camel-case-json-refactor)
 - [`bin/loco-config-refactor`](#loco-config-refactor)
 - [`bin/loco-forbid-unsafe`](#loco-forbid-unsafe)
 - [`bin/loco-migration-defaults`](#loco-migration-defaults)
@@ -1030,6 +1031,57 @@ Usage:
   bin/lily-sync --check         # verify snapshot matches upstream (no writes)
 
 The tool is idempotent: re-running with no upstream changes is a no-op.
+```
+
+<h2 id="loco-camel-case-json-refactor"><code>bin/loco-camel-case-json-refactor</code></h2>
+
+```text
+bin/loco-camel-case-json-refactor — mechanically add
+`#[serde(rename_all = "camelCase")]` to every domain-model struct in a
+Loco crate, so the JSON API actually emits/accepts camelCase keys —
+matching the repo's own convention ("camelCase on structs shared with the
+front-end") and every front-end's own serde/TypeScript types. Fixes
+tasks.md's "FINDING — API serves snake_case, not camelCase" for the
+domain structs (the ones that matter for front-end interop).
+
+Reference implementation: forms/medical-operation-note. Scope is
+deliberately narrower than the original finding's "283 crates + ~1400
+insta-snapshot regen" estimate: only the domain-specific controllers
+(`controllers/<table>.rs`, skipping the Loco-scaffolded `auth.rs` and the
+`openapi.rs` this repo added) and domain entities
+(`models/_entities/<table>.rs`, skipping the scaffolded `users.rs`) are
+touched — never `auth.rs` or `users.rs`. Checked directly against the
+fleet before writing this tool: every crate's only real (non-stub)
+`assert_debug_snapshot!` calls live in `tests/models/users.rs` and
+`tests/requests/auth.rs`; every domain-specific test file
+(`tests/models/<table>.rs`) is an unfilled scaffold stub with its
+`assert_debug_snapshot!` call commented out. Leaving `auth.rs`/`users.rs`
+untouched means this fix needs **no snapshot regeneration at all** —
+confirmed by running the full `cargo test` suite unchanged afterward on
+the reference crate and a sample.
+
+For each domain file, finds every `#[derive(...)]` line whose derive list
+contains both `Serialize` and `Deserialize` (there is exactly one such
+struct per file in every crate checked — the `Params` struct in a
+controller, the `Model` struct in an entity; a `Relation` enum's own
+derive never includes Serialize/Deserialize) and inserts
+`#[serde(rename_all = "camelCase")]` immediately after it — before any
+`#[sea_orm(...)]` attribute on the same struct, matching where this tool
+placed it by hand on the reference crate.
+
+serde's `rename_all` only affects `Serialize`/`Deserialize`; it does not
+touch SeaORM's own column mapping (`ColumnTrait` et al. key off the Rust
+field identifiers directly, not serde attributes), so this is safe
+alongside `#[sea_orm(...)]` on the same struct.
+
+Usage:
+    bin/loco-camel-case-json-refactor [--check] [--dry-run] [--all|<slug>...]
+
+--check reports which crates would change, and exits non-zero if any
+change is pending (CI drift detector). --dry-run shows per-crate status
+without writing. Default (no flags): apply. Idempotent: a struct whose
+derive line is already immediately followed by
+`#[serde(rename_all = "camelCase")]` is left alone.
 ```
 
 <h2 id="loco-config-refactor"><code>bin/loco-config-refactor</code></h2>

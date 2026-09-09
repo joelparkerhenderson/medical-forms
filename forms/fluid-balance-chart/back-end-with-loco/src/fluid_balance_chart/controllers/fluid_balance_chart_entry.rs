@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::fluid_balance_chart_entries::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub fluid_balance_chart_id: i64,
     pub entry_at: Option<DateTimeWithTimeZone>,

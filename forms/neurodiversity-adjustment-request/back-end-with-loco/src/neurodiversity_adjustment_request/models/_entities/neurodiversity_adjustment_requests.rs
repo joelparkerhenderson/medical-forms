@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 
 /// Model.
 #[derive(Clone, Debug, PartialEq, DeriveEntityModel, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 #[sea_orm(table_name = "neurodiversity_adjustment_requests")]
 #[allow(clippy::struct_excessive_bools)] // mirrors the form's sql/ boolean columns (source of truth)
 pub struct Model {

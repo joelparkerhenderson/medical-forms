@@ -9,6 +9,7 @@ use crate::models::_entities::clinicians::{ActiveModel, Entity, Model};
 
 /// Parameters accepted when creating or updating a clinician record.
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     /// Deleted at.
     pub deleted_at: Option<DateTimeWithTimeZone>,

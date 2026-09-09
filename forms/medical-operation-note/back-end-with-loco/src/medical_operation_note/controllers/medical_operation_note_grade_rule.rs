@@ -9,6 +9,7 @@ use crate::models::_entities::medical_operation_note_grade_rules::{ActiveModel, 
 
 /// Parameters accepted when creating or updating a medical operation note grade rule record.
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     /// Rule ID.
     pub rule_id: String,

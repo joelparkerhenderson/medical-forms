@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::curb_65_pneumonia_severity_score_grades::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub curb_65_pneumonia_severity_score_id: i64,
     pub confusion_score: Option<i32>,

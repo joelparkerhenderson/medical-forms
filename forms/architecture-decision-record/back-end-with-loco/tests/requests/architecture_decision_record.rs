@@ -47,8 +47,8 @@ async fn post_auto_numbers_and_auto_slugs() {
         let res = request
             .post("/architecture_decision_records")
             .json(&serde_json::json!({
-                "author_id": author_id,
-                "organization_id": organization_id,
+                "authorId": author_id,
+                "organizationId": organization_id,
                 "title": "Use PostgreSQL for primary storage",
             }))
             .await;
@@ -58,8 +58,8 @@ async fn post_auto_numbers_and_auto_slugs() {
         let res = request
             .post("/architecture_decision_records")
             .json(&serde_json::json!({
-                "author_id": author_id,
-                "organization_id": organization_id,
+                "authorId": author_id,
+                "organizationId": organization_id,
                 "title": "Pick a colour",
                 "number": 99,
             }))
@@ -70,8 +70,8 @@ async fn post_auto_numbers_and_auto_slugs() {
         let res = request
             .post("/architecture_decision_records")
             .json(&serde_json::json!({
-                "author_id": author_id,
-                "organization_id": organization_id,
+                "authorId": author_id,
+                "organizationId": organization_id,
                 "title": "After 99",
             }))
             .await;
@@ -108,8 +108,8 @@ async fn post_with_bad_status_returns_400() {
         let res = request
             .post("/architecture_decision_records")
             .json(&serde_json::json!({
-                "author_id": author_id,
-                "organization_id": organization_id,
+                "authorId": author_id,
+                "organizationId": organization_id,
                 "title": "Bad status",
                 "status": "provisional",
             }))
@@ -134,11 +134,11 @@ async fn api_show_by_slug_returns_rendered_markdown() {
         request
             .post("/architecture_decision_records")
             .json(&serde_json::json!({
-                "author_id": author_id,
-                "organization_id": organization_id,
+                "authorId": author_id,
+                "organizationId": organization_id,
                 "title": "Adopt event sourcing",
                 "status": "approved",
-                "decision_group": "data",
+                "decisionGroup": "data",
                 "decision": "We will use event sourcing for the audit log.",
             }))
             .await;

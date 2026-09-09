@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::wells_score_for_pulmonary_embolism_grades::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub wells_score_for_pulmonary_embolism_id: i64,
     pub wells_score: Option<f64>,

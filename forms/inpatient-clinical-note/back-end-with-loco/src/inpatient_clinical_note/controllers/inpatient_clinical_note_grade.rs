@@ -9,6 +9,7 @@ use crate::models::_entities::inpatient_clinical_note_grades::{ActiveModel, Enti
 
 /// Parameters accepted when creating or updating a inpatient clinical note grade record.
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     /// Deleted at.
     pub deleted_at: Option<DateTimeWithTimeZone>,

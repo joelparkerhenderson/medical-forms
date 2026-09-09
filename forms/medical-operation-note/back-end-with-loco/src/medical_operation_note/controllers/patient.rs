@@ -9,6 +9,7 @@ use crate::models::_entities::patients::{ActiveModel, Entity, Model};
 
 /// Parameters accepted when creating or updating a patient record.
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     /// Name.
     pub name: String,

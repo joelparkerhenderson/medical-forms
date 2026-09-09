@@ -9,6 +9,7 @@ use crate::models::_entities::medical_operation_note_team_members::{ActiveModel,
 
 /// Parameters accepted when creating or updating a medical operation note team member record.
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     /// Team role.
     pub team_role: String,

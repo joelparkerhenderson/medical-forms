@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::chronic_obstructive_pulmonary_disease_review_grades::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub chronic_obstructive_pulmonary_disease_review_id: i64,
     pub gold_airflow_grade: String,

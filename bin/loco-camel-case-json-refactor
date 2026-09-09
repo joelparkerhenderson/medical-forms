@@ -1,0 +1,168 @@
+#!/usr/bin/env python3
+"""bin/loco-camel-case-json-refactor — mechanically add
+`#[serde(rename_all = "camelCase")]` to every domain-model struct in a
+Loco crate, so the JSON API actually emits/accepts camelCase keys —
+matching the repo's own convention ("camelCase on structs shared with the
+front-end") and every front-end's own serde/TypeScript types. Fixes
+tasks.md's "FINDING — API serves snake_case, not camelCase" for the
+domain structs (the ones that matter for front-end interop).
+
+Reference implementation: forms/medical-operation-note. Scope is
+deliberately narrower than the original finding's "283 crates + ~1400
+insta-snapshot regen" estimate: only the domain-specific controllers
+(`controllers/<table>.rs`, skipping the Loco-scaffolded `auth.rs` and the
+`openapi.rs` this repo added) and domain entities
+(`models/_entities/<table>.rs`, skipping the scaffolded `users.rs`) are
+touched — never `auth.rs` or `users.rs`. Checked directly against the
+fleet before writing this tool: every crate's only real (non-stub)
+`assert_debug_snapshot!` calls live in `tests/models/users.rs` and
+`tests/requests/auth.rs`; every domain-specific test file
+(`tests/models/<table>.rs`) is an unfilled scaffold stub with its
+`assert_debug_snapshot!` call commented out. Leaving `auth.rs`/`users.rs`
+untouched means this fix needs **no snapshot regeneration at all** —
+confirmed by running the full `cargo test` suite unchanged afterward on
+the reference crate and a sample.
+
+For each domain file, finds every `#[derive(...)]` line whose derive list
+contains both `Serialize` and `Deserialize` (there is exactly one such
+struct per file in every crate checked — the `Params` struct in a
+controller, the `Model` struct in an entity; a `Relation` enum's own
+derive never includes Serialize/Deserialize) and inserts
+`#[serde(rename_all = "camelCase")]` immediately after it — before any
+`#[sea_orm(...)]` attribute on the same struct, matching where this tool
+placed it by hand on the reference crate.
+
+serde's `rename_all` only affects `Serialize`/`Deserialize`; it does not
+touch SeaORM's own column mapping (`ColumnTrait` et al. key off the Rust
+field identifiers directly, not serde attributes), so this is safe
+alongside `#[sea_orm(...)]` on the same struct.
+
+Usage:
+    bin/loco-camel-case-json-refactor [--check] [--dry-run] [--all|<slug>...]
+
+--check reports which crates would change, and exits non-zero if any
+change is pending (CI drift detector). --dry-run shows per-crate status
+without writing. Default (no flags): apply. Idempotent: a struct whose
+derive line is already immediately followed by
+`#[serde(rename_all = "camelCase")]` is left alone.
+"""
+
+import argparse
+import re
+import sys
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+FORMS_DIR = REPO_ROOT / "forms"
+REFERENCE_FORM = "medical-operation-note"
+
+SKIP_CONTROLLER_NAMES = {"mod.rs", "auth.rs", "openapi.rs"}
+SKIP_ENTITY_NAMES = {"mod.rs", "users.rs", "prelude.rs"}
+
+DERIVE_RE = re.compile(r"^(#\[derive\([^\n]*\)\])[ \t]*$", re.MULTILINE)
+RENAME_ALL_RE = re.compile(r'^#\[serde\(rename_all = "camelCase"\)\][ \t]*$', re.MULTILINE)
+
+
+def find_crate_src_dirs():
+    for controllers_mod in sorted(FORMS_DIR.glob("*/back-end-with-loco/src/*/controllers/mod.rs")):
+        yield controllers_mod.parents[1]
+
+
+def target_files(src_dir: Path) -> list[Path]:
+    files = []
+    controllers = src_dir / "controllers"
+    if controllers.is_dir():
+        for f in sorted(controllers.glob("*.rs")):
+            if f.name not in SKIP_CONTROLLER_NAMES:
+                files.append(f)
+    entities = src_dir / "models" / "_entities"
+    if entities.is_dir():
+        for f in sorted(entities.glob("*.rs")):
+            if f.name not in SKIP_ENTITY_NAMES:
+                files.append(f)
+    return files
+
+
+ATTR_BLOCK_END_RE = re.compile(r"^pub (?:struct|enum) \w+", re.MULTILINE)
+
+
+def add_rename_all(text: str) -> tuple[str, int]:
+    """Insert #[serde(rename_all = "camelCase")] after every derive line
+    that carries both Serialize and Deserialize and doesn't already have
+    it anywhere in the attribute block between that derive and the
+    `pub struct`/`pub enum` line it decorates -- other attributes (e.g.
+    `#[sea_orm(...)]`) may sit in between, and a pre-existing
+    `rename_all` may already be on either side of them (found in the
+    wild both ways: sea_orm-then-serde in one crate, serde-then-sea_orm
+    in another). Returns (new_text, number_of_insertions)."""
+    count = 0
+
+    def repl(m: re.Match) -> str:
+        nonlocal count
+        line = m.group(1)
+        if "Serialize" not in line or "Deserialize" not in line:
+            return line
+        block_end_m = ATTR_BLOCK_END_RE.search(m.string, m.end())
+        block = m.string[m.end():block_end_m.start()] if block_end_m else m.string[m.end():m.end() + 200]
+        if RENAME_ALL_RE.search(block):
+            return line
+        count += 1
+        return line + '\n#[serde(rename_all = "camelCase")]'
+
+    new_text = DERIVE_RE.sub(repl, text)
+    return new_text, count
+
+
+def process_crate(src_dir: Path, apply: bool) -> tuple[int, list[str]]:
+    """Returns (files_changed, list of file paths changed)."""
+    changed_files = []
+    for f in target_files(src_dir):
+        text = f.read_text()
+        new_text, count = add_rename_all(text)
+        if count > 0:
+            changed_files.append(str(f.relative_to(REPO_ROOT)))
+            if apply:
+                f.write_text(new_text)
+    return len(changed_files), changed_files
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("slugs", nargs="*", help="form slugs (default: every form)")
+    parser.add_argument("--all", action="store_true", help="same as no slugs: every form")
+    parser.add_argument("--check", action="store_true", help="report drift; exit 1 if any pending; don't write")
+    parser.add_argument("--dry-run", action="store_true", help="show status per crate; don't write")
+    args = parser.parse_args()
+
+    if args.slugs:
+        src_dirs = []
+        for slug in args.slugs:
+            matches = sorted((FORMS_DIR / slug / "back-end-with-loco" / "src").glob("*/"))
+            src_dirs.extend(d for d in matches if (d / "controllers" / "mod.rs").is_file())
+    else:
+        src_dirs = list(find_crate_src_dirs())
+
+    dry = args.check or args.dry_run
+    changed_crates = []
+    total_files = 0
+    for src_dir in src_dirs:
+        slug = src_dir.parents[2].name
+        n, files = process_crate(src_dir, apply=not dry)
+        if n > 0:
+            changed_crates.append((slug, n))
+            total_files += n
+
+    if args.check:
+        print(f"loco-camel-case-json-refactor [CHECK]: {len(changed_crates)} crate(s) pending "
+              f"({total_files} file(s))")
+        for slug, n in changed_crates:
+            print(f"  would change: {slug} ({n} file(s))")
+        return 1 if changed_crates else 0
+
+    verb = "would change" if dry else "changed"
+    print(f"loco-camel-case-json-refactor: {len(changed_crates)} crate(s) {verb}, {total_files} file(s) total")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

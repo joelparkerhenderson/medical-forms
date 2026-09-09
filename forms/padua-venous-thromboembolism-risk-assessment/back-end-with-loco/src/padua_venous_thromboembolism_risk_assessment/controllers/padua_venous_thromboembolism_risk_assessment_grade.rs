@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::padua_venous_thromboembolism_risk_assessment_grades::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub padua_venous_thromboembolism_risk_assessment_id: i64,
     pub active_cancer_points: Option<i32>,

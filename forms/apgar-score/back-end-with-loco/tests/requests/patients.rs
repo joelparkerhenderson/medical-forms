@@ -8,10 +8,11 @@ use serial_test::serial;
 /// Proves the domain controller actually functions end to end: create a
 /// record over HTTP, read it back by id, and assert the fields round-trip.
 ///
-/// The scaffold `Params` request struct and the `_entities::patients::Model`
-/// response struct derive plain serde (no `rename_all = "camelCase"`), so the
-/// on-the-wire keys are snake_case — the request body and the asserted
-/// response keys below match the generated code exactly.
+/// The `Params` request struct and the `_entities::patients::Model` response
+/// struct both carry `#[serde(rename_all = "camelCase")]` (added fleet-wide
+/// by `bin/loco-camel-case-json-refactor`), so the on-the-wire keys are
+/// camelCase — the request body and the asserted response keys below match
+/// the generated code exactly.
 #[tokio::test]
 #[serial]
 async fn can_create_and_read_back_patient() {
@@ -19,19 +20,19 @@ async fn can_create_and_read_back_patient() {
         // A deterministic, valid patient body matching the `Params` struct.
         let new_patient = serde_json::json!({
             "name": "Ada Lovelace",
-            "birth_date": "2024-05-01",
+            "birthDate": "2024-05-01",
             "sex": "female",
             "email": "ada@example.com",
             "phone": "+441234567890",
-            "postal_address_as_full_text": "10 Downing Street, London",
-            "country_as_iso_3166_1_alpha_2": "GB",
+            "postalAddressAsFullText": "10 Downing Street, London",
+            "countryAsIso31661Alpha2": "GB",
             "postcode": "SW1A 2AA",
-            "united_kingdom_nhs_number": "9434765919",
-            "hospital_mrn": "MRN-000123",
-            "height_as_cm": 50.5,
-            "weight_as_kg": 3.4,
-            "body_mass_index": 13.3,
-            "allergies_summary": "No known allergies"
+            "unitedKingdomNhsNumber": "9434765919",
+            "hospitalMrn": "MRN-000123",
+            "heightAsCm": 50.5,
+            "weightAsKg": 3.4,
+            "bodyMassIndex": 13.3,
+            "allergiesSummary": "No known allergies"
         });
 
         // 1. CREATE over HTTP.
@@ -69,22 +70,22 @@ async fn can_create_and_read_back_patient() {
         // 3. Round-trip: the fetched record echoes exactly what we sent.
         assert_eq!(fetched["id"].as_i64(), Some(id));
         assert_eq!(fetched["name"], "Ada Lovelace");
-        assert_eq!(fetched["birth_date"], "2024-05-01");
+        assert_eq!(fetched["birthDate"], "2024-05-01");
         assert_eq!(fetched["sex"], "female");
         assert_eq!(fetched["email"], "ada@example.com");
         assert_eq!(fetched["phone"], "+441234567890");
         assert_eq!(
-            fetched["postal_address_as_full_text"],
+            fetched["postalAddressAsFullText"],
             "10 Downing Street, London"
         );
-        assert_eq!(fetched["country_as_iso_3166_1_alpha_2"], "GB");
+        assert_eq!(fetched["countryAsIso31661Alpha2"], "GB");
         assert_eq!(fetched["postcode"], "SW1A 2AA");
-        assert_eq!(fetched["united_kingdom_nhs_number"], "9434765919");
-        assert_eq!(fetched["hospital_mrn"], "MRN-000123");
-        assert_eq!(fetched["height_as_cm"].as_f64(), Some(50.5));
-        assert_eq!(fetched["weight_as_kg"].as_f64(), Some(3.4));
-        assert_eq!(fetched["body_mass_index"].as_f64(), Some(13.3));
-        assert_eq!(fetched["allergies_summary"], "No known allergies");
+        assert_eq!(fetched["unitedKingdomNhsNumber"], "9434765919");
+        assert_eq!(fetched["hospitalMrn"], "MRN-000123");
+        assert_eq!(fetched["heightAsCm"].as_f64(), Some(50.5));
+        assert_eq!(fetched["weightAsKg"].as_f64(), Some(3.4));
+        assert_eq!(fetched["bodyMassIndex"].as_f64(), Some(13.3));
+        assert_eq!(fetched["allergiesSummary"], "No known allergies");
 
         // 4. The new record is present in the list endpoint.
         //    (Same trailing-slash caveat as the create route: the real list

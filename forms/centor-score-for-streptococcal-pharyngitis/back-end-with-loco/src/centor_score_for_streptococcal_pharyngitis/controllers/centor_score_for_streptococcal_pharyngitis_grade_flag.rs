@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::centor_score_for_streptococcal_pharyngitis_grade_flags::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub centor_score_for_streptococcal_pharyngitis_grade_id: i64,
     pub flag_id: String,

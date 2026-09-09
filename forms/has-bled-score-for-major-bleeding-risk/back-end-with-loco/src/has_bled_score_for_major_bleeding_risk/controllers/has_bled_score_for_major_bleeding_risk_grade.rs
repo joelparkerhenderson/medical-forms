@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::has_bled_score_for_major_bleeding_risk_grades::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub has_bled_score_for_major_bleeding_risk_id: i64,
     pub hypertension_points: Option<i32>,

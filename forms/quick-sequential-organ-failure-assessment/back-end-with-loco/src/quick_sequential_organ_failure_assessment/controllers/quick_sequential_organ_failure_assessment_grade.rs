@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::quick_sequential_organ_failure_assessment_grades::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub quick_sequential_organ_failure_assessment_id: i64,
     pub respiratory_rate_point: Option<i32>,

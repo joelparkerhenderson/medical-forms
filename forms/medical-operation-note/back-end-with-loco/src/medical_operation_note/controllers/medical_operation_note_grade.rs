@@ -9,6 +9,7 @@ use crate::models::_entities::medical_operation_note_grades::{ActiveModel, Entit
 
 /// Parameters accepted when creating or updating a medical operation note grade record.
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     /// Computed composite risk.
     pub computed_composite_risk: String,

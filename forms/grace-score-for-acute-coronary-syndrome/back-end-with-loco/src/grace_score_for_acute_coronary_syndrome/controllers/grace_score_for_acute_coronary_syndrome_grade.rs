@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::models::_entities::grace_score_for_acute_coronary_syndrome_grades::{ActiveModel, Entity, Model};
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Params {
     pub grace_score_for_acute_coronary_syndrome_id: i64,
     pub grace_score: Option<i32>,

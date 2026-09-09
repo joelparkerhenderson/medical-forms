@@ -422,14 +422,72 @@ Design each feature on the reference forms
       set per that crate's `Params`. Also fixed apgar's stale `Cargo.lock` and
       dropped `--locked` from the CI rust job (lock hygiene isn't maintained
       across all 286 crates; matches `bin/test-loco-project`).
-- [ ] **FINDING — API serves snake_case, not camelCase (283/286 crates).**
-      The scaffold `Params`/`_entities` models derive plain serde with NO
-      `rename_all = "camelCase"`, so the Loco JSON API emits snake_case keys —
-      contradicting the repo convention ("camelCase on structs shared with the
-      front-end") and the camelCase front-ends. A latent contract mismatch
-      (nothing currently wires the front-ends to the API). Fixing = add the
-      rename to 283 crates + regenerate + refresh insta snapshots + cargo
-      verify: a dedicated effort, not a quick sweep.
+- [x] **FIXED — API served snake_case, not camelCase (was 283/286 crates,
+      re-measured at 355 forms as 346 needing the fix + 9 already covered).**
+      The scaffold `Params`/`_entities` models derived plain serde with NO
+      `rename_all = "camelCase"`, so the Loco JSON API emitted snake_case
+      keys — contradicting the repo convention ("camelCase on structs shared
+      with the front-end") and every front-end, which already sends/expects
+      camelCase. A latent contract mismatch (nothing currently wires the
+      front-ends to the API, so nothing broke live — this was purely a
+      dormant divergence). Original estimate assumed a "283 crates +
+      ~1400 insta-snapshot regen" cost; a direct fleet check before writing
+      the tool found every crate's only real (non-stub) `assert_debug_snapshot!`
+      calls live in the Loco-scaffolded `tests/models/users.rs` /
+      `tests/requests/auth.rs`, and every domain `tests/models/<table>.rs` is
+      an unfilled 31-line scaffold stub fleet-wide with zero exceptions — so
+      the actual fix needed no snapshot regeneration at all.
+
+      Built `bin/loco-camel-case-json-refactor`: adds
+      `#[serde(rename_all = "camelCase")]` to every domain controller
+      `Params` struct and domain entity `Model` struct (never touching
+      `auth.rs`/`users.rs`). Reference implementation: `medical-operation-note`,
+      verified with a live scratch-Postgres HTTP round-trip (`POST
+      /api/clinicians` with a camelCase body → camelCase response, both
+      confirmed byte-for-byte).
+
+      First fleet-wide apply attempt had a real bug: the idempotency check
+      only looked at the line immediately after `#[derive(...)]`, so crates
+      that already had *partial* camelCase coverage in the opposite
+      attribute order (`#[sea_orm(...)]` before `#[serde(rename_all...)]`)
+      got a duplicate attribute inserted. Caught by a post-apply
+      `cargo check` sample (2 crates failed: `neurodiversity-adjustment-response`
+      16 errors, `knee-replacement-surgery-evaluation` 65 errors, both
+      "duplicate serde attribute rename_all") — not caught before applying,
+      unlike the openapi tool's bugs. Root-caused via `git stash`, which
+      surfaced 15 crates fleet-wide with pre-existing partial coverage
+      (not the 1 found by an earlier narrow sample). Fixed by scanning the
+      whole attribute block up to the `pub struct`/`pub enum` line rather
+      than just the adjacent line, reverted (`git checkout -- forms/`), and
+      re-applied clean: 346 crates / 4275 files changed, `--check` reports 0
+      pending.
+
+      Scanning every non-auth `tests/requests/*.rs` fleet-wide for real
+      (non-stub) hand-written tests — by size outlier, since every scaffold
+      stub is exactly 24 lines — found exactly 2 fleet-wide: `apgar-score`'s
+      `patients.rs` (105 lines, a real POST-then-GET round-trip test with
+      request body and response assertions hardcoded to snake_case keys)
+      and `architecture-decision-record`'s `architecture_decision_record.rs`
+      (171 lines, POST bodies keyed on `author_id`/`organization_id`/
+      `decision_group`). Both updated to camelCase keys by hand
+      (`birthDate`, `postalAddressAsFullText`, `countryAsIso31661Alpha2`,
+      `unitedKingdomNhsNumber`, `hospitalMrn`, `heightAsCm`, `weightAsKg`,
+      `bodyMassIndex`, `allergiesSummary` for apgar-score; `authorId`,
+      `organizationId`, `decisionGroup` for architecture-decision-record —
+      the exact `serde`'s `RenameRule::CamelCase` output, hand-verified
+      against the algorithm, e.g. digit-adjacent segments like
+      `iso_3166_1` collapse to `Iso31661` with no separator).
+
+      Verified: `cargo check`/`cargo clippy --all-targets -- -D warnings`
+      clean on 23 diverse crates; `cargo test` with a live scratch Postgres
+      green on 3 crates (`apgar-score` 38/38, `architecture-decision-record`
+      10/10, `knee-replacement-surgery-evaluation` 28/28 — the first two
+      being exactly the crates whose tests needed the hand-fix above, now
+      passing); one live HTTP round-trip. Full fleet-wide compilation of all
+      355 crates was NOT attempted — sampling-based verification, as with
+      the openapi rollout above. Docs updated: `AGENTS.md` catalogue +
+      Verify block, `AGENTS/back-end-with-loco.md` JSON API contract
+      section, `docs/tools.md` regenerated.
 - [x] **FIXED — 1652 false-positive scaffold request tests.** They GET
       `/api/<table>/` (trailing slash → Loco's HTML welcome page, 200) and
       asserted 200, so they passed without reaching the handler (confirmed:
@@ -1610,8 +1668,10 @@ personas. Once the oracle exists, persona scaffolding + fill is mechanical
       follow-on task from the 19 above. Then `example-invalid.json` +
       wizard-blocks-submission E2E assertion; API transcripts; FHIR bundles
       for personas; site examples gallery.
-- [ ] Latent: snake_case↔camelCase API contract (283 crates + snapshot
-      regen); i18n past the Welsh pilot.
+- [x] Latent: snake_case↔camelCase API contract — FIXED, see the "FINDING"
+      write-up above (`bin/loco-camel-case-json-refactor`, 346/355 crates,
+      no snapshot regen needed in practice).
+- [ ] Latent: i18n past the Welsh pilot.
 
 ## Phase 12 — R4 optimizations ✅ COMPLETE (2026-09-02)
 
