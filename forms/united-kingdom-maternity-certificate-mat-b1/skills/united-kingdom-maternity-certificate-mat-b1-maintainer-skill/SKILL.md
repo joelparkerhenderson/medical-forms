@@ -34,6 +34,7 @@ Not yet documented in this form's own `AGENTS.md`. See [`../../spec/index.md`](.
 ```sh
 bin/test-form united-kingdom-maternity-certificate-mat-b1
 bin/test-sql-apply united-kingdom-maternity-certificate-mat-b1
+bin/test-personas united-kingdom-maternity-certificate-mat-b1
 bin/test-e2e --html united-kingdom-maternity-certificate-mat-b1
 ```
 

@@ -22,7 +22,7 @@ This skill is the end-user-facing guide to this specific form; for cross-form co
 
 ## Worked examples
 
-- No `examples/personas.json` yet for this form — see `form-examples-maintainer-skill` for how personas are authored.
+- [`../../examples/personas.json`](../../examples/personas.json) — hand-authored realistic scenarios with the engine's exact expected output for each one.
 - [`../../examples/assessment.json`](../../examples/assessment.json) — a type-defaulted example of the form's data shape (blank/typed, not a realistic scenario).
 
 ## Learn more

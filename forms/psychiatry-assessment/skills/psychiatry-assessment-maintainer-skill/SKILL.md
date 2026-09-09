@@ -37,6 +37,7 @@ Generated artefacts (`xml`, `fhir`, `protobuf`, `openapi`, the Loco setup script
 ```sh
 bin/test-form psychiatry-assessment
 bin/test-sql-apply psychiatry-assessment
+bin/test-personas psychiatry-assessment
 bin/test-e2e --html psychiatry-assessment
 ```
 

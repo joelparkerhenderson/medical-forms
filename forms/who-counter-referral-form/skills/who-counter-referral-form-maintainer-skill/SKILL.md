@@ -34,6 +34,7 @@ Not yet documented in this form's own `AGENTS.md`. See [`../../spec/index.md`](.
 ```sh
 bin/test-form who-counter-referral-form
 bin/test-sql-apply who-counter-referral-form
+bin/test-personas who-counter-referral-form
 bin/test-e2e --html who-counter-referral-form
 ```
 

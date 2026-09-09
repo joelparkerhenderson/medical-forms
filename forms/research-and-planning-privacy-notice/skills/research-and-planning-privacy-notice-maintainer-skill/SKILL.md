@@ -39,6 +39,7 @@ Generated artefacts (`xml`, `fhir`, `protobuf`, `openapi`, the Loco setup script
 ```sh
 bin/test-form research-and-planning-privacy-notice
 bin/test-sql-apply research-and-planning-privacy-notice
+bin/test-personas research-and-planning-privacy-notice
 bin/test-e2e --html research-and-planning-privacy-notice
 ```
 

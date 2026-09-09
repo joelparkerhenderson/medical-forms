@@ -1,6 +1,6 @@
 # Diabetes Eye Screening record
 
-> A structured record of a diabetic retinal screening episode for the **UK NHS Diabetes Eye Screening Programme (DESP)**. For each eye it captures the grade assigned to retinal photographs using the programme's **retinopathy (R)** and **maculopathy (M)** classification, together with the **photocoagulation (P)** and **ungradable (U)** markers. From the two graded eyes it classifies the worst-eye result, derives the **recall interval** or **referral pathway**, validates completeness, and raises flagged issues (urgent ophthalmology, routine hospital eye service referral, re-screen / slit-lamp biomicroscopy, patient overdue).
+> A structured record of a diabetic retinal screening episode for the **UK NHS Diabetic Eye Screening Programme (DESP)**. For each eye it captures the grade assigned to retinal photographs using the programme's **retinopathy (R)** and **maculopathy (M)** classification, together with the **photocoagulation (P)** and **ungradable (U)** markers. From the two graded eyes it classifies the worst-eye result, derives the **recall interval** or **referral pathway**, validates completeness, and raises flagged issues (urgent ophthalmology, routine hospital eye service referral, re-screen / slit-lamp biomicroscopy, patient overdue).
 
 ## Docs
 

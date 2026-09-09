@@ -34,6 +34,7 @@ Not yet documented in this form's own `AGENTS.md`. See [`../../spec/index.md`](.
 ```sh
 bin/test-form who-emergency-unit-trauma-form
 bin/test-sql-apply who-emergency-unit-trauma-form
+bin/test-personas who-emergency-unit-trauma-form
 bin/test-e2e --html who-emergency-unit-trauma-form
 ```
 

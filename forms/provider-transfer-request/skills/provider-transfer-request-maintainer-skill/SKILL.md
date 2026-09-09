@@ -40,6 +40,7 @@ Generated artefacts (`xml`, `fhir`, `protobuf`, `openapi`, the Loco setup script
 ```sh
 bin/test-form provider-transfer-request
 bin/test-sql-apply provider-transfer-request
+bin/test-personas provider-transfer-request
 bin/test-e2e --html provider-transfer-request
 ```
 

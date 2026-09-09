@@ -34,6 +34,7 @@ Not yet documented in this form's own `AGENTS.md`. See [`../../spec/index.md`](.
 ```sh
 bin/test-form united-kingdom-lasting-power-of-attorney-for-financial-decisions
 bin/test-sql-apply united-kingdom-lasting-power-of-attorney-for-financial-decisions
+bin/test-personas united-kingdom-lasting-power-of-attorney-for-financial-decisions
 bin/test-e2e --html united-kingdom-lasting-power-of-attorney-for-financial-decisions
 ```
 

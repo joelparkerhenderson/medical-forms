@@ -34,6 +34,7 @@ Not yet documented in this form's own `AGENTS.md`. See [`../../spec/index.md`](.
 ```sh
 bin/test-form united-kingdom-driver-and-vehicle-licensing-agency-v1-form
 bin/test-sql-apply united-kingdom-driver-and-vehicle-licensing-agency-v1-form
+bin/test-personas united-kingdom-driver-and-vehicle-licensing-agency-v1-form
 bin/test-e2e --html united-kingdom-driver-and-vehicle-licensing-agency-v1-form
 ```
 

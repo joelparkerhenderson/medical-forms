@@ -34,6 +34,7 @@ Not yet documented in this form's own `AGENTS.md`. See [`../../spec/index.md`](.
 ```sh
 bin/test-form who-prehospital-form
 bin/test-sql-apply who-prehospital-form
+bin/test-personas who-prehospital-form
 bin/test-e2e --html who-prehospital-form
 ```
 
